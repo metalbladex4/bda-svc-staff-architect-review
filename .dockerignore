@@ -1,0 +1,40 @@
+# VCS
+.git/
+.github/
+.gitignore
+.pre-commit-config.yaml
+
+# Local env / caches
+.venv/
+**/hf_cache/
+**/.cache/
+**/__pycache__/
+*.pyc
+.ruff_cache
+.pytest_cache
+.mypy_cache
+
+# Outputs / data
+bda_output/
+*.json
+
+# Model weights <-Use if you want to keep model and weights out container
+# models/
+# *.safetensors
+# *.bin
+# *.pt
+# *.pth
+
+# Editor/OS noise
+.vscode/
+.DS_Store
+
+# Ignore test folder
+tests/
+
+# Ignore Docker configuration files
+docker/
+Dockerfile
+.dockerignore
+**/docker_run_script/
+
