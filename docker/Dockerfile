@@ -1,25 +1,32 @@
-# 1. Start with the slim base
+# Base python images
 FROM python:3.12-slim-trixie
 
-# 2. Get uv
+
+# Copy uv from repo
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# 3. Set workdir
+# Set working dir
 WORKDIR /app
 
-# 4. Copy ONLY dependency files first
-COPY pyproject.toml uv.lock ./
+# Copy over only model
+COPY ./models/HuggingFaceTB--SmolVLM-256M-Instruct/ /app/models/
 
-# 5. Install dependencies
-ENV UV_NO_DEV=1
+# Install dependencies
 ENV UV_COMPILE_BYTECODE=1
-RUN uv sync --frozen --no-install-project
+ENV UV_NO_DEV=1
+COPY pyproject.toml uv.lock ./
+COPY README.md ./
 
-# 6. Copy the project and models (doing last so we don't break the cache from steps above)
-COPY . .
+# 3. Copy over only src dir
+COPY src/ ./src/
 
-# 7. Final sync to install the project itself
-RUN uv sync --frozen
+# Install project
+RUN uv sync --frozen --no-dev
 
-ENTRYPOINT ["uv", "run", "bda-svc"]
+
+# 4. Set PATH to venv
+ENV PATH="/app/.venv/bin:$PATH"
+
+ENTRYPOINT ["bda-svc"]
+
 CMD ["-i", "-h", "o"]
