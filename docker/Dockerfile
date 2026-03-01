@@ -9,7 +9,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 WORKDIR /app
 
 # Copy over only model
-COPY ./models/HuggingFaceTB--SmolVLM-256M-Instruct/ /app/models/
+COPY ./models/ /app/models/
 
 # Install dependencies
 ENV UV_COMPILE_BYTECODE=1
