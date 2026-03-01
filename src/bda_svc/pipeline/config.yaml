@@ -1,12 +1,12 @@
 vlm:
-  model-id: OpenGVLab/InternVL3-8B-hf
+  model-id: HuggingFaceTB/SmolVLM-256M-Instruct
   pipeline-kwargs:
     max_new_tokens: 512
     device_map: auto
     dtype: auto
     trust_remote_code: true
   quantization-kwargs:
-    enabled: true
+    enabled: false
     load_in_8bit: true
     load_in_4bit: false
 
@@ -90,10 +90,10 @@ prompts:
     ====================
     For EACH visible object determine:
 
-    target_type  
-    damage_category  
-    confidence_level  
-    logic  
+    target_type
+    damage_category
+    confidence_level
+    logic
 
     ====================
     OUTPUT REQUIREMENTS
