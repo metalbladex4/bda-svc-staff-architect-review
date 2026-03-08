@@ -5,14 +5,14 @@
 from PIL import Image
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
-from bda_svc.pipeline.types import BaseVLM
+from bda_svc.pipeline.interfaces import BaseVLM
 
 
 class Qwen3VLM(BaseVLM):
     """Qwen3-VL backend for image-conditioned text generation."""
 
     def __init__(
-        self, model_dir: str, local_files_only: bool = True, max_tokens: int = 1024
+        self, model_dir: str, local_files_only: bool = True, max_tokens: int = 512
     ) -> None:
         """Initialize the Qwen3-VL backend.
 
@@ -27,38 +27,41 @@ class Qwen3VLM(BaseVLM):
             dtype="auto",
             device_map="auto",
         )
-        self.processor = AutoProcessor.from_pretrained(model_dir)
+        self.processor = AutoProcessor.from_pretrained(
+            model_dir, local_files_only=local_files_only
+        )
         self.max_tokens = max_tokens
 
     def generate(
         self,
-        image: Image.Image,
+        image: Image.Image | list[Image.Image],
         prompt: str,
         system_prompt: str | None = None,
     ) -> str:
         """Generate a response from the VLM.
 
         Args:
-            image: PIL image to analyze.
+            image: One image or list of images for multi-image prompts.
             prompt: User prompt text.
             system_prompt: Optional system prompt.
 
         Returns:
             Model response text.
         """
+        images = image if isinstance(image, list) else [image]
+
         # Build messages
         messages = []
         if system_prompt:
             messages.append(
                 {"role": "system", "content": [{"type": "text", "text": system_prompt}]}
             )
+        user_content = [{"type": "image", "image": img} for img in images]
+        user_content.append({"type": "text", "text": prompt})
         messages.append(
             {
                 "role": "user",
-                "content": [
-                    {"type": "image", "image": image},
-                    {"type": "text", "text": prompt},
-                ],
+                "content": user_content,
             }
         )
 
