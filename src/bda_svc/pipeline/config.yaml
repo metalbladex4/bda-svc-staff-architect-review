@@ -1,118 +1,141 @@
-vlm:
-  model-id: OpenGVLab/InternVL3-8B-hf
-  pipeline-kwargs:
-    max_new_tokens: 512
-    device_map: auto
-    dtype: auto
-    trust_remote_code: true
-  quantization-kwargs:
-    enabled: true
-    load_in_8bit: true
-    load_in_4bit: false
+# ------------------------------------------------------------
+# PIPELINE SETTINGS
+# ------------------------------------------------------------
+pipeline:
+  detection_provider: detector  # str, required, "detector" | "vlm"; Selects which backend performs object detection.
+  crop_buffer_ratio: 0.1  # float, required; Padding ratio applied around each detection box when creating crops.
 
+# ------------------------------------------------------------
+# VLM BACKEND
+# ------------------------------------------------------------
+vlm:
+  family: qwen3  # str, required, "qwen3"; VLM backend family.
+  model_id: Qwen/Qwen3-VL-8B-Instruct-FP8  # str, required; Hugging Face user/model_name ID.
+  load_local: true  # bool, required; If True try local load / snapshot download first, If False load directly from remote.
+  max_new_tokens: 512  # int, required; Maximum generated tokens per VLM call.
+
+# ------------------------------------------------------------
+# DETECTOR BACKEND
+# ------------------------------------------------------------
+detector:
+  family: grounding_dino  # str, required, "grounding_dino"; Detector backend family.
+  model_id: IDEA-Research/grounding-dino-base  # str, required; Hugging Face user/model_name ID.
+  load_local: true  # bool, required; If True try local load / snapshot download first, If False load directly from remote.
+  threshold: 0.3  # float, required; Minimum detector confidence threshold.
+  nms_threshold: 0.30  # float, required; IoU threshold used by NMS.
+  label_map:  # dict[str, list[str]], required; Mapping doctrine key to object detection phrases.
+    buildings:
+      - building
+    military_equipment:
+      - military equipment
+      - armored vehicle
+      - tank
+      - armored personnel carrier
+      - truck
+      - artillery system
+      - locomotive
+      - aircraft
+      - helicopter
+      - rocket launcher
+      - missile launcher
+      - radar system
+
+# ------------------------------------------------------------
+# PROMPT TEMPLATES
+# ------------------------------------------------------------
 prompts:
-  system: |
+  system: |  # str, required; Shared system prompt used for all VLM calls.
     You are a military strike assessment analyst performing a STRICT visual-only assessment.
 
     CORE PRINCIPLES
+    - Base conclusions ONLY on visible evidence in the images.
     - Do not hallucinate or infer unseen damage.
-    - Base conclusions only on visible evidence.
-    - Be conservative — do not overestimate damage.
+    - Be conservative, precise, and evidence-based.
     - Use doctrinal definitions when provided.
-    - Follow task instructions exactly.
-    - Keep reasoning concise and evidence-based.
+    - Follow output instructions and schema exactly.
 
-  classify: |
-    Identify and list EACH visible target instance.
+  detect_objects: |  # str, required; VLM object detection prompt.
+    Perform a VISUAL-ONLY object detection.
 
-    Allowed categories:
+    Detect every visible target whose doctrinal target_type is one of:
     {categories}
 
     RULES
-    - Count ALL visible objects, including partial or edge objects.
-    - Do not group multiple objects as one.
-    - Use only visible evidence.
-    - Do not infer or guess.
-    - Use exact lowercase keys only.
-    - Do not include categories not listed above.
-    - Repeat the category key for EACH instance.
-    - Order left to right when possible.
+    - Detect each separate physical object individually.
+    - Include partial or edge objects if the object is visible.
+    - Do not merge multiple objects into one detection.
+    - Do not include objects outside the allowed categories.
+
+    BOUNDING BOX FORMAT
+    - Use the default coordinate system on a 0-1000 scale.
+    - bbox format is [xmin, ymin, xmax, ymax].
+    - Values must be integers between 0 and 1000.
+    - xmin < xmax and ymin < ymax.
+    - One bbox must correspond to one object.
 
     OUTPUT
-    Return ONLY a comma-separated list of keys.
-    No extra text. No JSON.
+    Return valid JSON only.
+    Return a JSON list.
 
-    If none visible return "".
+    OUTPUT SCHEMA
+    [
+      {
+        "target_type": string,
+        "bbox": [xmin, ymin, xmax, ymax]
+      }
+    ]
 
-  report: |
-    A detection model suggests these categories MAY be present:
-    {categories}
+    If no valid objects are visible return [].
 
-    ====================
-    VALID TARGET TYPES
-    ====================
-    The ONLY valid values for target_type are:
-    {categories}
+  assess_damage: |  # str, required; Per-target damage assessment prompt.
+    Perform a STRICT VISUAL-ONLY damage assessment for ONE target object.
 
-    Do NOT use subtypes, examples, or descriptive terms from doctrine.
+    INPUT ROLES
+    - Two visual inputs are provided:
+      1) scene context image with the selected target location highlighted by an outline
+      2) selected object image
+    - Assess damage only for the selected target object.
+    - Use scene context only to resolve ambiguity.
 
-    ====================
+    Expected target_type:
+    {target_type}
+
     DOCTRINAL DEFINITIONS
-    ====================
     {doctrine}
 
-    ====================
-    ASSESSMENT RULES
-    ====================
-    - Assess ONLY objects that are visibly present.
-    - Identify ALL visible instances, including partial or edge objects.
-    - Do NOT group or summarize multiple objects as one.
-    - Base conclusions only on visible evidence.
-    - Do NOT infer unseen damage.
-    - Be conservative when estimating damage.
-    - Use doctrinal labels for damage_category.
-    - Logic must cite specific visible evidence (e.g., fire, debris, collapse, deformation, missing parts, holes).
-    - Keep logic concise (1–2 sentences) and grounded in doctrine.
+    RULES
+    - Use only visible evidence.
+    - Do not infer unseen damage.
+    - Focus only on the main selected target object.
+    - Do not reference crops, prompts, or analysis steps in the output.
+    - Keep logic concise and doctrinally grounded (one to two sentences).
 
-    ====================
-    CONFIDENCE GUIDANCE
-    ====================
-    confidence_level is based on clarity of visible evidence:
+    TARGET VALIDATION
+    If the selected object image does not contain a clear, meaningful instance of the expected target_type (for example: tiny fragment, mostly background, or mixed objects with no primary target), return:
 
-    confirmed — clear, direct visual evidence (>= 95 percent confidence)
-    probable — visible but partially obscured or ambiguous (50 to 94 percent confidence)
-    possible — weak or limited visual indicators (<50 percent confidence)
-
-    If uncertain choose the lower confidence.
-
-    ====================
-    TASK
-    ====================
-    For EACH visible object determine:
-
-    target_type  
-    damage_category  
-    confidence_level  
-    logic  
-
-    ====================
-    OUTPUT REQUIREMENTS
-    ====================
-    - Return valid JSON only.
-    - Keys must be sequential: target_1, target_2, target_3...
-    - Do NOT include extra fields.
-    - Include ONLY visible targets.
-    - If no targets are visible return:
-      {"no_targets": {"logic": "no visible targets in image"}}
-
-    ====================
-    OUTPUT SCHEMA
-    ====================
     {
-      "target_1": {
-        "target_type": string,
-        "damage_category": string,
-        "confidence_level": string,
-        "logic": string
-      }
+      "skip_target": true
+    }
+
+    CONFIDENCE GUIDANCE
+    Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
+    Incorrect high-confidence assessments are penalized more heavily than low-confidence assessments.
+    Select the lowest confidence level consistent with the visible evidence. If multiple interpretations of the evidence are plausible, choose the lower confidence level.
+    confirmed — clear, direct, and unambiguous visual evidence with no reasonable alternative interpretation.
+    probable — visible indicators suggesting the damage category, but evidence is incomplete, partially obscured, or somewhat ambiguous.
+    possible — weak, limited, or uncertain visual indicators; the damage category cannot be determined definitively.
+
+    OUTPUT
+    Return valid JSON only.
+
+    OUTPUT SCHEMA (SKIP CASE)
+    {
+      "skip_target": true
+    }
+
+    OUTPUT SCHEMA (ASSESSMENT CASE)
+    {
+      "damage_category": string,
+      "confidence_level": string,
+      "logic": string
     }
