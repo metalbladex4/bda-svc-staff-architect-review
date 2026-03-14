@@ -1,9 +1,9 @@
 """Qwen3 vision-language model backend."""
 
-# Reference: https://github.com/QwenLM/Qwen3-VL
+# Reference: https://huggingface.co/collections/Qwen/qwen3-vl
 
 from PIL import Image
-from transformers import AutoModelForImageTextToText, AutoProcessor
+from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
 
 from bda_svc.pipeline.interfaces import BaseVLM
 
@@ -21,7 +21,7 @@ class Qwen3VLM(BaseVLM):
             local_files_only: Whether to load locally or from HF Hub.
             max_tokens: Maximum number of new tokens to generate.
         """
-        self.model = AutoModelForImageTextToText.from_pretrained(
+        self.model = Qwen3VLForConditionalGeneration.from_pretrained(
             pretrained_model_name_or_path=model_dir,
             local_files_only=local_files_only,
             dtype="auto",
