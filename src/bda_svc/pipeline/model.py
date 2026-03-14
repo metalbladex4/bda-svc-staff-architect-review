@@ -190,6 +190,11 @@ class BDAPipeline:
                 )
             )
 
+        # Sort by label
+        detections_with_crops.sort(
+            key=lambda d: (d.label.lower(), -(d.score if d.score is not None else -1.0))
+        )
+
         return detections_with_crops
 
     def detect_objects_with_vlm(self, image: Image.Image) -> list[Detection]:
@@ -297,9 +302,9 @@ class BDAPipeline:
 
         return {
             "target_type": _humanize(detection.label),
-            "damage_category": _humanize(payload["damage_category"]),
-            "confidence_level": _humanize(payload["confidence_level"]),
-            "logic": payload["logic"],
+            "damage_category": _humanize(payload.get("damage_category", "")),
+            "confidence_level": _humanize(payload.get("confidence_level", "")),
+            "logic": payload.get("logic", ""),
             "bbox": list(detection.box),
         }
 
