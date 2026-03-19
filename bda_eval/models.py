@@ -92,10 +92,10 @@ class BoundingBox:
 
     def calc_iou(self, box: Self) -> float:
         """Calculates the Intersection over Union (IoU) for two bounding boxes.
-        
+
         Args:
             box: BoundingBox instance.
-        
+
         Returns:
             Value of IoU
         """
@@ -109,10 +109,10 @@ class BoundingBox:
 
     def intersect_area(self, box: Self) -> int:
         """Calculates intersecting area of two bounding boxes.
-        
+
         Args:
             box: BoundingBox instance.
-        
+
         Returns:
             The area of the overlap or zero if boxes do not overlap.
         """
@@ -146,7 +146,7 @@ class BDATarget:
 
 @dataclass
 class BDAReportMetadata:
-    """Contains the metadata of a BDA report"""
+    """Contains the metadata of a BDA report."""
     model_name: str
     image_id: str
     image_filename: str
@@ -167,6 +167,7 @@ class BDAMatch:
 class BDAReport:
     """Manages a collection of BDA objects."""
     def __init__(self, metadata: BDAReportMetadata, targets: list[BDATarget]):
+        """Init."""
         self.metadata = metadata
         self.targets = targets
 
@@ -185,7 +186,7 @@ class BDAReport:
         # NOTE: Mask is now a numpy boolean filter. Keep track of that?
 
         # If mask is true for a given BDA, add BDA to resulting list
-        return [target for target, m in zip(self.targets, mask) if m]
+        return [target for target, m in zip(self.targets, mask, strict=False) if m]
 
     def filter_by_bda(self, reference_bda: BDATarget) -> list[BDATarget]:
         """Finds all BDAs that share the same target type as the reference."""
@@ -194,10 +195,10 @@ class BDAReport:
     @classmethod
     def from_dict(cls, bda_dict: dict) -> Self:
         """Class factory method to create a BDA object from a dictionary.
-        
+
         Args:
             bda_dict: BDA dictionary (with metadata, physical damage, functional damage, summary)
-        
+
         Returns:
             Instantiated BDA class
         """
@@ -256,23 +257,23 @@ class BDAReport:
         w_d: float = 0.05,
         w_c: float = 0.05
     ) -> tuple[list[BDAMatch], list[BDATarget], list[BDATarget]] | None:
-        """
-        Pairs predictions to reference BDAs using the Hungarian Algorithm
-        Primary metric is IoU. Normalized ordinal distance of damage and 
+        """Pairs predictions to reference BDAs using the Hungarian Algorithm.
+
+        The primary metric is IoU. Normalized ordinal distance of damage and
         confidence are used as weighted tiebreakers.
-        
+
         Args:
             R: The BDAReport containing human assessments.
             min_iou: Minimum IoU required to consider a match valid.
             w_d: Weight of the damage penalty tiebreaker.
             w_c: Weight of the confidence penalty tiebreaker.
-        
+
         Returns:
             Tuple of matched BDAs, False Positives, and False Negatives.
         """
         # Lazy load
         from scipy.optimize import linear_sum_assignment
-        
+
         matches = []
         max_cost = 1e5
 
@@ -329,7 +330,7 @@ class BDAReport:
             P_indices, R_indices = linear_sum_assignment(cost_matrix)
 
             # Assemble the matched pairs (filtering out invalid boxes)
-            for p_idx, r_idx in zip(P_indices, R_indices):
+            for p_idx, r_idx in zip(P_indices, R_indices, strict=False):
                 p_bda = P_filtered[p_idx]
                 r_bda = R_filtered[r_idx]
 
@@ -358,7 +359,7 @@ class BDAReport:
         # We use memory addresses instead of defining BDATarget equality (maybe later)
         ref_match_ids = {id(match.ref_target) for match in matches}
         pred_match_ids = {id(match.pred_target) for match in matches}
-        
+
         false_negatives = [r for r in R.targets if id(r) not in ref_match_ids]
         false_positives = [p for p in self.targets if id(p) not in pred_match_ids]
 

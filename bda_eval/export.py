@@ -6,7 +6,6 @@ from pathlib import Path
 
 import models
 
-
 CSV_HEADERS = [
     "image_filename",
     "model_name",
@@ -32,7 +31,7 @@ def _build_row(
     iou: float | str = ""
 ) -> dict:
     """Helper function to create a CSV row (as dictionary).
-    
+
     Args:
         report_pred: BDAReport to extract metadata
         match_status: One of (TP, FN, FP)
@@ -40,7 +39,7 @@ def _build_row(
         pred_target: Within a matched tuple, the predicted BDATarget
         cost: Cost calculated by Hungarian Algorithm (for matched targets)
         iou: IoU calculation (for matched targets)
-    
+
     Returns:
         Dictionary representing a CSV row
     """
@@ -64,7 +63,7 @@ def _build_row(
         "pred_confidence": pred_target.confidence.text if pred_target else "",
         "cost": str(cost) if cost != "" else "",
         "iou_score": str(iou) if iou != "" else "",
-        "match_status": match_status        
+        "match_status": match_status
     }
 
 
@@ -76,11 +75,12 @@ def package_bda_report(
     false_positives: list[models.BDATarget]
 ) -> list[dict]:
     """Consolidate evaluation results into a single object.
-    
+
     Args:
-        report_ref: Reference BDA report
         report_pred: Predicted BDA report
         matches: List of BDAMatch objects
+        false_negatives: List of False Negative BDATargets
+        false_positives: List of False Positive BDATargets
 
     Returns:
         List of CSV rows (each row representing an evaluation result)
@@ -119,11 +119,11 @@ def save_csv(
     output_path: str | Path,
 ) -> Path | None:
     """Save evaluation report as CSV file.
-    
+
     Args:
         rows: List of evaluation results (dictionaries) to be written to CSV
         output_path : Path of output folder
-    
+
     Returns:
         Path of written evaluation report (or None)
     """
@@ -142,7 +142,7 @@ def save_csv(
 
             csv_writer.writeheader()
             csv_writer.writerows(rows)
-            
+
         return csv_path
     except (OSError, ValueError, csv.Error):
         return None

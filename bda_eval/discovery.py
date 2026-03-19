@@ -2,8 +2,8 @@
 #pylint: disable=invalid-name
 
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 
 def get_folder(folder_path: str) -> Path:
@@ -61,17 +61,17 @@ def get_report_paths(ref_folder: str, pred_folder: str) -> tuple[list[Path], lis
 
 def get_report(report_path: Path) -> tuple[str, dict] | None:
     """Parse a BDA report file.
-    
+
     Args:
         report_path: Path to BDA report
-    
+
     Returns:
         Tuple with `match_key` and JSON data
     """
     match_key = "image_filename"
 
     try:
-        with open(report_path, "r", encoding="utf-8") as file:
+        with open(report_path, encoding="utf-8") as file:
             json_obj = json.load(file)
     except json.JSONDecodeError:
         print(f"\nUnable to load JSON data from {report_path}. Skipping.")
@@ -89,11 +89,11 @@ def get_report(report_path: Path) -> tuple[str, dict] | None:
 
 def get_reports(ref_folder: str, pred_folder: str) -> tuple[dict, dict]:
     """Locate and parse BDA report files.
-    
+
     Args:
         ref_folder: Folder path (str) of reference BDA reports.
         pred_folder: Folder path (str) of predicted BDA reports.
-        
+
     Returns:
         Tuple with dictionary of reference JSON data and dictionary of predicted JSON data.
     """

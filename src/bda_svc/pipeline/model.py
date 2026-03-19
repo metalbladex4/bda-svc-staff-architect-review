@@ -1,6 +1,7 @@
 """Object Detection and Vision-Language Model BDA pipeline."""
 
-import json
+import datetime
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -155,6 +156,7 @@ class BDAPipeline:
 
         # Initialize VLM
         vlm_cfg = self.config["vlm"]
+        self.model_id = vlm_cfg["model_id"]
         self.vlm = build_vlm(vlm_cfg)
 
         # Initialize Detector
@@ -250,6 +252,80 @@ class BDAPipeline:
 
         return detections
 
+    def build_object_block(
+        self,
+        target_type: str,
+        damage_category: str,
+        confidence_level: str,
+        brief_supporting_logic: str,
+        bounding_box: list
+    ) -> dict:
+        """Encapsulate minimal BDA with schema-mandated fields.
+
+        Args:
+            target_type: Target type.,
+            damage_category: Damage Category.,
+            confidence_level: Confidence Level.,
+            brief_supporting_logic: Logic.,
+            bounding_box: List of bounding box values.
+
+        Returns:
+            Schema-valid dictionary
+        """
+        # BUG: negative values still make it into bounding_box list
+        bounding_box = [max(i, 0) for i in bounding_box]
+
+        return {
+            "target_type": target_type,
+            "damage_category": damage_category.upper(),
+            "confidence_level": confidence_level.upper(),
+            "brief_supporting_logic": brief_supporting_logic,
+            "bounding_box": {
+                "xmin": bounding_box[0],
+                "ymin": bounding_box[1],
+                "xmax": bounding_box[2],
+                "ymax": bounding_box[3]
+            }
+        }
+
+
+    def build_report(
+        self,
+        image_path: Path,
+        targets: list[dict]
+    ) -> dict:
+        """Build report IAW JSON schema.
+
+        Args:
+            image_path: Path to image.
+            targets: List of VLM-generated targets as dictionaries.
+
+        Returns:
+            Report as dictionary
+        """
+        template = {
+            "metadata": {
+                "model_name": self.model_id,
+                "image_id": str(uuid.uuid4()),
+                "image_filename": image_path.name,
+                "date_created": datetime.datetime.now(datetime.UTC).strftime('%Y-%m-%dT%H:%M:%SZ'),
+                "location": {
+                    "crs": "",
+                    "coordinates": ""
+                },
+                "report_type": "PDA",
+                "analyst": "bda-svc"
+            },
+            "physical_damage": {},
+            "summary": ""
+        }
+
+        for i, target in enumerate(targets):
+            template["physical_damage"][f"target_{i}"] = target
+
+        return template
+
+
     def assess_detection(
         self,
         detection: Detection,
@@ -300,31 +376,38 @@ class BDAPipeline:
             text = str(value).replace("_", " ").strip()
             return " ".join(word.capitalize() for word in text.split())
 
-        return {
-            "target_type": _humanize(detection.label),
-            "damage_category": _humanize(payload.get("damage_category", "")),
-            "confidence_level": _humanize(payload.get("confidence_level", "")),
-            "logic": payload.get("logic", ""),
-            "bbox": list(detection.box),
-        }
+        # bbox = list(detection.box)
 
-    def consolidate_results(self, targets: list[dict]) -> dict:
+        return self.build_object_block(
+            target_type=detection.label,
+            damage_category=payload.get("damage_category", ""),
+            confidence_level=payload.get("confidence_level", ""),
+            brief_supporting_logic=payload.get("logic", ""),
+            bounding_box=list(detection.box)
+        )
+
+    def consolidate_results(self, image_path: Path, targets: list[dict]) -> dict:
         """Consolidate per-target results into the final output shape.
 
         Args:
+            image_path: Path to the input image.
             targets: Per-target assessment payloads.
 
         Returns:
             Final image-level result dictionary.
         """
         if not targets:
-            return {"No Targets": {"logic": "No visible targets in image."}}
+            targets.append(self.build_object_block(
+                target_type="object_not_found",
+                damage_category="NOT APPLICABLE",
+                confidence_level="CONFIRMED",
+                brief_supporting_logic="No visible targets in image.",
+                bounding_box=[0, 0, 0, 0]
+            ))
 
-        return {
-            f"target_{index}": target for index, target in enumerate(targets, start=1)
-        }
+        return self.build_report(image_path, targets)
 
-    def analyze(self, image_path: str | Path) -> str:
+    def analyze(self, image_path: str | Path) -> dict:
         """Run the full BDA pipeline and return a JSON string.
 
         Args:
@@ -333,11 +416,14 @@ class BDAPipeline:
         Returns:
             Final target-level BDA as JSON text.
         """
-        with Image.open(Path(image_path)).convert("RGB") as image:
+        image_path = Path(image_path)
+
+        with Image.open(image_path).convert("RGB") as image:
             detections = self.detect_objects(image)
             targets = []
             for detection in detections:
                 result = self.assess_detection(detection, scene_image=image)
                 if result is not None:
                     targets.append(result)
-            return json.dumps(self.consolidate_results(targets))
+            # return json.dumps(self.consolidate_results(targets))
+            return self.consolidate_results(image_path, targets)

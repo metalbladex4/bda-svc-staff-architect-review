@@ -4,16 +4,17 @@
 import cli
 import discovery
 import export
+
 import models
 
 
 def partition_keys(left: dict, right: dict) -> tuple[set, set, set]:
     """Compares two dictionaries and returns their common and distinct keys as sets.
-    
+
     Args:
         left: First dictionary to be compared
         right: Second dictionary to be compared
-    
+
     Returns:
         Tuple with common keys, keys only in left, and keys only in right
     """
@@ -32,11 +33,11 @@ def compare_image_objects(
         tuple[list[models.BDAMatch], list[models.BDATarget], list[models.BDATarget]] | None
     ]:
     """Compare objects from reference BDA to objects from predicted BDA.
-    
+
     Args:
         R: Reference report (dictionary)
         P: Predicted report (dictionary)
-    
+
     Returns:
         Reference/Predicted BDA reports and tuple of matching results
     """
