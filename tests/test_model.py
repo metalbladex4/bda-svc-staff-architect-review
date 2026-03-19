@@ -279,7 +279,12 @@ def test_analyze_vlm_mode_returns_humanized_target_with_pixel_bbox(
     pipeline = pipeline_model.BDAPipeline()
     image_path = tmp_path / "scene.png"
     Image.new("RGB", (100, 100)).save(image_path)
-    result = json.loads(pipeline.analyze(image_path))
-    assert "target_1" in result
-    assert result["target_1"]["target_type"] == "Buildings"
-    assert result["target_1"]["bbox"] == [0, 0, 50, 50]
+    result = pipeline.analyze(image_path)
+    assert "target_0" in result
+    assert result["target_0"]["target_type"] == "Buildings"
+    assert result["target_0"]["bounding_box"] == {
+        "xmin": 0,
+        "ymin": 0,
+        "xmax": 50,
+        "ymax": 50
+    }
