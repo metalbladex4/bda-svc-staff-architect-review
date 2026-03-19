@@ -194,7 +194,7 @@ def convert_reports(ref_folder: str, output_path: Path) -> bool:
             if objects:
                 report_fixed = fix_json(report_path, objects)
 
-                with open(f"{output_path}/{report_path.name}", "w", encoding="utf-8") as file:
+                with open(f"{output_path}/{report_path.stem}.json", "w", encoding="utf-8") as file:
                     json.dump(report_fixed, file, indent=4)
 
                 print(f"Writing {report_path}")
