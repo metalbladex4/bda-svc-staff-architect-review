@@ -280,9 +280,10 @@ def test_analyze_vlm_mode_returns_humanized_target_with_pixel_bbox(
     image_path = tmp_path / "scene.png"
     Image.new("RGB", (100, 100)).save(image_path)
     result = pipeline.analyze(image_path)
-    assert "target_0" in result
-    assert result["target_0"]["target_type"] == "Buildings"
-    assert result["target_0"]["bounding_box"] == {
+    print(result)
+    assert "target_0" in result["physical_damage"]
+    assert result["physical_damage"]["target_0"]["target_type"] == "buildings"
+    assert result["physical_damage"]["target_0"]["bounding_box"] == {
         "xmin": 0,
         "ymin": 0,
         "xmax": 50,
