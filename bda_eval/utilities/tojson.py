@@ -1,10 +1,12 @@
+"""Simple script to fix human-generated BDAs."""
+
 import argparse
 import datetime
 import json
-from pathlib import Path
 import re
 import sys
 import uuid
+from pathlib import Path
 
 
 def get_folder(folder_path: str) -> Path:
@@ -60,17 +62,17 @@ def get_report_paths(ref_folder: str) -> list[Path]:
 
 def get_report(report_path: Path) -> list | None:
     """Parse a BDA report file.
-    
+
     Args:
         report_path: Path to BDA report
-    
+
     Returns:
         Tuple with `match_key` and JSON data
     """
     objects = {}
     regex_pattern = re.compile(r"(?<=})[\s\\n]+(?={)")
 
-    with open(report_path, "r", encoding="utf-8") as file:
+    with open(report_path, encoding="utf-8") as file:
         try:
             # Load less strictly to prevent issues (ex. newlines in values)
             objects = [json.load(file, strict=False)]
@@ -89,10 +91,11 @@ def get_report(report_path: Path) -> list | None:
 
 def fix_json(report_path: Path, objects: list) -> dict | None:
     """Generates schema-compliant JSON from dict.
-    
+
     Args:
-        report: Dictionary with minimal BDA report
-    
+        report_path: Path of report.
+        objects: List of detected objects.
+
     Returns:
         Compliant BDA report as dictionary
     """
@@ -112,7 +115,7 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
         "physical_damage": {},
         "summary": ""
     }
-    
+
     target_types = [
         "bridges",
         "buildings",
@@ -147,7 +150,7 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
                 target_type += "s"
 
                 if target_type not in target_types:
-                    print(f"Unable to parse 'obj'. Skipping")
+                    print("Unable to parse 'obj'. Skipping")
                     continue
 
             template["physical_damage"][f"target_{i}"] = {
@@ -167,15 +170,16 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
     except KeyError:
         print(f"\nUnable to fix report {report_path} (KeyError). Skipping.")
         return None
-    
+
 
 
 def convert_reports(ref_folder: str, output_path: Path) -> bool:
     """Locate, parse, fix and save BDA report files.
-    
+
     Args:
         ref_folder: Folder path (str) of reference BDA reports.
-        
+        output_path: Folder path output reports.
+
     Returns:
         Tuple with dictionary of reference JSON data and dictionary of predicted JSON data.
     """

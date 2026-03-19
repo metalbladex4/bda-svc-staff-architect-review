@@ -33,11 +33,11 @@ def to_dict(bda: str) -> dict:
     raise ValueError("Unable to parse BDA output into a JSON dictionary.")
 
 
-def save_json(bda: str, image_path: str | Path, output_path: str | Path | None) -> None:
+def save_json(bda: dict, image_path: str | Path, output_path: str | Path | None) -> None:
     """Save BDA as a JSON file.
 
     Args:
-        bda: BDA analysis text.
+        bda: BDA analysis dictionary.
         image_path: Path of the original image.
         output_path: Path of output folder. Uses default if None/empty.
     """
@@ -49,15 +49,15 @@ def save_json(bda: str, image_path: str | Path, output_path: str | Path | None) 
     json_path = output_path / f"{image_path.stem}_{timestamp}.json"
 
     # Preserve raw model output if parse fails
-    try:
-        bda_dict = to_dict(bda)
-    except ValueError as e:
-        bda_dict = {
-            "parse_error": str(e),
-            "raw_output": bda,
-        }
+    # try:
+    #     bda_dict = to_dict(bda)
+    # except ValueError as e:
+    #     bda_dict = {
+    #         "parse_error": str(e),
+    #         "raw_output": bda,
+    #     }
 
     with json_path.open("w", encoding="utf-8") as f:
-        json.dump(bda_dict, f, indent=4)
+        json.dump(bda, f, indent=4)
 
     print(f"[*] Exported: {json_path}")
