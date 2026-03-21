@@ -1,5 +1,5 @@
 """Input data retrieval."""
-#pylint: disable=invalid-name
+# pylint: disable=invalid-name
 
 import json
 import sys
@@ -31,7 +31,9 @@ def get_folder(folder_path: str) -> Path:
     return folder
 
 
-def get_report_paths(ref_folder: str, pred_folder: str) -> tuple[list[Path], list[Path]]:
+def get_report_paths(
+    ref_folder: str, pred_folder: str
+) -> tuple[list[Path], list[Path]]:
     """Retrieve paths to all BDA reports.
 
     Args:
@@ -58,6 +60,7 @@ def get_report_paths(ref_folder: str, pred_folder: str) -> tuple[list[Path], lis
             sys.exit(f"\nNo report data found in {folder.resolve()}. Exiting.\n")
 
     return ref_paths, pred_paths
+
 
 def get_report(report_path: Path) -> tuple[str, dict] | None:
     """Parse a BDA report file.

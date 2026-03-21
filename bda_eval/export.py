@@ -18,7 +18,7 @@ CSV_HEADERS = [
     "pred_confidence",
     "iou_score",
     "cost",
-    "match_status"
+    "match_status",
 ]
 
 
@@ -28,7 +28,7 @@ def _build_row(
     ref_target: models.BDATarget | None = None,
     pred_target: models.BDATarget | None = None,
     cost: float | str = "",
-    iou: float | str = ""
+    iou: float | str = "",
 ) -> dict:
     """Helper function to create a CSV row (as dictionary).
 
@@ -63,16 +63,16 @@ def _build_row(
         "pred_confidence": pred_target.confidence.text if pred_target else "",
         "cost": str(cost) if cost != "" else "",
         "iou_score": str(iou) if iou != "" else "",
-        "match_status": match_status
+        "match_status": match_status,
     }
 
 
 def package_bda_report(
-    #report_ref: models.BDAReport,
+    # report_ref: models.BDAReport,
     report_pred: models.BDAReport,
     matches: list[models.BDAMatch],
     false_negatives: list[models.BDATarget],
-    false_positives: list[models.BDATarget]
+    false_positives: list[models.BDATarget],
 ) -> list[dict]:
     """Consolidate evaluation results into a single object.
 
@@ -88,28 +88,26 @@ def package_bda_report(
     rows = []
 
     for match in matches:
-        rows.append(_build_row(
-            report_pred=report_pred,
-            match_status="TP",
-            ref_target=match.ref_target,
-            pred_target=match.pred_target,
-            cost=match.cost,
-            iou=match.iou
-        ))
+        rows.append(
+            _build_row(
+                report_pred=report_pred,
+                match_status="TP",
+                ref_target=match.ref_target,
+                pred_target=match.pred_target,
+                cost=match.cost,
+                iou=match.iou,
+            )
+        )
 
     for fn in false_negatives:
-        rows.append(_build_row(
-            report_pred=report_pred,
-            match_status="FN",
-            ref_target=fn
-        ))
+        rows.append(
+            _build_row(report_pred=report_pred, match_status="FN", ref_target=fn)
+        )
 
     for fp in false_positives:
-        rows.append(_build_row(
-            report_pred=report_pred,
-            match_status="FP",
-            pred_target=fp
-        ))
+        rows.append(
+            _build_row(report_pred=report_pred, match_status="FP", pred_target=fp)
+        )
 
     return rows
 
