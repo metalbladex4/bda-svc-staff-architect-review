@@ -6,6 +6,8 @@ from pathlib import Path
 
 from bda_svc import constants
 
+VALID_EXTENSIONS = (".png", ".jpg", ".jpeg", ".bmp")
+
 
 def get_input_folder(cmdline_path: str | None) -> Path:
     """Retrieve input path and perform validation.
@@ -56,11 +58,10 @@ def get_input_paths(input_folder: Path) -> list[Path]:
         SystemExit: If no valid input images are found.
     """
     files: list[Path] = []
-    valid_ext = (".png", ".jpg", ".jpeg", ".bmp")
 
     # Return early if input_folder is actually a file
     if input_folder.is_file():
-        if input_folder.suffix.lower() in valid_ext:
+        if input_folder.suffix.lower() in VALID_EXTENSIONS:
             return [input_folder]
 
         # Invalid extension
@@ -73,7 +74,7 @@ def get_input_paths(input_folder: Path) -> list[Path]:
     files = [
         path
         for path in input_folder.rglob("*")
-        if path.is_file() and path.suffix.lower() in valid_ext
+        if path.is_file() and path.suffix.lower() in VALID_EXTENSIONS
     ]
 
     if not files:
