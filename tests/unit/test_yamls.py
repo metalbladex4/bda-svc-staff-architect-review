@@ -2,18 +2,15 @@
 
 from bda_svc.pipeline.utilities import CONFIG_PATH, DOCTRINE_PATH, load_yaml
 
-EXPECTED_CONFIG_KEYS = {"pipeline", "vlm", "detector", "prompts"}
-EXPECTED_PIPELINE_KEYS = {"detection_provider", "crop_buffer_ratio"}
-EXPECTED_VLM_KEYS = {"family", "model_id", "load_local", "max_new_tokens"}
-EXPECTED_DETECTOR_KEYS = {
-    "family",
-    "model_id",
-    "load_local",
-    "threshold",
-    "nms_threshold",
-    "label_map",
+EXPECTED_CONFIG_KEYS = {"detection_vlm", "assessment_vlm", "prompts"}
+EXPECTED_DETECTION_VLM_KEYS = {
+    "model",
+    "temperature",
+    "max_image_size",
+    "crop_buffer_ratio",
 }
-EXPECTED_PROMPT_KEYS = {"system", "detect_objects", "assess_damage"}
+EXPECTED_ASSESSMENT_VLM_KEYS = {"model", "temperature", "max_image_size"}
+EXPECTED_PROMPT_KEYS = {"system", "detect_objects", "assess_damage", "summarize_scene"}
 EXPECTED_DOCTRINE_CATEGORIES = {"buildings", "military_equipment"}
 REQUIRED_DOCTRINE_ENTRY_KEYS = {"physical_damage_definitions"}
 ALLOWED_DOCTRINE_ENTRY_KEYS = {
@@ -29,23 +26,10 @@ def test_config_top_level_keys_exact() -> None:
 
 
 def test_config_section_keys_exact() -> None:
-    """Config pipeline, vlm, and detector keys should be exact."""
+    """Config detection and assessment VLM keys should be exact."""
     config = load_yaml(CONFIG_PATH)
-    assert set(config["pipeline"].keys()) == EXPECTED_PIPELINE_KEYS
-    assert set(config["vlm"].keys()) == EXPECTED_VLM_KEYS
-    assert set(config["detector"].keys()) == EXPECTED_DETECTOR_KEYS
-    assert config["pipeline"]["detection_provider"] in {"detector", "vlm"}
-
-
-def test_detector_label_map_is_dict_of_string_lists() -> None:
-    """Detector label_map should be dict[str, list[str]]."""
-    config = load_yaml(CONFIG_PATH)
-    label_map = config["detector"]["label_map"]
-    assert isinstance(label_map, dict)
-    assert set(label_map.keys()) == EXPECTED_DOCTRINE_CATEGORIES
-    for category, phrases in label_map.items():
-        assert isinstance(category, str)
-        assert isinstance(phrases, list)
+    assert set(config["detection_vlm"].keys()) == EXPECTED_DETECTION_VLM_KEYS
+    assert set(config["assessment_vlm"].keys()) == EXPECTED_ASSESSMENT_VLM_KEYS
 
 
 def test_prompt_sections_and_placeholders() -> None:
@@ -56,6 +40,7 @@ def test_prompt_sections_and_placeholders() -> None:
     assert "{categories}" in prompts["detect_objects"]
     assert "{target_type}" in prompts["assess_damage"]
     assert "{doctrine}" in prompts["assess_damage"]
+    assert "{target_assessments}" in prompts["summarize_scene"]
 
 
 def test_doctrine_categories_and_entry_keys_valid() -> None:
@@ -65,10 +50,3 @@ def test_doctrine_categories_and_entry_keys_valid() -> None:
     for entry in doctrine.values():
         assert REQUIRED_DOCTRINE_ENTRY_KEYS.issubset(set(entry.keys()))
         assert set(entry.keys()).issubset(ALLOWED_DOCTRINE_ENTRY_KEYS)
-
-
-def test_backend_families_are_from_supported_set() -> None:
-    """Config backend families should be in the supported sets."""
-    config = load_yaml(CONFIG_PATH)
-    assert config["vlm"]["family"] in {"qwen3"}
-    assert config["detector"]["family"] in {"grounding_dino"}

@@ -1,17 +1,14 @@
 """Pipeline utility tests."""
 
-import pytest
 from PIL import Image
 
 from bda_svc.pipeline import utilities
-from bda_svc.pipeline.interfaces import Detection
 from bda_svc.pipeline.utilities import (
     bbox_from_1000,
     crop_with_buffer,
     draw_box_overlay,
     load_yaml,
-    nms,
-    parse_json,
+    resize_for_vlm,
 )
 
 
@@ -21,20 +18,6 @@ def test_load_yaml_reads_dict(tmp_path) -> None:
     yaml_path.write_text("a: 1\nb: test\n", encoding="utf-8")
     data = load_yaml(yaml_path)
     assert data == {"a": 1, "b": "test"}
-
-
-def test_parse_json_repairs_simple_invalid_json() -> None:
-    """parse_json should repair simple malformed JSON."""
-    dict_payload = parse_json("{'a': 1}")
-    list_payload = parse_json("[{'a': 1}]")
-    assert dict_payload == {"a": 1}
-    assert list_payload == [{"a": 1}]
-
-
-def test_parse_json_raises_for_unparseable_text() -> None:
-    """parse_json should raise ValueError if cannot parse response."""
-    with pytest.raises(ValueError):
-        parse_json("this is not json at all")
 
 
 def test_format_pda_doctrine_formats_selected_category(monkeypatch) -> None:
@@ -50,20 +33,19 @@ def test_format_pda_doctrine_formats_selected_category(monkeypatch) -> None:
         },
     }
     monkeypatch.setattr(utilities, "load_yaml", lambda path: fake_doctrine)
-    output = utilities.format_pda_doctrine(["buildings"])
-    assert "TARGET CATEGORY: BUILDINGS" in output
+    output = utilities.format_pda_doctrine("buildings")
     assert "BUILDINGS PHYSICAL DAMAGE DEFINITIONS" in output
     assert "BUILDINGS PHYSICAL DAMAGE CONSIDERATIONS" in output
     assert "Building definitions." in output
     assert "Building considerations." in output
-    assert "TARGET CATEGORY: MILITARY EQUIPMENT" not in output
+    assert "MILITARY EQUIPMENT PHYSICAL DAMAGE DEFINITIONS" not in output
 
 
 def test_format_pda_doctrine_returns_fallback_for_unknown_category(monkeypatch) -> None:
     """Return fallback text when requested categories are missing."""
     fake_doctrine = {"buildings": {"physical_damage_definitions": "x"}}
     monkeypatch.setattr(utilities, "load_yaml", lambda path: fake_doctrine)
-    output = utilities.format_pda_doctrine(["not_a_real_category"])
+    output = utilities.format_pda_doctrine("not_a_real_category")
     assert output == "NO TARGET DOCTRINE AVAILABLE."
 
 
@@ -101,29 +83,22 @@ def test_crop_with_buffer_adds_padding() -> None:
     assert crop.size == (40, 40)
 
 
+def test_resize_for_vlm_returns_original_size_within_limit() -> None:
+    """Images within the limit should be returned unchanged in size."""
+    image = Image.new("RGB", (800, 600))
+    resized = resize_for_vlm(image, 1024)
+    assert resized.size == (800, 600)
+
+
+def test_resize_for_vlm_preserves_aspect_ratio() -> None:
+    """Large images should be downscaled while preserving aspect ratio."""
+    image = Image.new("RGB", (4000, 2000))
+    resized = resize_for_vlm(image, 1024)
+    assert resized.size == (1024, 512)
+
+
 def test_draw_box_overlay_preserves_image_size() -> None:
     """draw_box_overlay should not change image dimensions."""
     image = Image.new("RGB", (64, 32))
     overlay = draw_box_overlay(image, (10, 5, 20, 15))
     assert overlay.size == image.size
-
-
-def test_nms_suppresses_same_label_overlap() -> None:
-    """NMS should keep only the top-score box for same-label overlap."""
-    detections = [
-        Detection(label="military_equipment", score=0.9, box=(10, 10, 40, 40)),
-        Detection(label="military_equipment", score=0.8, box=(12, 12, 42, 42)),
-    ]
-    filtered = nms(detections, iou_threshold=0.5)
-    assert len(filtered) == 1
-    assert filtered[0].score == 0.9
-
-
-def test_nms_keeps_overlaps_for_different_labels() -> None:
-    """NMS should keep overlapping boxes when labels differ."""
-    detections = [
-        Detection(label="military_equipment", score=0.9, box=(10, 10, 40, 40)),
-        Detection(label="buildings", score=0.8, box=(12, 12, 42, 42)),
-    ]
-    filtered = nms(detections, iou_threshold=0.5)
-    assert len(filtered) == 2
