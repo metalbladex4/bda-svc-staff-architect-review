@@ -8,15 +8,28 @@ Automated Battle Damage Assessment system powered by machine learning.
 
 1. [**Install uv**](https://docs.astral.sh/uv/getting-started/installation/)
 
-2. **Clone the repository and install dependencies**
+2. [**Install Ollama and ensure the local server is running**](https://ollama.com/download)
+   
+   If Ollama is not already running on your machine, start it with:
+   ```bash
+   ollama serve
+   ```
+
+   Then pull the models configured in `src/bda_svc/pipeline/config.yaml`, for example:
+   ```bash
+   ollama pull qwen3-vl:8b-instruct-q8_0
+   ```
+
+3. **Clone the repository and install dependencies**
+
    ```bash
    git clone <repository-url>
    cd bda-svc
-   uv sync --dev
-   source .venv/bin/activate
+   uv sync
    ```
 
-3. **Install pre-commit hooks**
+4. **Install pre-commit hooks**
+
    ```bash
    uv run pre-commit install
    ```
@@ -24,36 +37,29 @@ Automated Battle Damage Assessment system powered by machine learning.
 ## Usage
 
 1. **For complete usage information**:
+
    ```bash
    uv run bda-svc -h
    ```
 
-2. **Run the BDA service with a command-line image or folder path (override environment variable)**:
+2. **Run the BDA service with the default input folder, an environment variable, or a command-line path**:
+
    ```bash
+   uv run bda-svc 
+
+   # or
+
+   BDA_INPUT="/path/to/images" uv run bda-svc
+
+   # or
+
    uv run bda-svc -i /path/to/image.ext
 
    # or
-   
+
    uv run bda-svc -i /path/to/folder
    ```
-
-3. **Alternatively, run the BDA service with an environment variable**:
-   ```bash
-   BDA_INPUT="/path/to/images" uv run bda-svc
-   ```
-
-## Supported (Tested) Models
-
-VLMs:
-- Qwen/Qwen3-VL-2B-Instruct
-- Qwen/Qwen3-VL-4B-Instruct
-- Qwen/Qwen3-VL-8B-Instruct
-- Qwen/Qwen3-VL-30B-A3B-Instruct
-
-Detectors:
-- IDEA-Research/grounding-dino-base
-- IDEA-Research/grounding-dino-tiny
-
+   
 ## Project Structure
 
 ```
@@ -72,11 +78,9 @@ Detectors:
 │           ├── __init__.py
 │           ├── config.yaml    # Model + prompt configuration
 │           ├── doctrine.yaml  # Doctrinal definitions
-│           ├── interfaces.py  # Abstract interfaces
+│           ├── interfaces.py  # Abstract interfaces + Ollama backend
 │           ├── model.py       # BDAPipeline
 │           └── utilities.py   # Pipeline helper functions
-│           ├── detector/      # Object detector backends
-│           ├── vlm/           # VLM backends
 ├── tests/                     # Test suite
 ├── pyproject.toml
 ├── uv.lock
