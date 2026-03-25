@@ -1,44 +1,19 @@
 # ------------------------------------------------------------
-# PIPELINE SETTINGS
+# DETECTION VLM BACKEND
 # ------------------------------------------------------------
-pipeline:
-  detection_provider: detector  # str, required, "detector" | "vlm"; Selects which backend performs object detection.
-  crop_buffer_ratio: 0.1  # float, required; Padding ratio applied around each detection box when creating crops.
+detection_vlm:
+  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
+  temperature: 0.0  # float, required; Sampling temperature for generation.
+  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
+  crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
 
 # ------------------------------------------------------------
-# VLM BACKEND
+# ASSESSMENT VLM BACKEND
 # ------------------------------------------------------------
-vlm:
-  family: qwen3  # str, required, "qwen3"; VLM backend family.
-  model_id: Qwen/Qwen3-VL-8B-Instruct-FP8  # str, required; Hugging Face user/model_name ID.
-  load_local: true  # bool, required; If True try local load / snapshot download first, If False load directly from remote.
-  max_new_tokens: 512  # int, required; Maximum generated tokens per VLM call.
-
-# ------------------------------------------------------------
-# DETECTOR BACKEND
-# ------------------------------------------------------------
-detector:
-  family: grounding_dino  # str, required, "grounding_dino"; Detector backend family.
-  model_id: IDEA-Research/grounding-dino-base  # str, required; Hugging Face user/model_name ID.
-  load_local: true  # bool, required; If True try local load / snapshot download first, If False load directly from remote.
-  threshold: 0.30  # float, required; Minimum detector confidence threshold.
-  nms_threshold: 0.30  # float, required; IoU threshold used by NMS.
-  label_map:  # dict[str, list[str]], required; Mapping doctrine key to object detection phrases.
-    buildings:
-      - building
-    military_equipment:
-      - military equipment
-      - armored vehicle
-      - tank
-      - armored personnel carrier
-      - truck
-      - artillery system
-      - locomotive
-      - aircraft
-      - helicopter
-      - rocket launcher
-      - missile launcher
-      - radar system
+assessment_vlm:
+  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
+  temperature: 0.0  # float, required; Sampling temperature for generation.
+  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
 
 # ------------------------------------------------------------
 # PROMPT TEMPLATES
@@ -54,38 +29,52 @@ prompts:
     - Use doctrinal definitions when provided.
     - Follow output instructions and schema exactly.
 
-  detect_objects: |  # str, required; VLM object detection prompt.
+  detect_objects: |  # str, required; Object detection prompt.
     Perform a VISUAL-ONLY object detection.
 
+    TASK
     Detect every visible target whose doctrinal target_type is one of:
     {categories}
 
+    THINKING PROCESS (follow internally, do NOT output these steps)
+    1) First, carefully identify and count all distinct target objects in the scene.
+    2) Assign each object a unique internal ID.
+    3) Then, for each identified object, determine its target_type.
+    4) Finally, produce one precise bounding box per object.
+
     RULES
     - Detect each separate physical object individually.
-    - Include partial or edge objects if the object is visible.
-    - Do not merge multiple objects into one detection.
-    - Do not include objects outside the allowed categories.
+    - Do NOT merge multiple objects into one.
+    - Do NOT split one object into multiple detections.
+    - Include partially visible objects if identifiable.
+    - Only include objects whose identity can be determined from visible features.
+    - Do NOT include objects outside the allowed categories.
+
+    CONSISTENCY REQUIREMENTS
+    - The number of detections must match the number of distinct objects identified.
+    - Each object must have exactly one bounding box.
+    - No duplicate detections.
 
     BOUNDING BOX FORMAT
-    - Use the default coordinate system on a 0-1000 scale.
-    - bbox format is [xmin, ymin, xmax, ymax].
+    - Use a 0–1000 coordinate system.
+    - Format: [xmin, ymin, xmax, ymax]
     - Values must be integers between 0 and 1000.
     - xmin < xmax and ymin < ymax.
-    - One bbox must correspond to one object.
+    - Boxes should tightly enclose the visible extent of the object.
 
     OUTPUT
     Return valid JSON only.
-    Return a JSON list.
+    Return a JSON object with a top-level detections field.
 
     OUTPUT SCHEMA
-    [
-      {
-        "target_type": string,
-        "bbox": [xmin, ymin, xmax, ymax]
-      }
-    ]
-
-    If no valid objects are visible return [].
+    {
+      "detections": [
+        {
+          "target_type": string,
+          "bbox": [xmin, ymin, xmax, ymax]
+        }
+      ]
+    }
 
   assess_damage: | # str, required; Per-target damage assessment prompt.
     Perform a STRICT VISUAL-ONLY damage assessment for ONE target object.
@@ -97,23 +86,16 @@ prompts:
     - Assess damage only for the selected target object.
     - Use scene context only to resolve ambiguity.
 
-    Return {"skip_target": true} immediately, without further analysis, if ANY of the following are true:
-    - The cropped image does not contain a clear, meaningful instance of: {target_type} within the full scene context.
-    - The object is irrelevant to a military strike damage assessment (e.g. background clutter).
-    - The bounding box has captured mixed content with no clear primary target.
-
-    Expected target_type:
+    TARGET TYPE
     {target_type}
 
     DOCTRINAL DEFINITIONS
     {doctrine}
 
     RULES
-    - Use only visible evidence.
-    - Do not infer unseen damage.
     - Focus only on the selected target object.
     - Do not reference crops, prompts, or analysis steps in the output.
-    - Keep logic concise and doctrinally grounded (one to two sentences).
+    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally relevant evidence.
 
     CONFIDENCE GUIDANCE
     Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
@@ -126,14 +108,31 @@ prompts:
     OUTPUT
     Return valid JSON only. No preamble, no explanation.
 
-    SKIP SCHEMA
-    {
-      "skip_target": true
-    }
-
     ASSESSMENT SCHEMA
     {
       "damage_category": string,
       "confidence_level": string,
-      "logic": string
+      "brief_supporting_logic": string
     }
+
+  summarize_scene: |  # str, required; Scene summary prompt.
+    Perform a STRICT VISUAL-ONLY scene summary.
+
+    INPUTS
+    - One full-scene image is provided.
+    - Prior individual target assessments are provided below.
+    - The summary must remain consistent with those prior assessments.
+
+    PRIOR TARGET ASSESSMENTS
+    {target_assessments}
+
+    SUMMARY GOAL
+    Write a short (1-3 sentences) scene-level report in plain text.
+    The report should:
+    - first enumerate what is in the prior target assessments, example: "4 pieces of military equipment (2 destroyed tanks, 2 damaged tanks), 1 damaged building."
+    - then summarize the overall scene as a whole based on the full-scene image
+    - then state the likely follow-on functional impact / combat capability
+
+    OUTPUT
+    Return plain text only. No new lines.
+    If no relevant targets were assessed, briefly describe the scene and state that no relevant targets were assessed in the scene.
