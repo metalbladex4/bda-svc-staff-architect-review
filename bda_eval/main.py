@@ -1,5 +1,5 @@
 """Main application entry point for automated BDA evaluation."""
-#pylint: disable=invalid-name
+# pylint: disable=invalid-name
 
 import cli
 import discovery
@@ -25,13 +25,12 @@ def partition_keys(left: dict, right: dict) -> tuple[set, set, set]:
 
 
 def compare_image_objects(
-    R: dict,
-    P: dict
-    ) -> tuple[
-        models.BDAReport,
-        models.BDAReport,
-        tuple[list[models.BDAMatch], list[models.BDATarget], list[models.BDATarget]] | None
-    ]:
+    R: dict, P: dict
+) -> tuple[
+    models.BDAReport,
+    models.BDAReport,
+    tuple[list[models.BDAMatch], list[models.BDATarget], list[models.BDATarget]] | None,
+]:
     """Compare objects from reference BDA to objects from predicted BDA.
 
     Args:
@@ -54,12 +53,13 @@ def main():
     args = cli.get_args()
 
     # Discover reports
-    R_multi_images, P_multi_images = discovery.get_reports(args.reference, args.predicted)
+    R_multi_images, P_multi_images = discovery.get_reports(
+        args.reference, args.predicted
+    )
 
     # Check if reference reports have corresponding predicted reports
     common_keys, missing_pred, missing_ref = partition_keys(
-        R_multi_images,
-        P_multi_images
+        R_multi_images, P_multi_images
     )
 
     # Basic sanity checks
@@ -75,8 +75,7 @@ def main():
     for key in common_keys:
         # NOTE: matches = [(ref_1_object_1, pred_1_object_3), ...]
         R_report, P_report, match_results = compare_image_objects(
-            R_multi_images[key],
-            P_multi_images[key]
+            R_multi_images[key], P_multi_images[key]
         )
 
         if match_results:
@@ -87,7 +86,7 @@ def main():
                 P_report,
                 matches,
                 false_negatives,
-                false_positives
+                false_positives,
             )
 
             packages.extend(package)

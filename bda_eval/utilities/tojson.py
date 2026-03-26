@@ -55,7 +55,9 @@ def get_report_paths(ref_folder: str) -> list[Path]:
     # Check if the folder is empty
     for paths in ref_paths:
         if not paths:
-            sys.exit(f"\nNo report data found in {ref_folder_path.resolve()}. Exiting.\n")
+            sys.exit(
+                f"\nNo report data found in {ref_folder_path.resolve()}. Exiting.\n"
+            )
 
     return ref_paths
 
@@ -104,16 +106,15 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
             "model_name": "",
             "image_id": str(uuid.uuid4()),
             "image_filename": "",
-            "date_created": datetime.datetime.now(datetime.UTC).strftime('%Y-%m-%dT%H:%M:%SZ'),
-            "location": {
-                "crs": "",
-                "coordinates": ""
-            },
+            "date_created": datetime.datetime.now(datetime.UTC).strftime(
+                "%Y-%m-%dT%H:%M:%SZ"
+            ),
+            "location": {"crs": "", "coordinates": ""},
             "report_type": "PDA",
-            "analyst": ""
+            "analyst": "",
         },
         "physical_damage": {},
-        "summary": ""
+        "summary": "",
     }
 
     target_types = [
@@ -137,7 +138,7 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
         "transformers",
         "tunnel_entrances_or_portals",
         "tunnel_facility_air_vents",
-        "object_not_found"
+        "object_not_found",
     ]
 
     try:
@@ -162,15 +163,14 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
                     "xmin": obj["bounding_box"]["xmin"],
                     "ymin": obj["bounding_box"]["ymin"],
                     "xmax": obj["bounding_box"]["xmax"],
-                    "ymax": obj["bounding_box"]["ymax"]
-                }
+                    "ymax": obj["bounding_box"]["ymax"],
+                },
             }
 
         return template
     except KeyError:
         print(f"\nUnable to fix report {report_path} (KeyError). Skipping.")
         return None
-
 
 
 def convert_reports(ref_folder: str, output_path: Path) -> bool:
@@ -194,7 +194,9 @@ def convert_reports(ref_folder: str, output_path: Path) -> bool:
             if objects:
                 report_fixed = fix_json(report_path, objects)
 
-                with open(f"{output_path}/{report_path.stem}.json", "w", encoding="utf-8") as file:
+                with open(
+                    f"{output_path}/{report_path.stem}.json", "w", encoding="utf-8"
+                ) as file:
                     json.dump(report_fixed, file, indent=4)
 
                 print(f"Writing {report_path}")

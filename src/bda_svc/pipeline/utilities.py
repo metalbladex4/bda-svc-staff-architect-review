@@ -1,34 +1,12 @@
 """A collection of model utility functions."""
 
-import json
 from pathlib import Path
-from typing import Any
 
-import torch
-import transformers
 import yaml
-from json_repair import repair_json
 from PIL import Image, ImageDraw
-from torchvision.ops import batched_nms
 
-from bda_svc.pipeline.interfaces import Detection
-
-REPO_PATH = Path(__file__).parents[3]
 CONFIG_PATH = Path(__file__).parent / "config.yaml"
 DOCTRINE_PATH = Path(__file__).parent / "doctrine.yaml"
-
-
-def test_gpu() -> None:
-    """Verify hardware acceleration and library versions."""
-    print(f"Transformers Version: {transformers.__version__}")
-    print(f"PyTorch Version: {torch.__version__}")
-
-    cuda_available = torch.cuda.is_available()
-    if cuda_available:
-        print(f"CUDA Version: {torch.version.cuda}")
-        print(f"Device: {torch.cuda.get_device_name()}")
-    else:
-        print("WARNING: CUDA not found.")
 
 
 def load_yaml(path: Path) -> dict:
@@ -45,58 +23,32 @@ def load_yaml(path: Path) -> dict:
     return data
 
 
-def parse_json(response: str) -> list | dict[str, Any]:
-    """Parse VLM output into JSON.
+def format_pda_doctrine(category: str) -> str:
+    """Format PDA doctrine for a selected target category.
 
     Args:
-        response: Raw VLM response text.
+        category: A doctrinal BDA target category.
 
     Returns:
-        Parsed JSON object or list.
-
-    Raises:
-        ValueError: If response cannot be parsed as JSON.
-    """
-    try:
-        return json.loads(repair_json(response))
-    except Exception as exc:
-        raise ValueError("Unable to parse output as JSON.") from exc
-
-
-def format_pda_doctrine(categories: list[str]) -> str:
-    """Format PDA doctrine for selected target categories.
-
-    Args:
-        categories: A list of doctrinal BDA target categories.
-
-    Returns:
-        A doctrinal PDA string in the format:
-            - Target Category
-            - Physical Damage Definitions
-            - Physical Damage Considerations
+        A doctrinal PDA string with definitions and considerations.
     """
     doctrine = load_yaml(DOCTRINE_PATH)
+    section = doctrine.get(category)
+
+    if not isinstance(section, dict):
+        return "NO TARGET DOCTRINE AVAILABLE."
+
     output = []
-
-    for key in categories:
-        entry = doctrine.get(key)
-        if not isinstance(entry, dict):
+    title = category.replace("_", " ").upper()
+    for key in ["physical_damage_definitions", "physical_damage_considerations"]:
+        section_entry = section.get(key)
+        if section_entry is None:
             continue
-        title = key.replace("_", " ").upper()
-        output.append(f"TARGET CATEGORY: {title}")
+        section_title = key.replace("_", " ").upper()
+        output.append(f"{title} {section_title}")
+        output.append(str(section_entry).strip())
 
-        for section_key in [
-            "physical_damage_definitions",
-            "physical_damage_considerations",
-        ]:
-            section_entry = entry.get(section_key)
-            if section_entry is None:
-                continue
-            section_title = section_key.replace("_", " ").upper()
-            output.append(f"{title} {section_title}")
-            output.append(str(section_entry).strip())
-
-    return "\n".join(output).strip() if output else "NO TARGET DOCTRINE AVAILABLE."
+    return "\n".join(output)
 
 
 def bbox_from_1000(
@@ -105,7 +57,7 @@ def bbox_from_1000(
     """Convert a normalized 0-1000 bbox to raw pixel coordinates.
 
     Args:
-        image: Source PIL image used for scaling.
+        image: Source image used for scaling.
         bbox: Normalized box in 0-1000 format.
 
     Returns:
@@ -140,6 +92,7 @@ def crop_with_buffer(
     image: Image.Image,
     box: tuple[int, int, int, int],
     buffer_ratio: float,
+    min_size: int = 32,
 ) -> Image.Image:
     """Crop a detection box with a small padding buffer.
 
@@ -147,6 +100,7 @@ def crop_with_buffer(
         image: Source image.
         box: Bounding box in integer pixel coordinates.
         buffer_ratio: Fractional padding applied to width and height.
+        min_size: Minimum width and height of the returned crop.
 
     Returns:
         Cropped image region clamped to the image bounds.
@@ -155,6 +109,7 @@ def crop_with_buffer(
     width = xmax - xmin
     height = ymax - ymin
 
+    # Apply buffer
     pad_x = int(round(width * buffer_ratio))
     pad_y = int(round(height * buffer_ratio))
 
@@ -163,7 +118,59 @@ def crop_with_buffer(
     right = min(image.width, xmax + pad_x)
     bottom = min(image.height, ymax + pad_y)
 
+    # Enforce minimum size
+    cur_w = right - left
+    cur_h = bottom - top
+
+    if cur_w < min_size:
+        extra = min_size - cur_w
+        left -= extra // 2
+        right += extra - extra // 2
+    if cur_h < min_size:
+        extra = min_size - cur_h
+        top -= extra // 2
+        bottom += extra - extra // 2
+
+    if left < 0:
+        right -= left
+        left = 0
+    if top < 0:
+        bottom -= top
+        top = 0
+    if right > image.width:
+        shift = right - image.width
+        left -= shift
+        right = image.width
+    if bottom > image.height:
+        shift = bottom - image.height
+        top -= shift
+        bottom = image.height
+
+    # Final safety clamp
+    left = max(0, left)
+    top = max(0, top)
+    right = min(image.width, right)
+    bottom = min(image.height, bottom)
+
     return image.crop((left, top, right, bottom))
+
+
+def resize_for_vlm(image: Image.Image, max_side: int) -> Image.Image:
+    """Resize image for VLM inference while preserving aspect ratio.
+
+    Args:
+        image: Source image.
+        max_side: Maximum allowed width or height in pixels.
+
+    Returns:
+        Original image if already within bounds, otherwise resized copy.
+    """
+    if max(image.size) <= max_side:
+        return image
+
+    resized = image.copy()
+    resized.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
+    return resized
 
 
 def draw_box_overlay(image: Image.Image, box: tuple[int, int, int, int]) -> Image.Image:
@@ -188,46 +195,3 @@ def draw_box_overlay(image: Image.Image, box: tuple[int, int, int, int]) -> Imag
     )
 
     return overlay
-
-
-def nms(
-    detections: list[Detection],
-    iou_threshold: float = 0.50,
-) -> list[Detection]:
-    """Apply non-maximum suppression to detections.
-
-    If multiple detector phrases map to one category, overlapping boxes
-    compete under that shared label.
-
-    Args:
-        detections: Detection records to filter.
-        iou_threshold: Maximum allowed IoU before suppression.
-
-    Returns:
-        Filtered detection list.
-    """
-    if not detections:
-        return []
-
-    label_to_index = {}
-    boxes = []
-    scores = []
-    labels = []
-
-    for detection in detections:
-        # Convert string labels to numeric ids
-        if detection.label not in label_to_index:
-            label_to_index[detection.label] = len(label_to_index)
-        # Convert Detection fields into tensor-friendly arrays
-        boxes.append([float(value) for value in detection.box])
-        scores.append(float(detection.score if detection.score is not None else 0.0))
-        labels.append(label_to_index[detection.label])
-
-    # Run NMS independently per label id.
-    keep_indices = batched_nms(
-        boxes=torch.tensor(boxes, dtype=torch.float32),
-        scores=torch.tensor(scores, dtype=torch.float32),
-        idxs=torch.tensor(labels, dtype=torch.int64),
-        iou_threshold=iou_threshold,
-    )
-    return [detections[index] for index in keep_indices.tolist()]
