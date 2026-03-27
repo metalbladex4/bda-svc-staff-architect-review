@@ -1,32 +1,34 @@
-# Base python images
-FROM python:3.12-slim-trixie
+FROM python:3.12-slim
 
-
-# Copy uv from repo
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
-# Set working dir
 WORKDIR /app
 
-# Copy over only model
-COPY ./models/ /app/models/
-
-# Install dependencies
+# ---- Env ----
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_NO_DEV=1
-COPY pyproject.toml uv.lock ./
-COPY README.md ./
+ENV PATH="/root/.local/bin:${PATH}"
 
-# 3. Copy over only src dir
+# ---- System deps (minimal) ----
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---- Install uv ----
+RUN curl -Ls https://astral.sh/uv/install.sh | sh
+
+# ---- Copy uv files ----
+COPY pyproject.toml uv.lock README.md ./
+
+# ---- Copy /src directory ----
 COPY src/ ./src/
 
-# Install project
+# ---- Install ----
 RUN uv sync --frozen --no-dev
 
-
-# 4. Set PATH to venv
+# ---- Set PATH to venv -----
 ENV PATH="/app/.venv/bin:$PATH"
 
+#------ Run ----
 ENTRYPOINT ["bda-svc"]
-
-CMD ["-i", "-h", "o"]
