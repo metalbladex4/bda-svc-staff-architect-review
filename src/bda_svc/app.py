@@ -22,5 +22,8 @@ def main() -> None:
     # Run analysis
     for input_path in input_paths:
         print(f"\nProcessing: {input_path}\n{'-' * 80}")
-        result = model_name.analyze(input_path)
-        export.save_json(result, input_path, args.output)
+        try:  # Fail safe
+            result = pipe.analyze(input_path)
+            export.save_json(result, input_path, args.output, model_name)
+        except Exception as exc:
+            print(f"[!] Failed to process {input_path}: {exc}")
