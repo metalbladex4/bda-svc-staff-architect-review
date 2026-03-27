@@ -23,3 +23,7 @@ def main() -> None:
         print(f"\nProcessing: {input_path}\n{'-' * 80}")
         result = model.analyze(input_path)
         export.save_json(result, input_path, args.output)
+
+
+if __name__ == "__main__":
+    main()

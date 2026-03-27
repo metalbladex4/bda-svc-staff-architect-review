@@ -1,31 +1,40 @@
 # Base python images
-FROM python:3.12-slim-trixie
+FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0
 
-
-# Copy uv from repo
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Set working dir
 WORKDIR /app
 
+# Update Linux OS dependencies & install uv
+RUN apt-get update && apt-get install -y curl ca-certificates \
+ && curl -LsSf https://astral.sh/uv/install.sh | sh
+
+
+ENV PATH="/root/.local/bin:${PATH}"
+
+
 # Copy over only model
 COPY ./models/ /app/models/
 
-# Install dependencies
+
+# Set uv environment variables
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_NO_DEV=1
+
+
+# Copy over .toml/uv.lock/README.md and src dir
 COPY pyproject.toml uv.lock ./
 COPY README.md ./
-
-# 3. Copy over only src dir
 COPY src/ ./src/
 
-# Install project
+
+# Install project using uv pyproject.toml
 RUN uv sync --frozen --no-dev
 
 
-# 4. Set PATH to venv
+# Set PATH to venv
 ENV PATH="/app/.venv/bin:$PATH"
+
 
 ENTRYPOINT ["bda-svc"]
 
