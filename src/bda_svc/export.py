@@ -2,62 +2,63 @@
 
 import datetime
 import json
+import uuid
 from pathlib import Path
-
-from json_repair import repair_json
 
 from bda_svc import constants
 
 
-def to_dict(bda: str) -> dict:
-    """Convert BDA string to dictionary.
+def build_report(bda: dict, image_path: str | Path, model_name: str) -> dict:
+    """Build report IAW JSON schema.
 
     Args:
-        bda: BDA analysis text.
-
-    Returns:
-        Dictionary form of BDA.
-
-    Raises:
-        ValueError: If BDA text cannot be parsed into a JSON dictionary.
+        bda: BDA analysis dictionary.
+        image_path: Path of the original image.
+        model_name: Model name metadata.
     """
-    # Preferred path: model already returned JSON text
-    try:
-        parsed = json.loads(repair_json(bda))
-        if isinstance(parsed, dict):
-            return parsed
-    except Exception:
-        pass
+    image_path = Path(image_path)
 
-    # TODO: Legacy fallback: parse old sectioned plaintext format.
-    raise ValueError("Unable to parse BDA output into a JSON dictionary.")
+    return {
+        "metadata": {
+            "model_name": model_name,
+            "image_id": str(uuid.uuid4()),
+            "image_filename": image_path.name,
+            "date_created": datetime.datetime.now(datetime.UTC).strftime(
+                "%Y-%m-%dT%H:%M:%SZ"
+            ),
+            "location": {"crs": "", "coordinates": ""},
+            "report_type": "PDA",
+            "analyst": "bda-svc",
+        },
+        "physical_damage": bda.get("physical_damage", {}),
+        "summary": bda.get("summary", ""),
+    }
 
 
-def save_json(bda: str, image_path: str | Path, output_path: str | Path | None) -> None:
+def save_json(
+    bda: dict,
+    image_path: str | Path,
+    output_path: str | Path | None,
+    model_name: str,
+) -> None:
     """Save BDA as a JSON file.
 
     Args:
-        bda: BDA analysis text.
+        bda: BDA analysis dictionary.
         image_path: Path of the original image.
         output_path: Path of output folder. Uses default if None/empty.
+        model_name: Model name metadata.
     """
     image_path = Path(image_path)
     output_path = Path(output_path or constants.DEFAULT_OUTPUT_PATH)
     output_path.mkdir(parents=True, exist_ok=True)
 
+    report = build_report(bda, image_path, model_name)
+
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d_%H%M%SZ")
     json_path = output_path / f"{image_path.stem}_{timestamp}.json"
 
-    # Preserve raw model output if parse fails
-    try:
-        bda_dict = to_dict(bda)
-    except ValueError as e:
-        bda_dict = {
-            "parse_error": str(e),
-            "raw_output": bda,
-        }
-
     with json_path.open("w", encoding="utf-8") as f:
-        json.dump(bda_dict, f, indent=4)
+        json.dump(report, f, indent=4)
 
     print(f"[*] Exported: {json_path}")

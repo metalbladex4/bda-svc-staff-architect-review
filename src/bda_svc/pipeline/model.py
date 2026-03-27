@@ -1,240 +1,269 @@
-"""Object Detection and Vision-Language Model BDA pipeline."""
+"""Vision-Language Model BDA pipeline."""
 
-import warnings
-from dataclasses import dataclass
+import json
 from pathlib import Path
 
-import torch
-import transformers
-from huggingface_hub import snapshot_download
 from PIL import Image
-from transformers import BitsAndBytesConfig, pipeline
+from pydantic import BaseModel, Field, ValidationError
 
+from bda_svc.pipeline.interfaces import Detection, OllamaVLM
 from bda_svc.pipeline.utilities import (
     CONFIG_PATH,
     DOCTRINE_PATH,
+    bbox_from_1000,
+    crop_with_buffer,
+    draw_box_overlay,
     format_pda_doctrine,
     load_yaml,
-)
-
-transformers.utils.logging.set_verbosity_error()
-warnings.filterwarnings(
-    "ignore",
-    message=r"MatMul8bitLt: inputs will be cast from .* to float16 during quantization",
-    category=UserWarning,
+    resize_for_vlm,
 )
 
 
-@dataclass(frozen=True)
-class Detection:
-    """Lightweight record for detection output."""
+class DetectionItem(BaseModel):
+    """Structured detection item returned by detection model."""
 
-    label: str
-    score: float | None = None
-    box: tuple[int, int, int, int] | None = None
-    crop: Image.Image | None = None
+    target_type: str
+    bbox: list[int] = Field(min_length=4, max_length=4)
 
 
-class DetectorRunner:
-    """Default detector that returns no detections."""
+class DetectionResponse(BaseModel):
+    """Structured detection response returned by detection model."""
 
-    def detect(self, image: Image.Image) -> list[Detection]:
-        """Return an empty detection list."""
-        return []
+    detections: list[DetectionItem]
 
 
-class VLMRunner:
-    """Wrapper around a Hugging Face VLM."""
+class AssessmentResponse(BaseModel):
+    """Structured assessment response returned by assessment model."""
 
-    def __init__(
-        self,
-        model_id: str,
-        pipeline_kwargs: dict | None = None,
-        quantization_kwargs: dict | None = None,
-    ) -> None:
-        """Initialize the VLM runner.
-
-        Args:
-            model_id: Hugging Face model identifier.
-            pipeline_kwargs: VLM pipeline parameters.
-            quantization_kwargs: VLM quantization parameters.
-
-        Notes:
-            Loads model artifacts from the `models/` directory.
-            If local artifacts are missing or incomplete, downloads the
-            snapshot into `models/` and retries local loading.
-        """
-        # Configuration blocks
-        self.pipeline_kwargs = pipeline_kwargs or {}
-        self.quantization_kwargs = quantization_kwargs or {}
-
-        # Load model, download if missing
-        repo_root = Path(__file__).resolve().parents[3]
-        local_model_dir = repo_root / "models" / model_id.replace("/", "--")
-        local_model_dir.mkdir(parents=True, exist_ok=True)
-
-        def _load_local() -> None:
-            model_kwargs = {}
-            if quantization_kwargs.get("enabled", False):
-                model_kwargs["quantization_config"] = BitsAndBytesConfig(
-                    load_in_8bit=bool(quantization_kwargs.get("load_in_8bit", False)),
-                    load_in_4bit=bool(quantization_kwargs.get("load_in_4bit", False)),
-                )
-            self.pipeline = pipeline(
-                task="image-text-to-text",
-                model=local_model_dir,
-                local_files_only=True,
-                model_kwargs=model_kwargs,
-                **pipeline_kwargs,
-            )
-
-        try:
-            # Load from local models directory
-            _load_local()
-        except (OSError, ValueError):
-            # Download to local models directory, then load from there
-            snapshot_download(model_id, local_dir=local_model_dir)
-            _load_local()
-
-        self.pipeline.model.eval()
-
-    def generate(
-        self, image: Image.Image, prompt: str, system_prompt: str | None
-    ) -> str:
-        """Generate a response from the VLM.
-
-        Args:
-            image: PIL image to analyze.
-            prompt: User prompt text.
-            system_prompt: Optional system prompt.
-
-        Returns:
-            Model response text.
-        """
-        # Build a chat-style prompt
-        messages = []
-        if system_prompt:
-            messages.append(
-                {"role": "system", "content": [{"type": "text", "text": system_prompt}]}
-            )
-        messages.append(
-            {
-                "role": "user",
-                "content": [
-                    {"type": "image", "image": image},
-                    {"type": "text", "text": prompt},
-                ],
-            }
-        )
-
-        # Return response
-        with torch.inference_mode():
-            response = self.pipeline(messages, return_full_text=False)
-
-        return response[0]["generated_text"]
+    damage_category: str
+    confidence_level: str
+    brief_supporting_logic: str
 
 
 class BDAPipeline:
-    """BDA pipeline combining object detection and VLM inference."""
+    """BDA pipeline combining detection and damage assessment."""
 
-    def __init__(self, detector: DetectorRunner | None = None) -> None:
-        """Initialize configuration, doctrine, prompts, and models.
+    def __init__(self) -> None:
+        """Initialize configuration, doctrine, prompts, and backends."""
+        # Load yamls
+        self.config = load_yaml(CONFIG_PATH)
+        self.doctrine = load_yaml(DOCTRINE_PATH)
+        self.categories = list(self.doctrine.keys())
 
-        Args:
-            detector: Optional detector with a .detect(image) method.
-        """
-        # Load config / doctrine yamls
-        config = load_yaml(CONFIG_PATH)
-        doctrine = load_yaml(DOCTRINE_PATH)
+        # Load prompts
+        prompts = self.config["prompts"]
+        self.system_prompt = prompts["system"]
+        self.detect_objects_prompt_template = prompts["detect_objects"]
+        self.assess_damage_prompt_template = prompts["assess_damage"]
+        self.summarize_scene_prompt_template = prompts["summarize_scene"]
 
-        # Load all prompts
-        self.system_prompt = config["prompts"]["system"]
+        # Load detection backend
+        detection_cfg = self.config["detection_vlm"]
+        self.detection_temperature = float(detection_cfg["temperature"])
+        self.detection_max_image_size = int(detection_cfg["max_image_size"])
+        self.crop_buffer_ratio = float(detection_cfg["crop_buffer_ratio"])
+        self.detection_vlm = OllamaVLM(model=detection_cfg["model"])
 
-        self.categories = [k for k in doctrine.keys()]
-        self.classify_prompt = config["prompts"]["classify"].replace(
-            "{categories}", ", ".join(self.categories)
-        )
-
-        self.report_prompt = config["prompts"]["report"]
-
-        # Load models
-        vlm_cfg = config.get("vlm")
-        vlm_id = vlm_cfg.get("model-id")
-        pipeline_kwargs = vlm_cfg.get("pipeline-kwargs", {})
-        quantization_kwargs = vlm_cfg.get("quantization-kwargs", {})
-        self.vlm = VLMRunner(
-            model_id=vlm_id,
-            pipeline_kwargs=pipeline_kwargs,
-            quantization_kwargs=quantization_kwargs,
-        )
-
-        self.detector = detector
+        # Load assessment backend
+        assessment_cfg = self.config["assessment_vlm"]
+        self.assessment_temperature = float(assessment_cfg["temperature"])
+        self.assessment_max_image_size = int(assessment_cfg["max_image_size"])
+        self.assessment_vlm = OllamaVLM(model=assessment_cfg["model"])
 
     def detect_objects(self, image: Image.Image) -> list[Detection]:
-        """Return detected objects from detector or VLM.
+        """Produce detections for configured doctrinal categories.
 
         Args:
             image: PIL image to analyze.
 
         Returns:
-            List of detections with category labels.
+            Detection records with crops attached.
         """
-        # Use object detector if provided
-        if self.detector is not None:
-            return self.detector.detect(image)
+        # Get detections
+        detections = self._vlm_detections(image)
 
-        # Else use VLM with the classify prompt
-        response = self.vlm.generate(
-            image=image,
-            prompt=self.classify_prompt,
+        # Attach padded image crops to detections
+        detections_with_crops = [
+            Detection(
+                label=det.label,
+                bbox=det.bbox,
+                crop=crop_with_buffer(image, det.bbox, self.crop_buffer_ratio),
+            )
+            for det in detections
+        ]
+
+        # Sort by label then left-to-right
+        detections_with_crops.sort(key=lambda d: (d.label.lower(), d.bbox[0]))
+        return detections_with_crops
+
+    def _vlm_detections(self, image: Image.Image) -> list[Detection]:
+        """Use the detection VLM to produce object detections.
+
+        Args:
+            image: PIL image to analyze.
+
+        Returns:
+            A list of parsed detections in raw pixel coordinates.
+        """
+        # Format prompt with `doctrine.yaml` categories
+        categories_text = ", ".join(self.categories)
+        prompt = self.detect_objects_prompt_template.replace(
+            "{categories}", categories_text
+        )
+        vlm_image = resize_for_vlm(image, self.detection_max_image_size)
+
+        # Get VLM response
+        response = self.detection_vlm.generate(
+            image=vlm_image,
+            prompt=prompt,
             system_prompt=self.system_prompt,
+            format_schema=DetectionResponse.model_json_schema(),
+            temperature=self.detection_temperature,
         )
 
-        # Normalize and keep only valid doctrine categories
-        if not response or not response.strip():
+        # Fail safely
+        try:
+            payload = DetectionResponse.model_validate_json(response)
+        except ValidationError:
             return []
 
-        labels = []
-        for raw in response.replace("\n", ",").split(","):
-            label = raw.strip().strip('"').strip("'").lower()
-            if label in self.categories:
-                labels.append(label)
+        # Return list of detections
+        detections = []
+        for item in payload.detections:
+            # Validate target_type is doctrinal
+            target_type = item.target_type.strip().lower()
+            if target_type not in self.categories:
+                continue
 
-        return [Detection(label=label) for label in labels]
+            # Validate bounding box is valid
+            pixel_box = bbox_from_1000(image, item.bbox)
+            if pixel_box is None:
+                continue
 
-    def format_report_prompt(self, detections: list[Detection]) -> str:
-        """Format report prompt with doctrine for detected labels.
+            detections.append(Detection(label=target_type, bbox=pixel_box))
+
+        return detections
+
+    def assess_detection(
+        self,
+        detection: Detection,
+        scene_image: Image.Image | None = None,
+    ) -> dict | None:
+        """Assess damage for a single detected object crop.
 
         Args:
-            detections: List of detections with category labels.
+            detection: Detection with populated `bbox` and `crop`.
+            scene_image: Optional full-scene for additional context.
 
         Returns:
-            Report prompt with `categories` and `doctrine` populated.
+            Final target assessment record.
         """
-        categories = [det.label for det in detections if det.label]
-        doctrine = format_pda_doctrine(list(set(categories)))
+        # Format prompt
+        doctrine = format_pda_doctrine(detection.label)
+        prompt = self.assess_damage_prompt_template.replace(
+            "{target_type}", detection.label
+        )
+        prompt = prompt.replace("{doctrine}", doctrine)
 
-        categories_text = ", ".join(categories) if categories else "NONE"
-        output = self.report_prompt.replace("{categories}", categories_text)
-        output = output.replace("{doctrine}", doctrine)
+        # Format image inputs
+        if scene_image is None:
+            image_input = resize_for_vlm(detection.crop, self.assessment_max_image_size)
+        else:
+            scene_with_overlay = draw_box_overlay(scene_image, detection.bbox)
+            image_input = [
+                resize_for_vlm(scene_with_overlay, self.assessment_max_image_size),
+                resize_for_vlm(detection.crop, self.assessment_max_image_size),
+            ]
 
-        return output
+        # Get VLM response
+        response = self.assessment_vlm.generate(
+            image=image_input,
+            prompt=prompt,
+            system_prompt=self.system_prompt,
+            format_schema=AssessmentResponse.model_json_schema(),
+            temperature=self.assessment_temperature,
+        )
+
+        # Fail safely
+        try:
+            payload = AssessmentResponse.model_validate_json(response)
+        except ValidationError:
+            return None
+
+        # Return structured output
+        return {
+            "target_type": detection.label,
+            "damage_category": payload.damage_category.upper(),
+            "confidence_level": payload.confidence_level.upper(),
+            "brief_supporting_logic": payload.brief_supporting_logic,
+            "bounding_box": list(detection.bbox),
+        }
+
+    def summarize_scene(self, scene_image: Image.Image, targets: list[dict]) -> str:
+        """Summarize the scene using the image and assessed targets.
+
+        Args:
+            scene_image: Full-scene image.
+            targets: Finalized per-target assessment payloads.
+
+        Returns:
+            Concise scene summary text.
+        """
+        target_assessments = json.dumps(targets, indent=2)
+        prompt = self.summarize_scene_prompt_template.replace(
+            "{target_assessments}", target_assessments
+        )
+        summary_image = resize_for_vlm(scene_image, self.assessment_max_image_size)
+        response = self.assessment_vlm.generate(
+            image=summary_image,
+            prompt=prompt,
+            system_prompt=self.system_prompt,
+            temperature=self.assessment_temperature,
+        )
+        return response.strip()
+
+    def consolidate_results(
+        self, targets: list[dict] | None, scene_summary: str
+    ) -> dict:
+        """Consolidate per-target results into the final output shape.
+
+        Args:
+            targets: Per-target assessment payloads.
+            scene_summary: Scene-level summary.
+
+        Returns:
+            Final image-level result dictionary.
+        """
+        template = {"summary": scene_summary, "physical_damage": {}}
+
+        if not targets:
+            targets = [
+                {
+                    "target_type": "object_not_found",
+                    "damage_category": "NOT APPLICABLE",
+                    "confidence_level": "CONFIRMED",
+                    "brief_supporting_logic": "No visible targets in image.",
+                    "bounding_box": [0, 0, 0, 0],
+                }
+            ]
+
+        for i, target in enumerate(targets):
+            template["physical_damage"][f"target_{i}"] = target
+
+        return template
 
     def analyze(self, image_path: str | Path) -> str:
-        """Run the full BDA pipeline and return a scene-wide assessment.
+        """Run the full BDA pipeline and return the final result payload.
 
         Args:
-            image_path: Path to the image file to analyze.
+            image_path: Path to the input image.
 
         Returns:
-            Model-generated BDA assessment text for the full scene.
+            Final image-level BDA payload.
         """
-        with Image.open(Path(image_path)) as image:
-            image = image.convert("RGB")
+        with Image.open(Path(image_path)).convert("RGB") as image:
             detections = self.detect_objects(image)
-            prompt = self.format_report_prompt(detections)
-            return self.vlm.generate(
-                image=image,
-                prompt=prompt,
-                system_prompt=self.system_prompt,
-            )
+            targets = [self.assess_detection(d, scene_image=image) for d in detections]
+            targets = [t for t in targets if t is not None]
+            scene_summary = self.summarize_scene(image, targets)
+            return self.consolidate_results(targets, scene_summary)
