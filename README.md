@@ -93,6 +93,11 @@ Automated Battle Damage Assessment system powered by machine learning.
 # arm64 architecture image build command
 
 docker buildx build --platform linux/arm64 -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT> --load
+
+
+# x86 architecture image build command
+
+docker build -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT>
 ```
 
 ## Local Container Testing
@@ -100,9 +105,15 @@ docker buildx build --platform linux/arm64 -f <DOCKERFILE_PATH> -t <IMAGE_NAME> 
 ```bash
 # ollama model must be installed and running on 127.0.0.1:11434
 # ollama model name must match model name in bda-svc config.yaml within container
-# command only works on linux systems not WSL
+
+#Linux command:
 
 docker run --rm --network host -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
+
+
+#WSL command:
+
+docker run --rm -e OLLAMA_HOST=http://host.docker.internal:11434 -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
 ```
 
 
