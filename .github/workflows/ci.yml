@@ -43,6 +43,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Ollama
+        uses: ai-action/setup-ollama@v2
+        with:
+          ollama-version: "latest" # Optional: specify a version
+
+      - name: Run LLM model with the action
+        run: ollama run qwen3-vl:2b-instruct-q8_0
+
       - name: Create images directory
         run: mkdir -p ./images
       - name: Create output directory
