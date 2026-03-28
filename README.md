@@ -9,7 +9,7 @@ Automated Battle Damage Assessment system powered by machine learning.
 1. [**Install uv**](https://docs.astral.sh/uv/getting-started/installation/)
 
 2. [**Install Ollama and ensure the local server is running**](https://ollama.com/download)
-   
+
    If Ollama is not already running on your machine, start it with:
    ```bash
    ollama serve
@@ -45,7 +45,7 @@ Automated Battle Damage Assessment system powered by machine learning.
 2. **Run the BDA service with the default input folder, an environment variable, or a command-line path**:
 
    ```bash
-   uv run bda-svc 
+   uv run bda-svc
 
    # or
 
@@ -59,7 +59,7 @@ Automated Battle Damage Assessment system powered by machine learning.
 
    uv run bda-svc -i /path/to/folder
    ```
-   
+
 ## Project Structure
 
 ```
@@ -86,6 +86,25 @@ Automated Battle Damage Assessment system powered by machine learning.
 ├── uv.lock
 └── README.md
 ```
+
+## Container Build with Docker
+
+```bash
+# arm64 architecture image build command
+
+docker buildx build --platform linux/arm64 -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT> --load
+```
+
+## Local Container Testing
+
+```bash
+# ollama model must be installed and running on 127.0.0.1:11434
+# ollama model name must match model name in bda-svc config.yaml within container
+# command only works on linux systems not WSL
+
+docker run --rm --network host -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
+```
+
 
 ## License
 
