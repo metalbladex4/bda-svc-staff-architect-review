@@ -43,9 +43,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build and load image
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build and push
         uses: docker/build-push-action@v5
         with:
+          platforms: linux/arm64
           context: .
           tags: bda-svc:latest
           load: true # Makes image available to docker run
