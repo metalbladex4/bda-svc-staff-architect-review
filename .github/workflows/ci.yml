@@ -51,6 +51,7 @@ jobs:
         with:
           platforms: linux/arm64
           context: .
+          file: ./docker/Dockerfile
           tags: bda-svc:latest
           load: true # Makes image available to docker run
 
