@@ -2,7 +2,7 @@
 # DETECTION VLM BACKEND
 # ------------------------------------------------------------
 detection_vlm:
-  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
+  model: qwen3-vl:2b-instruct-q8_0  # str, required; Ollama model name.
   temperature: 0.0  # float, required; Sampling temperature for generation.
   max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
   crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
@@ -11,7 +11,7 @@ detection_vlm:
 # ASSESSMENT VLM BACKEND
 # ------------------------------------------------------------
 assessment_vlm:
-  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
+  model: qwen3-vl:2b-instruct-q8_0  # str, required; Ollama model name.
   temperature: 0.0  # float, required; Sampling temperature for generation.
   max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
 

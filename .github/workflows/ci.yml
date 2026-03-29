@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: "3.13"
 
-    # 3. Install dependencies 
+    # 3. Install dependencies
     - name: Install dependencies with uv
       run: |
         curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -34,3 +34,42 @@ jobs:
     - name: Run Tests
       # 'uv run' ensures it uses the virtual environment created by 'uv sync'
       run: uv run pytest
+
+
+  build-and-run:
+      runs-on: ubuntu-24.04-arm
+
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ollama
+        uses: ai-action/setup-ollama@v2
+        with:
+          ollama-version: "latest" # Optional: specify a version
+
+      - name: Run LLM model with the action
+        run: ollama run qwen3-vl:2b-instruct-q8_0
+
+      - name: Create images directory
+        run: mkdir -p ./images
+      - name: Create output directory
+        run: mkdir -p ./output
+
+      - name: Copy images to images directory in runner
+        run: cp -r ./tests/test_images/* ./images/
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          platforms: linux/arm64
+          context: .
+          file: ./docker/Dockerfile
+          tags: bda-svc:latest
+          load: true # Makes image available to docker run
+
+      - name: Run containerized test
+        run: docker run --rm --network host -v "$(pwd)/images:/input" -v "$(pwd)/outputs:/output" bda-svc:latest -i /input -o /output
