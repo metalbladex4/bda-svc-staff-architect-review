@@ -28,12 +28,23 @@ class TargetType(BDAEnum):
     """IntEnum containing ordered collection of target types."""
 
     BRIDGES = 0
+    BUILDINGS = 1
     MILITARY_EQUIPMENT = 7
     OBJECT_NOT_FOUND = 21
 
 
 class DamageBridge(BDAEnum):
     """IntEnum containing ordered collection of damage levels for bridges."""
+
+    NO_DAMAGE = 0
+    LIGHT_DAMAGE = 1
+    MODERATE_DAMAGE = 2
+    SEVERE_DAMAGE = 3
+    DESTROYED = 4
+
+
+class DamageBuildings(BDAEnum):
+    """IntEnum containing ordered collection of damage levels for buildings."""
 
     NO_DAMAGE = 0
     LIGHT_DAMAGE = 1
@@ -66,6 +77,10 @@ class Confidence(BDAEnum):
 
 target_damage_map = {
     "bridges": {"target_type": TargetType.BRIDGES, "damage_category": DamageBridge},
+    "buildings": {
+        "target_type": TargetType.BUILDINGS,
+        "damage_category": DamageBuildings,
+    },
     "military_equipment": {
         "target_type": TargetType.MILITARY_EQUIPMENT,
         "damage_category": DamageMilitaryEquipment,
@@ -222,7 +237,6 @@ class BDAReport:
             report_type=metadata_dict.get("report_type", ""),
             analyst=metadata_dict.get("analyst", ""),
         )
-
         # Parse the report and extract detected objects
         target_list = []
 
@@ -233,13 +247,31 @@ class BDAReport:
 
             # Store BDA fields as IntEnum-subclassed objects
             target_type = td_map["target_type"]
-            damage_category = td_map["damage_category"][
-                target_data["damage_category"].upper().replace(" ", "_")
-            ]
+
+            try:
+                damage_category = td_map["damage_category"][
+                    target_data["damage_category"].upper().replace(" ", "_")
+                ]
+            except KeyError as e:
+                print(
+                    f"[*] Unknown damage category {e} for {target_label} in {metadata.image_filename}. Skipping."
+                )
+                continue
+
             confidence = Confidence[target_data["confidence_level"].upper()]
 
             logic = target_data["brief_supporting_logic"]
-            box = BoundingBox(**target_data["bounding_box"])
+
+            try:
+                if isinstance(target_data["bounding_box"], list):
+                    box = BoundingBox(*target_data["bounding_box"])
+                else:
+                    box = BoundingBox(**target_data["bounding_box"])
+            except TypeError:
+                print(
+                    f"[*] Error parsing bounding box for {target_label} in {metadata.image_filename}. Skipping."
+                )
+                continue
 
             # Convert BDA fields to numpy array for more efficient filtering/comparison
             ndarray = np.array([target_type, damage_category, confidence])
