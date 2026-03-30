@@ -51,8 +51,8 @@ def get_report_paths(
     pred_folder_path = get_folder(pred_folder)
 
     # Perform file search
-    ref_paths = list(ref_folder_path.glob("*.json"))
-    pred_paths = list(pred_folder_path.glob("*.json"))
+    ref_paths = list(ref_folder_path.glob("*"))
+    pred_paths = list(pred_folder_path.glob("*"))
 
     # Check if either folder is empty
     for paths, folder in [(ref_paths, ref_folder_path), (pred_paths, pred_folder_path)]:

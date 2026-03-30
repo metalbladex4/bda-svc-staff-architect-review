@@ -4,7 +4,6 @@
 import cli
 import discovery
 import export
-
 import models
 
 
@@ -64,10 +63,10 @@ def main():
 
     # Basic sanity checks
     if missing_pred:
-        print(f"\nMissing Predictions: {missing_pred}\n")
+        print(f"[*] Missing Predictions: {missing_pred}")
 
     if missing_ref:
-        print(f"\nMissing References: {missing_ref}\n")
+        print(f"[*] Missing References: {missing_ref}")
 
     # Assess image objects for every pair of reference and predicted reports
     packages = []
