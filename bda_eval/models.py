@@ -184,8 +184,15 @@ class BDAMatch:
 
     ref_target: BDATarget
     pred_target: BDATarget
-    cost: float
     iou: float
+    w_d: float
+    w_c: float
+    cost: float
+    score_assess: float
+    score_logic: float
+    w_assess: float
+    w_logic: float
+    score: float
 
 
 class BDAReport:
@@ -291,8 +298,57 @@ class BDAReport:
 
         return cls(metadata=metadata, targets=target_list)
 
+    def _llmaaj(self, ref_bda: BDATarget, pred_bda: BDATarget) -> float:
+        """Get score for match logic.
+
+        Args:
+            ref_bda: Reference BDATarget
+            pred_bda: Predicted BDATarget
+
+        Returns:
+            Score generated via LLMaaJ, normalized
+        """
+        print(f"[*] Human logic: {ref_bda.logic}")
+        print(f"[*] Model logic: {pred_bda.logic}")
+        import random
+
+        score_raw = random.randint(0, 2)
+
+        return score_raw / 2
+
+    def _calculate_target_score(
+        self,
+        score_assess: float,
+        score_logic: float,
+        w_assess: float = 0.7,
+    ) -> float:
+        """Calculates final object score.
+
+        Args:
+            score_assess: Object detection/assessment score.
+            score_logic: Assessment logic score.
+            w_assess: Relative weight of the assessment component score.
+
+        Returns:
+            Final normalized target score.
+        """
+        # Sanity check
+        if score_assess <= 0.0 or score_logic <= 0.0:
+            return 0.0
+
+        # Weights should add up to one
+        w_logic = 1 - w_assess
+
+        # Return weighted geometric mean
+        return (score_assess**w_assess) * (score_logic**w_logic)
+
     def get_bda_matches(
-        self, R: Self, min_iou: float = 0.001, w_d: float = 0.05, w_c: float = 0.05
+        self,
+        R: Self,
+        min_iou: float = 0.001,
+        w_d: float = 0.05,
+        w_c: float = 0.05,
+        w_assess: float = 0.7,
     ) -> tuple[list[BDAMatch], list[BDATarget], list[BDATarget]] | None:
         """Pairs predictions to reference BDAs using the Hungarian Algorithm.
 
@@ -304,6 +360,7 @@ class BDAReport:
             min_iou: Minimum IoU required to consider a match valid.
             w_d: Weight of the damage penalty tiebreaker.
             w_c: Weight of the confidence penalty tiebreaker.
+            w_assess: Relative weight of the assessment component score.
 
         Returns:
             Tuple of matched BDAs, False Positives, and False Negatives.
@@ -313,6 +370,9 @@ class BDAReport:
 
         matches = []
         max_cost = 1e5
+
+        # Weights should add up to one
+        w_logic = 1 - w_assess
 
         if len(R.targets) == 0:
             return None
@@ -381,18 +441,44 @@ class BDAReport:
                 actual_iou = p_bda.box.calc_iou(r_bda.box)
 
                 if actual_iou >= min_iou:
+                    score_assess = (
+                        (1 + w_d + w_c) - cost_matrix[p_idx, r_idx].item()
+                    ) / (1 + w_d + w_c)
+                    score_logic = self._llmaaj(r_bda, p_bda)
+
                     matches.append(
                         BDAMatch(
                             ref_target=r_bda,
                             pred_target=p_bda,
                             cost=cost_matrix[p_idx, r_idx].item(),
                             iou=actual_iou,
+                            w_d=w_d,
+                            w_c=w_c,
+                            score_assess=score_assess,
+                            score_logic=score_logic,
+                            w_assess=w_assess,
+                            w_logic=w_logic,
+                            score=self._calculate_target_score(
+                                score_assess, score_logic, w_assess=w_assess
+                            ),
                         )
                     )
                 else:
                     if t_enum == TargetType.OBJECT_NOT_FOUND:
                         matches.append(
-                            BDAMatch(ref_target=r_bda, pred_target=p_bda, cost=0, iou=0)
+                            BDAMatch(
+                                ref_target=r_bda,
+                                pred_target=p_bda,
+                                cost=0,
+                                iou=0,
+                                w_d=w_d,
+                                w_c=w_c,
+                                score_assess=0,
+                                score_logic=0,
+                                w_assess=0,
+                                w_logic=0,
+                                score=0,
+                            )
                         )
 
         # Determine False Positives and False Negatives
