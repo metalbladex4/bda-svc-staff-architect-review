@@ -54,12 +54,14 @@ version = "0.1.0"
 source = { virtual = "bda_eval" }
 dependencies = [
     { name = "numpy" },
+    { name = "ollama" },
     { name = "scipy" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "numpy", specifier = ">=2.4.1" },
+    { name = "ollama", specifier = ">=0.6.1" },
     { name = "scipy", specifier = ">=1.17.1" },
 ]
 

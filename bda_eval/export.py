@@ -6,6 +6,7 @@ from pathlib import Path
 
 import models
 
+# Define the order of columns
 CSV_HEADERS = [
     "image_filename",
     "model_name",
@@ -17,7 +18,14 @@ CSV_HEADERS = [
     "ref_confidence",
     "pred_confidence",
     "iou_score",
+    "w_d",
+    "w_c",
     "cost",
+    "score_assess",
+    "score_logic",
+    "w_assess",
+    "w_logic",
+    "score",
     "match_status",
 ]
 
@@ -25,50 +33,73 @@ CSV_HEADERS = [
 def _build_row(
     report_pred: models.BDAReport,
     match_status: str,
+    match: models.BDAMatch | None = None,
     ref_target: models.BDATarget | None = None,
     pred_target: models.BDATarget | None = None,
-    cost: float | str = "",
-    iou: float | str = "",
 ) -> dict:
     """Helper function to create a CSV row (as dictionary).
 
     Args:
         report_pred: BDAReport to extract metadata
         match_status: One of (TP, FN, FP)
+        match: BDAMatch object
         ref_target: Within a matched tuple, the reference BDATarget
         pred_target: Within a matched tuple, the predicted BDATarget
-        cost: Cost calculated by Hungarian Algorithm (for matched targets)
-        iou: IoU calculation (for matched targets)
 
     Returns:
         Dictionary representing a CSV row
     """
-    # Exit early if both ref and pred targets are missing
-    if ref_target is not None:
-        active_target = ref_target
-    elif pred_target is not None:
-        active_target = pred_target
+    # Extract data from match (i.e. True Positive)
+    if match:
+        ref = match.ref_target
+        pred = match.pred_target
+        iou = f"{match.iou:.3f}"
+        w_d = f"{match.w_d:.3f}"
+        w_c = f"{match.w_c:.3f}"
+        cost = f"{match.cost:.3f}"
+        s_assess = f"{match.score_assess:.3f}"
+        s_logic = f"{match.score_logic:.3f}"
+        w_assess = f"{match.w_assess:.3f}"
+        w_logic = f"{match.w_logic:.3f}"
+        score = f"{match.score:.3f}"
     else:
-        return {}
+        # Handle False Positives and False Negatives
+        ref = ref_target
+        pred = pred_target
+        cost = iou = w_d = w_c = s_assess = s_logic = w_assess = w_logic = score = ""
+
+    # Exit early if both ref and pred targets are missing
+    if ref is not None:
+        active_target = ref
+    elif pred is not None:
+        active_target = pred
+    else:
+        raise ValueError("[*] Unable to build row. Both targets are None")
 
     return {
         "image_filename": report_pred.metadata.image_filename,
         "model_name": report_pred.metadata.model_name,
         "target_type": active_target.target_type.text,
-        "ref_target_label": ref_target.target_label if ref_target else "",
-        "ref_damage": ref_target.damage_category.text if ref_target else "",
-        "pred_target_label": pred_target.target_label if pred_target else "",
-        "pred_damage": pred_target.damage_category.text if pred_target else "",
-        "ref_confidence": ref_target.confidence.text if ref_target else "",
-        "pred_confidence": pred_target.confidence.text if pred_target else "",
-        "cost": str(cost) if cost != "" else "",
-        "iou_score": str(iou) if iou != "" else "",
+        "ref_target_label": ref.target_label if ref else "",
+        "ref_damage": ref.damage_category.text if ref else "",
+        "pred_target_label": pred.target_label if pred else "",
+        "pred_damage": pred.damage_category.text if pred else "",
+        "ref_confidence": ref.confidence.text if ref else "",
+        "pred_confidence": pred.confidence.text if pred else "",
+        "iou_score": iou,
+        "w_d": w_d,
+        "w_c": w_c,
+        "cost": cost,
+        "score_assess": s_assess,
+        "score_logic": s_logic,
+        "w_assess": w_assess,
+        "w_logic": w_logic,
+        "score": score,
         "match_status": match_status,
     }
 
 
 def package_bda_report(
-    # report_ref: models.BDAReport,
     report_pred: models.BDAReport,
     matches: list[models.BDAMatch],
     false_negatives: list[models.BDATarget],
@@ -88,26 +119,13 @@ def package_bda_report(
     rows = []
 
     for match in matches:
-        rows.append(
-            _build_row(
-                report_pred=report_pred,
-                match_status="TP",
-                ref_target=match.ref_target,
-                pred_target=match.pred_target,
-                cost=match.cost,
-                iou=match.iou,
-            )
-        )
+        rows.append(_build_row(report_pred, "TP", match=match))
 
     for fn in false_negatives:
-        rows.append(
-            _build_row(report_pred=report_pred, match_status="FN", ref_target=fn)
-        )
+        rows.append(_build_row(report_pred, "FN", ref_target=fn))
 
     for fp in false_positives:
-        rows.append(
-            _build_row(report_pred=report_pred, match_status="FP", pred_target=fp)
-        )
+        rows.append(_build_row(report_pred, "FP", pred_target=fp))
 
     return rows
 
@@ -142,5 +160,6 @@ def save_csv(
             csv_writer.writerows(rows)
 
         return csv_path
-    except (OSError, ValueError, csv.Error):
+    except (OSError, ValueError, csv.Error) as e:
+        print(f"\n[*] Unable to write CSV file ({e})")
         return None
