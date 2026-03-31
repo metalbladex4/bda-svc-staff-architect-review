@@ -80,7 +80,7 @@ def main():
         if match_results:
             matches, false_negatives, false_positives = match_results
 
-            print(f"[*] Matches: {len(matches)} (out of {len(R_report.targets)})")
+            # print(f"[*] Matches: {len(matches)} (out of {len(R_report.targets)})")
 
             package = export.package_bda_report(
                 # R_report,

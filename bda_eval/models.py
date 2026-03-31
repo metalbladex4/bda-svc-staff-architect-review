@@ -1,11 +1,16 @@
 """Battle Damage Assessment (BDA) Structures."""
 # pylint: disable=invalid-name,import-outside-toplevel
 
+import concurrent.futures
+import json
+import time
 from dataclasses import dataclass, field
 from enum import IntEnum
+from os import environ
 from typing import Self
 
 import numpy as np
+from ollama import ChatResponse, Client
 
 
 class BDAEnum(IntEnum):
@@ -298,23 +303,100 @@ class BDAReport:
 
         return cls(metadata=metadata, targets=target_list)
 
-    def _llmaaj(self, ref_bda: BDATarget, pred_bda: BDATarget) -> float:
+    def _llmaaj(
+        self,
+        ref_bda: BDATarget,
+        pred_bda: BDATarget,
+        client: Client,
+        model: str = "qwen3-vl:235b-cloud",
+    ) -> float:
         """Get score for match logic.
 
         Args:
             ref_bda: Reference BDATarget
             pred_bda: Predicted BDATarget
+            client: Shared Ollama Client object
+            model: Ollama Cloud model name
 
         Returns:
             Score generated via LLMaaJ, normalized
         """
-        print(f"[*] Human logic: {ref_bda.logic}")
-        print(f"[*] Model logic: {pred_bda.logic}")
-        import random
+        # print(f"[*] Human logic: {ref_bda.logic}\n")
+        # print(f"[*] Model logic: {pred_bda.logic}\n")
 
-        score_raw = random.randint(0, 2)
+        max_retries = 6
+        query = f"""You are an expert military intelligence analyst acting as an impartial judge for an automated Battle Damage Assessment (BDA) pipeline.
 
-        return score_raw / 2
+Your task is to compare a human analyst's reference logic against an AI computer vision model's predicted logic.
+
+Compare the reference text against the predicted text and grade the prediction using the following integer scale:
+- 0: The predicted text directly contradicts the reference text or invents details not present.
+- 1: The predicted text misses key nuance, or is too vague to be useful for intelligence gathering.
+- 2: The predicted text fully captures the reasoning within the reference text and correctly identifies the state of the target.
+
+<reference_logic>
+{ref_bda.logic}
+</reference_logic>
+
+<predicted_logic>
+{pred_bda.logic}
+</predicted_logic>
+
+Return a JSON object with the following schema:
+{{
+    "reasoning": "string",
+    "score": integer
+}}
+
+The "reasoning" field must explain step-by-step why you chose the value for "score".
+Output ONLY valid JSON.
+"""
+
+        # Connec to LLM (with exponential backoff)
+        for attempt in range(max_retries):
+            try:
+                response: ChatResponse = client.chat(
+                    model=model,
+                    messages=[{"role": "user", "content": query}],
+                    format="json",
+                    options={"temperature": 0.0},  # For deterministic result
+                )
+
+                # Parse the JSON string returned by the model
+                if response.message.content is not None:
+                    result = json.loads(response.message.content)
+                else:
+                    result = {}
+
+                # Extract the score (default to 0 if something goes wrong)
+                score = result.get("score", 0)
+
+                # print(f"\t[*] LLMaaJ: {result.get('reasoning')}")
+
+                # Normalize the 0, 1, 2 integer into a 0.0, 0.5, 1.0 float
+                return float(score) / 2.0
+            except Exception as e:
+                error_msg = str(e).lower()
+
+                if "429" in error_msg or "too many requests" in error_msg:
+                    # Backoff: 1s, 2s, 4s, 8s
+                    sleep_time = 2**attempt
+
+                    print(
+                        f"[*] Rate limited for LLM. Retrying in {sleep_time} seconds."
+                    )
+
+                    time.sleep(sleep_time)
+                    continue
+
+                if isinstance(e, json.JSONDecodeError):
+                    print("[*] LLM returned invalid JSON. Defaulting to 0.0")
+                    return 0.0
+
+        # Attempts exhausted
+        print("[*] Max retries reached querying LLM. Defaulting to 0.0")
+
+        return 0.0
 
     def _calculate_target_score(
         self,
@@ -332,15 +414,52 @@ class BDAReport:
         Returns:
             Final normalized target score.
         """
-        # Sanity check
-        if score_assess <= 0.0 or score_logic <= 0.0:
-            return 0.0
-
         # Weights should add up to one
         w_logic = 1 - w_assess
 
-        # Return weighted geometric mean
-        return (score_assess**w_assess) * (score_logic**w_logic)
+        # Scale the target score with `score_assess`:
+        #   Case 1: score_assess=1.0, score_logic=1.0 --> 1.0
+        #   Case 2: score_assess=1.0, score_logic=0.0 --> 0.7 (if w_assess == 0.7)
+        #   Case 3: score_assess=0.0, score_logic=1.0 --> 0.0
+        #   Case 4: score_assess=0.5, score_logic=1.0 --> 0.5
+        return score_assess * (w_assess + (score_logic * w_logic))
+
+    def _evaluate_logic(self, matches: list):
+        """Evaluates BDAMatch logic concurrently (updating in-place).
+
+        Args:
+            matches: List of BDAMatch objects.
+        """
+        api_key = environ.get("OLLAMA_API_KEY")
+        if not api_key:
+            raise KeyError("[*] Environment variable 'OLLAMA_API_KEY' not set.")
+
+        # Share Client object between match queries
+        shared_client = Client(
+            host="https://ollama.com", headers={"Authorization": f"Bearer {api_key}"}
+        )
+
+        # Use a ThreadPool to run requests concurrently
+        # `max_workers`` helps us keep Ollama Cloud happy
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+            # Dictionary to keep track of which future belongs to which match
+            future_to_match = {
+                executor.submit(
+                    self._llmaaj, match.ref_target, match.pred_target, shared_client
+                ): match
+                for match in matches
+            }
+
+            # As each concurrent request finishes, record the score
+            for future in concurrent.futures.as_completed(future_to_match):
+                match = future_to_match[future]
+                try:
+                    # Get the returned score from _llmaaj
+                    score = future.result()
+                    match.score_logic = score
+                    print(f"[*] Normalized LLMaaJ score: {score}")
+                except Exception as e:
+                    print(f"[*] LLMaaJ operation generated an exception: {e}")
 
     def get_bda_matches(
         self,
@@ -444,7 +563,8 @@ class BDAReport:
                     score_assess = (
                         (1 + w_d + w_c) - cost_matrix[p_idx, r_idx].item()
                     ) / (1 + w_d + w_c)
-                    score_logic = self._llmaaj(r_bda, p_bda)
+
+                    # score_logic = self._llmaaj(r_bda, p_bda)
 
                     matches.append(
                         BDAMatch(
@@ -455,12 +575,10 @@ class BDAReport:
                             w_d=w_d,
                             w_c=w_c,
                             score_assess=score_assess,
-                            score_logic=score_logic,
+                            score_logic=0,
                             w_assess=w_assess,
                             w_logic=w_logic,
-                            score=self._calculate_target_score(
-                                score_assess, score_logic, w_assess=w_assess
-                            ),
+                            score=0,
                         )
                     )
                 else:
@@ -480,6 +598,18 @@ class BDAReport:
                                 score=0,
                             )
                         )
+
+        # Query LLMaaJ for every matched pair (that's not OBJECT_NOT_FOUND)
+        matches_valid = [match for match in matches if match.score_assess > 0.0]
+        self._evaluate_logic(matches_valid)
+
+        # Finish populating the `score` value for every match
+        for match in matches:
+            match.score = self._calculate_target_score(
+                match.score_assess,
+                match.score_logic,
+                w_assess,
+            )
 
         # Determine False Positives and False Negatives
         # Start by gettings memory addresses of all matched BDATargets (to filter out)
