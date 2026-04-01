@@ -5,7 +5,7 @@ name: CI Pipeline
 # 2. Pull Requests targeting main
 on:
   push:
-    branches: [ "**" ]  # Run on all branches
+    branches: [ "**" ]
   pull_request:
     branches: [ "main" ]
 
@@ -24,52 +24,76 @@ jobs:
       with:
         python-version: "3.13"
 
-    # 3. Install dependencies
-    - name: Install dependencies with uv
-      run: |
-        curl -LsSf https://astral.sh/uv/install.sh | sh
-        uv sync
+    # 3. Set up uv
+    - name: Set up uv
+      uses: astral-sh/setup-uv@v8
 
-    # 4. Run Tests
+    # 4. Install dependencies
+    - name: Install dependencies
+      run: uv sync
+
+    # 5. Run Tests
     - name: Run Tests
-      # 'uv run' ensures it uses the virtual environment created by 'uv sync'
-      run: uv run pytest
+      run: uv run pytest -v
 
 
   build-and-run:
-      runs-on: ubuntu-24.04-arm
+    needs: test
+    runs-on: ubuntu-24.04-arm
+    env:
+      BDA_DETECTION_MODEL: qwen3-vl:2b-instruct
+      BDA_ASSESSMENT_MODEL: qwen3-vl:2b-instruct
 
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    steps:
+    # 1. Check out the code
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Setup Ollama
-        uses: ai-action/setup-ollama@v2
-        with:
-          ollama-version: "latest" # Optional: specify a version
+    # 2. Setup Ollama
+    - name: Setup Ollama
+      uses: ai-action/setup-ollama@v2
+      with:
+        ollama-version: "latest"
 
-      - name: Run LLM model with the action
-        run: ollama run qwen3-vl:2b-instruct-q8_0
+    - name: Pull VLMs
+      run: |
+        ollama pull "$BDA_DETECTION_MODEL"
+        ollama pull "$BDA_ASSESSMENT_MODEL"
 
-      - name: Create images directory
-        run: mkdir -p ./images
-      - name: Create output directory
-        run: mkdir -p ./output
+    # 3. Get test data
+    - name: Prepare test inputs
+      run: |
+        mkdir -p ./bda_input ./bda_output
+        cp ./tests/data/tank.jpg ./bda_input
 
-      - name: Copy images to images directory in runner
-        run: cp -r ./tests/test_images/* ./images/
+    # 4. Build Docker image
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
+    - name: Build image
+      uses: docker/build-push-action@v5
+      with:
+        platforms: linux/arm64
+        context: .
+        file: ./docker/Dockerfile
+        tags: bda-svc:latest
+        load: true
 
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          platforms: linux/arm64
-          context: .
-          file: ./docker/Dockerfile
-          tags: bda-svc:latest
-          load: true # Makes image available to docker run
+    # 5. Run bda-svc on ARM container
+    - name: Run containerized test
+      run: |
+        docker run --rm --network host \
+          -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
+          -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
+          -v "$(pwd)/bda_input:/bda_input" \
+          -v "$(pwd)/bda_output:/bda_output" \
+          bda-svc:latest -i /bda_input -o /bda_output
 
-      - name: Run containerized test
-        run: docker run --rm --network host -v "$(pwd)/images:/input" -v "$(pwd)/outputs:/output" bda-svc:latest -i /input -o /output
+    # 6. Print generated bda-report
+    - name: Print bda-report
+      run: |
+        for file in ./bda_output/*.json; do
+          echo "=== $file ==="
+          python -m json.tool "$file"
+          echo
+        done
