@@ -1,5 +1,7 @@
 """Main application entry point for BDA Service."""
 
+import time
+
 from bda_svc import cli, export, inputs
 from bda_svc.pipeline.model import BDAPipeline
 
@@ -20,10 +22,12 @@ def main() -> None:
     )
 
     # Run analysis
-    for input_path in input_paths:
-        print(f"\nProcessing: {input_path}\n{'-' * 80}")
+    for path in input_paths:
+        print(f"\nProcessing: {path}\n{'-' * 80}")
         try:  # Fail safe
-            result = pipe.analyze(input_path)
-            export.save_json(result, input_path, args.output, model_name)
+            start_time = time.perf_counter()
+            result = pipe.analyze(path)
+            inference_time = time.perf_counter() - start_time
+            export.save_json(result, path, args.output, model_name, inference_time)
         except Exception as exc:
-            print(f"[!] Failed to process {input_path}: {exc}")
+            print(f"[!] Failed to process {path}: {exc}")
