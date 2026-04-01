@@ -1,6 +1,7 @@
 """Vision-Language Model BDA pipeline."""
 
 import json
+import os
 from pathlib import Path
 
 from PIL import Image
@@ -59,16 +60,20 @@ class BDAPipeline:
 
         # Load detection backend
         detection_cfg = self.config["detection_vlm"]
+        detection_model = os.environ.get("BDA_DETECTION_MODEL", detection_cfg["model"])
         self.detection_temperature = float(detection_cfg["temperature"])
         self.detection_max_image_size = int(detection_cfg["max_image_size"])
         self.crop_buffer_ratio = float(detection_cfg["crop_buffer_ratio"])
-        self.detection_vlm = OllamaVLM(model=detection_cfg["model"])
+        self.detection_vlm = OllamaVLM(model=detection_model)
 
         # Load assessment backend
         assessment_cfg = self.config["assessment_vlm"]
+        assessment_model = os.environ.get(
+            "BDA_ASSESSMENT_MODEL", assessment_cfg["model"]
+        )
         self.assessment_temperature = float(assessment_cfg["temperature"])
         self.assessment_max_image_size = int(assessment_cfg["max_image_size"])
-        self.assessment_vlm = OllamaVLM(model=assessment_cfg["model"])
+        self.assessment_vlm = OllamaVLM(model=assessment_model)
 
     def detect_objects(self, image: Image.Image) -> list[Detection]:
         """Produce detections for configured doctrinal categories.
