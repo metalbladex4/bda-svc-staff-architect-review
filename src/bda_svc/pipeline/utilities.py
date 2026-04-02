@@ -23,6 +23,31 @@ def load_yaml(path: Path) -> dict:
     return data
 
 
+def format_detection_doctrine(categories: list[str]) -> str:
+    """Format detection guidance doctrine for selected categories.
+
+    Args:
+        categories: Doctrinal BDA target categories.
+
+    Returns:
+        Detection guidance block for the prompt.
+    """
+    output = []
+    doctrine = load_yaml(DOCTRINE_PATH)
+
+    for category in categories:
+        section = doctrine.get(category)
+        if not isinstance(section, dict):
+            continue
+        section_entry = section.get("detection_guidance")
+        if section_entry is None:
+            continue
+        output.append(f"{category}:")
+        output.append(str(section_entry).strip())
+
+    return "\n\n".join(output)
+
+
 def format_pda_doctrine(category: str) -> str:
     """Format PDA doctrine for a selected target category.
 

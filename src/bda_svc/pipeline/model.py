@@ -15,6 +15,7 @@ from bda_svc.pipeline.utilities import (
     bbox_to_pixels,
     crop_with_buffer,
     draw_box_overlay,
+    format_detection_doctrine,
     format_pda_doctrine,
     load_yaml,
     resize_for_vlm,
@@ -117,6 +118,9 @@ class BDAPipeline:
         # Format prompt with doctrinal categories
         categories = ", ".join(self.categories)
         prompt = prompt.replace("{categories}", categories)
+        prompt = prompt.replace(
+            "{detection_guidance}", format_detection_doctrine(self.categories)
+        )
 
         # Format prompt with bbox format
         if self.detection_bbox_convention.startswith("xyxy"):
