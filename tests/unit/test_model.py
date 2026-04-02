@@ -52,11 +52,15 @@ class FakeVLM:
 # ----------------------------------------------------------------------
 
 
-def make_config(crop_buffer_ratio: float = 0.10) -> dict:
+def make_config(
+    crop_buffer_ratio: float = 0.10,
+    bbox_convention: str = "xyxy_1000",
+) -> dict:
     """Return minimal config for model tests."""
     return {
         "detection_vlm": {
             "model": "detection-model",
+            "bbox_convention": bbox_convention,
             "temperature": 0.0,
             "max_image_size": 1024,
             "crop_buffer_ratio": crop_buffer_ratio,
@@ -68,7 +72,11 @@ def make_config(crop_buffer_ratio: float = 0.10) -> dict:
         },
         "prompts": {
             "system": "system prompt",
-            "detect_objects": "Detect objects from: {categories}",
+            "detect_objects": (
+                "Detect objects from: {categories}\n"
+                "Guidance:\n{detection_guidance}\n"
+                "Use {bbox_format} on {bbox_scale}"
+            ),
             "assess_damage": "Assess {target_type}\n{doctrine}",
             "summarize_scene": "Summarize scene using:\n{target_assessments}",
         },
@@ -79,8 +87,14 @@ def make_config(crop_buffer_ratio: float = 0.10) -> dict:
 def doctrine() -> dict:
     """Small doctrine fixture for model tests."""
     return {
-        "buildings": {"physical_damage_definitions": "building doctrine"},
-        "military_equipment": {"physical_damage_definitions": "equipment doctrine"},
+        "buildings": {
+            "detection_guidance": "Relevant buildings only.",
+            "physical_damage_definitions": "building doctrine",
+        },
+        "military_equipment": {
+            "detection_guidance": "All relevant equipment.",
+            "physical_damage_definitions": "equipment doctrine",
+        },
     }
 
 
@@ -139,6 +153,7 @@ def test_init_loads_backend_settings(
     assert pipeline.detection_vlm is detection_vlm
     assert pipeline.assessment_vlm is assessment_vlm
     assert pipeline.crop_buffer_ratio == 0.10
+    assert pipeline.detection_bbox_convention == "xyxy_1000"
     assert pipeline.detection_temperature == 0.0
     assert pipeline.assessment_temperature == 0.0
     assert pipeline.detection_max_image_size == 1024

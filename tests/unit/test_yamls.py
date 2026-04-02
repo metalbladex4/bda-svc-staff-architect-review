@@ -5,6 +5,7 @@ from bda_svc.pipeline.utilities import CONFIG_PATH, DOCTRINE_PATH, load_yaml
 EXPECTED_CONFIG_KEYS = {"detection_vlm", "assessment_vlm", "prompts"}
 EXPECTED_DETECTION_VLM_KEYS = {
     "model",
+    "bbox_convention",
     "temperature",
     "max_image_size",
     "crop_buffer_ratio",
@@ -14,6 +15,7 @@ EXPECTED_PROMPT_KEYS = {"system", "detect_objects", "assess_damage", "summarize_
 EXPECTED_DOCTRINE_CATEGORIES = {"buildings", "military_equipment"}
 REQUIRED_DOCTRINE_ENTRY_KEYS = {"physical_damage_definitions"}
 ALLOWED_DOCTRINE_ENTRY_KEYS = {
+    "detection_guidance",
     "physical_damage_definitions",
     "physical_damage_considerations",
 }
@@ -38,6 +40,9 @@ def test_prompt_sections_and_placeholders() -> None:
     prompts = config["prompts"]
     assert set(prompts.keys()) == EXPECTED_PROMPT_KEYS
     assert "{categories}" in prompts["detect_objects"]
+    assert "{detection_guidance}" in prompts["detect_objects"]
+    assert "{bbox_format}" in prompts["detect_objects"]
+    assert "{bbox_scale}" in prompts["detect_objects"]
     assert "{target_type}" in prompts["assess_damage"]
     assert "{doctrine}" in prompts["assess_damage"]
     assert "{target_assessments}" in prompts["summarize_scene"]
