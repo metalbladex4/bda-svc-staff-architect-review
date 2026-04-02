@@ -51,39 +51,71 @@ def format_pda_doctrine(category: str) -> str:
     return "\n".join(output)
 
 
-def bbox_from_1000(
-    image: Image.Image, bbox: list[int | float]
+def bbox_to_pixels(
+    original_image: Image.Image,
+    model_image: Image.Image,
+    bbox: list[int | float],
+    bbox_convention: str,
 ) -> tuple[int, int, int, int] | None:
-    """Convert a normalized 0-1000 bbox to raw pixel coordinates.
+    """Convert a model bbox into pixel-space coordinates.
 
     Args:
-        image: Source image used for scaling.
-        bbox: Normalized box in 0-1000 format.
+        original_image: Original source image.
+        model_image: Image that was actually sent to the model.
+        bbox: Raw bbox returned by the model.
+        bbox_convention: Bounding box ordering and scale convention.
 
     Returns:
         Pixel-space bounding box, or `None` if invalid.
     """
-    # Fail safe if invalid
+    # Fail safe in invalid
     if len(bbox) != 4:
         return None
 
     try:
-        xmin, ymin, xmax, ymax = [float(value) for value in bbox]
+        values = [float(value) for value in bbox]
     except (TypeError, ValueError):
         return None
 
-    if not (0 <= xmin <= 1000 and 0 <= ymin <= 1000):
+    if bbox_convention.startswith("xyxy"):
+        xmin, ymin, xmax, ymax = values
+    elif bbox_convention.startswith("yxyx"):
+        ymin, xmin, ymax, xmax = values
+    else:
         return None
-    if not (0 <= xmax <= 1000 and 0 <= ymax <= 1000):
+
+    if bbox_convention.endswith("_1000"):
+        max_x = max_y = 1000.0
+    elif bbox_convention.endswith("_1"):
+        max_x = max_y = 1.0
+    else:
+        max_x = float(model_image.width)
+        max_y = float(model_image.height)
+
+    if not (0 <= xmin <= max_x and 0 <= ymin <= max_y):
+        return None
+    if not (0 <= xmax <= max_x and 0 <= ymax <= max_y):
         return None
     if xmin >= xmax or ymin >= ymax:
         return None
 
-    # Scale pixel coordinates
-    xmin_px = min(max(int(round((xmin / 1000) * image.width)), 0), image.width)
-    ymin_px = min(max(int(round((ymin / 1000) * image.height)), 0), image.height)
-    xmax_px = min(max(int(round((xmax / 1000) * image.width)), 0), image.width)
-    ymax_px = min(max(int(round((ymax / 1000) * image.height)), 0), image.height)
+    # Scale pixel-space coordinates
+    xmin_px = min(
+        max(int(round((xmin / max_x) * original_image.width)), 0),
+        original_image.width,
+    )
+    ymin_px = min(
+        max(int(round((ymin / max_y) * original_image.height)), 0),
+        original_image.height,
+    )
+    xmax_px = min(
+        max(int(round((xmax / max_x) * original_image.width)), 0),
+        original_image.width,
+    )
+    ymax_px = min(
+        max(int(round((ymax / max_y) * original_image.height)), 0),
+        original_image.height,
+    )
 
     return xmin_px, ymin_px, xmax_px, ymax_px
 

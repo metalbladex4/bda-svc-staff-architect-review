@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 
+from json_repair import repair_json
 from PIL import Image
 from pydantic import BaseModel, Field, ValidationError
 
@@ -11,7 +12,7 @@ from bda_svc.pipeline.interfaces import Detection, OllamaVLM
 from bda_svc.pipeline.utilities import (
     CONFIG_PATH,
     DOCTRINE_PATH,
-    bbox_from_1000,
+    bbox_to_pixels,
     crop_with_buffer,
     draw_box_overlay,
     format_pda_doctrine,
@@ -24,7 +25,7 @@ class DetectionItem(BaseModel):
     """Structured detection item returned by detection model."""
 
     target_type: str
-    bbox: list[int] = Field(min_length=4, max_length=4)
+    bbox: list[float] = Field(min_length=4, max_length=4)
 
 
 class DetectionResponse(BaseModel):
@@ -61,6 +62,7 @@ class BDAPipeline:
         # Load detection backend
         detection_cfg = self.config["detection_vlm"]
         detection_model = os.environ.get("BDA_DETECTION_MODEL", detection_cfg["model"])
+        self.detection_bbox_convention = detection_cfg["bbox_convention"]
         self.detection_temperature = float(detection_cfg["temperature"])
         self.detection_max_image_size = int(detection_cfg["max_image_size"])
         self.crop_buffer_ratio = float(detection_cfg["crop_buffer_ratio"])
@@ -84,7 +86,7 @@ class BDAPipeline:
         Returns:
             Detection records with crops attached.
         """
-        # Get detections
+        # Get detections, bounding boxes are stored in pixel coordinates
         detections = self._vlm_detections(image)
 
         # Attach padded image crops to detections
@@ -110,14 +112,35 @@ class BDAPipeline:
         Returns:
             A list of parsed detections in raw pixel coordinates.
         """
-        # Format prompt with `doctrine.yaml` categories
-        categories_text = ", ".join(self.categories)
-        prompt = self.detect_objects_prompt_template.replace(
-            "{categories}", categories_text
-        )
-        vlm_image = resize_for_vlm(image, self.detection_max_image_size)
+        prompt = self.detect_objects_prompt_template
+
+        # Format prompt with doctrinal categories
+        categories = ", ".join(self.categories)
+        prompt = prompt.replace("{categories}", categories)
+
+        # Format prompt with bbox format
+        if self.detection_bbox_convention.startswith("xyxy"):
+            bbox_format = "[xmin, ymin, xmax, ymax]"
+        elif self.detection_bbox_convention.startswith("yxyx"):
+            bbox_format = "[ymin, xmin, ymax, xmax]"
+        else:
+            raise ValueError(
+                "Unsupported bounding box convention specified in config."
+                " Supported formats start with 'xyxy' or 'yxyx'."
+            )
+        prompt = prompt.replace("{bbox_format}", bbox_format)
+
+        # Format prompt with bbox scale
+        if self.detection_bbox_convention.endswith("_1000"):
+            bbox_scale = "normalized coordinates from 0 to 1000"
+        elif self.detection_bbox_convention.endswith("_1"):
+            bbox_scale = "normalized coordinates from 0.0 to 1.0"
+        else:
+            bbox_scale = "raw pixel coordinates relative to the image"
+        prompt = prompt.replace("{bbox_scale}", bbox_scale)
 
         # Get VLM response
+        vlm_image = resize_for_vlm(image, self.detection_max_image_size)
         response = self.detection_vlm.generate(
             image=vlm_image,
             prompt=prompt,
@@ -128,7 +151,8 @@ class BDAPipeline:
 
         # Fail safely
         try:
-            payload = DetectionResponse.model_validate_json(response)
+            payload = repair_json(response)
+            payload = DetectionResponse.model_validate_json(payload)
         except ValidationError:
             return []
 
@@ -141,7 +165,12 @@ class BDAPipeline:
                 continue
 
             # Validate bounding box is valid
-            pixel_box = bbox_from_1000(image, item.bbox)
+            pixel_box = bbox_to_pixels(
+                image,
+                vlm_image,
+                item.bbox,
+                bbox_convention=self.detection_bbox_convention,
+            )
             if pixel_box is None:
                 continue
 
@@ -165,9 +194,8 @@ class BDAPipeline:
         """
         # Format prompt
         doctrine = format_pda_doctrine(detection.label)
-        prompt = self.assess_damage_prompt_template.replace(
-            "{target_type}", detection.label
-        )
+        prompt = self.assess_damage_prompt_template
+        prompt = prompt.replace("{target_type}", detection.label)
         prompt = prompt.replace("{doctrine}", doctrine)
 
         # Format image inputs
@@ -191,7 +219,8 @@ class BDAPipeline:
 
         # Fail safely
         try:
-            payload = AssessmentResponse.model_validate_json(response)
+            payload = repair_json(response)
+            payload = AssessmentResponse.model_validate_json(payload)
         except ValidationError:
             return None
 
