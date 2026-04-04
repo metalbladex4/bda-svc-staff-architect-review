@@ -145,8 +145,8 @@ jobs:
       run: |
         docker run --rm --network host \
           -e OLLAMA_HOST=http://localhost:12345 \
-          -e BDA_DETECTION_MODEL=test-model \
-          -e BDA_ASSESSMENT_MODEL=test-model \
+          -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
+          -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
           -v "$(pwd)/bda_input:/bda_input" \
           -v "$(pwd)/bda_output:/bda_output" \
           bda-svc:latest -i /bda_input -o /bda_output
@@ -156,5 +156,22 @@ jobs:
       run: |
         test -f fake_ollama_request.json
         echo "=== fake_ollama_request.json ==="
-        python -m json.tool fake_ollama_request.json
+        python - <<'PY'
+        import json
+
+        with open("fake_ollama_request.json") as f:
+            data = json.load(f)
+
+        summary = {
+            "model": data.get("model"),
+            "stream": data.get("stream"),
+            "options": data.get("options"),
+            "message_count": len(data.get("messages", [])),
+            "roles": [m.get("role") for m in data.get("messages", [])],
+            "image_count_in_last_message": len(data.get("messages", [{}])[-1].get("images", [])) if data.get("messages") else 0,
+            "user_content_preview": data.get("messages", [{}])[-1].get("content", "")[:200],
+        }
+
+        print(json.dumps(summary, indent=2))
+        PY
 
