@@ -143,7 +143,7 @@ jobs:
     # 6. Run container against fake Ollama to verify OLLAMA_HOST override
     - name: Run host override integration test
       run: |
-        docker run --rm \
+        docker run --rm --network host \
           -e OLLAMA_HOST=http://localhost:12345 \
           -e BDA_DETECTION_MODEL=test-model \
           -e BDA_ASSESSMENT_MODEL=test-model \
