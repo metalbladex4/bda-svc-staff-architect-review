@@ -2,9 +2,10 @@
 
 import base64
 import io
+import os
 from dataclasses import dataclass
 
-from ollama import chat
+from ollama import Client
 from PIL import Image
 
 
@@ -27,6 +28,8 @@ class OllamaVLM:
             model: Ollama model name.
         """
         self.model = model
+        ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+        self.client = Client(host=ollama_host)
 
     def _encode_image(self, image: Image.Image) -> str:
         """Encode a PIL image to base64."""
@@ -72,7 +75,7 @@ class OllamaVLM:
         if temperature is not None:
             options = {"temperature": temperature}
 
-        response = chat(
+        response = self.client.chat(
             model=self.model,
             messages=messages,
             format=format_schema,
