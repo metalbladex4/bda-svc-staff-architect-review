@@ -37,7 +37,7 @@ jobs:
       run: uv run pytest -v
 
 
-  build-and-run:
+  build-run-scan:
     needs: test
     runs-on: ubuntu-24.04-arm
     env:
@@ -175,20 +175,16 @@ jobs:
         print(json.dumps(summary, indent=2))
         PY
 
-  scan:
-    needs: build-and-run
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'bda-svc:latest'
-          format: 'table'
-          exit-code: '1'
-          severity: 'CRITICAL,HIGH'
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'bda-svc:latest'
+        format: 'table'
+        exit-code: '1'
+        severity: 'CRITICAL,HIGH'
 
   push_to_registry:
-    needs: scan
+    needs: build-run-scan
     runs-on: ubuntu-latest
     steps:
 
