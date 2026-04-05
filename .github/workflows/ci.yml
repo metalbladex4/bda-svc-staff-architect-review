@@ -37,7 +37,7 @@ jobs:
       run: uv run pytest -v
 
 
-  build-run-scan:
+  build-and-run:
     needs: test
     runs-on: ubuntu-24.04-arm
     env:
@@ -99,16 +99,28 @@ jobs:
         done
 
     # 7. Scan container for vulnerabilities
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: 'bda-svc:latest'
-        format: 'table'
-        exit-code: '0'
-        severity: 'CRITICAL,HIGH'
+  scan:
+    needs: build-and-run
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/build-push-action@v5
+        with:
+          platforms: linux/arm64
+          context: .
+          file: ./docker/Dockerfile
+          tags: bda-svc:latest
+          load: true
+      - uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: bda-svc:latest
+          format: table
+          exit-code: '0'
+          severity: CRITICAL,HIGH
 
   publish:
-    needs: build-run-scan
+    needs: scan
     runs-on: ubuntu-latest
     permissions:
       contents: read
