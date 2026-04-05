@@ -107,6 +107,7 @@ jobs:
         exit-code: '0'
         severity: 'CRITICAL,HIGH'
 
+    # 8. Login to GHCR
     - name: Log in to GHCR
       uses: docker/login-action@v3
       with:
@@ -114,9 +115,11 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        tags: ghcr.io/${{ github.repository }}:latest
+    # 9. Tag image for GHCR
+    - name: Tag image for GHCR
+      run: docker tag bda-svc:latest ghcr.io/${{ github.repository }}:latest
+
+    # 10. Push to GHCR
+    - name: Push image to GHCR
+      run: docker push ghcr.io/${{ github.repository }}:latest
 
