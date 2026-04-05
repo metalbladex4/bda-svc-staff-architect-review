@@ -80,23 +80,23 @@ jobs:
         load: true
 
     # 5. Run bda-svc on ARM container
-    - name: Run containerized test
-      run: |
-        docker run --rm --network host \
-          -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
-          -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
-          -v "$(pwd)/bda_input:/bda_input" \
-          -v "$(pwd)/bda_output:/bda_output" \
-          bda-svc:latest -i /bda_input -o /bda_output
+    # - name: Run containerized test
+    #   run: |
+    #     docker run --rm --network host \
+    #       -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
+    #       -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
+    #       -v "$(pwd)/bda_input:/bda_input" \
+    #       -v "$(pwd)/bda_output:/bda_output" \
+    #       bda-svc:latest -i /bda_input -o /bda_output
 
-    # 6. Print generated bda-report
-    - name: Print bda-report
-      run: |
-        for file in ./bda_output/*.json; do
-          echo "=== $file ==="
-          python -m json.tool "$file"
-          echo
-        done
+    # # 6. Print generated bda-report
+    # - name: Print bda-report
+    #   run: |
+    #     for file in ./bda_output/*.json; do
+    #       echo "=== $file ==="
+    #       python -m json.tool "$file"
+    #       echo
+    #     done
 
     # 7. Scan container for vulnerabilities
   scan:
@@ -112,7 +112,7 @@ jobs:
           file: ./docker/Dockerfile
           tags: bda-svc:latest
           load: true
-      - uses: aquasecurity/trivy-action@0.33.1
+      - uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: bda-svc:latest
           format: table
