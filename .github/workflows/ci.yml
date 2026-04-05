@@ -176,6 +176,7 @@ jobs:
         PY
 
   scan:
+    needs: build-and-run
     runs-on: ubuntu-latest
     steps:
       - name: Run Trivy vulnerability scanner
@@ -187,6 +188,7 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
   push_to_registry:
+    needs: scan
     runs-on: ubuntu-latest
     steps:
 
