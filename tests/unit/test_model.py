@@ -52,11 +52,15 @@ class FakeVLM:
 # ----------------------------------------------------------------------
 
 
-def make_config(crop_buffer_ratio: float = 0.10) -> dict:
+def make_config(
+    crop_buffer_ratio: float = 0.10,
+    bbox_convention: str = "xyxy_1000",
+) -> dict:
     """Return minimal config for model tests."""
     return {
         "detection_vlm": {
             "model": "detection-model",
+            "bbox_convention": bbox_convention,
             "temperature": 0.0,
             "max_image_size": 1024,
             "crop_buffer_ratio": crop_buffer_ratio,
@@ -68,7 +72,11 @@ def make_config(crop_buffer_ratio: float = 0.10) -> dict:
         },
         "prompts": {
             "system": "system prompt",
-            "detect_objects": "Detect objects from: {categories}",
+            "detect_objects": (
+                "Detect objects from: {categories}\n"
+                "Guidance:\n{detection_guidance}\n"
+                "Use {bbox_format} on {bbox_scale}"
+            ),
             "assess_damage": "Assess {target_type}\n{doctrine}",
             "summarize_scene": "Summarize scene using:\n{target_assessments}",
         },
@@ -79,8 +87,14 @@ def make_config(crop_buffer_ratio: float = 0.10) -> dict:
 def doctrine() -> dict:
     """Small doctrine fixture for model tests."""
     return {
-        "buildings": {"physical_damage_definitions": "building doctrine"},
-        "military_equipment": {"physical_damage_definitions": "equipment doctrine"},
+        "buildings": {
+            "detection_guidance": "Relevant buildings only.",
+            "physical_damage_definitions": "building doctrine",
+        },
+        "military_equipment": {
+            "detection_guidance": "All relevant equipment.",
+            "physical_damage_definitions": "equipment doctrine",
+        },
     }
 
 
@@ -93,11 +107,14 @@ def patch_backends(
     monkeypatch: pytest.MonkeyPatch,
     detection_vlm: FakeVLM | None = None,
     assessment_vlm: FakeVLM | None = None,
+    model_names: list[str] | None = None,
 ) -> None:
     """Patch `OllamaVLM` in the pipeline module."""
     fake_instances = [detection_vlm or FakeVLM(), assessment_vlm or FakeVLM()]
 
     def fake_ollama_vlm(model: str) -> FakeVLM:
+        if model_names is not None:
+            model_names.append(model)
         return fake_instances.pop(0)
 
     monkeypatch.setattr(pipeline_model, "OllamaVLM", fake_ollama_vlm)
@@ -136,10 +153,57 @@ def test_init_loads_backend_settings(
     assert pipeline.detection_vlm is detection_vlm
     assert pipeline.assessment_vlm is assessment_vlm
     assert pipeline.crop_buffer_ratio == 0.10
+    assert pipeline.detection_bbox_convention == "xyxy_1000"
     assert pipeline.detection_temperature == 0.0
     assert pipeline.assessment_temperature == 0.0
     assert pipeline.detection_max_image_size == 1024
     assert pipeline.assessment_max_image_size == 1024
+
+
+def test_init_uses_config_model_names_by_default(
+    monkeypatch: pytest.MonkeyPatch, doctrine: dict
+) -> None:
+    """Pipeline should use config model names when env overrides are absent."""
+    config = make_config()
+    patch_config(monkeypatch, config, doctrine)
+    monkeypatch.delenv("BDA_DETECTION_MODEL", raising=False)
+    monkeypatch.delenv("BDA_ASSESSMENT_MODEL", raising=False)
+    model_names = []
+    detection_vlm = FakeVLM()
+    assessment_vlm = FakeVLM()
+    patch_backends(
+        monkeypatch,
+        detection_vlm=detection_vlm,
+        assessment_vlm=assessment_vlm,
+        model_names=model_names,
+    )
+    pipeline = pipeline_model.BDAPipeline()
+    assert pipeline.detection_vlm is detection_vlm
+    assert pipeline.assessment_vlm is assessment_vlm
+    assert model_names == ["detection-model", "assessment-model"]
+
+
+def test_init_uses_env_model_names_when_set(
+    monkeypatch: pytest.MonkeyPatch, doctrine: dict
+) -> None:
+    """Pipeline should prefer env model names over config values."""
+    config = make_config()
+    patch_config(monkeypatch, config, doctrine)
+    monkeypatch.setenv("BDA_DETECTION_MODEL", "env-detection-model")
+    monkeypatch.setenv("BDA_ASSESSMENT_MODEL", "env-assessment-model")
+    model_names = []
+    detection_vlm = FakeVLM()
+    assessment_vlm = FakeVLM()
+    patch_backends(
+        monkeypatch,
+        detection_vlm=detection_vlm,
+        assessment_vlm=assessment_vlm,
+        model_names=model_names,
+    )
+    pipeline = pipeline_model.BDAPipeline()
+    assert pipeline.detection_vlm is detection_vlm
+    assert pipeline.assessment_vlm is assessment_vlm
+    assert model_names == ["env-detection-model", "env-assessment-model"]
 
 
 def test_detect_objects_resizes_model_input_and_attaches_original_image_crop(
