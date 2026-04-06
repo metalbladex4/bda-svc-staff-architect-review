@@ -100,6 +100,15 @@ docker buildx build --platform linux/arm64 -f <DOCKERFILE_PATH> -t <IMAGE_NAME> 
 docker build -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT>
 ```
 
+## Container Pull
+
+```bash
+# arm image uses --platform flag
+
+docker pull --platform linux/arm64 ghcr.io/cmu-bda/bda-svc:latest
+
+```
+
 ## Local Container Testing
 
 ```bash
