@@ -29,7 +29,11 @@ class OllamaVLM:
         """
         self.model = model
         ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-        self.client = Client(host=ollama_host)
+        ollama_api_key = os.getenv("OLLAMA_API_KEY")
+        headers = {}
+        if ollama_api_key:
+            headers["Authorization"] = f"Bearer {ollama_api_key}"
+        self.client = Client(host=ollama_host, headers=headers if headers else None)
 
     def _encode_image(self, image: Image.Image) -> str:
         """Encode a PIL image to base64."""
