@@ -125,9 +125,9 @@ docker run --rm --network host -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOS
 docker run --rm -e OLLAMA_HOST=http://host.docker.internal:11434 -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
 
 
-#Linux command for connection to remote ollama server:11434
+#Linux command for connection to remote ollama server
 
-docker run --rm -e OLLAMA_HOST=http://<REMOTE_OLLAMA_SERVER_IP>:11434 -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
+docker run --rm -e OLLAMA_HOST=http://<REMOTE_OLLAMA_SERVER_IP>:<PORT_NUM> -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
 
 ```
 
