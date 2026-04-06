@@ -73,3 +73,26 @@ def test_get_input_paths_empty_exits(tmp_path):
     # Folder exists but is empty
     with pytest.raises(SystemExit):
         inputs.get_input_paths(tmp_path)
+
+
+def test_get_input_paths_single_invalid_file(tmp_path):
+    """Return SystemExit if folder path is actually a file of invalid extension."""
+    # Setup: Create dummy file
+    path_invalid_file = tmp_path / "ignore_me.txt"
+    path_invalid_file.touch()
+
+    with pytest.raises(SystemExit):
+        inputs.get_input_paths(path_invalid_file)
+
+
+def test_get_input_paths_single_valid_file(tmp_path):
+    """Return SystemExit if folder path is actually a file of invalid extension."""
+    # Setup: Create dummy file
+    valid_filename = "image42.png"
+    path_valid_file = tmp_path / valid_filename
+    path_valid_file.touch()
+
+    files = inputs.get_input_paths(path_valid_file)
+
+    assert len(files) == 1
+    assert valid_filename in files[0].name
