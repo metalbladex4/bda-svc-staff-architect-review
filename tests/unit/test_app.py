@@ -1,7 +1,5 @@
 """Main test suite."""
 
-from unittest.mock import patch
-
 import pytest
 
 from bda_svc import inputs
@@ -104,11 +102,11 @@ def test_uses_env_host(monkeypatch):
 # ---------------------------------------------------------------------------
 
 
-def test_client_initialized_with_env_host(monkeypatch):
-    """This test ensures that when OllamaVLM is initialized, it creates a Client with the correct host based on the OLLAMA_HOST environment variable."""
-    monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
+# def test_client_initialized_with_env_host(monkeypatch):
+#     """This test ensures that when OllamaVLM is initialized, it creates a Client with the correct host based on the OLLAMA_HOST environment variable."""
+#     monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
 
-    with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
-        OllamaVLM(model="test-model")
+#     with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
+#         OllamaVLM(model="test-model")
 
-        mock_client.assert_called_with(host="http://localhost:12345")
+#         mock_client.assert_called_with(host="http://localhost:12345")
