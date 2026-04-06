@@ -11,6 +11,10 @@ from bda_svc.pipeline.utilities import (
     resize_for_vlm,
 )
 
+# ----------------------------------------------------------------------
+# Test Setup: Yaml Load into Dictionary
+# ----------------------------------------------------------------------
+
 
 def test_load_yaml_reads_dict(tmp_path) -> None:
     """load_yaml should load YAML into a Python dictionary."""
@@ -18,6 +22,11 @@ def test_load_yaml_reads_dict(tmp_path) -> None:
     yaml_path.write_text("a: 1\nb: test\n", encoding="utf-8")
     data = load_yaml(yaml_path)
     assert data == {"a": 1, "b": "test"}
+
+
+# ----------------------------------------------------------------------
+# Test Setup: Format doctrine text for selected category
+# ----------------------------------------------------------------------
 
 
 def test_format_pda_doctrine_formats_selected_category(monkeypatch) -> None:
@@ -41,12 +50,22 @@ def test_format_pda_doctrine_formats_selected_category(monkeypatch) -> None:
     assert "MILITARY EQUIPMENT PHYSICAL DAMAGE DEFINITIONS" not in output
 
 
+# ----------------------------------------------------------------------
+# Test Setup: PDA fallback for unknown category
+# ----------------------------------------------------------------------
+
+
 def test_format_pda_doctrine_returns_fallback_for_unknown_category(monkeypatch) -> None:
     """Return fallback text when requested categories are missing."""
     fake_doctrine = {"buildings": {"physical_damage_definitions": "x"}}
     monkeypatch.setattr(utilities, "load_yaml", lambda path: fake_doctrine)
     output = utilities.format_pda_doctrine("not_a_real_category")
     assert output == "NO TARGET DOCTRINE AVAILABLE."
+
+
+# ----------------------------------------------------------------------
+# Test Setup: Bounding-box tests
+# ----------------------------------------------------------------------
 
 
 def test_bbox_from_1000_converts_bbox_to_pixels() -> None:
@@ -74,6 +93,11 @@ def test_bbox_from_1000_returns_none_for_invalid_box_order() -> None:
     image = Image.new("RGB", (100, 50))
     assert bbox_from_1000(image, [500, 100, 100, 900]) is None
     assert bbox_from_1000(image, [100, 900, 500, 100]) is None
+
+
+# ----------------------------------------------------------------------
+# Test Setup: Image formatting tests
+# ----------------------------------------------------------------------
 
 
 def test_crop_with_buffer_adds_padding() -> None:
