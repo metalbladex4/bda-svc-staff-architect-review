@@ -1,26 +1,26 @@
-# Overview
+# bda-svc
 
-Automated Battle Damage Assessment system powered by machine learning.
+`bda-svc` is an automated battle damage assessment system for imagery. It uses local Ollama vision-language models to detect targets, assess visible physical damage, and produce structured JSON reports.
 
 ![Diagram](https://github.com/user-attachments/assets/5dbd6987-7653-4948-8f8a-f326d3ac6df3)
 
-## Development Setup
+## Quick Start
 
-1. [**Install uv**](https://docs.astral.sh/uv/getting-started/installation/)
+1. [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 
-2. [**Install Ollama and ensure the local server is running**](https://ollama.com/download)
+2. [Install Ollama](https://ollama.com/download) and ensure the local server is running:
 
-   If Ollama is not already running on your machine, start it with:
    ```bash
    ollama serve
    ```
 
-   Then pull the models configured in `src/bda_svc/pipeline/config.yaml`, for example:
+3. Pull the model configured in [`src/bda_svc/pipeline/config.yaml`](src/bda_svc/pipeline/config.yaml), for example:
+
    ```bash
-   ollama pull qwen3-vl:8b-instruct-q8_0
+   ollama pull qwen3-vl:8b-instruct
    ```
 
-3. **Clone the repository and install dependencies**
+4. Clone the repository and install dependencies:
 
    ```bash
    git clone <repository-url>
@@ -28,95 +28,100 @@ Automated Battle Damage Assessment system powered by machine learning.
    uv sync
    ```
 
-4. **Install pre-commit hooks**
+5. Run the service:
 
    ```bash
-   uv run pre-commit install
+   uv run bda-svc
    ```
 
 ## Usage
 
-1. **For complete usage information**:
-
-   ```bash
-   uv run bda-svc -h
-   ```
-
-2. **Run the BDA service with the default input folder, an environment variable, or a command-line path**:
-
-   ```bash
-   uv run bda-svc
-
-   # or
-
-   BDA_INPUT="/path/to/images" uv run bda-svc
-
-   # or
-
-   uv run bda-svc -i /path/to/image.ext
-
-   # or
-
-   uv run bda-svc -i /path/to/folder
-   ```
-
-## Project Structure
-
-```
-├── .github/                   # CI/CD workflows
-├── bda_eval/                  # Evaluation workspace
-├── docker/                    # Container assets and helper scripts
-├── src/
-│   └── bda_svc/
-│       ├── __init__.py
-│       ├── app.py             # Main application entrypoint
-│       ├── cli.py             # Command-line argument parsing
-│       ├── constants.py       # Shared constants
-│       ├── export.py          # JSON export utilities
-│       ├── inputs.py          # Input path validation/discovery
-│       └── pipeline/
-│           ├── __init__.py
-│           ├── config.yaml    # Model + prompt configuration
-│           ├── doctrine.yaml  # Doctrinal definitions
-│           ├── interfaces.py  # Abstract interfaces + Ollama backend
-│           ├── model.py       # BDAPipeline
-│           └── utilities.py   # Pipeline helper functions
-├── tests/                     # Test suite
-├── pyproject.toml
-├── uv.lock
-└── README.md
-```
-
-## Container Build with Docker
+Show command-line help:
 
 ```bash
-# arm64 architecture image build command
-
-docker buildx build --platform linux/arm64 -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT> --load
-
-
-# x86 architecture image build command
-
-docker build -f <DOCKERFILE_PATH> -t <IMAGE_NAME> <BUILD_CONTEXT>
+uv run bda-svc -h
 ```
 
-## Local Container Testing
+Run using the default input folder:
 
 ```bash
-# ollama model must be installed and running on 127.0.0.1:11434
-# ollama model name must match model name in bda-svc config.yaml within container
-
-#Linux command:
-
-docker run --rm --network host -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
-
-
-#WSL command:
-
-docker run --rm -e OLLAMA_HOST=http://host.docker.internal:11434 -v <HOST_INPUT_DIR>:<CONTAINER_INPUT_DIR> -v <HOST_OUTPUT_DIR>:<CONTAINER_OUTPUT_DIR> <IMAGE_NAME> -i <CONTAINER_INPUT_DIR> -o <CONTAINER_OUTPUT_DIR>
+uv run bda-svc
 ```
 
+Run on a single image:
+
+```bash
+uv run bda-svc -i /path/to/image.ext
+```
+
+Run on a folder of images:
+
+```bash
+uv run bda-svc -i /path/to/folder
+```
+
+Run using an environment variable:
+
+```bash
+BDA_INPUT="/path/to/folder" uv run bda-svc
+```
+
+If no input path is provided, `bda-svc` defaults to `./bda_input`.
+
+## Output
+
+Reports are written to `bda_output/` as JSON files.
+
+Each report includes:
+
+- `metadata`
+- `physical_damage`
+- `summary`
+
+At a high level, `physical_damage` contains one entry per assessed target, including:
+
+- `target_type`
+- `damage_category`
+- `confidence_level`
+- `brief_supporting_logic`
+- `bounding_box`
+
+## Container
+
+A container image can be built from `docker/Dockerfile` for running `bda-svc` in a containerized environment.
+
+## Documentation
+
+Detailed setup, configuration, and container usage instructions will live in a future `docs/` directory.
+
+For now, see:
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- [`src/bda_svc/pipeline/config.yaml`](src/bda_svc/pipeline/config.yaml)
+- [`src/bda_svc/pipeline/doctrine.yaml`](src/bda_svc/pipeline/doctrine.yaml)
+
+## Development
+
+Run the test suite:
+
+```bash
+uv run pytest
+```
+
+Install pre-commit hooks:
+
+```bash
+uv run pre-commit install
+```
+
+Run pre-commit checks:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+For contribution and workflow guidance, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0. See [`LICENSE`](LICENSE) for details.
