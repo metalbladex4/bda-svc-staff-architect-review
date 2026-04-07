@@ -2,8 +2,8 @@
 # DETECTION VLM BACKEND
 # ------------------------------------------------------------
 detection_vlm:
-  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
-  bbox_convention: xyxy_1000  # str, required; One of: xyxy_1000, yxyx_1000, xyxy_1, yxyx_1, xyxy_pixels, yxyx_pixels.
+  model: qwen3-vl:8b-instruct  # str, required; Ollama model name.
+  bbox_convention: xyxy_1000  # str, required; VLM bounding box format: xyxy_1000, yxyx_1000, xyxy_1, yxyx_1, xyxy_pixels, yxyx_pixels.
   temperature: 0.0  # float, required; Sampling temperature for generation.
   max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
   crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
@@ -12,7 +12,7 @@ detection_vlm:
 # ASSESSMENT VLM BACKEND
 # ------------------------------------------------------------
 assessment_vlm:
-  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
+  model: qwen3-vl:8b-instruct  # str, required; Ollama model name.
   temperature: 0.0  # float, required; Sampling temperature for generation.
   max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
 
@@ -34,10 +34,15 @@ prompts:
     Perform a VISUAL-ONLY object detection.
 
     TASK
-    Detect every visible target whose doctrinal target_type is one of:
+    Detect targets whose doctrinal target_type is one of:
     {categories}
 
-    CATEGORY-SPECIFIC DETECTION GUIDANCE
+    RULES
+    - First identify all valid targets using the target-type specific detection guidance below.
+    - Then produce exactly one bounding box per valid target.
+    - The number of detections must match the number of targets identified.
+
+    TARGET-TYPE SPECIFIC DETECTION GUIDANCE
     {detection_guidance}
 
     BOUNDING BOX FORMAT
@@ -113,7 +118,7 @@ prompts:
     The report should:
     - first enumerate what is in the prior target assessments, example: "4 pieces of military equipment (2 destroyed tanks, 2 damaged tanks), 1 damaged building."
     - then summarize the overall scene as a whole based on the full-scene image
-    - then state the likely follow-on functional impact / combat capability
+    - then briefly describe the likely functional impact, if supported by the prior target assessments
 
     OUTPUT
     Return plain text only. No new lines.
