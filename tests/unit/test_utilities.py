@@ -13,6 +13,10 @@ from bda_svc.pipeline.utilities import (
     resize_for_vlm,
 )
 
+# ----------------------------------------------------------------------
+# Test Setup: Yaml Load into Dictionary
+# ----------------------------------------------------------------------
+
 
 def test_load_yaml_reads_dict(tmp_path) -> None:
     """load_yaml should load YAML into a Python dictionary."""
@@ -55,6 +59,11 @@ def test_format_pda_doctrine_formats_selected_category(monkeypatch) -> None:
     assert "Building definitions." in output
     assert "Building considerations." in output
     assert "MILITARY EQUIPMENT PHYSICAL DAMAGE DEFINITIONS" not in output
+
+
+# ----------------------------------------------------------------------
+# Test Setup: PDA fallback for unknown category
+# ----------------------------------------------------------------------
 
 
 def test_format_pda_doctrine_returns_fallback_for_unknown_category(monkeypatch) -> None:
