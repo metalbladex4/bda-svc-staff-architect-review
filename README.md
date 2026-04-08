@@ -1,6 +1,6 @@
 # bda-svc
 
-`bda-svc` is an automated battle damage assessment system for imagery. It uses local Ollama vision-language models to detect targets, assess visible physical damage, and produce structured JSON reports.
+`bda-svc` is an automated Battle Damage Assessment (BDA) service for imagery. It uses local Ollama vision-language models to detect targets, assess visible physical damage, and produce structured JSON reports.
 
 ![Diagram](https://github.com/user-attachments/assets/5dbd6987-7653-4948-8f8a-f326d3ac6df3)
 
@@ -60,12 +60,6 @@ Run on a folder of images:
 uv run bda-svc -i /path/to/folder
 ```
 
-Run using an environment variable:
-
-```bash
-BDA_INPUT="/path/to/folder" uv run bda-svc
-```
-
 If no input path is provided, `bda-svc` defaults to `./bda_input`.
 
 ## Output
@@ -99,29 +93,6 @@ For now, see:
 - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - [`src/bda_svc/pipeline/config.yaml`](src/bda_svc/pipeline/config.yaml)
 - [`src/bda_svc/pipeline/doctrine.yaml`](src/bda_svc/pipeline/doctrine.yaml)
-
-## Development
-
-Run the test suite:
-
-```bash
-uv run pytest
-```
-
-Install pre-commit hooks:
-
-```bash
-uv run pre-commit install
-```
-
-Run pre-commit checks:
-
-```bash
-uv run pre-commit run --all-files
-```
-
-For contribution and workflow guidance, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
 
 ## License
 
