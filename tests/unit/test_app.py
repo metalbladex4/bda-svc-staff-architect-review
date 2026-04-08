@@ -1,15 +1,19 @@
 """Main test suite."""
 
+from pathlib import Path
+from unittest.mock import patch
+
 import pytest
 
 from bda_svc import inputs
+from bda_svc.pipeline.interfaces import OllamaVLM
 
-# ---------------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Test: Input Folder Validation (get_input_folder)
-# ---------------------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 
-def test_uses_command_line_path(tmp_path):
+def test_uses_command_line_path(tmp_path: Path) -> None:
     """If a valid path is passed as an argument, use it."""
     # tmp_path is a built-in pytest fixture that creates a temporary folder
     real_folder = tmp_path / "my_test_images"
@@ -22,8 +26,10 @@ def test_uses_command_line_path(tmp_path):
     assert result == real_folder
 
 
-def test_uses_env_var_if_no_arg(monkeypatch, tmp_path):
-    """If arg is None, it should look at the BDA_INPUT environment variable."""
+def test_uses_env_var_if_no_arg(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """If arg is None, it should use BDA_INPUT environment variable."""
     env_folder = tmp_path / "env_images"
     env_folder.mkdir()
 
@@ -36,7 +42,7 @@ def test_uses_env_var_if_no_arg(monkeypatch, tmp_path):
     assert result == env_folder
 
 
-def test_exits_if_folder_missing():
+def test_exits_if_folder_missing() -> None:
     """If the folder doesn't exist, the program should SystemExit."""
     bad_path = "/this/path/definitely/does/not/exist"
 
@@ -45,19 +51,18 @@ def test_exits_if_folder_missing():
         inputs.get_input_folder(bad_path)
 
 
-# ---------------------------------------------------------------------------
+# ----------------------------------------------------------------------
 # Test: File Discovery (get_input_paths)
-# ---------------------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 
-def test_get_input_paths_finds_images(tmp_path):
+def test_get_input_paths_finds_images(tmp_path: Path) -> None:
     """It should find valid image extensions recursively."""
     # Setup: Create dummy files
     (tmp_path / "subfolder").mkdir()
     (tmp_path / "image1.png").touch()
     (tmp_path / "subfolder/image2.jpg").touch()
     (tmp_path / "ignore_me.txt").touch()
-
     files = inputs.get_input_paths(tmp_path)
 
     # Should find the 2 images, ignore the text file
@@ -68,8 +73,48 @@ def test_get_input_paths_finds_images(tmp_path):
     assert "image2.jpg" in filenames
 
 
-def test_get_input_paths_empty_exits(tmp_path):
+def test_get_input_paths_empty_exits(tmp_path: Path) -> None:
     """It should SystemExit if the folder has no valid images."""
     # Folder exists but is empty
     with pytest.raises(SystemExit):
         inputs.get_input_paths(tmp_path)
+
+
+# ----------------------------------------------------------------------
+# Test: Network Host Variable (os.getenv)
+# ----------------------------------------------------------------------
+
+
+def test_uses_default_host(monkeypatch: pytest.MonkeyPatch) -> None:
+    """OllamaVLM defaults to localhost when OLLAMA_HOST is unset."""
+    # OllamaVLM Client should default to localhost
+    monkeypatch.delenv("OLLAMA_HOST", raising=False)
+
+    vlm = OllamaVLM(model="test-model")
+
+    assert vlm.client._client.base_url == "http://localhost:11434"
+
+
+def test_uses_env_host(monkeypatch: pytest.MonkeyPatch) -> None:
+    """OllamaVLM uses OLLAMA_HOST when environment variable is set."""
+    # OllamaVLM Client should use environment variable instead of default localhost
+    monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
+
+    vlm = OllamaVLM(model="test-model")
+
+    assert vlm.client._client.base_url == "http://localhost:12345"
+
+
+# ----------------------------------------------------------------------
+# Test: Network Host Variable with Http Wrapper (Client)
+# ----------------------------------------------------------------------
+
+
+def test_client_initialized_with_env_host(monkeypatch: pytest.MonkeyPatch) -> None:
+    """OllamaVLM passes OLLAMA_HOST to Client on init."""
+    # OllamaVLM creates a Client with the correct host based on environment variable
+    monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
+
+    with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
+        OllamaVLM(model="test-model")
+        mock_client.assert_called_with(host="http://localhost:12345", headers=None)

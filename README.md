@@ -122,6 +122,7 @@ uv run pre-commit run --all-files
 
 For contribution and workflow guidance, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+
 ## License
 
 This project is licensed under the Apache License 2.0. See [`LICENSE`](LICENSE) for details.
