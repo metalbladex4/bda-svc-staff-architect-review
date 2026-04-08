@@ -10,7 +10,7 @@ from bda_svc.pipeline import model as pipeline_model
 from bda_svc.pipeline.interfaces import Detection
 
 # ----------------------------------------------------------------------
-# Fake Backend
+# Test Setup: Create fake backend
 # ----------------------------------------------------------------------
 
 
@@ -48,7 +48,7 @@ class FakeVLM:
 
 
 # ----------------------------------------------------------------------
-# Monkeypatch Helpers
+# Test Setup: Monkeypatch Helpers
 # ----------------------------------------------------------------------
 
 
@@ -89,13 +89,13 @@ def patch_config_overrides(
 
 
 # ----------------------------------------------------------------------
-# Test Suite
+# Initialization tests
 # ----------------------------------------------------------------------
 
 
 def test_init_uses_config_models_by_default(monkeypatch: pytest.MonkeyPatch) -> None:
     """Use config model names when environment variables are absent."""
-    # Set VLM models in config
+    # Set VLM models in fake config
     patch_config_overrides(
         monkeypatch,
         {
@@ -120,7 +120,7 @@ def test_init_uses_config_models_by_default(monkeypatch: pytest.MonkeyPatch) -> 
 
 def test_init_uses_env_model_when_set(monkeypatch: pytest.MonkeyPatch) -> None:
     """Use environment model names when provided instead of config."""
-    # Set VLM models in config
+    # Set VLM models in fake config
     patch_config_overrides(
         monkeypatch,
         {
@@ -143,13 +143,20 @@ def test_init_uses_env_model_when_set(monkeypatch: pytest.MonkeyPatch) -> None:
     assert model_names == ["env-detection-model", "env-assessment-model"]
 
 
+# ----------------------------------------------------------------------
+# Object detection tests
+# ----------------------------------------------------------------------
+
+
 def test_detect_objects_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
     """Return a detected target with image coordinates and a crop."""
+    # Ensure bbox_convention is xyxy_1000 for tests instead of relying on config.yaml
     patch_config_overrides(
         monkeypatch,
         {"detection_vlm": {"bbox_convention": "xyxy_1000"}},
     )
 
+    # Create a fake detection VLM
     detection_vlm = FakeVLM(
         [
             json.dumps(
@@ -171,6 +178,7 @@ def test_detect_objects_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
     pipeline = pipeline_model.BDAPipeline()
     detections = pipeline.detect_objects(Image.new("RGB", (4000, 2000)))
 
+    # Happy path should return a detection
     assert len(detections) == 1
     assert detections[0].label == "buildings"
     # Detections should come back in original image pixels
@@ -192,7 +200,13 @@ def test_detect_objects_fail_safe(monkeypatch: pytest.MonkeyPatch) -> None:
     pipeline = pipeline_model.BDAPipeline()
     detections = pipeline.detect_objects(Image.new("RGB", (4000, 2000)))
 
+    # A bad detection should return empty list instead of an exception
     assert detections == []
+
+
+# ----------------------------------------------------------------------
+# Target assessment tests
+# ----------------------------------------------------------------------
 
 
 def test_assess_detection_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -252,7 +266,13 @@ def test_assess_detection_fail_safe(monkeypatch: pytest.MonkeyPatch) -> None:
 
     result = pipeline.assess_detection(detection)
 
+    # A bad assessment should return None instead of an exception
     assert result is None
+
+
+# ----------------------------------------------------------------------
+# Scene summary tests
+# ----------------------------------------------------------------------
 
 
 def test_summarize_scene_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -278,8 +298,15 @@ def test_summarize_scene_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
 
     summary = pipeline.summarize_scene(Image.new("RGB", (4000, 2000)), targets)
 
+    # Happy path should return scene summary
     assert summary == "Concise scene summary."
+    # Previous target assessments should be in the prompt
     assert json.dumps(targets, indent=2) in assessment_vlm.calls[0]["prompt"]
+
+
+# ----------------------------------------------------------------------
+# Overall pipeline tests
+# ----------------------------------------------------------------------
 
 
 def test_analyze_happy_path(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -321,7 +348,9 @@ def test_analyze_happy_path(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> 
 
     result = pipeline.analyze(image_path)
 
+    # Happy path should return summary section
     assert result["summary"] == "Scene summary grounded in target assessments."
+    # Physical damage section should be formatted IAW JSON schema
     assert result["physical_damage"]["target_0"] == {
         "target_type": "buildings",
         "damage_category": "DESTROYED",
@@ -336,6 +365,7 @@ def test_analyze_no_target_path(
     tmp_path: Path,
 ) -> None:
     """Return the no-target placeholder when detection finds nothing."""
+    # Malformed detection output
     detection_vlm = FakeVLM(["Not valid targets"])
     assessment_vlm = FakeVLM(["No relevant targets were assessed in the scene."])
     patch_backends(
@@ -352,6 +382,7 @@ def test_analyze_no_target_path(
     result = pipeline.analyze(image_path)
 
     assert result["summary"] == "No relevant targets were assessed in the scene."
+    # No targets should return physical damage section IAW JSON schema
     assert result["physical_damage"]["target_0"] == {
         "target_type": "object_not_found",
         "damage_category": "NOT APPLICABLE",

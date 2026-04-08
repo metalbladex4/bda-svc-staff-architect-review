@@ -3,7 +3,7 @@
 from bda_svc.pipeline.utilities import CONFIG_PATH, DOCTRINE_PATH, load_yaml
 
 # ----------------------------------------------------------------------
-# Test: config.yaml
+# Test Setup: config.yaml
 # ----------------------------------------------------------------------
 
 
@@ -73,7 +73,7 @@ def test_config_prompt_placeholders() -> None:
 
 
 # ----------------------------------------------------------------------
-# Test: doctrine.yaml
+# Test Setup: doctrine.yaml
 # ----------------------------------------------------------------------
 
 
