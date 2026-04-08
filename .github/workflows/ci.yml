@@ -9,34 +9,36 @@ on:
   pull_request:
     branches: [ "main" ]
 
+
+# ----------------------------------------------------------------------
+# Job 1 — Unit tests
+# ----------------------------------------------------------------------
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Check out the code
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # 2. Set up Python
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.12"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-    # 3. Set up uv
-    - name: Set up uv
-      uses: astral-sh/setup-uv@v8.0.0
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v8.0.0
 
-    # 4. Install dependencies
-    - name: Install dependencies
-      run: uv sync
+      - name: Install dependencies
+        run: uv sync
 
-    # 5. Run Tests
-    - name: Run Tests
-      run: uv run pytest -v --cov=bda_svc --cov-report=term-missing
+      - name: Run tests
+        run: uv run pytest -v --cov=bda_svc --cov-report=term-missing
 
 
+# ----------------------------------------------------------------------
+# Job 2 — Build image, run integration test
+# ----------------------------------------------------------------------
   build-and-run:
     needs: test
     runs-on: ubuntu-24.04-arm
@@ -45,95 +47,113 @@ jobs:
       BDA_ASSESSMENT_MODEL: qwen3-vl:2b-instruct
 
     steps:
-    # 1. Check out the code
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # 2. Setup Ollama
-    - name: Setup Ollama
-      uses: ai-action/setup-ollama@v2
-      with:
-        ollama-version: "latest"
+      - name: Setup Ollama
+        uses: ai-action/setup-ollama@v2
+        with:
+          ollama-version: "latest"
 
-    - name: Pull VLMs
-      run: |
-        ollama pull "$BDA_DETECTION_MODEL"
-        ollama pull "$BDA_ASSESSMENT_MODEL"
+      - name: Pull VLMs
+        run: |
+          ollama pull "$BDA_DETECTION_MODEL"
+          ollama pull "$BDA_ASSESSMENT_MODEL"
 
-    # 3. Get test data
-    - name: Prepare test inputs
-      run: |
-        mkdir -p ./bda_input ./bda_output
-        cp ./tests/data/tank.jpg ./bda_input
+      - name: Prepare test inputs
+        run: |
+          mkdir -p ./bda_input ./bda_output
+          cp ./tests/data/tank.jpg ./bda_input
 
-    # 4. Build Docker image
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
 
-    - name: Build image
-      uses: docker/build-push-action@v5
-      with:
-        platforms: linux/arm64
-        context: .
-        file: ./docker/Dockerfile
-        tags: bda-svc:latest
-        load: true
-
-    # 5. Run bda-svc on ARM container
-    - name: Run containerized test
-      run: |
-        docker run --rm --network host \
-          -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
-          -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
-          -v "$(pwd)/bda_input:/bda_input" \
-          -v "$(pwd)/bda_output:/bda_output" \
-          bda-svc:latest -i /bda_input -o /bda_output
-
-    # 6. Print generated bda-report
-    - name: Print bda-report
-      run: |
-        for file in ./bda_output/*.json; do
-          echo "=== $file ==="
-          python -m json.tool "$file"
-          echo
-        done
-
-    # 7. Scan container for vulnerabilities
-  scan:
-    needs: build-and-run
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v4
-      - uses: docker/build-push-action@v5
+      - name: Build image
+        uses: docker/build-push-action@v5
         with:
           platforms: linux/arm64
           context: .
           file: ./docker/Dockerfile
           tags: bda-svc:latest
           load: true
-      - uses: aquasecurity/trivy-action@v0.35.0
+
+      - name: Run containerized test
+        run: |
+          docker run --rm --network host \
+            -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
+            -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
+            -v "$(pwd)/bda_input:/bda_input" \
+            -v "$(pwd)/bda_output:/bda_output" \
+            bda-svc:latest -i /bda_input -o /bda_output
+
+      - name: Print bda-report
+        run: |
+          for file in ./bda_output/*.json; do
+            echo "=== $file ==="
+            python -m json.tool "$file"
+            echo
+          done
+
+
+# ----------------------------------------------------------------------
+# Job 3 — Scan image for vulnerabilities
+# ----------------------------------------------------------------------
+  scan:
+    needs: build-and-run
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build image
+        uses: docker/build-push-action@v5
+        with:
+          platforms: linux/arm64
+          context: .
+          file: ./docker/Dockerfile
+          tags: bda-svc:latest
+          load: true
+
+      - name: Scan for vulnerabilities
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: bda-svc:latest
           format: table
           exit-code: '0'
           severity: CRITICAL,HIGH
 
+
+# ----------------------------------------------------------------------
+# Job 4 — Build and publish image to GHCR (main branch only)
+# ----------------------------------------------------------------------
   publish:
     needs: scan
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/login-action@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/setup-buildx-action@v4
-      - uses: docker/build-push-action@v5
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
         with:
           platforms: linux/arm64
           context: .
@@ -142,18 +162,27 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:latest
 
 
+# ----------------------------------------------------------------------
+# Job 5 — Pipeline summary
+# ----------------------------------------------------------------------
+  summary:
+    needs: [test, build-and-run, scan, publish]
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Add final pipeline summary
-        if: always()
         run: |
           echo "# Autonomous BDA CI/CD Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## Pipeline Results" >> $GITHUB_STEP_SUMMARY
-          echo "- Test Job: passed" >> $GITHUB_STEP_SUMMARY
-          echo "- Build-and-Run Job: passed" >> $GITHUB_STEP_SUMMARY
-          echo "- Runtime Validation: passed" >> $GITHUB_STEP_SUMMARY
-          echo "- Security Scan: completed (informational)" >> $GITHUB_STEP_SUMMARY
-          echo "- Publish Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Test: ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Build and Run: ${{ needs.build-and-run.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Security Scan (informational): ${{ needs.scan.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Publish Status: ${{ needs.publish.result }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "## Published Artifact" >> $GITHUB_STEP_SUMMARY
-          echo "- Image: ghcr.io/${{ github.repository }}:latest" >> $GITHUB_STEP_SUMMARY
-          echo "- Platform: linux/arm64" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ needs.publish.result }}" == "success" ]; then
+            echo "## Published Artifact" >> $GITHUB_STEP_SUMMARY
+            echo "- Image: ghcr.io/${{ github.repository }}:latest" >> $GITHUB_STEP_SUMMARY
+            echo "- Platform: linux/arm64" >> $GITHUB_STEP_SUMMARY
+          fi
