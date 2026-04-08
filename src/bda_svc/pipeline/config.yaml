@@ -2,7 +2,7 @@
 # DETECTION VLM BACKEND
 # ------------------------------------------------------------
 detection_vlm:
-  model: qwen3-vl:2b-instruct  # str, required; Ollama model name.
+  model: qwen3-vl:8b-instruct-q8_0  # str, required; Ollama model name.
   temperature: 0.0  # float, required; Sampling temperature for generation.
   max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
   crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
@@ -36,31 +36,12 @@ prompts:
     Detect every visible target whose doctrinal target_type is one of:
     {categories}
 
-    THINKING PROCESS (follow internally, do NOT output these steps)
-    1) First, carefully identify and count all distinct target objects in the scene.
-    2) Assign each object a unique internal ID.
-    3) Then, for each identified object, determine its target_type.
-    4) Finally, produce one precise bounding box per object.
-
-    RULES
-    - Detect each separate physical object individually.
-    - Do NOT merge multiple objects into one.
-    - Do NOT split one object into multiple detections.
-    - Include partially visible objects if identifiable.
-    - Only include objects whose identity can be determined from visible features.
-    - Do NOT include objects outside the allowed categories.
-
-    CONSISTENCY REQUIREMENTS
-    - The number of detections must match the number of distinct objects identified.
-    - Each object must have exactly one bounding box.
-    - No duplicate detections.
+    CATEGORY-SPECIFIC DETECTION GUIDANCE
+    {detection_guidance}
 
     BOUNDING BOX FORMAT
-    - Use a 0–1000 coordinate system.
-    - Format: [xmin, ymin, xmax, ymax]
-    - Values must be integers between 0 and 1000.
-    - xmin < xmax and ymin < ymax.
-    - Boxes should tightly enclose the visible extent of the object.
+    - Format: {bbox_format}
+    - Coordinate scale: {bbox_scale}
 
     OUTPUT
     Return valid JSON only.
@@ -71,13 +52,13 @@ prompts:
       "detections": [
         {
           "target_type": string,
-          "bbox": [xmin, ymin, xmax, ymax]
+          "bbox": {bbox_format}
         }
       ]
     }
 
   assess_damage: | # str, required; Per-target damage assessment prompt.
-    Perform a STRICT VISUAL-ONLY damage assessment for ONE target object.
+    Perform a VISUAL-ONLY damage assessment for ONE target object.
 
     INPUT ROLES
     - Two visual inputs are provided:
@@ -95,7 +76,7 @@ prompts:
     RULES
     - Focus only on the selected target object.
     - Do not reference crops, prompts, or analysis steps in the output.
-    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally relevant evidence.
+    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally grounded evidence.
 
     CONFIDENCE GUIDANCE
     Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
@@ -106,7 +87,7 @@ prompts:
     - possible — weak, limited, or uncertain indicators; damage category cannot be determined definitively.
 
     OUTPUT
-    Return valid JSON only. No preamble, no explanation.
+    Return valid JSON only.
 
     ASSESSMENT SCHEMA
     {
@@ -116,7 +97,7 @@ prompts:
     }
 
   summarize_scene: |  # str, required; Scene summary prompt.
-    Perform a STRICT VISUAL-ONLY scene summary.
+    Perform a VISUAL-ONLY scene summary.
 
     INPUTS
     - One full-scene image is provided.

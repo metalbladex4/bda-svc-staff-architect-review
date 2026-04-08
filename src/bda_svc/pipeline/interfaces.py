@@ -84,5 +84,6 @@ class OllamaVLM:
             messages=messages,
             format=format_schema,
             options=options,
+            think=False,
         )
         return response.message.content
