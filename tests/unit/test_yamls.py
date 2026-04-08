@@ -20,6 +20,10 @@ ALLOWED_DOCTRINE_ENTRY_KEYS = {
     "physical_damage_considerations",
 }
 
+# ----------------------------------------------------------------------
+# Test Setup: Pipeline config tests
+# ----------------------------------------------------------------------
+
 
 def test_config_top_level_keys_exact() -> None:
     """Config should contain only expected top-level sections."""
@@ -34,6 +38,11 @@ def test_config_section_keys_exact() -> None:
     assert set(config["assessment_vlm"].keys()) == EXPECTED_ASSESSMENT_VLM_KEYS
 
 
+# ----------------------------------------------------------------------
+# Test Setup: Prompt tests
+# ----------------------------------------------------------------------
+
+
 def test_prompt_sections_and_placeholders() -> None:
     """Prompts should contain required sections and templates."""
     config = load_yaml(CONFIG_PATH)
@@ -46,6 +55,11 @@ def test_prompt_sections_and_placeholders() -> None:
     assert "{target_type}" in prompts["assess_damage"]
     assert "{doctrine}" in prompts["assess_damage"]
     assert "{target_assessments}" in prompts["summarize_scene"]
+
+
+# ----------------------------------------------------------------------
+# Test Setup: Doctrine tests
+# ----------------------------------------------------------------------
 
 
 def test_doctrine_categories_and_entry_keys_valid() -> None:

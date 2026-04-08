@@ -1,8 +1,11 @@
 """Main test suite."""
 
+from unittest.mock import patch
+
 import pytest
 
 from bda_svc import inputs
+from bda_svc.pipeline.interfaces import OllamaVLM
 
 # ---------------------------------------------------------------------------
 # Test: Input Folder Validation (get_input_folder)
@@ -73,3 +76,39 @@ def test_get_input_paths_empty_exits(tmp_path):
     # Folder exists but is empty
     with pytest.raises(SystemExit):
         inputs.get_input_paths(tmp_path)
+
+
+# ---------------------------------------------------------------------------
+# Test: Network Host Variable (os.getenv)
+# ---------------------------------------------------------------------------
+def test_uses_default_host(monkeypatch):
+    """These tests ensure that the OllamaVLM client correctly uses the OLLAMA_HOST environment variable if set, and defaults to localhost if not."""
+    monkeypatch.delenv("OLLAMA_HOST", raising=False)
+
+    vlm = OllamaVLM(model="test-model")
+
+    assert vlm.client._client.base_url == "http://localhost:11434"
+
+
+def test_uses_env_host(monkeypatch):
+    """If OLLAMA_HOST is set, the client should use that instead of the default."""
+    monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
+
+    vlm = OllamaVLM(model="test-model")
+
+    assert vlm.client._client.base_url == "http://localhost:12345"
+
+
+# ---------------------------------------------------------------------------
+# Test: Network Host Variable with Http Wrapper (Client)
+# ---------------------------------------------------------------------------
+
+
+def test_client_initialized_with_env_host(monkeypatch):
+    """This test ensures that when OllamaVLM is initialized, it creates a Client with the correct host based on the OLLAMA_HOST environment variable."""
+    monkeypatch.setenv("OLLAMA_HOST", "http://localhost:12345")
+
+    with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
+        OllamaVLM(model="test-model")
+
+        mock_client.assert_called_with(host="http://localhost:12345", headers=None)
