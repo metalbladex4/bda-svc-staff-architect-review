@@ -189,6 +189,7 @@ def test_detect_objects_happy_path(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_detect_objects_fail_safe(monkeypatch: pytest.MonkeyPatch) -> None:
     """Return no detections when the model output is invalid."""
+    # Create a fake detection VLM
     detection_vlm = FakeVLM([json.dumps([{"target_type": "buildings"}])])
     patch_backends(
         monkeypatch,
@@ -202,6 +203,47 @@ def test_detect_objects_fail_safe(monkeypatch: pytest.MonkeyPatch) -> None:
 
     # A bad detection should return empty list instead of an exception
     assert detections == []
+
+
+def test_detect_objects_skips_bad_detections(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Skip invalid detections while keeping valid ones."""
+    # Ensure bbox_convention is xyxy_1000 for tests instead of relying on config.yaml
+    patch_config_overrides(
+        monkeypatch,
+        {"detection_vlm": {"bbox_convention": "xyxy_1000"}},
+    )
+
+    # Create a fake detection VLM
+    detection_vlm = FakeVLM(
+        [
+            json.dumps(
+                {
+                    "detections": [
+                        # target_type is not doctrinal -> skip
+                        {"target_type": "fake_category", "bbox": [100, 100, 500, 500]},
+                        # bounding box is not valid -> skip
+                        {"target_type": "buildings", "bbox": [-1, -1, -1, -1]},
+                        {"target_type": "buildings", "bbox": [100, 100, 500, 500]},
+                    ]
+                }
+            )
+        ]
+    )
+    patch_backends(
+        monkeypatch,
+        detection_vlm=detection_vlm,
+        assessment_vlm=FakeVLM(),
+        model_names=[],
+    )
+
+    pipeline = pipeline_model.BDAPipeline()
+    detections = pipeline.detect_objects(Image.new("RGB", (4000, 2000)))
+
+    # There should only be one valid detection
+    assert len(detections) == 1
+    assert detections[0].label == "buildings"
+    assert detections[0].bbox == (400, 200, 2000, 1000)
+    assert detections[0].crop is not None
 
 
 # ----------------------------------------------------------------------
