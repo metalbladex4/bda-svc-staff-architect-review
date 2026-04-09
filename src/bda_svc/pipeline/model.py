@@ -135,12 +135,17 @@ class BDAPipeline:
         prompt = prompt.replace("{bbox_format}", bbox_format)
 
         # Format prompt with bbox scale
-        if self.detection_bbox_convention.endswith("_1000"):
-            bbox_scale = "normalized coordinates from 0 to 1000"
-        elif self.detection_bbox_convention.endswith("_1"):
+        if self.detection_bbox_convention.endswith("_1"):
             bbox_scale = "normalized coordinates from 0.0 to 1.0"
-        else:
+        elif self.detection_bbox_convention.endswith("_1000"):
+            bbox_scale = "normalized coordinates from 0 to 1000"
+        elif self.detection_bbox_convention.endswith("_pixels"):
             bbox_scale = "raw pixel coordinates relative to the image"
+        else:
+            raise ValueError(
+                "Unsupported bounding box convention specified in config."
+                " Supported formats end with '_1' or '_1000' or '_pixels'."
+            )
         prompt = prompt.replace("{bbox_scale}", bbox_scale)
 
         # Get VLM response

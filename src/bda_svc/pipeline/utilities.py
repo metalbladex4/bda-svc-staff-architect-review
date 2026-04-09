@@ -109,13 +109,15 @@ def bbox_to_pixels(
     else:
         return None
 
-    if bbox_convention.endswith("_1000"):
-        max_x = max_y = 1000.0
-    elif bbox_convention.endswith("_1"):
+    if bbox_convention.endswith("_1"):
         max_x = max_y = 1.0
-    else:
+    elif bbox_convention.endswith("_1000"):
+        max_x = max_y = 1000.0
+    elif bbox_convention.endswith("_pixels"):
         max_x = float(model_image.width)
         max_y = float(model_image.height)
+    else:
+        return None
 
     if not (0 <= xmin <= max_x and 0 <= ymin <= max_y):
         return None
