@@ -38,19 +38,20 @@ def test_format_detection_doctrine(monkeypatch: pytest.MonkeyPatch) -> None:
             "detection_guidance": "Detect buildings.",
         },
         "military_equipment": {
-            "detection_guidance": "Detect military equipment.",
+            "BAD_KEY": "Detect military equipment.",
         },
     }
 
     monkeypatch.setattr(utilities, "load_yaml", lambda path: fake_doctrine)
     output = format_detection_doctrine(["buildings", "military_equipment", "trenches"])
 
-    # 'buildings' and 'military_equipment' have entries in fake_doctrine
+    # 'buildings' has a valid entry in fake_doctrine
     assert "buildings" in output
     assert "Detect buildings." in output
-    assert "military_equipment" in output
-    assert "Detect military equipment." in output
-    # 'trenches' does not have an entry in fake_doctrine and should be skipped
+    # 'military_equipment' does not have a valid entry in fake_doctrine
+    assert "military_equipment" not in output
+    assert "Detect military equipment." not in output
+    # 'trenches' does not have any entry in fake_doctrine
     assert "trenches" not in output
 
 
@@ -59,7 +60,7 @@ def test_format_pda_doctrine(monkeypatch: pytest.MonkeyPatch) -> None:
     fake_doctrine = {
         "buildings": {
             "physical_damage_definitions": "Building definitions.",
-            "physical_damage_considerations": "Building considerations.",
+            "BAD_KEY": "Building considerations.",
         },
         "military_equipment": {
             "physical_damage_definitions": "Equipment definitions.",
@@ -70,12 +71,13 @@ def test_format_pda_doctrine(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(utilities, "load_yaml", lambda path: fake_doctrine)
     output = format_pda_doctrine("buildings")
 
-    # 'buildings' definitions and considerations should be in output
+    # 'buildings' definitions should be in output
     assert "BUILDINGS PHYSICAL DAMAGE DEFINITIONS" in output
     assert "Building definitions." in output
-    assert "BUILDINGS PHYSICAL DAMAGE CONSIDERATIONS" in output
-    assert "Building considerations." in output
-    # 'military_equipment' should not be in output
+    # 'buildings' considerations should not be in output because of invalid key
+    assert "BUILDINGS PHYSICAL DAMAGE CONSIDERATIONS" not in output
+    assert "Building considerations." not in output
+    # 'military_equipment' is valid, but was not called as part of the output
     assert "MILITARY EQUIPMENT" not in output
 
 
@@ -99,6 +101,20 @@ def test_bbox_to_pixels_converts_xyxy_1000_bbox() -> None:
     """Convert xyxy 0-1000 bbox coordinates to image pixels."""
     image = Image.new("RGB", (100, 50))
     bbox = bbox_to_pixels(image, image, [100, 100, 500, 900], "xyxy_1000")
+    assert bbox == (10, 5, 50, 45)
+
+
+def test_bbox_to_pixels_converts_xyxy_1_bbox() -> None:
+    """Convert xyxy 0-1 bbox coordinates to image pixels."""
+    image = Image.new("RGB", (100, 50))
+    bbox = bbox_to_pixels(image, image, [0.1, 0.1, 0.5, 0.9], "xyxy_1")
+    assert bbox == (10, 5, 50, 45)
+
+
+def test_bbox_to_pixels_converts_xyxy_pixels_bbox() -> None:
+    """Convert xyxy 0-1 bbox coordinates to image pixels."""
+    image = Image.new("RGB", (100, 50))
+    bbox = bbox_to_pixels(image, image, [10, 5, 50, 45], "xyxy_pixels")
     assert bbox == (10, 5, 50, 45)
 
 
@@ -130,16 +146,27 @@ def test_crop_with_buffer_adds_padding() -> None:
     """Add padding around the detection box."""
     image = Image.new("RGB", (100, 100))
     crop = crop_with_buffer(image, (10, 10, 30, 30), buffer_ratio=0.5)
-    # Happy path returns correct padding
+    # 20x20 box with 50% buffer adds 10px on each side -> 40x40
     assert crop.size == (40, 40)
 
 
 def test_crop_with_buffer_enforces_minimum_size() -> None:
     """Return at least the minimum crop size for very small boxes."""
     image = Image.new("RGB", (100, 100))
-    crop = crop_with_buffer(image, (10, 10, 12, 12), buffer_ratio=0.0, min_size=32)
+
     # VLMs need a minimum size image, very small crops should satisfy this requirement
-    assert crop.size == (32, 32)
+    mid_crop = crop_with_buffer(image, (48, 48, 52, 52), buffer_ratio=0.0, min_size=32)
+    assert mid_crop.size == (32, 32)
+
+    # Crops near the edge must shift to satisfy the minimum size requirement
+    r_crop = crop_with_buffer(image, (95, 48, 100, 52), buffer_ratio=0.0, min_size=32)
+    l_crop = crop_with_buffer(image, (0, 48, 5, 52), buffer_ratio=0.0, min_size=32)
+    t_crop = crop_with_buffer(image, (48, 0, 52, 5), buffer_ratio=0.0, min_size=32)
+    b_crop = crop_with_buffer(image, (48, 95, 52, 100), buffer_ratio=0.0, min_size=32)
+    assert r_crop.size == (32, 32)
+    assert l_crop.size == (32, 32)
+    assert t_crop.size == (32, 32)
+    assert b_crop.size == (32, 32)
 
 
 # ----------------------------------------------------------------------

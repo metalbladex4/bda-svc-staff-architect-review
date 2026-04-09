@@ -1,4 +1,4 @@
-"""Main test suite."""
+"""Inputs test suite."""
 
 from pathlib import Path
 
