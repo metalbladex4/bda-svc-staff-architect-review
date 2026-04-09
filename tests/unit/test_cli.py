@@ -2,8 +2,9 @@
 
 import sys
 
-from bda_svc import cli
 import pytest
+
+from bda_svc import cli
 
 
 def test_get_args(mocker, capsys):
@@ -26,7 +27,7 @@ def test_get_args(mocker, capsys):
 
         captured = capsys.readouterr()
         assert "usage" in captured.out
-    
+
     # Test input argument functionality
     tmp_filename = "image42.png"
 
@@ -38,13 +39,13 @@ def test_get_args(mocker, capsys):
         # Check if argparse.Namespace object contains our argument label
         # and if it is set to the filename we provided
         assert hasattr(args, "input") and args.input == tmp_filename
-        
+
         # Test with missing filename
         mocker.patch.object(sys, "argv", ["bda-svc", arg_input])
 
         with pytest.raises(SystemExit) as exec_missing_input:
             cli.get_args()
-            
+
         assert exec_missing_input.value.code == 2
 
         captured = capsys.readouterr()
@@ -60,13 +61,13 @@ def test_get_args(mocker, capsys):
         # Check if argparse.Namespace object contains our argument label
         # and if it is set to the folder we provided
         assert hasattr(args, "output") and args.output == tmp_output_folder
-        
+
         # Test with missing output folder
         mocker.patch.object(sys, "argv", ["bda-svc", arg_output])
 
         with pytest.raises(SystemExit) as exec_missing_output:
             cli.get_args()
-            
+
         assert exec_missing_output.value.code == 2
 
         captured = capsys.readouterr()
