@@ -10,6 +10,7 @@ import models
 CSV_HEADERS = [
     "image_filename",
     "model_name",
+    "inference_time",
     "target_type",
     "ref_target_label",
     "pred_target_label",
@@ -54,13 +55,17 @@ def _build_row(
         ref = match.ref_target
         pred = match.pred_target
         iou = f"{match.iou:.3f}"
-        w_d = f"{match.w_d:.3f}"
-        w_c = f"{match.w_c:.3f}"
+        # w_d = f"{match.w_d:.3f}"
+        w_d = ""
+        # w_c = f"{match.w_c:.3f}"
+        w_c = ""
         cost = f"{match.cost:.3f}"
         s_assess = f"{match.score_assess:.3f}"
         s_logic = f"{match.score_logic:.3f}"
-        w_assess = f"{match.w_assess:.3f}"
-        w_logic = f"{match.w_logic:.3f}"
+        # w_assess = f"{match.w_assess:.3f}"
+        w_assess = ""
+        # w_logic = f"{match.w_logic:.3f}"
+        w_logic = ""
         score = f"{match.score:.3f}"
     else:
         # Handle False Positives and False Negatives
@@ -79,13 +84,14 @@ def _build_row(
     return {
         "image_filename": report_pred.metadata.image_filename,
         "model_name": report_pred.metadata.model_name,
+        "inference_time": report_pred.metadata.inference_time,
         "target_type": active_target.target_type.text,
         "ref_target_label": ref.target_label if ref else "",
-        "ref_damage": ref.damage_category.text if ref else "",
+        "ref_damage": ref.damage_category if ref else "",
         "pred_target_label": pred.target_label if pred else "",
-        "pred_damage": pred.damage_category.text if pred else "",
-        "ref_confidence": ref.confidence.text if ref else "",
-        "pred_confidence": pred.confidence.text if pred else "",
+        "pred_damage": pred.damage_category if pred else "",
+        "ref_confidence": ref.confidence if ref else "",
+        "pred_confidence": pred.confidence if pred else "",
         "iou_score": iou,
         "w_d": w_d,
         "w_c": w_c,

@@ -181,6 +181,7 @@ class BDAReportMetadata:
     date_created: str
     report_type: str
     analyst: str
+    inference_time: str
 
 
 @dataclass
@@ -194,10 +195,10 @@ class BDAMatch:
     w_c: float
     cost: float
     score_assess: float
-    score_logic: float
+    score_logic: float | None
     w_assess: float
     w_logic: float
-    score: float
+    score: float | None
 
 
 class BDAReport:
@@ -248,6 +249,7 @@ class BDAReport:
             date_created=metadata_dict.get("date_created", ""),
             report_type=metadata_dict.get("report_type", ""),
             analyst=metadata_dict.get("analyst", ""),
+            inference_time=metadata_dict.get("inference_time", "")
         )
         # Parse the report and extract detected objects
         target_list = []
@@ -309,7 +311,7 @@ class BDAReport:
         pred_bda: BDATarget,
         client: Client,
         model: str = "qwen3-vl:235b-cloud",
-    ) -> float:
+    ) -> float | None:
         """Get score for match logic.
 
         Args:
@@ -319,7 +321,7 @@ class BDAReport:
             model: Ollama Cloud model name
 
         Returns:
-            Score generated via LLMaaJ, normalized
+            Score generated via LLMaaJ, normalized, or None if the API fails
         """
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
@@ -380,7 +382,7 @@ Output ONLY valid JSON.
 
                 if "429" in error_msg or "too many requests" in error_msg:
                     # Backoff: 1s, 2s, 4s, 8s
-                    sleep_time = 2**attempt
+                    sleep_time = 2 ** attempt
 
                     print(
                         f"[*] Rate limited for LLM. Retrying in {sleep_time} seconds."
@@ -390,38 +392,42 @@ Output ONLY valid JSON.
                     continue
 
                 if isinstance(e, json.JSONDecodeError):
-                    print("[*] LLM returned invalid JSON. Defaulting to 0.0")
-                    return 0.0
+                    print("[*] LLM returned invalid JSON. Returning None.")
+                    return None
 
         # Attempts exhausted
-        print("[*] Max retries reached querying LLM. Defaulting to 0.0")
+        print("[*] Max retries reached querying LLM. Returning None.")
 
-        return 0.0
+        return None
 
     def _calculate_target_score(
         self,
         score_assess: float,
-        score_logic: float,
+        score_logic: float | None,
         w_assess: float = 0.7,
-    ) -> float:
+    ) -> float | None:
         """Calculates final object score.
 
         Args:
             score_assess: Object detection/assessment score.
-            score_logic: Assessment logic score.
+            score_logic: Assessment logic score (can be None on error).
             w_assess: Relative weight of the assessment component score.
 
         Returns:
-            Final normalized target score.
+            Final normalized target score, or None if logic assessment failed.
         """
+        if score_logic is None:
+            return None
+
         # Weights should add up to one
-        w_logic = 1 - w_assess
+        w_logic = 1.0 - w_assess
 
         # Scale the target score with `score_assess`:
         #   Case 1: score_assess=1.0, score_logic=1.0 --> 1.0
         #   Case 2: score_assess=1.0, score_logic=0.0 --> 0.7 (if w_assess == 0.7)
         #   Case 3: score_assess=0.0, score_logic=1.0 --> 0.0
         #   Case 4: score_assess=0.5, score_logic=1.0 --> 0.5
+
         return score_assess * (w_assess + (score_logic * w_logic))
 
     def _evaluate_logic(self, matches: list):
