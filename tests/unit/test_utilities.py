@@ -132,6 +132,7 @@ def test_bbox_to_pixels_returns_none_for_invalid_bbox() -> None:
     assert bbox_to_pixels(image, image, [100, 100, 500], "xyxy_1000") is None
     assert bbox_to_pixels(image, image, [100, 100, "900,", 500], "xyxy_1000") is None
     assert bbox_to_pixels(image, image, [100, 100, 900, 500], "xy_xy_1000") is None
+    assert bbox_to_pixels(image, image, [100, 100, 900, 500], "xyxy_pixelss") is None
     assert bbox_to_pixels(image, image, [-1, 100, 500, 900], "xyxy_1000") is None
     assert bbox_to_pixels(image, image, [100, 100, 1001, 900], "xyxy_1000") is None
     assert bbox_to_pixels(image, image, [500, 100, 100, 900], "xyxy_1000") is None
