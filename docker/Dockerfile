@@ -13,6 +13,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
+        curl \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
