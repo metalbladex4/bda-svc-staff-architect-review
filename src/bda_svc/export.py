@@ -45,7 +45,7 @@ def save_json(
     output_path: str | Path | None,
     model_name: str,
     inference_time: float,
-) -> None:
+) -> Path:
     """Save BDA as a JSON file.
 
     Args:
@@ -68,3 +68,5 @@ def save_json(
         json.dump(report, f, indent=4)
 
     print(f"[*] Exported: {json_path}")
+
+    return json_path

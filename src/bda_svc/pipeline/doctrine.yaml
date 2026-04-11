@@ -1,9 +1,6 @@
 buildings:
   detection_guidance: |
-    Detect buildings as single, complete structures relevant to the main scene or target area.
-    Do NOT detect building parts (e.g., walls, roofs, facades, fragments) as standalone objects.
-    Exclude incidental or peripheral background buildings.
-    When uncertain, prefer fewer, complete building detections over fragmented ones.
+    Detect only buildings that are central to the scene or essential to interpreting it. Skip background or peripheral buildings that do not materially affect the scene.
   physical_damage_definitions: |
     NO DAMAGE — 0 percent of the target element area damaged.
     LIGHT DAMAGE — Up to 15 percent of the target element area damaged.
@@ -18,10 +15,9 @@ buildings:
 
 military_equipment:
   detection_guidance: |
-    Detect each separate physical object individually.
-    Do NOT merge multiple objects into one.
-    Do NOT split one object into multiple detections.
-    Include partially visible objects if identifiable.
+    Military equipment is generally defined as armored vehicles, artillery systems, trucks, locomotives, aircrafts, rocket and missile systems, radar antennas, or fire control components.
+    Detect military equipment as individual objects -- do NOT merge multiple objects into one such as a group of vehicles.
+    Include all pieces of military equipment including partially visible ones, only skip objects whose boundaries cannot be distinguished from surrounding objects or background.
   physical_damage_definitions: |
     NO DAMAGE — No apparent/observable damage.
     DAMAGED — Physical deformations may include holes in equipment, scorching visible on exterior, and/or equipment components blown off (e.g., broken tracks/wheel or armored plates). Major components still intact.
