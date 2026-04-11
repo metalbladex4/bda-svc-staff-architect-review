@@ -78,6 +78,7 @@ jobs:
         file: ./docker/Dockerfile
         tags: bda-svc:latest
         load: true
+        pull: true
 
     # 5. Run bda-svc on ARM container
     - name: Run containerized test
