@@ -3,6 +3,7 @@
 from unittest.mock import patch
 
 import pytest
+from PIL import Image
 
 from bda_svc.pipeline.interfaces import OllamaVLM
 
@@ -56,3 +57,28 @@ def test_client_initialized_with_api_key_header(
             host="http://localhost:11434",
             headers={"Authorization": "Bearer secret-key"},
         )
+
+
+# ----------------------------------------------------------------------
+# Generate method tests
+# ----------------------------------------------------------------------
+
+
+def test_system_prompt_is_sent_as_first_message() -> None:
+    """OllamaVLM includes the system prompt as the first message."""
+    with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
+        image = Image.new("RGB", (100, 100))
+        vlm = OllamaVLM(model="test-model")
+        vlm.generate(image, prompt="What is this?", system_prompt="You are helpful.")
+        messages = mock_client.return_value.chat.call_args.kwargs["messages"]
+        assert messages[0] == {"role": "system", "content": "You are helpful."}
+
+
+def test_no_system_prompt_omits_system_message() -> None:
+    """OllamaVLM sends no system message when system_prompt absent."""
+    with patch("bda_svc.pipeline.interfaces.Client") as mock_client:
+        image = Image.new("RGB", (100, 100))
+        vlm = OllamaVLM(model="test-model")
+        vlm.generate(image, prompt="What is this?", temperature=0.0)
+        messages = mock_client.return_value.chat.call_args.kwargs["messages"]
+        assert all(m["role"] != "system" for m in messages)
