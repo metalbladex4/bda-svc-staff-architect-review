@@ -40,6 +40,7 @@ prompts:
     RULES
     - First identify all valid targets using the target-type specific detection guidance below.
     - Then produce exactly one bounding box per valid target.
+    - Do not product a bounding box of all zeroes if target_type is not "object_not_found".
     - The number of detections must match the number of targets identified.
 
     TARGET-TYPE SPECIFIC DETECTION GUIDANCE
