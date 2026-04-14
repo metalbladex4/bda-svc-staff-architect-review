@@ -36,4 +36,11 @@ def get_args() -> argparse.Namespace:
         help=("Path to output folder."),
     )
 
+    parser.add_argument(
+        "-i",
+        "--images",
+        type=str,
+        help=("Path to images folder."),
+    )
+
     return parser.parse_args()

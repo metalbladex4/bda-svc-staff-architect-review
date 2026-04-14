@@ -3,12 +3,14 @@
 
 import concurrent.futures
 import json
+import random
 import time
 from dataclasses import dataclass, field
 from enum import IntEnum
-from os import environ
+from os import environ, makedirs
 from typing import Self
 
+import config
 import numpy as np
 from ollama import ChatResponse, Client
 
@@ -181,6 +183,7 @@ class BDAReportMetadata:
     date_created: str
     report_type: str
     analyst: str
+    inference_time: str
 
 
 @dataclass
@@ -194,10 +197,10 @@ class BDAMatch:
     w_c: float
     cost: float
     score_assess: float
-    score_logic: float
+    score_logic: float | None
     w_assess: float
     w_logic: float
-    score: float
+    score: float | None
 
 
 class BDAReport:
@@ -207,6 +210,9 @@ class BDAReport:
         """Init."""
         self.metadata = metadata
         self.targets = targets
+        self.logs_path = "logs_llmaaj"
+
+        makedirs(self.logs_path, exist_ok=True)
 
         # Build a matrix of BDAs (N rows x 3 columns):
         #     Column 0: Target Type | Column 1: Damage | Column 2: Confidence
@@ -248,6 +254,7 @@ class BDAReport:
             date_created=metadata_dict.get("date_created", ""),
             report_type=metadata_dict.get("report_type", ""),
             analyst=metadata_dict.get("analyst", ""),
+            inference_time=metadata_dict.get("inference_time", ""),
         )
         # Parse the report and extract detected objects
         target_list = []
@@ -309,8 +316,8 @@ class BDAReport:
         pred_bda: BDATarget,
         client: Client,
         model: str = "qwen3-vl:235b-cloud",
-    ) -> float:
-        """Get score for match logic.
+    ) -> tuple | None:
+        """Get LLMaaJ score and reasoning for match logic.
 
         Args:
             ref_bda: Reference BDATarget
@@ -319,20 +326,27 @@ class BDAReport:
             model: Ollama Cloud model name
 
         Returns:
-            Score generated via LLMaaJ, normalized
+            Score generated via LLMaaJ, normalized, or None if the API fails.
+            Also returns LLMaaJ reasoning for that score.
         """
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
 
         max_retries = 6
+
         query = f"""You are an expert military intelligence analyst acting as an impartial judge for an automated Battle Damage Assessment (BDA) pipeline.
 
 Your task is to compare a human analyst's reference logic against an AI computer vision model's predicted logic.
 
+### Evaluation Guidelines
+1. Focus on the core functional state of the target (ex. no damage, damaged, destroyed).
+2. Do not penalize the prediction for including extra observational details (ex. dirt, grime, minor cosmetic scorch marks) as long as the overall conclusion aligns with the reference.
+3. A score of 0 should be reserved for fundamental contradictions regarding the severity of damage or the operability of the target (ex. Reference says "destroyed", Prediction says "intact").
+
 Compare the reference text against the predicted text and grade the prediction using the following integer scale:
-- 0: The predicted text directly contradicts the reference text or invents details not present.
-- 1: The predicted text misses key nuance, or is too vague to be useful for intelligence gathering.
-- 2: The predicted text fully captures the reasoning within the reference text and correctly identifies the state of the target.
+- 0: The predicted text fundamentally contradicts the core functional assessment of the reference text.
+- 1: The predicted text agrees on the broad state of the target but misses some key reasoning or introduces minor deviations.
+- 2: The predicted text fully aligns with the core reasoning and functional state of the reference, even if it uses different phrasing or adds minor, non-contradictory details.
 
 <reference_logic>
 {ref_bda.logic}
@@ -374,69 +388,130 @@ Output ONLY valid JSON.
                 # print(f"\t[*] LLMaaJ: {result.get('reasoning')}")
 
                 # Normalize the 0, 1, 2 integer into a 0.0, 0.5, 1.0 float
-                return float(score) / 2.0
+                return float(score) / 2.0, result.get("reasoning")
             except Exception as e:
                 error_msg = str(e).lower()
 
-                if "429" in error_msg or "too many requests" in error_msg:
-                    # Backoff: 1s, 2s, 4s, 8s
-                    sleep_time = 2**attempt
+                if isinstance(e, json.JSONDecodeError):
+                    print("[*] LLM returned invalid JSON. Returning None.")
+                    return None
+
+                if any(
+                    err in error_msg
+                    for err in ["429", "too many requests", "timeout", "50"]
+                ):
+                    # Exponential Backoff: 1s, 2s, 4s, 8s (with addt'l jitter)
+                    sleep_time = (2**attempt) + random.uniform(0, 1)
 
                     print(
-                        f"[*] Rate limited for LLM. Retrying in {sleep_time} seconds."
+                        f"[*] Cloud usage error. Retrying in {sleep_time:.2f} seconds..."
                     )
 
                     time.sleep(sleep_time)
                     continue
 
-                if isinstance(e, json.JSONDecodeError):
-                    print("[*] LLM returned invalid JSON. Defaulting to 0.0")
-                    return 0.0
+                # Handle miscellaneous errors
+                print(f"[*] Unhandled LLMaaJ error: {e}")
+                return None
 
         # Attempts exhausted
-        print("[*] Max retries reached querying LLM. Defaulting to 0.0")
+        print("[*] Max retries reached querying LLM. Returning None.")
 
-        return 0.0
+        return None
+
+    def _log_llmaaj(
+        self, R: Self, match: BDAMatch, llmaaj_score: float, llmaaj_evaluation: str
+    ) -> None:
+        """Appends LLMaaJ evaluation results to both JSONL and text logs.
+
+        Args:
+            R: The BDAReport containing human assessments.
+            match: A BDAMatch object.
+            llmaaj_score: Float score generated by the LLMaaJ
+            llmaaj_evaluation: String evaluation generated by the LLMaaJ
+
+        Returns:
+            None
+        """
+        assert config.OUTPUT_DIR is not None, "[*] Output folder not initialized."
+        output_path = config.OUTPUT_DIR / "logs_llmaaj"
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        log_data = {
+            "Image Filename": R.metadata.image_filename,
+            "Reference Target": match.ref_target.target_label,
+            "Model Target": match.pred_target.target_label,
+            "Reference Logic": match.ref_target.logic,
+            "Model Logic": match.pred_target.logic,
+            "LLMaaJ Score": llmaaj_score,
+            "LLMaaJ Evaluation": llmaaj_evaluation,
+        }
+
+        # Save LLMaaJ logs in both JSONL and human-readable formats
+        with (
+            open(f"{output_path}/llmaaj.jsonl", "a", encoding="utf-8") as jsonl_file,
+            open(f"{output_path}/llmaaj.log", "a", encoding="utf-8") as log_file,
+        ):
+            jsonl_file.write(json.dumps(log_data) + "\n")
+            log_file.write(json.dumps(log_data, indent=4) + "\n\n")
+
+            print(
+                f"    | {log_data['Image Filename']} |"
+                f" R-{log_data['Reference Target']} |"
+                f" P-{log_data['Model Target']} | ---> "
+                f"{log_data['LLMaaJ Score']}"
+            )
 
     def _calculate_target_score(
         self,
         score_assess: float,
-        score_logic: float,
+        score_logic: float | None,
         w_assess: float = 0.7,
-    ) -> float:
+    ) -> float | None:
         """Calculates final object score.
 
         Args:
             score_assess: Object detection/assessment score.
-            score_logic: Assessment logic score.
+            score_logic: Assessment logic score (can be None on error).
             w_assess: Relative weight of the assessment component score.
 
         Returns:
-            Final normalized target score.
+            Final normalized target score, or None if logic assessment failed.
         """
+        if score_logic is None:
+            return None
+
         # Weights should add up to one
-        w_logic = 1 - w_assess
+        w_logic = 1.0 - w_assess
 
         # Scale the target score with `score_assess`:
         #   Case 1: score_assess=1.0, score_logic=1.0 --> 1.0
         #   Case 2: score_assess=1.0, score_logic=0.0 --> 0.7 (if w_assess == 0.7)
         #   Case 3: score_assess=0.0, score_logic=1.0 --> 0.0
         #   Case 4: score_assess=0.5, score_logic=1.0 --> 0.5
+
         return score_assess * (w_assess + (score_logic * w_logic))
 
-    def _evaluate_logic(self, matches: list):
+    def _evaluate_logic(self, R, matches: list[BDAMatch]):
         """Evaluates BDAMatch logic concurrently (updating in-place).
 
         Args:
+            R: The BDAReport containing human assessments.
             matches: List of BDAMatch objects.
         """
         api_key = environ.get("OLLAMA_API_KEY")
         if not api_key:
             raise KeyError("[*] Environment variable 'OLLAMA_API_KEY' not set.")
 
+        timeout_secs = 60 * 15
+
         # Share Client object between match queries
         shared_client = Client(
-            host="https://ollama.com", headers={"Authorization": f"Bearer {api_key}"}
+            host="https://ollama.com",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+            },
+            timeout=timeout_secs,
         )
 
         # Use a ThreadPool to run requests concurrently
@@ -453,11 +528,18 @@ Output ONLY valid JSON.
             # As each concurrent request finishes, record the score
             for future in concurrent.futures.as_completed(future_to_match):
                 match = future_to_match[future]
+
                 try:
-                    # Get the returned score from _llmaaj
-                    score = future.result()
-                    match.score_logic = score
-                    print(f"[*] Normalized LLMaaJ score: {score}")
+                    # Get the returned score and evaluation from _llmaaj
+                    result = future.result()
+                    if result is None:
+                        raise Exception("unable to contact LLM provider.")
+                    else:
+                        score, evaluation = result
+                        match.score_logic = score
+
+                        # Log evaluation to file
+                        self._log_llmaaj(R, match, score, evaluation)
                 except Exception as e:
                     print(f"[*] LLMaaJ operation generated an exception: {e}")
 
@@ -601,7 +683,9 @@ Output ONLY valid JSON.
 
         # Query LLMaaJ for every matched pair (that's not OBJECT_NOT_FOUND)
         matches_valid = [match for match in matches if match.score_assess > 0.0]
-        self._evaluate_logic(matches_valid)
+
+        print("\n[*] Submitting matches to LLMaaJ:\n")
+        self._evaluate_logic(R, matches_valid)
 
         # Finish populating the `score` value for every match
         for match in matches:

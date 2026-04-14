@@ -4,12 +4,14 @@ import csv
 import datetime
 from pathlib import Path
 
+import config
 import models
 
 # Define the order of columns
 CSV_HEADERS = [
     "image_filename",
     "model_name",
+    "inference_time",
     "target_type",
     "ref_target_label",
     "pred_target_label",
@@ -54,13 +56,17 @@ def _build_row(
         ref = match.ref_target
         pred = match.pred_target
         iou = f"{match.iou:.3f}"
-        w_d = f"{match.w_d:.3f}"
-        w_c = f"{match.w_c:.3f}"
+        # w_d = f"{match.w_d:.3f}"
+        w_d = ""
+        # w_c = f"{match.w_c:.3f}"
+        w_c = ""
         cost = f"{match.cost:.3f}"
         s_assess = f"{match.score_assess:.3f}"
         s_logic = f"{match.score_logic:.3f}"
-        w_assess = f"{match.w_assess:.3f}"
-        w_logic = f"{match.w_logic:.3f}"
+        # w_assess = f"{match.w_assess:.3f}"
+        w_assess = ""
+        # w_logic = f"{match.w_logic:.3f}"
+        w_logic = ""
         score = f"{match.score:.3f}"
     else:
         # Handle False Positives and False Negatives
@@ -79,13 +85,14 @@ def _build_row(
     return {
         "image_filename": report_pred.metadata.image_filename,
         "model_name": report_pred.metadata.model_name,
+        "inference_time": report_pred.metadata.inference_time,
         "target_type": active_target.target_type.text,
         "ref_target_label": ref.target_label if ref else "",
-        "ref_damage": ref.damage_category.text if ref else "",
+        "ref_damage": ref.damage_category if ref else "",
         "pred_target_label": pred.target_label if pred else "",
-        "pred_damage": pred.damage_category.text if pred else "",
-        "ref_confidence": ref.confidence.text if ref else "",
-        "pred_confidence": pred.confidence.text if pred else "",
+        "pred_damage": pred.damage_category if pred else "",
+        "ref_confidence": ref.confidence if ref else "",
+        "pred_confidence": pred.confidence if pred else "",
         "iou_score": iou,
         "w_d": w_d,
         "w_c": w_c,
@@ -132,13 +139,11 @@ def package_bda_report(
 
 def save_csv(
     rows: list[dict],
-    output_path: str | Path,
 ) -> Path | None:
     """Save evaluation report as CSV file.
 
     Args:
         rows: List of evaluation results (dictionaries) to be written to CSV
-        output_path : Path of output folder
 
     Returns:
         Path of written evaluation report (or None)
@@ -146,11 +151,9 @@ def save_csv(
     if not rows:
         return None
 
-    output_path = Path(output_path)
-    output_path.mkdir(parents=True, exist_ok=True)
-
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d_%H%M%SZ")
-    csv_path = output_path / f"evaluation_{timestamp}.csv"
+    assert config.OUTPUT_DIR is not None, "[*] Output directory not initialized."
+    csv_path = config.OUTPUT_DIR / f"evaluation_{timestamp}.csv"
 
     try:
         with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
