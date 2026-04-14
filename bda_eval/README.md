@@ -21,7 +21,14 @@
    uv run python main.py -r /path/to/ref/reports -p /path/to/pred/reports -i /path/to/image/files -o /path/to/results
    ```
 
-## Project Structure
+## Output Folder Structure
 ```
-TBD
+├── path/to/results
+│   └── evaluation.csv        # CSV file with evaluation results
+│   └── reports_reference/    # Copy of reference report folder
+│   └── reports_predicted/    # Copy of predicted report folder
+│   └── images/bbox/both/     # Contains images with ref/pred bounding boxes
+│   └── logs_llmaaj/          # LLMaaJ score results
+│       ├── llmaaj.jsonl      # JSON Lines file (each line is a JSON object)
+│       ├── llmaaj.log        # Human-readable JSON format
 ```
