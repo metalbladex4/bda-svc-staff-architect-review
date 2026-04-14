@@ -1,26 +1,15 @@
 """Main application entry point for automated BDA evaluation."""
 # pylint: disable=invalid-name
 
+import shutil
+from pathlib import Path
+
+import bboxes
 import cli
+import config
 import discovery
 import export
 import models
-
-
-def partition_keys(left: dict, right: dict) -> tuple[set, set, set]:
-    """Compares two dictionaries and returns their common and distinct keys as sets.
-
-    Args:
-        left: First dictionary to be compared
-        right: Second dictionary to be compared
-
-    Returns:
-        Tuple with common keys, keys only in left, and keys only in right
-    """
-    keys_left = set(left.keys())
-    keys_right = set(right.keys())
-
-    return keys_left & keys_right, keys_left - keys_right, keys_right - keys_left
 
 
 def compare_image_objects(
@@ -51,13 +40,22 @@ def main():
     """Load reports, find matching objects and assess VLM performance."""
     args = cli.get_args()
 
+    # Create output folder (if it doesn't exist) and store in config module
+    config.OUTPUT_DIR = Path(args.output)
+    config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Verify image folder exists
+    config.IMAGES_DIR = Path(args.images)
+
     # Discover reports
+    config.REFERENCE_DIR = Path(args.reference)
+    config.PREDICTED_DIR = Path(args.predicted)
     R_multi_images, P_multi_images = discovery.get_reports(
-        args.reference, args.predicted
+        config.REFERENCE_DIR, config.PREDICTED_DIR
     )
 
     # Check if reference reports have corresponding predicted reports
-    common_keys, missing_pred, missing_ref = partition_keys(
+    common_keys, missing_pred, missing_ref = discovery.partition_keys(
         R_multi_images, P_multi_images
     )
 
@@ -68,10 +66,11 @@ def main():
     if missing_ref:
         print(f"[*] Missing References: {missing_ref}")
 
-    # Assess image objects for every pair of reference and predicted reports
     packages = []
 
+    # NOTE: "key" == image filename
     for key in common_keys:
+        # Assess image objects for every pair of reference and predicted reports
         # NOTE: matches = [(ref_1_object_1, pred_1_object_3), ...]
         R_report, P_report, match_results = compare_image_objects(
             R_multi_images[key], P_multi_images[key]
@@ -80,8 +79,7 @@ def main():
         if match_results:
             matches, false_negatives, false_positives = match_results
 
-            # print(f"[*] Matches: {len(matches)} (out of {len(R_report.targets)})")
-
+            # Convert our results into a list of CSV rows
             package = export.package_bda_report(
                 # R_report,
                 P_report,
@@ -92,7 +90,21 @@ def main():
 
             packages.extend(package)
 
-    result = export.save_csv(packages, args.output)
+        # Generate reference and model bounding boxes for current image
+        bboxes.draw_bboxes(
+            img_filename=key,
+            R_report=R_report,
+            P_report=P_report
+        )
+
+    # Copy report folders into our destination output folder
+    output_path_ref = config.OUTPUT_DIR / config.REFERENCE_DIR.name
+    output_path_pred = config.OUTPUT_DIR / config.PREDICTED_DIR.name
+    shutil.copytree(config.REFERENCE_DIR, output_path_ref, dirs_exist_ok=True)
+    shutil.copytree(config.PREDICTED_DIR, output_path_pred, dirs_exist_ok=True)
+
+    # Try to create the CSV and save to file
+    result = export.save_csv(packages)
 
     if result:
         print(f"\n[*] Successfully created evaluation report '{result}'.\n")

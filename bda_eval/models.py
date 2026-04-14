@@ -2,14 +2,15 @@
 # pylint: disable=invalid-name,import-outside-toplevel
 
 import concurrent.futures
-from dataclasses import dataclass, field
-from enum import IntEnum
 import json
-from os import environ, makedirs
 import random
 import time
+from dataclasses import dataclass, field
+from enum import IntEnum
+from os import environ, makedirs
 from typing import Self
 
+import config
 import numpy as np
 from ollama import ChatResponse, Client
 
@@ -210,7 +211,7 @@ class BDAReport:
         self.metadata = metadata
         self.targets = targets
         self.logs_path = "logs_llmaaj"
-        
+
         makedirs(self.logs_path, exist_ok=True)
 
         # Build a matrix of BDAs (N rows x 3 columns):
@@ -253,7 +254,7 @@ class BDAReport:
             date_created=metadata_dict.get("date_created", ""),
             report_type=metadata_dict.get("report_type", ""),
             analyst=metadata_dict.get("analyst", ""),
-            inference_time=metadata_dict.get("inference_time", "")
+            inference_time=metadata_dict.get("inference_time", ""),
         )
         # Parse the report and extract detected objects
         target_list = []
@@ -316,7 +317,7 @@ class BDAReport:
         client: Client,
         model: str = "qwen3-vl:235b-cloud",
     ) -> tuple | None:
-        """Get score for match logic.
+        """Get LLMaaJ score and reasoning for match logic.
 
         Args:
             ref_bda: Reference BDATarget
@@ -325,7 +326,8 @@ class BDAReport:
             model: Ollama Cloud model name
 
         Returns:
-            Score generated via LLMaaJ, normalized, or None if the API fails
+            Score generated via LLMaaJ, normalized, or None if the API fails.
+            Also returns LLMaaJ reasoning for that score.
         """
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
@@ -386,19 +388,20 @@ Output ONLY valid JSON.
                 # print(f"\t[*] LLMaaJ: {result.get('reasoning')}")
 
                 # Normalize the 0, 1, 2 integer into a 0.0, 0.5, 1.0 float
-                return float(score) / 2.0, result.get('reasoning')
+                return float(score) / 2.0, result.get("reasoning")
             except Exception as e:
                 error_msg = str(e).lower()
-                
+
                 if isinstance(e, json.JSONDecodeError):
                     print("[*] LLM returned invalid JSON. Returning None.")
                     return None
 
-                if any(err in error_msg for err in [
-                    "429", "too many requests", "timeout", "50"
-                ]):
+                if any(
+                    err in error_msg
+                    for err in ["429", "too many requests", "timeout", "50"]
+                ):
                     # Exponential Backoff: 1s, 2s, 4s, 8s (with addt'l jitter)
-                    sleep_time = (2 ** attempt) + random.uniform(0, 1)
+                    sleep_time = (2**attempt) + random.uniform(0, 1)
 
                     print(
                         f"[*] Cloud usage error. Retrying in {sleep_time:.2f} seconds..."
@@ -417,12 +420,8 @@ Output ONLY valid JSON.
         return None
 
     def _log_llmaaj(
-        self,
-        R: Self,
-        match: BDAMatch,
-        llmaaj_score: float,
-        llmaaj_evaluation: str
-        ) -> None:
+        self, R: Self, match: BDAMatch, llmaaj_score: float, llmaaj_evaluation: str
+    ) -> None:
         """Appends LLMaaJ evaluation results to both JSONL and text logs.
 
         Args:
@@ -434,6 +433,10 @@ Output ONLY valid JSON.
         Returns:
             None
         """
+        assert config.OUTPUT_DIR is not None, "[*] Output folder not initialized."
+        output_path = config.OUTPUT_DIR / "logs_llmaaj"
+        output_path.mkdir(parents=True, exist_ok=True)
+
         log_data = {
             "Image Filename": R.metadata.image_filename,
             "Reference Target": match.ref_target.target_label,
@@ -441,20 +444,22 @@ Output ONLY valid JSON.
             "Reference Logic": match.ref_target.logic,
             "Model Logic": match.pred_target.logic,
             "LLMaaJ Score": llmaaj_score,
-            "LLMaaJ Evaluation": llmaaj_evaluation
+            "LLMaaJ Evaluation": llmaaj_evaluation,
         }
 
+        # Save LLMaaJ logs in both JSONL and human-readable formats
         with (
-            open(f"{self.logs_path}/llmaaj.jsonl", "a", encoding="utf-8") as jsonl_file,
-            open(f"{self.logs_path}/llmaaj.log", "a", encoding="utf-8") as log_file,
-            ):
+            open(f"{output_path}/llmaaj.jsonl", "a", encoding="utf-8") as jsonl_file,
+            open(f"{output_path}/llmaaj.log", "a", encoding="utf-8") as log_file,
+        ):
             jsonl_file.write(json.dumps(log_data) + "\n")
             log_file.write(json.dumps(log_data, indent=4) + "\n\n")
 
-            print(f"\t|{log_data['Image Filename']} |"
-                  f" R-{log_data['Reference Target']} |"
-                  f" P-{log_data['Model Target']} | ---> "
-                  f"{log_data['LLMaaJ Score']}"
+            print(
+                f"    | {log_data['Image Filename']} |"
+                f" R-{log_data['Reference Target']} |"
+                f" P-{log_data['Model Target']} | ---> "
+                f"{log_data['LLMaaJ Score']}"
             )
 
     def _calculate_target_score(
@@ -503,7 +508,9 @@ Output ONLY valid JSON.
         # Share Client object between match queries
         shared_client = Client(
             host="https://ollama.com",
-            headers={"Authorization": f"Bearer {api_key}",},
+            headers={
+                "Authorization": f"Bearer {api_key}",
+            },
             timeout=timeout_secs,
         )
 
@@ -530,7 +537,7 @@ Output ONLY valid JSON.
                     else:
                         score, evaluation = result
                         match.score_logic = score
-                        
+
                         # Log evaluation to file
                         self._log_llmaaj(R, match, score, evaluation)
                 except Exception as e:

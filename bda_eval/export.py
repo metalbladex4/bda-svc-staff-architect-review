@@ -4,6 +4,7 @@ import csv
 import datetime
 from pathlib import Path
 
+import config
 import models
 
 # Define the order of columns
@@ -138,13 +139,11 @@ def package_bda_report(
 
 def save_csv(
     rows: list[dict],
-    output_path: str | Path,
 ) -> Path | None:
     """Save evaluation report as CSV file.
 
     Args:
         rows: List of evaluation results (dictionaries) to be written to CSV
-        output_path : Path of output folder
 
     Returns:
         Path of written evaluation report (or None)
@@ -152,11 +151,9 @@ def save_csv(
     if not rows:
         return None
 
-    output_path = Path(output_path)
-    output_path.mkdir(parents=True, exist_ok=True)
-
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d_%H%M%SZ")
-    csv_path = output_path / f"evaluation_{timestamp}.csv"
+    assert config.OUTPUT_DIR is not None, "[*] Output directory not initialized."
+    csv_path = config.OUTPUT_DIR / f"evaluation_{timestamp}.csv"
 
     try:
         with csv_path.open("w", encoding="utf-8", newline="") as csv_file:

@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 
-def get_folder(folder_path: str) -> Path:
+def get_folder(folder_path: Path | str) -> Path:
     """Retrieve folder path and perform validation.
 
     Args:
@@ -32,7 +32,7 @@ def get_folder(folder_path: str) -> Path:
 
 
 def get_report_paths(
-    ref_folder: str, pred_folder: str
+    ref_folder: Path | str, pred_folder: Path | str
 ) -> tuple[list[Path], list[Path]]:
     """Retrieve paths to all BDA reports.
 
@@ -90,7 +90,10 @@ def get_report(report_path: Path) -> tuple[str, dict] | None:
     return (match_value, json_obj)
 
 
-def get_reports(ref_folder: str, pred_folder: str) -> tuple[dict, dict]:
+def get_reports(
+    ref_folder: Path | str,
+    pred_folder: Path | str
+) -> tuple[dict, dict]:
     """Locate and parse BDA report files.
 
     Args:
@@ -130,3 +133,19 @@ def get_reports(ref_folder: str, pred_folder: str) -> tuple[dict, dict]:
                 print(f"\nDuplicate key '{key}'. Skipping {pred_path}")
 
     return R_dict_json, P_dict_json
+
+
+def partition_keys(left: dict, right: dict) -> tuple[set, set, set]:
+    """Compares two dictionaries and returns their common and distinct keys as sets.
+
+    Args:
+        left: First dictionary to be compared
+        right: Second dictionary to be compared
+
+    Returns:
+        Tuple with common keys, keys only in left, and keys only in right
+    """
+    keys_left = set(left.keys())
+    keys_right = set(right.keys())
+
+    return keys_left & keys_right, keys_left - keys_right, keys_right - keys_left
