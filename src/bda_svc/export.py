@@ -65,7 +65,7 @@ def save_json(
     json_path = output_path / f"{image_path.stem}_{timestamp}.json"
 
     with json_path.open("w", encoding="utf-8") as f:
-        json.dump(report, f, indent=4)
+        json.dump(report, f, indent=4, ensure_ascii=False)
 
     print(f"[*] Exported: {json_path}")
 
