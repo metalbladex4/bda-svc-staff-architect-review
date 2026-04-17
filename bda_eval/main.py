@@ -91,11 +91,7 @@ def main():
             packages.extend(package)
 
         # Generate reference and model bounding boxes for current image
-        bboxes.draw_bboxes(
-            img_filename=key,
-            R_report=R_report,
-            P_report=P_report
-        )
+        bboxes.draw_bboxes(img_filename=key, R_report=R_report, P_report=P_report)
 
     # Copy report folders into our destination output folder
     output_path_ref = config.OUTPUT_DIR / config.REFERENCE_DIR.name
