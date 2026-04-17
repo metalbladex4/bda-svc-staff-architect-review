@@ -24,11 +24,32 @@
 ## Output Folder Structure
 ```
 ├── path/to/results
-│   └── evaluation.csv        # CSV file with evaluation results
-│   └── reports_reference/    # Copy of reference report folder
-│   └── reports_predicted/    # Copy of predicted report folder
-│   └── images/bbox/both/     # Contains images with ref/pred bounding boxes
-│   └── logs_llmaaj/          # LLMaaJ score results
-│       ├── llmaaj.jsonl      # JSON Lines file (each line is a JSON object)
-│       ├── llmaaj.log        # Human-readable JSON format
+│   └── evaluation_<timestamp>.csv  # CSV file with evaluation results
+│   └── <reference-folder>/         # Copy of reference report folder
+│   └── <predicted-folder>/         # Copy of predicted report folder
+│   └── images_bbox_both/           # Combined ref+pred overlays
+│   └── images_bbox_reference/      # Reference-only overlays
+│   └── images_bbox_predicted/      # Predicted-only overlays
+│   └── images_crop_reference/      # Reference-driven crops
+│   └── images_crop_predicted/      # Predicted-driven crops
+│   └── images_bbox_review/         # Per-image side-by-side review sheets
+│   └── bbox_review_sheet.jpg       # Root review sheet when exactly one image is evaluated
+│   └── logs_llmaaj/                # LLMaaJ score results
+│       ├── llmaaj.jsonl            # JSON Lines file (each line is a JSON object)
+│       ├── llmaaj.log              # Human-readable JSON format
 ```
+
+## Prompt-Lab Review Note
+
+When `bda_eval` is run on exactly one shared image and an image folder is
+provided, it now emits a root-level `bbox_review_sheet.jpg` in addition to the
+other bbox artifacts. This is intended to support prompt-lab style visual
+comparison without relying on the older temporary `bda-svc` debug-export path.
+
+## Practical Notes
+
+- If `OLLAMA_API_KEY` is not set, `bda_eval` now skips LLMaaJ logic scoring and
+  still completes bbox artifact generation and CSV export.
+- If a compared report folder already lives inside the selected output
+  directory, `bda_eval` skips copying that folder onto itself instead of
+  failing.

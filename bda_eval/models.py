@@ -492,16 +492,23 @@ Output ONLY valid JSON.
 
         return score_assess * (w_assess + (score_logic * w_logic))
 
-    def _evaluate_logic(self, R, matches: list[BDAMatch]):
+    def _evaluate_logic(self, R, matches: list[BDAMatch]) -> bool:
         """Evaluates BDAMatch logic concurrently (updating in-place).
 
         Args:
             R: The BDAReport containing human assessments.
             matches: List of BDAMatch objects.
         """
+        if not matches:
+            return False
+
         api_key = environ.get("OLLAMA_API_KEY")
         if not api_key:
-            raise KeyError("[*] Environment variable 'OLLAMA_API_KEY' not set.")
+            print(
+                "[*] Skipping LLMaaJ logic evaluation because "
+                "'OLLAMA_API_KEY' is not set."
+            )
+            return False
 
         timeout_secs = 60 * 15
 
@@ -542,6 +549,8 @@ Output ONLY valid JSON.
                         self._log_llmaaj(R, match, score, evaluation)
                 except Exception as e:
                     print(f"[*] LLMaaJ operation generated an exception: {e}")
+
+        return True
 
     def get_bda_matches(
         self,
@@ -684,8 +693,9 @@ Output ONLY valid JSON.
         # Query LLMaaJ for every matched pair (that's not OBJECT_NOT_FOUND)
         matches_valid = [match for match in matches if match.score_assess > 0.0]
 
-        print("\n[*] Submitting matches to LLMaaJ:\n")
-        self._evaluate_logic(R, matches_valid)
+        if matches_valid:
+            print("\n[*] Submitting matches to LLMaaJ:\n")
+            self._evaluate_logic(R, matches_valid)
 
         # Finish populating the `score` value for every match
         for match in matches:
