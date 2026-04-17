@@ -44,12 +44,14 @@ def main():
     config.OUTPUT_DIR = Path(args.output)
     config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Verify image folder exists
-    config.IMAGES_DIR = Path(args.images)
+    # Verify image folder exists when bbox artifacts are requested
+    config.IMAGES_DIR = Path(args.images) if args.images else None
 
     # Discover reports
     config.REFERENCE_DIR = Path(args.reference)
     config.PREDICTED_DIR = Path(args.predicted)
+    config.REFERENCE_LABEL = config.REFERENCE_DIR.name
+    config.PREDICTED_LABEL = config.PREDICTED_DIR.name
     R_multi_images, P_multi_images = discovery.get_reports(
         config.REFERENCE_DIR, config.PREDICTED_DIR
     )
@@ -67,6 +69,8 @@ def main():
         print(f"[*] Missing References: {missing_ref}")
 
     packages = []
+
+    write_root_review_sheet = len(common_keys) == 1
 
     # NOTE: "key" == image filename
     for key in common_keys:
@@ -91,13 +95,23 @@ def main():
             packages.extend(package)
 
         # Generate reference and model bounding boxes for current image
-        bboxes.draw_bboxes(img_filename=key, R_report=R_report, P_report=P_report)
+        if config.IMAGES_DIR is not None:
+            bboxes.draw_bboxes(
+                img_filename=key,
+                R_report=R_report,
+                P_report=P_report,
+                write_root_review_sheet=write_root_review_sheet,
+            )
 
     # Copy report folders into our destination output folder
     output_path_ref = config.OUTPUT_DIR / config.REFERENCE_DIR.name
     output_path_pred = config.OUTPUT_DIR / config.PREDICTED_DIR.name
-    shutil.copytree(config.REFERENCE_DIR, output_path_ref, dirs_exist_ok=True)
-    shutil.copytree(config.PREDICTED_DIR, output_path_pred, dirs_exist_ok=True)
+
+    if config.REFERENCE_DIR.resolve() != output_path_ref.resolve():
+        shutil.copytree(config.REFERENCE_DIR, output_path_ref, dirs_exist_ok=True)
+
+    if config.PREDICTED_DIR.resolve() != output_path_pred.resolve():
+        shutil.copytree(config.PREDICTED_DIR, output_path_pred, dirs_exist_ok=True)
 
     # Try to create the CSV and save to file
     result = export.save_csv(packages)
