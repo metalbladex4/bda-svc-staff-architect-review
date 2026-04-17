@@ -117,6 +117,7 @@ jobs:
           file: ./docker/Dockerfile
           tags: bda-svc:latest
           load: true
+          pull: true
 
       - name: Scan for vulnerabilities
         uses: aquasecurity/trivy-action@v0.35.0
