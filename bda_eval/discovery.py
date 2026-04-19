@@ -90,10 +90,7 @@ def get_report(report_path: Path) -> tuple[str, dict] | None:
     return (match_value, json_obj)
 
 
-def get_reports(
-    ref_folder: Path | str,
-    pred_folder: Path | str
-) -> tuple[dict, dict]:
+def get_reports(ref_folder: Path | str, pred_folder: Path | str) -> tuple[dict, dict]:
     """Locate and parse BDA report files.
 
     Args:
