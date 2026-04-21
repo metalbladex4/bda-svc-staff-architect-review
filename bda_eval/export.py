@@ -20,13 +20,15 @@ CSV_HEADERS = [
     "ref_confidence",
     "pred_confidence",
     "iou_score",
-    "w_d",
-    "w_c",
+    # "w_d",
+    # "w_c",
+    "d_cost",
+    "c_cost",
     "cost",
     "score_assess",
     "score_logic",
-    "w_assess",
-    "w_logic",
+    # "w_assess",
+    # "w_logic",
     "score",
     "match_status",
 ]
@@ -57,22 +59,20 @@ def _build_row(
         pred = match.pred_target
         iou = f"{match.iou:.3f}"
         # w_d = f"{match.w_d:.3f}"
-        w_d = ""
         # w_c = f"{match.w_c:.3f}"
-        w_c = ""
+        d_cost = f"{match.d_cost:.3f}"
+        c_cost = f"{match.c_cost:.3f}"
         cost = f"{match.cost:.3f}"
         s_assess = f"{match.score_assess:.3f}"
         s_logic = f"{match.score_logic:.3f}"
         # w_assess = f"{match.w_assess:.3f}"
-        w_assess = ""
         # w_logic = f"{match.w_logic:.3f}"
-        w_logic = ""
         score = f"{match.score:.3f}"
     else:
         # Handle False Positives and False Negatives
         ref = ref_target
         pred = pred_target
-        cost = iou = w_d = w_c = s_assess = s_logic = w_assess = w_logic = score = ""
+        cost = iou = w_d = w_c = d_cost = c_cost = s_assess = s_logic = w_assess = w_logic = score = ""
 
     # Exit early if both ref and pred targets are missing
     if ref is not None:
@@ -94,13 +94,15 @@ def _build_row(
         "ref_confidence": ref.confidence if ref else "",
         "pred_confidence": pred.confidence if pred else "",
         "iou_score": iou,
-        "w_d": w_d,
-        "w_c": w_c,
+        # "w_d": w_d,
+        # "w_c": w_c,
+        "d_cost": d_cost,
+        "c_cost": c_cost,
         "cost": cost,
         "score_assess": s_assess,
         "score_logic": s_logic,
-        "w_assess": w_assess,
-        "w_logic": w_logic,
+        # "w_assess": w_assess,
+        # "w_logic": w_logic,
         "score": score,
         "match_status": match_status,
     }

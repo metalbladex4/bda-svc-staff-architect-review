@@ -195,6 +195,8 @@ class BDAMatch:
     iou: float
     w_d: float
     w_c: float
+    d_cost: float
+    c_cost: float
     cost: float
     score_assess: float
     score_logic: float | None
@@ -572,7 +574,7 @@ Output ONLY valid JSON.
         matches = []
         max_cost = 1e5
 
-        # Weights should add up to one
+        # Component score weights (i.e. Assessment, Logic) should add up to one
         w_logic = 1 - w_assess
 
         if len(R.targets) == 0:
@@ -642,11 +644,16 @@ Output ONLY valid JSON.
                 actual_iou = p_bda.box.calc_iou(r_bda.box)
 
                 if actual_iou >= min_iou:
+                    # Recalculate c_c and d_c for successful match
+                    k = r_bda.damage_category.k_len
+                    c_d = abs(p_bda.damage_category.value - 
+                              r_bda.damage_category.value) / max(1, k - 1)
+                    c_c = abs(p_bda.confidence.value - 
+                              r_bda.confidence.value) / 2.0
+                    
                     score_assess = (
                         (1 + w_d + w_c) - cost_matrix[p_idx, r_idx].item()
                     ) / (1 + w_d + w_c)
-
-                    # score_logic = self._llmaaj(r_bda, p_bda)
 
                     matches.append(
                         BDAMatch(
@@ -656,6 +663,8 @@ Output ONLY valid JSON.
                             iou=actual_iou,
                             w_d=w_d,
                             w_c=w_c,
+                            d_cost=c_d,
+                            c_cost=c_c,
                             score_assess=score_assess,
                             score_logic=0,
                             w_assess=w_assess,
@@ -673,6 +682,8 @@ Output ONLY valid JSON.
                                 iou=0,
                                 w_d=w_d,
                                 w_c=w_c,
+                                d_cost=0,
+                                c_cost=0,
                                 score_assess=0,
                                 score_logic=0,
                                 w_assess=0,
