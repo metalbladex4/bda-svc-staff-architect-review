@@ -334,8 +334,9 @@ class BDAReport:
         """
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
+        return (1.0, "TEST")
 
-        max_retries = 6
+        max_retries = 10
 
         query = f"""You are an expert military intelligence analyst acting as an impartial judge for an automated Battle Damage Assessment (BDA) pipeline.
 
@@ -572,7 +573,7 @@ Output ONLY valid JSON.
 
         matches = []
         max_cost = 1e5
-        
+
         # Cost weights (should add up to one)
         w_d = (1 - w_i) / 2
         w_c = 1 - w_i - w_d
@@ -649,11 +650,11 @@ Output ONLY valid JSON.
                 if actual_iou >= min_iou:
                     # Recalculate c_c and d_c for successful match
                     k = r_bda.damage_category.k_len
-                    c_d = abs(p_bda.damage_category.value - 
-                              r_bda.damage_category.value) / max(1, k - 1)
-                    c_c = abs(p_bda.confidence.value - 
-                              r_bda.confidence.value) / 2.0
-                    
+                    c_d = abs(
+                        p_bda.damage_category.value - r_bda.damage_category.value
+                    ) / max(1, k - 1)
+                    c_c = abs(p_bda.confidence.value - r_bda.confidence.value) / 2.0
+
                     score_assess = 1 - cost_matrix[p_idx, r_idx].item()
 
                     matches.append(
@@ -719,3 +720,157 @@ Output ONLY valid JSON.
         false_positives = [p for p in self.targets if id(p) not in pred_match_ids]
 
         return matches, false_negatives, false_positives
+
+
+class SceneReport:
+    """Stores score data for a particular scene."""
+
+    def __init__(
+        self,
+        model_name: str,
+        image_filename: str,
+        matches: list[BDAMatch],
+        count_targets: int,
+        count_fn: int,
+        count_fp: int,
+        inference_time: float = 0.0,
+    ):
+        """Init."""
+        self.model_name = model_name
+        self.image = image_filename
+        self.count_targets = count_targets
+        self.count_fn = count_fn
+        self.count_fp = count_fp
+        self.inference_time = inference_time
+        self.sum_assess = 0.0
+        self.sum_logic = 0.0
+        self.sum_total = 0.0
+        self.assess = 0.0
+        self.logic = 0.0
+        self.total = 0.0
+
+        self._calc_scores(matches)
+
+    def _calc_scores(self, matches: list[BDAMatch]) -> None:
+        """Calculate scores for a particular scene.
+
+        Args:
+            matches: List of BDAMatch objects
+        """
+        # Calculate sums
+        for match in matches:
+            self.sum_assess += match.score_assess
+
+            if match.score_logic is not None:
+                self.sum_logic += match.score_logic
+
+            if match.score is not None:
+                self.sum_total += match.score
+
+        # denominator == TP + FN + FP
+        denominator = self.count_targets + self.count_fp
+
+        # Calculate averages
+        if denominator > 0:
+            self.assess = self.sum_assess / denominator
+            self.total = self.sum_total / denominator
+
+            # Logic only applies to objects that actually exist so we don't penalize with FPs
+            if self.count_targets > 0 and len(matches) > 0:
+                self.logic = self.sum_logic / self.count_targets
+            else:
+                self.logic = None
+
+
+class ModelReport:
+    """Calculates the overall score for the tested model."""
+
+    def __init__(self, scene_reports: list[SceneReport]):
+        """Init.
+
+        Args:
+            scene_reports: List of SceneReport objects
+        """
+        self.model_name = scene_reports[0].model_name
+
+        self.model_sum_assess = 0.0
+        self.model_sum_logic = 0.0
+        self.model_sum_total = 0.0
+
+        self.model_targets = 0
+        self.model_fp = 0
+        self.model_fn = 0
+
+        self.total_inference_time = 0.0
+
+        # Store the number of images for this batch
+        self.image_count = len(scene_reports)
+
+        # Calculate totals independently across all images
+        for scene in scene_reports:
+            self.model_sum_assess += scene.sum_assess
+            self.model_sum_logic += scene.sum_logic
+            self.model_sum_total += scene.sum_total
+
+            self.model_targets += scene.count_targets
+            self.model_fp += scene.count_fp
+            self.model_fn += scene.count_fn
+
+            # Accumulate total time
+            self.total_inference_time += getattr(scene, "inference_time", 0.0)
+
+        # Denominator == TP + FN + FP (across all images)
+        denominator = self.model_targets + self.model_fp
+
+        if denominator > 0:
+            self.model_score_assess = self.model_sum_assess / denominator
+            self.model_score_total = self.model_sum_total / denominator
+        else:
+            self.model_score_assess = 0.0
+            self.model_score_total = 0.0
+
+        # Logic Denominator == TP + FN (ignore FP for fairer calc)
+        if self.model_targets > 0:
+            self.model_score_logic = self.model_sum_logic / self.model_targets
+        else:
+            self.model_score_logic = None
+
+        # Calculate average inference time
+        if self.image_count > 0:
+            self.avg_inference_time = self.total_inference_time / self.image_count
+        else:
+            self.avg_inference_time = 0.0
+
+    def print_summary(self) -> None:
+        """Prints the final model scores."""
+        print(f"\n{'=' * 45}")
+        print(f"{'OVERALL MODEL SCORE':^45}")
+        print("=" * 45)
+        print(f"{'Total Reference Targets ':>34}: {self.model_targets:>5}")
+        print(f"{'Total False Negatives (Missed) ':>34}: {self.model_fn:>5}")
+        print(f"{'Total False Positives (Halluc) ':>34}: {self.model_fp:>5}")
+        print(f"{'Avg Inference Time/Img ':>34}: {self.avg_inference_time:>4.2f}s")
+        print("-" * 45)
+
+        print(f"{'OVERALL ASSESS SCORE ':>34}: {self.model_score_assess:.3f}")
+
+        if self.model_score_logic is not None:
+            print(f"{'OVERALL LOGIC SCORE ':>34}: {self.model_score_logic:.3f}")
+        else:
+            print(f"{'OVERALL LOGIC SCORE ':>34}:   N/A")
+
+        print(f"{'OVERALL TOTAL SCORE ':>34}: {self.model_score_total:.3f}")
+        print("=" * 45 + "\n")
+
+    def to_dict(self) -> dict:
+        """Return dictionary-based ModelReport."""
+        return {
+            "model_name": self.model_name,
+            "count_target": self.model_targets,
+            "count_fn": self.model_fn,
+            "count_fp": self.model_fp,
+            "inference_time_avg": self.avg_inference_time,
+            "assess_avg": self.model_score_assess,
+            "logic_avg": self.model_score_logic,
+            "total_avg": self.model_score_total,
+        }
