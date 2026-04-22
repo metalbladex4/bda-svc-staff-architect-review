@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "9bdf63cf-b047-4301-ac99-f20b9e059007",
+        "image_filename": "destroyed_building6.jpg",
+        "date_created": "2026-04-21T02:49:24Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.54"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target building has multiple large windows blown out; facade shows significant structural damage; visible debris and collapse at lower levels; damage exceeds 45 percent of visible target area",
+            "bounding_box": [
+                0,
+                143,
+                544,
+                306
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple windows blown out; facade damage visible; structural integrity compromised but not fully collapsed",
+            "bounding_box": [
+                816,
+                107,
+                1088,
+                291
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "visible exterior wall damage; multiple windows missing or shattered; structural integrity compromised but not fully collapsed",
+            "bounding_box": [
+                1088,
+                76,
+                1360,
+                291
+            ]
+        }
+    },
+    "summary": "Three buildings assessed: one with SEVERE DAMAGE and two with MODERATE DAMAGE, all with PROBABLE confidence. The scene depicts an outdoor area with extensive rubble, collapsed pavement, and damaged structures under overcast skies. The likely functional impact is significant degradation of the assessed buildings’ usability."
+}

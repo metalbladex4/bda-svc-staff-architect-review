@@ -114,6 +114,18 @@ class BDAPipeline:
             A list of parsed detections in raw pixel coordinates.
         """
         prompt = self.detect_objects_prompt_template
+        debug_data = {
+            "detection_model": self.detection_vlm.model,
+            "bbox_convention": self.detection_bbox_convention,
+            "raw_response": None,
+            "repaired_json": None,
+            "validation_error": None,
+            "raw_detection_count": None,
+            "raw_detections": None,
+            "filtered_invalid_target_types": [],
+            "filtered_invalid_bboxes": [],
+            "kept_detections": [],
+        }
 
         # Format prompt with doctrinal categories
         categories = ", ".join(self.categories)
@@ -157,13 +169,23 @@ class BDAPipeline:
             format_schema=DetectionResponse.model_json_schema(),
             temperature=self.detection_temperature,
         )
+        debug_data["raw_response"] = response
 
         # Fail safely
         try:
             payload = repair_json(response)
+            debug_data["repaired_json"] = payload
             payload = DetectionResponse.model_validate_json(payload)
         except ValidationError:
+            debug_data["validation_error"] = "DetectionResponse validation failed"
+            self._write_detection_debug(debug_data)
             return []
+
+        debug_data["raw_detection_count"] = len(payload.detections)
+        debug_data["raw_detections"] = [
+            {"target_type": item.target_type, "bbox": list(item.bbox)}
+            for item in payload.detections
+        ]
 
         # Return list of detections
         detections = []
@@ -171,6 +193,9 @@ class BDAPipeline:
             # Validate target_type is doctrinal
             target_type = item.target_type.strip().lower()
             if target_type not in self.categories:
+                debug_data["filtered_invalid_target_types"].append(
+                    {"target_type": item.target_type, "bbox": list(item.bbox)}
+                )
                 continue
 
             # Validate bounding box is valid
@@ -181,11 +206,29 @@ class BDAPipeline:
                 bbox_convention=self.detection_bbox_convention,
             )
             if pixel_box is None:
+                debug_data["filtered_invalid_bboxes"].append(
+                    {"target_type": target_type, "bbox": list(item.bbox)}
+                )
                 continue
 
             detections.append(Detection(label=target_type, bbox=pixel_box))
+            debug_data["kept_detections"].append(
+                {"target_type": target_type, "bbox": list(pixel_box)}
+            )
 
+        self._write_detection_debug(debug_data)
         return detections
+
+    def _write_detection_debug(self, debug_data: dict) -> None:
+        """Optionally persist detection-stage debug data to a JSON file."""
+        debug_path = os.getenv("BDA_DEBUG_DETECTION_PATH")
+        if not debug_path:
+            return
+
+        path = Path(debug_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("w", encoding="utf-8") as f:
+            json.dump(debug_data, f, indent=2, ensure_ascii=False)
 
     def assess_detection(
         self,

@@ -1,0 +1,106 @@
+assessment_vlm:
+  max_image_size: 1024
+  model: qwen3-vl:8b-instruct
+  temperature: 0.0
+detection_vlm:
+  bbox_convention: xyxy_1000
+  crop_buffer_ratio: 0.2
+  max_image_size: 1024
+  model: qwen3-vl:8b-instruct
+  temperature: 0.0
+prompts:
+  assess_damage: "Perform a VISUAL-ONLY damage assessment for ONE target object.\n\
+    \nINPUT ROLES\n- Two visual inputs are provided:\n  1) scene context image with\
+    \ the selected target highlighted by an outline\n  2) cropped image of the selected\
+    \ target\n- Assess damage only for the selected target object.\n- Use scene context\
+    \ only to resolve ambiguity.\n\nTARGET TYPE\n{target_type}\n\nDOCTRINAL DEFINITIONS\n\
+    {doctrine}\n\nRULES\n- Focus only on the selected target object.\n- Do not reference\
+    \ crops, prompts, or analysis steps in the output.\n- Set logic to short factual\
+    \ observations only, using concise phrases separated by semicolons. Include only\
+    \ specific visible, doctrinally grounded evidence.\n\nCONFIDENCE GUIDANCE\nAvoid\
+    \ overconfidence. High confidence should be used sparingly and only when visual\
+    \ evidence is clear and unmistakable.\nIncorrect high-confidence assessments are\
+    \ penalized more heavily than low-confidence ones.\nAlways select the lowest confidence\
+    \ level consistent with the visible evidence.\n- confirmed \u2014 clear, direct,\
+    \ unambiguous visual evidence with no reasonable alternative interpretation.\n\
+    - probable \u2014 visible indicators suggesting the damage category, but evidence\
+    \ is incomplete, partially obscured, or ambiguous.\n- possible \u2014 weak, limited,\
+    \ or uncertain indicators; damage category cannot be determined definitively.\n\
+    \nOUTPUT\nReturn valid JSON only.\n\nASSESSMENT SCHEMA\n{\n  \"damage_category\"\
+    : string,\n  \"confidence_level\": string,\n  \"brief_supporting_logic\": string\n\
+    }\n"
+  detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+    \ whose doctrinal target_type is one of:\n{categories}\n\nRULES\n- First identify\
+    \ all valid targets using the target-type specific detection guidance below.\n\
+    - Then produce exactly one bounding box per valid target.\n- The number of detections\
+    \ must match the number of targets identified.\n\nTARGET-TYPE SPECIFIC DETECTION\
+    \ GUIDANCE\n{detection_guidance}\n\nBOXING RULE\n- Box the visible connected man-made\
+    \ body only.\n- Use fire or smoke only to find the damaged target.\n- Do not box\
+    \ the smoke plume, flame column, rail bed, road, shadow, or empty ground.\n- If\
+    \ smoke or flame hides part of the target, keep the box on the visible connected\
+    \ body that remains.\n\nCONTRASTIVE EXAMPLES\n- Correct: a burning rail vehicle\
+    \ with smoke to the right -> box the visible connected vehicle body only.\n- Incorrect:\
+    \ box the smoke plume, rail bed, empty terrain, or only the smallest burning patch.\n\
+    \nOUTPUT DISCIPLINE\n- Return only the doctrinal target_type category.\n- Do not\
+    \ infer a finer subtype such as locomotive, train car, truck, or artillery piece.\n\
+    \nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\
+    \nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+    \ field.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\"\
+    : string,\n      \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  summarize_scene: 'Perform a VISUAL-ONLY scene summary.
+
+
+    INPUTS
+
+    - One full-scene image is provided.
+
+    - Prior individual target assessments are provided below.
+
+    - The summary must remain consistent with those prior assessments.
+
+
+    PRIOR TARGET ASSESSMENTS
+
+    {target_assessments}
+
+
+    SUMMARY GOAL
+
+    Write a short (1-3 sentences) scene-level report in plain text.
+
+    The report should:
+
+    - first enumerate the targets from the prior assessments with their counts and
+    conditions
+
+    - then summarize the overall scene as a whole based on the full-scene image
+
+    - then briefly describe the likely functional impact, if supported by the prior
+    target assessments
+
+
+    OUTPUT
+
+    Return plain text only. No new lines.
+
+    If no relevant targets were assessed, briefly describe the scene and state that
+    no relevant targets were assessed in the scene.
+
+    '
+  system: 'You are a military strike assessment analyst performing a STRICT visual-only
+    assessment.
+
+
+    CORE PRINCIPLES
+
+    - Base conclusions ONLY on visible evidence in the images.
+
+    - Do not hallucinate or infer unseen damage.
+
+    - Be conservative, precise, and evidence-based.
+
+    - Use doctrinal definitions when provided.
+
+    - Follow output instructions and schema exactly.
+
+    '
