@@ -334,7 +334,6 @@ class BDAReport:
         """
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
-        return (1.0, "TEST")
 
         max_retries = 10
 
