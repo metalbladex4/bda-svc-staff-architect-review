@@ -1,0 +1,105 @@
+detection_vlm:
+  model: qwen3-vl:8b-instruct-q8_0
+  bbox_convention: xyxy_1000
+  temperature: 0.0
+  max_image_size: 1024
+  crop_buffer_ratio: 0.2
+assessment_vlm:
+  model: qwen3-vl:8b-instruct-q8_0
+  temperature: 0.0
+  max_image_size: 1024
+prompts:
+  system: 'You are a military strike assessment analyst.
+
+
+    Use only visible evidence from the provided images.
+
+    Do not infer unseen, internal, functional, or off-image effects.
+
+    Be conservative when the evidence is limited or ambiguous.
+
+    When doctrinal definitions are provided, use them only to interpret visible evidence.
+
+    Follow the requested output format exactly.
+
+    Return only the requested answer with no preamble, no explanation, and no reasoning
+    trace.
+
+    '
+  detect_objects: "Perform a visual-only object localization task.\n\nTask:\nLocate\
+    \ every visible target whose doctrinal target_type is one of:\n{categories}\n\n\
+    Category-specific detection guidance:\n{detection_guidance}\n\nRules:\n- Detect\
+    \ each separate physical target object individually.\n- Return one bounding box\
+    \ per target object.\n- Do not merge multiple objects into one detection.\n- Do\
+    \ not split one object into multiple detections.\n- Do not return duplicate detections\
+    \ for the same object.\n- Include partially visible objects only when the target\
+    \ type is visually identifiable.\n- Do not return objects outside the allowed\
+    \ target types.\n- Use only the allowed doctrinal target_type labels.\n\nBounding\
+    \ box rules:\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n- Use\
+    \ the configured format exactly.\n- Each box must tightly enclose the visible\
+    \ extent of the target object.\n\nReturn valid JSON only in this shape:\n{\n \
+    \ \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\": {bbox_format}\n\
+    \    }\n  ]\n}\n\nIf no valid doctrinal targets are visible, return:\n{\"detections\"\
+    : []}\n"
+  assess_damage: "Perform a strict visual-only physical damage assessment for one\
+    \ selected target.\n\nVisual inputs:\n- Image 1: scene context with the selected\
+    \ target outlined.\n- Image 2: cropped view of the same target.\n\nUse the crop\
+    \ for visible damage detail.\nUse the scene context only to confirm identity,\
+    \ extent, or resolve ambiguity.\nAssess only the selected target.\n\nTarget type:\n\
+    {target_type}\n\nDoctrinal definitions:\n{doctrine}\n\nRules:\n- Use only visible\
+    \ evidence.\n- Do not infer internal damage, functional effects, or off-image\
+    \ effects.\n- Apply only damage categories that are valid for the given target\
+    \ type.\n- If the visible evidence is limited or ambiguous, be conservative.\n\
+    - When uncertain between plausible adjacent damage categories, prefer the less\
+    \ severe category unless the image clearly supports the higher category.\n- `brief_supporting_logic`\
+    \ must be short factual phrases separated by semicolons.\n- Include only visible,\
+    \ doctrinally relevant evidence in `brief_supporting_logic`.\n- Do not mention\
+    \ the crop, outline, prompt, doctrine text, or analysis process.\n\nConfidence\
+    \ levels:\n- confirmed: clear, direct, unambiguous visible evidence with no reasonable\
+    \ alternative interpretation\n- probable: visible evidence supports the judgment,\
+    \ but some ambiguity or incomplete visibility remains\n- possible: weak, limited,\
+    \ or uncertain visible evidence\n\nReturn valid JSON only in this shape:\n{\n\
+    \  \"damage_category\": string,\n  \"confidence_level\": string,\n  \"brief_supporting_logic\"\
+    : string\n}\n"
+  summarize_scene: 'Perform a strict visual-only scene summary.
+
+
+    Inputs:
+
+    - One full-scene image.
+
+    - Prior target assessments are provided below.
+
+
+    Prior target assessments:
+
+    {target_assessments}
+
+
+    Rules:
+
+    - Treat the prior target assessments as authoritative for target identity and
+    target-level damage.
+
+    - Stay fully consistent with the prior target assessments.
+
+    - Do not introduce new targets, new damage categories, or unsupported effects.
+
+    - First summarize the assessed targets and counts.
+
+    - Then briefly describe the overall scene using the full-scene image.
+
+    - If mentioning broader impact or combat capability, keep it conservative and
+    tie it directly to the assessed physical damage only.
+
+    - Return plain text only.
+
+    - Use 1 to 3 sentences.
+
+    - Do not use bullets, JSON, or new lines.
+
+
+    If no relevant targets were assessed, briefly describe the scene and state that
+    no relevant targets were assessed in the scene.
+
+    '

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "db16fea7-9dd6-4c4e-8709-433307578af0",
+        "image_filename": "destroyed_building6.jpg",
+        "date_created": "2026-04-16T17:04:39Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.19"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple windows blown out; facade extensively damaged; structural elements visibly compromised; debris field indicates significant collapse",
+            "bounding_box": [
+                0,
+                143,
+                571,
+                306
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple floors show broken windows and visible structural damage; facade appears compromised; target body shows clear signs of physical harm consistent with moderate damage threshold",
+            "bounding_box": [
+                843,
+                105,
+                1088,
+                296
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple windows blown out; facade damage visible; structural integrity compromised but not collapsed",
+            "bounding_box": [
+                1088,
+                74,
+                1360,
+                296
+            ]
+        }
+    },
+    "summary": "Three buildings assessed: one with SEVERE DAMAGE and two with MODERATE DAMAGE, all with PROBABLE confidence. The scene depicts an outdoor area with extensive rubble, collapsed structures, and debris fields, with people standing among the wreckage. The likely functional impact is significant degradation of the assessed targets\u2019 operational capability."
+}

@@ -1,0 +1,44 @@
+{
+    "detection": {
+        "bbox_convention": "xyxy_1000",
+        "original_image_size": [
+            256,
+            122
+        ],
+        "model_image_size": [
+            256,
+            122
+        ],
+        "raw_response": "{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [220, 375, 480, 625]\n    }\n  ]\n}",
+        "repaired_response": "{\"detections\": [{\"target_type\": \"military_equipment\", \"bbox\": [220, 375, 480, 625]}]}",
+        "parsed_detections": [
+            {
+                "target_type": "military_equipment",
+                "bbox": [
+                    220.0,
+                    375.0,
+                    480.0,
+                    625.0
+                ]
+            }
+        ],
+        "kept_detections": [
+            {
+                "index": 0,
+                "target_type": "military_equipment",
+                "raw_bbox": [
+                    220.0,
+                    375.0,
+                    480.0,
+                    625.0
+                ],
+                "pixel_bbox": [
+                    56,
+                    46,
+                    123,
+                    76
+                ]
+            }
+        ]
+    }
+}

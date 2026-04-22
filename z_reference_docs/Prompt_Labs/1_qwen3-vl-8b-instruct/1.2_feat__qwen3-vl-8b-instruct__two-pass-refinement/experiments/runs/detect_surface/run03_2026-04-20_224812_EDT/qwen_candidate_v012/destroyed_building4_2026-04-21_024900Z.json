@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "256370f4-f97f-401b-a39d-4f5a58e1220e",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-21T02:49:00Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.80"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body shows catastrophic structural failure; upper floors collapsed; debris field indicates total loss of structural integrity",
+            "bounding_box": [
+                69,
+                18,
+                250,
+                153
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 building, condition DESTROYED with PROBABLE confidence. The scene shows a heavily damaged multi-story building with collapsed upper floors and a large debris field in an outdoor setting. The likely functional impact is complete loss of capability for the assessed building."
+}

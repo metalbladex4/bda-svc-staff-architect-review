@@ -1,0 +1,7 @@
+image_filename,model_name,inference_time,target_type,ref_target_label,pred_target_label,ref_damage,pred_damage,ref_confidence,pred_confidence,iou_score,w_d,w_c,cost,score_assess,score_logic,w_assess,w_logic,score,match_status
+destroyed_building4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,12.79,buildings,target_0,target_0,4,4,1,1,0.486,,,0.514,0.533,0.000,,,0.373,TP
+destroyed_building4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,12.79,buildings,target_1,target_1,4,4,1,1,0.916,,,0.084,0.923,0.000,,,0.646,TP
+tank_pressure.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,3.24,military equipment,target_0,target_0,2,2,1,1,0.667,,,0.333,0.697,0.000,,,0.488,TP
+operational_tank4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,4.84,military equipment,target_0,target_0,0,0,2,2,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_tank15.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,3.55,military equipment,target_0,target_0,2,2,1,1,0.853,,,0.147,0.866,0.000,,,0.606,TP
+operational_building7.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,5.39,buildings,target_0,target_0,0,0,2,2,1.000,,,0.000,1.000,0.000,,,0.700,TP

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "5c5af637-7b02-497d-9060-2154718e0119",
+        "image_filename": "destroyed_building3.png",
+        "date_created": "2026-04-21T00:09:43Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.14"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "visible collapse of multiple floors; structural elements missing; severe deformation of facade; damage concentrated on one section",
+            "bounding_box": [
+                102,
+                0,
+                431,
+                552
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "target body appears intact; no visible structural damage or collapse; no fire or smoke affecting target",
+            "bounding_box": [
+                500,
+                269,
+                689,
+                552
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 building, condition SEVERE DAMAGE with PROBABLE confidence. Another target assessed: 1 building, condition NO DAMAGE with CONFIRMED confidence. The scene shows a tall residential building with severe localized damage on one side and an intact adjacent building, viewed from a street-level perspective with people and overhead power lines visible. The likely functional impact is significant disruption to the damaged building’s occupancy and structural integrity."
+}

@@ -1,0 +1,32 @@
+{
+  "detection_model": "gemma4:e4b",
+  "bbox_convention": "xyxy_1000",
+  "raw_response": "```json\n{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [\n        34,\n        478,\n        648,\n        618\n      ]\n    }\n  ]\n}\n```",
+  "repaired_json": "{\"detections\": [{\"target_type\": \"military_equipment\", \"bbox\": [34, 478, 648, 618]}]}",
+  "validation_error": null,
+  "raw_detection_count": 1,
+  "raw_detections": [
+    {
+      "target_type": "military_equipment",
+      "bbox": [
+        34.0,
+        478.0,
+        648.0,
+        618.0
+      ]
+    }
+  ],
+  "filtered_invalid_target_types": [],
+  "filtered_invalid_bboxes": [],
+  "kept_detections": [
+    {
+      "target_type": "military_equipment",
+      "bbox": [
+        29,
+        311,
+        545,
+        402
+      ]
+    }
+  ]
+}
