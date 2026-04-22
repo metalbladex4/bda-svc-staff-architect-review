@@ -1,0 +1,34 @@
+# Experiment version: v001
+# Status: drafted, not yet evaluated
+# Parent: v000
+# Prompt surface changed: system
+# Model: qwen3-vl:8b-instruct-q8_0
+
+model: qwen3-vl:8b-instruct-q8_0
+parent_version: v000
+changed_prompt_surface: system
+change_summary: >
+  Rewrites the shared system prompt into a shorter, policy-only instruction set
+  aligned to Qwen-specific guidance. Removes broad explanatory wording and keeps
+  only invariant rules that should apply across detection, assessment, and
+  summary.
+intended_effect:
+  - improve format compliance
+  - reduce chain-of-thought leakage
+  - keep visual-only reasoning consistent across all prompt surfaces
+  - reduce competition between system and task prompts
+prompt_surfaces:
+  system: |
+    You are a military strike assessment analyst.
+
+    Use only visible evidence from the provided images.
+    Do not infer unseen, internal, functional, or off-image effects.
+    Be conservative when the evidence is limited or ambiguous.
+    When doctrinal definitions are provided, use them only to interpret visible evidence.
+    Follow the requested output format exactly.
+    Return only the requested answer with no preamble, no explanation, and no reasoning trace.
+
+notes:
+  - Keeps task mechanics out of the system prompt.
+  - Keeps the output discipline explicit for all downstream prompts.
+  - Leaves placeholders, schemas, and all non-system prompt text unchanged.

@@ -1,0 +1,162 @@
+# Experiment version: v004
+# Status: drafted, not yet run
+# Parent: v000
+# Alternative to: v001, v002, v003
+# Prompt surface changed: detect_objects
+# Model: qwen3-vl:8b-instruct
+
+model: qwen3-vl:8b-instruct
+parent_version: v000
+alternative_to:
+  - v001
+  - v002
+  - v003
+changed_prompt_surface: detect_objects
+failure_addressed:
+  - DET-08 bbox_loose
+  - DET-09 bbox_off_target
+  - DET-11 bbox_shrinks_without_target_body_grounding
+change_summary: >
+  Replaces the center-first wording of `v003` with a fire-source-to-object-body
+  localization method. The detector is told to use fire, smoke, and heavy burn
+  effects only to find the damaged target, then anchor the box to the attached
+  solid object body nearest the fire source rather than to the surrounding
+  plume, track, or terrain context.
+intended_effect:
+  - move the box onto the visible solid target body nearest the fire source
+  - reduce left-of-target shrinkage that still misses the object
+  - keep smoke and fire as search cues without letting them define the box
+  - preserve doctrine-guided detection behavior and structured JSON output
+runtime_contract_notes:
+  - preserves {categories}
+  - preserves {detection_guidance}
+  - preserves {bbox_format}
+  - preserves {bbox_scale}
+  - preserves DetectionResponse JSON fields
+  - does not change code, bbox conversion, or placeholder structure
+prompt_surfaces:
+  system: |
+    You are a military strike assessment analyst performing a STRICT visual-only assessment.
+
+    CORE PRINCIPLES
+    - Base conclusions ONLY on visible evidence in the images.
+    - Do not hallucinate or infer unseen damage.
+    - Be conservative, precise, and evidence-based.
+    - Use doctrinal definitions when provided.
+    - Follow output instructions and schema exactly.
+
+  detect_objects: |
+    Perform a VISUAL-ONLY object detection.
+
+    TASK
+    Detect targets whose doctrinal target_type is one of:
+    {categories}
+
+    RULES
+    - First identify all valid targets using the target-type specific detection guidance below.
+    - Then produce exactly one bounding box per valid target.
+    - The number of detections must match the number of targets identified.
+
+    TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+    {detection_guidance}
+
+    GROUNDING METHOD
+    - Use fire, smoke, and heavy burn effects only as cues that a damaged target is nearby.
+    - After locating those cues, find the visible solid object body or structure directly attached to or immediately adjacent to the fire source.
+    - Place the bounding box around that visible solid target body, not around the full smoke plume, flame column, rails, road, shadow, or empty ground.
+    - Prefer the darkest or most structurally coherent visible body segment nearest the fire source when the target is partly obscured.
+    - If only part of the target body is visible, box the visible localizable body segment rather than guessing the hidden full extent.
+    - Keep each edge on the visible object body or its silhouette, even if smoke continues beyond it.
+
+    FAILURE MODE EXAMPLE
+    - Example: if a burning rail vehicle emits smoke to the right, use the smoke to find the damaged vehicle, then box the visible vehicle body nearest the fire source. Do not box the full smoke plume, rails, or adjacent empty terrain.
+
+    OUTPUT DISCIPLINE
+    - Use nearby scene context only to find the target, not to define target extent.
+    - Do not let rails, roads, plume direction, or background alignment determine box size.
+    - Return only the doctrinal target_type category, not a finer subtype.
+
+    BOUNDING BOX FORMAT
+    - Format: {bbox_format}
+    - Coordinate scale: {bbox_scale}
+
+    OUTPUT
+    Return valid JSON only.
+    Return a JSON object with a top-level detections field.
+
+    OUTPUT SCHEMA
+    {
+      "detections": [
+        {
+          "target_type": string,
+          "bbox": {bbox_format}
+        }
+      ]
+    }
+
+  assess_damage: |
+    Perform a VISUAL-ONLY damage assessment for ONE target object.
+
+    INPUT ROLES
+    - Two visual inputs are provided:
+      1) scene context image with the selected target highlighted by an outline
+      2) cropped image of the selected target
+    - Assess damage only for the selected target object.
+    - Use scene context only to resolve ambiguity.
+
+    TARGET TYPE
+    {target_type}
+
+    DOCTRINAL DEFINITIONS
+    {doctrine}
+
+    RULES
+    - Focus only on the selected target object.
+    - Do not reference crops, prompts, or analysis steps in the output.
+    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally grounded evidence.
+
+    CONFIDENCE GUIDANCE
+    Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
+    Incorrect high-confidence assessments are penalized more heavily than low-confidence ones.
+    Always select the lowest confidence level consistent with the visible evidence.
+    - confirmed — clear, direct, unambiguous visual evidence with no reasonable alternative interpretation.
+    - probable — visible indicators suggesting the damage category, but evidence is incomplete, partially obscured, or ambiguous.
+    - possible — weak, limited, or uncertain indicators; damage category cannot be determined definitively.
+
+    OUTPUT
+    Return valid JSON only.
+
+    ASSESSMENT SCHEMA
+    {
+      "damage_category": string,
+      "confidence_level": string,
+      "brief_supporting_logic": string
+    }
+
+  summarize_scene: |
+    Perform a VISUAL-ONLY scene summary.
+
+    INPUTS
+    - One full-scene image is provided.
+    - Prior individual target assessments are provided below.
+    - The summary must remain consistent with those prior assessments.
+
+    PRIOR TARGET ASSESSMENTS
+    {target_assessments}
+
+    SUMMARY GOAL
+    Write a short (1-3 sentences) scene-level report in plain text.
+    The report should:
+    - first enumerate the targets from the prior assessments with their counts and conditions
+    - then summarize the overall scene as a whole based on the full-scene image
+    - then briefly describe the likely functional impact, if supported by the prior target assessments
+
+    OUTPUT
+    Return plain text only. No new lines.
+    If no relevant targets were assessed, briefly describe the scene and state that no relevant targets were assessed in the scene.
+
+notes:
+  - Drafted as the first critique/research/revise loop candidate after `v003` was rejected as numerically tighter but still off target.
+  - Uses the active `qwen3-vl:8b-instruct` baseline as parent instead of inheriting `v001`, `v002`, or `v003`.
+  - Focuses on attaching the box to the visible object body nearest the fire source, not just shrinking the prior center.
+  - Preserves system, assessment, summary, schema, placeholders, and code.

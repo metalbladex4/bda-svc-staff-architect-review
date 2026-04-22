@@ -1,0 +1,97 @@
+{
+    "detection": {
+        "bbox_convention": "xyxy_1000",
+        "original_image_size": [
+            256,
+            122
+        ],
+        "model_image_size": [
+            256,
+            122
+        ],
+        "raw_response": "{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [200, 300, 400, 600]\n    }\n  ]\n}",
+        "repaired_response": "{\"detections\": [{\"target_type\": \"military_equipment\", \"bbox\": [200, 300, 400, 600]}]}",
+        "parsed_detections": [
+            {
+                "target_type": "military_equipment",
+                "bbox": [
+                    200.0,
+                    300.0,
+                    400.0,
+                    600.0
+                ]
+            }
+        ],
+        "kept_detections": [
+            {
+                "index": 0,
+                "target_type": "military_equipment",
+                "raw_bbox": [
+                    200.0,
+                    300.0,
+                    400.0,
+                    600.0
+                ],
+                "pixel_bbox": [
+                    51,
+                    37,
+                    102,
+                    73
+                ]
+            }
+        ],
+        "refinement": {
+            "enabled": true,
+            "roi_buffer_ratio": 0.75,
+            "attempts": [
+                {
+                    "index": 0,
+                    "target_type": "military_equipment",
+                    "original_bbox": [
+                        51,
+                        37,
+                        102,
+                        73
+                    ],
+                    "roi_bbox": [
+                        13,
+                        10,
+                        140,
+                        100
+                    ],
+                    "roi_size": [
+                        127,
+                        90
+                    ],
+                    "detection_debug": {
+                        "bbox_convention": "xyxy_1000",
+                        "original_image_size": [
+                            127,
+                            90
+                        ],
+                        "model_image_size": [
+                            127,
+                            90
+                        ],
+                        "raw_response": "{\n  \"detections\": []\n}",
+                        "repaired_response": "{\"detections\": []}",
+                        "parsed_detections": [],
+                        "kept_detections": []
+                    },
+                    "decision": "kept_original_no_refined_detection"
+                }
+            ]
+        },
+        "final_detections": [
+            {
+                "target_type": "military_equipment",
+                "pixel_bbox": [
+                    51,
+                    37,
+                    102,
+                    73
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,109 @@
+# Prompt Wording, Tokenization, and Bbox Reliability in BDA Prompting
+
+## Executive conclusion
+
+The strongest evidence does **not** support a simple rule that “shorter words help because they become one token.” Modern LLMs and VLMs use subword tokenization, so tokens are context dependent and can be a whole word, part of a word, punctuation, or even a single character. In practice, the reliable gains from “shorter prompts” are usually better explained by **fewer total tokens, clearer syntax, less instruction competition, stronger ordering, and better salience of examples and output schemas** than by lexical shortness itself. citeturn17search1turn17search0turn16search1turn7search0turn22view0turn23view0
+
+For your BDA workflow, that means the right optimization target is **not** “use the shortest possible words.” It is “make the prompt easier for the model to resolve into one unambiguous visual task.” In bbox-sensitive detection, especially for buildings near other buildings, shorter phrasing helps when it removes vague prose and spreads high-value constraints into a tight hierarchy. It hurts when it deletes the exact spatial distinctions that separate the true target from adjacent roofs, shadows, walls, parked objects, or background structures. fileciteturn12file0L1-L1 fileciteturn13file0L1-L1 citeturn25view4turn26view0turn22view0
+
+Your current repo already points in the right direction. The live pipeline uses a shared system prompt, a structured detection prompt, doctrinal target-type guidance, JSON-only outputs, temperature `0.0`, normalized bbox conventions, and a two-image assessment setup where the selected target is outlined in the scene context and shown again as a crop. Those design choices already align with the best-supported practices: output structure, controlled generation, and explicit visual grounding. The next gains are likely to come from **prompt hierarchy, anti-neighbor disambiguation, and example design**, not from synonym swapping alone. fileciteturn7file0L1-L1 fileciteturn12file0L1-L1 fileciteturn13file0L1-L1
+
+## Supported status
+
+The theory is **partially supported**.
+
+It is supported in a narrow sense because shorter prompts often reduce cost, latency, and context burden, and some prompt-compression work shows that trimming low-utility prompt material can preserve or even improve task performance by increasing the density and placement of key information. Long-context studies also show that extra context is not “free”; models can lose access to relevant information as prompts get longer or more cluttered. citeturn22view0turn23view0turn21view0turn7search0
+
+It is **not** well supported in the strong lexical sense that shorter individual words, by themselves, materially improve performance because they tokenize into fewer pieces. The reviewed literature and official tokenizer documentation focus on **subword tokenization, phrasing sensitivity, formatting, example order, and prompt compression**, not on a stable causal advantage for short synonyms over longer precise ones. Because modern tokenizers break text into context-sensitive subword units, “use shorter words” is at best an unreliable proxy for “use fewer and cleaner tokens.” citeturn17search1turn17search0turn16search1turn21view0
+
+For modern instruction-tuned models, the best-supported reading is this: **shorter phrasing helps when it makes the task structurally easier to follow; it does not help merely because the words are physically shorter.** citeturn16search1turn25view4turn26view0
+
+## Evidence review
+
+The tokenization evidence is straightforward. Official tokenizer guidance from entity["organization","OpenAI","ai company"] states that tokens are the units models actually process, and that tokens can be as short as one character or as long as a full word, with spaces, punctuation, and context affecting counts. The SentencePiece paper shows why modern systems moved to **subword** units in the first place: they are designed to represent language flexibly rather than depend on whole-word vocabulary matches. That makes “shorter word = fewer tokens = better performance” too crude to serve as a theory of prompt quality. citeturn17search1turn17search0
+
+The strongest direct evidence on prompt wording points instead to **rephrasing sensitivity**. “Evaluating the Zero-shot Robustness of Instruction-tuned Language Models” found that novel but semantically appropriate instruction phrasings can still degrade performance, sometimes substantially. That result matters for your project because it says wording changes do affect outcomes, but the mechanism appears to be **instruction phrasing robustness**, not simple token thrift. citeturn16search1
+
+The evidence on examples is even more relevant to bbox work. “Rethinking the Role of Demonstrations” found that demonstrations help largely by conveying the **label space, input distribution, and sequence format**, not merely by providing correct labels. Official guidance from entity["organization","OpenAI","ai company"] and entity["company","Google Cloud","cloud platform"] explicitly recommends putting instructions early, showing the desired output format, and using examples when format matters. For a detection pipeline that needs stable JSON and good box behavior, that strongly favors **compact examples and structured schemas** over long prose explanations. citeturn10search1turn26view0turn25view1turn25view2
+
+Order also matters. “Fantastically Ordered Prompts and Where to Find Them” showed that few-shot prompt order can swing performance dramatically. Google’s multimodal documentation similarly notes that prompt content order can affect results and recommends trying files before instructions in multimodal prompts. For a single-image detection pass, that supports a practical rule: keep image placement and instruction order stable in your A/B tests, because “better” wording may actually be an order effect. citeturn10search2turn25view3
+
+Long-context work explains why shorter prompts sometimes help for reasons unrelated to lexical simplicity. “Lost in the Middle” showed that performance often drops when relevant information is buried in the middle of long inputs. LongLLMLingua and ProCut both argue that prompt performance depends heavily on the **density and position of key information**; both report cases where removing low-utility prompt material improves performance while reducing cost and latency. That is a much better fit for your theory than tokenization alone. citeturn7search0turn22view0turn23view0
+
+For multimodal grounding, the evidence also favors structured, visually anchored prompting. Official Qwen materials describe precise object grounding through boxes and points with standardized JSON output, and the Set-of-Mark paper shows that marked visual prompts can unlock much stronger grounding behavior by converting regions into explicit, referable cues. That aligns closely with your bbox review artifacts and target-outline assessment flow. In other words, **visual grounding quality is improved by better visual reference structure**, not just by trimming the text. citeturn9search0turn19search0turn7search3
+
+## Tokenization versus syntax and clarity
+
+Tokenization likely affects four things in your setting.
+
+First, it affects **budget**. Fewer tokens reduce inference cost and latency, and they leave more room for examples, schemas, and retrieved doctrine. Second, it affects **context occupancy**. A shorter prompt creates less chance that a crucial anti-false-positive rule gets diluted by surrounding prose. Third, it affects **position**. If your key rule moves closer to the front because you removed fluff, it may become more salient. Fourth, it can affect **truncation risk** whenever the pipeline later accumulates retries, system instructions, target-type doctrine, or example blocks. citeturn17search1turn22view0turn23view0turn7search0
+
+Syntax and clarity likely affect a different set of mechanisms.
+
+They affect **instruction parseability**: run-on rules force the model to resolve embedded clauses and exceptions. They affect **competition**: if one sentence contains the task, two caveats, a negative rule, and an output rule, those may compete instead of stack cleanly. They affect **ambiguity**: “central to the scene” is semantically useful but still broad unless paired with explicit exclusion language for neighboring structures and background buildings. They affect **hierarchy**: models respond better when the main task, constraints, and output format are visibly separated. They affect **example salience**: a short, sharp example often teaches a pattern better than another paragraph of prose. citeturn26view0turn25view4turn25view1turn14search0turn16search0
+
+This is why the practical recommendation is not “optimize every word for token count.” It is “make the model’s decision path shallow.” In your use case, that means the model should be able to answer, in order: **what counts as a target, what to exclude, how to draw the box, and how to format the answer**. If the prompt forces that path cleanly, performance usually improves even when the token count change is small. citeturn26view0turn25view4turn22view0
+
+## What seems true for modern LLMs and VLMs
+
+For modern LLMs, larger context windows and better instruction tuning **reduce** the importance of crude lexical economy, but they do **not** eliminate phrasing sensitivity or context burden. Official prompt guidance from entity["organization","OpenAI","ai company"] and entity["organization","Anthropic","ai company"] still emphasizes clear instructions, front-loaded constraints, examples, and structure rather than “shortest vocabulary possible.” Long-context research also shows that even strong models do not use all extra context equally well. citeturn26view0turn11search4turn7search0
+
+For modern VLMs, the same trend holds, but with an extra twist: **bad text can confuse the mapping from image evidence to the requested spatial output.** Official documentation from entity["company","Google Cloud","cloud platform"] says multimodal prompts benefit from specific instructions, examples, explicit output formats, and testing different content order. Official Qwen material presents localization tasks through direct bbox-or-point requests with structured JSON responses. That means VLM prompt quality is less about elegant prose and more about **clear grounding requests plus stable serialization**. citeturn25view4turn25view1turn25view2turn25view3turn9search0turn19search0
+
+For your stack specifically, this matters because `bda-svc` is not asking the model for a broad natural-language opinion. It is asking a local VLM to do a **visual detection and localization task** under doctrinal scope, then serialize the result into a tight schema. The repo’s current detection prompt already reflects that by requiring one bbox per valid target, matching target count to detections, and returning JSON only. The next optimization frontier is therefore **how sharply the wording separates valid targets from adjacent distractors**, not whether “essential” should become “key.” fileciteturn12file0L1-L1 fileciteturn13file0L1-L1
+
+## Practical implications for bbox-sensitive prompt writing
+
+The current prompt stack has good fundamentals. The detection backend is configured for `qwen3-vl:8b-instruct`, uses `temperature: 0.0`, requires a bbox convention, and separates detection from per-target assessment. The assessment prompt already uses a scene context image with the selected target outlined plus a crop of the target. Those are exactly the kinds of controls that make bbox debugging possible. fileciteturn12file0L1-L1
+
+The biggest weakness for your stated pain points is not obvious word length. It is that the building guidance is still semantically broad: “central to the scene or essential to interpreting it” is useful but leaves a lot of room for adjacent-building bleed and background-building false positives. For military equipment, the doctrine is more operational: detect individual objects, do not merge groups, include partially visible pieces when boundaries are distinguishable. That is a clue. Your best bbox gains will likely come from rewriting building detection guidance to be more like the equipment guidance: **operational, discriminative, and box-shape aware**. fileciteturn13file0L1-L1
+
+If the theory were mostly true, you would aggressively reduce wording and treat token count itself as the main lever. Concretely, you would shorten rule lines, trim doctrine to the smallest viable snippets, compress examples heavily, and favor the smallest wording block that preserves schema and target definitions. That would probably help latency and may help some easy images, but the evidence does not justify making it your primary theory. citeturn17search1turn22view0turn23view0
+
+If the theory is only partially true, which is where the evidence points, you should compress **only low-utility prose** and preserve **all discriminative spatial content**. Concretely, shorten run-ons, split compound rules, front-load the task and target universe, move exclusions close to positives, keep JSON schemas explicit, and add one or two tiny examples for the hardest bbox failure modes. That is the change set I would adopt first. citeturn26view0turn25view4turn25view1turn25view2turn22view0
+
+If the theory were mostly folklore, the main thing to avoid would be synonym-chasing. Do **not** remove detail that distinguishes the intended building from neighboring roofs, attached wings, rubble fields, parked vehicles, or background urban clutter just to save a few tokens. Do **not** collapse multiple constraints into one pretty sentence. Do **not** assume that a prompt “feels cleaner” because it is shorter. In bbox work, that usually trades away localization precision for superficial neatness. citeturn25view4turn16search1turn7search0
+
+## Concrete rewrite heuristics for this project
+
+Start by rewriting the detection prompt so each line carries one job. The best-performing structure for your task is likely:
+
+**task scope → target universe → positive inclusion criteria → exclusion criteria → bbox rules → output schema → no-target fallback.** Official prompt guidance supports this kind of front-loaded instruction order, and your current config already partially follows it. fileciteturn12file0L1-L1 citeturn26view0turn25view3
+
+For buildings, add explicit anti-neighbor language. I would test wording like this in prompt-lab:
+
+“Detect only buildings that are primary scene targets or necessary to interpret damage.”  
+“If neighboring buildings touch, overlap, or appear in the same block, box each building separately.”  
+“Do not extend a building box into adjacent roofs, walls, courtyards, smoke, shadows, or rubble that belongs mainly to another structure.”  
+“Reject smaller background buildings that are not the main damaged subject of the scene.”  
+“Return one box per valid target.”  
+
+That is not better because the words are shorter. It is better because the spatial exclusions are explicit and the dependency chain is short. This directly addresses adjacent-building selection and background-building false positives. fileciteturn13file0L1-L1 citeturn25view4turn26view0
+
+For bbox quality, add operational rules rather than abstract instructions. For example: “Box the visible footprint of the target object only.” “Prefer tight boxes over context-heavy boxes.” “Exclude empty margin unless needed to include the object boundary.” “Do not merge separate targets into one box.” Those kinds of statements are easier for the model to execute and easier for reviewers to judge image by image. They also align with Qwen-style grounding requests that rely on direct localization instructions plus structured output. citeturn9search0turn19search0
+
+For examples, prefer **micro-examples** over more prose. One good adjacent-building example and one good negative control example are likely worth more than another paragraph of doctrinal explanation. The demonstrations literature and official docs both support that: examples help by teaching the model the output sequence, label space, and desired format. citeturn10search1turn25view1turn26view0
+
+For retrieval, do not inject full doctrine blocks if only one fragment matters. Retrieve only the target-type-specific lines needed for the current call. Prompt-compression research strongly suggests that reducing low-utility prompt mass improves the density of the relevant instruction signal. For your system, that means retrieving **the smallest doctrine snippet that distinguishes this target type and failure mode**. citeturn21view0turn22view0turn23view0
+
+For A/B testing, isolate variables. Run one experiment where semantics are held constant and only lexical shortening changes. Run a second where wording stays nearly constant but rule splitting and ordering improve. Run a third where wording stays nearly constant but one compact example is added. That experiment design will tell you whether your gains come from token count, hierarchy, or example salience. Because your team already reviews artifacts image by image, track at least five outcomes per prompt: target-count recall, bbox tightness, neighbor spill, background-building FP rate, and control-case preservation on no-target or easy-target images. fileciteturn11file0L1-L1
+
+## Example prompt-writing principles we should adopt
+
+Adopt a house style where prompts are written as **small, sharp blocks**, not paragraphs. Each block should answer one question: what is the job, what counts, what does not count, how to serialize. This is the best match to the evidence on clarity, order, and formatting. citeturn26view0turn25view4turn25view2
+
+Adopt **instruction hierarchy by position and separation**. Put the highest-priority task statement first. Put exclusions immediately after inclusions. Put output schema after behavior rules. Keep fallbacks visible but last. Do not hide high-priority constraints inside long explanatory text. Official work on instruction hierarchy and prompt-guidance docs both support making constraint priority legible. citeturn14search0turn26view0
+
+Adopt **examples over prose once the failure mode is concrete**. For bbox-sensitive cases, one compact positive example and one compact counterexample are likely more valuable than more verbal nuance. The model often learns the sequence format and decision pattern faster that way. citeturn10search1turn10search2turn25view1
+
+Adopt **visual grounding aids in the debug loop**. Your current outlined-target assessment flow is already a strong pattern. Extend that mindset to detection review: when a false positive or neighbor bleed is hard to describe in text, create marked review artifacts that make the competing regions explicit. The Set-of-Mark result is a strong reminder that better visual referents can unlock grounding improvements that text alone will not. fileciteturn12file0L1-L1 citeturn7search3
+
+Adopt **retrieved doctrine snippets, not doctrine dumps**. The current repo is already versioning prompts and doctrine like code, which is exactly right. The next step is to retrieve only the doctrine segment that is load-bearing for the specific target class and failure mode under test. fileciteturn11file0L1-L1 fileciteturn13file0L1-L1 citeturn21view0turn23view0
+
+Adopt **image-first multimodal ordering tests**. Official multimodal guidance says order can affect results and, in single-image cases, files before instructions are worth testing. Since your system is image-led detection rather than chat, make message ordering part of your prompt-lab matrix instead of treating it as implementation trivia. citeturn25view3turn19search0
+
+**Open questions and weak spots in the evidence**
+
+There is still weak direct evidence on the exact claim you started with: I did **not** find a strong controlled literature showing that swapping longer precise words for shorter synonymous words, while holding everything else constant, reliably improves modern LLM or VLM performance. The literature is much stronger on total prompt mass, format, order, and phrasing robustness than on lexical shortness per se. That gap is real. citeturn17search1turn16search1turn21view0
+
+There is also limited published evidence that isolates these effects specifically for **bbox localization in open VLMs**, as opposed to text tasks or broad multimodal QA. Because of that, your local prompt-lab is not just useful but necessary. The highest-value next experiment is a controlled three-way ablation: **lexical shortening only**, **hierarchy cleanup only**, and **micro-example addition only**. If hierarchy cleanup beats lexical shortening, that would strongly confirm that the practical gain in your BDA workflow comes from structure, not tokenization folklore. citeturn16search1turn22view0turn23view0turn25view1

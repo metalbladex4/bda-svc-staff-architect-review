@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=gemma4:e4b;assessment=gemma4:e4b",
+        "image_id": "08700e9b-26a3-444b-9b24-6f68666049b2",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-20T00:02:09Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.59"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Upper stories show significant collapse and structural failure; substantial lower structure remains standing but is heavily damaged",
+            "bounding_box": [
+                0,
+                53,
+                95,
+                176
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple stories have collapsed into a large rubble field; the majority of the visible structural mass is lost or reduced to rubble",
+            "bounding_box": [
+                224,
+                18,
+                287,
+                150
+            ]
+        }
+    },
+    "summary": "Two targets assessed: 1 buildings with SEVERE DAMAGE and 1 buildings with DESTROYED. The scene depicts a cluster of multi-story buildings exhibiting varying degrees of structural failure, with one structure heavily reduced to rubble in the foreground. The likely functional impact is severe degradation or loss of capability for the assessed buildings."
+}

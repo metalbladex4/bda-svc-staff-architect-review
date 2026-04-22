@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "d6d584f4-1a16-4a51-b0e8-008741f9c8df",
+        "image_filename": "destroyed_building5.png",
+        "date_created": "2026-04-16T17:59:37Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.42"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "The left section of the building shows extensive structural collapse with missing floors and exposed internal framing; the right section remains standing but with significant facade damage and missing windows, indicating 45-75% of the target element area is damaged.",
+            "bounding_box": [
+                65,
+                18,
+                434,
+                479
+            ]
+        }
+    },
+    "summary": "One building is assessed with SEVERE DAMAGE, PROBABLE confidence, showing 45-75% of its target element area damaged. The scene depicts a tall, multi-story building with its left side heavily collapsed and its right side standing but with significant facade damage and missing windows. The likely functional impact is complete loss of structural integrity on the damaged side and severe degradation of habitability across the entire structure."
+}

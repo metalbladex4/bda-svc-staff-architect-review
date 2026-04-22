@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=gemma4:e4b;assessment=gemma4:e4b",
+        "image_id": "da991353-2c87-43af-b62a-96f9de8a73c5",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-19T23:55:48Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.59"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Multiple windows are broken or missing; facade elements are damaged; significant debris accumulation at the base",
+            "bounding_box": [
+                0,
+                53,
+                95,
+                176
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Multiple stories of the target are collapsed; significant portions of the facade and internal structure are missing or reduced to rubble",
+            "bounding_box": [
+                224,
+                18,
+                287,
+                150
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 buildings, condition MODERATE DAMAGE with CONFIRMED confidence; and 1 buildings, condition DESTROYED with CONFIRMED confidence. The scene depicts a cluster of multi-story buildings showing varying degrees of structural damage, with significant rubble accumulation in the foreground. The likely functional impact is degraded use of the assessed structures due to visible damage and debris."
+}
