@@ -10,6 +10,7 @@ This private review repo intentionally excludes or redacts machine/auth/state ar
 - any `.codex/` directory content from the source workspace
 - all raw `~/.codex` auth/state/session/memory/plugin-cache files
 - local noise file `NUL` from the Capstone root checkout
+- all Windows `:Zone.Identifier` metadata sidecar files copied from the local docs snapshot
 - `z_reference_docs/capstone_tech_docs/APIKey.txt`
   - replaced with a placeholder note instead of raw contents
 
