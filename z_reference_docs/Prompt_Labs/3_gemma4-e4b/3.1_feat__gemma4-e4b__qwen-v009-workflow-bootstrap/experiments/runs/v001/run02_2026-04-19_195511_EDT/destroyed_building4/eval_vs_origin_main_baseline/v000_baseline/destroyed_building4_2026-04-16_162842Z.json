@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "ed95b3bd-e1a6-405e-ae03-ce50d455b34b",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-16T16:28:42Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.14"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible collapse of upper floors and extensive debris field indicate 45-75% structural loss; facade damage and missing windows support severe damage classification for the affected section.",
+            "bounding_box": [
+                0,
+                18,
+                63,
+                176
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits near-total collapse with 75-100% of its structural mass reduced to rubble; visible remnants of load-bearing walls and framing are severely compromised, consistent with doctrinal definition of destroyed.",
+            "bounding_box": [
+                63,
+                18,
+                287,
+                176
+            ]
+        }
+    },
+    "summary": "One building is assessed as SEVERE DAMAGE with PROBABLE confidence, and another is assessed as DESTROYED with CONFIRMED confidence. The scene depicts a multi-story building with its upper floors collapsed and reduced to rubble, alongside a partially standing structure with significant facade damage and missing windows. The likely functional impact is complete loss of habitable space and structural integrity for both buildings."
+}
