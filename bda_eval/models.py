@@ -193,6 +193,7 @@ class BDAMatch:
     ref_target: BDATarget
     pred_target: BDATarget
     iou: float
+    w_i: float
     w_d: float
     w_c: float
     d_cost: float
@@ -492,7 +493,7 @@ Output ONLY valid JSON.
         #   Case 3: score_assess=0.0, score_logic=1.0 --> 0.0
         #   Case 4: score_assess=0.5, score_logic=1.0 --> 0.5
 
-        return score_assess * (w_assess + (score_logic * w_logic))
+        return (w_assess * score_assess) + (w_logic * score_logic)
 
     def _evaluate_logic(self, R, matches: list[BDAMatch]):
         """Evaluates BDAMatch logic concurrently (updating in-place).
@@ -549,8 +550,7 @@ Output ONLY valid JSON.
         self,
         R: Self,
         min_iou: float = 0.001,
-        w_d: float = 0.05,
-        w_c: float = 0.05,
+        w_i: float = 0.4,
         w_assess: float = 0.7,
     ) -> tuple[list[BDAMatch], list[BDATarget], list[BDATarget]] | None:
         """Pairs predictions to reference BDAs using the Hungarian Algorithm.
@@ -561,8 +561,7 @@ Output ONLY valid JSON.
         Args:
             R: The BDAReport containing human assessments.
             min_iou: Minimum IoU required to consider a match valid.
-            w_d: Weight of the damage penalty tiebreaker.
-            w_c: Weight of the confidence penalty tiebreaker.
+            w_i: Weight of the IoU (bounding box) cost.
             w_assess: Relative weight of the assessment component score.
 
         Returns:
@@ -573,6 +572,10 @@ Output ONLY valid JSON.
 
         matches = []
         max_cost = 1e5
+        
+        # Cost weights (should add up to one)
+        w_d = (1 - w_i) / 2
+        w_c = 1 - w_i - w_d
 
         # Component score weights (i.e. Assessment, Logic) should add up to one
         w_logic = 1 - w_assess
@@ -607,7 +610,7 @@ Output ONLY valid JSON.
                     iou = P_target.box.calc_iou(R_target.box)
 
                     if iou >= min_iou:
-                        base_cost = 1.0 - iou
+                        cost_iou = 1.0 - iou
 
                         # Subcost 1: Normalized Damage Cost (no longer subtracted from one)
                         #     K = number of damage levels for target_R
@@ -626,7 +629,7 @@ Output ONLY valid JSON.
                         )
 
                         # Total (weighted) cost
-                        cost_matrix[i, j] = base_cost + (w_d * c_d) + (w_c * c_c)
+                        cost_matrix[i, j] = (w_i * cost_iou) + (w_d * c_d) + (w_c * c_c)
                     else:
                         # IoU doesn't meet threshold IoU
                         cost_matrix[i, j] = max_cost
@@ -651,9 +654,7 @@ Output ONLY valid JSON.
                     c_c = abs(p_bda.confidence.value - 
                               r_bda.confidence.value) / 2.0
                     
-                    score_assess = (
-                        (1 + w_d + w_c) - cost_matrix[p_idx, r_idx].item()
-                    ) / (1 + w_d + w_c)
+                    score_assess = 1 - cost_matrix[p_idx, r_idx].item()
 
                     matches.append(
                         BDAMatch(
@@ -661,6 +662,7 @@ Output ONLY valid JSON.
                             pred_target=p_bda,
                             cost=cost_matrix[p_idx, r_idx].item(),
                             iou=actual_iou,
+                            w_i=w_i,
                             w_d=w_d,
                             w_c=w_c,
                             d_cost=c_d,
@@ -680,6 +682,7 @@ Output ONLY valid JSON.
                                 pred_target=p_bda,
                                 cost=0,
                                 iou=0,
+                                w_i=w_i,
                                 w_d=w_d,
                                 w_c=w_c,
                                 d_cost=0,
