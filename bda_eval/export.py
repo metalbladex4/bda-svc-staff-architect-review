@@ -8,7 +8,7 @@ import config
 import models
 
 # Define the order of columns
-CSV_HEADERS = [
+CSV_HEADERS_TARGETS = [
     "image_filename",
     "model_name",
     "inference_time",
@@ -20,19 +20,33 @@ CSV_HEADERS = [
     "ref_confidence",
     "pred_confidence",
     "iou_score",
-    "w_d",
-    "w_c",
+    # "w_d",
+    # "w_c",
+    "d_cost",
+    "c_cost",
     "cost",
     "score_assess",
     "score_logic",
-    "w_assess",
-    "w_logic",
+    # "w_assess",
+    # "w_logic",
     "score",
     "match_status",
 ]
 
 
-def _build_row(
+CSV_HEADERS_MODEL = [
+    "model_name",
+    "count_target",
+    "count_fn",
+    "count_fp",
+    "inference_time_avg",
+    "assess_avg",
+    "logic_avg",
+    "total_avg",
+]
+
+
+def _build_row_target(
     report_pred: models.BDAReport,
     match_status: str,
     match: models.BDAMatch | None = None,
@@ -57,22 +71,20 @@ def _build_row(
         pred = match.pred_target
         iou = f"{match.iou:.3f}"
         # w_d = f"{match.w_d:.3f}"
-        w_d = ""
         # w_c = f"{match.w_c:.3f}"
-        w_c = ""
+        d_cost = f"{match.d_cost:.3f}"
+        c_cost = f"{match.c_cost:.3f}"
         cost = f"{match.cost:.3f}"
         s_assess = f"{match.score_assess:.3f}"
         s_logic = f"{match.score_logic:.3f}"
         # w_assess = f"{match.w_assess:.3f}"
-        w_assess = ""
         # w_logic = f"{match.w_logic:.3f}"
-        w_logic = ""
         score = f"{match.score:.3f}"
     else:
         # Handle False Positives and False Negatives
         ref = ref_target
         pred = pred_target
-        cost = iou = w_d = w_c = s_assess = s_logic = w_assess = w_logic = score = ""
+        cost = iou = d_cost = c_cost = s_assess = s_logic = score = ""
 
     # Exit early if both ref and pred targets are missing
     if ref is not None:
@@ -94,13 +106,15 @@ def _build_row(
         "ref_confidence": ref.confidence if ref else "",
         "pred_confidence": pred.confidence if pred else "",
         "iou_score": iou,
-        "w_d": w_d,
-        "w_c": w_c,
+        # "w_d": w_d,
+        # "w_c": w_c,
+        "d_cost": d_cost,
+        "c_cost": c_cost,
         "cost": cost,
         "score_assess": s_assess,
         "score_logic": s_logic,
-        "w_assess": w_assess,
-        "w_logic": w_logic,
+        # "w_assess": w_assess,
+        # "w_logic": w_logic,
         "score": score,
         "match_status": match_status,
     }
@@ -126,24 +140,26 @@ def package_bda_report(
     rows = []
 
     for match in matches:
-        rows.append(_build_row(report_pred, "TP", match=match))
+        rows.append(_build_row_target(report_pred, "TP", match=match))
 
     for fn in false_negatives:
-        rows.append(_build_row(report_pred, "FN", ref_target=fn))
+        rows.append(_build_row_target(report_pred, "FN", ref_target=fn))
 
     for fp in false_positives:
-        rows.append(_build_row(report_pred, "FP", pred_target=fp))
+        rows.append(_build_row_target(report_pred, "FP", pred_target=fp))
 
     return rows
 
 
 def save_csv(
-    rows: list[dict],
+    filename: str, rows: list[dict], headers: list[str] = CSV_HEADERS_TARGETS
 ) -> Path | None:
     """Save evaluation report as CSV file.
 
     Args:
+        filename: String to prepend to filename of generated CSV
         rows: List of evaluation results (dictionaries) to be written to CSV
+        headers: List of header strings
 
     Returns:
         Path of written evaluation report (or None)
@@ -153,11 +169,11 @@ def save_csv(
 
     timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d_%H%M%SZ")
     assert config.OUTPUT_DIR is not None, "[*] Output directory not initialized."
-    csv_path = config.OUTPUT_DIR / f"evaluation_{timestamp}.csv"
+    csv_path = config.OUTPUT_DIR / f"{filename}_{timestamp}.csv"
 
     try:
         with csv_path.open("w", encoding="utf-8", newline="") as csv_file:
-            csv_writer = csv.DictWriter(csv_file, fieldnames=CSV_HEADERS)
+            csv_writer = csv.DictWriter(csv_file, fieldnames=headers)
 
             csv_writer.writeheader()
             csv_writer.writerows(rows)

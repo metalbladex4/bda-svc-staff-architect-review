@@ -36,6 +36,32 @@ def compare_image_objects(
     return R_report, P_report, P_report.get_bda_matches(R_report)
 
 
+def print_scene_reports(scene_reports: list[models.SceneReport]):
+    """Prints scene reports in tabular form to STDOUT.
+
+    Args:
+        scene_reports: List of SceneReport objects
+    """
+    len_col_0 = 30
+    row_sep_eq = f"+{'=' * (len_col_0 + 4)}+{'=' * 8}+{'=' * 7}+{'=' * 7}+"
+    row_sep_dash = f"+{'-' * (len_col_0 + 4)}+{'-' * 8}+{'-' * 7}+{'-' * 7}+"
+
+    print(f"\n\n+{'=' * (len(row_sep_eq) - 2)}+")
+    print(f"|{'SCORES (PER IMAGE)':^{len(row_sep_eq) - 2}}|")
+    print(row_sep_eq)
+    print(f"|  {'IMAGE':^{len_col_0}}  | ASSESS | LOGIC | TOTAL |")
+    print(row_sep_eq)
+
+    for scene_report in scene_reports:
+        print(
+            f"| {scene_report.image[:len_col_0]:>{len_col_0 + 2}} "
+            f"|  {scene_report.assess:.3f} "
+            f"| {scene_report.logic:.3f} "
+            f"| {scene_report.total:.3f} |"
+        )
+        print(row_sep_dash)
+
+
 def main():
     """Load reports, find matching objects and assess VLM performance."""
     args = cli.get_args()
@@ -67,6 +93,7 @@ def main():
         print(f"[*] Missing References: {missing_ref}")
 
     packages = []
+    scene_reports = []
 
     # NOTE: "key" == image filename
     for key in common_keys:
@@ -89,9 +116,33 @@ def main():
             )
 
             packages.extend(package)
+        else:
+            matches = []
+            false_negatives = []
+            false_positives = P_report.targets
+
+        # Calculate scores for the entire image
+        scene_reports.append(
+            models.SceneReport(
+                P_report.metadata.model_name,
+                key,
+                matches,
+                len(R_report.targets),
+                len(false_negatives),
+                len(false_positives),
+                float(P_report.metadata.inference_time),
+            )
+        )
 
         # Generate reference and model bounding boxes for current image
         bboxes.draw_bboxes(img_filename=key, R_report=R_report, P_report=P_report)
+
+    # Print scores per image
+    print_scene_reports(scene_reports)
+
+    # Print overall model scores
+    model_report = models.ModelReport(scene_reports)
+    model_report.print_summary()
 
     # Copy report folders into our destination output folder
     output_path_ref = config.OUTPUT_DIR / config.REFERENCE_DIR.name
@@ -99,11 +150,20 @@ def main():
     shutil.copytree(config.REFERENCE_DIR, output_path_ref, dirs_exist_ok=True)
     shutil.copytree(config.PREDICTED_DIR, output_path_pred, dirs_exist_ok=True)
 
-    # Try to create the CSV and save to file
-    result = export.save_csv(packages)
+    # Try to create and write the CSVs
+    result_targets = export.save_csv("eval_targets", packages)
 
-    if result:
-        print(f"\n[*] Successfully created evaluation report '{result}'.\n")
+    if result_targets:
+        print(f"\n[*] Successfully created per-target report '{result_targets}'.")
+    else:
+        print("\n[*] Error generating evaluation report.")
+
+    result_model = export.save_csv(
+        "eval_model", [model_report.to_dict()], export.CSV_HEADERS_MODEL
+    )
+
+    if result_model:
+        print(f"[*] Successfully created model report '{result_model}'.\n")
     else:
         print("\n[*] Error generating evaluation report.")
 
