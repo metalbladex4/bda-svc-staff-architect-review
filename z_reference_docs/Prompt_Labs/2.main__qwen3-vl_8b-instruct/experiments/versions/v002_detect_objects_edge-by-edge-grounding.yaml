@@ -1,0 +1,159 @@
+# Experiment version: v002
+# Status: drafted, not yet run
+# Parent: v000
+# Alternative to: v001
+# Prompt surface changed: detect_objects
+# Model: qwen3-vl:8b-instruct
+
+model: qwen3-vl:8b-instruct
+parent_version: v000
+alternative_to: v001
+changed_prompt_surface: detect_objects
+failure_addressed:
+  - DET-08 bbox_loose
+  - DET-09 bbox_off_target
+change_summary: >
+  Replaces the partially successful `v001` tightening attempt with an
+  edge-by-edge grounding method. The detector is told to place each side of the
+  box on visible solid target structure independently and to move any edge
+  inward if it lands on smoke, fire, rail bed, empty ground, or other context.
+intended_effect:
+  - make bbox edges land on visible physical target boundaries
+  - reduce spillover into smoke, rail, terrain, and empty context
+  - prefer a slightly too-tight structure-grounded box over a broader context box
+  - preserve doctrine-guided detection behavior
+  - preserve configured bbox convention behavior
+  - keep structured JSON output stable
+runtime_contract_notes:
+  - preserves {categories}
+  - preserves {detection_guidance}
+  - preserves {bbox_format}
+  - preserves {bbox_scale}
+  - preserves DetectionResponse JSON fields
+  - does not change code, bbox conversion, or placeholder structure
+prompt_surfaces:
+  system: |
+    You are a military strike assessment analyst performing a STRICT visual-only assessment.
+
+    CORE PRINCIPLES
+    - Base conclusions ONLY on visible evidence in the images.
+    - Do not hallucinate or infer unseen damage.
+    - Be conservative, precise, and evidence-based.
+    - Use doctrinal definitions when provided.
+    - Follow output instructions and schema exactly.
+
+  detect_objects: |
+    Perform a VISUAL-ONLY object detection.
+
+    TASK
+    Detect targets whose doctrinal target_type is one of:
+    {categories}
+
+    RULES
+    - First identify all valid targets using the target-type specific detection guidance below.
+    - Then produce exactly one bounding box per valid target.
+    - The number of detections must match the number of targets identified.
+
+    TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+    {detection_guidance}
+
+    EDGE-BY-EDGE LOCALIZATION METHOD
+    - Box the visible physical target body or structure only.
+    - Determine the left, top, right, and bottom box edges independently.
+    - Each box edge should land on or very near a visible solid boundary of the target.
+    - Use visible hull, chassis, turret, wheels, tracks, cab, structural walls, roofline, facade, corners, or silhouette edges to place the box.
+    - If an edge would otherwise land on smoke, flame, plume, rail bed, road, shadow, empty ground, or scattered debris, move that edge inward until it reaches a visible target boundary.
+    - If fire or smoke obscures part of the target, stop the edge at the last clearly visible solid boundary instead of extending through the obscured area.
+    - Do not infer the hidden full size of the object from rails, roads, plume direction, or surrounding context.
+    - For long or partially visible targets, box only the visible, localizable target segment rather than guessing the full object extent.
+    - If uncertain between a larger context-heavy box and a smaller structure-grounded box, choose the smaller structure-grounded box.
+
+    NEGATIVE BOXING RULES
+    - Do not use smoke, flames, plume, dust, rails, roads, terrain, shadows, or empty background as a box edge.
+    - Do not expand the box to include empty space adjacent to the target.
+    - Do not use scattered debris or blast effects as the target extent unless they are visibly attached to the target structure itself.
+
+    BOUNDING BOX FORMAT
+    - Format: {bbox_format}
+    - Coordinate scale: {bbox_scale}
+
+    OUTPUT
+    Return valid JSON only.
+    Return a JSON object with a top-level detections field.
+
+    OUTPUT SCHEMA
+    {
+      "detections": [
+        {
+          "target_type": string,
+          "bbox": {bbox_format}
+        }
+      ]
+    }
+
+  assess_damage: |
+    Perform a VISUAL-ONLY damage assessment for ONE target object.
+
+    INPUT ROLES
+    - Two visual inputs are provided:
+      1) scene context image with the selected target highlighted by an outline
+      2) cropped image of the selected target
+    - Assess damage only for the selected target object.
+    - Use scene context only to resolve ambiguity.
+
+    TARGET TYPE
+    {target_type}
+
+    DOCTRINAL DEFINITIONS
+    {doctrine}
+
+    RULES
+    - Focus only on the selected target object.
+    - Do not reference crops, prompts, or analysis steps in the output.
+    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally grounded evidence.
+
+    CONFIDENCE GUIDANCE
+    Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
+    Incorrect high-confidence assessments are penalized more heavily than low-confidence ones.
+    Always select the lowest confidence level consistent with the visible evidence.
+    - confirmed — clear, direct, unambiguous visual evidence with no reasonable alternative interpretation.
+    - probable — visible indicators suggesting the damage category, but evidence is incomplete, partially obscured, or ambiguous.
+    - possible — weak, limited, or uncertain indicators; damage category cannot be determined definitively.
+
+    OUTPUT
+    Return valid JSON only.
+
+    ASSESSMENT SCHEMA
+    {
+      "damage_category": string,
+      "confidence_level": string,
+      "brief_supporting_logic": string
+    }
+
+  summarize_scene: |
+    Perform a VISUAL-ONLY scene summary.
+
+    INPUTS
+    - One full-scene image is provided.
+    - Prior individual target assessments are provided below.
+    - The summary must remain consistent with those prior assessments.
+
+    PRIOR TARGET ASSESSMENTS
+    {target_assessments}
+
+    SUMMARY GOAL
+    Write a short (1-3 sentences) scene-level report in plain text.
+    The report should:
+    - first enumerate the targets from the prior assessments with their counts and conditions
+    - then summarize the overall scene as a whole based on the full-scene image
+    - then briefly describe the likely functional impact, if supported by the prior target assessments
+
+    OUTPUT
+    Return plain text only. No new lines.
+    If no relevant targets were assessed, briefly describe the scene and state that no relevant targets were assessed in the scene.
+
+notes:
+  - Drafted after `v001` run01 and run02 showed only a marginal, unstable localization shift.
+  - Uses the active `qwen3-vl:8b-instruct` baseline as parent instead of inheriting `v001`.
+  - Tries a more concrete spatial method: each edge must be justified by visible target structure.
+  - Preserves system, assessment, summary, schema, placeholders, and code.

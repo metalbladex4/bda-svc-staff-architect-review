@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "f2993f17-90ef-4dd5-a3ea-21052ad0e630",
+        "image_filename": "destroyed_building3.png",
+        "date_created": "2026-04-21T00:07:29Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "18.27"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "visible collapse of a major section; structural elements missing or detached; damage concentrated on one side of the target body",
+            "bounding_box": [
+                102,
+                0,
+                431,
+                552
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "target body appears intact; no visible structural damage or deformation; no fire, smoke, or blast effects on target",
+            "bounding_box": [
+                500,
+                269,
+                621,
+                401
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 buildings, condition SEVERE DAMAGE with PROBABLE confidence. The scene shows a tall residential building with a large section collapsed on one side, while other structures in the background appear intact. The likely functional impact is significant disruption to habitation and structural integrity for the damaged building."
+}

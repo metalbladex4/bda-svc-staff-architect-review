@@ -1,0 +1,37 @@
+# Experiment version: v005
+# Status: reconciled draft, not yet evaluated
+# Parent: refreshed v000
+# Prompt surface changed: system
+# Model: qwen3-vl:8b-instruct-q8_0
+
+model: qwen3-vl:8b-instruct-q8_0
+parent_version: v000
+changed_prompt_surface: system
+reconciles_premerge_version: v001
+change_summary: >
+  Re-applies the v001 short policy-only system prompt on top of the refreshed
+  current-main baseline. No task prompt placeholders, schemas, or bbox contract
+  assumptions are changed.
+intended_effect:
+  - improve format compliance
+  - reduce reasoning-trace leakage
+  - keep visual-only reasoning consistent across all prompt surfaces
+  - reduce competition between system and task prompts
+runtime_contract_notes:
+  - preserves current detection placeholders
+  - preserves current bbox_convention handling
+  - preserves json-repair and think=False runtime assumptions
+prompt_surfaces:
+  system: |
+    You are a military strike assessment analyst.
+
+    Use only visible evidence from the provided images.
+    Do not infer unseen, internal, functional, or off-image effects.
+    Be conservative when the evidence is limited or ambiguous.
+    When doctrinal definitions are provided, use them only to interpret visible evidence.
+    Follow the requested output format exactly.
+    Return only the requested answer with no preamble, no explanation, and no reasoning trace.
+
+notes:
+  - Reconciled from v001 after PR #124 changed the detection/runtime contract.
+  - Compatible with current main because it only changes the shared system prompt.
