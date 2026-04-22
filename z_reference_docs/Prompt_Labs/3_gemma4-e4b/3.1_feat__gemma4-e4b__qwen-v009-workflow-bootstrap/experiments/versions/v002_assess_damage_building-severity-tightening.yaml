@@ -1,0 +1,209 @@
+# ------------------------------------------------------------
+# DETECTION VLM BACKEND
+# ------------------------------------------------------------
+detection_vlm:
+  model: gemma4:e4b  # str, required; Ollama model name.
+  bbox_convention: xyxy_1000  # str, required; VLM bounding box format: One of xyxy_1, yxyx_1, xyxy_1000, yxyx_1000, xyxy_pixels, yxyx_pixels.
+  temperature: 0.0  # float, required; Sampling temperature for generation.
+  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
+  crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
+
+# ------------------------------------------------------------
+# ASSESSMENT VLM BACKEND
+# ------------------------------------------------------------
+assessment_vlm:
+  model: gemma4:e4b  # str, required; Ollama model name.
+  temperature: 0.0  # float, required; Sampling temperature for generation.
+  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
+
+# ------------------------------------------------------------
+# PROMPT TEMPLATES
+# ------------------------------------------------------------
+prompts:
+  system: |  # str, required; Shared system prompt used for all VLM calls.
+    You are a military strike assessment analyst performing a STRICT visual-only assessment.
+
+    CORE PRINCIPLES
+    - Base conclusions ONLY on visible evidence in the images.
+    - Do not hallucinate or infer unseen damage.
+    - Be conservative, precise, and evidence-based.
+    - Use doctrinal definitions when provided.
+    - Follow output instructions and schema exactly.
+
+  detect_objects: |  # str, required; Object detection prompt.
+    Perform a VISUAL-ONLY object detection.
+
+    TASK
+    Detect targets whose doctrinal target_type is one of:
+    {categories}
+
+    RULES
+    - First identify all valid targets using the target-type specific detection guidance below.
+    - Then produce exactly one bounding box per valid target.
+    - The number of detections must match the number of targets identified.
+    - If multiple valid targets are visibly distinct, output multiple detections. Do not merge neighboring targets into one box.
+
+    TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+    {detection_guidance}
+
+    BOXING RULE
+    - Box the visible connected man-made body or structure of each target only.
+    - Use fire, smoke, muzzle flash, or debris only to help locate the target, not to define the box boundary.
+    - If smoke, flame, or dust hides part of a target, keep the box on the visible connected target body that remains.
+    - If two targets are visibly separate, even with nearby debris or overlap in the scene, return separate boxes.
+    - For buildings, return separate boxes for visibly separate buildings or clearly separate damaged structures. Do not merge neighboring structures into one box unless they are visibly one continuous target body.
+    - For buildings, only detect visible exterior building structures or clearly collapsed exterior structural remains.
+    - Do not treat indoor rooms, office interiors, cubicles, partitions, furniture, interior walls, ceiling tiles, or ordinary room contents as doctrinal building targets.
+    - If the image is primarily an indoor scene and no visible exterior building structure or collapsed structural remains are present, do not detect a building target.
+    - On intact or operational targets, box the visible target body only when the doctrinal target itself is clearly visible. Do not widen the detection prior from scene context alone.
+    - Do not box the smoke plume, flame column, muzzle flash, debris field between targets, rail bed, road, shadow, or empty ground.
+
+    CONTRASTIVE EXAMPLES
+    - Correct: a burning vehicle with smoke to the right -> box the visible connected vehicle body only.
+    - Correct: a firing vehicle with muzzle flash -> box the vehicle body only, not the flash or smoke.
+    - Correct: two neighboring damaged buildings with separate visible masses -> return separate boxes.
+    - Correct: collapsed exterior structural remains of two buildings -> return separate boxes if the structures are distinct.
+    - Incorrect: merge adjacent targets because smoke or debris overlaps them in the scene.
+    - Incorrect: treat an office interior, cubicle wall, or room partition as a building target.
+    - Incorrect: box the smoke plume, flash, empty terrain, or only the smallest local burn patch.
+
+    OUTPUT DISCIPLINE
+    - Return only the doctrinal target_type category.
+    - Do not infer a finer subtype such as locomotive, train car, truck, or artillery piece.
+
+    BOUNDING BOX FORMAT
+    - Format: {bbox_format}
+    - Coordinate scale: {bbox_scale}
+
+    OUTPUT
+    Return valid JSON only.
+    Return a JSON object with a top-level detections field.
+    Use {"detections": []} only when no doctrinal target body or connected structural remains are visibly present anywhere in the image.
+    If fire, smoke, flame, or dust partially obscures a doctrinal target but some connected target body remains visible, return a detection for the visible target body instead of {"detections": []}.
+
+    OUTPUT SCHEMA
+    {
+      "detections": [
+        {
+          "target_type": string,
+          "bbox": {bbox_format}
+        }
+      ]
+    }
+
+  assess_damage: | # str, required; Per-target damage assessment prompt.
+    Perform a VISUAL-ONLY damage assessment for ONE target object.
+
+    INPUT ROLES
+    - Two visual inputs are provided:
+      1) scene context image with the selected target highlighted by an outline
+      2) cropped image of the selected target
+    - Assess damage only for the selected target object.
+    - Use scene context only to resolve ambiguity.
+
+    TARGET TYPE
+    {target_type}
+
+    DOCTRINAL DEFINITIONS
+    {doctrine}
+
+    RULES
+    - Focus only on the selected target object.
+    - Do not reference crops, prompts, or analysis steps in the output.
+    - Set logic to short factual observations only, using concise phrases separated by semicolons. Include only specific visible, doctrinally grounded evidence.
+    - In `brief_supporting_logic`, refer to the object only as the target, target body, or equipment. Do not infer a subtype such as locomotive, rail car, truck, or artillery piece from the surrounding scene.
+    - In `brief_supporting_logic`, do not use kill-mechanism or kill-state labels such as K-kill, mission kill, mobility kill, firepower kill, catastrophic kill, or similar shorthand. Describe only visible evidence.
+    - Do not state or imply K-kill, mission kill, unrepairable loss, or complete loss unless that outcome is directly and unambiguously visible.
+    - Fire and smoke are strong evidence of severe damage only when they are visibly affecting the target body itself.
+    - Do not treat muzzle flash, weapon discharge smoke, gun blast dust, exhaust, or normal firing obscuration as target damage by themselves.
+    - If visible flash or smoke appears to originate from the weapon muzzle or active firing event rather than from the target body, do not use that alone to justify `DAMAGED` or `DESTROYED`.
+    - Do not downgrade a target to `DAMAGED` only because some major components are still visible. If sustained fire and dense smoke are catastrophically affecting the target body, and the visible evidence suggests total loss is more likely than repairable damage, prefer `DESTROYED`.
+
+    OPERATIONAL FIRING GUIDANCE
+    - A target that appears actively firing or operating can still be `NO DAMAGE` if the visible target body remains intact and there are no visible signs of structural harm.
+    - Visible signs of structural harm include burning on the target body, blast damage on the body, holes, breaks, collapse, missing major components, severe deformation, or detached wreckage associated with the target.
+    - If the target body appears intact and the only dramatic visual effects are muzzle flash or discharge smoke, prefer `NO DAMAGE`.
+    - Use `DAMAGED` only when visible evidence on the target body itself shows actual damage, not just firing effects.
+
+    BUILDING-SPECIFIC SEVERITY GUIDANCE
+    - When `target_type` is `buildings`, judge severity from visible exterior structural loss, collapse extent, and rubble relative to the visible target body.
+    - Do not anchor on surviving facade fragments, a standing lower section, or a few intact wall remnants if multiple upper stories or most visible structural mass have collapsed.
+    - If visible collapse, pancaked floors, or rubble indicates more than moderate structural loss, do not use `MODERATE DAMAGE` just because part of the building is still standing.
+    - Prefer `SEVERE DAMAGE` when a substantial part of the building still stands, but the visible structural loss clearly exceeds moderate damage.
+    - Prefer `DESTROYED` when most of the visible target body is collapsed, reduced to rubble, or has lost the majority of its structural mass, even if small facade or wall remnants remain standing.
+
+    DECISION EXAMPLES
+    - If the target body is engulfed in sustained fire and dense smoke, and the visible evidence strongly suggests catastrophic loss but some structural detail is still obscured, prefer:
+      `damage_category = DESTROYED`
+      `confidence_level = PROBABLE`
+      `brief_supporting_logic = sustained fire; dense smoke; target body catastrophically affected but partly obscured`
+    - If the target appears actively firing, the flash and smoke are concentrated at the weapon muzzle, and the target body otherwise appears intact with no visible structural harm, prefer:
+      `damage_category = NO DAMAGE`
+      `confidence_level = CONFIRMED`
+      `brief_supporting_logic = active firing signature at muzzle; target body intact; no visible structural damage`
+    - If the target body is clearly wrecked with detached components and severe deformation, prefer factual wording such as:
+      `brief_supporting_logic = major components missing or detached; severe deformation visible; target body catastrophically damaged`
+    - If the target is a building with collapsed upper stories, large rubble accumulation, and only limited structural remnants still standing, prefer:
+      `damage_category = DESTROYED`
+      `confidence_level = PROBABLE`
+      `brief_supporting_logic = multiple stories collapsed; large rubble field; most visible structural mass lost`
+    - If the target is a building with major upper-story collapse and heavy facade loss, but a substantial lower section still stands, prefer:
+      `damage_category = SEVERE DAMAGE`
+      `confidence_level = PROBABLE`
+      `brief_supporting_logic = upper stories collapsed; heavy facade loss; substantial lower structure still standing`
+
+    CATEGORY RECOVERY NOTE
+    - Visible remaining structure does not automatically imply `DAMAGED`.
+    - When the visible target body is heavily involved in sustained fire and dense smoke, use `DAMAGED` only if the evidence still looks more consistent with serious but potentially repairable damage than with catastrophic loss.
+    - When visible smoke is consistent with firing activity rather than body damage, do not escalate above `NO DAMAGE` without separate visible structural evidence.
+
+    CONFIDENCE GUIDANCE
+    Avoid overconfidence. High confidence should be used sparingly and only when visual evidence is clear and unmistakable.
+    Incorrect high-confidence assessments are penalized more heavily than low-confidence ones.
+    Always select the lowest confidence level consistent with the visible evidence.
+    - confirmed — clear, direct, unambiguous visual evidence with no reasonable alternative interpretation. Use this only when the visible target body itself clearly supports the chosen category, including intact active-operation cases with no visible damage.
+    - probable — visible indicators strongly suggest the damage category, but evidence is incomplete, partly obscured by fire/smoke, or still leaves a reasonable alternative interpretation.
+    - possible — weak, limited, or uncertain indicators; damage category cannot be determined definitively.
+
+    OUTPUT
+    Return valid JSON only.
+
+    ASSESSMENT SCHEMA
+    {
+      "damage_category": string,
+      "confidence_level": string,
+      "brief_supporting_logic": string
+    }
+
+  summarize_scene: |  # str, required; Scene summary prompt.
+    Perform a VISUAL-ONLY scene summary.
+
+    INPUTS
+    - One full-scene image is provided.
+    - Prior individual target assessments are provided below.
+    - The summary must remain consistent with those prior assessments.
+
+    PRIOR TARGET ASSESSMENTS
+    {target_assessments}
+
+    SUMMARY RULES
+    - Do not add a target subtype or platform identity beyond what appears in the prior assessments.
+    - Do not infer terrain or infrastructure details such as road, rail, track, runway, or bridge unless they are unmistakably visible.
+    - If the surrounding surface is unclear, use generic wording such as open terrain, ground surface, or outdoor scene.
+    - Keep the functional-impact sentence conservative and aligned with the prior target assessments.
+    - Do not claim complete loss, total mission failure, or broader operational effects unless that level of impact is directly supported by the prior assessments.
+
+    SUMMARY GOAL
+    Write a short (1-3 sentences) scene-level report in plain text.
+    The report should:
+    - first enumerate the targets from the prior assessments with their counts and conditions
+    - then summarize the overall scene as a whole based on the full-scene image using only broad, visible context
+    - then briefly describe the likely functional impact in conservative terms, if supported by the prior target assessments
+
+    SUMMARY EXAMPLE
+    - Good: One target assessed: 1 military_equipment, condition DESTROYED with PROBABLE confidence. The scene shows a burning target in open terrain with dense black smoke. The likely functional impact is severe degradation or loss of capability for the assessed target.
+    - Bad: A locomotive on a railway track is completely destroyed, causing total loss of logistics in the area.
+
+    OUTPUT
+    Return plain text only. No new lines.
+    If no relevant targets were assessed, briefly describe the scene and state that no relevant targets were assessed in the scene.

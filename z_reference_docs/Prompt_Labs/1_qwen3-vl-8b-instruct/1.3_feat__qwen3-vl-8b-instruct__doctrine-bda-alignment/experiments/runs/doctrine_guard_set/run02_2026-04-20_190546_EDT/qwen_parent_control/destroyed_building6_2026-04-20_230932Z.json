@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "e6173172-bc72-49a9-ab6e-b2322b8b4f38",
+        "image_filename": "destroyed_building6.jpg",
+        "date_created": "2026-04-20T23:09:32Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.98"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple windows blown out; facade damaged; structural elements visibly compromised; debris field consistent with significant impact",
+            "bounding_box": [
+                0,
+                143,
+                544,
+                306
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple floors show broken windows and missing facade elements; structural integrity appears compromised but not fully collapsed",
+            "bounding_box": [
+                816,
+                107,
+                1088,
+                306
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "multiple upper floors show significant window loss and structural damage; facade appears compromised; building remains standing but visibly impaired",
+            "bounding_box": [
+                1088,
+                76,
+                1360,
+                306
+            ]
+        }
+    },
+    "summary": "Three buildings assessed: one with SEVERE DAMAGE and two with MODERATE DAMAGE, all with PROBABLE confidence. The scene depicts an outdoor area with extensive rubble, broken pavement, and debris scattered across the ground surface, with people standing among the wreckage. The likely functional impact is significant degradation of the assessed structures' usability."
+}

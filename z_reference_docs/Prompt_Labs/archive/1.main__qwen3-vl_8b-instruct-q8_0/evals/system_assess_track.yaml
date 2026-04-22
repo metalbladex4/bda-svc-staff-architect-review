@@ -1,0 +1,75 @@
+track: system_assess
+model: qwen3-vl:8b-instruct-q8_0
+prompt_surfaces:
+  - system
+  - assess_damage
+purpose: >
+  Evaluate shared policy plus single-target doctrinal assessment independently
+  from detector quality.
+pass_requirements:
+  - 100_percent_schema_valid_json
+  - no_preamble_or_analysis_trace
+  - visual_only_reasoning
+  - doctrine_consistent_damage_label
+  - conservative_confidence
+cases:
+  - case_id: assess_seed_01_tank_fixture
+    status: ready_for_eval
+    source_image: tests/data/tank.jpg
+    reference_report_json: z_reference_docs/Prompt_Labs/1.main__qwen3-vl_8b-instruct-q8_0/experiments/runs/2026-04-06_203823_EDT/current-main_baseline/tank_2026-04-07_004129Z.json
+    overlay_image: z_reference_docs/Prompt_Labs/1.main__qwen3-vl_8b-instruct-q8_0/experiments/runs/2026-04-06_203823_EDT/current-main_baseline/tank_2026-04-07_004129Z_debug/target_0_overlay.jpg
+    crop_image: z_reference_docs/Prompt_Labs/1.main__qwen3-vl_8b-instruct-q8_0/experiments/runs/2026-04-06_203823_EDT/current-main_baseline/tank_2026-04-07_004129Z_debug/target_0_crop.jpg
+    target_type: military_equipment
+    expected:
+      damage_category: DESTROYED
+      confidence_level: CONFIRMED
+      logic_must_include:
+        - fire or burning evidence
+        - smoke or severe burn evidence
+      logic_must_not_include:
+        - crop
+        - overlay
+        - prompt
+        - analysis
+      review_checks:
+        - selected_target_only
+        - visible_evidence_only
+        - doctrine_consistent
+        - conservative_confidence
+    notes: >
+      Current repo fixture with one visible piece of military equipment that
+      appears catastrophically damaged. The visible evidence includes active
+      fire, heavy smoke, and a burned vehicle hull. The report and debug image
+      references point to the timestamped current-main baseline run.
+  - case_id: assess_template_building_case_01
+    status: template_add_case
+    source_image: null
+    overlay_image: null
+    crop_image: null
+    target_type: buildings
+    expected:
+      damage_category: null
+      confidence_level: null
+      logic_must_include: []
+      logic_must_not_include: []
+      review_checks:
+        - selected_target_only
+        - visible_evidence_only
+        - doctrine_consistent
+    notes: Add a curated building case here.
+  - case_id: assess_template_equipment_case_01
+    status: template_add_case
+    source_image: null
+    overlay_image: null
+    crop_image: null
+    target_type: military_equipment
+    expected:
+      damage_category: null
+      confidence_level: null
+      logic_must_include: []
+      logic_must_not_include: []
+      review_checks:
+        - selected_target_only
+        - visible_evidence_only
+        - doctrine_consistent
+    notes: Add a curated equipment case here.

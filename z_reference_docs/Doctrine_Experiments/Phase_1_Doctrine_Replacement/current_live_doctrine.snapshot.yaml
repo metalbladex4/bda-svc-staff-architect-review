@@ -1,0 +1,37 @@
+buildings:
+  detection_guidance: |
+    Detect only buildings that are central to the scene or essential to interpreting it. Skip background or peripheral buildings that do not materially affect the scene.
+  physical_damage_definitions: |
+    NO DAMAGE — 0 percent of the target element area damaged.
+    LIGHT DAMAGE — Up to 15 percent of the target element area damaged.
+    MODERATE DAMAGE — 15 to 45 percent of the target element area damaged.
+    SEVERE DAMAGE — 45 to 75 percent of the target element area damaged.
+    DESTROYED — 75 to 100 percent of the target element area damaged.
+  physical_damage_considerations: |
+    Framed Buildings—Framed structures (e.g., military HQ, office buildings, and aircraft hangars) rarely collapse totally because of a conventional weapons attack. Regardless of overall damage, the structural-framing members supporting the building tend to remain intact. Collapse of the structural-framing members within a steel or concrete framed building is not necessary to achieve the levels of physical damage stated above. The percentage of target element damage outlined above includes damage to non-load-bearing elements (e.g., facade/ external sheathing, broken windows/glass, blown-out curtain walls, and/or blown-out roof panels).
+    Load-Bearing Wall Buildings—In contrast to framed buildings, physical damage levels of load-bearing wall structures (e.g., buildings with thick walls that carry the floor and roof loads) are generally equal to the percent of building collapse and include load-bearing as well as non- load-bearing structural elements.
+    For high multistory buildings (greater than four stories) or buildings with multiple sections or wings, express the reported level of damage as it relates to both the affected section and wing of the structure as well as the entire building. For example, if a ten-story building receives severe damage to the upper three stories, report the level of damage to those particular floors plus the level of damage to the structure as a whole, which is assessed as moderate damage.
+    For buildings with multiple wings, report destroyed wings and damage to the remainder of the structure. For example, at a HQ building, the north and south wings were destroyed while the center section received moderate damage.
+
+military_equipment:
+  detection_guidance: |
+    Military equipment is generally defined as armored vehicles, artillery systems, trucks, locomotives, aircrafts, rocket and missile systems, radar antennas, or fire control components.
+    Detect military equipment as individual objects -- do NOT merge multiple objects into one such as a group of vehicles.
+    Include all pieces of military equipment including partially visible ones, only skip objects whose boundaries cannot be distinguished from surrounding objects or background.
+  physical_damage_definitions: |
+    NO DAMAGE — No apparent/observable damage.
+    DAMAGED — Physical deformations may include holes in equipment, scorching visible on exterior, and/or equipment components blown off (e.g., broken tracks/wheel or armored plates). Major components still intact.
+    DESTROYED — Unrepairable, possibly scrap. Catastrophic damage (K-kill).
+  physical_damage_considerations: |
+    Make careful consideration when reporting NO DAMAGE. In certain cases, physical deformations may not be observed. Use multiple sources/types of information for analytical judgments (e.g., no vehicular movement for extended periods or lack of detectable radio transmissions).
+    When reporting physical damage, report the total quantity seen and the number of pieces of equipment damaged or destroyed.
+    Generally, define military equipment as:
+    - Armored vehicles: Tanks and armored personnel carriers.
+    - Artillery: Towed and self-propelled field and antiaircraft artillery systems.
+    - Trucks: All types of non-armored vehicles.
+    - Locomotives and rolling stock: All types of rail transportation.
+    - Aircraft: All types of fixed and rotary wing aircraft.
+    - Rockets: Multi-round and single-round rockets and their associated launchers.
+    - Missiles: Fixed and mobile surface-to-surface and surface-to-air missiles and associated launchers.
+    - Radar antennas: Stand-alone or attached to van or trailer. Radars may or may not be associated with a missile site.
+    - Fire control components: Vans and trailers (e.g., radar, guidance, power, and computer) associated with antiaircraft, surface-to-surface, and surface-to-air missile sites.

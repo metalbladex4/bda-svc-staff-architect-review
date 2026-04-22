@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "68a9b68c-d806-4022-bb0f-a188e1335c03",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-20T22:23:38Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.79"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body shows extensive collapse; debris field at base; visible structural failure across multiple floors",
+            "bounding_box": [
+                29,
+                18,
+                69,
+                153
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body shows extensive collapse; major structural elements missing or detached; debris field indicates catastrophic loss",
+            "bounding_box": [
+                69,
+                18,
+                250,
+                153
+            ]
+        }
+    },
+    "summary": "Two targets assessed: 2 buildings, condition DESTROYED with PROBABLE confidence. The scene shows a heavily damaged urban area with collapsed structures and a large debris field under a partly cloudy sky. The likely functional impact is severe degradation or loss of capability for the assessed targets."
+}
