@@ -24,7 +24,8 @@
 ## Output Folder Structure
 ```
 ├── path/to/results
-│   └── evaluation.csv        # CSV file with evaluation results
+│   └── eval_targets.csv      # CSV file with per-target results
+│   └── eval_model.csv        # CSV file with overall model results
 │   └── reports_reference/    # Copy of reference report folder
 │   └── reports_predicted/    # Copy of predicted report folder
 │   └── images/bbox/both/     # Contains images with ref/pred bounding boxes
