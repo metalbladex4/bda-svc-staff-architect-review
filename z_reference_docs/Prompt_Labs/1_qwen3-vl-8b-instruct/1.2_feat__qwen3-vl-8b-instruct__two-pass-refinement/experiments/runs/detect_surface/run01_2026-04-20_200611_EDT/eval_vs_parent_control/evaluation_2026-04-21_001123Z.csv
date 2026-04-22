@@ -1,0 +1,16 @@
+image_filename,model_name,inference_time,target_type,ref_target_label,pred_target_label,ref_damage,pred_damage,ref_confidence,pred_confidence,iou_score,w_d,w_c,cost,score_assess,score_logic,w_assess,w_logic,score,match_status
+operational_building7.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,7.46,buildings,target_0,target_0,0,0,2,2,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_tank15.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,5.52,military equipment,target_0,target_0,2,2,1,1,0.853,,,0.147,0.866,0.000,,,0.606,TP
+destroyed_building8.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,6.02,buildings,target_0,target_0,4,4,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_building3.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,12.45,buildings,target_0,target_0,3,3,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_building3.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,12.45,buildings,target_1,target_1,0,0,2,2,0.851,,,0.149,0.865,0.000,,,0.605,TP
+operational_building91.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,8.94,buildings,target_0,target_0,0,0,2,2,0.980,,,0.020,0.982,0.000,,,0.687,TP
+destroyed_building4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,5.74,buildings,target_1,target_0,4,4,1,1,0.968,,,0.032,0.971,0.000,,,0.680,TP
+destroyed_building4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,5.74,buildings,target_0,,3,,1,,,,,,,,,,,FN
+operational_tank4.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,6.73,military equipment,target_0,target_0,0,0,2,2,1.000,,,0.000,1.000,0.000,,,0.700,TP
+tank_pressure.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,5.44,military equipment,target_0,target_0,2,2,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+operational_building2.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,7.12,buildings,target_0,target_0,0,0,2,2,0.983,,,0.017,0.985,0.000,,,0.689,TP
+destroyed_building5.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,6.47,buildings,target_0,target_0,4,4,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_building6.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,15.77,buildings,target_0,target_0,3,3,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_building6.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,15.77,buildings,target_1,target_1,2,2,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP
+destroyed_building6.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,15.77,buildings,target_2,target_2,2,2,1,1,1.000,,,0.000,1.000,0.000,,,0.700,TP

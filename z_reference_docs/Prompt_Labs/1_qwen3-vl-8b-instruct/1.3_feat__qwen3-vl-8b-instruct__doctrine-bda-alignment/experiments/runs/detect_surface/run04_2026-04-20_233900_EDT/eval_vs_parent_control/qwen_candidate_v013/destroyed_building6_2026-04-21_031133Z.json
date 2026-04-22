@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "98ed923e-8826-4e8b-b273-35867784920c",
+        "image_filename": "destroyed_building6.jpg",
+        "date_created": "2026-04-21T03:11:33Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.69"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target building has multiple large windows blown out; facade appears shattered; visible structural damage to upper levels; debris scattered around base",
+            "bounding_box": [
+                0,
+                143,
+                571,
+                304
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "visible broken windows across multiple floors; facade damage and missing exterior panels; structural integrity compromised but not fully collapsed",
+            "bounding_box": [
+                843,
+                113,
+                1088,
+                304
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "visible exterior wall damage; multiple windows shattered; structural integrity compromised but not collapsed",
+            "bounding_box": [
+                1088,
+                76,
+                1360,
+                304
+            ]
+        }
+    },
+    "summary": "Three buildings assessed: one with SEVERE DAMAGE and two with MODERATE DAMAGE, all with PROBABLE confidence. The scene depicts an outdoor area with extensive rubble, broken pavement, and debris scattered across the ground surface, with people standing among the wreckage. The likely functional impact is significant degradation of the assessed structures' usability."
+}

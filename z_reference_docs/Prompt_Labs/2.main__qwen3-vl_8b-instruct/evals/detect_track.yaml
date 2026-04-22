@@ -1,0 +1,62 @@
+track: detect
+model: qwen3-vl:8b-instruct
+prompt_surfaces:
+  - system
+  - detect_objects
+purpose: >
+  Evaluate full-scene detection quality independently from target damage
+  assessment under the current `main` runtime contract.
+pass_requirements:
+  - 100_percent_schema_valid_json
+  - doctrinal_labels_only
+  - one_box_per_object
+  - no_duplicate_detections
+  - valid_configured_bbox_from_vlm
+  - valid_pixel_boxes_after_runtime_conversion
+cases:
+  - case_id: detect_seed_01_tank_fixture
+    status: ready_for_eval
+    scene_image: tests/data/tank.jpg
+    expected:
+      count: 1
+      target_types:
+        - military_equipment
+      approximate_boxes:
+        - format: output_pixel_xyxy
+          label: military_equipment
+          bbox: [51, 37, 128, 73]
+      review_checks:
+        - correct_count
+        - correct_labels
+        - no_duplicates
+        - tight_boxes
+    notes: >
+      One visible piece of military equipment is present in the current repo
+      fixture. The expected box is the exported pixel-space box from the first
+      fresh baseline run in this active lab and is intended for manual review,
+      not exact scoring.
+  - case_id: detect_template_crowded_scene_01
+    status: template_add_case
+    scene_image: null
+    expected:
+      count: null
+      target_types: []
+      approximate_boxes: []
+      review_checks:
+        - correct_count
+        - correct_labels
+        - no_merges
+        - no_splits
+    notes: Add a crowded multi-object scene here.
+  - case_id: detect_template_partial_visibility_01
+    status: template_add_case
+    scene_image: null
+    expected:
+      count: null
+      target_types: []
+      approximate_boxes: []
+      review_checks:
+        - partials_included_when_identifiable
+        - doctrinal_labels_only
+        - tight_boxes
+    notes: Add a partial-visibility scene here.

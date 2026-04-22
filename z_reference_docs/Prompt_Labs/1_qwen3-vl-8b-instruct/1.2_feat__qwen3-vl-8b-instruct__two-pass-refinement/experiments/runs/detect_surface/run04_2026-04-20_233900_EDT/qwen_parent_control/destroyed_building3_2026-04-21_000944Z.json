@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "37f7e0b2-d195-425d-b76e-242e8331148f",
+        "image_filename": "destroyed_building3.png",
+        "date_created": "2026-04-21T00:09:44Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.45"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "significant structural collapse visible on one side of the building; facade and multiple floors missing; debris and exposed internal structure evident",
+            "bounding_box": [
+                95,
+                0,
+                431,
+                552
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "target appears intact; no visible structural damage, holes, breaks, or collapse; no fire or smoke affecting target body",
+            "bounding_box": [
+                500,
+                269,
+                621,
+                429
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 building, condition SEVERE DAMAGE with PROBABLE confidence. Another target assessed: 1 building, condition NO DAMAGE with CONFIRMED confidence. The scene shows a tall residential building with significant structural damage on one side, while another building in the background appears intact, set against an open outdoor scene with visible overhead power lines and bare trees. The likely functional impact is severe degradation of the damaged building’s habitability and structural integrity."
+}

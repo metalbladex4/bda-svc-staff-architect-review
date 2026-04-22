@@ -1,0 +1,1544 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+        <meta charset="utf-8" />
+        
+        <title>
+            
+            Bring state-of-the-art agentic skills to the edge with Gemma 4
+            
+            
+            - Google Developers Blog
+            
+        </title>
+        <meta property="og:title" content="Bring state-of-the-art agentic skills to the edge with Gemma 4- Google Developers Blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+	<meta name="description" content="Google DeepMind introduces Gemma 4, a family of state-of-the-art open models designed for on-device agentic workflows. Learn how to leverage multi-step planning, 140+ language support, and LiteRT-LM to build powerful, autonomous AI experiences across mobile, desktop, and IoT." />
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Google for Developers Blog - News about Web, Mobile, AI and Cloud" property="twitter:title"/>
+  <meta property="og:title" content="Bring state-of-the-art agentic skills to the edge with Gemma 4" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Google for Developers Blog",
+      "item": "https://developers.googleblog.com/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
+      "item": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Bring state-of-the-art agentic skills to the edge with Gemma 4",
+      "description": "Google DeepMind has launched Gemma 4, a family of state-of-the-art open models designed to enable multi-step planning and autonomous agentic workflows directly on-device. The release includes the Google AI Edge Gallery for experimenting with &quot;Agent Skills&quot; and the LiteRT-LM library, which offers a significant speed boost and structured output for developers. Available under an Apache 2.0 license, Gemma 4 supports over 140 languages and is compatible with a wide range of hardware, including mobile devices, desktops, and IoT platforms like Raspberry Pi.",
+      "image": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/gemma4_banner_2.2e16d0ba.fill-800x400.png",
+      "datePublished": "2026-04-02",
+      "author": [
+        
+        
+          { "@type": "Person", "name": "Google AI Edge Team", "url": "/search/?author=Google+AI+Edge+Team" }
+        
+        
+      ]
+    }
+  </script>
+  
+  <meta content="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini_Generated_Image_rs4gjers4g.2e16d0ba.fill-1200x600.jpg" property="og:image"/>
+  
+
+
+        
+        
+
+        <!-- Google Tag Manager -->
+        <script type="text/javascript" nonce="lCWAhQufBBR+zmtrg1/0HQ==" src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/js/analytics.js"></script>
+        <!-- End Google Tag Manager -->
+
+        
+        <link href="//www.gstatic.com/glue/v27_1/glue.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/css/dgc_blog.css">
+        <link rel="icon" href="https://storage.googleapis.com/gweb-developer-goog-blog-assets/meta/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="https://storage.googleapis.com/gweb-developer-goog-blog-assets/meta/apple-touch-icon.png">
+
+        
+				<link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link rel="preload" href="https://fonts.googleapis.com/css2?family=Product+Sans&family=Google+Sans+Display:ital@0;1&family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" as="style">
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Product+Sans&family=Google+Sans+Display:ital@0;1&family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+
+        
+        <link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet">
+
+        
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/css/blog_detail.css"
+  />
+  <link type="text/css" href="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/css/prism.css" rel="stylesheet" />
+
+    </head>
+
+    <body id="main-content" class="glue-body ">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVTLDSL "
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        
+
+				
+        
+
+<!-- HTML -->
+<header class="dgc-header">
+  <div class="dgc-header-inner">
+    <button class="hamburger" aria-haspopup="true" aria-expanded="false" aria-label="Open Menu">
+      <svg role="presentation" aria-hidden="true" class="glue-icon">
+        <use href="/glue-icon/#menu"></use>
+      </svg>
+    </button>
+    <div class="product-name-wrapper">
+      <a href="https://developers.google.com/" class="site-logo-link" data-label="Site logo">
+        <img src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/images/g-dev.svg" class="site-logo" alt="Google for Developers">
+      </a>
+    </div>
+    <div class="desktop-nav-wrapper">
+      <div class="upper-tabs-wrapper">
+        <div class="upper-tabs">
+          <nav class="tabs" aria-label="Upper Tabs">
+            <div class="tab" dropdown>
+              <a
+                href="//developers.google.com/products"
+                class="top-nav-title">
+                Products
+              </a>
+              <a
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="true"
+                aria-label="Dropdown menu for Products"
+                class="dropdown-toggle">
+                <svg role="presentation" aria-hidden="true" class="glue-icon">
+                  <use href="/glue-icon/#arrow-drop-down"></use>
+                </svg>
+              </a>
+              <div class="tabs-dropdown" aria-label="Submenu">
+                <div class="tabs-dropdown-content">
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Develop Menu">Develop</li>
+                      
+                        <li class="nav-item">
+                          <a href="//developer.android.com">
+                            <div class="nav-item-title">
+                              Android
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developer.chrome.com">
+                            <div class="nav-item-title">
+                              Chrome
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//chromeos.dev/">
+                            <div class="nav-item-title">
+                              ChromeOS
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//cloud.google.com">
+                            <div class="nav-item-title">
+                              Cloud
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//firebase.google.com">
+                            <div class="nav-item-title">
+                              Firebase
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//flutter.dev">
+                            <div class="nav-item-title">
+                              Flutter
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/assistant">
+                            <div class="nav-item-title">
+                              Google Assistant
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/maps">
+                            <div class="nav-item-title">
+                              Google Maps Platform
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/workspace">
+                            <div class="nav-item-title">
+                              Google Workspace
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//www.tensorflow.org">
+                            <div class="nav-item-title">
+                              TensorFlow
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/youtube">
+                            <div class="nav-item-title">
+                              YouTube
+                            </div>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Grow Menu">Grow</li>
+                      
+                        <li class="nav-item">
+                          <a href="//firebase.google.com">
+                            <div class="nav-item-title">
+                              Firebase
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/google-ads">
+                            <div class="nav-item-title">
+                              Google Ads
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/analytics">
+                            <div class="nav-item-title">
+                              Google Analytics
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developer.android.com/distribute">
+                            <div class="nav-item-title">
+                              Google Play
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/search">
+                            <div class="nav-item-title">
+                              Search
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/web/fundamentals/engage-and-retain/push-notifications">
+                            <div class="nav-item-title">
+                              Web Push and Notification APIs
+                            </div>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Earn Menu">Earn</li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/admob">
+                            <div class="nav-item-title">
+                              AdMob
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/google-ads/api">
+                            <div class="nav-item-title">
+                              Google Ads API
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/pay">
+                            <div class="nav-item-title">
+                              Google Pay
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developer.android.com/google/play/billing/">
+                            <div class="nav-item-title">
+                              Google Play Billing
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/interactive-media-ads">
+                            <div class="nav-item-title">
+                              Interactive Media Ads
+                            </div>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <a
+                href="//developers.google.com/solutions/catalog"
+                class="top-nav-title">
+                Solutions
+              </a>
+            </div>
+            <div class="tab">
+              <a
+                href="//developers.google.com/events"
+                class="top-nav-title">
+                Events
+              </a>
+            </div>
+            <div class="tab">
+              <a
+                href="//developers.google.com/learn"
+                class="top-nav-title">
+                Learn
+              </a>
+            </div>
+            <div class="tab" dropdown>
+              <a
+                href="//developers.google.com/community"
+                class="top-nav-title">
+                Community
+              </a>
+              <a
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="true"
+                aria-label="Dropdown menu for Community"
+                class="dropdown-toggle">
+                <svg role="presentation" aria-hidden="true" class="glue-icon">
+                  <use href="/glue-icon/#arrow-drop-down"></use>
+                </svg>
+              </a>
+              <div class="tabs-dropdown" aria-label="Submenu">
+                <div class="tabs-dropdown-content">
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Groups Menu">Groups</li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/gdg">
+                            <div class="nav-item-title">
+                              Google Developer Groups
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/gdsc">
+                            <div class="nav-item-title">
+                              Google Developer Student Clubs
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/womentechmakers">
+                            <div class="nav-item-title">
+                              Woman Techmakers
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/experts">
+                            <div class="nav-item-title">
+                              Google Developer Experts
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//www.techequitycollective.com/">
+                            <div class="nav-item-title">
+                              Tech Equity Collective
+                            </div>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Programs Menu">Programs</li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/accelerators">
+                            <div class="nav-item-title">
+                              Accelerator
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/gdsc-solution-challenge">
+                            <div class="nav-item-title">
+                              Solution Challenge
+                            </div>
+                          </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                          <a href="//developers.google.com/community/devfest">
+                            <div class="nav-item-title">
+                              DevFest
+                            </div>
+                          </a>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="tabs-dropdown-column">
+                    <ul class="tabs-dropdown-section">
+                      <li class="nav-title" aria-label="Stories Menu">Stories</li>
+                      <li class="nav-item">
+                        <a href="//developers.google.com/community/stories">
+                          <div class="nav-item-title">
+                            All Stories
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <a
+                href="//developers.google.com/profile/u/me"
+                class="top-nav-title">
+                Developer Program
+              </a>
+            </div>
+            <div class="tab">
+              <a
+                href="//developers.googleblog.com/"
+                class="top-nav-title">
+                Blog
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dgc-header-search">
+    <div class="search-wrapper glue-page">
+      <div class="glue-grid">
+        <form id="search-form"  action="/search/" method="get" class="search-content glue-grid__col glue-grid__col--span-4-sm glue-grid__col--span-9-md glue-grid__col--span-7-lg">
+          <div class="search-input-wrapper">
+            <svg role="presentation" aria-hidden="true" class="glue-icon search-icon">
+              <use href="/glue-icon/#search"></use>
+            </svg>
+            <input
+              type="text"
+              name="query"
+              
+              placeholder="Search all articles..."
+              aria-label="Search"
+              class="search-input-field"
+            />
+          </div>
+          <button class="glue-button glue-button--high-emphasis">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" top-level-nav>
+  <nav class="nav-content" aria-label="Side menu">
+    <div class="mobile-header">
+      <button class="nav-close-btn nav-btn" aria-label="Close navigation">
+        <svg role="presentation" aria-hidden="true" class="glue-icon">
+          <use href="/glue-icon/#close"></use>
+        </svg>
+      </button>
+      <button class="nav-back-btn nav-btn hidden" aria-label="Back to Menu">
+        <svg role="presentation" aria-hidden="true" class="glue-icon">
+          <use href="/glue-icon/#arrow-back"></use>
+        </svg>
+      </button>
+      <div class="product-name-wrapper">
+        <a href="https://developers.google.com/" class="site-logo-link" data-label="Site logo">
+          <img src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/images/g-dev.svg" class="site-logo" alt="Google for Developers">
+        </a>
+      </div>
+    </div>
+    <div class="nav-wrapper">
+      <div class="mobile-nav-top">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="//developers.google.com/products" class="nav-title" data-label="Tab: Products">
+              <span class="nav-text" tooltip="">
+                Products
+             </span>
+            </a>
+            <ul class="nav-responsive-tabs">
+              <li class="nav-item">
+                <span tabindex="0" class="nav-title products-btn" data-label="More Products">
+                  <span class="nav-text" menu="Products">
+                    More
+                  </span>
+                  <span class="nav-icon" menu="Products">
+                    <svg role="presentation" aria-hidden="true" class="glue-icon">
+                      <use href="/glue-icon/#arrow-forward"></use>
+                    </svg>
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/solutions/catalog" class="nav-title" data-label="Tab: Solutions">
+              <span class="nav-text" tooltip="">
+                Solutions
+             </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/events" class="nav-title" data-label="Tab: Events">
+              <span class="nav-text" tooltip="">
+                Events
+             </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/learn" class="nav-title" data-label="Tab: Learn">
+              <span class="nav-text" tooltip="">
+                Learn
+             </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/community" class="nav-title" data-label="Tab: Community">
+              <span class="nav-text" tooltip="">
+                Community
+             </span>
+            </a>
+            <ul class="nav-responsive-tabs">
+              <li class="nav-item">
+                <span tabindex="0" class="nav-title community-btn" data-label="More Community">
+                  <span class="nav-text" menu="Community">
+                    More
+                  </span>
+                  <span class="nav-icon" menu="Community">
+                    <svg role="presentation" aria-hidden="true" class="glue-icon">
+                      <use href="/glue-icon/#arrow-forward"></use>
+                    </svg>
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/profile/u/me" class="nav-title" data-label="Tab: Developer Program">
+              <span class="nav-text" tooltip="">
+                Developer Program
+             </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.googleblog.com/" class="nav-title" data-label="Tab: Blog">
+              <span class="nav-text" tooltip="">
+                Blog
+             </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="mobile-nav-bottom">
+        <ul class="nav-list products-submenu" menu="Products" aria-label="Side menu">
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Develop
+              </span>
+            </span>
+          </li>
+          
+            <li class="nav-item">
+              <a href="//developer.android.com" class="nav-title">
+                <span class="nav-text">
+                  Android
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developer.chrome.com" class="nav-title">
+                <span class="nav-text">
+                  Chrome
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//chromeos.dev/" class="nav-title">
+                <span class="nav-text">
+                  ChromeOS
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//cloud.google.com" class="nav-title">
+                <span class="nav-text">
+                  Cloud
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//firebase.google.com" class="nav-title">
+                <span class="nav-text">
+                  Firebase
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//flutter.dev" class="nav-title">
+                <span class="nav-text">
+                  Flutter
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/assistant" class="nav-title">
+                <span class="nav-text">
+                  Google Assistant
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/maps" class="nav-title">
+                <span class="nav-text">
+                  Google Maps Platform
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/workspace" class="nav-title">
+                <span class="nav-text">
+                  Google Workspace
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//www.tensorflow.org" class="nav-title">
+                <span class="nav-text">
+                  TensorFlow
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/youtube" class="nav-title">
+                <span class="nav-text">
+                  YouTube
+                </span>
+              </a>
+            </li>
+          
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Grow
+              </span>
+            </span>
+          </li>
+          
+            <li class="nav-item">
+              <a href="//firebase.google.com" class="nav-title">
+                <span class="nav-text">
+                  Firebase
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/google-ads" class="nav-title">
+                <span class="nav-text">
+                  Google Ads
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/analytics" class="nav-title">
+                <span class="nav-text">
+                  Google Analytics
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developer.android.com/distribute" class="nav-title">
+                <span class="nav-text">
+                  Google Play
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/search" class="nav-title">
+                <span class="nav-text">
+                  Search
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/web/fundamentals/engage-and-retain/push-notifications" class="nav-title">
+                <span class="nav-text">
+                  Web Push and Notification APIs
+                </span>
+              </a>
+            </li>
+          
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Earn
+              </span>
+            </span>
+          </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/admob" class="nav-title">
+                <span class="nav-text">
+                  AdMob
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/google-ads/api" class="nav-title">
+                <span class="nav-text">
+                  Google Ads API
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/pay" class="nav-title">
+                <span class="nav-text">
+                  Google Pay
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developer.android.com/google/play/billing/" class="nav-title">
+                <span class="nav-text">
+                  Google Play Billing
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/interactive-media-ads" class="nav-title">
+                <span class="nav-text">
+                  Interactive Media Ads
+                </span>
+              </a>
+            </li>
+          
+        </ul>
+        <ul class="nav-list community-submenu hidden" menu="Community" aria-label="Side menu">
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Groups
+              </span>
+            </span>
+          </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/gdg" class="nav-title">
+                <span class="nav-text">
+                  Google Developer Groups
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/gdsc" class="nav-title">
+                <span class="nav-text">
+                  Google Developer Student Clubs
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/womentechmakers" class="nav-title">
+                <span class="nav-text">
+                  Woman Techmakers
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/experts" class="nav-title">
+                <span class="nav-text">
+                  Google Developer Experts
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//www.techequitycollective.com/" class="nav-title">
+                <span class="nav-text">
+                  Tech Equity Collective
+                </span>
+              </a>
+            </li>
+          
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Programs
+              </span>
+            </span>
+          </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/accelerators" class="nav-title">
+                <span class="nav-text">
+                  Accelerator
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/gdsc-solution-challenge" class="nav-title">
+                <span class="nav-text">
+                  Solution Challenge
+                </span>
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="//developers.google.com/community/devfest" class="nav-title">
+                <span class="nav-text">
+                  DevFest
+                </span>
+              </a>
+            </li>
+          
+          <li class="nav-item nav-heading">
+            <span class="nav-title">
+              <span class="nav-text">
+                Stories
+              </span>
+            </span>
+          </li>
+          <li class="nav-item">
+            <a href="//developers.google.com/community/stories" class="nav-title" aria-label="All Stories">
+              <span class="nav-text">
+                All Stories
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </nav>
+  <select
+    aria-label="Change language"
+    name="lang-selector"
+    id="lang-selector-nav"
+    class="glue-form__dropdown glue-mobile-nav__lang-dropdown"
+    onchange="window.location.href=this.value"
+  >
+    
+  </select>
+</div>
+
+<div class="backdrop"></div>
+
+        
+  <div class="blog-detail-container">
+
+    
+      <section class="tags-container glue-page glue-spacer-5-top">
+        <div class="glue-eyebrow"></div>
+      </section>
+    
+
+    <section class="heading-container glue-page  glue-spacer-1-top">
+      <h1 class="glue-headline glue-headline--headline-1">Bring state-of-the-art agentic skills to the edge with Gemma 4</h1>
+    </section>
+
+    <section class="summary-container glue-page glue-spacer-4-top">
+      <div class="date-time">
+        <div class="published-date glue-font-weight-medium">APRIL 2, 2026</div>
+      </div>
+    </section>
+
+    <section class="glue-page glue-grid glue-spacer-1-top">
+
+      <section class="author-container glue-grid__col glue-grid__col--span-4-sm glue-grid__col--span-10-md">
+      
+        
+          <div class="author-obj">
+            <a class="glue-font-weight-medium" href="/search/?author=Google+AI+Edge+Team">Google AI Edge Team</a>
+            
+            
+          </div>
+        
+
+      
+      </section>
+      <section class="social-container glue-grid__col glue-grid__col--span-4-sm glue-grid__col--span-2-md">
+        <button id="social-button" class="glue-button glue-button--low-emphasis glue-button--icon" aria-haspopup="true" aria-expanded="false">
+          <svg role="presentation" aria-hidden="true" class="glue-icon">
+            <use href="/glue-icon/#share"></use>
+          </svg>
+          <span>Share</span>
+        </button>
+        <ul id="social-menu" class="glue-elevation-level-1" role="menu" aria-labelledby="social-button">
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={url}"
+                title="Share on Facebook" target="_blank" rel="noopener">
+              <svg role="presentation" aria-hidden="true"
+                  class="glue-icon glue-icon--social glue-icon--32px">
+                <use href="/glue-icon/#post-facebook"></use>
+              </svg>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/intent/tweet?text={url}"
+                title="Share on Twitter" target="_blank" rel="noopener">
+              <svg role="presentation" aria-hidden="true"
+                  class="glue-icon glue-icon--social glue-icon--32px">
+                <use href="/glue-icon/#twitter-x"></use>
+              </svg>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/shareArticle?url={url}&amp;mini=true" title="Share on LinkedIn" target="_blank" rel="noopener">
+              <svg role="presentation" aria-hidden="true"
+                  class="glue-icon glue-icon--social glue-icon--32px">
+                <use href="/glue-icon/#post-linkedin"></use>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:name@example.com?subject=Check%20out%20this%20site&body=Check%20out%20{url}" title="Send via Email">
+              <svg role="presentation" aria-hidden="true"
+                  class="glue-icon glue-icon--social glue-icon--32px">
+                <use href="/glue-icon/#email"></use>
+              </svg>
+              <span>Mail</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Get shareable link" data-link="" data-copy-text="Copy Link" data-copied-text="Copied!">
+              <svg role="presentation" aria-hidden="true"
+                  class="glue-icon glue-icon--social glue-icon--32px">
+                <use href="/glue-icon/#link"></use>
+              </svg>
+              <span></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    
+    <section class="blocks-container glue-page glue-spacer-3-top">
+      <div class="block">
+          
+
+<img
+    class="banner-image"
+    src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/gemma4_banner_2.original.png"
+    alt="gemma4_banner_2"
+/>  <div class="inner-block-content rich-content">
+    <p data-block-key="j54r5">Today, Google DeepMind launched <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/"><b>Gemma 4</b></a>, a family of state-of-the-art open models that redefine what is possible on your own hardware. Now available under the Apache 2.0 license, Gemma 4 gives developers a powerful toolkit for on-device AI development. With Gemma 4, you can now go beyond chatbots to build agents and autonomous AI use cases running directly on-device. Gemma 4 enables multi-step planning, autonomous action, offline code generation, and even audio-visual processing, all without specialized fine-tuning. It’s also built for a global audience with support for over 140 languages.</p>
+</div>   
+
+<div class="inner-block-content video-block">
+    
+        <video  autoplay="" loop="" muted="" playsinline="" poster="https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wagtailvideo-uq4vtpyv_thumb.jpg">
+<source src='https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/Translate_Object_Recognition__with_Device_1.mp4' type='video/mp4'>
+<p>Sorry, your browser doesn't support playback for this video</p>
+
+</video>
+    
+    
+        
+            <div class="video-description">Gemma 4 enables visual processing and support in &gt;140 languages</div>
+        
+    
+</div>  <div class="inner-block-content rich-content">
+    <p data-block-key="j54r5">We are excited to announce that you can experience Gemma 4’s expansive capabilities on the edge starting today! Access Android&#x27;s built-in Gemma 4 model through the new <a href="https://developers.google.com/ml-kit/genai/aicore-dev-preview">AICore Developer Preview</a>, or leverage <a href="https://ai.google.dev/edge">Google AI Edge</a> to build agentic, in-app experiences across mobile, desktop, and edge devices.</p><p data-block-key="3mi3f">In this post, we’ll show you how to get started with Google AI Edge using both <a href="https://github.com/google-ai-edge/gallery">Google AI Edge Gallery</a> and <a href="https://ai.google.dev/edge/litert-lm/overview">LiteRT-LM</a>.</p><h3 data-block-key="rplyu" id="discover-agent-skills-with-gemma-4-in-google-ai-edge-gallery"><b>Discover Agent Skills with Gemma 4 in Google AI Edge Gallery</b></h3><p data-block-key="d0gij"><b>Google AI Edge Gallery</b>, available on <a href="https://apps.apple.com/us/app/google-ai-edge-gallery/id6749645337">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.google.ai.edge.gallery&amp;hl=en_US">Android</a>, allows you to build and experiment with AI experiences that run entirely on-device. Today, we are thrilled to announce the launch of <b>Agent Skills</b>, one of the first applications to run multi-step, autonomous agentic workflows entirely on-device. Powered by Gemma 4, Agent Skills can:</p><ul><li data-block-key="ebibm"><b>Augment the knowledge base</b>: Gemma 4 can access the information beyond its initial training data using skills to enable agentic enrichment type experiences. For example, you can build a skill to query Wikipedia, allowing the agent to query and respond to any encyclopedic question.</li></ul>
+</div>   
+
+<div class="inner-block-content video-block">
+    
+        <video  autoplay="" loop="" muted="" playsinline="" poster="https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wagtailvideo-pk6r63lc_thumb.jpg">
+<source src='https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wikipedia_update_3.mp4' type='video/mp4'>
+<p>Sorry, your browser doesn't support playback for this video</p>
+
+</video>
+    
+    
+        
+            <div class="video-description">Query Wikipedia or other knowledge sources</div>
+        
+    
+</div>  <div class="inner-block-content rich-content">
+    <ul><li data-block-key="j54r5"><b>Produce rich, interactive content</b>: Transform paragraphs or videos into concise summaries or flashcards for studying, or transform data into interactive visualizations or graphs. For example, you can create a skill that automatically summarizes and displays trends in hours of sleep and moods per day based on user speech input:</li></ul>
+</div>   
+
+<div class="inner-block-content video-block">
+    
+        <video  autoplay="" loop="" muted="" playsinline="" poster="https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wagtailvideo-beyivvrx_thumb.jpg">
+<source src='https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/Mood_journal.mp4' type='video/mp4'>
+<p>Sorry, your browser doesn't support playback for this video</p>
+
+</video>
+    
+    
+        
+            <div class="video-description">Create graphs, flashcards, and other visualizations</div>
+        
+    
+</div>  <div class="inner-block-content rich-content">
+    <ul><li data-block-key="j54r5"><b>Expand Gemma 4&#x27;s core capabilities</b>: Integrate with other models, such as text-to-speech, image generation, or music synthesis. For instance, you can utilize skills to pair photos with music that perfectly matches the mood.</li></ul>
+</div>   
+
+<div class="inner-block-content video-block">
+    
+        <video  autoplay="" loop="" muted="" playsinline="" poster="https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wagtailvideo-ow11cp28_thumb.jpg">
+<source src='https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/Mood_Music_1.mp4' type='video/mp4'>
+<p>Sorry, your browser doesn't support playback for this video</p>
+
+</video>
+    
+    
+        
+            <div class="video-description">Integrate with other models to synthesize music and understand images</div>
+        
+    
+</div>  <div class="inner-block-content rich-content">
+    <ul><li data-block-key="j54r5"><b>Create</b> <b>comprehensive end-to-end experiences</b>: Rather than navigating multiple apps, users can manage complex workflows and build their own applications entirely through conversation with Gemma 4. To illustrate this, we built a working app that describes and plays the vocal calls of animals.</li></ul>
+</div>   
+
+<div class="inner-block-content video-block">
+    
+        <video  autoplay="" loop="" muted="" playsinline="" poster="https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/wagtailvideo-c4a4gseh_thumb.jpg">
+<source src='https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/Animal_Noises_Video_with_Device_1.mp4' type='video/mp4'>
+<p>Sorry, your browser doesn't support playback for this video</p>
+
+</video>
+    
+    
+        
+            <div class="video-description">Build multi-step workflows and end-to-end experiences</div>
+        
+    
+</div>  <div class="inner-block-content rich-content">
+    <p data-block-key="j54r5">To experience the Gemma 4 E2B and E4B models in action, check out the <a href="https://github.com/google-ai-edge/gallery">Google AI Edge Gallery app</a> today. Within the app, it’s easy to start experimenting and creating your own skills with <a href="https://github.com/google-ai-edge/gallery/tree/main/skills">our guide</a>. We can’t wait to see what you build and share your skills in the Github <a href="https://github.com/google-ai-edge/gallery/discussions/categories/skills">Discussion</a>!</p><h3 data-block-key="977ro" id="leverage-gemma-4-across-devices-with-litert-lm"><b>Leverage Gemma 4 across devices with LiteRT-LM</b></h3><p data-block-key="7r3nq">For developers who are interested in deploying Gemma 4 in-app or across a broader range of devices, <a href="https://ai.google.dev/edge/litert-lm/overview">LiteRT-LM</a> provides stellar performance with reach across the entire hardware spectrum. LiteRT-LM adds GenAI specific libraries on top of <a href="https://ai.google.dev/edge/litert">LiteRT</a>, which is already trusted by millions of Android and edge developers with its high-performance libraries XNNPack and ML Drift. LiteRT-LM builds on this stack and enhances model performance with the following new features:</p><ul><li data-block-key="5jchc"><b>Minimal Memory footprint:</b> Run Gemma 4 E2B using &lt;1.5GB memory on some devices thanks to LiteRT’s support for 2-bit and 4-bit weights along with memory-mapped per-layer embeddings</li><li data-block-key="1aok6"><b>Constrained decoding</b>: Get structured, predictable outputs every time, ensuring your AI-driven apps and tool-calling scripts remain reliable in production.</li><li data-block-key="bumaa"><b>Dynamic context</b>: Flexibility to handle single models across CPUs and GPUs with dynamic context lengths, allowing you to take full advantage of the Gemma 4 128K context window.</li></ul><p data-block-key="f5opv"></p><p data-block-key="9m621">To support the extended context lengths required by agentic use cases, LiteRT-LM leverages cutting-edge GPU optimizations to process <b>4,000 input tokens</b> across<b> 2 distinct skills</b> in <b>under 3 seconds</b>.</p><p data-block-key="cikog">LiteRT-LM also brings smaller Gemma 4 models to IoT &amp; edge devices with compelling performance on a variety of platforms. These include the Raspberry Pi 5, where running on CPU, it reaches <b>133 prefill and 7.6 decode tokens/s</b>, while the NPU acceleration on the Qualcomm Dragonwing IQ8 boosts performance to a more impressive <b>3,700 prefill and 31 decode tokens/s</b>.</p><p data-block-key="8clms">Ready to get started? Check out the <a href="https://ai.google.dev/edge/litert-lm/overview">LiteRT-LM documentation</a> for a complete guide and device-specific performance metrics. You can also view the individual model cards for <a href="https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm">Gemma 4 E2B</a> and <a href="https://huggingface.co/litert-community/gemma-4-E4B-it-litert-lm">Gemma 4 E4B</a>.</p><h3 data-block-key="natl1" id="run-on-any-device"><b>Run on any device</b></h3><p data-block-key="4bo4v">Gemma 4 is available today with support across an unprecedented range of platforms:</p><ul><li data-block-key="5v4cn"><b>Mobile</b>: Available with CPU/GPU support across both Android and iOS. Developers can also access and deploy Android&#x27;s built-in and optimized Gemma 4 model system-wide via Android AICore.</li><li data-block-key="6k76j"><b>Desktop and Web</b>: Seamless performance on Windows, Linux, and macOS (via Metal), plus native browser-based execution powered by WebGPU.</li><li data-block-key="9scpb"><b>IoT and robotics</b>: We are bringing Gemma 4 to the edge on <b>Raspberry Pi 5</b> and <b>Qualcomm Dragonwing IQ8 processor, </b>which also powers <a href="https://www.qualcomm.com/news/releases/2026/03/arduino-announces-arduino-ventuno-q----powered-by-qualcomm-drago"><b>Arduino VENTUNO Q</b></a>.</li></ul><p data-block-key="5skn5"></p><p data-block-key="17kc9">Today, we are also launching a new Python package and CLI tool to make it easier than ever to experiment with Gemma in the console, and to power Gemma-based Python pipelines for IoT devices. The <code>litert-lm</code> CLI is available on <b>Linux, macOS, and Raspberry Pi</b>, enabling developers to try out the latest Gemma 4 model capabilities without writing any code. The CLI now also supports tool calling that powered Agent Skills in Google AI Edge Gallery. Python bindings for LiteRT-LM provide the flexibility to deeply customize your on-device LLM pipeline from Python. Getting started with LiteRT-LM in your terminal is simple using our <a href="http://ai.google.dev/edge/litert-lm/cli">guide</a>.</p><p data-block-key="9isk5">The era of agentic experiences on-device is here, and we hope you are excited to start building on the edge. Regardless of which device you are building on, get started with our <a href="https://github.com/google-ai-edge/gallery/tree/main/skills">Agent Skills examples</a> in Google AI Edge Gallery, and <a href="https://ai.google.dev/edge/litert-lm/overview">LiteRT-LM getting started guide</a>. We can’t wait to see what you build!</p>
+</div>  <div class="inner-block-content rich-content">
+    <h3 data-block-key="kcurg" id="acknowledgements"><b>Acknowledgements</b></h3><p data-block-key="7au4i"><i>We&#x27;d like to extend a special thanks to our</i> <b><i>significant contributors</i></b><i> for their work on this project:</i></p><p data-block-key="d8vud"><i>Advait Jain, Alice Zheng, Amber Heinbockel, Andrew Zhang, Byungchul Kim, Cormac Brick, Daniel Ho, Derek Bekebrede, Dillon Sharlet, Eric Yang, Fengwu Yao, Frank Barchard, Grant Jensen, Hriday Chhabria, Jae Yoo, Jenn Lee, Jing Jin, Jingxiao Zheng, Juhyun Lee, Lu Wang, Lin Chen, Majid Dadashi, Marissa Ikonomidis, Matthew Chan, Matthew Soulanille, Matthias Grundmann, Milen Ferev, Misha Gutman, Mohammadreza Heydary, Pradeep Kuppala, Qidong Zhao, Quentin Khan, Ram Iyengar, Raman Sarokin, Renjie Wu, Rishika Sinha, Rodney Witcher, Ronghui Zhu, Sachin Kotwani, Suleman Shahid, Tenghui Zhu, Terry Heo, Tiffany Hsiao, Tyler Mullen, Wai Hon Law, Weiyi Wang, Xiaoming Hu, Xu Chen, Yishuang Pang, Yi-Chun Kuo, Yu-Hui Chen, Zichuan Wei, and the gTech team.</i></p>
+</div> 
+      </div>
+    </section>
+    
+
+    <section class="navigation-container glue-page glue-spacer-6-top">
+      <div class="posted-in-section">
+        <div class="posted-in-section__heading">
+          <span class="glue-caption">
+            posted in:
+          </span>
+        </div>
+        <div class="posted-in-section__tags">
+          <ul>
+              
+                  <li>
+                      <a href="/search/?technology_categories=Mobile" class="glue-caption">Mobile</a>
+                  </li>
+              
+                  <li>
+                      <a href="/search/?technology_categories=Web" class="glue-caption">Web</a>
+                  </li>
+              
+                  <li>
+                      <a href="/search/?technology_categories=AI" class="glue-caption">AI</a>
+                  </li>
+              
+                  <li>
+                      <a href="/search/?content_type_categories=Announcements" class="glue-caption">Announcements</a>
+                  </li>
+              
+              
+                  <li>
+                      <a href="/search/?tag=Explore" class="glue-caption">Explore</a>
+                  </li>
+              
+                  <li>
+                      <a href="/search/?tag=Learn" class="glue-caption">Learn</a>
+                  </li>
+              
+          </ul>
+      </div>
+      </div>
+      <div class="buttons-section">
+        <div class="buttons-section__left">
+          <a href="/subagents-have-arrived-in-gemini-cli/" class="glue-button--icon glue-elevation-level-1 " aria-label="Previous">
+            <svg role="presentation" aria-hidden="true" class="glue-icon">
+              <use href="/glue-icon/#chevron-left"></use>
+            </svg>
+          </a>
+          <span class="caption ">Previous</span>
+        </div>
+        <div class="buttons-section__right">
+          <span class="caption ">Next</span>
+          <a href="/closing-the-knowledge-gap-with-agent-skills/" class="glue-button--icon glue-elevation-level-1 "  aria-label="Next">
+            <svg role="presentation" aria-hidden="true" class="glue-icon">
+              <use href="/glue-icon/#chevron-right"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="related-posts-container glue-page glue-spacer-6-top glue-spacer-3-bottom">
+      <span class="glue-headline glue-headline--headline-3">Related Posts</span>
+      <div class="related-posts-container__carousel glue-page glue-spacer-5-top">
+        <div class="glue-carousel glue-carousel--cards glue-carousel-related-posts" aria-label="Related Posts">
+          <!-- Previous -->
+          <button class="glue-carousel__button glue-carousel__button--prev"
+              aria-label="Go to the previous slide">
+            <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--32px">
+              <use href="/glue-icon/#chevron-left"></use>
+            </svg>
+          </button>
+          <!-- Next -->
+          <button class="glue-carousel__button glue-carousel__button--next"
+              aria-label="Go to the next slide">
+            <svg role="presentation" aria-hidden="true" class="glue-icon glue-icon--32px">
+              <use href="/glue-icon/#chevron-right"></use>
+            </svg>
+          </button>
+          <!-- List -->
+          <div class="glue-carousel__viewport">
+            <div class="glue-carousel__list">
+              
+                <a class="glue-card glue-carousel__item" href="/a2ui-v0-9-generative-ui/">
+                  <div aria-label="A2UI v0.9: The New Standard for Portable, Framework-Agnostic Generative UI" class="glue-card__inner">
+                    <picture class="glue-card__asset">
+                      <img alt="A2UI v0.9: The New Standard for Portable, Framework-Agnostic Generative UI" src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Hero.2e16d0ba.fill-800x400.jpg">
+                    </picture>
+                    <div class="glue-card__content">
+                      <div class="glue-card__tags glue-spacer-2-top">
+                        
+                            
+                            
+                            <span class="glue-label">Mobile</span>
+                            
+                            <span class="glue-label">Web</span>
+                            
+                            
+                            <span class="glue-label">How-To Guides</span>
+                            
+                            <span class="glue-label">Announcements</span>
+                            
+                        
+                      </div>
+                      <p class="glue-headline glue-headline--headline-5">A2UI v0.9: The New Standard for Portable, Framework-Agnostic Generative UI</p>
+                      <div class="glue-card__cta-custom glue-spacer-3-top">
+                        <span class="glue-cta">APRIL 17, 2026</span>
+                        <svg aria-hidden="true" class="glue-icon glue-icon--24px" role="presentation">
+                          <use href="/glue-icon/#arrow-forward"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              
+                <a class="glue-card glue-carousel__item" href="/new-enhancements-for-merchant-initiated-transactions-with-the-google-pay-api/">
+                  <div aria-label="New enhancements for merchant initiated transactions with the Google Pay API" class="glue-card__inner">
+                    <picture class="glue-card__asset">
+                      <img alt="New enhancements for merchant initiated transactions with the Google Pay API" src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/image_2.2e16d0ba.fill-800x400.png">
+                    </picture>
+                    <div class="glue-card__content">
+                      <div class="glue-card__tags glue-spacer-2-top">
+                        
+                            
+                            <span class="glue-label">Pay</span>
+                            
+                            
+                            <span class="glue-label">Mobile</span>
+                            
+                            <span class="glue-label">Web</span>
+                            
+                            
+                            <span class="glue-label">Tutorials</span>
+                            
+                            <span class="glue-label">Announcements</span>
+                            
+                        
+                      </div>
+                      <p class="glue-headline glue-headline--headline-5">New enhancements for merchant initiated transactions with the Google Pay API</p>
+                      <div class="glue-card__cta-custom glue-spacer-3-top">
+                        <span class="glue-cta">APRIL 15, 2026</span>
+                        <svg aria-hidden="true" class="glue-icon glue-icon--24px" role="presentation">
+                          <use href="/glue-icon/#arrow-forward"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              
+                <a class="glue-card glue-carousel__item" href="/maxtext-expands-post-training-capabilities-introducing-sft-and-rl-on-single-host-tpus/">
+                  <div aria-label="MaxText Expands Post-Training Capabilities: Introducing SFT and RL on Single-Host TPUs" class="glue-card__inner">
+                    <picture class="glue-card__asset">
+                      <img alt="MaxText Expands Post-Training Capabilities: Introducing SFT and RL on Single-Host TPUs" src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Building-1-banner_Tg8sqqU.2e16d0ba.fill-800x400.png">
+                    </picture>
+                    <div class="glue-card__content">
+                      <div class="glue-card__tags glue-spacer-2-top">
+                        
+                            
+                            
+                            <span class="glue-label">AI</span>
+                            
+                            <span class="glue-label">Cloud</span>
+                            
+                            
+                            <span class="glue-label">Announcements</span>
+                            
+                        
+                      </div>
+                      <p class="glue-headline glue-headline--headline-5">MaxText Expands Post-Training Capabilities: Introducing SFT and RL on Single-Host TPUs</p>
+                      <div class="glue-card__cta-custom glue-spacer-3-top">
+                        <span class="glue-cta">APRIL 16, 2026</span>
+                        <svg aria-hidden="true" class="glue-icon glue-icon--24px" role="presentation">
+                          <use href="/glue-icon/#arrow-forward"></use>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+          <!-- Navigation dots -->
+          <div class="glue-carousel__navigation" aria-label="Choose a page"
+               data-glue-carousel-navigation-label="Selected tab $glue_carousel_page_number$ of $glue_carousel_page_total$">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+
+
+				
+				
+
+<div class="footer-linkboxes__wrapper">
+  <nav class="footer-linkboxes" aria-label="Footer links">
+    <ul class="footer-linkboxes__list">
+      <li class="footer-linkbox">
+        <span class="footer-linkbox-heading">
+          Connect
+        </span>
+        <ul class="footer-linkbox-list">
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//googledevelopers.blogspot.com" class="footer-linkbox-list__link">
+                Blog
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="https://goo.gle/3FReQXN" class="footer-linkbox-list__link">
+                Bluesky
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="https://goo.gle/googlefordevs" class="footer-linkbox-list__link">
+                Instagram
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="https://goo.gle/gdevs-li" class="footer-linkbox-list__link">
+                LinkedIn
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="https://goo.gle/gdevs-tw" class="footer-linkbox-list__link">
+                X (Twitter)
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="https://goo.gle/developers" class="footer-linkbox-list__link">
+                YouTube
+              </a>
+            </li>
+          
+        </ul>
+      </li>
+      <li class="footer-linkbox">
+        <span class="footer-linkbox-heading">
+          Programs
+        </span>
+        <ul class="footer-linkbox-list">
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//developers.google.com/program" class="footer-linkbox-list__link">
+                Google Developer Program
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//developers.google.com/community/gdg" class="footer-linkbox-list__link">
+                Google Developer Groups
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//developers.google.com/community/experts" class="footer-linkbox-list__link">
+                Google Developer Experts
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//developers.google.com/community/accelerators" class="footer-linkbox-list__link">
+                Accelerators
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//www.womentechmakers.com" class="footer-linkbox-list__link">
+                Women Techmakers
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//developers.google.com/community/nvidia" class="footer-linkbox-list__link">
+                Google Cloud &amp; NVIDIA
+              </a>
+            </li>
+          
+        </ul>
+      </li>
+      <li class="footer-linkbox">
+        <span class="footer-linkbox-heading">
+          Developer consoles
+        </span>
+        <ul class="footer-linkbox-list">
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//console.developers.google.com" class="footer-linkbox-list__link">
+                Google API Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//console.cloud.google.com" class="footer-linkbox-list__link">
+                Google Cloud Platform Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//play.google.com/apps/publish" class="footer-linkbox-list__link">
+                Google Play Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//console.firebase.google.com" class="footer-linkbox-list__link">
+                Firebase Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//console.actions.google.com" class="footer-linkbox-list__link">
+                Actions on Google Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//cast.google.com/publish" class="footer-linkbox-list__link">
+                Cast SDK Developer Console
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//chrome.google.com/webstore/developer/dashboard" class="footer-linkbox-list__link">
+                Chrome Web Store Dashboard
+              </a>
+            </li>
+          
+            <li class="footer-linkbox-list__item">
+              <a href="//console.home.google.com/" class="footer-linkbox-list__link">
+                Google Home Developer Console
+              </a>
+            </li>
+          
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="footer-utility__wrapper">
+  <div>
+    <nav class="footer-sites" aria-label="Other Google Developers websites">
+      <a href="https://developers.google.com/" class="site-logo-link" data-label="Site logo">
+        <img src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/images/g-dev.svg" class="site-logo" alt="Google for Developers">
+      </a>
+      <ul class="footer-sites-list">
+        <li class="footer-sites-item">
+          <a href="//developer.android.com" class="footer-sites-link">
+            Android
+          </a>
+        </li>
+        <li class="footer-sites-item">
+          <a href="//developer.chrome.com/home" class="footer-sites-link">
+            Chrome
+          </a>
+        </li>
+        <li class="footer-sites-item">
+          <a href="//firebase.google.com" class="footer-sites-link">
+            Firebase
+          </a>
+        </li>
+        <li class="footer-sites-item">
+          <a href="//cloud.google.com" class="footer-sites-link">
+            Google Cloud Platform
+          </a>
+        </li>
+        <li class="footer-sites-item">
+          <a href="//developers.google.com/products" class="footer-sites-link">
+            All products
+          </a>
+        </li>
+        <li class="footer-sites-item">
+          <button aria-hidden="true" class="glue-cookie-notification-bar-control footer-sites-link">
+            Manage cookies
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <nav class="footer-utility-links">
+      <ul class="footer-utility-list">
+        <li class="footer-utility-item">
+          <a href="//developers.google.com/terms/site-terms" class="footer-utility-link">
+            Terms
+          </a>
+        </li>
+        <li class="footer-utility-item">
+          <a href="//policies.google.com/privacy" class="footer-utility-link">
+            Privacy
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+        
+				
+
+        
+        <script nonce="lCWAhQufBBR+zmtrg1/0HQ==" src="https://www.youtube.com/player_api"></script>
+        <script nonce="lCWAhQufBBR+zmtrg1/0HQ==" src="//www.gstatic.com/glue/v27_1/glue.min.js"></script>
+        <script nonce="lCWAhQufBBR+zmtrg1/0HQ==" type="text/javascript" src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/js/dgc_blog.js"></script>
+
+        <script nonce="lCWAhQufBBR+zmtrg1/0HQ==" src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"
+            data-glue-cookie-notification-bar-category="2A"
+            data-glue-cookie-notification-bar-site-id="developers.googleblog.com"></script>
+
+        
+  <script src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/js/blog_detail.js" nonce="lCWAhQufBBR+zmtrg1/0HQ=="></script>
+  <script src="https://storage.googleapis.com/gweb-developer-goog-blog-cms-assets/site/20251118-195321/js/prism.js" nonce="lCWAhQufBBR+zmtrg1/0HQ=="></script>
+
+    </body>
+</html>

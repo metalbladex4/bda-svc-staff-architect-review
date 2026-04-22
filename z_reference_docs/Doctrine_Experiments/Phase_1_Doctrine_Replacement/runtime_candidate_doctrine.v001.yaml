@@ -1,0 +1,32 @@
+buildings:
+  detection_guidance: |
+    Detect only visible exterior buildings or collapsed exterior building remains that are central to the scene or essential to interpreting observed damage. Skip distant background or peripheral buildings that do not materially affect the scene.
+  physical_damage_definitions: |
+    NO DAMAGE — 0 percent of the target element area damaged.
+    LIGHT DAMAGE — Up to 15 percent of the target element area damaged.
+    MODERATE DAMAGE — Greater than 15 to 45 percent of the target element area damaged.
+    SEVERE DAMAGE — Greater than 45 to 75 percent of the target element area damaged.
+    DESTROYED — Greater than 75 to 100 percent of the target element area damaged.
+  physical_damage_considerations: |
+    Use only visible exterior structural evidence for Phase-1 physical damage assessment.
+    Framed Buildings — Framed structures (e.g., military HQ, office buildings, and aircraft hangars) rarely collapse totally because of a conventional weapons attack. Collapse of the structural-framing members within a steel or concrete framed building is not required to reach the doctrinal physical-damage levels. Visible damage to non-load-bearing elements such as facade or external sheathing, broken windows, blown-out curtain walls, and roof panels still contributes to the physical-damage estimate.
+    Load-Bearing Wall Buildings — For load-bearing wall structures, the visible percent of building collapse more directly maps to the percent of target element damage and includes both load-bearing and non-load-bearing structural elements.
+    High Multistory Buildings / Multiple Sections — For buildings greater than four stories or buildings with multiple sections or wings, distinguish visible damage to the affected section from visible damage to the building as a whole when the scene supports that distinction. In this runtime, if only one connected section is boxed as the selected target, keep the assessment tied to the visible selected target body rather than inferring full-building loss from unseen sections.
+    Multiple Wings — If one wing is visibly destroyed and other sections remain standing, keep the reasoning explicit about the visibly affected wing or section. Do not infer interior equipment damage, functional damage, recuperation time, or target-system effects from exterior structural damage alone.
+
+military_equipment:
+  detection_guidance: |
+    Military equipment includes armored vehicles, artillery systems, trucks, locomotives and rolling stock, aircraft, rocket and missile systems, radar antennas, and fire control components.
+    Detect military equipment as individual visible objects and do not merge separate objects into one detection.
+    Include partially visible equipment only when the visible target body is still distinguishable from surrounding objects or background.
+  physical_damage_definitions: |
+    NO DAMAGE — No apparent or observable damage.
+    DAMAGED — Physical deformations may include holes in equipment, scorching visible on the exterior, and/or components blown off (e.g., broken tracks, wheels, or armored plates). Major components remain substantially intact.
+    DESTROYED — Catastrophic visible damage. The equipment is torn apart, burned out, collapsed, or reduced to wreckage such that repair is unlikely from visible evidence.
+  physical_damage_considerations: |
+    Use only visible exterior evidence on the selected target body for Phase-1 physical damage assessment.
+    NO DAMAGE requires no observable physical damage on the visible target body. Do not infer hidden internal damage from inactivity or the absence of emissions.
+    DAMAGED is appropriate when visible perforation, scorching on the target body, detached components, broken running gear, or major deformation is present while the overall target body remains recognizable.
+    DESTROYED is appropriate when the visible target body is catastrophically damaged, torn apart, collapsed, burned through, or reduced to wreckage.
+    Use the doctrinal category military_equipment for armored vehicles, artillery, trucks, locomotives and rolling stock, aircraft, rockets, missiles and launchers, radar antennas, and fire control components.
+    Do not use non-visual cues such as lack of movement, lack of radio transmissions, or other all-source reporting in this visual-only Phase-1 workflow.

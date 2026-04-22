@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=gemma4:e4b;assessment=gemma4:e4b",
+        "image_id": "f9e4759f-1dd8-4584-91f9-ef70c5cb8e03",
+        "image_filename": "destroyed_building4.jpg",
+        "date_created": "2026-04-17T17:50:15Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.74"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Multiple windows are broken or missing; facade elements show signs of damage; overall structure appears compromised but standing",
+            "bounding_box": [
+                0,
+                52,
+                96,
+                176
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target structure appears intact with no visible signs of structural harm or collapse",
+            "bounding_box": [
+                0,
+                53,
+                67,
+                176
+            ]
+        }
+    },
+    "summary": "One target assessed: 1 buildings with MODERATE DAMAGE (CONFIRMED) and 1 buildings with NO DAMAGE (CONFIRMED). The scene depicts a mix of structures, including one heavily damaged, partially collapsed building in the foreground and at least two other visible buildings in the background. The likely functional impact is localized structural compromise due to visible damage to some buildings."
+}

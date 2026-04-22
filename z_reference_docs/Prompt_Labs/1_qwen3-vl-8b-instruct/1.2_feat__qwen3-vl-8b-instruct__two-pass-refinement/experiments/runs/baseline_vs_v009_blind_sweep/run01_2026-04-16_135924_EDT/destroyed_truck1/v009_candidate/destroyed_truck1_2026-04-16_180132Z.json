@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "4119262d-7a5b-44a4-af97-a1a57e1f44be",
+        "image_filename": "destroyed_truck1.jpg",
+        "date_created": "2026-04-16T18:01:32Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "8.95"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body heavily scorched; structural deformation visible; major components missing or detached; evidence of catastrophic loss",
+            "bounding_box": [
+                28,
+                151,
+                581,
+                499
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body heavily scorched; structural deformation visible; major components missing or detached; sustained fire and dense smoke indicate catastrophic loss",
+            "bounding_box": [
+                128,
+                187,
+                277,
+                338
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "target body heavily scorched; structural deformation visible; missing major components; sustained fire and smoke indicate catastrophic damage",
+            "bounding_box": [
+                509,
+                203,
+                820,
+                410
+            ]
+        }
+    },
+    "summary": "Three targets assessed: 3 military_equipment, condition DESTROYED with PROBABLE confidence. The scene shows multiple heavily scorched and structurally deformed vehicles in open terrain, with visible debris and charred ground. The likely functional impact is severe degradation or loss of capability for the assessed targets."
+}
