@@ -6,9 +6,14 @@ from pathlib import Path
 
 from json_repair import repair_json
 from PIL import Image
-from pydantic import BaseModel, Field, ValidationError
+from pydantic import ValidationError
 
-from bda_svc.pipeline.interfaces import Detection, OllamaVLM
+from bda_svc.pipeline.interfaces import (
+    AssessmentResponse,
+    Detection,
+    DetectionResponse,
+    VLMBackend,
+)
 from bda_svc.pipeline.utilities import (
     CONFIG_PATH,
     DOCTRINE_PATH,
@@ -20,27 +25,6 @@ from bda_svc.pipeline.utilities import (
     load_yaml,
     resize_for_vlm,
 )
-
-
-class DetectionItem(BaseModel):
-    """Structured detection item returned by detection model."""
-
-    target_type: str
-    bbox: list[float] = Field(min_length=4, max_length=4)
-
-
-class DetectionResponse(BaseModel):
-    """Structured detection response returned by detection model."""
-
-    detections: list[DetectionItem]
-
-
-class AssessmentResponse(BaseModel):
-    """Structured assessment response returned by assessment model."""
-
-    damage_category: str
-    confidence_level: str
-    brief_supporting_logic: str
 
 
 class BDAPipeline:
@@ -67,7 +51,7 @@ class BDAPipeline:
         self.detection_temperature = float(detection_cfg["temperature"])
         self.detection_max_image_size = int(detection_cfg["max_image_size"])
         self.crop_buffer_ratio = float(detection_cfg["crop_buffer_ratio"])
-        self.detection_vlm = OllamaVLM(model=detection_model)
+        self.detection_vlm = VLMBackend(model=detection_model)
 
         # Load assessment backend
         assessment_cfg = self.config["assessment_vlm"]
@@ -76,7 +60,7 @@ class BDAPipeline:
         )
         self.assessment_temperature = float(assessment_cfg["temperature"])
         self.assessment_max_image_size = int(assessment_cfg["max_image_size"])
-        self.assessment_vlm = OllamaVLM(model=assessment_model)
+        self.assessment_vlm = VLMBackend(model=assessment_model)
 
     def detect_objects(self, image: Image.Image) -> list[Detection]:
         """Produce detections for configured doctrinal categories.

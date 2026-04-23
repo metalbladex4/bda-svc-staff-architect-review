@@ -1,4 +1,4 @@
-"""Shared pipeline types and interfaces."""
+"""Pipeline interfaces, types, and structured output schemas."""
 
 import base64
 import io
@@ -7,6 +7,7 @@ from dataclasses import dataclass
 
 from openai import OpenAI
 from PIL import Image
+from pydantic import BaseModel, Field
 
 
 @dataclass(frozen=True)
@@ -16,6 +17,27 @@ class Detection:
     label: str
     bbox: tuple[int, int, int, int]
     crop: Image.Image | None = None
+
+
+class DetectionItem(BaseModel):
+    """Structured detection item returned by detection model."""
+
+    target_type: str
+    bbox: list[float] = Field(min_length=4, max_length=4)
+
+
+class DetectionResponse(BaseModel):
+    """Structured detection response returned by detection model."""
+
+    detections: list[DetectionItem]
+
+
+class AssessmentResponse(BaseModel):
+    """Structured assessment response returned by assessment model."""
+
+    damage_category: str
+    confidence_level: str
+    brief_supporting_logic: str
 
 
 class VLMBackend:
