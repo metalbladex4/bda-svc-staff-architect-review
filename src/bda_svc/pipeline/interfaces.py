@@ -52,7 +52,7 @@ class VLMBackend:
         self.model = model
         base_url = os.getenv("OPENAI_BASE_URL", "http://localhost:8000/v1")
         api_key = os.getenv("OPENAI_API_KEY", "no-auth")
-        self.client = OpenAI(base_url=base_url, api_key=api_key)
+        self.client = OpenAI(base_url=base_url, api_key=api_key, timeout=60)
 
     def _encode_image(self, image: Image.Image) -> str:
         """Encode a PIL image to a base64 string."""

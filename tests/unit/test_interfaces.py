@@ -44,6 +44,7 @@ def test_client_initialized_with_env_host(monkeypatch: pytest.MonkeyPatch) -> No
         mock_client.assert_called_with(
             base_url="http://localhost:12345/v1",
             api_key="no-auth",
+            timeout=60,
         )
 
 
@@ -56,6 +57,7 @@ def test_client_initialized_with_api_key(monkeypatch: pytest.MonkeyPatch) -> Non
         mock_client.assert_called_with(
             base_url="http://localhost:8000/v1",
             api_key="secret-key",
+            timeout=60,
         )
 
 
