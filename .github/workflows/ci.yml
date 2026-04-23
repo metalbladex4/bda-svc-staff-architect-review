@@ -24,7 +24,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v8.0.0
@@ -45,6 +45,7 @@ jobs:
     env:
       BDA_DETECTION_MODEL: qwen3-vl:2b-instruct
       BDA_ASSESSMENT_MODEL: qwen3-vl:2b-instruct
+      OPENAI_BASE_URL: http://127.0.0.1:11434/v1  # Ollama OpenAI-compatible endpoint
 
     steps:
       - name: Checkout code
@@ -82,6 +83,7 @@ jobs:
           docker run --rm --network host \
             -e BDA_DETECTION_MODEL="$BDA_DETECTION_MODEL" \
             -e BDA_ASSESSMENT_MODEL="$BDA_ASSESSMENT_MODEL" \
+            -e OPENAI_BASE_URL="$OPENAI_BASE_URL" \
             -v "$(pwd)/bda_input:/bda_input" \
             -v "$(pwd)/bda_output:/bda_output" \
             bda-svc:latest -i /bda_input -o /bda_output
