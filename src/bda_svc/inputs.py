@@ -1,7 +1,6 @@
 """Input data retrieval."""
 
 import sys
-from os import environ
 from pathlib import Path
 
 from bda_svc import constants
@@ -22,15 +21,7 @@ def get_input_folder(cmdline_path: str | None) -> Path:
         SystemExit: If the selected input path does not exist.
     """
     # Get command-line path argument (if provided)
-    if cmdline_path:
-        input_folder_str = cmdline_path
-    else:
-        # Get input path from ENV variable (or select default folder)
-        input_folder_str = environ.get(
-            constants.ENV_INPUT_NAME, constants.DEFAULT_INPUT_PATH
-        )
-
-    input_folder = Path(input_folder_str)
+    input_folder = Path(cmdline_path or constants.DEFAULT_INPUT_PATH)
 
     # TODO: implement better logging
     print(f"[*] Input source set to {input_folder.resolve()}")
