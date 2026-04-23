@@ -5,7 +5,7 @@ import io
 import os
 from dataclasses import dataclass
 
-from ollama import Client
+from openai import OpenAI
 from PIL import Image
 
 
@@ -18,25 +18,22 @@ class Detection:
     crop: Image.Image | None = None
 
 
-class OllamaVLM:
-    """Ollama backend for image-conditioned text generation."""
+class VLMBackend:
+    """OpenAI-compatible backend for vision-language text generation."""
 
     def __init__(self, model: str) -> None:
-        """Initialize the Ollama VLM backend.
+        """Initialize the VLM backend.
 
         Args:
-            model: Ollama model name.
+            model: VLM model name.
         """
         self.model = model
-        ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-        ollama_api_key = os.getenv("OLLAMA_API_KEY")
-        headers = {}
-        if ollama_api_key:
-            headers["Authorization"] = f"Bearer {ollama_api_key}"
-        self.client = Client(host=ollama_host, headers=headers if headers else None)
+        base_url = os.getenv("OPENAI_BASE_URL", "http://localhost:8000/v1")
+        api_key = os.getenv("OPENAI_API_KEY", "no-auth")
+        self.client = OpenAI(base_url=base_url, api_key=api_key)
 
     def _encode_image(self, image: Image.Image) -> str:
-        """Encode a PIL image to base64."""
+        """Encode a PIL image to a base64 string."""
         buf = io.BytesIO()
         image.save(buf, format="PNG")
         return base64.b64encode(buf.getvalue()).decode("utf-8")
@@ -49,7 +46,7 @@ class OllamaVLM:
         format_schema: dict | None = None,
         temperature: float | None = None,
     ) -> str:
-        """Generate a response from the VLM.
+        """Generate a response using the OpenAI Chat Completions API.
 
         Args:
             image: One image or list of images for multi-image prompts.
@@ -59,31 +56,42 @@ class OllamaVLM:
             temperature: Optional sampling temperature.
 
         Returns:
-            Model response text.
+            Model response text, or a JSON string if schema is provided.
         """
         messages = []
 
+        # Optional system prompt
         if system_prompt:
             messages.append({"role": "system", "content": system_prompt})
 
-        images = image if isinstance(image, list) else [image]
-        messages.append(
-            {
-                "role": "user",
-                "content": prompt,
-                "images": [self._encode_image(img) for img in images],
+        # Build user message
+        image_list = image if isinstance(image, list) else [image]
+        user_content = [{"type": "text", "text": prompt}]
+        for img in image_list:
+            user_content.append(
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{self._encode_image(img)}"
+                    },
+                }
+            )
+        messages.append({"role": "user", "content": user_content})
+
+        # Build request
+        request_kwargs = {"model": self.model, "messages": messages}
+
+        # Optional structured output schema
+        if format_schema is not None:
+            request_kwargs["response_format"] = {
+                "type": "json_schema",
+                "json_schema": {"name": "response", "schema": format_schema},
             }
-        )
 
-        options = None
+        # Optional sampling temperature
         if temperature is not None:
-            options = {"temperature": temperature}
+            request_kwargs["temperature"] = temperature
 
-        response = self.client.chat(
-            model=self.model,
-            messages=messages,
-            format=format_schema,
-            options=options,
-            think=False,
-        )
-        return response.message.content
+        # Return response string
+        response = self.client.chat.completions.create(**request_kwargs)
+        return response.choices[0].message.content or ""
