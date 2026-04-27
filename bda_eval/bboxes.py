@@ -106,4 +106,7 @@ def draw_bboxes(
     output_folder = config.OUTPUT_DIR / "images_bbox_both"
     output_folder.mkdir(parents=True, exist_ok=True)
 
+    if img.mode in ("RGBA", "P"):
+        img = img.convert("RGB")
+
     img.save(f"{output_folder}/bbox_{img_filename}")

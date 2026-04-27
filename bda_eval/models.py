@@ -38,6 +38,7 @@ class TargetType(BDAEnum):
     BUILDINGS = 1
     MILITARY_EQUIPMENT = 7
     OBJECT_NOT_FOUND = 21
+    UNKNOWN_HALLUCINATED = 99
 
 
 class DamageBridge(BDAEnum):
@@ -71,7 +72,7 @@ class DamageMilitaryEquipment(BDAEnum):
 class DamageNotFound(BDAEnum):
     """IntEnum containing damage level for images without doctrinal objects."""
 
-    NA = 0
+    NOT_APPLICABLE = 0
 
 
 class Confidence(BDAEnum):
@@ -263,26 +264,28 @@ class BDAReport:
         target_list = []
 
         for target_label, target_data in bda_dict["physical_damage"].items():
-            # Get inner dictionary from target_damage_map dictionary
-            #     ex. td_map = { "target_type": ..., "damage_category": ... }
-            td_map = target_damage_map[target_data["target_type"]]
-
-            # Store BDA fields as IntEnum-subclassed objects
-            target_type = td_map["target_type"]
-
             try:
+                # Get inner dictionary from target_damage_map dictionary
+                #     ex. td_map = { "target_type": ..., "damage_category": ... }
+                target_type = TargetType[target_data["target_type"].upper().replace(" ", "_")]
+                td_map = target_damage_map[target_data["target_type"]]
+
                 damage_category = td_map["damage_category"][
                     target_data["damage_category"].upper().replace(" ", "_")
                 ]
+
+                confidence = Confidence[target_data["confidence_level"].upper().replace(" ", "_")]
             except KeyError as e:
                 print(
-                    f"[*] Unknown damage category {e} for {target_label} in {metadata.image_filename}. Skipping."
-                )
-                continue
+                        f"[*] Unknown attribute {e} for {target_label} "
+                        f"in {metadata.image_filename}. Marking as FP."
+                    )
 
-            confidence = Confidence[target_data["confidence_level"].upper()]
+                target_type = TargetType.UNKNOWN_HALLUCINATED
+                damage_category = DamageNotFound.NOT_APPLICABLE
+                confidence = Confidence.POSSIBLE
 
-            logic = target_data["brief_supporting_logic"]
+            logic = target_data.get("brief_supporting_logic", "")
 
             try:
                 if isinstance(target_data["bounding_box"], list):
@@ -291,7 +294,8 @@ class BDAReport:
                     box = BoundingBox(**target_data["bounding_box"])
             except TypeError:
                 print(
-                    f"[*] Error parsing bounding box for {target_label} in {metadata.image_filename}. Skipping."
+                    f"[*] Error parsing bounding box for {target_label} in "
+                    f"{metadata.image_filename}. Skipping."
                 )
                 continue
 
@@ -404,7 +408,7 @@ Output ONLY valid JSON.
                     for err in ["429", "too many requests", "timeout", "50"]
                 ):
                     # Exponential Backoff: 1s, 2s, 4s, 8s (with addt'l jitter)
-                    sleep_time = (2**attempt) + random.uniform(0, 1)
+                    sleep_time = (2 ** attempt) + random.uniform(0, 1)
 
                     print(
                         f"[*] Cloud usage error. Retrying in {sleep_time:.2f} seconds..."
