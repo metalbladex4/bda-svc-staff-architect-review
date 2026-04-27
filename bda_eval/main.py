@@ -53,11 +53,15 @@ def print_scene_reports(scene_reports: list[models.SceneReport]):
     print(row_sep_eq)
 
     for scene_report in scene_reports:
+        assess_str = f"{scene_report.assess:.3f}" if scene_report.assess is not None else " N/A "
+        logic_str = f"{scene_report.logic:.3f}" if scene_report.logic is not None else " N/A "
+        total_str = f"{scene_report.total:.3f}" if scene_report.total is not None else " N/A "
+
         print(
             f"| {scene_report.image[:len_col_0]:>{len_col_0 + 2}} "
-            f"|  {scene_report.assess:.3f} "
-            f"| {scene_report.logic:.3f} "
-            f"| {scene_report.total:.3f} |"
+            f"|  {assess_str} "
+            f"| {logic_str} "
+            f"| {total_str} |"
         )
         print(row_sep_dash)
 
@@ -138,7 +142,7 @@ def main():
         bboxes.draw_bboxes(img_filename=key, R_report=R_report, P_report=P_report)
 
     # Print scores per image
-    print_scene_reports(scene_reports)
+    #print_scene_reports(scene_reports)
 
     # Print overall model scores
     model_report = models.ModelReport(scene_reports)
