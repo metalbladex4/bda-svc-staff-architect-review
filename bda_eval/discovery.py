@@ -62,7 +62,7 @@ def get_report_paths(
     return ref_paths, pred_paths
 
 
-def get_report(report_path: Path) -> tuple[str, dict] | None:
+def get_report(report_path: Path) -> tuple[Path, dict] | None:
     """Parse a BDA report file.
 
     Args:
@@ -82,7 +82,7 @@ def get_report(report_path: Path) -> tuple[str, dict] | None:
 
     # Attempt to set new key `match_key` with value of JSON data
     try:
-        match_value = json_obj["metadata"][match_key]
+        match_value = Path(json_obj["metadata"][match_key])
     except KeyError:
         print(f"\nNo such key '{match_key}'. Skipping {report_path}")
         return None
@@ -112,6 +112,7 @@ def get_reports(ref_folder: Path | str, pred_folder: Path | str) -> tuple[dict, 
 
         if result:
             key, data = result
+            key = key.stem
 
             if key not in R_dict_json:
                 R_dict_json[key] = data
@@ -123,6 +124,7 @@ def get_reports(ref_folder: Path | str, pred_folder: Path | str) -> tuple[dict, 
 
         if result:
             key, data = result
+            key = key.stem
 
             if key not in P_dict_json:
                 P_dict_json[key] = data

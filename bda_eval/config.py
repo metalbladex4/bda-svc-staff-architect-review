@@ -6,3 +6,5 @@ IMAGES_DIR: Path | None = None
 REFERENCE_DIR: Path | None = None
 PREDICTED_DIR: Path | None = None
 OUTPUT_DIR: Path | None = None
+
+VALID_EXTENSIONS = (".png", ".jpg", ".jpeg", ".bmp")

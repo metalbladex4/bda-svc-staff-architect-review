@@ -89,7 +89,7 @@ def get_report(report_path: Path) -> list | None:
                 # Split by empty line
                 file_str = file.read()
                 objects = [json.loads(s) for s in re.split(regex_pattern, file_str)]
-                        
+
             except json.JSONDecodeError:
                 print(f"[*] Unable to load JSON data from {report_path}. Skipping.")
                 return None

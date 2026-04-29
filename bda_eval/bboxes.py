@@ -1,5 +1,7 @@
 """Draw BDA bounding boxes from two sets of reports."""
 
+from pathlib import Path
+
 import config
 import models
 from PIL import Image, ImageDraw, ImageFont
@@ -54,14 +56,12 @@ def draw_bbox(
 
 
 def draw_bboxes(
-    img_filename: str,
     R_report: models.BDAReport,
     P_report: models.BDAReport,
 ):
     """Draw bounding boxes for all objects from both sets of reports.
 
     Args:
-        img_filename: Image filename (as set in BDA report)
         R_report: Reference BDAReport
         P_report: Predicted BDAReport
     """
@@ -69,9 +69,21 @@ def draw_bboxes(
     font = ImageFont.truetype("./fonts/DejaVuSans.ttf", 18)
 
     # Create a draw object `draw_obj`
-    img_filename = R_report.metadata.image_filename
+    img_filename = Path(R_report.metadata.image_filename)
     assert config.IMAGES_DIR is not None, "[*] Image folder not initialized."
-    img_path = config.IMAGES_DIR / img_filename
+
+    # Find the image file
+    try:
+        file = [
+            path
+            for path in config.IMAGES_DIR.rglob(f"{img_filename.stem}*")
+            if path.is_file() and path.suffix.lower() in config.VALID_EXTENSIONS
+        ][0]
+
+        img_path = config.IMAGES_DIR / file
+    except IndexError:
+        print(f"[*] Unable to locate image {img_filename} to draw bbox. Skipping")
+        return
 
     if not img_path.exists():
         print(f"[*] Image `{img_path}` not found. Skipping.")
