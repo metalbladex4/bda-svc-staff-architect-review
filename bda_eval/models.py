@@ -267,19 +267,23 @@ class BDAReport:
             try:
                 # Get inner dictionary from target_damage_map dictionary
                 #     ex. td_map = { "target_type": ..., "damage_category": ... }
-                target_type = TargetType[target_data["target_type"].upper().replace(" ", "_")]
+                target_type = TargetType[
+                    target_data["target_type"].upper().replace(" ", "_")
+                ]
                 td_map = target_damage_map[target_data["target_type"]]
 
                 damage_category = td_map["damage_category"][
                     target_data["damage_category"].upper().replace(" ", "_")
                 ]
 
-                confidence = Confidence[target_data["confidence_level"].upper().replace(" ", "_")]
+                confidence = Confidence[
+                    target_data["confidence_level"].upper().replace(" ", "_")
+                ]
             except KeyError as e:
                 print(
-                        f"[*] Unknown attribute {e} for {target_label} "
-                        f"in {metadata.image_filename}. Marking as FP."
-                    )
+                    f"[*] Unknown attribute {e} for {target_label} "
+                    f"in {metadata.image_filename}. Marking as FP."
+                )
 
                 target_type = TargetType.UNKNOWN_HALLUCINATED
                 damage_category = DamageNotFound.NOT_APPLICABLE
@@ -408,7 +412,7 @@ Output ONLY valid JSON.
                     for err in ["429", "too many requests", "timeout", "50"]
                 ):
                     # Exponential Backoff: 1s, 2s, 4s, 8s (with addt'l jitter)
-                    sleep_time = (2 ** attempt) + random.uniform(0, 1)
+                    sleep_time = (2**attempt) + random.uniform(0, 1)
 
                     print(
                         f"[*] Cloud usage error. Retrying in {sleep_time:.2f} seconds..."
