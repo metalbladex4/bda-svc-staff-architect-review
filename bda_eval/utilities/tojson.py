@@ -159,7 +159,9 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
                 target_type += "s"
 
                 if target_type not in target_types:
-                    print(f"[*] Unable to parse '{obj}'. Skipping")
+                    print(
+                        f"[*] Unable to parse '{target_type}' in {report_path}. Skipping"
+                    )
                     continue
 
             template["physical_damage"][f"target_{i}"] = {
