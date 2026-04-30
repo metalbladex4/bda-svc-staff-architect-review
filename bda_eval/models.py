@@ -503,6 +503,23 @@ Output ONLY valid JSON.
 
         return (w_assess * score_assess) + (w_logic * score_logic)
 
+    def _get_ollama_client(self) -> Client:
+        """Dynamically configures the Ollama client based on environment variables."""
+        # Defaults to local host if no environment variable is set
+        host = environ.get("OLLAMA_HOST", "http://localhost:11434")
+        api_key = environ.get("OLLAMA_API_KEY")
+
+        # Only attach Auth headers if an API key actually exists
+        headers = {}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        return Client(
+            host=host,
+            headers=headers,
+            timeout=60 * 15,
+        )
+
     def _evaluate_logic(self, R, matches: list[BDAMatch]):
         """Evaluates BDAMatch logic concurrently (updating in-place).
 
@@ -510,28 +527,21 @@ Output ONLY valid JSON.
             R: The BDAReport containing human assessments.
             matches: List of BDAMatch objects.
         """
-        api_key = environ.get("OLLAMA_API_KEY")
-        if not api_key:
-            raise KeyError("[*] Environment variable 'OLLAMA_API_KEY' not set.")
-
-        timeout_secs = 60 * 15
-
-        # Share Client object between match queries
-        shared_client = Client(
-            host="https://ollama.com",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-            },
-            timeout=timeout_secs,
-        )
+        shared_client = self._get_ollama_client()
+        model_name = environ.get("OLLAMA_MODEL", "gpt-oss:20b")
+        max_workers = int(environ.get("OLLAMA_MAX_WORKERS", 2))
 
         # Use a ThreadPool to run requests concurrently
         # `max_workers`` helps us keep Ollama Cloud happy
-        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Dictionary to keep track of which future belongs to which match
             future_to_match = {
                 executor.submit(
-                    self._llmaaj, match.ref_target, match.pred_target, shared_client
+                    self._llmaaj,
+                    match.ref_target,
+                    match.pred_target,
+                    shared_client,
+                    model_name,
                 ): match
                 for match in matches
             }

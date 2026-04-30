@@ -76,7 +76,7 @@ def draw_bboxes(
     try:
         file = [
             path
-            for path in config.IMAGES_DIR.rglob(f"{img_filename.stem}*")
+            for path in config.IMAGES_DIR.rglob(f"{img_filename.stem}.*")
             if path.is_file() and path.suffix.lower() in config.VALID_EXTENSIONS
         ][0]
 
