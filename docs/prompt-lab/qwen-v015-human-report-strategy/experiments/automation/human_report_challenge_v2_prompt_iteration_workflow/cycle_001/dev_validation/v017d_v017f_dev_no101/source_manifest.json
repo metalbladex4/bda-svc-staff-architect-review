@@ -1,0 +1,35 @@
+{
+  "active_dev_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/validation_manifests/human_report_challenge_v2_dev_55_no101.yaml",
+  "candidate_overlays": {
+    "v017d_visual_anchor_lock": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+    "v017f_compact_visual_anchor_balance": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml"
+  },
+  "case_policy": {
+    "excluded_forward_evaluation": {
+      "101": "diagnostic-only because its reference/eval shape repeatedly dominated prompt gates"
+    },
+    "forward_evaluation_case_count": 55,
+    "holdout_only": {
+      "166": "positive holdout-only diagnostic; absent from this dev split"
+    },
+    "positive_control": {
+      "155": "positive military-equipment case, no longer protected negative"
+    }
+  },
+  "forbidden_mutations": [
+    "source human reports",
+    "source images",
+    "human_report_challenge_v1 historical outputs",
+    "runtime config adoption",
+    "promotion artifacts",
+    "holdout execution",
+    "all-112/all-current execution",
+    "Graphify refresh except as live-doc/project-brain closeout after this validation",
+    "Mem0 writes unless separately requested"
+  ],
+  "generated_utc": "2026-05-03T06:31:30.652333+00:00",
+  "package_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101",
+  "prior_decision_packet": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/overnight_v017c_to_v017f_decision_packet.md",
+  "purpose": "bounded dev-split validation for v017d as primary and v017f as comparator",
+  "source_dev_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/validation_manifests/human_report_challenge_v2_v015e_dev.yaml"
+}

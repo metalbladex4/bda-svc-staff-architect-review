@@ -1,0 +1,168 @@
+{
+  "package_id": "v016_reference_aware_prompt_lab",
+  "status": "reference_shape_audit_complete",
+  "generated_utc": "2026-04-30T00:34:10Z",
+  "scope": "review v015e dev outliers plus protected/manual controls for reference and evaluation-shape caveats before v016 prompt authoring",
+  "source_truth_boundary": "This audit does not mutate source references or declare corrected truth. It records prompt-lab caveats for later v016 design.",
+  "cases": [
+    {
+      "case_id": "66",
+      "role": "dense_dev_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the 7 false negatives as prompt-recall evidence unless later visual audit finds a source issue."
+    },
+    {
+      "case_id": "67",
+      "role": "dense_dev_outlier_mixed_precision_recall",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. The 10 false positives and 10 false negatives indicate misplaced enumeration rather than confirmed source-shape trouble."
+    },
+    {
+      "case_id": "69",
+      "role": "single_target_precision_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the extra prediction as prompt precision evidence."
+    },
+    {
+      "case_id": "84",
+      "role": "dense_dev_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the 12 false negatives as dense-scene prompt-recall evidence unless later visual audit finds a source issue."
+    },
+    {
+      "case_id": "86",
+      "role": "single_target_wrong_boundary_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. The zero-match, one-FP/one-FN shape suggests wrong target or boundary selection."
+    },
+    {
+      "case_id": "97",
+      "role": "building_precision_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the four extra predictions as prompt precision evidence."
+    },
+    {
+      "case_id": "100",
+      "role": "multi_building_recall_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the missed secondary buildings as prompt recall evidence."
+    },
+    {
+      "case_id": "101",
+      "role": "manual_hinge_diagnostic",
+      "reference_shape_caveat": true,
+      "evaluation_shape_caveat": true,
+      "manual_diagnostic_case": true,
+      "protected_negative_control": false,
+      "known_reference_caveats": {
+        "large_foreground_reference_target": {
+          "label": "target_1",
+          "bbox": [
+            87,
+            151,
+            996,
+            534
+          ],
+          "note": "Large reference box can make an oversized prediction look numerically better than it looks visually."
+        },
+        "duplicate_reference_boxes": [
+          {
+            "labels": [
+              "target_7",
+              "target_8"
+            ],
+            "bbox": [
+              531,
+              131,
+              568,
+              170
+            ]
+          }
+        ]
+      },
+      "v015e_prediction_caveat": {
+        "broad_group_or_scene_box_present": true,
+        "row_fragment_enumeration_suppressed": true,
+        "predicted_bbox": [
+          75,
+          13,
+          1000,
+          571
+        ]
+      },
+      "notes": "Keep 101 as a manual diagnostic. Do not optimize v016 solely against its aggregate metric because reference/eval shape caveats and a broad prediction box complicate interpretation."
+    },
+    {
+      "case_id": "103",
+      "role": "single_target_precision_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the extra prediction as prompt precision evidence."
+    },
+    {
+      "case_id": "147",
+      "role": "mixed_category_recall_outlier",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": false,
+      "notes": "No source-recorded reference-shape caveat. Treat the false negatives as prompt recall evidence."
+    },
+    {
+      "case_id": "155",
+      "role": "dev_protected_negative_control",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": true,
+      "v015e_dev_result": {
+        "abstention_safe": true,
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 0
+      },
+      "notes": "Protected object-not-found control passed and must remain a no-regression gate."
+    },
+    {
+      "case_id": "166",
+      "role": "holdout_protected_negative_control_reference_only",
+      "reference_shape_caveat": false,
+      "evaluation_shape_caveat": false,
+      "manual_diagnostic_case": false,
+      "protected_negative_control": true,
+      "v015e_dev_result": null,
+      "notes": "Holdout protected control was not run. Track as reference-only and do not tune directly before a separate approved holdout wave."
+    }
+  ],
+  "audit_conclusion": {
+    "case_101_status": "manual_diagnostic_with_reference_and_evaluation_shape_caveats",
+    "protected_controls": {
+      "155": "dev_control_passed",
+      "166": "holdout_reference_only_not_run"
+    },
+    "v016_design_effect": "Treat most reviewed outliers as prompt-relevant, but keep 101 and 166 out of direct prompt-authoring optimization until a later approved review/run."
+  }
+}

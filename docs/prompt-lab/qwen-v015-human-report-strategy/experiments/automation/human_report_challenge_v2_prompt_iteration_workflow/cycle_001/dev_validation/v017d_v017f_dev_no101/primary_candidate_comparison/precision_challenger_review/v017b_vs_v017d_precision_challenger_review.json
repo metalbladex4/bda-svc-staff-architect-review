@@ -1,0 +1,143 @@
+{
+  "review_id": "v017b_vs_v017d_precision_challenger_review",
+  "generated_utc": "2026-05-03T19:16:44Z",
+  "manifest": "human_report_challenge_v2_dev_55_no101",
+  "aggregate_result": {
+    "v017d_visual_anchor_lock": {
+      "match_count": 72,
+      "false_negative_count": 34,
+      "false_positive_count": 16,
+      "positive_155_safe": true
+    },
+    "v017b_group_box_rejection": {
+      "match_count": 72,
+      "false_negative_count": 34,
+      "false_positive_count": 13,
+      "positive_155_safe": true
+    },
+    "net_delta_v017b_minus_v017d": {
+      "match_count": 0,
+      "false_negative_count": 0,
+      "false_positive_count": -3
+    }
+  },
+  "case_reviews": {
+    "66": {
+      "v017d": {
+        "match_count": 8,
+        "false_negative_count": 0,
+        "false_positive_count": 6,
+        "predicted_target_count": 14
+      },
+      "v017b": {
+        "match_count": 8,
+        "false_negative_count": 0,
+        "false_positive_count": 4,
+        "predicted_target_count": 12
+      },
+      "delta_v017b_minus_v017d": {
+        "match_count": 0,
+        "false_negative_count": 0,
+        "false_positive_count": -2
+      },
+      "visual_assessment": "v017b removes two of the smallest far-row/fragment-like outputs while preserving the same eight matches. This is a real precision gain, but both candidates still over-enumerate the convoy row and retain broad/front-object boxes.",
+      "decision_weight": "supports_v017b_but_not_decisive"
+    },
+    "67": {
+      "v017d": {
+        "match_count": 1,
+        "false_negative_count": 10,
+        "false_positive_count": 8,
+        "predicted_target_count": 9
+      },
+      "v017b": {
+        "match_count": 1,
+        "false_negative_count": 10,
+        "false_positive_count": 9,
+        "predicted_target_count": 10
+      },
+      "delta_v017b_minus_v017d": {
+        "match_count": 0,
+        "false_negative_count": 0,
+        "false_positive_count": 1
+      },
+      "visual_assessment": "v017b adds one extra false positive and still places many small boxes around smoke/row fragments rather than resolving the distant vehicle bodies. This is the main counterweight against replacing v017d outright.",
+      "decision_weight": "supports_caution_against_auto_switch"
+    },
+    "84": {
+      "v017d": {
+        "match_count": 5,
+        "false_negative_count": 8,
+        "false_positive_count": 1,
+        "predicted_target_count": 6
+      },
+      "v017b": {
+        "match_count": 5,
+        "false_negative_count": 8,
+        "false_positive_count": 0,
+        "predicted_target_count": 5
+      },
+      "delta_v017b_minus_v017d": {
+        "match_count": 0,
+        "false_negative_count": 0,
+        "false_positive_count": -1
+      },
+      "visual_assessment": "v017b removes one extra row-span output while keeping the same matches/FNs, but the remaining outputs are still broad horizontal row-span boxes. The metric gain is useful but does not solve the underlying dense-row pathology.",
+      "decision_weight": "supports_v017b_with_pathology_caveat"
+    },
+    "103": {
+      "v017d": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "predicted_target_count": 2
+      },
+      "v017b": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "predicted_target_count": 1
+      },
+      "delta_v017b_minus_v017d": {
+        "match_count": 0,
+        "false_negative_count": 0,
+        "false_positive_count": -1
+      },
+      "visual_assessment": "v017b removes the duplicate/secondary building output and keeps the single matched broad building target. This is the cleanest precision improvement in the review set.",
+      "decision_weight": "strongly_supports_v017b"
+    },
+    "155": {
+      "v017d": {
+        "match_count": 2,
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "predicted_target_count": 2
+      },
+      "v017b": {
+        "match_count": 2,
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "predicted_target_count": 2
+      },
+      "delta_v017b_minus_v017d": {
+        "match_count": 0,
+        "false_negative_count": 0,
+        "false_positive_count": 0
+      },
+      "visual_assessment": "Both candidates preserve the positive-control behavior on the corrected case 155.",
+      "decision_weight": "neutral_positive_control_preserved"
+    }
+  },
+  "decision": {
+    "v017b_is_real_precision_challenger": true,
+    "v017d_should_remain_auto_primary": false,
+    "recommended_status": "v017b_and_v017d_candidate_pair_pending_user_decision",
+    "recommended_next_step": "Review v017b as a possible primary replacement for v017d before holdout or promotion. Do not auto-switch without user acceptance because v017b worsens case 67 and leaves dense-row pathologies in 66 and 84."
+  },
+  "scope_limits": [
+    "No new prompt was authored.",
+    "No inference was run in this review packet.",
+    "No holdout, all-current, promotion, or runtime adoption was performed.",
+    "No source-truth, Graphify, or Mem0 updates were performed."
+  ]
+}

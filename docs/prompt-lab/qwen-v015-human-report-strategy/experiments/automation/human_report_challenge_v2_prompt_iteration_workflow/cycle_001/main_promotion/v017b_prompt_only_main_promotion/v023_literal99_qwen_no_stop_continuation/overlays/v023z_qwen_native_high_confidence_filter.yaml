@@ -1,0 +1,47 @@
+candidate_id: v023z_qwen_native_high_confidence_filter
+title: v023z qwen native high confidence filter
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023y_qwen_native_row_count_discipline
+hypothesis: >
+  Explicit cleanup rules perturb dense-row behavior. Keep the concise native
+  detector shape and instead raise the final visible-evidence confidence
+  threshold to reduce extras without naming specific cleanup mechanics.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target only when its own visible body, wreck mass, hull/chassis/roofline, wheel/track contact, silhouette, or exterior wall/roof boundary is clear enough that you can confidently draw a tight box around that target itself.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a confidently visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct confidently visible target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

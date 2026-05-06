@@ -1,0 +1,112 @@
+{
+  "candidate": "v017b_group_box_rejection",
+  "decision_scope": "pre_adoption_evidence_only_no_runtime_config_change",
+  "explicit_non_actions": [
+    "no runtime config edit",
+    "no source-truth mutation",
+    "no Graphify refresh",
+    "no Mem0 write",
+    "no promotion implementation"
+  ],
+  "generated_utc": "2026-05-03T20:40:14.107449+00:00",
+  "package_id": "v017b_pre_adoption_check",
+  "pass_checks": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "checks": {
+      "all_current_image_count_117": true,
+      "case_101_excluded": true,
+      "changed_source_sanity_no_false_positives": true,
+      "office_negative_abstention": true,
+      "positive_155_safe": true,
+      "positive_166_safe": true,
+      "updated_report_smoke_runs_clean": true
+    },
+    "passed": true
+  },
+  "prior_promotion_recommendation": {
+    "confidence": "high",
+    "recommendation": "promote_v017b_group_box_rejection",
+    "runner_up": "v017d_visual_anchor_lock",
+    "why": [
+      "v017b is no worse on holdout recall and is no worse on holdout precision",
+      "v017b previously tied v017d on dev/no101 recall while reducing false positives by 3",
+      "v017b preserves corrected positive holdout diagnostic 166"
+    ]
+  },
+  "recommendation": {
+    "confidence": "high",
+    "decision": "approve_v017b_runtime_adoption_plan",
+    "reason": "v017b passed final smoke guards and all-current/no101 with positive controls 155 and 166 preserved."
+  },
+  "runs": {
+    "all_current_no101": {
+      "image_count": 117,
+      "pack_id": "human-report-challenge-v2-all-current-117-no101",
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_202613Z/candidate_manifest_run_summary.json",
+      "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_202613Z/eval/evaluation_2026-05-03_203958Z_summary.json",
+      "totals": {
+        "false_negative_count": 61,
+        "false_positive_count": 25,
+        "match_count": 158,
+        "negative_scene_abstention_correct_count": 0,
+        "negative_scene_count": 0,
+        "negative_scene_false_positive_count": 0
+      }
+    },
+    "changed_source_sanity": {
+      "image_count": 5,
+      "pack_id": "human-report-challenge-v2-changed-source-sanity",
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/changed_source_sanity/human_report_challenge_v2_changed_source_sanity_2026-05-03_202327Z/candidate_manifest_run_summary.json",
+      "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/changed_source_sanity/human_report_challenge_v2_changed_source_sanity_2026-05-03_202327Z/eval/evaluation_2026-05-03_202405Z_summary.json",
+      "totals": {
+        "false_negative_count": 2,
+        "false_positive_count": 0,
+        "match_count": 10,
+        "negative_scene_abstention_correct_count": 0,
+        "negative_scene_count": 0,
+        "negative_scene_false_positive_count": 0
+      }
+    },
+    "office_negative": {
+      "image_count": 1,
+      "pack_id": "legacy-abstention-guard-office-negative-v1",
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/office_negative/legacy_abstention_guard_office_negative_2026-05-03_202547Z/candidate_manifest_run_summary.json",
+      "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/office_negative/legacy_abstention_guard_office_negative_2026-05-03_202547Z/eval/evaluation_2026-05-03_202551Z_summary.json",
+      "totals": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_count": 1,
+        "negative_scene_false_positive_count": 0
+      }
+    },
+    "updated_report_smoke": {
+      "image_count": 15,
+      "pack_id": "human-report-challenge-v2-updated-report-smoke",
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/updated_report_smoke/human_report_challenge_v2_updated_report_smoke_2026-05-03_202405Z/candidate_manifest_run_summary.json",
+      "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/runs/updated_report_smoke/human_report_challenge_v2_updated_report_smoke_2026-05-03_202405Z/eval/evaluation_2026-05-03_202547Z_summary.json",
+      "totals": {
+        "false_negative_count": 8,
+        "false_positive_count": 1,
+        "match_count": 23,
+        "negative_scene_abstention_correct_count": 0,
+        "negative_scene_count": 0,
+        "negative_scene_false_positive_count": 0
+      }
+    }
+  }
+}

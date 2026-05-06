@@ -1,0 +1,51 @@
+candidate_id: v023u_qwen_native_sparse_only_cleanup
+title: v023u qwen native sparse only cleanup
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023t_qwen_native_duplicate_collapse
+hypothesis: >
+  v023s's recall gain depends on not disturbing dense rows. Add only a
+  sparse-scene cleanup rule for isolated or low-count scenes, where many v023s
+  false positives occur, and explicitly avoid applying that cleanup to rows,
+  convoys, and crowded clusters.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, wheel/track contact, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      SPARSE-SCENE CLEANUP ONLY
+      Apply this cleanup only when the image appears to contain one, two, or three visible targets total. In those sparse scenes, remove nearby extra guesses around the same visible body and keep the single tightest whole-body box for each visible target. Do not apply this sparse-scene cleanup to crowded rows, convoys, formations, or dense clusters.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

@@ -51,11 +51,42 @@ Current implications:
   when they are the clearer fit
 - `playwright` is the preferred browser MCP for interaction-heavy workflows,
   while `filesystem` is preferred only for in-root structured inspection
-- `sequentialthinking` should now be used before substantive updates to live
-  maintained docs, global rules, or any `AGENTS.md`
+- canonical SequentialThinking trigger policy now lives in
+  `/home/williambenitez1/.codex/AGENTS.md`, with Capstone-specific triggers in
+  `/home/williambenitez1/Capstone/AGENTS.md`
+- `sequential-thinking` is now implemented by Spences10
+  `mcp-sequentialthinking-tools`; use task-scoped canonical inventory names
+  for tool-plan validation and treat `invalid_recommendations` as failed
+  validation before acting
+- for prompt work, use it only as a compact checkpoint for genuinely complex,
+  branchy, evidence-sensitive, critique-heavy, or high-blast-radius prompt/eval
+  decisions; do not invoke it merely because Plan Mode is active
+- SequentialThinking is not evidence and does not replace source inspection,
+  runner artifacts, eval outputs, Graphify recall, tests, or human review
+- Mem0 is active but manual/advisory only; do not write prompt/eval lessons to
+  Mem0 without explicit approval, and do not treat Mem0 as source truth
+- MCPfinder is active for missing-MCP discovery only; do not use it for routine
+  prompt planning, and never auto-install generated MCP config
+- NCP remains planned/deferred and must not route prompt/eval work until a
+  future wave proves a safe find-only or strictly read-only profile
+- the Capstone Graphify fleet profile should be refreshed after meaningful
+  live-document updates when the graph already exists, except for typo-only or
+  non-substantive edits
 - the selected global custom-agent subset is now installed for explicit use,
   but those specialists still do not replace run evidence, validation, or
   promotion discipline
+- `superpowers-skill-pack` is installed globally from `obra/superpowers`
+  `v5.0.7` and should be used in Capstone-adapted mode: it can improve
+  brainstorming, writing plans, systematic debugging, subagent orchestration,
+  worktree hygiene, review, and verification, but it does not replace
+  source-truth artifacts, prompt/eval gates, Graphify verification, Mem0
+  approval, or human review
+- deferred workflow-packaging TODO:
+  - once the phase-4 manual hypothesis/run/promotion workflow stays stable long
+    enough to trust, build the full prompt-eval-runner Codex skill around that
+    protocol instead of improvising it per session
+  - until then, keep the phase-5 bounded runner local and protocol-driven
+    rather than turning it into open-ended automation
 
 ## Scope
 
@@ -76,6 +107,7 @@ lab-specific notes and experiment artifacts.
 The live prompt/runtime contract currently comes from:
 
 - `src/bda_svc/pipeline/config.yaml`
+- `src/bda_svc/pipeline/runtime_config.py`
 - `src/bda_svc/pipeline/model.py`
 - `src/bda_svc/pipeline/interfaces.py`
 - `src/bda_svc/pipeline/doctrine.yaml`
@@ -101,6 +133,12 @@ As of the latest synced `upstream/main`, the current runtime contract includes:
 - structured-output repair through `json-repair` before Pydantic validation
 - `think=False` in Ollama calls to reduce unwanted reasoning output
 - environment override support for detection and assessment model names
+- overlay-first runtime resolution in this order:
+  - tracked base runtime config
+  - tracked model-line overlay
+  - local experiment overlay stack
+  - environment and CLI overrides
+- first-class detector backend selection and resolved-config hashing
 - a live detect-objects safeguard line that explicitly says not to return an
   all-zero bbox unless the target type is `object_not_found`
 
@@ -109,6 +147,10 @@ Method implication:
 - current prompt drafts must preserve the configured placeholders and should
   not return to the older hardcoded `0-1000 xyxy only` detection wording unless
   an explicit experiment justifies that reversal
+- the tracked config should now represent the promoted control baseline, not
+  whichever candidate is merely being explored locally that day
+- future prompt/doctrine/backend candidates on the active Qwen line should now
+  begin as overlays plus bounded runner sessions, not direct tracked edits
 - when a candidate pair looks promising on the seed case, run a small
   cross-image generalization sweep before treating it as finished; the tank
   image is a repeatability pressure test, not the only evidence we need
@@ -140,6 +182,339 @@ Method implication:
 - if that unified winner will be used as the active reference stack, run it at
   least once on a small focused comparison pack so the packaged version itself
   has an explicit execution record, not just the earlier frozen-stack evidence
+- before using human-written examples as prompt-learning references, ground
+  their labels in the active BDA doctrine vocabulary; human uncertainty should
+  be represented with supported damage categories, lower confidence, and clear
+  logic rather than unsupported schema labels such as `unknown`
+- the approved human-report set now changes the Qwen process: `v014` is paused
+  as a promotion candidate, `v009` remains the promoted control baseline, and
+  the completed all-112 human-report comparison becomes the current authority
+  for deciding whether and how to author `v015`
+- the first human-report lesson is a precision/recall tradeoff, not a direct
+  winner: `v014` reduced false positives from `54` to `24`, but dropped matches
+  from `161` to `148` and increased false negatives from `56` to `69`; any
+  `v015` should preserve `v014`-style false-positive suppression while
+  restoring `v009`-style multi-target recall
+- the first structured `v015` planning package lives only in the active Qwen
+  `1.2` worktree at
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/`;
+  use it to review the source manifest, failure taxonomy, stratified split,
+  offline example bank, hypothesis-only candidate directions, and acceptance
+  gates before authoring or interpreting any `v015` prompt text or overlay
+- `v015a` through `v015e` have now been authored and hinge-smoke tested as
+  worktree-only prompt candidates, not runtime truth:
+  - `v015a` recovered recall but reopened false positives
+  - `v015b` and `v015c` did not solve the `101` row-fragment/broad-box boundary
+  - `v015d` was a prompt-only fail-closed attempt that suppressed row fragments
+    but became too conservative
+  - the offline structural guard simulator is diagnostic only and showed simple
+    geometry suppression is too blunt for promotion
+  - `v015e` is the strongest prompt-only hinge result so far (`10` matches,
+    `13` false negatives, `0` false positives), but it remains blocked from
+    dev because manual review confirms case `101` still emits a broad
+    group/scene box rather than a tight individual-body detection
+- if `v015e` receives a later dev run, treat it as a learning-only
+  generalization check with `101` marked as a known manual-review failure; do
+  not run holdout, all-112, runtime adoption, or promotion without separate
+  approval
+- the v015 prompt lane now has a design-only bridge into v016:
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/design/v016_reference_aware_prompt_lab/`
+- that package reviewed the v015e dev outlier set (`66`, `67`, `69`, `84`,
+  `86`, `97`, `100`, `101`, `103`, `147`, `155`) plus the then-reference-only
+  holdout control `166`; after the 2026-04-30 source refresh, `155` and `166`
+  are positive military-equipment cases in `human_report_challenge_v2`
+- the selected next prompt axis is
+  `v016_reference_aware_candidate_discovery_with_evidence_budget`
+- method implication: v016/v017 should change the prompt interface before it
+  changes prompt wording; separate candidate discovery from final evidence
+  filtering, keep `101` manual/reference-aware, treat `155` as a positive
+  control, keep `166` holdout-only unless separately approved, and use a
+  separate legacy `office-negative` abstention guard rather than the old
+  protected-negative semantics
+- `v016a_reference_aware_candidate_discovery` has now been authored and tested
+  as the first prompt-only candidate from that axis; it is blocked from dev
+  because it recovered expanded-hinge recall but reopened precision failures:
+  `27` matches, `29` false negatives, and `33` false positives against the
+  expanded v014 hinge baseline of `22` matches, `34` false negatives, and `16`
+  false positives
+- `v016a` preserved the historical v1 protected behavior on `155`, but the
+  source refresh later reclassified `155` as positive in
+  `human_report_challenge_v2`; case `101` still showed both row-fragment
+  enumeration and a broad group/scene box, evidence that candidate discovery
+  without stronger final-output discipline is too permissive for this prompt
+  lane
+- current comparison read: `v009` remains the promoted all-112 control and
+  recall baseline but is too noisy, `v014` remains the false-positive
+  suppression lesson but is too recall-suppressive for direct promotion, and
+  `v016a` is hinge-only bridge evidence that recovered some recall versus
+  `v014` while leaking precision back toward the `v009` failure mode
+- the corrected human-report source lane now uses
+  `human_report_challenge_v2`; adjusted all-current v2 baselines now cover all
+  `118` current cases by combining historical reuse for unchanged cases with
+  fresh v009/v014 inference on the ten latest changed/recovered reports
+  (`40`, `61`, `65`, `69`, `70`, `77`, `106`, `125`, `172`, `187`)
+- the changed-report baseline pack scored:
+  - `v009`: `15` matches, `4` false negatives, `2` false positives
+  - `v014`: `13` matches, `6` false negatives, `2` false positives
+- the adjusted all-current v2 baselines are:
+  - `v009`: `172` matches, `59` false negatives, `53` false positives
+  - `v014`: `157` matches, `74` false negatives, `24` false positives
+- 2026-05-01 closeout correction: the generated rebaseline Markdown now states
+  the correct provenance boundary: unchanged cases reused historical prediction
+  JSON, the ten updated/recovered report cases used fresh v009/v014 baseline
+  inference, and no prompt-candidate inference was run
+- the changed-report baseline helper now preserves true nested `dry_run`
+  metadata for diagnostic `--dry-run` calls; the latest v2 automation dry-run
+  gate readiness check passed with no issues
+- the latest source-refresh pass updated or recovered `40`, `61`, `65`, `69`,
+  `70`, `77`, `106`, `125`, `172`, and `187`; current v2 references now cover
+  `118` approved pairs and `231` report objects
+- autonomous prompt-cycle runs are no longer blocked by missing recovered
+  addition baselines; the user approved one bounded `v017b` continuation from
+  the `v017a` near miss, with a hard stop before dev, holdout, all-112,
+  promotion, runtime adoption, structural guard implementation, source-truth
+  mutation, MCP config changes, hook edits, or tool installs
+- the first v2 automation framework and live candidate are now in the Qwen
+  `1.2` worktree under
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/`
+- the Superpowers adoption note for that automation lane lives under
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/superpowers_adoption/`
+  and maps Superpowers skills to the existing v2 prompt-cycle gates
+- `v017a_body_backed_candidate_filter` is the first live v2 automation
+  candidate; it is not user-reviewed and is a near miss, not a winner:
+  - v2 hinge: `23` matches, `34` false negatives, `17` false positives
+  - changed-source sanity: `9` matches, `3` false negatives, `0` false
+    positives
+  - positive `155`: passed with `2` matches
+  - legacy `office-negative` abstention guard: passed
+  - case `101`: row-fragment enumeration was suppressed, but one broad
+    group/scene box remained: `[75, 13, 1000, 571]`
+- `v017b_single_target_box_span_self_filter` was later approved, authored, and
+  run as a worktree-only prompt overlay to target the remaining broad-group
+  collapse failure without discarding the useful changed-source and
+  positive-control gains
+- light Superpowers reassessment after `v017a` now makes the process more
+  explicit: a failed or near-miss candidate must produce a source-artifact
+  diagnosis and one-axis recommendation before the next prompt is authored
+- `v017b` result: near miss, not a winner. It passed aggregate hinge checks
+  (`24` matches, `33` false negatives, `13` false positives), changed-source
+  sanity (`9` matches, `3` false negatives, `0` false positives), positive
+  `155`, updated-report smoke (`22` matches, `9` false negatives,
+  `1` false positive), and the `office-negative` abstention guard, but it
+  still failed the case `101` manual diagnostic with one broad group/scene box
+  `[75, 58, 1000, 547]`
+- current method implication: case `101` is now removed from forward pass/fail
+  evaluation use. It remains preserved as historical/manual diagnostic evidence,
+  but its persistent broad group/scene-box behavior and reference/eval-shape
+  caveats were distorting prompt-cycle decisions.
+- the active forward hinge gate is now
+  `human_report_challenge_v2_hinge_11_no101`, with case IDs `13`, `42`, `147`,
+  `12`, `28`, `19`, `155`, `66`, `67`, `84`, and `97`; the old 12-case hinge
+  pack remains historical/manual diagnostic context only.
+- the recalibrated 11-case baselines are:
+  - `v009`: `24` matches, `21` false negatives, `26` false positives
+  - `v014`: `20` matches, `25` false negatives, `17` false positives
+- forward candidate gates now require more than `20` matches, fewer than `25`
+  false negatives, no more than `21` false positives, positive-control `155`,
+  changed-source sanity, updated-report smoke, and the separate
+  `office-negative` abstention guard.
+- after this policy change, `v017c` through `v017f` may continue inside the
+  approved cycle budget unless a hard stop triggers: abstention-guard failure,
+  source/manifest integrity failure, scope violation, runtime/tool-boundary
+  violation, candidate budget exhaustion, or explicit user stop. Do not run dev,
+  holdout, all-112, promotion, runtime adoption, or source-truth mutation
+  without separate approval.
+- overnight cycle result: `v017c` through `v017f` were authored and run as
+  worktree-only prompt overlays against `human_report_challenge_v2_hinge_11_no101`.
+  All four passed the active forward gates.
+- current best balanced candidate: `v017d_visual_anchor_lock`.
+  - hinge: `22` matches, `23` false negatives, `13` false positives
+  - changed-source sanity: `10` matches, `2` false negatives, `0` false positives
+  - updated-report smoke: `24` matches, `7` false negatives, `1` false positive
+  - office-negative abstention: passed
+- recall-oriented alternate: `v017f_compact_visual_anchor_balance`.
+  It produced the best hinge recall (`23` matches, `22` false negatives) but
+  increased hinge false positives to `17` and weakened changed-source /
+  updated-smoke precision.
+- bounded dev validation is now complete on
+  `human_report_challenge_v2_dev_55_no101`, derived from the v2 dev split with
+  case `101` removed from forward pass/fail evaluation:
+  - `v017d_visual_anchor_lock`: `72` matches, `34` false negatives,
+    `16` false positives; positive `155` passed with `2` matches
+  - `v017f_compact_visual_anchor_balance`: `73` matches, `33` false negatives,
+    `18` false positives; positive `155` passed with `2` matches
+  - same-split `v014` adjusted baseline: `69` matches, `37` false negatives,
+    `17` false positives
+  - same-split `v009` adjusted baseline: `74` matches, `32` false negatives,
+    `27` false positives
+- later same-image comparison changed the candidate read: `v017d` remained a
+  stable balanced anchor, but fresh `v017b_group_box_rejection` became the
+  precision challenger on the exact `human_report_challenge_v2_dev_55_no101`
+  split. `v017b` matched `v017d` recall at `72` matches and `34` false
+  negatives while reducing false positives from `16` to `13`.
+- after user approval, `v017b` received a prompt-only main promotion closeout.
+  Its all-current/no-101 raw gate scored `165` matches, `54` false negatives,
+  and `22` false positives against a cap of `21`; focused visual review
+  accepted a one-FP semantic override for case `125` because the
+  `object_not_found` placeholder on a positive case is already a false
+  negative, not an additional hallucinated target. Effective extra-target
+  false positives are therefore `21`, while positive `155`, positive `166`,
+  and `office-negative` all passed.
+- current method implication: `v017b_group_box_rejection` is the accepted
+  prompt-only main promotion candidate, with exact prompt text parked in local
+  `main` as commit `2f67016`. It is not pushed to `origin` or `upstream`.
+  Case `67` remains the next preserved failure-analysis caveat because dense
+  smoke/dust row-formation imagery still produced `1` match, `10` false
+  negatives, and `10` false positives.
+- follow-up case `67` diagnosis confirmed that this is not a `v017b`-specific
+  regression and not a repeat of the old case `101` broad group-box failure.
+  All compared prompt families matched only the largest/rightmost target and
+  missed the other ten; the working failure class is dense smoke/dust,
+  perspective-row, top-edge/body-anchor pressure with many tiny `possible`
+  references.
+- the first `v018` follow-up, `v018a_dense_formation_body_center_anchor`,
+  showed why a diagnosis artifact must precede deeper prompt runs: even though
+  the minimal formal no-101 smoke gate passed, body-center/ground-contact
+  wording caused a false-positive rebound (`+8` FPs versus parked `v017b`) and
+  did not improve case `67` recall. Treat `v018a` as learning evidence only;
+  do not promote it, deepen it, or let it replace `v017b`.
+- the follow-up `v017b` doctrine iteration cycle is now closed as learning
+  evidence, not an adoption path. With the fixed `v017b` prompt/config surface,
+  the baseline doctrine replay scored `74` matches, `32` false negatives,
+  `15` false positives, and `0.7000` average assessment score on
+  `human_report_challenge_v2_dev_55_no101`. No 15-candidate doctrine variant
+  clearly improved this without tradeoffs.
+- doctrine-cycle lessons:
+  - `d001_visual_pda_scope` is the safest assessment wording signal: it
+    preserved `74/32/15` and nudged average assessment to `0.7014`
+  - `d008_exterior_building_guard`, `d011_best_assess_plus_detect`, and
+    `d013_recall_repair_blend` are recall signals: they reached `75` matches
+    and `31` false negatives, but increased false positives to `16` and
+    lowered assessment quality
+  - `d014_dense_case_blend` is the precision/assessment signal: it reduced
+    false positives to `14` and improved average assessment to `0.7073`, but
+    became recall-conservative at `73` matches and `33` false negatives
+- current method implication: keep baseline doctrine unchanged. Future doctrine
+  work should be a narrower follow-up around one of those isolated signals, not
+  a broad adoption of the 15-candidate cycle output.
+- latest v018 upstream/v017b amalgamation cycle tested five detect-only prompts
+  against `human_report_challenge_v2_all_current_117_no101` plus the
+  `office-negative` guard. The cycle explains why upstream looked strong:
+  current upstream prompt wording is short and permissive, which helps ordinary
+  visible-target recall, while parked `v017b` is longer and more defensive,
+  which improves positive-control and false-positive discipline but can
+  under-count clean multi-object scenes.
+- v018 method lesson: all five amalgamated candidates improved recall and held
+  positive `155`, positive `166`, and office-negative, but every candidate
+  exceeded the `v017b` false-positive ceiling. `v018d_evidence_budget_pruner`
+  is the recall-ceiling signal (`180` matches, `39` false negatives,
+  `39` false positives), and `v018e_contrastive_body_anchor` is the best
+  precision-balanced follow-up axis (`173` matches, `46` false negatives,
+  `29` false positives). Neither is adoption-ready as-is.
+- current method implication: keep `v017b_group_box_rejection` parked as the
+  accepted prompt-only main candidate. If v018 continues, do a focused visual
+  review of `v018e` false positives and `v018d` recall wins before authoring
+  one narrower follow-up; do not simply promote the recall-heavy v018d prompt.
+- latest v020 goal-driven follow-up started from the v019c context-shadow
+  reversal result (`174` matches, `45` false negatives, `28` false positives)
+  on `human_report_challenge_v2_all_current_117_no101` with positive `155`,
+  positive `166`, and office-negative passing. The cycle replayed the anchor,
+  then authored and ran `v020a` through `v020k` one at a time.
+- v020 method lesson: `v020c_v019c_extra_box_audit` is the best stable
+  prompt-only learning signal at `186` matches, `33` false negatives, and
+  `25` false positives with controls passing. Exact replay `v020h` reproduced
+  the same `186/33/25` result, but every refinement after `v020c` worsened the
+  balanced objective. The success target (`FNs <=25`, `FPs <=15`) was not
+  reached.
+- current v020 implication: keep `v020c` as a diagnostic anchor, not an
+  adoption target. More near-neighbor prompt wording is low-yield because
+  cleanup/row/scale instructions repeatedly collapse case `67` or create
+  tiling/extra-box false positives. The next useful lever should be a separate
+  non-prompt or post-processing investigation that preserves `v020c` dense-row
+  recall.
+- latest v021 OpenAI-compatible cross-model matrix compared current
+  `upstream/main`, `v009`, `v017b`, `v018e`, `v019c`, and `v020c` detect
+  prompts through the fetched upstream OpenAI-compatible runtime path using
+  Ollama-backed `/v1` endpoints. Local and fetched upstream `doctrine.yaml`
+  matched exactly, so one shared-doctrine matrix was enough.
+- v021 method lesson: use the upstream OpenAI-compatible `OPENAI_BASE_URL`
+  code path as the default prompt-comparison route from here forward, while
+  labeling Ollama-backed `/v1` endpoints honestly as OpenAI-compatible
+  Ollama. The same prompt should not be assumed to transfer across model
+  lines: Qwen's winner was `v020c_extra_box_audit` at `186/33/25` with
+  controls passing, while Gemma's best eligible row was
+  `v018e_contrastive_body_anchor` at `138/81/19` with controls passing.
+  Gemma `v020c` lowered false positives to `18` but failed positive control
+  `155`, so it is disqualified for Gemma despite being the Qwen winner.
+- latest v022 literal-99 Qwen cycle started from `v020c` and attempted
+  prompt-only recursive refinement toward the intentionally extreme target of
+  reducing the upstream prompt baseline from `74` total errors to `<=1`
+  combined false negative + false positive on all-current `117_no101`.
+- v022 method lesson: `v020c_anchor_replay` remained the best row at
+  `186/33/25` with controls passing, while `v022a` through `v022e` all
+  regressed. The key failure pattern was dense case `67`: v020c held it at
+  `9` matches / `2` FNs / `4` FPs, but every new wording pattern dropped it to
+  only `1-2` matches with `9-10` FNs and `10-11` FPs. Even one extra
+  dense-guard sentence added to v020c disturbed case `67` and worsened case
+  `84`.
+- current v022 implication: treat v020c as the Qwen config-prompt incumbent and
+  prompt-only local optimum. The next serious improvement lever should be
+  outside prompt wording: duplicate/tiling suppression, detector/backend
+  behavior, or visual review of remaining v020c FP/FN slices before authoring
+  another prompt-only candidate.
+- latest v023/v024 literal-99 no-stop continuation extended the same Qwen-only
+  loop well past v022. It replayed `v020c` as the anchor, then ran `v023a`
+  through `v023z` and `v024a` through `v024n`; `v024o` was interrupted by user
+  pause before all-current completion and is not scored.
+- v023/v024 method lesson: `v020c_anchor_replay` still remains the best
+  combined row at `186/33/25` (`58` total errors), while the strongest
+  challenger, `v024l_v023s_no_wheel_track_ablation`, reached `188/31/35`
+  (`66` total errors). The high-recall branch can recover matches, but it
+  repeatedly pays for that recall with too many false positives.
+- v023/v024 ablation lesson: in the v023s branch, `silhouette` and
+  `exterior wall/roof boundary` are load-bearing for dense case `67`; removing
+  either collapses the row. Removing `wheel/track contact` produces the best
+  challenger, but does not solve the false-positive burden.
+- v023/v024 warning: long building-specific de-tiling prompt sections can
+  backfire badly. `v024n_v024l_building_only_detiling` exploded to `102` false
+  positives and should be treated as a warning against broad building-only
+  prompt rule blocks.
+- current v023/v024 implication: if this loop resumes, rerun the interrupted
+  `v024o` from scratch; do not score partial outputs. Strategically, the
+  better next axis remains visual review plus non-prompt duplicate/tiling
+  suppression or backend/post-processing that preserves `v020c` dense-row
+  behavior.
+- refresh note: the next prompt-method state has not changed since that pause
+  closeout. Treat the v023/v024 pause report as current, and do not reopen
+  prompt-only iteration from partial `v024o` outputs.
+- latest run and diagnosis:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017b/live_2026-05-03_032920Z/`
+  and
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/reassessments/v017b_gate_result/`
+- overnight decision packet:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/overnight_v017c_to_v017f_decision_packet.md`
+- bounded dev decision packet:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/dev_validation_decision_packet.md`
+- primary-candidate comparison and promotion closeout:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/`
+  and
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/`
+- case `67` diagnosis and `v018a` bounded follow-up:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/case67_dense_formation_diagnostic/`
+  and
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_002/runs/v018a/live_2026-05-04_003732Z/`
+- v017b doctrine cycle:
+  `/home/williambenitez1/Capstone_worktrees/1.5_feat__qwen3-vl-8b-instruct__v017b-doctrine-iteration/docs/prompt-lab/qwen-v017b-doctrine-iteration/cycle_001/`
+- v018 upstream/v017b amalgamation cycle:
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/`
+- v020 v019c goal-driven follow-up closeout:
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/final_recommendation.md`
+- v021 OpenAI-compatible cross-model matrix closeout:
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/final_recommendation.md`
+- v022 literal-99 Qwen prompt-only plateau closeout:
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/final_recommendation.md`
+- reassessment package:
+  `docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/reassessments/v017a_superpowers_reassessment/`
 
 ### Local Reference Access Provided For Prompt Work
 
@@ -171,7 +546,7 @@ record of how one experiment critique turned into the next prompt revision.
 
 A backup copy of the live config is kept at:
 
-- `z_reference_docs/config.yaml.backup`
+- `z_reference_docs/zz_archive/backups/configs/config.yaml.backup`
 
 This is used as a stable reference point when prompt drafts diverge from the
 current live config and we need to compare or recover prior wording.
@@ -224,7 +599,11 @@ promoted into the live repo files.
 
 A saved VS Code workspace is available at:
 
-- `z_reference_docs/Capstone.code-workspace`
+- `z_reference_docs/Capstone-Project.code-workspace`
+
+The older main-checkout-only workspace was archived at:
+
+- `z_reference_docs/zz_archive/workspaces/Capstone.code-workspace`
 
 The clean mirror checkout remains at:
 
@@ -616,6 +995,27 @@ This is now a structured loop phase rather than a reset-and-rebaseline phase.
 The goal is to make each failed run more reusable by documenting why it failed
 and what research directly shaped the next draft.
 
+Human-report `v015` status:
+
+- the active prompt-engineering focus remains Qwen `1.2` worktree-only
+  prompting, not runtime adoption
+- `v015e_individual_body_evidence` produced the best prompt-only hinge signal
+  but failed to generalize recall on dev, so it should remain learning evidence
+  rather than continue to holdout or promotion
+- the first v016 implementation wave is complete:
+  `v016a_reference_aware_candidate_discovery` tested the selected
+  reference-aware candidate-discovery/evidence-budget axis on an expanded
+  12-case hinge smoke only
+- `v016a` improved recall relative to the expanded v014 hinge baseline but
+  failed the strict false-positive cap and repeated the case `101`
+  row-fragment/broad group-box failure, so it must remain learning evidence and
+  must not proceed to dev, holdout, all-112, runtime adoption, or promotion
+  without a new approval
+- the immediate next move is not another prompt run; it is a worktree-only
+  `v016a` failure synthesis and `v016b` prompt-axis decision package that keeps
+  the lane prompt-focused while tightening the final-output rubric before any
+  later prompt authoring
+
 Active-sequence note:
 
 - the new active lab starts from a fresh `v000`
@@ -745,7 +1145,8 @@ State recorded:
 - doctrine is the semantic authority
 - Qwen docs are the current model-specific authority
 - general prompting guides are secondary support
-- `z_reference_docs/config.yaml.backup` is the fallback reference copy
+- `z_reference_docs/zz_archive/backups/configs/config.yaml.backup` is the
+  fallback reference copy
 - the Qwen prompt lab is the active experimentation workspace
 
 Why it matters:
@@ -2099,7 +2500,9 @@ What changed:
 Observed result:
 - `v004` remained the best seed-case full-stack candidate
 - but `v004` was not yet a clean cross-image grounding winner
-- `destroyed_building4` exposed a real two-building miss
+- `destroyed_building4` was interpreted at the time as a two-building miss;
+  the later `2026-04-23` building-reference audit superseded that read and
+  preserved the one-target truth
 - `operational_tank4` exposed an assessment-layer false-damage problem
 - the office negative case also confirmed that raw `bda-svc` JSON may be a
   more reliable review artifact than `bda_eval` CSV when `NOT APPLICABLE`
@@ -2685,7 +3088,8 @@ What changed:
 - left doctrine, assessment, summary, and runtime interfaces unchanged
 
 Observed result:
-- both branches recovered `destroyed_building4` in the same useful direction:
+- both branches moved `destroyed_building4` in the same useful direction under
+  the later detect-surface review frame:
   - parent control split the scene into two buildings
   - candidate collapsed the read to one scene-central destroyed building
 - the candidate did **not** solve the full family:
@@ -2710,10 +3114,20 @@ Current consequence:
 - the working Qwen read is now:
   - doctrine was not the strongest lever
   - detect-surface weighting is the right lane
-  - `destroyed_building4` now has a viable recovery direction to preserve
+  - `destroyed_building4` has a viable one-building target-selection signal
+    to preserve only if the current one-building replay truth is accepted
 - `v009` remains the last confirmed staged winner
-- the local tracked `1.2` config is now an exploratory `v010` detect-only
+- `v010` is preserved as the first exploratory overlay-backed detect-only
   candidate rather than the frozen `v009` winner
+- later review found an important caveat:
+  - the completed building-reference audit preserves the current one-building
+    `destroyed_building4` truth and supersedes the older two-building wording
+    as over-broad
+  - the same audit recommends correcting `destroyed_building3` because the
+    current second target is an intact background building
+  - the approved executable `destroyed_building3` correction and replay later
+    made `v014` the strongest unpromoted follow-up overlay, not an automatic
+    replacement for `v009`
 
 ### 2026-04-20 — Not Every Follow-Up On A Partial Win Is Worth Keeping Live
 
@@ -2741,7 +3155,9 @@ Methodology lesson:
 
 Current consequence:
 - `v011` is recorded and rejected
-- `v010` remains the live local Qwen detect state to build from
+- `v010` remains the live local Qwen detect state to build from only as an
+  overlay-backed follow-up candidate; `v009` remains the confirmed control
+  baseline
 
 ### 2026-04-20 — Example Structure Alone Also Was Not Strong Enough To Resolve The Remaining Qwen Building Failures
 
@@ -2773,10 +3189,12 @@ Methodology lesson:
 
 Current consequence:
 - `v012` is recorded and rejected
-- `v010` remains the strongest current local Qwen detect state
-- the next worthwhile Qwen detect move likely needs either a stronger
-  instruction hierarchy shift or a more surgical example pattern tied directly
-  to the unresolved `destroyed_building3` and `destroyed_building6` behaviors
+- later corrected-truth replay superseded this resume-point read: `v014` is
+  now ready for a formal promotion package, while `v009` remains the confirmed
+  control baseline
+- the next worthwhile Qwen detect move should wait until the formal promotion
+  package either approves `v014` or identifies a narrow blocker that justifies a
+  successor
 
 ### 2026-04-20 — A Stronger Hierarchy Shift Produced The First Useful Asymmetric Signal
 
@@ -2805,8 +3223,125 @@ Methodology lesson:
 
 Current consequence:
 - `v013` is recorded and rejected for the active Qwen line
-- `v010` remains the strongest current local Qwen detect state
+- at that checkpoint, `v010` remained the local Qwen detect follow-up
+  candidate, not a confirmed overall replacement for `v009`
 - the next worthwhile move should probably borrow the *shape* of this stronger
   hierarchy while making the active-line building-selection wording even more
   tightly coupled to the specific `destroyed_building3` background-building
   failure
+
+### 2026-04-23 — Post-Architect Follow-On Work Moved Into Pilot, Skill, And Portability Lanes
+
+What changed:
+- created a dedicated Qwen backend-pilot branch/worktree for the first
+  concrete detector-backend comparison
+- ran the first live backend comparison through the same overlay, trace, eval,
+  and bounded-runner workflow as the control line
+- packaged the bounded-runner workflow into the local-only
+  `bda-prompt-eval-runner` Codex skill
+- added a self-hosted heavy-eval workflow on the active Qwen control line
+- ported the proven overlay-first control-line architecture into the active
+  Gemma `3.1` line
+
+Observed result:
+- the first concrete tiled detector pilot did **not** beat the control
+  `vlm_prompt_detector`
+- the pilot lane remains useful as a preserved decision record, but it is now
+  deferred rather than the default next move
+- the operator workflow is now structured enough to be wrapped by a skill
+- Gemma can now use the same overlay-first, bounded-runner, and
+  promotion-integrity discipline as Qwen
+
+Methodology lesson:
+- do not widen architecture changes across model lines until the Qwen control
+  line proves them first
+- when a pilot underperforms, preserve the evidence and decision cleanly
+  rather than letting it remain an ambiguous side branch
+- package automation only after the bounded manual workflow is stable enough to
+  deserve it
+
+### 2026-04-23 — Post-Rollout Qwen Follow-Up Work Now Uses An Explicit Adaptive Cycle Protocol
+
+What changed:
+- formalized the default Qwen `1.2` follow-up workflow as an adaptive
+  three-attempt cycle layered on top of the existing bounded-runner
+  architecture
+- created a cycle-level protocol plus reusable brief template under:
+  - `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/`
+    `1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/cycles/`
+- kept runner sessions as the execution primitive instead of turning the
+  runner into open-ended candidate authoring
+
+Observed result:
+- no runtime code changes were needed because the runner already handled fixed
+  declared sessions cleanly
+- the real gap was workflow discipline between attempts:
+  - when research is allowed
+  - when exact confirmation replays happen
+  - when a truth conflict should pause the cycle instead of spending more
+    candidate slots
+
+Methodology lesson:
+- fixed runner sessions and adaptive research cycles are related but different
+  layers
+- significantly good results should replay immediately with no new research so
+  we test reality before explanation
+- anomalous or conflicting results deserve light diagnosis before replay, but
+  still with no candidate edits in between
+- if a truth/reference conflict persists after replay, pause the cycle and
+  audit truth rather than forcing more prompt changes against contradictory
+  goals
+
+### 2026-04-23 — Qwen `v009` Versus `v010` Requires A Building-Truth Caveat
+
+What changed:
+- after comparing `v009` control against the `v010` replay artifacts, the
+  current interpretation was tightened:
+  - `v009` remains the best confirmed/promoted Qwen stack
+  - `v010` remained a detect-only overlay candidate at that checkpoint, but
+    not an overall replacement for `v009`
+
+Observed result:
+- in the current post-architect replay manifest, `v010` improves over `v009`
+  by removing one false positive on `destroyed_building4`
+- the completed building-reference audit preserves that one-building
+  `destroyed_building4` truth and treats the older two-building wording as
+  over-broad
+- the remaining truth issue is `destroyed_building3`, where the current second
+  target is an intact background building
+
+Methodology lesson:
+- a candidate can score better against the current executable reference and
+  still require a truth audit when older evidence records a different target
+  policy
+- do not collapse "active follow-up candidate" into "best confirmed stack"
+- that correction and replay were completed in the next checkpoint, changing
+  the best unpromoted follow-up read from `v010` to `v014`
+
+### 2026-04-23 — Corrected Truth Recast `v014` As The Strongest Follow-Up Overlay
+
+What changed:
+- implemented the approved one-target `destroyed_building3` reference and
+  updated the executable Qwen six-case guard-pack manifest
+- preserved the old two-target `qwen_candidate_a` JSON as historical evidence
+  instead of editing it in place
+- replayed `v009`, `v010`, and `v014` against corrected guard truth
+- exact-confirmation replayed `v014` after it produced the strongest result
+
+Observed result:
+- corrected guard pack:
+  - `v009`: `8 matches / 0 fn / 2 fp`
+  - `v010`: `8 matches / 0 fn / 1 fp`
+  - `v014`: `8 matches / 0 fn / 0 fp`
+- grounding pack:
+  - `v009`: `6 matches / 0 fn / 1 fp`
+  - `v010`: `6 matches / 0 fn / 0 fp`
+  - `v014`: `6 matches / 0 fn / 0 fp`
+- `v014` reproduced the same pass/fail conclusion in exact confirmation replay
+
+Methodology lesson:
+- reference-truth correction can convert an apparent candidate failure into a
+  real candidate win
+- promotion is still separate from evaluation success: `v014` is now the
+  strongest unpromoted follow-up overlay, but `v009` remains tracked control
+  until the phase-4 promotion gate is deliberately satisfied

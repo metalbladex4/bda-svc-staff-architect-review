@@ -1,0 +1,104 @@
+{
+  "package_id": "v016_reference_aware_prompt_lab",
+  "status": "design_only_no_prompt_text",
+  "generated_utc": "2026-04-30T00:34:10Z",
+  "worktree_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement",
+  "source_artifacts": [
+    {
+      "role": "v015_prompt_lane_decision_memo",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/decision_memos/v015_prompt_lane_decision_memo.md",
+      "access": "read_only"
+    },
+    {
+      "role": "v015_prompt_lane_decision_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/decision_memos/v015_prompt_lane_decision_summary.json",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_hinge_gate_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_v015e_hinge_smoke_2026-04-29_223729Z/v015e_gate_check_summary.json",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_case_101_manual_review_markdown",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_v015e_hinge_smoke_2026-04-29_223729Z/case_101_manual_review.md",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_case_101_manual_review_json",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_v015e_hinge_smoke_2026-04-29_223729Z/case_101_manual_review.json",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_dev_eval_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/eval/evaluation_2026-04-29_231946Z_summary.json",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_dev_eval_csv",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/eval/evaluation_2026-04-29_231946Z.csv",
+      "access": "read_only"
+    },
+    {
+      "role": "v015e_dev_gate_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/v015e_dev_gate_summary.json",
+      "access": "read_only"
+    },
+    {
+      "role": "stratified_split",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/stratified_split.json",
+      "access": "read_only"
+    },
+    {
+      "role": "acceptance_gates",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/acceptance_gates.json",
+      "access": "read_only"
+    },
+    {
+      "role": "structural_guard_plan",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_structural_output_guard_plan/",
+      "access": "read_only"
+    },
+    {
+      "role": "offline_structural_guard_simulator",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/",
+      "access": "read_only"
+    }
+  ],
+  "reviewed_cases": [
+    "66",
+    "67",
+    "69",
+    "84",
+    "86",
+    "97",
+    "100",
+    "101",
+    "103",
+    "147",
+    "155",
+    "166"
+  ],
+  "selection_rule": "all v015e dev cases with false_positive_count > 0 or false_negative_count >= 2, plus protected/manual controls",
+  "forbidden_mutations": [
+    "main_checkout_tracked_files",
+    "origin_main",
+    "source_human_reports",
+    "source_images",
+    "reference_json",
+    "existing_run_outputs",
+    "v016_prompt_text",
+    "v016_overlay",
+    "runner_session",
+    "validation_manifest",
+    "run_directory",
+    "promotion_report",
+    "runtime_config",
+    "holdout_execution",
+    "all_112_execution",
+    "graphify_refresh",
+    "evidence_rebuild",
+    "mem0_update"
+  ],
+  "trust_boundary": "Source artifacts and human review remain authoritative. Graphify/project-brain recall may aid navigation but does not override these source files."
+}

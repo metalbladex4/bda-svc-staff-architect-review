@@ -1,0 +1,758 @@
+{
+  "events": [
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T22:25:30.100922+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T22:25:51.052989+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T22:26:00.583135+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T22:42:38.056868+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T22:42:47.781926+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:02:01.947327+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:02:12.314593+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:18:57.531450+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:19:09.518498+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:36:09.712182+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:36:20.007192+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:53:07.825864+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-05T23:53:23.725739+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    }
+  ]
+}

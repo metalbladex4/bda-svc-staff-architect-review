@@ -1,0 +1,76 @@
+overlay_id: qwen-1.2-v020f_nonoverlap_row_boxes
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v020c row recovery while rejecting oversized overlapping boxes that absorb neighboring accepted vehicles.
+generated_from:
+- v020c_v019c_extra_box_audit
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from visual/artifact review: v020c recovered many row targets, but some false positives were oversized overlapping boxes over the same line of vehicles. Keep row enumeration, but prefer the smallest non-overlapping body boxes.
+
+      CONTEXT SHADOW REVERSAL
+      Use context to search, then mentally remove context to decide.
+
+      1. Find possible targets across the full image.
+      2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, repeated spacing, and adjacent damage.
+      3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.
+      4. If the candidate disappears when context is ignored, reject it.
+      5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.
+
+      ROW AND CONVOY BOXING
+      Rows and convoys are search guides, not output boxes.
+      - Output one tight box for each individually visible vehicle body or wreck body.
+      - Prefer the smallest box that contains the visible body.
+      - Do not output a box that overlaps an accepted neighbor enough to include part of that neighbor.
+      - Do not output a large box around a vehicle plus road, smoke, adjacent vehicle, or empty spacing.
+      - If two candidate boxes overlap heavily, keep the tighter box around the single body and reject the larger overlap box.
+
+      EXTRA-BOX AUDIT
+      Before output, silently inspect every detection near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or one box contains a neighboring accepted body, keep only the tighter body box.
+
+      LARGE-SCENE MISSED-BODY CHECK
+      Scan unboxed parts of large scenes for missed visible bodies. Add a missed target only when it can be boxed tightly without overlapping an accepted neighbor or borrowing context from road, smoke, debris, terrain, or row spacing.
+
+      GOOD FINAL BOX
+      - one connected target body, wreck body, or exterior building structure
+      - tight enough that the target occupies most of the box
+      - separable from neighboring targets and context cues
+      - minimally overlapping with other accepted boxes
+
+      BAD FINAL BOX
+      - context-only cue
+      - group, row, convoy, cluster, or scene region
+      - duplicate fragment of one connected body
+      - oversized box that contains part of another accepted target
+      - interior/facade/debris subsection of one continuous building
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

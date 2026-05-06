@@ -1,0 +1,600 @@
+{
+  "backend_note": "Preferred http://localhost:8000/v1 was unavailable after retry; completed rows used authorized Ollama OpenAI-compatible fallback http://localhost:11434/v1 and are labeled ollama_openai_compat_fallback_11434.",
+  "best_row": {
+    "false_negative_count": 33,
+    "false_positive_count": 25,
+    "literal_99_target_met": false,
+    "match_count": 186,
+    "prompt_id": "v020c_anchor_replay",
+    "rank": 1,
+    "row_id": "qwen__v020c_anchor_replay",
+    "total_error_count": 58
+  },
+  "candidate_registry": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/candidate_registry.json",
+  "evidence_files": {
+    "comparison_matrix_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/comparison_matrix.json",
+    "comparison_matrix_md": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/comparison_matrix.md",
+    "final_recommendation_md": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/final_recommendation.md",
+    "recovery_log_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/recovery_log.json",
+    "research_notes_md": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/research_notes.md"
+  },
+  "generated_utc": "2026-05-06T00:09:01.488491+00:00",
+  "literal_target": {
+    "target_definition": "99 percent reduction in combined false negatives plus false positives versus current upstream config prompt baseline on human_report_challenge_v2_all_current_117_no101",
+    "target_met": false,
+    "target_total_errors": 1,
+    "upstream_baseline_total_errors": 74
+  },
+  "matrix_id": "v022_literal99_qwen_recursive_prompt_refinement_cycle",
+  "next_recommended_axis": [
+    "non_prompt_duplicate_or_tiling_suppression_that_preserves_v020c_dense_row_recall",
+    "visual_review_of_remaining_v020c_FP_FN_slices_before_new_prompt_work",
+    "detector_backend_or_post_processing_experiment_if_prompt_only_work_remains_plateaued"
+  ],
+  "plateau_assessment": {
+    "all_new_v022_candidates_regressed": true,
+    "dense_case_67_bottleneck": "v020c held case 67 at 9/2/4; every v022 wording change collapsed it to 1-2 matches, 9-10 FNs, and 10-11 FPs",
+    "incumbent_confirmed": "v020c_anchor_replay reproduced 186 matches / 33 FNs / 25 FPs with 155, 166, and office-negative passing",
+    "smallest_perturbation_failed": "v022e preserved v020c almost exactly but one dense-guard sentence still regressed case 67 and worsened case 84"
+  },
+  "rankings": [
+    {
+      "false_negative_count": 33,
+      "false_positive_count": 25,
+      "literal_99_target_met": false,
+      "match_count": 186,
+      "prompt_id": "v020c_anchor_replay",
+      "rank": 1,
+      "row_id": "qwen__v020c_anchor_replay",
+      "total_error_count": 58
+    },
+    {
+      "false_negative_count": 43,
+      "false_positive_count": 36,
+      "literal_99_target_met": false,
+      "match_count": 176,
+      "prompt_id": "v022d_compressed_context_shadow",
+      "rank": 2,
+      "row_id": "qwen__v022d_compressed_context_shadow",
+      "total_error_count": 79
+    },
+    {
+      "false_negative_count": 46,
+      "false_positive_count": 33,
+      "literal_99_target_met": false,
+      "match_count": 173,
+      "prompt_id": "v022b_sparse_scene_proxy_filter",
+      "rank": 3,
+      "row_id": "qwen__v022b_sparse_scene_proxy_filter",
+      "total_error_count": 79
+    },
+    {
+      "false_negative_count": 47,
+      "false_positive_count": 34,
+      "literal_99_target_met": false,
+      "match_count": 172,
+      "prompt_id": "v022e_v020c_dense_guard_sentence",
+      "rank": 4,
+      "row_id": "qwen__v022e_v020c_dense_guard_sentence",
+      "total_error_count": 81
+    },
+    {
+      "false_negative_count": 47,
+      "false_positive_count": 41,
+      "literal_99_target_met": false,
+      "match_count": 172,
+      "prompt_id": "v022c_candidate_ledger_balance",
+      "rank": 5,
+      "row_id": "qwen__v022c_candidate_ledger_balance",
+      "total_error_count": 88
+    },
+    {
+      "false_negative_count": 36,
+      "false_positive_count": 84,
+      "literal_99_target_met": false,
+      "match_count": 183,
+      "prompt_id": "v022a_micro_target_sweep",
+      "rank": 6,
+      "row_id": "qwen__v022a_micro_target_sweep",
+      "total_error_count": 120
+    }
+  ],
+  "recommendation": "keep_v020c_extra_box_audit_as_qwen_incumbent_and_pivot_to_non_prompt_duplicate_tiling_suppression_or_detector_backend_lever",
+  "results": [
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v020c_anchor_replay/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_222615Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 4,
+          "match_count": 8,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 2,
+          "false_positive_count": 4,
+          "match_count": 9,
+          "predicted_target_count": 13,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 5,
+          "false_positive_count": 0,
+          "match_count": 8,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 905.004,
+      "false_negative_count": 33,
+      "false_positive_count": 25,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 186,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v020c_anchor_replay/office_negative/legacy_abstention_guard_office_negative_2026-05-05_222600Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v020c_anchor_replay",
+      "prompt_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+      "row_id": "qwen__v020c_anchor_replay",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 58
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022a_micro_target_sweep/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_224254Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 19,
+          "match_count": 8,
+          "predicted_target_count": 27,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 11,
+          "match_count": 1,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 5,
+          "false_positive_count": 0,
+          "match_count": 8,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 1091.012,
+      "false_negative_count": 36,
+      "false_positive_count": 84,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 183,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022a_micro_target_sweep/office_negative/legacy_abstention_guard_office_negative_2026-05-05_224247Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v022a_micro_target_sweep",
+      "prompt_sha256": "ec5fe9505e4c0fbca4f011966e4303b20e3f312cb60d1706d30110b403e63f35",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/overlays/v022a_micro_target_sweep.yaml",
+      "row_id": "qwen__v022a_micro_target_sweep",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 120
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022b_sparse_scene_proxy_filter/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_230217Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 6,
+          "match_count": 8,
+          "predicted_target_count": 14,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 9,
+          "false_positive_count": 10,
+          "match_count": 2,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 6,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 934.567,
+      "false_negative_count": 46,
+      "false_positive_count": 33,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 173,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022b_sparse_scene_proxy_filter/office_negative/legacy_abstention_guard_office_negative_2026-05-05_230212Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v022b_sparse_scene_proxy_filter",
+      "prompt_sha256": "38ca3c1f98ac4c32dda70ee4f5905ff239f0b1747591fec06a4bb5ce8a8e898f",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/overlays/v022b_sparse_scene_proxy_filter.yaml",
+      "row_id": "qwen__v022b_sparse_scene_proxy_filter",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 79
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022c_candidate_ledger_balance/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_231915Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "match_count": 2,
+        "predicted_target_count": 3,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 6,
+          "match_count": 8,
+          "predicted_target_count": 14,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 9,
+          "false_positive_count": 10,
+          "match_count": 2,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 6,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 949.457,
+      "false_negative_count": 47,
+      "false_positive_count": 41,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 172,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022c_candidate_ledger_balance/office_negative/legacy_abstention_guard_office_negative_2026-05-05_231909Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v022c_candidate_ledger_balance",
+      "prompt_sha256": "8f674b4bf27294ba5b40257bfec33e41c5f0b82e7f4026bc0020ec4be0d62623",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/overlays/v022c_candidate_ledger_balance.yaml",
+      "row_id": "qwen__v022c_candidate_ledger_balance",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 88
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022d_compressed_context_shadow/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_233625Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 5,
+          "match_count": 8,
+          "predicted_target_count": 13,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 11,
+          "match_count": 1,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 5,
+          "false_positive_count": 0,
+          "match_count": 8,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 1,
+          "match_count": 1,
+          "predicted_target_count": 2,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 941.201,
+      "false_negative_count": 43,
+      "false_positive_count": 36,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 176,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022d_compressed_context_shadow/office_negative/legacy_abstention_guard_office_negative_2026-05-05_233620Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v022d_compressed_context_shadow",
+      "prompt_sha256": "5299d1ed3a0d613400601f7e86cdc449cdaa9a2cd8befbb1fdcac156476158ed",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/overlays/v022d_compressed_context_shadow.yaml",
+      "row_id": "qwen__v022d_compressed_context_shadow",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 79
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022e_v020c_dense_guard_sentence/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-05_235329Z/upstream_openai_compat_manifest_run_summary.json",
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 4,
+          "match_count": 8,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 9,
+          "false_positive_count": 10,
+          "match_count": 2,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 7,
+          "false_positive_count": 3,
+          "match_count": 6,
+          "predicted_target_count": 9,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 1,
+          "match_count": 1,
+          "predicted_target_count": 2,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "elapsed_seconds": 937.649,
+      "false_negative_count": 47,
+      "false_positive_count": 34,
+      "image_count": 117,
+      "literal_99_target_met": false,
+      "match_count": 172,
+      "missing_outputs": [],
+      "model": "qwen3-vl:8b-instruct",
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/runs/v022e_v020c_dense_guard_sentence/office_negative/legacy_abstention_guard_office_negative_2026-05-05_235323Z/upstream_openai_compat_manifest_run_summary.json",
+      "openai_base_url": "http://localhost:11434/v1",
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_id": "v022e_v020c_dense_guard_sentence",
+      "prompt_sha256": "c4c29827923d88145b888b0201306a8286a3574bfa3ab71e790c28a83aab3ca0",
+      "prompt_source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/overlays/v022e_v020c_dense_guard_sentence.yaml",
+      "row_id": "qwen__v022e_v020c_dense_guard_sentence",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint",
+      "total_error_count": 81
+    }
+  ],
+  "scope_boundary": {
+    "adopted_prompt_change": false,
+    "adopted_runtime_change": false,
+    "commit_or_push": false,
+    "doctrine_changed": false,
+    "source_truth_changed": false
+  },
+  "source_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v022_literal99_qwen_recursive_prompt_refinement_cycle/source_manifest.json",
+  "verdict": "prompt_only_plateau_no_v022_promotion"
+}

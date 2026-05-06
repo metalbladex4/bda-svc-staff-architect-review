@@ -1,0 +1,61 @@
+{
+  "excluded_actions": [
+    "runtime_code_change",
+    "runtime_config_adoption",
+    "source_truth_mutation",
+    "reference_json_mutation",
+    "new_vlm_inference",
+    "dev_split",
+    "holdout",
+    "all_112",
+    "promotion",
+    "graphify_refresh",
+    "evidence_rebuild",
+    "mem0_update"
+  ],
+  "generated_utc": "2026-04-29T22:09:25.475083+00:00",
+  "package": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_structural_output_guard_plan",
+  "scope": "design_only_structural_guard_plan",
+  "source_artifacts": [
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/v015d_gate_check_summary.json",
+      "type": "v015d_gate_summary",
+      "use": "final prompt-only failure signal and case 101 diagnostic"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/README.md",
+      "type": "v015d_run_readme",
+      "use": "final prompt-only stop outcome"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015abc_hinge_synthesis_v015d_decision/failure_pattern_synthesis.md",
+      "type": "v015abc_synthesis",
+      "use": "persistent row-fragment and broad-box failure pattern"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015abc_hinge_synthesis_v015d_decision/hinge_comparison.json",
+      "type": "v015abc_comparison",
+      "use": "candidate comparison across v015a/v015b/v015c"
+    },
+    {
+      "path": "src/bda_svc/pipeline/detectors.py",
+      "type": "detector_backend_source",
+      "use": "future raw detection output location after VLM JSON parsing"
+    },
+    {
+      "path": "src/bda_svc/pipeline/model.py",
+      "type": "pipeline_source",
+      "use": "future insertion options before crops/assessment/consolidation"
+    },
+    {
+      "path": "src/bda_svc/pipeline/interfaces.py",
+      "type": "detection_interface",
+      "use": "Detection object shape for future guard input/output"
+    },
+    {
+      "path": "bda_eval/models.py",
+      "type": "eval_source",
+      "use": "evaluation report/bbox parsing and target metrics context"
+    }
+  ]
+}

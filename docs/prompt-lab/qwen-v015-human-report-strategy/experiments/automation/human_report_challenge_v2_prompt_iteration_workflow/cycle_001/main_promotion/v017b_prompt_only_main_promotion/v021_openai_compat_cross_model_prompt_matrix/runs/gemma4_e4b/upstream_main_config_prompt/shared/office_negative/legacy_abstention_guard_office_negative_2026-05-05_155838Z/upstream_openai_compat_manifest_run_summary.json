@@ -1,0 +1,36 @@
+{
+  "commands": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "bda-svc",
+        "-i",
+        "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg",
+        "-o",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/upstream_main_config_prompt/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_155838Z/predicted"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__upstream_main_config_prompt__shared_20260505_155838Z",
+      "elapsed_seconds": 6.6,
+      "returncode": 0,
+      "stderr_tail": "Using CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__upstream_main_config_prompt__shared_20260505_155838Z\n      Built bda-svc @ file:///home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__upstream_main_config_prompt__shared_20260505_155838Z\nInstalled 74 packages in 173ms\n",
+      "stdout_tail": "[*] Input source set to /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg\n\nProcessing: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg\n--------------------------------------------------------------------------------\n[!] Failed to process /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg: Error code: 500 - {'error': {'message': 'unable to load model: /home/williambenitez1/.ollama-gemma4-models/blobs/sha256-4c27e0f5b5adf02ac956c7322bd2ee7636fe3f45a8512c9aba5385242cb6e09a', 'type': 'api_error', 'param': None, 'code': None}}\n"
+    }
+  ],
+  "elapsed_seconds": 6.6,
+  "eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/upstream_main_config_prompt/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_155838Z/eval",
+  "evaluation_summary": null,
+  "generated_utc": "2026-05-05T15:58:44.671992+00:00",
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "missing_outputs": [
+    "office_negative.jpg"
+  ],
+  "model": "gemma4:e4b",
+  "openai_base_url": "http://localhost:11435/v1",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/upstream_main_config_prompt/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_155838Z/predicted",
+  "row_id": "gemma4_e4b__upstream_main_config_prompt__shared",
+  "scratch_worktree": "/home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__upstream_main_config_prompt__shared_20260505_155838Z",
+  "server_kind": "ollama_openai_compatible_endpoint",
+  "succeeded": false,
+  "summary_path": null
+}

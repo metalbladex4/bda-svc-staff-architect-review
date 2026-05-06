@@ -1,0 +1,83 @@
+overlay_id: "qwen-1.2-v015a-detect-recall-recovery"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Human-report-informed Qwen v015a detect-only candidate. This overlay
+  starts from the v014 precision-guard posture, but loosens the
+  over-abstention pattern by requiring explicit enumeration of every
+  clearly visible distinct doctrinal target before suppression rules are
+  applied.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      TARGET ENUMERATION FIRST
+      - Before boxing, identify every clearly visible distinct target that matches the requested doctrinal target types.
+      - Do not stop after the first obvious target when additional valid targets are visibly distinct.
+      - A target can be valid even when it is smaller, farther away, partly occluded, or not the dominant scene-central object, if enough of the target body is visible to box it.
+      - For dense rows, convoys, groups, or multiple damaged structures, continue scanning across the scene until all clearly visible valid targets are accounted for.
+      - Suppression rules apply only after this target-enumeration pass.
+
+      BUILDING TARGET SELECTION
+      - For buildings, count each clearly distinct exterior building body or clearly distinct collapsed exterior structural remain.
+      - Do not require a separate building to be the single dominant damaged structure if it is still a visible doctrinal building target.
+      - Do not split one continuous building, attached wing, shared facade, side wall, or rubble edge into multiple boxes.
+      - Do not treat indoor rooms, office interiors, cubicles, partitions, furniture, interior walls, ceiling tiles, or ordinary room contents as doctrinal building targets.
+      - If the image is primarily an indoor scene and no visible exterior building structure or collapsed exterior structural remains are present, do not detect a building target.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - For military equipment, count each clearly visible distinct equipment body.
+      - Small or distant equipment may be detected when its visible body is sufficiently clear to box.
+      - Do not invent equipment from smoke, dust, muzzle flash, tracks, roads, shadows, debris, or ambiguous background fragments.
+
+      RULES
+      - First identify all valid targets using the target-type specific detection guidance below.
+      - Then produce exactly one bounding box per valid target.
+      - The number of detections must match the number of valid targets identified.
+      - If multiple valid targets are visibly distinct, output multiple detections. Do not merge neighboring targets into one box.
+      - If no valid targets are visible, return {"detections": []}.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box the visible connected man-made body or structure of each target only.
+      - Use fire, smoke, muzzle flash, or debris only to help locate the target, not to define the box boundary.
+      - If smoke, flame, or dust hides part of a target, keep the box on the visible connected target body that remains.
+      - If two targets are visibly separate, even with nearby debris or overlap in the scene, return separate boxes.
+      - On intact or operational targets, box the visible target body only when the doctrinal target itself is clearly visible. Do not widen the detection prior from scene context alone.
+      - Do not box the smoke plume, flame column, muzzle flash, debris field between targets, rail bed, road, shadow, empty ground, or background context.
+
+      OUTPUT DISCIPLINE
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or artillery piece.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v015a_recall_recovery"
+      parent_version: "v014"
+      overlay_role: "human_report_recall_recovery"
+      phase: "v015_human_report_dev"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"

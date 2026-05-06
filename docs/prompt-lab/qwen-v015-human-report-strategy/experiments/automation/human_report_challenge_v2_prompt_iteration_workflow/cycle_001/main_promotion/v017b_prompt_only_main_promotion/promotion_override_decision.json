@@ -1,0 +1,53 @@
+{
+  "decision_id": "v017b_prompt_only_main_promotion_semantic_override",
+  "status": "accepted_for_prompt_only_main_promotion",
+  "date": "2026-05-03",
+  "candidate": "v017b_group_box_rejection",
+  "main_prompt_hash": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+  "raw_gate": {
+    "manifest": "human_report_challenge_v2_all_current_117_no101",
+    "image_count": 117,
+    "match_count": 165,
+    "false_negative_count": 54,
+    "false_positive_count": 22,
+    "false_positive_cap": 21,
+    "raw_status": "fail_by_1_fp"
+  },
+  "semantic_override": {
+    "accepted": true,
+    "case_id": "125",
+    "reason": "object_not_found placeholder on a positive case is a real recall miss already counted as a false negative, not an additional target hallucination for promotion-cap purposes",
+    "effective_extra_target_false_positive_count": 21,
+    "effective_status": "passes_false_positive_cap"
+  },
+  "controls": {
+    "case_155": "pass",
+    "case_166": "pass",
+    "office_negative_abstention": "pass",
+    "case_101": "excluded_from_forward_evaluation"
+  },
+  "follow_up_caveat": {
+    "case_id": "67",
+    "match_count": 1,
+    "false_negative_count": 10,
+    "false_positive_count": 10,
+    "classification": "dense_formation_smoke_dust_row_anchor_failure",
+    "promotion_blocker": false
+  },
+  "authorized_main_change": {
+    "path": "/home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml",
+    "field": "prompts.detect_objects",
+    "change_type": "prompt_text_only"
+  },
+  "not_authorized": [
+    "source_report_mutation",
+    "reference_truth_mutation",
+    "additional_prompt_authoring",
+    "holdout_expansion",
+    "graphify_refresh",
+    "mem0_write",
+    "mcp_config_edit",
+    "hook_edit",
+    "remote_push"
+  ]
+}

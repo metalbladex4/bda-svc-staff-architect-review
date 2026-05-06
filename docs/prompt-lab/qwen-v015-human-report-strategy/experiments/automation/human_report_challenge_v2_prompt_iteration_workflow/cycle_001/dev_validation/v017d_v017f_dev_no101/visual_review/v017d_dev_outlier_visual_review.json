@@ -1,0 +1,166 @@
+{
+  "review_id": "v017d_dev_outlier_visual_review",
+  "created_at": "2026-05-03",
+  "candidate": "v017d_visual_anchor_lock",
+  "split": "human_report_challenge_v2_dev_55_no101",
+  "mode": "visual_review_only",
+  "aggregate_metrics": {
+    "matches": 72,
+    "false_negatives": 34,
+    "false_positives": 16,
+    "positive_control_155_matches": 2
+  },
+  "error_accounting": {
+    "total_error_units": 50,
+    "reviewed_error_units": 38,
+    "dense_formation_case_error_units": 33,
+    "dense_formation_case_ids": [
+      "67",
+      "84",
+      "66"
+    ]
+  },
+  "case_reviews": [
+    {
+      "case_id": "67",
+      "matches": 1,
+      "false_negatives": 10,
+      "false_positives": 8,
+      "predicted_targets": 9,
+      "reference_targets": 11,
+      "visual_labels": [
+        "dense_formation_anchor_drift",
+        "row_spacing_scale_error",
+        "partial_recall_with_bad_alignment"
+      ],
+      "visual_summary": "Dense receding military-equipment formation. Predictions recognize the row but drift above or across vehicles, causing both many missed references and many unsupported boxes.",
+      "prompt_implication": "Target dense-formation anchor discipline rather than generic recall loosening."
+    },
+    {
+      "case_id": "84",
+      "matches": 5,
+      "false_negatives": 8,
+      "false_positives": 1,
+      "predicted_targets": 6,
+      "reference_targets": 13,
+      "visual_labels": [
+        "broad_row_span_boxing",
+        "formation_grouping",
+        "individual_target_undersegmentation"
+      ],
+      "visual_summary": "The model identifies the vehicle formation but produces broad row/span boxes instead of clean boxes around separate visible bodies.",
+      "prompt_implication": "Final boxes must wrap one visibly separate target body, not a visual row."
+    },
+    {
+      "case_id": "66",
+      "matches": 8,
+      "false_negatives": 0,
+      "false_positives": 6,
+      "predicted_targets": 14,
+      "reference_targets": 8,
+      "visual_labels": [
+        "dense_row_over_enumeration",
+        "precision_regression_after_good_recall",
+        "extra_distant_candidates"
+      ],
+      "visual_summary": "Recall is strong, but the candidate emits extra row candidates beyond the eight references.",
+      "prompt_implication": "Preserve the recall behavior while adding a final unsupported-extra self-filter for repeated rows."
+    },
+    {
+      "case_id": "100",
+      "matches": 1,
+      "false_negatives": 2,
+      "false_positives": 0,
+      "predicted_targets": 1,
+      "reference_targets": 3,
+      "visual_labels": [
+        "building_merge_undersegmentation",
+        "multi_building_recall_failure",
+        "dominant_structure_selection"
+      ],
+      "visual_summary": "The model chooses one dominant damaged building/complex while the reference expects three separate building targets.",
+      "prompt_implication": "Preserve separate-building recall, but treat this as secondary to dense military-equipment failures."
+    },
+    {
+      "case_id": "147",
+      "matches": 1,
+      "false_negatives": 2,
+      "false_positives": 0,
+      "predicted_targets": 1,
+      "reference_targets": 3,
+      "visual_labels": [
+        "dominant_foreground_target_suppression",
+        "background_building_recall_failure",
+        "secondary_target_omission"
+      ],
+      "visual_summary": "The foreground tank is detected, but two small background buildings are missed.",
+      "prompt_implication": "Keep secondary visible targets in scope without reopening broad group or row-placeholder boxes."
+    },
+    {
+      "case_id": "103",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "predicted_targets": 2,
+      "reference_targets": 1,
+      "visual_labels": [
+        "duplicate_building_complex_prediction",
+        "broad_overlap_precision_issue",
+        "reference_shape_caveat"
+      ],
+      "visual_summary": "One broad building/complex reference is matched, with one extra overlapping/broad prediction.",
+      "prompt_implication": "Retain duplicate/overlap suppression for building complexes."
+    },
+    {
+      "case_id": "155",
+      "matches": 2,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "predicted_targets": 2,
+      "reference_targets": 2,
+      "visual_labels": [
+        "positive_control_preserved",
+        "corrected_source_update_respected"
+      ],
+      "visual_summary": "The corrected positive-control case is handled cleanly with two matches and no false positives or false negatives.",
+      "prompt_implication": "Do not restore old protected-negative semantics for 155."
+    },
+    {
+      "case_id": "97",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "predicted_targets": 1,
+      "reference_targets": 1,
+      "visual_labels": [
+        "numeric_pass",
+        "broad_reference_shape_caveat",
+        "not_broad_box_safety_evidence"
+      ],
+      "visual_summary": "The case passes, but the reference and prediction are both broad scene-scale building/alley boxes.",
+      "prompt_implication": "Do not use this pass to justify broad box relaxation."
+    }
+  ],
+  "synthesis": {
+    "primary_failure_pattern": "dense_formation_anchor_discipline",
+    "secondary_failure_pattern": "building_or_background_undersegmentation",
+    "candidate_status": "v017d_remains_primary_but_needs_visual_risk_review_before_holdout",
+    "recommended_next_moves": [
+      "focused_v017d_vs_v017f_visual_comparison_on_66_67_84",
+      "or_next_prompt_axis_for_dense_formation_anchor_discipline_and_unsupported_row_self_filter"
+    ],
+    "not_recommended": [
+      "promotion_from_aggregate_metrics_alone",
+      "holdout_without_dense_row_risk_review",
+      "reintroducing_101_into_forward_scoring"
+    ]
+  },
+  "no_side_effects": {
+    "new_inference": false,
+    "reference_mutation": false,
+    "source_truth_mutation": false,
+    "prompt_authoring": false,
+    "runtime_config_change": false,
+    "promotion": false
+  }
+}

@@ -1,0 +1,52 @@
+candidate_id: v024m_v024l_bda_salience_gate
+title: v024m v024l BDA salience gate
+generated_from:
+  - v024l_v023s_no_wheel_track_ablation
+  - v024l_case_diff_review
+hypothesis: >
+  v024l preserves multi-target recall and dense case 67, but adds sparse false
+  positives by boxing intact/background buildings. Add a BDA-specific salience
+  gate: visible military equipment remains reportable, while buildings should
+  be boxed when damaged, primary, or battle-relevant rather than merely visible
+  background structures.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      BDA SALIENCE GATE
+      This is battle damage assessment, not a generic scene inventory. Visible military equipment is reportable when its own body is visible. For buildings, prefer damaged, primary, foreground, or battle-relevant exterior structures. Do not add intact background buildings, campus wings, distant roof sections, facade tiles, or scene-setting structures merely because they are visible.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

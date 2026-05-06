@@ -1,0 +1,39 @@
+{
+  "package_id": "v017d_v017f_dense_formation_visual_comparison",
+  "created_at": "2026-05-03",
+  "mode": "visual_comparison_only",
+  "split": "human_report_challenge_v2_dev_55_no101",
+  "candidate_roles": {
+    "v017d_visual_anchor_lock": "primary_balanced_candidate",
+    "v017f_compact_visual_anchor_balance": "recall_comparator"
+  },
+  "cases": [
+    "66",
+    "67",
+    "84"
+  ],
+  "source_artifacts": {
+    "dev_validation_decision_packet_md": "../../dev_validation_decision_packet.md",
+    "dev_validation_decision_packet_json": "../../dev_validation_decision_packet.json",
+    "v017d_evaluation_summary": "../../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/eval/evaluation_2026-05-03_063836Z_summary.json",
+    "v017f_evaluation_summary": "../../runs/v017f_compact_visual_anchor_balance/human_report_challenge_v2_dev_55_no101_2026-05-03_063851Z/eval/evaluation_2026-05-03_064512Z_summary.json",
+    "v017d_bbox_review_images": "../../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/eval/images_bbox_review/",
+    "v017f_bbox_review_images": "../../runs/v017f_compact_visual_anchor_balance/human_report_challenge_v2_dev_55_no101_2026-05-03_063851Z/eval/images_bbox_review/"
+  },
+  "selection_reason": "Cases 66, 67, and 84 account for 33 of 50 v017d dev error units and represent the dense-formation failure surface.",
+  "forbidden_mutations": [
+    "source_human_reports",
+    "source_images",
+    "reference_truth",
+    "evaluation_outputs",
+    "prompt_overlays",
+    "runner_sessions",
+    "runtime_config",
+    "promotion_artifacts"
+  ],
+  "new_inference_run": false,
+  "source_truth_mutated": false,
+  "reference_truth_mutated": false,
+  "prompt_authored": false,
+  "candidate_promoted": false
+}

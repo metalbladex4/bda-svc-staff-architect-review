@@ -1,28 +1,45 @@
+# Branch State Manifest
 
-    # Branch State Manifest
+This manifest records the branch/worktree state mirrored into this review repo.
 
-    This manifest records the local branch/worktree line that was mirrored into this
-    private review repo.
+## 2026-05-06 Refresh
 
-    ## Branch Map
+This snapshot is intended for ChatGPT 5.5 Pro / Deep Research collaboration on
+the prompt-engineering workflow.
 
-    | Branch | Base Commit | Source Workspace | Dirty Tracked Files Captured |
-    | --- | --- | --- | --- |
-    | `main` | `e7a22a9` | `/home/williambenitez1/Capstone` | none |
-| `model/qwen3-vl-8b-instruct` | `bf12f40` | `/home/williambenitez1/Capstone_worktrees/1_model__qwen3-vl-8b-instruct` | none |
-| `feat/qwen3-vl-8b-instruct/two-pass-refinement` | `6ab67d6` | `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement` | src/bda_svc/pipeline/config.yaml |
-| `feat/qwen3-vl-8b-instruct/doctrine-bda-alignment` | `6ab67d6` | `/home/williambenitez1/Capstone_worktrees/1.3_feat__qwen3-vl-8b-instruct__doctrine-bda-alignment` | src/bda_svc/pipeline/config.yaml, src/bda_svc/pipeline/doctrine.yaml |
-| `model/gemma4-e4b` | `9ae27e9` | `/home/williambenitez1/Capstone_worktrees/3_model__gemma4-e4b` | none |
-| `feat/gemma4-e4b/qwen-v009-workflow-bootstrap` | `9ae27e9` | `/home/williambenitez1/Capstone_worktrees/3.1_feat__gemma4-e4b__qwen-v009-workflow-bootstrap` | src/bda_svc/pipeline/config.yaml, src/bda_svc/pipeline/model.py |
-| `feat/gemma4-e4b/doctrine-bda-alignment` | `9ae27e9` | `/home/williambenitez1/Capstone_worktrees/3.2_feat__gemma4-e4b__doctrine-bda-alignment` | src/bda_svc/pipeline/doctrine.yaml |
+Current review surface:
 
-    ## Notes
+| Surface | Source | Captured State |
+| --- | --- | --- |
+| Runtime code baseline | `cmu-bda/bda-svc upstream/main` | `f462ef4516b63ca1a2cd2434e75692f65d0e94cb` merged into this review repo |
+| Promoted config prompt | local branch `feat/config-prompt-improved-v1` | `src/bda_svc/pipeline/config.yaml` copied from local commit `9f1079daee9d50957048860e692e6a624befe230` |
+| Primary local docs | `/home/williambenitez1/Capstone/z_reference_docs/` | refreshed selected living docs and `GPT-Pro_collab/` dossier |
+| Qwen prompt-lab evidence | `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/` | copied curated text/summary artifacts under `docs/prompt-lab/` |
 
-    - Every mirrored branch carries the same review-context payload so the reviewer can
-      orient themselves without relying on default-branch behavior.
-    - `z_reference_docs/` was copied from `/home/williambenitez1/Capstone/z_reference_docs`
-      onto every branch because that tree is the shared local evidence and routing hub.
-    - The active Qwen local resume point at snapshot time remained the dirty
-      `feat/qwen3-vl-8b-instruct/doctrine-bda-alignment` worktree.
-    - The public repositories remained unchanged; this private repo is the separate
-      review surface.
+## Current Prompt State
+
+- `v020c_extra_box_audit` / `v020c_anchor_replay` remains the Qwen incumbent:
+  `186` matches, `33` false negatives, `25` false positives, with `155`,
+  `166`, and office-negative passing.
+- `v024l_v023s_no_wheel_track_ablation` is high-recall learning evidence:
+  `188/31/35`, controls passing, but too many false positives to replace
+  `v020c`.
+- `v024o_v024l_intact_building_piece_exclusion` was interrupted and is
+  unscored.
+
+## Review Scope Notes
+
+- This repo is a review snapshot, not the active development repo.
+- The primary handoff for the current collaboration is:
+  `z_reference_docs/GPT-Pro_collab/chatgpt_5_5_pro_prompt_engineering_handoff.md`.
+- The copied prompt-lab tree intentionally omits raw image overlays and predicted
+  dumps where possible; it preserves decision packets, prompt overlays, run
+  summaries, comparison matrices, and diagnoses needed for review.
+- Normal development should continue in `/home/williambenitez1/Capstone` and
+  `/home/williambenitez1/Capstone_worktrees/`, not in this review repo.
+
+## Visibility Caveat
+
+GitHub currently reports this repository as `PUBLIC`. Treat every file in this
+snapshot as sanitized review material. Do not add raw credentials, private local
+state, raw Codex auth/session files, or unreviewed secret-bearing artifacts.

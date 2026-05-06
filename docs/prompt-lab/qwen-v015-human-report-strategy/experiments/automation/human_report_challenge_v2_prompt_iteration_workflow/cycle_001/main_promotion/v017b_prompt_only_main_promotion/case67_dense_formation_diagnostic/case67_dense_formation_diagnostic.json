@@ -1,0 +1,229 @@
+{
+  "artifact": "case67_dense_formation_diagnostic",
+  "generated_at_utc": "2026-05-03T23:57:07Z",
+  "status": "diagnostic_complete",
+  "case_id": 67,
+  "challenge_lane": "human_report_challenge_v2",
+  "split": "human_report_challenge_v2_dev_55_no101",
+  "question": "Should case 67 change the v017b promotion recommendation or trigger another immediate prompt attempt?",
+  "answer": "No immediate candidate switch is justified. Case 67 is a real remaining limitation, but it is not v017b-specific and all compared prompt families fail recall on the same surface.",
+  "source_truth_summary": {
+    "target_count": 11,
+    "target_type": "military_equipment",
+    "damage": "no_damage",
+    "confidence_counts": {
+      "possible": 7,
+      "probable": 2,
+      "confirmed": 2
+    },
+    "tiny_reference_pressure": true,
+    "reference_boxes": [
+      {
+        "target": "target_1",
+        "confidence": "possible",
+        "box": [90, 172, 109, 185],
+        "width": 19,
+        "height": 13,
+        "area": 247
+      },
+      {
+        "target": "target_2",
+        "confidence": "possible",
+        "box": [131, 173, 146, 190],
+        "width": 15,
+        "height": 17,
+        "area": 255
+      },
+      {
+        "target": "target_3",
+        "confidence": "possible",
+        "box": [150, 179, 162, 192],
+        "width": 12,
+        "height": 13,
+        "area": 156
+      },
+      {
+        "target": "target_4",
+        "confidence": "possible",
+        "box": [167, 180, 181, 197],
+        "width": 14,
+        "height": 17,
+        "area": 238
+      },
+      {
+        "target": "target_5",
+        "confidence": "possible",
+        "box": [185, 184, 201, 200],
+        "width": 16,
+        "height": 16,
+        "area": 256
+      },
+      {
+        "target": "target_6",
+        "confidence": "possible",
+        "box": [204, 186, 226, 202],
+        "width": 22,
+        "height": 16,
+        "area": 352
+      },
+      {
+        "target": "target_7",
+        "confidence": "possible",
+        "box": [230, 188, 255, 210],
+        "width": 25,
+        "height": 22,
+        "area": 550
+      },
+      {
+        "target": "target_8",
+        "confidence": "probable",
+        "box": [256, 192, 286, 217],
+        "width": 30,
+        "height": 25,
+        "area": 750
+      },
+      {
+        "target": "target_9",
+        "confidence": "probable",
+        "box": [315, 198, 351, 224],
+        "width": 36,
+        "height": 26,
+        "area": 936
+      },
+      {
+        "target": "target_10",
+        "confidence": "confirmed",
+        "box": [424, 212, 490, 251],
+        "width": 66,
+        "height": 39,
+        "area": 2574
+      },
+      {
+        "target": "target_11",
+        "confidence": "confirmed",
+        "box": [630, 235, 780, 330],
+        "width": 150,
+        "height": 95,
+        "area": 14250
+      }
+    ]
+  },
+  "same_image_candidate_metrics": {
+    "v009_control_baseline": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 12,
+      "prediction_count": 13
+    },
+    "v014_weighted_building_selection": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 8,
+      "prediction_count": 9
+    },
+    "v015e_individual_body_evidence": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 10,
+      "prediction_count": 11
+    },
+    "v016a_reference_aware_candidate_discovery": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 9,
+      "prediction_count": 10
+    },
+    "v017a_broad_group_box_lock": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 9,
+      "prediction_count": 10
+    },
+    "v017b_group_box_rejection": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 9,
+      "prediction_count": 10,
+      "matched_reference": "target_11",
+      "matched_prediction": "target_9",
+      "matched_iou": 0.434,
+      "matched_center_error_px": 41.11,
+      "matched_predicted_area_ratio": 0.677,
+      "matched_overlap_coverage": 0.508
+    },
+    "v017c_count_then_anchor": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 9,
+      "prediction_count": 10
+    },
+    "v017d_visual_anchor_lock": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 8,
+      "prediction_count": 9,
+      "matched_reference": "target_11",
+      "matched_prediction": "target_8",
+      "matched_iou": 0.396,
+      "matched_center_error_px": 42.953,
+      "matched_predicted_area_ratio": 0.657,
+      "matched_overlap_coverage": 0.47
+    },
+    "v017e_anti_span_guard": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 10,
+      "prediction_count": 11
+    },
+    "v017f_compact_visual_anchor_balance": {
+      "true_positives": 1,
+      "false_negatives": 10,
+      "false_positives": 9,
+      "prediction_count": 10,
+      "matched_reference": "target_11",
+      "matched_prediction": "target_9",
+      "matched_iou": 0.434,
+      "matched_center_error_px": 41.11,
+      "matched_predicted_area_ratio": 0.677,
+      "matched_overlap_coverage": 0.508
+    }
+  },
+  "diagnostic_labels": [
+    "dense_formation_anchor_failure",
+    "perspective_row_target_failure",
+    "smoke_dust_top_edge_anchor_failure",
+    "tiny_possible_reference_pressure",
+    "not_v017b_specific_regression",
+    "not_case101_broad_group_box_failure",
+    "known_prompt_only_limitation"
+  ],
+  "root_cause_hypothesis": "The prompt families can perceive a row of military equipment but anchor many predictions on dust, plume, rowline, or top-edge cues instead of visible vehicle body centers. The current v2 reference shape also creates high recall pressure because seven of the eleven targets are tiny possible references.",
+  "decision_impact": {
+    "reopen_v017b_promotion_recommendation": false,
+    "replace_v017b_with_v017d": false,
+    "treat_case67_as_known_limitation": true,
+    "requires_new_prompt_now": false
+  },
+  "future_prompt_axis_if_approved": {
+    "name": "dense_formation_body_center_anchor_under_smoke_dust_perspective",
+    "constraints_only": true,
+    "author_prompt_text_now": false,
+    "constraints": [
+      "Require boxes to cover visible target body evidence, not only dust, plume, shadow, sky, or rowline cues.",
+      "Reject evenly spaced placeholder boxes unless each has visible body support.",
+      "Prefer body-center and ground-contact anchoring for receding rows.",
+      "Keep broad group boxes and row-span boxes rejected.",
+      "Preserve separate-body recall for clearly visible targets.",
+      "Do not add case-specific examples or raw report text."
+    ]
+  },
+  "mutations_performed": {
+    "prompt_authored": false,
+    "vlm_inference_run": false,
+    "source_truth_changed": false,
+    "reference_truth_changed": false,
+    "runtime_config_changed": false,
+    "commit_created": false,
+    "remote_push": false
+  }
+}

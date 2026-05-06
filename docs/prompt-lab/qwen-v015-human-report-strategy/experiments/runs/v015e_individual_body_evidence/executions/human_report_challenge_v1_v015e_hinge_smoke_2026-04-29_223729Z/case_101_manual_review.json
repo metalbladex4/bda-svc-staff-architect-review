@@ -1,0 +1,62 @@
+{
+  "case_id": "101",
+  "candidate": "v015e_individual_body_evidence",
+  "status": "review_complete_dev_requires_separate_approval",
+  "review_type": "manual_visual_and_artifact_review",
+  "source_artifacts_reviewed": [
+    "candidate_manifest_run_summary.json",
+    "v015e_gate_check_summary.json",
+    "predicted/101_2026-04-29_223740Z.json",
+    "eval/images_bbox_review/bbox_review_101.jpg",
+    "eval/images_bbox_predicted/bbox_101.jpg",
+    "eval/images_bbox_reference/bbox_101.jpg",
+    "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/101.json"
+  ],
+  "metrics": {
+    "aggregate_hinge": {
+      "matches": 10,
+      "false_negatives": 13,
+      "false_positives": 0,
+      "standard_gate_passed": true
+    },
+    "case_101": {
+      "matches": 1,
+      "false_negatives": 11,
+      "false_positives": 0,
+      "predicted_targets": 1,
+      "reference_targets": 12
+    }
+  },
+  "prediction_review": {
+    "predicted_bbox": [75, 13, 1000, 571],
+    "row_fragment_enumeration_present": false,
+    "row_fragment_enumeration_suppressed": true,
+    "broad_group_or_scene_box_present": true,
+    "individual_body_detection_success": false,
+    "visual_assessment": "The single prediction spans most of the image width and height and includes sky, terrain, foreground tank, background vehicles, and context. It is not a tight individual-body detection."
+  },
+  "reference_shape_caveats": {
+    "large_foreground_reference_target": {
+      "label": "target_1",
+      "bbox": [87, 151, 996, 534],
+      "note": "Large reference box can make an oversized prediction look numerically better than it looks visually."
+    },
+    "duplicate_reference_boxes": [
+      {
+        "labels": ["target_7", "target_8"],
+        "bbox": [531, 131, 568, 170]
+      }
+    ]
+  },
+  "decision": {
+    "strict_two_tier_gate_passed": false,
+    "dev_run_recommendation": "blocked_without_explicit_human_override",
+    "rationale": "v015e has the strongest prompt-only aggregate hinge signal so far, but case 101 remains a broad-box manual-review failure.",
+    "if_dev_later_approved": [
+      "Treat v015e as learning evidence only, not promotion.",
+      "Keep case 101 as a known manual-review failure.",
+      "Run dev only to test whether aggregate prompt signal generalizes.",
+      "Do not run holdout, all-112, runtime adoption, or promotion without separate approval."
+    ]
+  }
+}

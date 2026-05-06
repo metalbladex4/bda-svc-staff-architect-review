@@ -1,0 +1,48 @@
+candidate_id: v024i_v023s_body_mass_only
+title: v024i v023s body mass only
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v024h_v020c_dust_base_vehicle_body
+hypothesis: >
+  v023s preserves strong recall but overproduces extras. Instead of adding
+  cleanup language, subtract the broadest inclusion supports (wheel/track
+  contact, generic silhouette, wall/roof boundary wording) while preserving the
+  concise native structure.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, vehicle hull/chassis/roofline, or exterior building structure is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

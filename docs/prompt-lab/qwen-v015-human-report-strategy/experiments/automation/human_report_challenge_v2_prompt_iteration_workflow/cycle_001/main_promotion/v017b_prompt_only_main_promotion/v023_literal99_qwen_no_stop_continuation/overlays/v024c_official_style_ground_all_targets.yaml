@@ -1,0 +1,48 @@
+candidate_id: v024c_official_style_ground_all_targets
+title: v024c official style ground all targets
+generated_from:
+  - v020c_anchor_replay
+  - v023s_qwen_native_conservative_json
+  - qwen_grounding_examples
+hypothesis: >
+  Qwen-family grounding examples favor terse direct prompts. Test a compact
+  "ground all visible targets" formulation that keeps only the project schema,
+  category guidance, dense enumeration, and context-only exclusions.
+overrides:
+  prompts:
+    detect_objects: |
+      Locate every visible BDA target in the image and return its bounding box in JSON.
+
+      Valid target_type values:
+      {categories}
+
+      Ground each distinct visible target body, wreck body, vehicle hull/chassis, roofline, exterior wall/roof structure, or silhouette as one tight box.
+
+      In rows, convoys, and crowded clusters, return one tight box for each distinct visible target body. Do not return one broad row, convoy, group, or scene box.
+
+      Do not box smoke, dust, flame, shadow, blast marks, roads, terrain, tracks, debris-only patches, empty gaps, repeated spacing, duplicate fragments, or context cues without a visible target body.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

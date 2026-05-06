@@ -1,0 +1,97 @@
+{
+  "backend_contract": "OpenAI Chat Completions client controlled by OPENAI_BASE_URL",
+  "backend_source": "upstream/main:src/bda_svc/pipeline/interfaces.py",
+  "endpoint_checks": {
+    "gemma4_e4b": {
+      "model": "gemma4:e4b",
+      "model_ids": [
+        "gemma4:e4b"
+      ],
+      "status": "available",
+      "url": "http://localhost:11435/v1/models"
+    },
+    "qwen3_vl_8b_instruct": {
+      "model": "qwen3-vl:8b-instruct",
+      "model_ids": [
+        "qwen3-vl:8b-instruct",
+        "qwen3-vl:8b-instruct-q8_0",
+        "qwen3-vl:8b"
+      ],
+      "status": "available",
+      "url": "http://localhost:11434/v1/models"
+    }
+  },
+  "fetch_upstream_main": {
+    "cmd": [
+      "git",
+      "fetch",
+      "upstream",
+      "main"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "elapsed_seconds": 0.222,
+    "returncode": 0,
+    "stderr_tail": "From https://github.com/cmu-bda/bda-svc\n * branch            main       -> FETCH_HEAD\n",
+    "stdout_tail": ""
+  },
+  "gemma_startup": {
+    "checks": [
+      {
+        "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+        "model": "gemma4:e4b",
+        "status": "unavailable",
+        "url": "http://localhost:11435/v1/models"
+      },
+      {
+        "model": "gemma4:e4b",
+        "model_ids": [
+          "gemma4:e4b"
+        ],
+        "status": "available",
+        "url": "http://localhost:11435/v1/models"
+      }
+    ],
+    "endpoint_check": {
+      "model": "gemma4:e4b",
+      "model_ids": [
+        "gemma4:e4b"
+      ],
+      "status": "available",
+      "url": "http://localhost:11435/v1/models"
+    },
+    "log_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/logs/gemma_ollama_11435.log",
+    "needed_start": true,
+    "ollama_binary": "/home/williambenitez1/.local/lib/ollama-local/bin/ollama",
+    "pid": 1679974,
+    "process_returncode": null,
+    "startup_env_keys": [
+      "OLLAMA_HOST",
+      "OLLAMA_MODELS"
+    ]
+  },
+  "generated_utc": "2026-05-05T16:03:51.960811+00:00",
+  "model_rows": {
+    "gemma4_e4b": {
+      "label": "Gemma 4 E4B",
+      "model": "gemma4:e4b",
+      "openai_api_key": "no-auth",
+      "openai_base_url": "http://localhost:11435/v1",
+      "server_kind": "ollama_openai_compatible_endpoint",
+      "startup": {
+        "OLLAMA_HOST": "127.0.0.1:11435",
+        "OLLAMA_MODELS": "/home/williambenitez1/.ollama-gemma4-models"
+      }
+    },
+    "qwen3_vl_8b_instruct": {
+      "label": "Qwen3-VL 8B Instruct",
+      "model": "qwen3-vl:8b-instruct",
+      "openai_api_key": "no-auth",
+      "openai_base_url": "http://localhost:11434/v1",
+      "server_kind": "ollama_openai_compatible_endpoint",
+      "startup": null
+    }
+  },
+  "upstream_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+  "upstream_config_sha256": "6389404387e2c1034f108d3d961cba144411bf8ffb11c9fda6fd7d51417fca36",
+  "upstream_doctrine_sha256": "bd83e50bd1b5cf369264f53db3d2fe58e46d7a032211db1a51ab6cbdb94b9813"
+}

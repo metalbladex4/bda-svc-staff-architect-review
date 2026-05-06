@@ -1,0 +1,37 @@
+hypothesis_id: "qwen-1.2-v015a-detect-recall-recovery"
+status: "hypothesis_only"
+lever_type: "detect_prompt_overlay"
+failure_class: "human_report_recall_loss_after_v014_precision_guard"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v015a-detect-recall-recovery"
+runner_session_id: "qwen-1.2-v015a-detect-recall-recovery-session-v1"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v015a_candidate_run"
+target_cases:
+  - "101"
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+validation_pack_ids:
+  - "human-report-challenge-v1-v015a-hinge-smoke"
+  - "human-report-challenge-v1-v015a-dev-56"
+expected_improvement: >
+  Recover valid target enumeration lost by v014 on human-report recall
+  cases while preserving v014-style false-positive suppression and
+  abstention behavior.
+known_regression_risks:
+  - "May reopen v009-style adjacent/background false positives."
+  - "May over-detect small distant equipment or ambiguous fragments."
+  - "May weaken v014 abstention behavior on protected out-of-scope controls."
+  - "May improve recall only by lowering precision below the accepted dev gate."
+stop_rule: >
+  Stop after the hinge-smoke run if case 155 breaks abstention safety,
+  false positives rebound visibly on precision guards, or case 101
+  shows no useful recall recovery. Run the full dev split only if the
+  hinge smoke is not obviously broken.
+author: "William Benitez"
+created_at: "2026-04-29T00:00:00-04:00"

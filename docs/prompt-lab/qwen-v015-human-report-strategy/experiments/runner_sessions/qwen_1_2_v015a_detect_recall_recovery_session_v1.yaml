@@ -1,0 +1,19 @@
+runner_session_id: "qwen-1.2-v015a-detect-recall-recovery-session-v1"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+control_overlay_paths: []
+candidate_overlay_paths:
+  - "../overlays/qwen_1_2_v015a_detect_recall_recovery.yaml"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v015a_candidate_run"
+validation_packs:
+  - pack_id: "human-report-challenge-v1-v015a-hinge-smoke"
+    manifest_path: "../validation/human_report_challenge_v1_hinge_smoke.yaml"
+    max_false_positive_count: 3
+    max_false_negative_count: 14
+  - pack_id: "human-report-challenge-v1-v015a-dev-56"
+    manifest_path: "../validation/human_report_challenge_v1_dev_56.yaml"
+    max_false_positive_count: 21
+    max_false_negative_count: 46
+stop_rule: "run_all_candidates"
+max_iterations: 1
+allowed_critique_mode: "manual_with_notes"

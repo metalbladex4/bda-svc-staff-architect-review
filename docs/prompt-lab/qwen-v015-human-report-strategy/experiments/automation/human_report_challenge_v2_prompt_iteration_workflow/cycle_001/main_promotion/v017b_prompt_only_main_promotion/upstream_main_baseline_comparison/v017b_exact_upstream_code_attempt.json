@@ -1,0 +1,75 @@
+{
+  "all_current_result": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "command_count": 118,
+    "eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/eval",
+    "false_negative_count": 53,
+    "false_positive_count": 26,
+    "image_count": 117,
+    "match_count": 166,
+    "missing_outputs": [],
+    "nonzero_command_count": 0,
+    "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/predicted",
+    "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/upstream_code_manifest_run_summary.json"
+  },
+  "attempt_id": "v017b_upstream_code_ollama_openai_compat",
+  "code_path": "current upstream/main bda-svc runtime code in isolated scratch worktree",
+  "comparison_notes": {
+    "vs_existing_v017b_local_qwen": {
+      "false_negative_count_delta": -1,
+      "false_positive_count_raw_delta": 4,
+      "match_count_delta": 1
+    },
+    "vs_upstream_prompt_controlled": {
+      "false_negative_count_delta": 3,
+      "false_positive_count_delta": 2,
+      "match_count_delta": -3
+    }
+  },
+  "generated_utc": "2026-05-04T18:39:07.691627+00:00",
+  "manifest": {
+    "case_101_present": false,
+    "case_155_present": true,
+    "case_166_present": true,
+    "image_count": 117,
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml"
+  },
+  "model_overrides": {
+    "BDA_ASSESSMENT_MODEL": "qwen3-vl:8b-instruct",
+    "BDA_DETECTION_MODEL": "qwen3-vl:8b-instruct"
+  },
+  "not_pure_upstream_server_reason": "The upstream OpenAI-compatible code path was used, but the backing server was Ollama rather than the default upstream localhost:8000/v1 endpoint.",
+  "office_negative_result": {
+    "command_count": 2,
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "image_count": 1,
+    "match_count": 1,
+    "missing_outputs": [],
+    "negative_scene_abstention_correct_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "nonzero_command_count": 0,
+    "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat_office_negative/legacy_abstention_guard_office_negative_2026-05-04_182132Z/upstream_code_manifest_run_summary.json"
+  },
+  "openai_api_key_label": "no-auth",
+  "openai_base_url": "http://localhost:11434/v1",
+  "scratch_config_change": "prompts.detect_objects replaced with accepted v017b prompt only",
+  "server_label": "ollama_openai_compatible_endpoint",
+  "status": "completed",
+  "upstream_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+  "v017b_prompt_sha256": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+  "verdict": "v017b_upstream_code_compat_passed_controls_but_not_raw_metric_winner"
+}

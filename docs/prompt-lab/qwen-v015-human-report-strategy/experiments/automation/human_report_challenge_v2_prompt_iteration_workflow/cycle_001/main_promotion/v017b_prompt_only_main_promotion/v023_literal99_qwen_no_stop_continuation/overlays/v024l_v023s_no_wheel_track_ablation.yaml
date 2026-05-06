@@ -1,0 +1,48 @@
+candidate_id: v024l_v023s_no_wheel_track_ablation
+title: v024l v023s no wheel track ablation
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v024j_v023s_no_silhouette_ablation
+  - v024k_v023s_no_wall_roof_boundary_ablation
+hypothesis: >
+  v024j and v024k showed that removing silhouette or wall/roof-boundary
+  destabilizes case 67. Complete the one-term isolation by removing only
+  wheel/track contact, preserving silhouette and exterior wall/roof boundary.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

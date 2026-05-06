@@ -1,0 +1,431 @@
+{
+  "candidate_id": "v018a_dense_formation_body_center_anchor",
+  "case_results": {
+    "155": {
+      "case_id": "155",
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "66": {
+      "case_id": "66",
+      "false_negative_count": 1,
+      "false_positive_count": 8,
+      "match_count": 7,
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 8,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 15,
+      "reference_target_count": 8
+    },
+    "67": {
+      "case_id": "67",
+      "false_negative_count": 10,
+      "false_positive_count": 10,
+      "match_count": 1,
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 10,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 11,
+      "reference_target_count": 11
+    },
+    "84": {
+      "case_id": "84",
+      "false_negative_count": 9,
+      "false_positive_count": 3,
+      "match_count": 4,
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 3,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 7,
+      "reference_target_count": 13
+    },
+    "office_negative": {
+      "case_id": "office_negative",
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "negative_scene_metrics": {
+        "abstention_correct": true,
+        "false_positive_count": 0,
+        "negative_scene": true,
+        "summary_consistency": true,
+        "unsupported_damage_claim": false
+      },
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    }
+  },
+  "checks": {
+    "false_negative_count_lt_25": true,
+    "false_positive_count_lte_21": true,
+    "match_count_gt_20": true,
+    "office_negative_abstention_passed": true,
+    "positive_155_passed": true
+  },
+  "classification": "failed_challenger_precision_rebound",
+  "comparison": {
+    "v017b_hinge12_minus101": {
+      "dense_cases": {
+        "155": {
+          "case_id": "155",
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 2,
+          "reference_target_count": 2
+        },
+        "66": {
+          "case_id": "66",
+          "false_negative_count": 0,
+          "false_positive_count": 4,
+          "match_count": 8,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 4,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "case_id": "67",
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 9,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "case_id": "84",
+          "false_negative_count": 8,
+          "false_positive_count": 0,
+          "match_count": 5,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "source_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017b/live_2026-05-03_032920Z/human_report_challenge_v2_hinge_12_2026-05-03_032920Z/candidate_manifest_run_summary.json",
+      "totals_no101": {
+        "false_negative_count": 22,
+        "false_positive_count": 13,
+        "match_count": 23,
+        "predicted_target_count": 36,
+        "reference_target_count": 45
+      }
+    },
+    "v017d_hinge11": {
+      "dense_cases": {
+        "155": {
+          "case_id": "155",
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 2,
+          "reference_target_count": 2
+        },
+        "66": {
+          "case_id": "66",
+          "false_negative_count": 1,
+          "false_positive_count": 3,
+          "match_count": 7,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 3,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 10,
+          "reference_target_count": 8
+        },
+        "67": {
+          "case_id": "67",
+          "false_negative_count": 10,
+          "false_positive_count": 8,
+          "match_count": 1,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 8,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 9,
+          "reference_target_count": 11
+        },
+        "84": {
+          "case_id": "84",
+          "false_negative_count": 8,
+          "false_positive_count": 2,
+          "match_count": 5,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 2,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        }
+      },
+      "source_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017d/live_2026-05-03_042808Z/human_report_challenge_v2_hinge_11_no101_2026-05-03_042808Z/candidate_manifest_run_summary.json",
+      "totals_no101": {
+        "false_negative_count": 23,
+        "false_positive_count": 13,
+        "match_count": 22,
+        "predicted_target_count": 35,
+        "reference_target_count": 45
+      }
+    },
+    "v017f_hinge11": {
+      "dense_cases": {
+        "155": {
+          "case_id": "155",
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 2,
+          "reference_target_count": 2
+        },
+        "66": {
+          "case_id": "66",
+          "false_negative_count": 0,
+          "false_positive_count": 6,
+          "match_count": 8,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 6,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 14,
+          "reference_target_count": 8
+        },
+        "67": {
+          "case_id": "67",
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 9,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "case_id": "84",
+          "false_negative_count": 8,
+          "false_positive_count": 0,
+          "match_count": 5,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "source_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017f/live_2026-05-03_044145Z/human_report_challenge_v2_hinge_11_no101_2026-05-03_044145Z/candidate_manifest_run_summary.json",
+      "totals_no101": {
+        "false_negative_count": 22,
+        "false_positive_count": 17,
+        "match_count": 23,
+        "predicted_target_count": 40,
+        "reference_target_count": 45
+      }
+    },
+    "v018a_hinge11": {
+      "dense_cases": {
+        "155": {
+          "case_id": "155",
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 0,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 2,
+          "reference_target_count": 2
+        },
+        "66": {
+          "case_id": "66",
+          "false_negative_count": 1,
+          "false_positive_count": 8,
+          "match_count": 7,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 8,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 15,
+          "reference_target_count": 8
+        },
+        "67": {
+          "case_id": "67",
+          "false_negative_count": 10,
+          "false_positive_count": 10,
+          "match_count": 1,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 10,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 11,
+          "reference_target_count": 11
+        },
+        "84": {
+          "case_id": "84",
+          "false_negative_count": 9,
+          "false_positive_count": 3,
+          "match_count": 4,
+          "negative_scene_metrics": {
+            "abstention_correct": null,
+            "false_positive_count": 3,
+            "negative_scene": false,
+            "summary_consistency": null,
+            "unsupported_damage_claim": null
+          },
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        }
+      },
+      "source_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_002/runs/v018a/live_2026-05-04_003732Z/human_report_challenge_v2_hinge_11_no101_2026-05-04_003732Z/candidate_manifest_run_summary.json",
+      "totals_no101": {
+        "false_negative_count": 23,
+        "false_positive_count": 21,
+        "match_count": 22,
+        "predicted_target_count": 43,
+        "reference_target_count": 45
+      }
+    }
+  },
+  "cycle_id": "cycle_002",
+  "decision": {
+    "promote_v018a": false,
+    "reason": "v018a passed the minimal formal smoke but worsened hinge/no101 false positives by 8 versus parked v017b and did not improve case 67 recall.",
+    "recommended_status": "learning_evidence_only",
+    "replace_v017b": false,
+    "run_dev_holdout_or_all_current": false
+  },
+  "formal_smoke_passed": true,
+  "gate": {
+    "case_101": "diagnostic_only_not_pass_fail",
+    "false_negative_count_max_exclusive": 25,
+    "false_positive_count_max_inclusive": 21,
+    "match_count_min_exclusive": 20,
+    "positive_control_155": "must_have_at_least_one_match_and_nonzero_reference_targets"
+  },
+  "generated_utc": "2026-05-04T00:42:13.950076+00:00",
+  "hinge_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_002/runs/v018a/live_2026-05-04_003732Z/human_report_challenge_v2_hinge_11_no101_2026-05-04_003732Z/candidate_manifest_run_summary.json",
+  "hinge_totals": {
+    "false_negative_count": 23,
+    "false_positive_count": 21,
+    "match_count": 22,
+    "negative_scene_abstention_correct_count": 0,
+    "negative_scene_count": 0,
+    "negative_scene_false_positive_count": 0
+  },
+  "office_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_002/runs/v018a/live_2026-05-04_003732Z/legacy_abstention_guard_office_negative_2026-05-04_004008Z/candidate_manifest_run_summary.json",
+  "office_totals": {
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "match_count": 1,
+    "negative_scene_abstention_correct_count": 1,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0
+  },
+  "regression_vs_parked_v017b_no101": {
+    "false_negatives_delta": 1,
+    "false_positives_delta": 8,
+    "matches_delta": -1
+  },
+  "side_effects": {
+    "commit_created": false,
+    "dev_holdout_all_current_run": false,
+    "evaluation_run": true,
+    "mcp_config_changed": false,
+    "mem0_written": false,
+    "prompt_text_authored": true,
+    "reference_truth_changed": false,
+    "remote_push": false,
+    "runtime_config_adopted": false,
+    "source_truth_changed": false,
+    "vlm_inference_run": true
+  }
+}

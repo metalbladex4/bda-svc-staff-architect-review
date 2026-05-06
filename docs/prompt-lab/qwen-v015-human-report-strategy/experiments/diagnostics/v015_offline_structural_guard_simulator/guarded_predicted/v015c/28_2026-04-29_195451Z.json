@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "analyst": "bda-svc",
+    "date_created": "2026-04-29T19:54:51Z",
+    "detector_backend_id": "vlm_prompt_detector",
+    "experiment_overlay_ids": [
+      "qwen-1.2-v015c-detect-count-first-uncertainty-gate"
+    ],
+    "guard_preserves_raw_prediction": false,
+    "guard_simulator_id": "v015_structural_output_shape_guard_v1_offline",
+    "image_filename": "28.jpg",
+    "image_id": "f8c68cb8-60fd-449c-93bb-37b085aab13f",
+    "inference_time": "4.74",
+    "location": {
+      "coordinates": "",
+      "crs": ""
+    },
+    "model_line_id": "qwen3-vl:8b-instruct",
+    "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+    "report_type": "PDA",
+    "resolved_config_hash": "353be252f768ed75e6c4300b2053b511a0679fc0468b5530ae09ad69a11e62d5"
+  },
+  "physical_damage": {
+    "target_0": {
+      "bounding_box": [
+        438,
+        343,
+        794,
+        612
+      ],
+      "brief_supporting_logic": "target body intact; no visible holes, scorching, deformation, or detached components",
+      "confidence_level": "CONFIRMED",
+      "damage_category": "NO DAMAGE",
+      "target_type": "military_equipment"
+    }
+  },
+  "summary": "Assessed targets: military_equipment x1 NO DAMAGE (CONFIRMED). The scene summary is limited to the assessed targets and broad visible context. Visible evidence does not support direct damage-driven degradation of the assessed targets."
+}

@@ -1,0 +1,72 @@
+overlay_id: qwen-1.2-v020d_two_ledger_box_accounting
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v020c's dense recovery while explicitly accounting for accepted bodies versus rejected context extras.
+generated_from:
+- v020c_v019c_extra_box_audit
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from prior run: preserve the recovered dense-formation recall and lower false positives by accounting for each final box as a visible body, not as an inferred gap, row position, or context clue.
+
+      TWO-LEDGER BOX ACCOUNTING
+      Think silently. Output only final JSON.
+
+      LEDGER A: ACCEPTED BODY BOXES
+      Add a candidate only when it has an independent visual body anchor:
+      - connected hull/chassis, vehicle body, wreck body, turret/body mass, exterior wall/roof mass, body center, body edge, or ground-contact outline
+      - a tight box can be drawn around that body or one continuous exterior structure
+      - the candidate remains visible after context cues are mentally removed
+
+      LEDGER B: REJECTED EXTRA BOXES
+      Reject candidates whose main evidence is:
+      - smoke, flame, dust, shadow, road, track, row alignment, repeated spacing, terrain marks, blast texture, debris, or nearby damage
+      - a gap between targets
+      - a broad group, convoy, formation, cluster, or scene region
+      - a duplicate fragment or neighboring extra box without its own body center and body edge
+
+      DENSE AND LARGE-SCENE PROCEDURE
+      1. Scan the whole image for visible target bodies and exterior structures.
+      2. In crowded areas, count only bodies that have their own visible anchor; do not fill empty gaps.
+      3. In large scenes, do one missed-body check after the first pass. Add a missed target only if it can enter Ledger A, not merely because the area looks damaged or patterned.
+      4. Reconcile neighboring boxes: one connected body gets one box; separate bodies get separate boxes only when a visible boundary separates them.
+
+      CONTEXT SHADOW TEST
+      Use context to search, then mentally remove smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, repeated spacing, and adjacent damage. Keep the candidate only if a target body, wreck body, or exterior structure remains visible and boxable.
+
+      FINAL AUDIT
+      For every final detection, ask silently:
+      - What visible body anchor justifies this exact box?
+      - Is this box different from neighboring boxes because a real body boundary separates it?
+      - Would the box still make sense if context cues were absent?
+      If any answer fails, remove the detection.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

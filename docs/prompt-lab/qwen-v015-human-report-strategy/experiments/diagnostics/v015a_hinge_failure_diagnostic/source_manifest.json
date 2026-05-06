@@ -1,0 +1,191 @@
+{
+  "boundaries": {
+    "diagnostic_only": true,
+    "no_dev_holdout_or_all112_run": true,
+    "no_graphify_refresh_or_evidence_rebuild": true,
+    "no_prompt_text_or_overlay_authored": true,
+    "no_source_truth_mutation": true,
+    "no_vlm_inference_run": true
+  },
+  "diagnostic_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015a_hinge_failure_diagnostic",
+  "generated_utc": "2026-04-29T18:19:58.316167+00:00",
+  "package_id": "v015a_hinge_failure_diagnostic",
+  "read_only_source_run": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z",
+  "review_case_ids": [
+    "101",
+    "12",
+    "28",
+    "155"
+  ],
+  "source_artifacts": [
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/candidate_manifest_run_summary.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/candidate_manifest_run_summary.json",
+      "role": "candidate run summary",
+      "sha256": "c84f47328266c7a3be456b05fa6a88434d16bbbaf48ac615ebf5c7aba7481c45"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/v015a_gate_check_summary.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/v015a_gate_check_summary.json",
+      "role": "v015a gate summary",
+      "sha256": "f3cdd9a3668ddb1fccc6bd9a5a37086cf56a2dd9296907f5b39e8928d71c73ef"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/evaluation_2026-04-29_171614Z_summary.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/evaluation_2026-04-29_171614Z_summary.json",
+      "role": "evaluation summary",
+      "sha256": "9d6dc5ad0b1422a8b0dd42f2af40add376ff0d530d814d4b31dcb4332b438265"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/evaluation_2026-04-29_171614Z.csv",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/evaluation_2026-04-29_171614Z.csv",
+      "role": "evaluation CSV",
+      "sha256": "d7b7bcb17e259757570cde2cedb23ef2de1205c538f8e9aee7bff8f2429028ae"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+      "role": "101 prediction JSON",
+      "sha256": "a4ee03f46f14b28e2940aec7439c35f87a2ba6cf1e79e7bd7c6c6042c4bcd17a"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/101.json",
+      "relative_to_worktree": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/101.json",
+      "role": "101 reference JSON",
+      "sha256": "22ef56ed67f2787cf63fed8be70e0e516f8dfe610551d6098438febcdce260f6"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_101.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_101.jpg",
+      "role": "101 bbox review image",
+      "sha256": "0068ac0b16eac393e555dd16d4b9f9965e3f133c24bc194e95984bb58e40118a"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_101.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_101.jpg",
+      "role": "101 bbox both image",
+      "sha256": "9f7184b400be0c1247197a2f81549b089ffb9d5f224155ca30aea1a2fe4fd634"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_101.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_101.jpg",
+      "role": "101 bbox predicted image",
+      "sha256": "fddc9d3094f436ddd9020a900b22a0b1661e2ac42a659fdbe692e20c7e08181e"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_101.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_101.jpg",
+      "role": "101 bbox reference image",
+      "sha256": "23547c8405481c0592b20ce3aff46369f7c72acffecde757cf9b19cab8ee4fb0"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/12_2026-04-29_171553Z.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/12_2026-04-29_171553Z.json",
+      "role": "12 prediction JSON",
+      "sha256": "7ffc07d649f87f6ab856138a44e35405bf47708bc182609b16253c88ccaaae0f"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/12.json",
+      "relative_to_worktree": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/12.json",
+      "role": "12 reference JSON",
+      "sha256": "5a92d5c459336e37dab30b6ccd3c74399f380b6da60cd95a8f3b1c45e516bd0a"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_12.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_12.jpg",
+      "role": "12 bbox review image",
+      "sha256": "6670d399a7bfbd7ca9be9ada531939b826c2644c5ae7d69c0d529a3efb7b018b"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_12.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_12.jpg",
+      "role": "12 bbox both image",
+      "sha256": "35e37745a4e6792d559ecb85002cbb64872fb5807b5c22063c6a5a89ffb9d5b9"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_12.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_12.jpg",
+      "role": "12 bbox predicted image",
+      "sha256": "2c76c649af10052218e2522e5579b94d744fce29149236149b0ef706e02cd6b3"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_12.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_12.jpg",
+      "role": "12 bbox reference image",
+      "sha256": "01b82a5d5e507fa815adb66815a4645cb852254d20c19157ee2ce44070528a74"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/28_2026-04-29_171602Z.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/28_2026-04-29_171602Z.json",
+      "role": "28 prediction JSON",
+      "sha256": "dbf3680eea721825b038bcec06298087620e9d8b80b4773b6f60db69fb541287"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/28.json",
+      "relative_to_worktree": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/28.json",
+      "role": "28 reference JSON",
+      "sha256": "533f9c865ec75d0b5f1f3812d74c590624d1d7a47b47e1c692154878a318f725"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_28.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_28.jpg",
+      "role": "28 bbox review image",
+      "sha256": "8c6958c1b2176b4c2cf6a6199b50a37730f08abfc8cf74bdf6996c16ed5e40dc"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_28.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_28.jpg",
+      "role": "28 bbox both image",
+      "sha256": "de0c4d7128a763b9dec1be5c0aca16c46716fe073447d52e7438e7eec517ef8e"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_28.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_28.jpg",
+      "role": "28 bbox predicted image",
+      "sha256": "06d5655c77cdc5c878aca442fe24f8067b09b4ad6e4c60495f5bedc2793a11fa"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_28.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_28.jpg",
+      "role": "28 bbox reference image",
+      "sha256": "9db494e4428e0f788603167105b094ba7fa8ac2265852658834a2615fc726cf5"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/155_2026-04-29_171612Z.json",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/155_2026-04-29_171612Z.json",
+      "role": "155 prediction JSON",
+      "sha256": "aa15d22ef5a70f728dfef4de5cc22b2961749e6e4a304329e2bc63e4bb4dcbe2"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/155.json",
+      "relative_to_worktree": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/155.json",
+      "role": "155 reference JSON",
+      "sha256": "e40200925de6b4c59e9a49237bd4c169c6a5ff620c7ffd1dc4d5a0d3585d5c34"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_155.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_155.jpg",
+      "role": "155 bbox review image",
+      "sha256": "c9507aae1d85c666bae5020900d2432643b89e9f48363ee928524fd10778e127"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_155.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_155.jpg",
+      "role": "155 bbox both image",
+      "sha256": "499d9e61f32bda93054dc6fe1144be36da726eab4ef266a1f161f869385335e9"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_155.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_155.jpg",
+      "role": "155 bbox predicted image",
+      "sha256": "499d9e61f32bda93054dc6fe1144be36da726eab4ef266a1f161f869385335e9"
+    },
+    {
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_155.jpg",
+      "relative_to_worktree": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_155.jpg",
+      "role": "155 bbox reference image",
+      "sha256": "499d9e61f32bda93054dc6fe1144be36da726eab4ef266a1f161f869385335e9"
+    }
+  ],
+  "worktree_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement"
+}

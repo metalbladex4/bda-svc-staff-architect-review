@@ -1,0 +1,71 @@
+{
+  "boundaries": {
+    "commit_or_push": false,
+    "graphify_refresh": false,
+    "mem0_write": false,
+    "runtime_adoption": false,
+    "source_truth_mutation": false
+  },
+  "exact_upstream_runtime_attempt": {
+    "attempt_record": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/exact_upstream_runtime_attempt.json",
+    "openai_base_url": "http://localhost:8000/v1",
+    "preflight_error": "URLError: <urlopen error [Errno 111] Connection refused>",
+    "required_model": "Qwen/Qwen3-VL-8B-Instruct",
+    "status": "not_run_endpoint_unavailable"
+  },
+  "generated_utc": "2026-05-04T18:39:07.691627+00:00",
+  "manifest": {
+    "case_101_present": false,
+    "case_155_present": true,
+    "case_166_present": true,
+    "image_count": 117,
+    "pack_id": "human-report-challenge-v2-all-current-117-no101",
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml"
+  },
+  "practical_upstream_code_ollama_compat_attempt": {
+    "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/upstream_code_manifest_run_summary.json",
+    "attempt_record": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/v017b_exact_upstream_code_attempt.json",
+    "label": "v017b_upstream_code_ollama_openai_compat",
+    "model": "qwen3-vl:8b-instruct",
+    "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat_office_negative/legacy_abstention_guard_office_negative_2026-05-04_182132Z/upstream_code_manifest_run_summary.json",
+    "openai_base_url": "http://localhost:11434/v1",
+    "status": "completed"
+  },
+  "prompt_controlled_run": {
+    "model_overrides": {
+      "BDA_ASSESSMENT_MODEL": "qwen3-vl:8b-instruct",
+      "BDA_DETECTION_MODEL": "qwen3-vl:8b-instruct"
+    },
+    "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/prompt_controlled_upstream_main_office_negative/legacy_abstention_guard_office_negative_2026-05-04_180619Z/candidate_manifest_run_summary.json",
+    "overlay": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/upstream_main_prompt_controlled_overlay.yaml",
+    "reason": "isolate prompt behavior from upstream OpenAI-compatible backend differences",
+    "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/prompt_controlled_upstream_main/human_report_challenge_v2_all_current_117_no101_2026-05-04_174441Z/candidate_manifest_run_summary.json",
+    "status": "completed"
+  },
+  "purpose": "Compare current upstream/main detect prompt against accepted v017b on the same human_report_challenge_v2_all_current_117_no101 dataset.",
+  "upstream_main": {
+    "assessment_model_in_config": "Qwen/Qwen3-VL-8B-Instruct",
+    "commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+    "config_path": "src/bda_svc/pipeline/config.yaml",
+    "config_sha256": "6389404387e2c1034f108d3d961cba144411bf8ffb11c9fda6fd7d51417fca36",
+    "detect_model_in_config": "Qwen/Qwen3-VL-8B-Instruct",
+    "detect_prompt_placeholders_preserved": {
+      "{bbox_format}": true,
+      "{bbox_scale}": true,
+      "{categories}": true,
+      "{detection_guidance}": true
+    },
+    "snapshot": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/snapshots/upstream_main_config_f462ef4516b63ca1a2cd2434e75692f65d0e94cb.yaml"
+  },
+  "v017b_reference_result": {
+    "case_155_passed": true,
+    "case_166_passed": true,
+    "false_negative_count": 54,
+    "false_positive_count_effective_extra_target": 21,
+    "false_positive_count_raw": 22,
+    "image_count": 117,
+    "match_count": 165,
+    "office_negative_abstention_passed": true,
+    "source": "../main_promotion_gate_result.json and promotion_override_decision.md"
+  }
+}

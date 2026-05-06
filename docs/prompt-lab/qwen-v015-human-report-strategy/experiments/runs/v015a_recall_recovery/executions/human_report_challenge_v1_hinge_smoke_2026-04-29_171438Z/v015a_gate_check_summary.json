@@ -1,0 +1,53 @@
+{
+  "candidate_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/candidate_manifest_run_summary.json",
+  "candidate_totals": {
+    "false_negatives": 10,
+    "false_positives": 15,
+    "matches": 13
+  },
+  "checks": {
+    "false_negatives_below_v014": true,
+    "false_positives_within_limit": false,
+    "matches_above_v014": true,
+    "protected_case_passed": true
+  },
+  "gate": {
+    "false_negatives_max_exclusive": 15,
+    "false_positives_max_inclusive": 3,
+    "manual_review_case": "101",
+    "matches_min_exclusive": 8,
+    "protected_case": "155"
+  },
+  "gate_key": "hinge_smoke",
+  "manual_review_case": {
+    "case": "101.jpg",
+    "false_negative_count": 9,
+    "false_positive_count": 12,
+    "match_count": 3,
+    "predicted_target_count": 15,
+    "present": true,
+    "reference_target_count": 12
+  },
+  "note": "Case 101 always requires manual visual review before acting on this gate.",
+  "pack_id": "human-report-challenge-v1-v015a-hinge-smoke",
+  "passed": false,
+  "protected_case": {
+    "abstention_correct": true,
+    "case": "155.jpg",
+    "false_positive_count": 0,
+    "passed": true,
+    "present": true
+  },
+  "v009_baseline": {
+    "false_negatives": 6,
+    "false_positives": 17,
+    "matches": 17,
+    "predicted_targets": 34
+  },
+  "v014_baseline": {
+    "false_negatives": 15,
+    "false_positives": 1,
+    "matches": 8,
+    "predicted_targets": 9
+  }
+}

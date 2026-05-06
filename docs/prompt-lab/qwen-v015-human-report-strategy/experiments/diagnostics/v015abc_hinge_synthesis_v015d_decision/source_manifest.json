@@ -1,0 +1,108 @@
+{
+  "excluded_actions": [
+    "new_prompt_text",
+    "new_overlay",
+    "new_runner_session",
+    "vlm_inference",
+    "dev_split",
+    "holdout",
+    "all_112",
+    "runtime_config_adoption",
+    "source_truth_mutation",
+    "graphify_refresh",
+    "evidence_rebuild",
+    "mem0_update"
+  ],
+  "generated_utc": "2026-04-29T21:54:33.170494+00:00",
+  "package": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015abc_hinge_synthesis_v015d_decision",
+  "scope": "read_only_existing_v015a_v015b_v015c_hinge_artifacts",
+  "sources": [
+    {
+      "candidate": "v015a",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/candidate_manifest_run_summary.json",
+      "type": "candidate_manifest_run_summary",
+      "use": "candidate run metadata and evaluation-summary path"
+    },
+    {
+      "candidate": "v015a",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/v015a_gate_check_summary.json",
+      "type": "gate_summary",
+      "use": "hinge gate totals, checks, baselines, protected-case status"
+    },
+    {
+      "candidate": "v015a",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/README.md",
+      "type": "run_readme",
+      "use": "candidate-local run conclusion and stop rule"
+    },
+    {
+      "candidate": "v015a",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+      "type": "case_101_prediction",
+      "use": "row-fragment and broad-box output-shape diagnostic"
+    },
+    {
+      "candidate": "v015b",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/candidate_manifest_run_summary.json",
+      "type": "candidate_manifest_run_summary",
+      "use": "candidate run metadata and evaluation-summary path"
+    },
+    {
+      "candidate": "v015b",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/v015b_gate_check_summary.json",
+      "type": "gate_summary",
+      "use": "hinge gate totals, checks, baselines, protected-case status"
+    },
+    {
+      "candidate": "v015b",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/README.md",
+      "type": "run_readme",
+      "use": "candidate-local run conclusion and stop rule"
+    },
+    {
+      "candidate": "v015b",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/101_2026-04-29_190755Z.json",
+      "type": "case_101_prediction",
+      "use": "row-fragment and broad-box output-shape diagnostic"
+    },
+    {
+      "candidate": "v015c",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/candidate_manifest_run_summary.json",
+      "type": "candidate_manifest_run_summary",
+      "use": "candidate run metadata and evaluation-summary path"
+    },
+    {
+      "candidate": "v015c",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/v015c_gate_check_summary.json",
+      "type": "gate_summary",
+      "use": "hinge gate totals, checks, baselines, protected-case status"
+    },
+    {
+      "candidate": "v015c",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/README.md",
+      "type": "run_readme",
+      "use": "candidate-local run conclusion and stop rule"
+    },
+    {
+      "candidate": "v015c",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/101_2026-04-29_195422Z.json",
+      "type": "case_101_prediction",
+      "use": "row-fragment and broad-box output-shape diagnostic"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015a_hinge_failure_diagnostic/README.md",
+      "type": "prior_diagnostic",
+      "use": "v015a hinge-failure conclusion"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015a_hinge_failure_diagnostic/case_review.md",
+      "type": "prior_diagnostic",
+      "use": "case 101/12/28/155 diagnostic labels"
+    },
+    {
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015a_hinge_failure_diagnostic/v015b_design_constraints.md",
+      "type": "prior_diagnostic",
+      "use": "prior constraints and stop rule before v015b"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "blocker": {
+    "case_id": "101",
+    "failure_class": "broad_group_scene_box_not_row_fragment_enumeration",
+    "prediction_bbox": [
+      75,
+      58,
+      1000,
+      547
+    ],
+    "prediction_bbox_area_ratio": 0.43137073516845703
+  },
+  "candidate_id": "v017b_single_target_box_span_self_filter",
+  "case_101_forward_eval_policy": {
+    "active_forward_hinge_manifest": "validation_manifests/human_report_challenge_v2_hinge_11_no101.yaml",
+    "effective_for": "v017c_and_later_forward_candidate_gates",
+    "status": "diagnostic_only_excluded_from_forward_pass_fail_evaluation"
+  },
+  "classification": "old_gate_near_miss_case101_now_diagnostic_only",
+  "decision": {
+    "dev_authorized": false,
+    "holdout_authorized": false,
+    "next_candidate_authorized": true,
+    "promotion_authorized": false,
+    "runtime_adoption_authorized": false,
+    "summary": "v017b is old-gate learning evidence. Case 101 is now diagnostic-only, so this diagnosis informs but does not block continuing through v017f under the approved cycle budget."
+  },
+  "generated_utc": "2026-05-03T03:45:00Z",
+  "metrics": {
+    "changed_source_sanity": {
+      "false_negative_count": 3,
+      "false_positive_count": 0,
+      "match_count": 9
+    },
+    "hinge_12": {
+      "case_101_broad_group_box_count": 1,
+      "case_101_row_fragment_group_count": 0,
+      "false_negative_count": 33,
+      "false_positive_count": 13,
+      "match_count": 24,
+      "positive_control_155_match_count": 2
+    },
+    "office_negative": {
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0
+    },
+    "updated_report_smoke": {
+      "false_negative_count": 9,
+      "false_positive_count": 1,
+      "match_count": 22
+    }
+  },
+  "parent_candidate": "v017a_body_backed_candidate_filter",
+  "source_artifacts": {
+    "case_101_prediction": "../../runs/v017b/live_2026-05-03_032920Z/human_report_challenge_v2_hinge_12_2026-05-03_032920Z/predicted/101_2026-05-03_032933Z.json",
+    "decision_packet": "../../runs/v017b/live_2026-05-03_032920Z/decision_packet.json",
+    "gate_summary": "../../runs/v017b/live_2026-05-03_032920Z/gate_check_candidate_summary.json",
+    "live_run_summary": "../../runs/v017b/live_2026-05-03_032920Z/candidate_cycle_live_run_summary.json"
+  },
+  "what_worked": {
+    "changed_source_sanity_passed": true,
+    "hinge_aggregate_checks_passed": true,
+    "office_negative_abstention_passed": true,
+    "positive_control_155_passed": true,
+    "row_fragment_suppression_preserved": true,
+    "updated_report_smoke_completed": true
+  }
+}

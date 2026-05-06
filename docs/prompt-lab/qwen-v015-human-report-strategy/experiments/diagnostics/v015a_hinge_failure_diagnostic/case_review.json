@@ -1,0 +1,341 @@
+{
+  "case_reviews": [
+    {
+      "case_id": "101",
+      "diagnostic_labels": [
+        "valid_recall_recovery",
+        "whole_scene_or_group_box",
+        "pattern_fragment_row_enumeration",
+        "bbox_or_reference_shape_artifact",
+        "duplicate_reference_target"
+      ],
+      "false_positive_instances": [
+        {
+          "bbox": [
+            143,
+            117,
+            189,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_2",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            205,
+            117,
+            251,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_3",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            266,
+            117,
+            312,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_4",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            410,
+            117,
+            456,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_5",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            471,
+            117,
+            517,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_6",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            594,
+            117,
+            640,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_8",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            655,
+            117,
+            701,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_9",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            717,
+            117,
+            763,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_10",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            778,
+            117,
+            824,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_11",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            840,
+            117,
+            886,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_12",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            901,
+            117,
+            947,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_13",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            963,
+            117,
+            1009,
+            152
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_14",
+          "target_type": "military_equipment"
+        }
+      ],
+      "finding": "v015a created partial recall recovery but also produced a regular row of small military-equipment boxes plus one broad scene/group box. The output failure is mixed with reference shape caveats.",
+      "image_filename": "101.jpg",
+      "metrics": {
+        "csv_status_counts": {
+          "FN": 9,
+          "FP": 12,
+          "TP": 3
+        },
+        "false_negative_count": 9,
+        "false_positive_count": 12,
+        "match_count": 3,
+        "predicted_target_count": 15,
+        "reference_target_count": 12
+      },
+      "role": "main hinge tradeoff case",
+      "source_links": {
+        "bbox_both_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_101.jpg",
+        "bbox_predicted_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_101.jpg",
+        "bbox_reference_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_101.jpg",
+        "bbox_review_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_101.jpg",
+        "prediction_json": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+        "reference_json": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/101.json"
+      },
+      "v015b_constraint": "Recover dense target enumeration only when each output has a distinct visible object body and does not duplicate a repeated row-like pattern or broad group region."
+    },
+    {
+      "case_id": "12",
+      "diagnostic_labels": [
+        "valid_recall_recovery",
+        "adjacent_context_false_positive"
+      ],
+      "false_positive_instances": [
+        {
+          "bbox": [
+            8,
+            123,
+            132,
+            436
+          ],
+          "confidence_level": "PROBABLE",
+          "damage_category": "DESTROYED",
+          "pred_target_label": "target_0",
+          "target_type": "buildings"
+        }
+      ],
+      "finding": "v015a preserved the main building match but split adjacent fire/smoke/building context into an extra building target.",
+      "image_filename": "12.jpg",
+      "metrics": {
+        "csv_status_counts": {
+          "FP": 1,
+          "TP": 1
+        },
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "match_count": 1,
+        "predicted_target_count": 2,
+        "reference_target_count": 1
+      },
+      "role": "building precision guard",
+      "source_links": {
+        "bbox_both_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_12.jpg",
+        "bbox_predicted_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_12.jpg",
+        "bbox_reference_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_12.jpg",
+        "bbox_review_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_12.jpg",
+        "prediction_json": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/12_2026-04-29_171553Z.json",
+        "reference_json": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/12.json"
+      },
+      "v015b_constraint": "Do not split one damaged building or its attached fire/smoke context into multiple building targets unless separable building structures are visible."
+    },
+    {
+      "case_id": "28",
+      "diagnostic_labels": [
+        "valid_recall_recovery",
+        "adjacent_context_false_positive"
+      ],
+      "false_positive_instances": [
+        {
+          "bbox": [
+            896,
+            86,
+            922,
+            108
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_1",
+          "target_type": "military_equipment"
+        },
+        {
+          "bbox": [
+            922,
+            108,
+            957,
+            138
+          ],
+          "confidence_level": "CONFIRMED",
+          "damage_category": "NO DAMAGE",
+          "pred_target_label": "target_2",
+          "target_type": "military_equipment"
+        }
+      ],
+      "finding": "v015a preserved the main equipment match but added two tiny top-right context boxes as military equipment.",
+      "image_filename": "28.jpg",
+      "metrics": {
+        "csv_status_counts": {
+          "FP": 2,
+          "TP": 1
+        },
+        "false_negative_count": 0,
+        "false_positive_count": 2,
+        "match_count": 1,
+        "predicted_target_count": 3,
+        "reference_target_count": 1
+      },
+      "role": "military-equipment precision guard",
+      "source_links": {
+        "bbox_both_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_28.jpg",
+        "bbox_predicted_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_28.jpg",
+        "bbox_reference_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_28.jpg",
+        "bbox_review_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_28.jpg",
+        "prediction_json": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/28_2026-04-29_171602Z.json",
+        "reference_json": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/28.json"
+      },
+      "v015b_constraint": "Small distant shapes must not become extra equipment targets without clear vehicle/equipment body evidence."
+    },
+    {
+      "case_id": "155",
+      "diagnostic_labels": [
+        "protected_abstention_preserved"
+      ],
+      "false_positive_instances": [],
+      "finding": "v015a preserved the object-not-found abstention behavior with no false positive rebound.",
+      "image_filename": "155.jpg",
+      "metrics": {
+        "csv_status_counts": {
+          "TP": 1
+        },
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "role": "protected out-of-scope control",
+      "source_links": {
+        "bbox_both_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_both/bbox_155.jpg",
+        "bbox_predicted_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_predicted/bbox_155.jpg",
+        "bbox_reference_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_reference/bbox_155.jpg",
+        "bbox_review_image": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/eval/images_bbox_review/bbox_review_155.jpg",
+        "prediction_json": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/155_2026-04-29_171612Z.json",
+        "reference_json": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/155.json"
+      },
+      "v015b_constraint": "Do not weaken protected object-not-found abstention while recovering recall on dense positive scenes."
+    }
+  ],
+  "gate_summary": {
+    "candidate_totals": {
+      "false_negatives": 10,
+      "false_positives": 15,
+      "matches": 13
+    },
+    "checks": {
+      "false_negatives_below_v014": true,
+      "false_positives_within_limit": false,
+      "matches_above_v014": true,
+      "protected_case_passed": true
+    },
+    "passed": false,
+    "v009_baseline": {
+      "false_negatives": 6,
+      "false_positives": 17,
+      "matches": 17,
+      "predicted_targets": 34
+    },
+    "v014_baseline": {
+      "false_negatives": 15,
+      "false_positives": 1,
+      "matches": 8,
+      "predicted_targets": 9
+    }
+  },
+  "generated_utc": "2026-04-29T18:19:58.316167+00:00",
+  "package_id": "v015a_hinge_failure_diagnostic"
+}

@@ -1,0 +1,109 @@
+{
+  "commands": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "bda-svc",
+        "-i",
+        "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg",
+        "-o",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/predicted"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__v017b_group_box_rejection__shared_20260505_182028Z",
+      "elapsed_seconds": 41.11,
+      "returncode": 0,
+      "stderr_tail": "Using CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__v017b_group_box_rejection__shared_20260505_182028Z\n      Built bda-svc @ file:///home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__v017b_group_box_rejection__shared_20260505_182028Z\nInstalled 74 packages in 97ms\n",
+      "stdout_tail": "[*] Input source set to /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg\n\nProcessing: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg\n--------------------------------------------------------------------------------\n[*] Exported: /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/predicted/office_negative_2026-05-05_182109Z.json\n"
+    },
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "main.py",
+        "--manifest",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+        "-p",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/predicted",
+        "-o",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/eval"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/bda_eval",
+      "elapsed_seconds": 0.959,
+      "returncode": 0,
+      "stderr_tail": "",
+      "stdout_tail": "\n[*] Successfully created evaluation report '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/eval/evaluation_2026-05-05_182110Z.csv'.\n\n[*] Wrote evaluation summary '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/eval/evaluation_2026-05-05_182110Z_summary.json'.\n\n"
+    }
+  ],
+  "elapsed_seconds": 42.07,
+  "eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/eval",
+  "evaluation_summary": {
+    "detector_backend_ids": [],
+    "eval_mode": "detection_study",
+    "generated_at": "2026-05-05T18:21:10Z",
+    "image_count": 1,
+    "images": [
+      {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_filename": "office_negative.jpg",
+        "match_count": 1,
+        "matches": [
+          {
+            "center_error_px": 0.0,
+            "iou": 1.0,
+            "overlap_coverage": 1.0,
+            "predicted_area_ratio": 1.0,
+            "predicted_label": "target_0",
+            "reference_label": "target_0",
+            "score": 1.0,
+            "score_assess": 1.0,
+            "score_logic": 1.0,
+            "target_type": "object not found"
+          }
+        ],
+        "negative_scene_metrics": {
+          "abstention_correct": true,
+          "false_positive_count": 0,
+          "negative_scene": true,
+          "summary_consistency": true,
+          "unsupported_damage_claim": false
+        },
+        "predicted_target_count": 1,
+        "reference_target_count": 1,
+        "runtime_metadata": {
+          "detector_backend_id": "",
+          "experiment_overlay_ids": [],
+          "model_line_id": "",
+          "model_name": "detection=gemma4:e4b;assessment=gemma4:e4b",
+          "resolved_config_hash": ""
+        }
+      }
+    ],
+    "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+    "pack_id": "legacy-abstention-guard-office-negative-v1",
+    "predicted_label": "predicted",
+    "reference_label": "manifest_reference",
+    "resolved_config_hashes": [],
+    "totals": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0
+    }
+  },
+  "generated_utc": "2026-05-05T18:21:10.489548+00:00",
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "missing_outputs": [],
+  "model": "gemma4:e4b",
+  "openai_base_url": "http://localhost:11435/v1",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/predicted",
+  "row_id": "gemma4_e4b__v017b_group_box_rejection__shared",
+  "scratch_worktree": "/home/williambenitez1/Capstone_worktrees/_scratch_v021_gemma4_e4b__v017b_group_box_rejection__shared_20260505_182028Z",
+  "server_kind": "ollama_openai_compatible_endpoint",
+  "succeeded": true,
+  "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v021_openai_compat_cross_model_prompt_matrix/runs/gemma4_e4b/v017b_group_box_rejection/shared/office_negative/legacy_abstention_guard_office_negative_2026-05-05_182028Z/eval/evaluation_2026-05-05_182110Z_summary.json"
+}

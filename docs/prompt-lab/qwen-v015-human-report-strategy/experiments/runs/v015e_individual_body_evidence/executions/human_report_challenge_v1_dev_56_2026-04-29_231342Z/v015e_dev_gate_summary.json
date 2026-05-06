@@ -1,0 +1,60 @@
+{
+  "candidate_id": "v015e_individual_body_evidence",
+  "gate_version": "v015e-learning-dev-gate-v1",
+  "generated_utc": "2026-04-29T23:20:00Z",
+  "execution_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z",
+  "run_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/candidate_manifest_run_summary.json",
+  "evaluation_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/eval/evaluation_2026-04-29_231946Z_summary.json",
+  "evaluation_csv": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/eval/evaluation_2026-04-29_231946Z.csv",
+  "baseline_dev": {
+    "v014": {
+      "match_count": 70,
+      "false_negative_count": 47,
+      "false_positive_count": 17
+    },
+    "false_positive_cap": 21
+  },
+  "candidate_dev": {
+    "image_count": 56,
+    "match_count": 61,
+    "false_negative_count": 56,
+    "false_positive_count": 17,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 1
+  },
+  "gate_checks": {
+    "matches_greater_than_v014": false,
+    "false_negatives_less_than_v014": false,
+    "false_positives_within_cap": true,
+    "false_positives_equal_to_v014": true,
+    "protected_155_abstention_safe": true,
+    "case_101_manual_caveat_remains": true
+  },
+  "case_notes": {
+    "101": {
+      "match_count": 1,
+      "false_negative_count": 11,
+      "false_positive_count": 0,
+      "reference_target_count": 12,
+      "predicted_target_count": 1,
+      "note": "Same learning caveat as hinge: the aggregate metrics are not enough because the known broad group/scene-box issue remains a manual diagnostic concern."
+    },
+    "155": {
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "negative_scene_abstention_correct": true,
+      "note": "Protected object-not-found control remained abstention-safe."
+    },
+    "166": {
+      "included_in_dev": false,
+      "note": "Protected holdout control was not run in this dev-only wave."
+    }
+  },
+  "interpretation": {
+    "result": "failed_dev_recall_gate",
+    "summary": "v015e preserved precision on the dev split but did not generalize the hinge recall recovery: matches fell below v014 and false negatives rose above v014 while false positives stayed at the v014 level.",
+    "boundary": "Learning evidence only; not promotion, not runtime adoption, not holdout/all-112 approval."
+  }
+}

@@ -1,0 +1,871 @@
+{
+  "candidate_count": 6,
+  "candidates": [
+    {
+      "candidate_id": "v017a",
+      "dry_run": true,
+      "hypothesis_exists": true,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/hypothesis.yaml",
+      "overlay_exists": true,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017a/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    },
+    {
+      "candidate_id": "v017b",
+      "dry_run": true,
+      "hypothesis_exists": false,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/hypothesis.yaml",
+      "overlay_exists": false,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017b/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    },
+    {
+      "candidate_id": "v017c",
+      "dry_run": true,
+      "hypothesis_exists": false,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/hypothesis.yaml",
+      "overlay_exists": false,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017c/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    },
+    {
+      "candidate_id": "v017d",
+      "dry_run": true,
+      "hypothesis_exists": false,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/hypothesis.yaml",
+      "overlay_exists": false,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017d/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    },
+    {
+      "candidate_id": "v017e",
+      "dry_run": true,
+      "hypothesis_exists": false,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/hypothesis.yaml",
+      "overlay_exists": false,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017e/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    },
+    {
+      "candidate_id": "v017f",
+      "dry_run": true,
+      "hypothesis_exists": false,
+      "hypothesis_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/hypothesis.yaml",
+      "overlay_exists": false,
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml",
+      "pack_plans": [
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_changed_source_sanity/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_changed_source_sanity/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_changed_source_sanity/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_changed_source_sanity/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_changed_source_sanity/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_changed_source_sanity.yaml",
+          "pack_id": "human-report-challenge-v2-changed-source-sanity"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_hinge_12/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_hinge_12/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_hinge_12/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_hinge_12/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_hinge_12/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_hinge_12.yaml",
+          "pack_id": "human-report-challenge-v2-automation-hinge-12"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_updated_report_smoke/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_updated_report_smoke/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_updated_report_smoke/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_updated_report_smoke/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/human_report_challenge_v2_updated_report_smoke/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/human_report_challenge_v2_updated_report_smoke.yaml",
+          "pack_id": "human-report-challenge-v2-updated-report-smoke"
+        },
+        {
+          "executed": false,
+          "future_eval_command": [
+            "uv",
+            "run",
+            "python",
+            "main.py",
+            "--manifest",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+            "-p",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/legacy_abstention_guard_office_negative/predicted",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/legacy_abstention_guard_office_negative/eval"
+          ],
+          "future_eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/legacy_abstention_guard_office_negative/eval",
+          "future_inference_command_pattern": [
+            "uv",
+            "run",
+            "bda-svc",
+            "-i",
+            "<each manifest case image_path>",
+            "-o",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/legacy_abstention_guard_office_negative/predicted",
+            "--experiment-overlay",
+            "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml",
+            "--detector-backend",
+            "vlm_prompt_detector"
+          ],
+          "future_predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/future_runs/v017f/legacy_abstention_guard_office_negative/predicted",
+          "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+          "pack_id": "legacy-abstention-guard-office-negative-v1"
+        }
+      ],
+      "skipped_eval": true,
+      "skipped_inference": true,
+      "skipped_prompt_authoring": true,
+      "status": "planned_not_authored"
+    }
+  ],
+  "cycle_id": "cycle_001",
+  "dry_run": true,
+  "generated_utc": "2026-05-01T02:06:39.294154+00:00",
+  "live_execution_permitted": false,
+  "side_effects": {
+    "eval_dirs_created": false,
+    "evaluation_run": false,
+    "mcp_config_changed": false,
+    "mem0_written": false,
+    "predicted_dirs_created": false,
+    "prompt_text_authored": false,
+    "vlm_inference_run": false
+  },
+  "workflow_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow"
+}

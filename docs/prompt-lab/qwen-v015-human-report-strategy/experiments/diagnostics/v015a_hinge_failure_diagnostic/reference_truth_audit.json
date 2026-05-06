@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "audit_finding": "Reference-shape caveats present; do not mutate source truth in this wave, but require manual review before interpreting 101 as pure prompt failure.",
+      "case_id": "101",
+      "duplicate_reference_targets": [
+        {
+          "bounding_box": [
+            531,
+            131,
+            568,
+            170
+          ],
+          "labels": [
+            "target_7",
+            "target_8"
+          ]
+        }
+      ],
+      "large_group_reference_target": {
+        "bounding_box": [
+          87,
+          151,
+          996,
+          534
+        ],
+        "label": "target_1",
+        "note": "Large grouped military-equipment reference target; can make broad candidate boxes score as matches while still being a prompt-quality concern."
+      },
+      "reference_target_count": 12
+    },
+    {
+      "audit_finding": "No reference-shape anomaly found in this narrow audit.",
+      "case_id": "12",
+      "duplicate_reference_targets": [],
+      "large_group_reference_target": null,
+      "reference_target_count": 1
+    },
+    {
+      "audit_finding": "No reference-shape anomaly found in this narrow audit.",
+      "case_id": "28",
+      "duplicate_reference_targets": [],
+      "large_group_reference_target": null,
+      "reference_target_count": 1
+    },
+    {
+      "audit_finding": "No reference-shape anomaly found in this narrow audit.",
+      "case_id": "155",
+      "duplicate_reference_targets": [],
+      "large_group_reference_target": null,
+      "reference_target_count": 1
+    }
+  ],
+  "generated_utc": "2026-04-29T18:19:58.316167+00:00",
+  "overall_finding": "Case 101 is mixed: v015a has real prompt-output problems, but the reference set also has duplicate target geometry and a large group reference target. Cases 12 and 28 are cleaner precision regressions. Case 155 remains protected.",
+  "package_id": "v015a_hinge_failure_diagnostic",
+  "scope": "narrow reference-shape audit only; source references are not changed"
+}

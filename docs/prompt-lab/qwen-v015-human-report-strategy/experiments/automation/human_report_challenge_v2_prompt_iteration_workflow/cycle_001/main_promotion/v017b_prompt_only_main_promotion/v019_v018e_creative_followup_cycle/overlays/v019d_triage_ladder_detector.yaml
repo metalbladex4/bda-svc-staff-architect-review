@@ -1,0 +1,33 @@
+overlay_id: qwen-1.2-v019d_triage_ladder_detector
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Silent certain/supported/reject triage before final detections.
+generated_from:
+- v019c_context_shadow_reversal
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration from prior\
+      \ run: dense formations still need a separable-body test, not placeholder spacing;\
+      \ large multi-target scenes still need a second pass for missed bodies.\n\n\
+      TRIAGE LADDER DETECTOR\nThink silently in three bins, but output only final\
+      \ JSON.\n\nBIN 1: CERTAIN\nTargets with a clear connected body, wreck mass,\
+      \ or exterior structure. Keep\nthese unless the box spans multiple targets or\
+      \ mostly context.\n\nBIN 2: SUPPORTED\nSmall, distant, damaged, or partially\
+      \ obscured targets with enough body edge,\nbody center, chassis, structure,\
+      \ or ground contact to localize tightly. Keep\nonly when the box can be drawn\
+      \ around the body, not around the clue.\n\nBIN 3: REJECT\nSmoke, flame, dust,\
+      \ debris, shadow, roads, tracks, rail beds, row alignment,\nrepeated marks,\
+      \ texture, broad damage zones, placeholder spacing, and any\ncandidate whose\
+      \ body cannot be isolated.\n\nFINAL SELECTION\nOutput BIN 1 plus only BIN 2\
+      \ candidates that survive the reject test. Never\npromote BIN 3 to a broad proxy\
+      \ box. Merge duplicates that describe one connected\nbody or one continuous\
+      \ building.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\
+      \nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\
+      \nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT\
+      \ SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n  \
+      \    \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

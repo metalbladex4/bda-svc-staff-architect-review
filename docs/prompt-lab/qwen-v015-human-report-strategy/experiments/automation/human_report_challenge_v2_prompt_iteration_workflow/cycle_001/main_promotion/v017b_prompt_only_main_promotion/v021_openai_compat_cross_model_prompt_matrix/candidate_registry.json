@@ -1,0 +1,110 @@
+{
+  "generated_utc": "2026-05-05T16:03:51.961242+00:00",
+  "models": {
+    "gemma4_e4b": {
+      "label": "Gemma 4 E4B",
+      "model": "gemma4:e4b",
+      "openai_api_key": "no-auth",
+      "openai_base_url": "http://localhost:11435/v1",
+      "server_kind": "ollama_openai_compatible_endpoint",
+      "startup": {
+        "OLLAMA_HOST": "127.0.0.1:11435",
+        "OLLAMA_MODELS": "/home/williambenitez1/.ollama-gemma4-models"
+      }
+    },
+    "qwen3_vl_8b_instruct": {
+      "label": "Qwen3-VL 8B Instruct",
+      "model": "qwen3-vl:8b-instruct",
+      "openai_api_key": "no-auth",
+      "openai_base_url": "http://localhost:11434/v1",
+      "server_kind": "ollama_openai_compatible_endpoint",
+      "startup": null
+    }
+  },
+  "prompts": [
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 740,
+      "prompt_id": "upstream_main_config_prompt",
+      "prompt_lines": 32,
+      "prompt_sha256": "152e07ee34fb792aa79d30b8ad5dcfc194ef9932f99c60bd70a0a92b24033683",
+      "source": "upstream/main:src/bda_svc/pipeline/config.yaml",
+      "title": "Current upstream/main config prompt"
+    },
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 3165,
+      "prompt_id": "v009_unified_best_stack",
+      "prompt_lines": 58,
+      "prompt_sha256": "3783494ca2324783392c1c38b649d1e420ced1e6e8c98c1aee1459f36cfc9f6d",
+      "source": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/versions/v009_unified_best-stack.yaml",
+      "title": "v009 unified best stack"
+    },
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 5484,
+      "prompt_id": "v017b_group_box_rejection",
+      "prompt_lines": 135,
+      "prompt_sha256": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+      "source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml",
+      "title": "v017b group box rejection"
+    },
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 2360,
+      "prompt_id": "v018e_contrastive_body_anchor",
+      "prompt_lines": 68,
+      "prompt_sha256": "d534769144287c74a75576d9b11fb63b841e1836884d6e721d33e62db625fa73",
+      "source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/overlays/v018e_contrastive_body_anchor.yaml",
+      "title": "v018e contrastive body anchor"
+    },
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 1845,
+      "prompt_id": "v019c_context_shadow_reversal",
+      "prompt_lines": 53,
+      "prompt_sha256": "b9a5ccdea5cae47135f0b4c16ca0dd378ec2ebb70661de9e5e657e03627879fa",
+      "source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v019_v018e_creative_followup_cycle/overlays/v019c_context_shadow_reversal.yaml",
+      "title": "v019c context shadow reversal"
+    },
+    {
+      "placeholders": {
+        "{bbox_format}": true,
+        "{bbox_scale}": true,
+        "{categories}": true,
+        "{detection_guidance}": true
+      },
+      "prompt_chars": 2444,
+      "prompt_id": "v020c_extra_box_audit",
+      "prompt_lines": 56,
+      "prompt_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+      "source": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+      "title": "v020c extra box audit"
+    }
+  ]
+}

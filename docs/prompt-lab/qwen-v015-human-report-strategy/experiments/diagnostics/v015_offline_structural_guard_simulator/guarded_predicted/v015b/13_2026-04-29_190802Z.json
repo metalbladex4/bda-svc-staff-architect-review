@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "analyst": "bda-svc",
+    "date_created": "2026-04-29T19:08:02Z",
+    "detector_backend_id": "vlm_prompt_detector",
+    "experiment_overlay_ids": [
+      "qwen-1.2-v015b-detect-distinct-object-guard"
+    ],
+    "guard_preserves_raw_prediction": false,
+    "guard_simulator_id": "v015_structural_output_shape_guard_v1_offline",
+    "image_filename": "13.jpg",
+    "image_id": "41f439f3-9bc4-4985-a7cc-6d132b50a636",
+    "inference_time": "6.07",
+    "location": {
+      "coordinates": "",
+      "crs": ""
+    },
+    "model_line_id": "qwen3-vl:8b-instruct",
+    "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+    "report_type": "PDA",
+    "resolved_config_hash": "ad839a180c2767c65e5c19b3498d30b29beda9507a607698a93b0f6beb03e1a6"
+  },
+  "physical_damage": {
+    "target_1": {
+      "bounding_box": [
+        550,
+        51,
+        786,
+        307
+      ],
+      "brief_supporting_logic": "target building appears structurally intact; no visible holes, breaks, collapse, or deformation; windows and facade appear undamaged",
+      "confidence_level": "CONFIRMED",
+      "damage_category": "NO DAMAGE",
+      "target_type": "buildings"
+    }
+  },
+  "summary": "Two targets assessed: 2 buildings, condition NO DAMAGE with CONFIRMED confidence. The scene shows a wide urban street with vehicles in motion and a large, intact building complex under an overcast sky. The likely functional impact is none, as no damage is visible to the assessed targets."
+}

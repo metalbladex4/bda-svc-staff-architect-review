@@ -1,0 +1,32 @@
+overlay_id: qwen-1.2-v019a_fp_sieve
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: v018e with a stricter final context/occupancy veto.
+generated_from:
+- v018e_historical_anchor
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration: start\
+      \ from v018e. Preserve positive-control safety and office abstention while reducing\
+      \ context-only false positives.\n\nFP SIEVE METHOD\n1. Scan the whole image\
+      \ for possible military equipment, wreck bodies, and\n   distinct exterior building\
+      \ structures.\n2. For each possible target, require a visible target body: connected\
+      \ hull,\n   chassis, wreck mass, structural exterior, body center, or clear\
+      \ body edge.\n3. Reject a candidate when the box is mostly smoke, flame, dust,\
+      \ shadow, road,\n   debris, terrain, background texture, repeated marks, or\
+      \ adjacent context.\n4. Reject broad row, convoy, cluster, formation, and scene-region\
+      \ boxes.\n5. Keep one tight box per accepted target.\n\nFINAL BOX SIEVE\nBefore\
+      \ output, silently ask for every box:\n- Would this still be a target box if\
+      \ nearby smoke, dust, road, debris, and\n  shadows were ignored?\n- Is most\
+      \ of the box occupied by one target body or one exterior structure?\n- Can the\
+      \ box be tightened without cutting off the accepted target?\nIf any answer is\
+      \ no, remove the detection.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\
+      \nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\
+      \nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT\
+      \ SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n  \
+      \    \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

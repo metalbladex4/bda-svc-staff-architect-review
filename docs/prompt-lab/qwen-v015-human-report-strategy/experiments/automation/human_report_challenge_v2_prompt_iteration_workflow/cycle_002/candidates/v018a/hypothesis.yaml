@@ -1,0 +1,35 @@
+hypothesis_id: "qwen-1.2-v018a-detect-dense-formation-body-center-anchor"
+status: "authorized_for_bounded_dense_smoke"
+lever_type: "detect_prompt_overlay"
+failure_class: "case67_dense_formation_smoke_dust_top_edge_anchor_failure"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v018a-detect-dense-formation-body-center-anchor"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-002-v018a"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v018a_live_run"
+parent_candidate: "v017b_single_target_box_span_self_filter"
+target_cases:
+  - "66"
+  - "67"
+  - "84"
+  - "155"
+  - "office-negative"
+validation_pack_ids:
+  - "human-report-challenge-v2-automation-hinge-11-no101"
+  - "legacy-abstention-guard-office-negative-v1"
+expected_improvement: >
+  Test whether explicit body-center and lower-body/ground-contact anchoring
+  helps dense formation cases, especially case 67, without sacrificing v017b's
+  precision discipline or abstention behavior.
+known_regression_risks:
+  - "The model may become too conservative and suppress small but valid distant targets."
+  - "The model may still anchor to dust or top-edge cues despite the added wording."
+  - "The added lower-body/ground-contact language may hurt aerial or oblique targets whose lower edge is partly hidden."
+  - "The dense-row instruction may reduce false positives without improving recall, which would not justify replacing v017b."
+stop_rule: >
+  Stop after the active v2 hinge/no101 pack and office-negative abstention
+  guard. Do not run dev, holdout, all-current, promotion, runtime config
+  adoption, source-truth mutation, Graphify refresh, Mem0 update, commits, or
+  pushes without later explicit approval.
+author: "William Benitez"
+created_at: "2026-05-03T00:00:00-04:00"

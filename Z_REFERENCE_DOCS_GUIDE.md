@@ -23,6 +23,14 @@ It should not be treated as one homogeneous source of truth.
 - this is the primary record of prompt iteration, evaluation, and refinement history
 - not every result here is promoted into stable runtime code
 
+### `GPT-Pro_collab/`
+
+- handoff material for ChatGPT 5.5 Pro and GPT Deep Research collaboration
+- start with
+  `z_reference_docs/GPT-Pro_collab/chatgpt_5_5_pro_prompt_engineering_handoff.md`
+  for the latest prompt-engineering task context, current `v020c` incumbent,
+  `v023/v024` pause state, and the requested Deep Research handoff
+
 ### `Doctrine_Experiments/`
 
 - local-only doctrine audits, replacement candidates, crosswalks, and branch A/B

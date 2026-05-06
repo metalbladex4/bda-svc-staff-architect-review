@@ -1,0 +1,78 @@
+{
+  "candidate_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/candidate_manifest_run_summary.json",
+  "candidate_totals": {
+    "false_negatives": 15,
+    "false_positives": 0,
+    "matches": 8
+  },
+  "case_101_diagnostic": {
+    "broad_group_box_present": true,
+    "broad_group_boxes": [
+      {
+        "area_ratio": 0.4937,
+        "bbox": [
+          74,
+          12,
+          1000,
+          571
+        ],
+        "height": 559,
+        "label": "target_0",
+        "width": 926
+      }
+    ],
+    "case": "101.jpg",
+    "detected_box_count": 1,
+    "diagnostic_passed": false,
+    "false_negative_count": 11,
+    "false_positive_count": 0,
+    "manual_review_required": true,
+    "match_count": 1,
+    "predicted_target_count": 1,
+    "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/101_2026-04-29_220154Z.json",
+    "present": true,
+    "reason": "case 101 still shows row-fragment enumeration or broad group boxing",
+    "reference_target_count": 12,
+    "row_fragment_enumeration_present": false,
+    "row_fragment_enumeration_suppressed": true,
+    "row_fragment_groups": []
+  },
+  "dev_run_recommendation": "blocked",
+  "gate": {
+    "false_negatives_max_exclusive": 15,
+    "false_positives_max_inclusive": 3,
+    "manual_review_case": "101",
+    "matches_min_exclusive": 8,
+    "protected_case": "155"
+  },
+  "gate_key": "hinge_smoke",
+  "note": "Case 101 remains a two-tier diagnostic case and requires manual review before any dev run.",
+  "pack_id": "human-report-challenge-v1-v015d-hinge-smoke",
+  "protected_case": {
+    "abstention_correct": true,
+    "case": "155.jpg",
+    "false_positive_count": 0,
+    "passed": true,
+    "present": true
+  },
+  "standard_checks": {
+    "false_negatives_below_v014": false,
+    "false_positives_within_limit": true,
+    "matches_above_v014": false,
+    "protected_case_passed": true
+  },
+  "standard_gate_passed": false,
+  "two_tier_passed": false,
+  "v009_baseline": {
+    "false_negatives": 6,
+    "false_positives": 17,
+    "matches": 17,
+    "predicted_targets": 34
+  },
+  "v014_baseline": {
+    "false_negatives": 15,
+    "false_positives": 1,
+    "matches": 8,
+    "predicted_targets": 9
+  }
+}

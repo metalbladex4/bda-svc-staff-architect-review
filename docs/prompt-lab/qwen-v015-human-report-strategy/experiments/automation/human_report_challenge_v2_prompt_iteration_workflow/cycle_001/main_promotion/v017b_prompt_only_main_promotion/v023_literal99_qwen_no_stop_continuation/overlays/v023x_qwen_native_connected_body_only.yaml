@@ -1,0 +1,47 @@
+candidate_id: v023x_qwen_native_connected_body_only
+title: v023x qwen native connected body only
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023w_qwen_native_building_centrality_guard
+hypothesis: >
+  v023s's broad evidence list improved recall but may invite false positives.
+  Remove broad support terms and keep only connected visible body / exterior
+  structure evidence in a concise Qwen-native JSON prompt.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible connected target body, connected wreck body, or continuous exterior building structure.
+
+      Include a target only when its own connected body or exterior structure is visible enough to draw a tight whole-target box.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible connected target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible connected target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

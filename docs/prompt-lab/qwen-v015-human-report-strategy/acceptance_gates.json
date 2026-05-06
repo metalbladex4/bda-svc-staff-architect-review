@@ -1,0 +1,140 @@
+{
+  "analysis_wave": {
+    "allowed": [
+      "taxonomy",
+      "stratified split",
+      "offline example bank",
+      "candidate hypotheses",
+      "acceptance gates"
+    ],
+    "not_allowed": [
+      "v015 prompt text",
+      "prompt overlays",
+      "VLM inference",
+      "promotion decisions"
+    ]
+  },
+  "baseline_all_112": {
+    "v009": {
+      "available": true,
+      "csv_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/eval/v009/evaluation_2026-04-28_023540Z.csv",
+      "image_count": 112,
+      "mean_iou": 0.675,
+      "mean_score_assess": 0.6865,
+      "metadata": {
+        "detector_backend_ids": [
+          "vlm_prompt_detector"
+        ],
+        "resolved_config_hashes": [
+          "ebcffee402c1b0d53c24c1cdce1fbc4a6fd11277a0f28a2aaf42dddf7a9c583a"
+        ]
+      },
+      "min_iou": 0.065,
+      "row_status_counts": {
+        "FN": 56,
+        "FP": 54,
+        "TP": 161
+      },
+      "summary_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/eval/v009/evaluation_2026-04-28_023540Z_summary.json",
+      "target_type_status_counts": {
+        "buildings": {
+          "FN": 12,
+          "FP": 11,
+          "TP": 44
+        },
+        "military equipment": {
+          "FN": 43,
+          "FP": 43,
+          "TP": 116
+        },
+        "object not found": {
+          "FN": 1,
+          "TP": 1
+        }
+      },
+      "totals": {
+        "false_negative_count": 56,
+        "false_positive_count": 54,
+        "match_count": 161,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_count": 2,
+        "negative_scene_false_positive_count": 1
+      }
+    },
+    "v014": {
+      "available": true,
+      "csv_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/eval/v014/evaluation_2026-04-28_024733Z.csv",
+      "image_count": 112,
+      "mean_iou": 0.6851,
+      "mean_score_assess": 0.6972,
+      "metadata": {
+        "detector_backend_ids": [
+          "vlm_prompt_detector"
+        ],
+        "resolved_config_hashes": [
+          "8b54f5ee03d30f54a0e4715ab67c9c8f51c904c72809dc6bc04753aaede58ffe"
+        ]
+      },
+      "min_iou": 0.066,
+      "row_status_counts": {
+        "FN": 69,
+        "FP": 24,
+        "TP": 148
+      },
+      "summary_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/eval/v014/evaluation_2026-04-28_024733Z_summary.json",
+      "target_type_status_counts": {
+        "buildings": {
+          "FN": 17,
+          "FP": 5,
+          "TP": 39
+        },
+        "military equipment": {
+          "FN": 51,
+          "FP": 19,
+          "TP": 108
+        },
+        "object not found": {
+          "FN": 1,
+          "TP": 1
+        }
+      },
+      "totals": {
+        "false_negative_count": 69,
+        "false_positive_count": 24,
+        "match_count": 148,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_count": 2,
+        "negative_scene_false_positive_count": 1
+      }
+    }
+  },
+  "formula_notes": {
+    "fp_floor": "Candidate FP must remain materially below v009 FP for the same split.",
+    "fp_margin": "For any split, allowed_fp <= v014_fp + max(2, ceil(v014_fp * 0.20))."
+  },
+  "future_all_112_gate": {
+    "minimum": "full all-112 comparison plus legacy guard/grounding pack review before promotion discussion",
+    "no_fast_promotion": true,
+    "promotion_boundary": "learning evidence first; tracked config changes require separate promotion package"
+  },
+  "future_dev_gate": {
+    "false_negatives": "less than v014 on the dev split",
+    "false_positives": "no more than max(2, ceil(v014_dev_fp * 1.20)) over v014 and still materially below v009",
+    "matches": "greater than v014 on the dev split",
+    "protected_cases": [
+      "101",
+      "155"
+    ]
+  },
+  "future_holdout_gate": {
+    "false_negatives": "same direction as dev: less than v014 on holdout",
+    "false_positives": "must not rebound toward v009 levels",
+    "matches": "same direction as dev: greater than v014 on holdout",
+    "protected_cases": [
+      "166"
+    ]
+  },
+  "gate_version": "v015-balanced-recovery-gates-v1",
+  "generated_utc": "2026-04-29T15:15:15.801283+00:00",
+  "optimization_target": "balanced recovery: improve recall versus v014 while keeping false positives near v014 and materially below v009"
+}

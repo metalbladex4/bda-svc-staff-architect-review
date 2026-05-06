@@ -1,0 +1,82 @@
+{
+  "all_current_no101": {
+    "case_101_present": false,
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "delta_vs_worktree_adopted_runtime": {
+      "false_negative_count": -7,
+      "false_positive_count": 4,
+      "match_count": 7
+    },
+    "false_negative_count": 54,
+    "false_positive_count": 22,
+    "image_count": 117,
+    "match_count": 165,
+    "run_summary": "runs/human_report_challenge_v2_all_current_117_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_223526Z/main_promotion_manifest_run_summary.json"
+  },
+  "backup_path": "cycle_001/promotion_readiness/v017b_main_promotion_readiness/backups/main_config_yaml_pre_v017b_prompt_promotion_20260503.yaml",
+  "decision_needed": true,
+  "generated_utc": "2026-05-03T22:49:59Z",
+  "main_edit": {
+    "exact_prompt_match_with_v017b": true,
+    "file": "/home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml",
+    "field": "prompts.detect_objects",
+    "prompt_hash": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259"
+  },
+  "promotion_status": "paused_pending_user_decision",
+  "smokes": {
+    "changed_source_sanity": {
+      "false_negative_count": 2,
+      "false_positive_count": 0,
+      "image_count": 5,
+      "match_count": 10,
+      "result": "pass"
+    },
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "result": "pass"
+    },
+    "updated_report_smoke": {
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2
+      },
+      "false_negative_count": 8,
+      "false_positive_count": 1,
+      "image_count": 15,
+      "match_count": 23,
+      "result": "pass"
+    }
+  },
+  "static_validation": {
+    "bda_svc_help": "pass",
+    "pytest": "18 passed",
+    "yaml_parse": "pass"
+  },
+  "thresholds": {
+    "false_negative_count_max": 63,
+    "false_negative_result": "pass",
+    "false_positive_count_max": 21,
+    "false_positive_result": "fail_by_1",
+    "match_count_min": 156,
+    "match_result": "pass"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "manifest_id": "v017a_superpowers_reassessment_source_manifest",
+  "status": "source_manifest_only",
+  "created_date": "2026-04-30",
+  "package_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/reassessments/v017a_superpowers_reassessment",
+  "workflow_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow",
+  "source_artifacts": [
+    {
+      "id": "v017a_decision_packet_md",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017a/live_2026-04-30_212112Z/decision_packet.md",
+      "type": "decision_packet",
+      "use": "candidate classification, gate summary, and recommended pause point",
+      "read_only": true
+    },
+    {
+      "id": "v017a_decision_packet_json",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017a/live_2026-04-30_212112Z/decision_packet.json",
+      "type": "decision_packet_structured",
+      "use": "structured near-miss evidence",
+      "read_only": true
+    },
+    {
+      "id": "v017a_gate_summary",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017a/live_2026-04-30_212112Z/gate_check_candidate_summary.json",
+      "type": "gate_summary",
+      "use": "source for pass/fail checks, case 101 diagnostic, positive 155, and abstention guard status",
+      "read_only": true
+    },
+    {
+      "id": "case_101_prediction",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017a/live_2026-04-30_212112Z/human_report_challenge_v2_hinge_12_2026-04-30_212112Z/predicted/101_2026-04-30_212126Z.json",
+      "type": "prediction_json",
+      "use": "source for the broad group/scene box emitted by v017a",
+      "read_only": true
+    },
+    {
+      "id": "hinge_12_eval_summary",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017a/live_2026-04-30_212112Z/human_report_challenge_v2_hinge_12_2026-04-30_212112Z/eval/evaluation_2026-04-30_212329Z_summary.json",
+      "type": "eval_summary",
+      "use": "source for case-level hinge metrics including case 101 reference and prediction counts",
+      "read_only": true
+    },
+    {
+      "id": "cycle_controller_operating_contract",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_controller_operating_contract.md",
+      "type": "workflow_contract",
+      "use": "source for Superpowers workflow-scaffolding boundaries and v017a pause",
+      "read_only": true
+    },
+    {
+      "id": "gate_policy",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/gate_policy.json",
+      "type": "gate_policy",
+      "use": "source for human_report_challenge_v2 gates and protected-negative replacement",
+      "read_only": true
+    }
+  ],
+  "verified_metrics": {
+    "v017a_classification": "near_miss",
+    "changed_source_sanity": {
+      "passed": true,
+      "match_count": 9,
+      "false_negative_count": 3,
+      "false_positive_count": 0,
+      "positive_control_155_passed": true
+    },
+    "hinge_12": {
+      "passed": false,
+      "match_count": 23,
+      "false_negative_count": 34,
+      "false_positive_count": 17,
+      "positive_control_155_passed": true,
+      "case_101_diagnostic_passed": false
+    },
+    "case_101": {
+      "row_fragment_group_count": 0,
+      "broad_group_box_count": 1,
+      "broad_group_box": [75, 13, 1000, 571],
+      "broad_group_box_area_ratio": 0.49223899841308594
+    },
+    "legacy_abstention_guard_office_negative": {
+      "passed": true
+    }
+  },
+  "forbidden_mutations_in_this_package": [
+    "v017b prompt text",
+    "v017b overlay",
+    "runner session",
+    "validation manifest",
+    "VLM inference",
+    "dev run",
+    "holdout run",
+    "all-112 run",
+    "promotion artifact",
+    "runtime config change",
+    "source-truth mutation",
+    "Graphify refresh",
+    "MCP config change",
+    "hook edit",
+    "Mem0 write"
+  ]
+}

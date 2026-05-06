@@ -1,0 +1,34 @@
+overlay_id: qwen-1.2-v018a_upstream_plus_control_guard
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Upstream skeleton plus minimal v017b controls for broad/group boxes,
+  object_not_found, and positive targets.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nGOAL\nFind all visible\
+      \ valid targets, then output one tight box per target. Favor\nrecall for clearly\
+      \ visible targets, but do not create broad area boxes or\nunsupported context\
+      \ boxes.\n\nRULES\n- First identify all valid targets using the target-type\
+      \ specific detection\n  guidance below.\n- Include secondary, distant, foreground,\
+      \ background, and off-center targets\n  when their own visible body or exterior\
+      \ structure can be boxed.\n- Then produce exactly one bounding box per valid\
+      \ target.\n- The number of detections must match the number of accepted targets.\n\
+      - Each box must cover one distinct target body or one exterior building\n  structure,\
+      \ not a row, group, smoke region, debris field, road, shadow, or\n  broad scene\
+      \ area.\n- Do not use object_not_found for a positive-looking target scene.\
+      \ If no valid\n  target is visible, return an empty detections list.\n- Do not\
+      \ infer equipment from smoke, flames, dust, tracks, repeated marks, or\n  ambiguous\
+      \ fragments.\n- Do not split one continuous building or one connected wreck\
+      \ body into\n  duplicate boxes.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n\
+      {detection_guidance}\n\nFINAL BOX CHECK\nBefore final JSON, reject any box that\
+      \ mainly contains context, spans multiple\npossible targets, or could be tightened\
+      \ substantially without cutting off the\naccepted target body.\n\nBOUNDING BOX\
+      \ FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\nOUTPUT\n\
+      Return valid JSON only.\nReturn a JSON object with a top-level detections field.\n\
+      If no valid targets are visible, return {\"detections\": []}.\n\nOUTPUT SCHEMA\n\
+      {\n  \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\"\
+      : {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

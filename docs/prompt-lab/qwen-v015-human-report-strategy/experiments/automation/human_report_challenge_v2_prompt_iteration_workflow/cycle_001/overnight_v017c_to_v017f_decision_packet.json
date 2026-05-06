@@ -1,0 +1,95 @@
+{
+  "status": "cycle_001_prompt_only_candidate_set_complete",
+  "active_gate": "human_report_challenge_v2_hinge_11_no101",
+  "case_101_policy": "diagnostic_only_excluded_from_forward_pass_fail_gate",
+  "candidate_results": {
+    "v017c": {
+      "classification": "potential_winner",
+      "hinge_11_no101": {
+        "match_count": 21,
+        "false_negative_count": 24,
+        "false_positive_count": 15
+      },
+      "changed_source": {
+        "match_count": 10,
+        "false_negative_count": 2,
+        "false_positive_count": 0
+      },
+      "updated_smoke": {
+        "match_count": 25,
+        "false_negative_count": 6,
+        "false_positive_count": 1
+      },
+      "office_negative": "passed"
+    },
+    "v017d": {
+      "classification": "potential_winner_best_balanced",
+      "hinge_11_no101": {
+        "match_count": 22,
+        "false_negative_count": 23,
+        "false_positive_count": 13
+      },
+      "changed_source": {
+        "match_count": 10,
+        "false_negative_count": 2,
+        "false_positive_count": 0
+      },
+      "updated_smoke": {
+        "match_count": 24,
+        "false_negative_count": 7,
+        "false_positive_count": 1
+      },
+      "office_negative": "passed"
+    },
+    "v017e": {
+      "classification": "potential_winner_not_best",
+      "hinge_11_no101": {
+        "match_count": 22,
+        "false_negative_count": 23,
+        "false_positive_count": 14
+      },
+      "changed_source": {
+        "match_count": 10,
+        "false_negative_count": 2,
+        "false_positive_count": 0
+      },
+      "updated_smoke": {
+        "match_count": 24,
+        "false_negative_count": 7,
+        "false_positive_count": 1
+      },
+      "office_negative": "passed"
+    },
+    "v017f": {
+      "classification": "potential_winner_recall_variant",
+      "hinge_11_no101": {
+        "match_count": 23,
+        "false_negative_count": 22,
+        "false_positive_count": 17
+      },
+      "changed_source": {
+        "match_count": 9,
+        "false_negative_count": 3,
+        "false_positive_count": 1
+      },
+      "updated_smoke": {
+        "match_count": 24,
+        "false_negative_count": 7,
+        "false_positive_count": 2
+      },
+      "office_negative": "passed"
+    }
+  },
+  "recommended_candidate": "v017d_visual_anchor_lock",
+  "alternate_candidate": "v017f_compact_visual_anchor_balance",
+  "recommended_next_decision": "review v017d as the best balanced candidate and decide whether to approve a bounded dev-split plan",
+  "not_authorized_by_this_packet": [
+    "dev split",
+    "holdout",
+    "all-112",
+    "promotion",
+    "runtime config adoption",
+    "source-truth mutation",
+    "structural guard implementation"
+  ]
+}

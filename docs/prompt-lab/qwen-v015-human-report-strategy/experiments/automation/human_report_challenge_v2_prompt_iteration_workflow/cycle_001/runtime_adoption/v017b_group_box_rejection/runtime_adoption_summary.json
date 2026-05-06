@@ -1,0 +1,112 @@
+{
+  "adoption_decision": "adopted_worktree_local_runtime_default",
+  "adopted_candidate": "v017b_group_box_rejection",
+  "adopted_surface": "src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml",
+  "boundaries": {
+    "all_current_post_adoption_run": true,
+    "graphify_refresh": false,
+    "holdout_post_adoption_run": false,
+    "main_checkout_tracked_edits": false,
+    "mcp_config_or_hooks_changed": false,
+    "mem0_write": false,
+    "promotion_to_main": false,
+    "source_truth_mutation": false
+  },
+  "generated_utc": "2026-05-03T22:04:22Z",
+  "post_adoption_all_current_replay": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "delta_vs_pre_adoption": {
+      "false_negative_count": 0,
+      "false_positive_count": -7,
+      "match_count": 0
+    },
+    "experiment_overlay_ids": [],
+    "false_negative_count": 61,
+    "false_positive_count": 18,
+    "image_count": 117,
+    "manifest": "human_report_challenge_v2_all_current_117_no101.yaml",
+    "match_count": 158,
+    "resolved_config_hash": "fcbbbfa826940991b7e20cb5f4667609e3a5ecc01ee369d0c87545baf6a71998",
+    "run_summary": "runs/all_current_117_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_214944Z/runtime_manifest_run_summary.json"
+  },
+  "post_adoption_runtime_smoke": [
+    {
+      "false_negative_count": 2,
+      "false_positive_count": 0,
+      "image_count": 5,
+      "manifest": "human_report_challenge_v2_changed_source_sanity.yaml",
+      "match_count": 10,
+      "run_summary": "runs/changed_source_sanity/human_report_challenge_v2_changed_source_sanity_2026-05-03_210203Z/runtime_manifest_run_summary.json"
+    },
+    {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "manifest": "legacy_abstention_guard_office_negative.yaml",
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "run_summary": "runs/office_negative/legacy_abstention_guard_office_negative_2026-05-03_210301Z/runtime_manifest_run_summary.json"
+    },
+    {
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "false_negative_count": 8,
+      "false_positive_count": 1,
+      "image_count": 15,
+      "manifest": "human_report_challenge_v2_updated_report_smoke.yaml",
+      "match_count": 23,
+      "run_summary": "runs/updated_report_smoke/human_report_challenge_v2_updated_report_smoke_2026-05-03_210319Z/runtime_manifest_run_summary.json"
+    },
+    {
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "false_negative_count": 23,
+      "false_positive_count": 15,
+      "image_count": 11,
+      "manifest": "human_report_challenge_v2_hinge_11_no101.yaml",
+      "match_count": 22,
+      "run_summary": "runs/hinge_11_no101/human_report_challenge_v2_hinge_11_no101_2026-05-03_210519Z/runtime_manifest_run_summary.json"
+    }
+  ],
+  "pre_adoption_reference": {
+    "all_current_no101": {
+      "false_negative_count": 61,
+      "false_positive_count": 25,
+      "image_count": 117,
+      "match_count": 158
+    },
+    "summary": "cycle_001/pre_adoption/v017b_group_box_rejection/pre_adoption_summary.md"
+  },
+  "runtime": {
+    "detect_prompt_sha256": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+    "detector_backend_id": "vlm_prompt_detector",
+    "experiment_overlay_ids": [],
+    "model_line_id": "qwen3-vl:8b-instruct",
+    "model_line_overlay_id": "qwen3-vl-8b-instruct-model-line-v017b-defaults-v1",
+    "resolved_config_hash": "fcbbbfa826940991b7e20cb5f4667609e3a5ecc01ee369d0c87545baf6a71998"
+  }
+}

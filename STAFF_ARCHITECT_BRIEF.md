@@ -1,13 +1,24 @@
 
 # Staff Architect Brief
 
-This brief explains the **local Codex environment and workflow surfaces that are not
-directly visible from the GitHub repo alone**.
+This brief explains local Codex environment and workflow surfaces that are not
+directly visible from the GitHub repo alone.
+
+For the current 2026-05-06 ChatGPT 5.5 Pro / Deep Research collaboration, read
+this first:
+
+```text
+z_reference_docs/GPT-Pro_collab/chatgpt_5_5_pro_prompt_engineering_handoff.md
+```
+
+That dossier supersedes this brief for the latest Qwen prompt-engineering
+state, including `v020c`, `v023/v024`, Graphify/project-brain, Mem0,
+SequentialThinking, and the Deep Research handoff request.
 
 ## Review Intent
 
-Please review this project as a **Staff AI Systems Architect and Prompt/Evaluation
-Lead for a multimodal VLM pipeline**.
+Please review this project as a Staff AI Systems Architect and
+Prompt/Evaluation Lead for a multimodal VLM pipeline.
 
 We want recommendations on:
 
@@ -37,7 +48,9 @@ Intended use:
 
 ### MCP Inventory And Routing
 
-Current configured MCP servers:
+The current local MCP/tooling stack has evolved since the original review
+snapshot. Use the GPT-Pro handoff dossier and the refreshed live docs for the
+newest state. High-level current surfaces include:
 
 - `sequential-thinking`
 - `filesystem`
@@ -48,13 +61,20 @@ Current configured MCP servers:
 - `playwright`
 - `chrome-devtools`
 - `memory`
+- `mem0`
+- `mcpfinder`
+- `capstone-project-brain`
+- `capstone-architecture-graph`
+- `capstone-evidence-sqlite`
+- `capstone-evidence-duckdb`
+- `fiftyone`
 
 Intended use:
 
 - prefer source-specific and structured tool use over ad hoc browsing when that
   materially improves planning, inspection, browsing, or docs access
-- use `sequential-thinking` heavily for complex planning, debugging, and substantive
-  live-doc or AGENTS updates
+- use `sequential-thinking` as a compact checkpoint for complex, risky,
+  evidence-sensitive, or high-blast-radius decisions
 - use `filesystem` for in-root structured inspection instead of shell-by-habit when
   that is the better fit
 - use browser MCPs when browser-state reasoning is actually needed rather than as a
@@ -62,7 +82,7 @@ Intended use:
 
 ### Enabled Plugins / Connectors
 
-Current enabled plugins/connectors:
+Current enabled plugins/connectors include:
 
 - GitHub
 - Google Drive
@@ -120,15 +140,15 @@ Intended use:
 
 ### Codex Defaults And Rules
 
-Current global defaults:
+Current global defaults and conventions include:
 
-- model: `gpt-5.4`
-- reasoning effort: `xhigh`
 - project trust for `/home/williambenitez1/Capstone`
 - MCP-first-but-balanced routing guidance
-- explicit `sequential-thinking` escalation before substantive live-doc, global-rule,
-  or `AGENTS.md` updates
-- local allow-rules present in `~/.codex/rules/default.rules`
+- explicit `sequential-thinking` escalation before substantive live-doc,
+  global-rule, prompt/eval, memory, Graphify, or `AGENTS.md` updates
+- Graphify/project-brain is navigation memory, not source truth
+- Mem0 is durable advisory memory, not source truth, and writes require
+  explicit approval
 
 ## Extensibility Intent Going Forward
 
@@ -142,17 +162,6 @@ We are intentionally open to expanding this setup.
 
 We want your guidance on which extensibility surfaces are worth adding next and which
 ones would create more complexity than value.
-
-## Currently Not Configured Locally
-
-At snapshot time, these surfaces were not detected as actively configured locally:
-
-- no extra profiles or layered config overrides beyond the single `~/.codex/config.toml`
-- no custom model providers configured
-- no hooks detected
-- no team config detected
-- no managed enterprise controls visible locally
-- no local automations configuration detected
 
 ## Other Potential Surfaces We Want Advice On
 
@@ -168,6 +177,10 @@ we should use or avoid:
 
 ## Important Boundary
 
-This private review repo is a snapshot and review surface only. After it was created,
-the active working context was intended to return to `/home/williambenitez1/Capstone`
-and its active worktrees. Future pushes here should happen only on explicit request.
+This review repo is a snapshot and review surface only. After it is refreshed,
+the active working context returns to `/home/williambenitez1/Capstone` and its
+active worktrees. Future pushes here should happen only on explicit request.
+
+GitHub currently reports this repo as `PUBLIC`, so treat it as sanitized review
+material and do not add raw secrets, credentials, local auth/session state, or
+unreviewed private machine files.

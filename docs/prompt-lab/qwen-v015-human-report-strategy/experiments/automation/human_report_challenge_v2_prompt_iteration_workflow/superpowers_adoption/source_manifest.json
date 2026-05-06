@@ -1,0 +1,42 @@
+{
+  "package": "superpowers_adoption_for_human_report_challenge_v2_prompt_iteration",
+  "status": "active_workflow_scaffolding",
+  "created_at": "2026-04-30",
+  "superpowers": {
+    "repository": "https://github.com/obra/superpowers",
+    "release": "v5.0.7",
+    "commit": "1f20bef3f59b85ad7b52718f822e37c4478a3ff5",
+    "clone_path": "/home/williambenitez1/.codex/superpowers",
+    "skills_symlink": "/home/williambenitez1/.agents/skills/superpowers",
+    "active_surface": "skills_only",
+    "inactive_surfaces": [
+      "hooks",
+      "mcp_servers",
+      "agents",
+      "deprecated_command_wrappers"
+    ]
+  },
+  "capstone_sources": [
+    "/home/williambenitez1/.codex/AGENTS.md",
+    "/home/williambenitez1/.codex/MCP_USAGE_GUIDE.md",
+    "/home/williambenitez1/.codex/TOOL_INVENTORY.md",
+    "/home/williambenitez1/.codex/tool_inventory.json",
+    "/home/williambenitez1/Capstone/AGENTS.md",
+    "/home/williambenitez1/Capstone/TOOL_INVENTORY.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/PROJECT_BRAIN.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/PROMPT_DEVELOPMENT_METHODOLOGY.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/WORKING_CHANGELOG.md"
+  ],
+  "prompt_lane_sources": [
+    "../README.md",
+    "../gate_policy.json",
+    "../cycle_policy.json",
+    "../cycle_001/runs/v017a/live_2026-04-30_212112Z/decision_packet.md",
+    "../cycle_001/runs/v017a/live_2026-04-30_212112Z/gate_check_candidate_summary.json"
+  ],
+  "boundaries": [
+    "Superpowers is workflow scaffolding only.",
+    "Do not author or run v017b until user review approves that next wave.",
+    "Do not run VLM inference, dev, holdout, all-112, promotion, runtime config adoption, source-truth mutation, MCP config edits, hooks, or Mem0 writes from this adoption package."
+  ]
+}

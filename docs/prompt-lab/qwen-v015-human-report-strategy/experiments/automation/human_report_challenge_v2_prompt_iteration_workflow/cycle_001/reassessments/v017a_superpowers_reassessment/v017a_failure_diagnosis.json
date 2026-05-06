@@ -1,0 +1,96 @@
+{
+  "diagnosis_id": "v017a_superpowers_reassessment_failure_diagnosis",
+  "status": "diagnosis_complete",
+  "candidate": {
+    "candidate_id": "v017a",
+    "candidate_name": "v017a_body_backed_candidate_filter",
+    "classification": "near_miss_not_winner",
+    "human_report_lane": "human_report_challenge_v2",
+    "user_review_status": "pending",
+    "next_candidate_authorized": false
+  },
+  "evidence": {
+    "changed_source_sanity": {
+      "passed": true,
+      "match_count": 9,
+      "false_negative_count": 3,
+      "false_positive_count": 0,
+      "positive_control_155_passed": true
+    },
+    "hinge_12": {
+      "passed": false,
+      "match_count": 23,
+      "false_negative_count": 34,
+      "false_positive_count": 17,
+      "positive_control_155_passed": true,
+      "case_101_diagnostic_passed": false
+    },
+    "legacy_abstention_guard_office_negative": {
+      "passed": true,
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 1
+    },
+    "case_101": {
+      "reference_target_count": 12,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 11,
+      "false_positive_count": 0,
+      "row_fragment_group_count": 0,
+      "broad_group_box_count": 1,
+      "broad_group_boxes": [
+        {
+          "bbox": [75, 13, 1000, 571],
+          "area_ratio": 0.49223899841308594,
+          "target_type": "military_equipment",
+          "label": "target_0"
+        }
+      ]
+    }
+  },
+  "failure_pattern": {
+    "primary_failure_class": "broad_group_scene_box",
+    "distinct_from": [
+      "row_fragment_enumeration",
+      "protected_negative_violation",
+      "v1_gate_usage",
+      "aggregate_precision_failure"
+    ],
+    "prompt_addressable": true,
+    "root_cause_hypothesis": "The final prompt acceptance rubric still allows a broad box when target evidence exists inside it, instead of requiring each final detection to tightly enclose one distinct target body."
+  },
+  "labels": [
+    "near_miss_not_winner",
+    "prompt_addressable_candidate",
+    "manual_diagnostic_failure",
+    "broad_group_scene_box",
+    "row_fragment_suppression_preserved",
+    "positive_control_preserved",
+    "abstention_guard_preserved",
+    "no_dev_authorized",
+    "v017b_requires_approval"
+  ],
+  "superpowers_process_decision": {
+    "skill_pattern": "systematic-debugging",
+    "required_before_next_prompt": [
+      "source-artifact diagnosis",
+      "failure-class record",
+      "one-axis recommendation",
+      "user approval"
+    ],
+    "allowed_sidecar_roles_read_only": [
+      "prompt-engineer",
+      "reviewer",
+      "knowledge-synthesizer"
+    ],
+    "research_sidecar_trigger": "Use research-analyst only after repeated failures or a source-backed prompt-method question."
+  },
+  "next_step": {
+    "recommended_action": "review_v017b_prompt_axis_recommendation",
+    "do_not_auto_author_v017b": true,
+    "do_not_run_dev": true,
+    "do_not_run_holdout": true,
+    "do_not_promote": true
+  }
+}

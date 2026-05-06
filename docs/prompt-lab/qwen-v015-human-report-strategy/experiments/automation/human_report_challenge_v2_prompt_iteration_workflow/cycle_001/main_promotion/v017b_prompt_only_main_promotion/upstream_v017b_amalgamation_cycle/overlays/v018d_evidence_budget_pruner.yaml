@@ -1,0 +1,39 @@
+overlay_id: qwen-1.2-v018d_evidence_budget_pruner
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Creative candidate using body-support evidence budget and pruning.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nWORKFLOW: CANDIDATE\
+      \ EVIDENCE BUDGET\nThink silently. Do not output notes. Spend your attention\
+      \ in this order:\n\n1. Candidate sweep\nFind possible targets across the whole\
+      \ image. Do not stop at central or obvious\ntargets. Notice damaged, burned,\
+      \ distant, edge, foreground, and background\nobjects.\n\n2. Evidence budget\n\
+      Each final target needs at least one body-support cue:\n- connected vehicle\
+      \ or equipment body, hull, chassis, wreck mass, or outline\n- distinct exterior\
+      \ building body or collapsed exterior structural remain\n- visible target edges\
+      \ or body mass that can be separated from context\n\nThe following cues may\
+      \ guide search but cannot justify a final detection by\nthemselves:\n- smoke,\
+      \ flame, dust, soot, blast marks, debris, road, rail bed, shadow,\n  repeated\
+      \ dots, row alignment, terrain change, or background texture\n\n3. Budget pruning\n\
+      If a proposed target uses mostly context cues and weak body support, remove\
+      \ it.\nIf a proposed box is mostly empty/context area, remove it. If multiple\
+      \ boxes\ndescribe the same connected body or one continuous building, keep only\
+      \ the\ntightest single body box.\n\n4. Final boxing\nOutput one tight box per\
+      \ remaining target. The box must describe the visible\nconnected target body\
+      \ or exterior structure, not the search cue that helped\nfind it.\n\nTARGET-TYPE\
+      \ SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\nDENSE OR ROW-LIKE AREAS\n\
+      Rows and formations are allowed search regions but not targets. Output only\n\
+      separable bodies with body-support cues. Do not place evenly spaced placeholder\n\
+      boxes along dust, smoke, tracks, or a row line. If separate bodies are not\n\
+      visible enough to box tightly, omit those positions.\n\nNEGATIVE AND UNCERTAIN\
+      \ SCENES\nIf no valid target has body-support evidence, return {\"detections\"\
+      : []}. Do\nnot output object_not_found as a detection target_type.\n\nBOUNDING\
+      \ BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\n\
+      OUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\"\
+      : string,\n      \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

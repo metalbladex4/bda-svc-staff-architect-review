@@ -1,0 +1,114 @@
+{
+  "comparison_id": "v017d_v017f_dense_formation_visual_comparison",
+  "created_at": "2026-05-03",
+  "mode": "visual_comparison_only",
+  "split": "human_report_challenge_v2_dev_55_no101",
+  "cases": [
+    "66",
+    "67",
+    "84"
+  ],
+  "case_comparisons": [
+    {
+      "case_id": "66",
+      "v017d": {
+        "matches": 8,
+        "false_negatives": 0,
+        "false_positives": 6,
+        "predicted_targets": 14,
+        "reference_targets": 8,
+        "visual_label": "dense_row_over_enumeration"
+      },
+      "v017f": {
+        "matches": 8,
+        "false_negatives": 0,
+        "false_positives": 6,
+        "predicted_targets": 14,
+        "reference_targets": 8,
+        "visual_label": "dense_row_over_enumeration"
+      },
+      "delta": {
+        "matches": 0,
+        "false_negatives": 0,
+        "false_positives": 0
+      },
+      "readout": "v017f does not improve the dense-row over-enumeration behavior on 66."
+    },
+    {
+      "case_id": "67",
+      "v017d": {
+        "matches": 1,
+        "false_negatives": 10,
+        "false_positives": 8,
+        "predicted_targets": 9,
+        "reference_targets": 11,
+        "visual_label": "dense_formation_anchor_drift"
+      },
+      "v017f": {
+        "matches": 1,
+        "false_negatives": 10,
+        "false_positives": 9,
+        "predicted_targets": 10,
+        "reference_targets": 11,
+        "visual_label": "dense_formation_anchor_drift_with_extra_false_positive"
+      },
+      "delta": {
+        "matches": 0,
+        "false_negatives": 0,
+        "false_positives": 1
+      },
+      "readout": "v017f is worse on the largest dense-formation blocker because it adds one FP without recovering any additional references."
+    },
+    {
+      "case_id": "84",
+      "v017d": {
+        "matches": 5,
+        "false_negatives": 8,
+        "false_positives": 1,
+        "predicted_targets": 6,
+        "reference_targets": 13,
+        "visual_label": "broad_row_span_boxing"
+      },
+      "v017f": {
+        "matches": 5,
+        "false_negatives": 8,
+        "false_positives": 0,
+        "predicted_targets": 5,
+        "reference_targets": 13,
+        "visual_label": "broad_row_span_boxing_without_extra_fp"
+      },
+      "delta": {
+        "matches": 0,
+        "false_negatives": 0,
+        "false_positives": -1
+      },
+      "readout": "v017f removes one FP but leaves the recall and broad row/span boxing problem intact."
+    }
+  ],
+  "dense_formation_error_units": {
+    "v017d": 33,
+    "v017f": 33
+  },
+  "conclusion": {
+    "v017f_solves_dense_formation_surface": false,
+    "keep_primary_candidate": "v017d_visual_anchor_lock",
+    "use_v017f_as": "recall_comparator_only",
+    "next_prompt_axis_if_approved": "dense_formation_anchor_discipline_and_unsupported_row_self_filter"
+  },
+  "recommended_constraints": [
+    "identify_separate_visible_target_bodies_before_finalizing_boxes",
+    "reject_broad_row_stripe_and_span_boxes",
+    "reject_evenly_spaced_placeholder_boxes_in_receding_formations",
+    "remove_unsupported_extras_after_candidate_discovery",
+    "keep_distant_valid_targets_only_when_body_evidence_is_visible"
+  ],
+  "boundaries": {
+    "new_inference_run": false,
+    "prompt_authored": false,
+    "reference_truth_changed": false,
+    "source_truth_changed": false,
+    "runtime_config_changed": false,
+    "promotion_authorized": false,
+    "case_101_forward_scoring": false
+  }
+}

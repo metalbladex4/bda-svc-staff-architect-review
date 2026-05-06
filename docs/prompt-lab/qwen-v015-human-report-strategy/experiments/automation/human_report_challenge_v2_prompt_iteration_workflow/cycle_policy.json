@@ -1,0 +1,116 @@
+{
+  "approved_bounded_continuation": {
+    "allowed_pack_ids": [
+      "human_report_challenge_v2_hinge_11_no101",
+      "human_report_challenge_v2_changed_source_sanity",
+      "human_report_challenge_v2_updated_report_smoke",
+      "legacy_abstention_guard_office_negative"
+    ],
+    "approval_scope": "historical v017b approval consumed; forward cycle continues through v017f unless a hard stop triggers",
+    "from_candidate": "v017a_body_backed_candidate_filter",
+    "next_candidate": "v017b_single_target_box_span_self_filter",
+    "requires_user_review_after_run": false,
+    "stop_before": [
+      "dev",
+      "holdout",
+      "all-112",
+      "promotion",
+      "runtime_config_adoption",
+      "structural_guard_implementation",
+      "source_truth_mutation",
+      "mcp_config_change",
+      "hook_edit",
+      "tool_install"
+    ]
+  },
+  "approved_forward_cycle_continuation": {
+    "candidate_slots_remaining": [
+      "v017c",
+      "v017d",
+      "v017e",
+      "v017f"
+    ],
+    "continue_after_near_miss": true,
+    "near_miss_requires_diagnosis_before_next_candidate": true,
+    "stop_only_for": [
+      "abstention_guard_failure",
+      "source_or_manifest_integrity_failure",
+      "scope_violation",
+      "runtime_or_tool_boundary_violation",
+      "candidate_budget_exhausted",
+      "explicit_user_stop"
+    ]
+  },
+  "candidate_authoring_allowed_in_this_wave": true,
+  "candidate_budget": 6,
+  "candidate_ids": [
+    "v017a",
+    "v017b",
+    "v017c",
+    "v017d",
+    "v017e",
+    "v017f"
+  ],
+  "current_source_refresh_status": {
+    "active_hinge_manifest": "human_report_challenge_v2_hinge_11_no101.yaml",
+    "case_101_forward_eval_status": "diagnostic_only_excluded_from_pass_fail_gates",
+    "current_v009_v014_baselines_cover_updated_report_smoke": true,
+    "updated_report_smoke_case_ids": [
+      "40",
+      "61",
+      "65",
+      "69",
+      "70",
+      "77",
+      "106",
+      "125",
+      "141",
+      "152",
+      "154",
+      "155",
+      "156",
+      "172",
+      "187"
+    ],
+    "v017b_authoring_allowed": true,
+    "v2_manifest_must_be_current": true
+  },
+  "cycle_id": "cycle_001",
+  "dev_holdout_all112_allowed_in_this_wave": false,
+  "dry_run_only_for_this_wave": false,
+  "human_report_lane": "human_report_challenge_v2",
+  "learning_mode": "adaptive_per_run",
+  "stop_rules": [
+    "stop if a candidate violates abstention guard",
+    "stop if v2 manifest or source references are missing",
+    "stop if candidate attempts to use v1 gates as current authority",
+    "stop if 166 is pulled into dev or hinge without later explicit approval",
+    "stop if automation tries to install tools or mutate MCP config"
+  ],
+  "subagent_policy": {
+    "allowed_sidecars": [
+      "prompt-engineer",
+      "research-analyst",
+      "docs-researcher",
+      "reviewer",
+      "test-automator",
+      "knowledge-synthesizer"
+    ],
+    "main_codex_role": "cycle_owner_and_final_decision_maker",
+    "sidecars_are_read_only_by_default": true,
+    "sidecars_may_mutate_files_only_with_later_explicit_disjoint_write_scope": true,
+    "subagents_spawned_by_this_build": false
+  },
+  "tool_policy": {
+    "evidence_sqlite_duckdb": "read_only_experiment_lookup_if_needed",
+    "fiftyone": "explicit_visual_bbox_review_only",
+    "graphify_project_brain": "navigation_and_recall_only_verify_against_source",
+    "mcpfinder": "missing_tool_discovery_between_cycles_only",
+    "mem0": "approved_durable_closeout_only_never_automatic_per_run",
+    "ncp": "excluded",
+    "sequential_thinking": "compact_checkpoints_for_cycle_design_gate_changes_failure_pivots"
+  },
+  "version_lane": "v017",
+  "vlm_inference_allowed_in_this_wave": true,
+  "workflow_id": "human_report_challenge_v2_prompt_iteration_workflow"
+}

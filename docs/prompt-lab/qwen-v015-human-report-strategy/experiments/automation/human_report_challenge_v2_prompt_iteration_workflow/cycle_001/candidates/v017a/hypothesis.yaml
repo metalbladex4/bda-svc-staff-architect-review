@@ -1,0 +1,48 @@
+hypothesis_id: "qwen-1.2-v017a-detect-body-backed-candidate-filter"
+status: "hypothesis_only"
+lever_type: "detect_prompt_overlay"
+failure_class: "v016a_recall_recovered_precision_rebounded_case101_row_group_failure"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v017a-detect-body-backed-candidate-filter"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-001-v017a"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v017a_live_run"
+target_cases:
+  - "101"
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+  - "66"
+  - "67"
+  - "84"
+  - "97"
+  - "141"
+  - "152"
+  - "154"
+  - "156"
+  - "office-negative"
+validation_pack_ids:
+  - "human-report-challenge-v2-automation-hinge-12"
+  - "human-report-challenge-v2-changed-source-sanity"
+  - "legacy-abstention-guard-office-negative-v1"
+expected_improvement: >
+  Test whether an accept/maybe/reject prompt interface can preserve the recall
+  intent of v016a while preventing maybe candidates, row fragments, and broad
+  group/scene regions from reaching final JSON.
+known_regression_risks:
+  - "The maybe tier may become too conservative and suppress legitimate small or distant targets."
+  - "The model may ignore the instruction that maybe candidates are not final detections."
+  - "Case 101 may still produce row-fragment enumeration or a broad group/scene box."
+  - "Changed-source cases 141, 152, 155, and 156 may expose recall loss if body-backed wording is too strict."
+  - "The legacy office-negative guard may fail if damaged-context wording creates hallucinated targets."
+stop_rule: >
+  Stop after the v2 hinge, changed-source sanity, and legacy office-negative
+  guard packs. Do not run dev, holdout, all-112, promotion, runtime config
+  adoption, source-truth mutation, Graphify refresh, or Mem0 update without
+  later explicit approval.
+author: "William Benitez"
+created_at: "2026-04-30T00:00:00-04:00"

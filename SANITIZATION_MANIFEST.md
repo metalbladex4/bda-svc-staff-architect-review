@@ -1,7 +1,10 @@
 
 # Sanitization Manifest
 
-This private review repo intentionally excludes or redacts machine/auth/state artifacts.
+This review repo intentionally excludes or redacts machine/auth/state artifacts.
+
+GitHub currently reports this repository as `PUBLIC`, so the sanitization bar is
+public-safe rather than private-only.
 
 ## Excluded Or Redacted
 
@@ -13,6 +16,11 @@ This private review repo intentionally excludes or redacts machine/auth/state ar
 - all Windows `:Zone.Identifier` metadata sidecar files copied from the local docs snapshot
 - `z_reference_docs/capstone_tech_docs/APIKey.txt`
   - replaced with a placeholder note instead of raw contents
+- raw prompt-lab image overlays, large image review sheets, and predicted-output
+  dumps from recent Qwen cycles
+  - recent runs are represented with decision packets, overlays, comparison
+    matrices, run summaries, eval summaries, diagnoses, and final
+    recommendations instead
 
 ## Reason
 

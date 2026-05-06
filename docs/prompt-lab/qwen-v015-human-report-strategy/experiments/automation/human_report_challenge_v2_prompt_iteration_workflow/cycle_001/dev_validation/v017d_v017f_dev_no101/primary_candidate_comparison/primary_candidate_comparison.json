@@ -1,0 +1,734 @@
+{
+  "anchor_replay": {
+    "accepted_v017d_anchor": {
+      "false_negative_count": 34,
+      "false_positive_count": 16,
+      "match_count": 72,
+      "positive_155_match_count": 2,
+      "source": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/candidate_manifest_run_summary.json"
+    },
+    "anchor_acceptable": true,
+    "fresh_delta": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 0
+    }
+  },
+  "case_policy": {
+    "case_101_present_in_fresh_runs": false,
+    "dense_formation_cases": [
+      "66",
+      "67",
+      "84"
+    ],
+    "image_count_expected": 55,
+    "positive_control_cases": [
+      "155"
+    ]
+  },
+  "comparison_id": "v017d_primary_candidate_comparison_rerun",
+  "decision_checks": {
+    "missing_candidate_runs": [],
+    "older_candidate_review_triggers": [],
+    "precision_challenger_review_triggers": [
+      "v017b_group_box_rejection"
+    ],
+    "recommendation": "reopen_candidate_review_precision_challenger",
+    "v017d_vs_fresh_v014": {
+      "beats_false_negative_count": true,
+      "beats_match_count": true,
+      "within_false_positive_count": true
+    },
+    "v017f_displaces_v017d_by_rule": false
+  },
+  "fresh_ranking": [
+    {
+      "candidate_id": "v009_control_baseline",
+      "dense_formation_error_units": 38,
+      "false_negative_count": 32,
+      "false_positive_count": 27,
+      "match_count": 74,
+      "positive_155_safe": false,
+      "rank": 1,
+      "short_id": "v009"
+    },
+    {
+      "candidate_id": "v017f_compact_visual_anchor_balance",
+      "dense_formation_error_units": 33,
+      "false_negative_count": 33,
+      "false_positive_count": 18,
+      "match_count": 73,
+      "positive_155_safe": true,
+      "rank": 2,
+      "short_id": "v017f"
+    },
+    {
+      "candidate_id": "v017b_group_box_rejection",
+      "dense_formation_error_units": 31,
+      "false_negative_count": 34,
+      "false_positive_count": 13,
+      "match_count": 72,
+      "positive_155_safe": true,
+      "rank": 3,
+      "short_id": "v017b"
+    },
+    {
+      "candidate_id": "v017d_visual_anchor_lock",
+      "dense_formation_error_units": 33,
+      "false_negative_count": 34,
+      "false_positive_count": 16,
+      "match_count": 72,
+      "positive_155_safe": true,
+      "rank": 4,
+      "short_id": "v017d"
+    },
+    {
+      "candidate_id": "v017e_anti_span_guard",
+      "dense_formation_error_units": 34,
+      "false_negative_count": 35,
+      "false_positive_count": 15,
+      "match_count": 71,
+      "positive_155_safe": true,
+      "rank": 5,
+      "short_id": "v017e"
+    },
+    {
+      "candidate_id": "v017a_broad_group_box_lock",
+      "dense_formation_error_units": 33,
+      "false_negative_count": 35,
+      "false_positive_count": 18,
+      "match_count": 71,
+      "positive_155_safe": true,
+      "rank": 6,
+      "short_id": "v017a"
+    },
+    {
+      "candidate_id": "v017c_count_then_anchor",
+      "dense_formation_error_units": 35,
+      "false_negative_count": 36,
+      "false_positive_count": 16,
+      "match_count": 70,
+      "positive_155_safe": true,
+      "rank": 7,
+      "short_id": "v017c"
+    },
+    {
+      "candidate_id": "v014_weighted_building_selection",
+      "dense_formation_error_units": 32,
+      "false_negative_count": 37,
+      "false_positive_count": 17,
+      "match_count": 69,
+      "positive_155_safe": false,
+      "rank": 8,
+      "short_id": "v014"
+    },
+    {
+      "candidate_id": "v016a_reference_aware_candidate_discovery",
+      "dense_formation_error_units": 34,
+      "false_negative_count": 38,
+      "false_positive_count": 19,
+      "match_count": 68,
+      "positive_155_safe": false,
+      "rank": 9,
+      "short_id": "v016a"
+    },
+    {
+      "candidate_id": "v015e_individual_body_evidence",
+      "dense_formation_error_units": 39,
+      "false_negative_count": 46,
+      "false_positive_count": 17,
+      "match_count": 60,
+      "positive_155_safe": false,
+      "rank": 10,
+      "short_id": "v015e"
+    }
+  ],
+  "fresh_rerun_rows": [
+    {
+      "candidate_id": "v017d_visual_anchor_lock",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 6,
+          "match_count": 8,
+          "predicted_target_count": 14,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 8,
+          "match_count": 1,
+          "predicted_target_count": 9,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 1,
+          "match_count": 5,
+          "predicted_target_count": 6,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 33,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "replay_anchor_primary_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_173618Z/candidate_manifest_run_summary.json",
+      "short_id": "v017d",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 34,
+        "false_positive_count": 16,
+        "image_count": 55,
+        "match_count": 72,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v009_control_baseline",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 4,
+          "match_count": 7,
+          "predicted_target_count": 11,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 12,
+          "match_count": 1,
+          "predicted_target_count": 13,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 3,
+          "match_count": 5,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 38,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 2,
+            "false_positive_count": 1,
+            "match_count": 0,
+            "predicted_target_count": 1,
+            "reference_target_count": 2
+          },
+          "safe": false
+        }
+      },
+      "role": "promoted_control_baseline",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v009_control_baseline/human_report_challenge_v2_dev_55_no101_2026-05-03_174339Z/candidate_manifest_run_summary.json",
+      "short_id": "v009",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 32,
+        "false_positive_count": 27,
+        "image_count": 55,
+        "match_count": 74,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v014_weighted_building_selection",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 5,
+          "match_count": 7,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 8,
+          "match_count": 1,
+          "predicted_target_count": 9,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 0,
+          "match_count": 5,
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 32,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 2,
+            "false_positive_count": 1,
+            "match_count": 0,
+            "predicted_target_count": 1,
+            "reference_target_count": 2
+          },
+          "safe": false
+        }
+      },
+      "role": "false_positive_suppression_baseline",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v014_weighted_building_selection/human_report_challenge_v2_dev_55_no101_2026-05-03_175024Z/candidate_manifest_run_summary.json",
+      "short_id": "v014",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 37,
+        "false_positive_count": 17,
+        "image_count": 55,
+        "match_count": 69,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v015e_individual_body_evidence",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 7,
+          "false_positive_count": 0,
+          "match_count": 1,
+          "predicted_target_count": 1,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 10,
+          "match_count": 1,
+          "predicted_target_count": 11,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 12,
+          "false_positive_count": 0,
+          "match_count": 1,
+          "predicted_target_count": 1,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 39,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 2,
+            "false_positive_count": 1,
+            "match_count": 0,
+            "predicted_target_count": 1,
+            "reference_target_count": 2
+          },
+          "safe": false
+        }
+      },
+      "role": "v015_prompt_lane_final_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v015e_individual_body_evidence/human_report_challenge_v2_dev_55_no101_2026-05-03_175634Z/candidate_manifest_run_summary.json",
+      "short_id": "v015e",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 46,
+        "false_positive_count": 17,
+        "image_count": 55,
+        "match_count": 60,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v016a_reference_aware_candidate_discovery",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 4,
+          "match_count": 7,
+          "predicted_target_count": 11,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 9,
+          "false_positive_count": 1,
+          "match_count": 4,
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 34,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 2,
+            "false_positive_count": 1,
+            "match_count": 0,
+            "predicted_target_count": 1,
+            "reference_target_count": 2
+          },
+          "safe": false
+        }
+      },
+      "role": "reference_aware_candidate_discovery",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v016a_reference_aware_candidate_discovery/human_report_challenge_v2_dev_55_no101_2026-05-03_180228Z/candidate_manifest_run_summary.json",
+      "short_id": "v016a",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 38,
+        "false_positive_count": 19,
+        "image_count": 55,
+        "match_count": 68,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v017a_broad_group_box_lock",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 4,
+          "match_count": 7,
+          "predicted_target_count": 11,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 1,
+          "match_count": 5,
+          "predicted_target_count": 6,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 33,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "v017_cycle_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017a_broad_group_box_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_180847Z/candidate_manifest_run_summary.json",
+      "short_id": "v017a",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 35,
+        "false_positive_count": 18,
+        "image_count": 55,
+        "match_count": 71,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v017b_group_box_rejection",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 4,
+          "match_count": 8,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 0,
+          "match_count": 5,
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 31,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "v017_cycle_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017b_group_box_rejection/human_report_challenge_v2_dev_55_no101_2026-05-03_181508Z/candidate_manifest_run_summary.json",
+      "short_id": "v017b",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 34,
+        "false_positive_count": 13,
+        "image_count": 55,
+        "match_count": 72,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v017c_count_then_anchor",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 5,
+          "match_count": 7,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 9,
+          "false_positive_count": 1,
+          "match_count": 4,
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 35,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "v017_cycle_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017c_count_then_anchor/human_report_challenge_v2_dev_55_no101_2026-05-03_182127Z/candidate_manifest_run_summary.json",
+      "short_id": "v017c",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 36,
+        "false_positive_count": 16,
+        "image_count": 55,
+        "match_count": 70,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v017e_anti_span_guard",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 4,
+          "match_count": 7,
+          "predicted_target_count": 11,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 10,
+          "match_count": 1,
+          "predicted_target_count": 11,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 1,
+          "match_count": 5,
+          "predicted_target_count": 6,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 34,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "v017_cycle_candidate",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017e_anti_span_guard/human_report_challenge_v2_dev_55_no101_2026-05-03_182743Z/candidate_manifest_run_summary.json",
+      "short_id": "v017e",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 35,
+        "false_positive_count": 15,
+        "image_count": 55,
+        "match_count": 71,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    },
+    {
+      "candidate_id": "v017f_compact_visual_anchor_balance",
+      "dense_formation_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 6,
+          "match_count": 8,
+          "predicted_target_count": 14,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 9,
+          "match_count": 1,
+          "predicted_target_count": 10,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 8,
+          "false_positive_count": 0,
+          "match_count": 5,
+          "predicted_target_count": 5,
+          "reference_target_count": 13
+        }
+      },
+      "dense_formation_error_units": 33,
+      "fresh_rerun": true,
+      "pack_id": "human-report-challenge-v2-dev-55-no101",
+      "positive_controls": {
+        "155": {
+          "metrics": {
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "match_count": 2,
+            "predicted_target_count": 2,
+            "reference_target_count": 2
+          },
+          "safe": true
+        }
+      },
+      "role": "recall_comparator",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017f_compact_visual_anchor_balance/human_report_challenge_v2_dev_55_no101_2026-05-03_183408Z/candidate_manifest_run_summary.json",
+      "short_id": "v017f",
+      "succeeded": true,
+      "totals": {
+        "false_negative_count": 33,
+        "false_positive_count": 18,
+        "image_count": 55,
+        "match_count": 73,
+        "predicted_target_count": 0,
+        "reference_target_count": 0
+      }
+    }
+  ],
+  "generated_utc": "2026-05-03T18:41:52.310098+00:00",
+  "historical_reference_rows": [
+    {
+      "candidate_id": "v009_all_current_118_v2_adjusted_dev55_no101",
+      "fresh_rerun": false,
+      "role": "historical_adjusted_baseline",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/adjusted_baselines/v009_all_current_118_adjusted_summary.json",
+      "short_id": "v009_adjusted",
+      "totals": {
+        "false_negative_count": 32,
+        "false_positive_count": 27,
+        "image_count": 55,
+        "match_count": 74,
+        "predicted_target_count": 101,
+        "reference_target_count": 106
+      }
+    },
+    {
+      "candidate_id": "v014_all_current_118_v2_adjusted_dev55_no101",
+      "fresh_rerun": false,
+      "role": "historical_adjusted_baseline",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/adjusted_baselines/v014_all_current_118_adjusted_summary.json",
+      "short_id": "v014_adjusted",
+      "totals": {
+        "false_negative_count": 37,
+        "false_positive_count": 17,
+        "image_count": 55,
+        "match_count": 69,
+        "predicted_target_count": 86,
+        "reference_target_count": 106
+      }
+    },
+    {
+      "candidate_id": "v015e_dev_v2_dev55_no101",
+      "fresh_rerun": false,
+      "role": "historical_adjusted_baseline",
+      "run_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/recalibrations/v015e_dev/eval/evaluation_2026-04-30_202320Z_summary.json",
+      "short_id": "v014_adjusted",
+      "totals": {
+        "false_negative_count": 47,
+        "false_positive_count": 18,
+        "image_count": 55,
+        "match_count": 59,
+        "predicted_target_count": 77,
+        "reference_target_count": 106
+      }
+    }
+  ],
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/validation_manifests/human_report_challenge_v2_dev_55_no101.yaml",
+  "scope_limits": [
+    "No prompt authoring.",
+    "No holdout, all-current, or all-112 execution.",
+    "No promotion or runtime config adoption.",
+    "No source-truth mutation.",
+    "No Graphify refresh or Mem0 update in this wave."
+  ]
+}

@@ -1,0 +1,51 @@
+candidate_id: v024f_silent_three_role_arbiter
+title: v024f silent three role arbiter
+generated_from:
+  - v020c_anchor_replay
+  - v023s_qwen_native_conservative_json
+  - v024e_v020c_bbox_physical_extent_calibration
+hypothesis: >
+  Single-pass wording lets recall, precision, and box placement interfere with
+  each other. Use a silent internal three-role frame: scout for recall, skeptic
+  for context rejection, boxer for final tight boxes. Final JSON only.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection for doctrinal target_type values:
+      {categories}
+
+      Silently use three internal roles, then return only final JSON:
+
+      SCOUT
+      Find every possible target body, wreck body, vehicle hull/chassis, roofline, silhouette, or exterior building structure across the full image. In rows, convoys, and clusters, scout each separable visible body instead of one broad group.
+
+      SKEPTIC
+      Reject any scout candidate that is only smoke, dust, flame, shadow, road, terrain, track marks, blast texture, debris, empty spacing, row alignment, duplicate fragment, or broad scene context. Do not reject a true separable target body just because it is small, distant, crowded, partly obscured, or near another target.
+
+      BOXER
+      For each kept candidate, output one tight box around the visible physical target body or exterior structure. The target should occupy most of the box. Do not output broad row/convoy/group boxes, part-only boxes, or duplicate boxes for the same connected body.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

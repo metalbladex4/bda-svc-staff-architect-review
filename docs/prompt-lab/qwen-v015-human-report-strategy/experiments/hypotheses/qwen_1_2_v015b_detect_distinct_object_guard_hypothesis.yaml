@@ -1,0 +1,36 @@
+hypothesis_id: "qwen-1.2-v015b-detect-distinct-object-guard"
+status: "hypothesis_only"
+lever_type: "detect_prompt_overlay"
+failure_class: "v015a_false_positive_rebound_after_recall_recovery"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v015b-detect-distinct-object-guard"
+runner_session_id: "qwen-1.2-v015b-detect-distinct-object-guard-session-v1"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v015b_candidate_run"
+target_cases:
+  - "101"
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+validation_pack_ids:
+  - "human-report-challenge-v1-v015b-hinge-smoke"
+expected_improvement: >
+  Preserve v015a recall recovery where targets are truly distinct while
+  preventing row-fragment enumeration, broad group boxes, adjacent
+  context false positives, and tiny ambiguous distant detections.
+known_regression_risks:
+  - "May restore too much v014 over-suppression and lose recall gains."
+  - "May still fail case 101 because the reference truth has a duplicate box and large grouped target."
+  - "May over-constrain small or distant valid equipment targets."
+  - "May preserve precision but not exceed v014 hinge matches."
+stop_rule: >
+  Stop after the hinge-smoke run if false positives exceed the hinge
+  limit, case 155 breaks abstention safety, or case 101 fails to show
+  useful recall without row-fragment enumeration. Run no dev split until
+  the hinge gate passes and case 101 receives manual review.
+author: "William Benitez"
+created_at: "2026-04-29T00:00:00-04:00"

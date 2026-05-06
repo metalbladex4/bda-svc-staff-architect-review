@@ -1,0 +1,36 @@
+overlay_id: qwen-1.2-v019b_budgeted_recall_fuse
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: v018e plus a capped version of v018d's evidence-budget recall behavior.
+generated_from:
+- v019a_fp_sieve
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration from prior\
+      \ run: tighten the final veto against context-heavy boxes; avoid becoming fail-closed;\
+      \ keep a full-image recall sweep; dense formations still need a separable-body\
+      \ test, not placeholder spacing; large multi-target scenes still need a second\
+      \ pass for missed bodies.\n\nBUDGETED RECALL FUSE\nThink silently. Do not output\
+      \ notes.\n\n1. Recall sweep: search center, edges, foreground, background, small\
+      \ targets,\n   distant targets, damaged equipment, burned wrecks, and exterior\
+      \ structures.\n2. Evidence budget: each final target needs at least two visible\
+      \ support cues\n   when the scene is crowded, or one strong body cue when the\
+      \ target is obvious.\n   Support cues include body center, hull/chassis, connected\
+      \ wreck mass, clear\n   exterior structure, target edge, ground contact, or\
+      \ separable body outline.\n3. Context is search evidence only. Smoke, dust,\
+      \ shadows, roads, row alignment,\n   tracks, debris, blast marks, repeated dots,\
+      \ and terrain change cannot justify\n   a final detection without body support.\n\
+      4. Precision fuse: if a candidate was found by context, shrink it to the body.\n\
+      \   If it cannot be shrunk to a body, remove it.\n\nDENSE SCENES\nRows and formations\
+      \ are search regions, not targets. Output only individually\nseparable bodies.\
+      \ Do not place evenly spaced boxes where individual bodies are\nnot visible.\n\
+      \nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\nBOUNDING\
+      \ BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\n\
+      OUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT\
+      \ SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n  \
+      \    \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

@@ -1,0 +1,75 @@
+overlay_id: qwen-1.2-v020e_asymmetric_extra_box_veto
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v020c dense recovery while making extra boxes near accepted targets pass a stronger independent-body test.
+generated_from:
+- v020c_v019c_extra_box_audit
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from prior run: keep the v020c balance and dense-formation recovery. The remaining error pattern is mostly extra boxes near already accepted targets plus missed bodies in large scenes.
+
+      CONTEXT SHADOW REVERSAL
+      Use context to search, then mentally remove context to decide.
+
+      1. Find possible targets across the full image.
+      2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, repeated spacing, and adjacent damage.
+      3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.
+      4. If the candidate disappears when context is ignored, reject it.
+      5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.
+
+      ASYMMETRIC EXTRA-BOX VETO
+      After you have one accepted target in a local area, any additional nearby box must pass a stronger test than the first box:
+      - it must have its own visible body center or exterior-structure mass
+      - it must have a visible boundary separating it from the accepted target
+      - it must not mainly cover road, shadow, smoke, debris, blast texture, gap, row spacing, facade fragment, or nearby context
+      - it must not be a duplicate, fragment, or shifted version of an accepted box
+      If a nearby candidate fails any stronger test, remove it.
+
+      LARGE-SCENE MISSED-BODY CHECK
+      Before final output, scan unboxed parts of large scenes for missed visible bodies. Add a missed target only when it has a compact target body or continuous exterior structure that can be boxed without borrowing context from an accepted box.
+
+      GOOD FINAL BOX
+      - one connected target body, wreck body, or exterior building structure
+      - tight enough that the target occupies most of the box
+      - separable from neighboring targets and context cues
+
+      BAD FINAL BOX
+      - context-only cue
+      - group, row, convoy, cluster, or scene region
+      - duplicate fragment of one connected body
+      - interior/facade/debris subsection of one continuous building
+      - extra neighboring box whose distinct body boundary is not visible
+
+      FINAL BALANCE
+      Keep small, damaged, crowded, or partly obscured targets when their own target body remains visible after context is removed. Be stricter with extras than with first detections in an area.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

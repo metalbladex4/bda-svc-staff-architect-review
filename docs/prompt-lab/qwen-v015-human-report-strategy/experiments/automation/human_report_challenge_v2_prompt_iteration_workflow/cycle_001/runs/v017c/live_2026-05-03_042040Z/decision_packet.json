@@ -1,0 +1,116 @@
+{
+  "candidate_id": "v017c",
+  "candidate_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017c/live_2026-05-03_042040Z/candidate_cycle_live_run_summary.json",
+  "classification": "potential_winner",
+  "failures": [],
+  "gate_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017c/live_2026-05-03_042040Z/gate_check_candidate_summary.json",
+  "generated_utc": "2026-05-03T04:25:27.406950+00:00",
+  "mode": "live_run_decision_packet",
+  "near_misses": [],
+  "not_evaluated": [],
+  "packs": {
+    "human_report_challenge_v2_changed_source_sanity": {
+      "case_101_diagnostic": null,
+      "checks": {
+        "false_negative_count": true,
+        "false_positive_count": true,
+        "match_count": true,
+        "positive_control_155": true
+      },
+      "gate": {
+        "false_negative_count_max_exclusive": 5,
+        "false_positive_count_max_inclusive": 4,
+        "match_count_min_exclusive": 7,
+        "positive_control_155": "must_have_at_least_one_match_and_nonzero_reference_targets",
+        "positive_control_166": "holdout_only_not_in_this_pack"
+      },
+      "pack": "human_report_challenge_v2_changed_source_sanity",
+      "passed": true,
+      "positive_control": {
+        "case_id": "155",
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "passed": true,
+        "predicted_target_count": 2,
+        "present": true,
+        "reference_target_count": 2
+      },
+      "totals": {
+        "false_negative_count": 2,
+        "false_positive_count": 0,
+        "match_count": 10,
+        "negative_scene_abstention_correct_count": 0,
+        "negative_scene_count": 0,
+        "negative_scene_false_positive_count": 0,
+        "predicted_target_count": 10
+      }
+    },
+    "human_report_challenge_v2_hinge_11_no101": {
+      "case_101_diagnostic": null,
+      "checks": {
+        "false_negative_count": true,
+        "false_positive_count": true,
+        "match_count": true,
+        "positive_control_155": true
+      },
+      "gate": {
+        "case_101": "diagnostic_only_not_pass_fail",
+        "false_negative_count_max_exclusive": 25,
+        "false_positive_count_max_inclusive": 21,
+        "match_count_min_exclusive": 20,
+        "positive_control_155": "must_have_at_least_one_match_and_nonzero_reference_targets"
+      },
+      "pack": "human_report_challenge_v2_hinge_11_no101",
+      "passed": true,
+      "positive_control": {
+        "case_id": "155",
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "passed": true,
+        "predicted_target_count": 2,
+        "present": true,
+        "reference_target_count": 2
+      },
+      "totals": {
+        "false_negative_count": 24,
+        "false_positive_count": 15,
+        "match_count": 21,
+        "negative_scene_abstention_correct_count": 0,
+        "negative_scene_count": 0,
+        "negative_scene_false_positive_count": 0,
+        "predicted_target_count": 36
+      }
+    },
+    "legacy_abstention_guard_office_negative": {
+      "checks": {
+        "negative_scene_abstention_correct_count": true,
+        "negative_scene_count": true,
+        "negative_scene_false_positive_count": true
+      },
+      "gate": {
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "pack": "legacy_abstention_guard_office_negative",
+      "passed": true,
+      "totals": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_count": 1,
+        "negative_scene_false_positive_count": 0,
+        "predicted_target_count": 1
+      }
+    }
+  },
+  "passed": true,
+  "potential_winners": [
+    "v017c"
+  ],
+  "recommended_next_user_decision": "review v017c as a potential winner and decide whether to approve dev",
+  "workflow_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow"
+}

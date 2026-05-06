@@ -1,0 +1,53 @@
+{
+  "candidate_id": "v017c",
+  "candidate_name": "v017c_evidence_named_finalization",
+  "status": "potential_winner_continue_cycle",
+  "case_101_policy": "diagnostic_only_excluded_from_forward_pass_fail_gate",
+  "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017c/live_2026-05-03_042040Z",
+  "gate_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017c/live_2026-05-03_042040Z/gate_check_candidate_summary.json",
+  "classification": "potential_winner",
+  "passed": true,
+  "metrics": {
+    "human_report_challenge_v2_hinge_11_no101": {
+      "match_count": 21,
+      "false_negative_count": 24,
+      "false_positive_count": 15,
+      "positive_control_155_passed": true
+    },
+    "human_report_challenge_v2_changed_source_sanity": {
+      "match_count": 10,
+      "false_negative_count": 2,
+      "false_positive_count": 0,
+      "positive_control_155_passed": true
+    },
+    "human_report_challenge_v2_updated_report_smoke": {
+      "match_count": 25,
+      "false_negative_count": 6,
+      "false_positive_count": 1
+    },
+    "legacy_abstention_guard_office_negative": {
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 1
+    }
+  },
+  "remaining_risk_cases": {
+    "67": {
+      "match_count": 1,
+      "false_negative_count": 10,
+      "false_positive_count": 10,
+      "diagnosis": "geometric row progression boxes did not align with references"
+    },
+    "84": {
+      "match_count": 4,
+      "false_negative_count": 9,
+      "false_positive_count": 1,
+      "diagnosis": "broad or overlapping elongated boxes remain in row or formation region"
+    }
+  },
+  "recommended_next_candidate": {
+    "candidate_id": "v017d",
+    "axis": "visual_anchor_lock_against_geometric_row_interpolation",
+    "goal": "preserve v017c pass while reducing active-gate false positives and box-placement artifacts"
+  }
+}

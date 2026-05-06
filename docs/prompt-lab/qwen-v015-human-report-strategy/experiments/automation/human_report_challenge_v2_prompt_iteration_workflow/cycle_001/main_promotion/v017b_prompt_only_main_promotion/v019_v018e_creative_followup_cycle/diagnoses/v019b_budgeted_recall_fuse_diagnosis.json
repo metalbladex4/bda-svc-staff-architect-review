@@ -1,0 +1,78 @@
+{
+  "avoid": [
+    "false positives still at or above the v018e pressure point"
+  ],
+  "candidate_id": "v019b_budgeted_recall_fuse",
+  "controls": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0
+    }
+  },
+  "dense_cases": {
+    "66": {
+      "false_negative_count": 0,
+      "false_positive_count": 4,
+      "match_count": 8,
+      "predicted_target_count": 12,
+      "reference_target_count": 8
+    },
+    "67": {
+      "false_negative_count": 6,
+      "false_positive_count": 13,
+      "match_count": 5,
+      "predicted_target_count": 18,
+      "reference_target_count": 11
+    },
+    "84": {
+      "false_negative_count": 8,
+      "false_positive_count": 2,
+      "match_count": 5,
+      "predicted_target_count": 7,
+      "reference_target_count": 13
+    },
+    "97": {
+      "false_negative_count": 1,
+      "false_positive_count": 1,
+      "match_count": 0,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    }
+  },
+  "generated_utc": "2026-05-04T22:05:18.936397+00:00",
+  "metrics": {
+    "delta_vs_anchor": {
+      "false_negative_count": -1,
+      "false_positive_count": 7,
+      "match_count": 1
+    },
+    "false_negative_count": 45,
+    "false_positive_count": 36,
+    "match_count": 174
+  },
+  "next_axis": "tighten final veto without losing full-image sweep",
+  "preserve": [
+    "kept 155, 166, and office-negative safe",
+    "improved recall over the v018e anchor"
+  ],
+  "prior_candidate_count": 1,
+  "verdict": "learning_only"
+}

@@ -1,0 +1,22 @@
+{
+  "generated_utc": "2026-05-01T02:32:30.305072+00:00",
+  "new_assumptions": [
+    "155 is a positive military-equipment case and may be used as a positive dev/hinge diagnostic",
+    "166 is a positive military-equipment case and should remain holdout-only unless separately approved",
+    "future prompt automation must use human_report_challenge_v2 references and manifests",
+    "current v2 includes recovered report additions 40, 65, 106, 125, 172, and 187 without moving their source images",
+    "fresh v009/v014 changed-report baselines now cover the ten latest updated/recovered cases",
+    "autonomous prompt-cycle runs remain paused for user approval and v017b authorization, not for missing recovered-addition baselines"
+  ],
+  "removed_assumptions": [
+    "155 as protected object-not-found dev control",
+    "166 as protected object-not-found holdout control",
+    "human-report challenge has object_not_found cases"
+  ],
+  "status": "v1_gates_invalid_for_future_automation",
+  "validation_manifests": {
+    "v015e_dev": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/validation_manifests/human_report_challenge_v2_v015e_dev.yaml",
+    "v015e_hinge": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/validation_manifests/human_report_challenge_v2_v015e_hinge.yaml",
+    "v016a_hinge": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/validation_manifests/human_report_challenge_v2_v016a_hinge.yaml"
+  }
+}

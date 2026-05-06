@@ -1,0 +1,104 @@
+overlay_id: "qwen-1.2-v017f-detect-compact-visual-anchor-balance"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Qwen 1.2 v017f detect-only prompt candidate for human_report_challenge_v2.
+  This final prompt-only attempt keeps the best v017d visual-anchor behavior
+  but compresses the interface to reduce prompt overload.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      OUTPUT CONTRACT
+      Return valid JSON only. If no valid target is visible, return:
+      {"detections": []}
+
+      SILENT METHOD
+      1. Scan the whole image for visible target candidates.
+      2. Keep only candidates with one visible connected target body or
+         exterior structure.
+      3. Box each kept target tightly around its own visible body.
+      4. Return final JSON only.
+
+      WHAT COUNTS AS A TARGET
+      A final detection must be one distinct visible object:
+      - one military equipment body, wreck body, chassis, hull, vehicle mass,
+        or equipment outline
+      - one exterior building body or collapsed exterior structural remain
+
+      A small, distant, burned, destroyed, secondary, off-center, foreground,
+      or background target can be valid when its own body remains visible and
+      separable enough to box.
+
+      WHAT DOES NOT COUNT
+      Do not output:
+      - a row, convoy, group, cluster, formation, or scene-level region
+      - one broad box around multiple possible targets
+      - a box inferred from equal spacing, diagonal row geometry, expected
+        count, road/lane alignment, or visual extrapolation
+      - smoke, flame, dust, debris, shadow, road, rail bed, terrain, rubble,
+        texture, repeated marks, or pattern fragments
+      - indoor rooms, furniture, cubicles, interior walls, ceiling tiles, or
+        other interior context as buildings
+
+      ROW AND CROWD DISCIPLINE
+      In row-like, convoy-like, crowded, diagonal, or patterned regions:
+      - Do not enumerate every repeated small shape.
+      - Do not use a row or group as a proxy for a target.
+      - Do not create missing boxes from expected spacing.
+      - Output only the bodies whose visible center and extent are clear.
+      - If a body is not visually separable, omit it.
+
+      BOXING DISCIPLINE
+      - Box only the visible connected man-made body or exterior structure.
+      - Let the target body set the box edges, not dust, motion, smoke, road,
+        shadow, debris, nearby objects, or row geometry.
+      - Keep the box tight, but do not cut off the accepted visible body.
+      - Do not replace an uncertain target with a larger proxy box.
+
+      FINAL AUDIT
+      Before final JSON, reject any proposed detection unless all are true:
+      - it is one visible target body or exterior structure
+      - its box is anchored to that body, not surrounding context
+      - most of the box is occupied by the accepted target
+      - the box is not a row/group/region/interpolation box
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      OUTPUT DISCIPLINE
+      - Produce exactly one bounding box per accepted target.
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or
+        artillery piece.
+      - Never invent targets to match an expected count.
+      - Return valid JSON only.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v017f_compact_visual_anchor_balance"
+      parent_version: "v017d_visual_anchor_lock"
+      overlay_role: "v2_compact_visual_anchor_balance"
+      phase: "human_report_challenge_v2_prompt_iteration_cycle_001"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_automation_package: "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow"
+      prompt_only: true
+      structural_guard_implemented: false

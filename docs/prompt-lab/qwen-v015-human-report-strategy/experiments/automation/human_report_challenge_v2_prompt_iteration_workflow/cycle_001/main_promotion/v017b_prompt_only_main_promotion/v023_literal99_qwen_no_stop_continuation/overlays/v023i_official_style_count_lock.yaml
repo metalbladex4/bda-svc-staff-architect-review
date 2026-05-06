@@ -1,0 +1,54 @@
+candidate_id: v023i_official_style_count_lock
+title: v023i official-style count lock
+generated_from:
+- v023h_unique_body_signature_ledger
+- qwen_official_grounding_style_research
+hypothesis: >
+  Qwen grounding examples are concise and JSON-first. A compact count-lock
+  prompt may prevent duplicate/chain outputs without the recall loss caused by
+  long ledger wording.
+overrides:
+  prompts:
+    detect_objects: |
+      Locate all visible BDA targets in the image and return JSON only.
+
+      Target types to detect:
+      {categories}
+
+      Silent count lock:
+      1. First count the distinct visible target bodies, wreck bodies, and distinct exterior building structures.
+      2. Then output exactly one tight bbox for each counted target.
+      3. Do not output more boxes than the number of distinct visible bodies or structures you counted.
+
+      Count a target when its own visible body, wreck mass, chassis/hull, exterior wall/roof outline, or distinct structure boundary is visible enough to localize.
+
+      Do not count smoke, dust, flame, shadow, road, debris, terrain, tracks, blast texture, gaps, repeated spacing, nearby context, broad rows, clusters, interiors, facade texture, or duplicate fragments as separate targets.
+
+      In rows or clusters, count only bodies you can see individually. Do not fill missing positions.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion
+  research_sources:
+  - https://qwenlm.github.io/blog/qwen2.5-vl/

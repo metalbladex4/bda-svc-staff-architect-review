@@ -1,0 +1,58 @@
+{
+  "forbidden_mutations": [
+    "Do not edit /home/williambenitez1/Capstone tracked files in this readiness-packet wave.",
+    "Do not mutate source reports, source images, reference truth, evaluation manifests, MCP config, hooks, Graphify generated outputs, or Mem0.",
+    "Do not promote to main or change runtime adoption state without separate user approval."
+  ],
+  "generated_utc": "2026-05-03T22:20:00Z",
+  "main_checkout": {
+    "head": "e7a22a9489a982e867fa3bffe0b09997d4c44fa0",
+    "main_equals_origin_main": true,
+    "tracked_diff_clean": true,
+    "tracked_staged_diff_clean": true,
+    "untracked_known_local_files": [
+      "NUL",
+      "TOOL_INVENTORY.md"
+    ]
+  },
+  "promotion_candidate": "v017b_group_box_rejection",
+  "source_evidence": [
+    {
+      "kind": "worktree_runtime_adoption_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runtime_adoption/v017b_group_box_rejection/runtime_adoption_summary.md"
+    },
+    {
+      "kind": "worktree_runtime_adoption_summary_json",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runtime_adoption/v017b_group_box_rejection/runtime_adoption_summary.json"
+    },
+    {
+      "kind": "post_adoption_all_current_no101_run_summary",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runtime_adoption/v017b_group_box_rejection/runs/all_current_117_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_214944Z/runtime_manifest_run_summary.json"
+    },
+    {
+      "kind": "worktree_promotion_report",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/promotion_reports/qwen_1_2_v017b_group_box_rejection_promotion.yaml"
+    },
+    {
+      "kind": "current_best_stack_note",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/winners/v017b_current_best_stack.md"
+    },
+    {
+      "kind": "candidate_overlay",
+      "path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml"
+    },
+    {
+      "kind": "adopted_worktree_model_line_overlay",
+      "path": "src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml"
+    },
+    {
+      "kind": "main_runtime_prompt_surface",
+      "path": "/home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml"
+    }
+  ],
+  "worktree": {
+    "branch": "feat/qwen3-vl-8b-instruct/two-pass-refinement",
+    "head": "6ab67d6844d0842ed49285ec5e3fb94f514e4f4e",
+    "root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement"
+  }
+}

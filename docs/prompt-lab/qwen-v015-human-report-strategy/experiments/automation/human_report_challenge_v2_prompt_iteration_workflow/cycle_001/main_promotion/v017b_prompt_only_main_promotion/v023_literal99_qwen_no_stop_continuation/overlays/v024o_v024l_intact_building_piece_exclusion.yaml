@@ -1,0 +1,49 @@
+candidate_id: v024o_v024l_intact_building_piece_exclusion
+title: v024o v024l intact building piece exclusion
+generated_from:
+  - v024l_v023s_no_wheel_track_ablation
+  - v024m_v024l_bda_salience_gate
+  - v024n_v024l_building_only_detiling
+hypothesis: >
+  v024m and v024n showed building false-positive signal, but long salience or
+  de-tiling sections destabilize Qwen and can trigger building tiling. Test a
+  micro-edit: keep v024l compact wording and add only one short building-piece
+  phrase to the existing exclusion list.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, intact background building pieces, facade or roof tiles, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

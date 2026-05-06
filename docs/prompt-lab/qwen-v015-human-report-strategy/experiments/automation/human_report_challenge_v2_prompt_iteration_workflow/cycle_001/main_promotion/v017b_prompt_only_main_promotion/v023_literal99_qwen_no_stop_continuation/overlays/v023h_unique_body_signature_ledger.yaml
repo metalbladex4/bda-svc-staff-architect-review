@@ -1,0 +1,60 @@
+candidate_id: v023h_unique_body_signature_ledger
+title: v023h unique body signature ledger
+generated_from:
+- v023f_compact_shadow_audit
+- v023g_compact_ruler_chain_veto
+hypothesis: >
+  Negative pattern rules became attention magnets. Use a positive inclusion
+  contract instead: every output must have a unique visible-body signature that
+  distinguishes it from every other output.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      PRIVATE LEDGER
+      Build a private ledger of final detections. Do not output the ledger. Each ledger entry must have:
+      - one doctrinal target_type
+      - one tight bbox
+      - one unique visible-body signature that belongs only to that detection
+
+      UNIQUE VISIBLE-BODY SIGNATURES
+      A valid signature can be a connected silhouette, body edge, exterior-structure boundary, hull/chassis/wreck mass, roof or wall outline, textured target surface, or ground-contact footprint. Smoke, dust, flame, shadow, road, debris, tracks, terrain marks, blast texture, repeated spacing, and nearby target context are search clues only; they are not signatures.
+
+      INCLUSION RULE
+      Output a detection only when its unique visible-body signature remains visible enough to localize after nearby effects and context are ignored. Small, damaged, crowded, distant, edge, foreground, and background targets are valid when they have their own signature.
+
+      UNIQUENESS RULE
+      Two detections cannot share the same signature. If two boxes rely on the same body mass, same exterior structure, same edge, or same visible footprint, keep only the tighter whole-target box. If a possible detection has no unique signature separate from a neighbor, leave it out.
+
+      ROWS AND CLUSTERS
+      In rows or clusters, output one box per visible body only when each body has its own signature. Do not fill positions between visible bodies.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

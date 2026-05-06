@@ -1,0 +1,58 @@
+candidate_id: v022a_micro_target_sweep
+title: v022a micro-target sweep
+overlay_id: qwen-v022a-micro-target-sweep
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v020c context-shadow balance while adding a deliberate small/distant target sweep and a conservative duplicate audit.
+generated_from:
+  - v020c_anchor_replay
+  - v021_openai_compat_cross_model_prompt_matrix
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Use a two-pass visual sweep. Do not infer targets from doctrine, report text, damage expectation, row spacing, smoke, shadows, debris, or terrain.
+
+      PASS 1 - FIND VISIBLE TARGET BODIES
+      Search the whole image from left-to-right and top-to-bottom. Mark every visible candidate that has its own target body, wreck body, or exterior building structure. Include small, distant, damaged, crowded, or partly occluded targets when a compact visible body center and at least one body edge or exterior-structure boundary can still be seen.
+
+      PASS 2 - CONTEXT SHADOW TEST
+      For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, blast texture, row alignment, repeated spacing, and terrain marks. Keep it only if a visible target body or exterior structure remains. Reject boxes that disappear when those cues are ignored.
+
+      DENSE FORMATION RULE
+      In rows, clusters, convoys, or grouped equipment, do not box the row or cluster. Split into individual boxes only where each target has its own visible body center. Do not discard a real separate target just because it is near another target.
+
+      BUILDING RULE
+      For buildings, box the visible exterior structure or separate footprint. Do not box facade fragments, interior patches, rubble-only regions, shadows, or one continuous structure twice.
+
+      FINAL EXTRA-BOX AUDIT
+      Remove a detection only when it is clearly a duplicate of the same connected body, a broad group/scene region, or a context-only proxy. If two boxes describe one connected body, keep the tighter whole-body box. If two nearby boxes have distinct visible body centers, keep both.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

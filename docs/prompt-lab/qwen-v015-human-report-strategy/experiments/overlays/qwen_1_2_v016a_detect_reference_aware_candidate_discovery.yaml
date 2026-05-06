@@ -1,0 +1,148 @@
+overlay_id: "qwen-1.2-v016a-detect-reference-aware-candidate-discovery"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Qwen 1.2 v016a detect-only prompt candidate. This prompt-only experiment
+  implements the reference-aware candidate-discovery axis selected by the v016
+  design package: discover plausible supported targets across the full image,
+  then apply an evidence-budget self-filter before emitting final JSON.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      OUTPUT CONTRACT
+      Return valid JSON only. Produce exactly one detection object for each
+      final accepted target. If no valid target is visible, return:
+      {"detections": []}
+
+      TWO-STAGE METHOD
+      Stage 1 is candidate discovery. Look across the whole image for every
+      plausible visible target candidate, including secondary, small, distant,
+      or off-center candidates. Do not stop after the largest, closest, most
+      central, or most damaged object.
+
+      Stage 2 is the evidence-budget self-filter. Before final output, keep
+      only candidates with enough target-specific visual evidence to support a
+      tight box around one distinct target body or one distinct exterior
+      building structure. If evidence is ambiguous, omit the candidate.
+
+      CANDIDATE DISCOVERY PRINCIPLES
+      - Search the full image, not just the central scene.
+      - A secondary or distant target can be valid when its own body or
+        exterior structure is visible enough to box tightly.
+      - Candidate discovery is not final detection. Discovery should be broad;
+        final output should be conservative and evidence-backed.
+      - Do not convert repeated marks, row fragments, shadows, debris pieces,
+        road edges, smoke edges, flame edges, or background texture into target
+        candidates unless there is visible target body evidence.
+
+      EVIDENCE-BUDGET SELF-FILTER
+      For each candidate, ask these checks before final output:
+      - Is there one visible connected target body or one visible connected
+        exterior building structure?
+      - Can the bbox fit that one body or exterior structure tightly?
+      - Would the bbox avoid grouping multiple targets, a row, a convoy, a
+        building complex, terrain, road, smoke, fire, or background context?
+      - Is the target identity supported by visible target-specific evidence,
+        not only by nearby damage, smoke, shadow, debris, or scene context?
+      - Is this detection not a duplicate of another candidate and not an
+        unsupported extra?
+      If any answer is no or uncertain, omit that candidate from final output.
+
+      REJECTED FINAL OUTPUT SHAPES
+      Never output any of these as final detections:
+      - one broad box around a group, convoy, row, building complex, terrain
+        strip, road segment, smoke region, damage field, or whole scene
+      - many boxes over repeated tiny fragments in a row-like or patterned area
+      - a box whose main evidence is adjacent context rather than target body
+      - duplicate boxes for the same visible target
+      - an inflated box that includes nearby objects, road, smoke, flame,
+        rubble, shadow, empty ground, or background context
+
+      ROW, PATTERN, AND CROWD DISCIPLINE
+      Row-like repeated shapes are not automatically separate targets. In a
+      crowded or patterned region, output only targets whose individual bodies
+      remain visually separable and tight-boxable. If the region looks like
+      repeated fragments but the individual bodies are not clear, output none
+      for that region rather than enumerating fragments.
+
+      BUILDING TARGET SELECTION
+      - Detect only distinct exterior building bodies or distinct collapsed
+        exterior structural remains.
+      - Do not split one continuous building, attached wing, shared facade,
+        side wall, fire/smoke region, rubble edge, or debris field into
+        multiple boxes.
+      - Do not box smoke, flame, facade texture, shadow, debris, interior
+        rooms, cubicles, furniture, interior walls, ceiling tiles, or adjacent
+        context as a building.
+      - If the image is primarily indoors and no visible exterior building
+        structure or collapsed exterior structural remain is present, return no
+        building detections.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - Detect only clearly visible distinct equipment bodies.
+      - Small or distant equipment is valid only when the individual body
+        outline is visible enough to box as one specific object.
+      - Do not infer equipment from tracks, road lanes, shadows, repeated
+        marks, smoke, dust, muzzle flash, debris, or ambiguous background
+        fragments.
+      - Do not output a long row, convoy region, or broad group box as one
+        equipment detection.
+
+      FINAL DETECTION RULES
+      - Produce exactly one bounding box per accepted target.
+      - If two targets are visibly separate and both pass the evidence-budget
+        self-filter, output two boxes.
+      - If separation is unclear, omit the uncertain candidate rather than
+        merging it into a broad box.
+      - Never infer hidden targets behind smoke, dust, flame, debris, or other
+        objects.
+      - Never invent targets to match an expected count.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box only the visible connected man-made body or exterior structure of
+        each target.
+      - Use fire, smoke, muzzle flash, or debris only to help locate a target,
+        not to define the box boundary.
+      - If smoke, flame, or dust hides part of a target, keep the box on the
+        visible connected target body that remains.
+      - Do not box the smoke plume, flame column, muzzle flash, debris field,
+        rail bed, road, shadow, empty ground, or background context.
+
+      OUTPUT DISCIPLINE
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or
+        artillery piece.
+      - Return valid JSON only.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v016a_reference_aware_candidate_discovery"
+      parent_version: "v015e_individual_body_evidence"
+      overlay_role: "reference_aware_candidate_discovery_with_evidence_budget"
+      phase: "v016_reference_aware_prompt_lab_hinge"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_design_package: "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/design/v016_reference_aware_prompt_lab"
+      prompt_only: true
+      structural_guard_implemented: false

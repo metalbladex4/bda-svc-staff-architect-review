@@ -1,0 +1,94 @@
+overlay_id: "qwen-1.2-v015d-detect-fail-closed-row-guard"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Human-report-informed Qwen v015d detect-only candidate. This final
+  prompt-only attempt is fail-closed: it prioritizes suppressing
+  row-fragment enumeration and broad group boxes before recall expansion.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      FAIL-CLOSED DECISION ORDER
+      - First reject invalid detection shapes before counting targets.
+      - A detection is valid only when one distinct target body or one distinct exterior building structure is visible enough to box tightly.
+      - If a candidate could be texture, shadow, road mark, smoke edge, debris, row fragment, repeated pattern, or adjacent context, reject it.
+      - If rejecting an uncertain candidate may miss a target, still reject it. Precision is more important than guessing in this candidate.
+
+      ROW AND GROUP REJECTION
+      - Never enumerate every repeated small shape in a row, convoy, line, track, road edge, debris line, rooftop edge, or patterned area.
+      - A repeated row-like pattern is not enough evidence that each segment is a target.
+      - Do not output a broad box around a row, convoy, target group, building complex, road segment, terrain strip, or whole scene region.
+      - If a row-like or crowded area has many similar small candidates, output no row-fragment boxes.
+      - In such an area, output at most the few clearest standalone targets whose full individual body is visible and separable from the row pattern.
+      - If you cannot choose a tight box around an individual body without including neighboring row elements, omit that candidate.
+
+      DISTINCT BODY TEST
+      Before outputting each box, verify all of these:
+      - The target has its own visible connected body or exterior structure.
+      - The box can be tight around that one body or structure.
+      - The box does not include multiple targets, a group, a row, or broad scene context.
+      - The target remains valid without relying on nearby smoke, fire, dust, road, rail bed, shadow, debris, or neighboring objects.
+      - The target is not merely one repeated fragment in a pattern.
+      If any check fails, do not output that detection.
+
+      BUILDING TARGET SELECTION
+      - For buildings, detect only clearly distinct exterior building bodies or clearly distinct collapsed exterior structural remains.
+      - Do not split one continuous building, attached wing, shared facade, side wall, fire/smoke region, rubble edge, or debris field into multiple boxes.
+      - Do not box smoke, flame, facade texture, shadow, debris, interior rooms, cubicles, furniture, interior walls, ceiling tiles, or adjacent context as a building.
+      - If the image is primarily indoors and no visible exterior building structure or collapsed exterior structural remain is present, return no building detections.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - For military equipment, detect only clearly visible distinct equipment bodies.
+      - Small or distant equipment is valid only when the individual body outline is clear enough to box as one specific object.
+      - Do not infer equipment from tracks, road lanes, shadows, repeated row marks, smoke, dust, muzzle flash, debris, or ambiguous background fragments.
+      - Do not output a long row, convoy region, or broad group box as one equipment detection.
+
+      OUTPUT RULES
+      - Produce exactly one bounding box per valid target that passes every rejection test.
+      - If two targets are visibly separate and both pass the tests, output two boxes.
+      - If separation is unclear, omit the uncertain candidate.
+      - Never merge neighboring targets into a broad group box.
+      - Never inflate a box to include nearby context, smoke, fire, road, debris, row elements, or adjacent targets.
+      - If no valid targets are visible, return {"detections": []}.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box only the visible connected man-made body or exterior structure of each target.
+      - Use fire, smoke, muzzle flash, or debris only to help locate a target, not to define the box boundary.
+      - If smoke, flame, or dust hides part of a target, keep the box on the visible connected target body that remains.
+      - Do not box the smoke plume, flame column, muzzle flash, debris field, rail bed, road, shadow, empty ground, or background context.
+
+      OUTPUT DISCIPLINE
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or artillery piece.
+      - Return valid JSON only.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v015d_fail_closed_row_guard"
+      parent_version: "v015c_count_first_uncertainty_gate"
+      overlay_role: "human_report_fail_closed_row_guard"
+      phase: "v015_human_report_hinge"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_synthesis_package: "experiments/diagnostics/v015abc_hinge_synthesis_v015d_decision"

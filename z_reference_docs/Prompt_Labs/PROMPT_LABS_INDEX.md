@@ -20,22 +20,75 @@ Generated: `2026-04-21T23:52:20-04:00`
   First feature-branch root created from the clean model branch.
   Its fresh active `v000` baseline is now recorded from `28e863b`, and its
   last confirmed staged winner is `v009`. A local detect-only `v010` candidate
-  is now installed in tracked feature-branch config as an active exploratory
-  follow-up after the detect-surface inspection. That candidate recovered the
-  key `destroyed_building4` split in a same-input A/B run while leaving
-  `destroyed_building3` and `destroyed_building6` unresolved. Two later
+  remains preserved as the first overlay-backed exploratory follow-up after the
+  detect-surface inspection. The completed building-reference truth audit and
+  approved executable correction now preserve one-target `destroyed_building4`
+  and one-target `destroyed_building3` guard-pack truth. Corrected-truth replay
+  made `v014` ready for a formal promotion package, while `v009` remains the
+  promoted/tracked baseline. That promotion path is now paused and superseded
+  by the approved human-report process: read `v014` as
+  `promotion_paused_superseded_by_human_report_process`, not rejected and not
+  promoted. The Step 1 formal package remains historical/pending evidence, but
+  the next Qwen learning authority is the completed all-112
+  `human_report_challenge_v1` comparison of `v009` against `v014`. That run
+  showed `v014` cut false positives from `54` to `24`, but also reduced matches
+  from `161` to `148` and increased false negatives from `56` to `69`; the
+  first `v015` lesson is to preserve false-positive suppression while restoring
+  multi-target recall. Two earlier
   detect-only follow-ups, `v011` and example-structured `v012`, have now both
-  been recorded and rejected; both preserved the `destroyed_building4` gain
+  been recorded and rejected; both preserved the current-manifest
+  `destroyed_building4` signal
   but failed to resolve the remaining building-family errors cleanly. A later
   hierarchy-first `v013` follow-up also failed to beat `v010` in active `1.2`,
   although it did produce a useful doctrine-side-only `destroyed_building3`
-  improvement in `1.3`. The live local Qwen detect state has therefore again
-  been restored to `v010`. The branch was
+  improvement in `1.3`. The later `v014` overlay then passed the corrected
+  guard and grounding packs twice after the reference correction; that evidence
+  is preserved as context rather than an immediate promotion trigger. The branch was
   refreshed through `c19940a` without a
   `v000` rebuild because that upstream delta was infra-only, and it has now
   also been refreshed through `e7a22a9`. Qwen still passes the standard tank
   smoke loop after that newer change, but because live prompt wording changed,
   the next trustworthy post-refresh read should come from a rebuilt baseline.
+  Later human-report v2 work produced a parked prompt-only candidate,
+  `v017b_group_box_rejection`, and the latest v018 upstream/v017b
+  amalgamation cycle is preserved as learning evidence only: no v018 prompt is
+  adoption-ready, `v018d` is the recall-ceiling signal, `v018e` is the
+  precision-balanced follow-up axis, and `v017b` remains the parked candidate.
+  The later v020 v019c goal-driven follow-up is also learning evidence only:
+  `v020c_v019c_extra_box_audit` is the best stable prompt-only diagnostic
+  anchor at `186` matches, `33` false negatives, and `25` false positives on
+  all-current/no101 with controls passing, and exact replay `v020h` reproduced
+  the same result. The cycle did not reach the `FNs <=25` and `FPs <=15`
+  success target, and post-`v020c` prompt refinements repeatedly disturbed
+  dense case `67` or created extra-box/tiling false positives, so v020 should
+  not be promoted as-is.
+  The follow-on v021 OpenAI-compatible cross-model matrix is the current
+  comparison evidence for this lane: using fetched `upstream/main` code through
+  Ollama-backed `/v1` endpoints, Qwen's best row was
+  `v020c_extra_box_audit` at `186/33/25` with controls passing, while Gemma's
+  best eligible row was `v018e_contrastive_body_anchor` at `138/81/19` with
+  controls passing. Local and fetched upstream `doctrine.yaml` matched exactly,
+  so the matrix used one shared-doctrine row. Use
+  `v021_openai_compat_cross_model_prompt_matrix/` for current Qwen-vs-Gemma
+  prompt-comparison routing.
+  The later v022 literal-99 Qwen cycle is now closed as prompt-only plateau
+  evidence: it replayed `v020c` at `186/33/25`, then tested `v022a` through
+  `v022e`; every new wording pattern regressed, usually by collapsing dense
+  case `67`. Use
+  `v022_literal99_qwen_recursive_prompt_refinement_cycle/` when routing to the
+  current evidence that v020c should be preserved and the next improvement
+  lever should move to non-prompt duplicate/tiling suppression or
+  detector/backend work.
+  The v023/v024 literal-99 no-stop continuation is now paused and should be
+  routed through `v023_literal99_qwen_no_stop_continuation/`, especially
+  `pause_report_2026-05-06.md`. It ran `v023a` through `v023z` and `v024a`
+  through `v024n`; `v024o` was interrupted by user pause and is not scored.
+  `v020c_anchor_replay` remains the best combined row at `186/33/25`, while
+  `v024l_v023s_no_wheel_track_ablation` is the best high-recall challenger at
+  `188/31/35` but still carries too many false positives for adoption. The
+  next routing recommendation remains visual review plus non-prompt
+  duplicate/tiling suppression or backend/post-processing rather than long
+  building-only prompt rule blocks.
 - `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.3_feat__qwen3-vl-8b-instruct__doctrine-bda-alignment/`
   Local-only doctrine-replacement branch created from the active Qwen feature
   line. This branch exists to A/B a Phase-1 PDA-aligned doctrine candidate
@@ -58,12 +111,23 @@ Generated: `2026-04-21T23:52:20-04:00`
   `destroyed_building6`. A fourth hierarchy-first follow-up (`v013`) then
   removed the `destroyed_building3` background false positive only in this
   doctrine-side lane, which makes it useful evidence but still not a promoted
-  winner. The live local Qwen state has been restored to `v010`. A later
+  winner. The active control-line read now treats `v014` as the strongest
+  unpromoted follow-up overlay, while the doctrine shadow lane itself remains
+  paused evidence debt. A later
   re-grounding pass confirmed that the active local resume point is still this
   dirty `1.3` doctrine/config worktree, whose uncommitted
   `src/bda_svc/pipeline/doctrine.yaml` + `config.yaml` pair sits beyond the
   last completed logged doctrine-only checkpoint and still needs to be
   diffed/validated before any new Gemma or fresh prompt-only cycle opens.
+- `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.4_feat__qwen3-vl-8b-instruct__detector-backend-pilot/`
+  Durable backend-pilot branch created from the active Qwen control line for
+  the first concrete detector-backend comparison. The first local-first pilot
+  backend (`vlm_tiled_detector`) now runs through the same overlay, trace,
+  eval, and bounded-runner contracts as the control detector, but the first
+  live comparison showed it materially underperformed `vlm_prompt_detector` on
+  the declared packs. This lane is therefore preserved as the first backend
+  pilot record and decision surface, while the active Qwen control line keeps
+  `vlm_prompt_detector` as default.
 - `z_reference_docs/Prompt_Labs/3_gemma4-e4b/`
   New centralized branch/model root for future `gemma4:e4b` work.
 - `z_reference_docs/Prompt_Labs/3_gemma4-e4b/3_model__gemma4-e4b/`
@@ -83,7 +147,12 @@ Generated: `2026-04-21T23:52:20-04:00`
   negative control. `v001` recovered the tank regressions, and `v002` has now
   improved building severity while preserving those recoveries across the full
   inherited six-case pack. `v002` is now the active Gemma direction on the
-  current repo base.
+  current repo base. The later phase-10 architecture port has now moved this
+  branch onto the same overlay-first control-line architecture used on Qwen:
+  tracked Gemma control baseline `v002`, paused overlay-backed follow-up
+  candidate `v003`, detector backend default `vlm_prompt_detector`, and the
+  bounded runner plus promotion-integrity scaffolding now present on the Gemma
+  control line too.
 - `z_reference_docs/Prompt_Labs/3_gemma4-e4b/3.2_feat__gemma4-e4b__doctrine-bda-alignment/`
   Local-only doctrine-replacement branch created from the committed tip of the
   active Gemma feature line. This branch exists to A/B a Phase-1 PDA-aligned
@@ -112,6 +181,8 @@ Companion refresh docs:
   Historical prompt lab for the earlier `qwen3-vl:8b-instruct-q8_0` sequence.
   Runs and versions created before `2026-04-10` now live here for reference
   only.
+  Central archive registration:
+  `z_reference_docs/zz_archive/indexed_existing_archives/Prompt_Labs_archive.md`
 
 ## Naming Convention
 
@@ -158,6 +229,9 @@ Experiment subfolders can then use the same familiar structure:
   Track-specific manifests for detection, assessment, and summary evaluation.
 - `experiments/`
   Prompt version log, failure taxonomy, working versions, and accepted winners.
+- `experiments/cycles/`
+  Adaptive multi-attempt cycle protocols, active cycle briefs, and replay
+  rules layered on top of fixed runner sessions.
 - `experiments/runs/`
   Version-first output folders for live experiment runs and their manifests.
 
@@ -187,3 +261,12 @@ Related companion document:
 - `z_reference_docs/Doctrine_Experiments/Phase_1_Doctrine_Replacement/README.md`
   Local-only doctrine audit, replacement candidate, and A/B test routing for
   the current Phase-1 doctrine experiment.
+- `z_reference_docs/PROGRAM_EXPERIMENT_LEDGER.md`
+  Cross-lab experiment ledger that ties legacy, archived, Qwen, Gemma,
+  doctrine, backend, runner, and architecture experiments together with
+  expected outcomes, actual outcomes, causal confidence, and current Codex
+  assessment.
+- `z_reference_docs/PROGRAM_DEEP_DIVE_AND_EXTENSIBILITY_REPORT.md`
+  Whole-program companion that explains how Prompt_Labs connect to runtime,
+  eval, worktree governance, Codex tooling, and the current Qwen follow-up
+  lane.

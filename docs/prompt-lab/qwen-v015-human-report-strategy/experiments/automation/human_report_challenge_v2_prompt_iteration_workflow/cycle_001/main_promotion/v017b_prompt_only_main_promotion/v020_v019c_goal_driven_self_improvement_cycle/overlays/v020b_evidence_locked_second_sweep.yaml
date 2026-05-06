@@ -1,0 +1,62 @@
+overlay_id: qwen-1.2-v020b_evidence_locked_second_sweep
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Keep v020a's recall-oriented second sweep but admit second-pass boxes only when body evidence is stronger than surrounding context.
+generated_from:
+- v020a_dual_pass_formation_reconciler
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from prior run: the second sweep can recover missed targets, but it created too many extra boxes. Keep the full-image recall sweep only when the candidate has stronger body evidence than context evidence.
+
+      EVIDENCE-LOCKED SECOND SWEEP
+      Think silently. Output only final JSON.
+
+      PASS 1: CERTAIN TARGETS
+      Find targets with clear visible body support: connected hull/chassis, wreck body, exterior wall or roof mass, body center, body edge, or ground-contact outline. Draw one tight box per connected target body or one continuous exterior building structure.
+
+      PASS 2: LOCKED MISSED-TARGET CHECK
+      Re-scan the image for missed targets, but a second-pass candidate may be added only if all checks pass:
+      1. BODY LOCK: the target has its own visible body or exterior-structure mass, not just damage effects or alignment.
+      2. BOUNDARY LOCK: at least two sides of the target boundary are visible enough to draw a tight box.
+      3. SEPARATION LOCK: the candidate is separable from neighboring targets, terrain, shadows, roads, debris, smoke, flame, and blast texture.
+      4. EXTRA-BOX VETO: if the candidate would merely add an extra box beside already obvious targets without a distinct body boundary, reject it.
+
+      RECONCILE
+      After both passes, remove duplicates and fragments. Reject broad group, convoy, formation, cluster, scene-region, road/row, smoke/debris, or terrain-texture boxes. Keep separate boxes only for separate visible bodies.
+
+      CONTEXT SHADOW TEST
+      Use context to search, then mentally remove smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, and repeated spacing. Keep the candidate only if a target body, wreck body, or exterior structure remains visible and boxable.
+
+      FINAL BALANCE
+      Do not become fail-closed: keep small, distant, damaged, crowded, or partly obscured targets when the body locks are satisfied. Do become strict about extras: omit any candidate whose best evidence is context rather than body.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

@@ -1,0 +1,50 @@
+candidate_id: v023y_qwen_native_row_count_discipline
+title: v023y qwen native row count discipline
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023x_qwen_native_connected_body_only
+hypothesis: >
+  v023s recovers dense-row recall but overproduces row extras. Preserve the
+  v023s evidence language and add a row-only body-center count discipline so
+  the model outputs one box per visible center instead of extra gap/end boxes.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, wheel/track contact, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      ROW COUNT DISCIPLINE
+      In a visible row, convoy, or formation, silently count distinct visible body centers first. Output one box for each counted body center. Do not add extra boxes at row gaps, row ends, dust plumes, or repeated spacing where no separate visible body center is present.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

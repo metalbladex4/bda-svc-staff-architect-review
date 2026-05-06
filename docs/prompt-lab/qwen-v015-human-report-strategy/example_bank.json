@@ -1,0 +1,879 @@
+{
+  "bank_version": "v015-human-report-example-bank-v1",
+  "generated_utc": "2026-04-29T15:15:15.801274+00:00",
+  "policy": {
+    "default_use": "offline exemplar review for taxonomy, hypothesis design, and validation gates",
+    "future_visual_exemplar_pilot": "requires separate approval before marked/cropped examples enter prompt candidates",
+    "runtime_prompt_use": "not approved in this wave"
+  },
+  "selected_examples": [
+    {
+      "case_id": "11",
+      "delta_label": "v014_recall_loss",
+      "image_filename": "11.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "building / no damage / confirmed / [0,200,720,801]",
+        "military equipment / no damage / confirmed / [178,741,351,839]"
+      ],
+      "roles": [
+        "v014_recall_loss"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "13",
+      "delta_label": "v014_recall_loss",
+      "image_filename": "13.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "building / no damage / confirmed / [38,90,563,357]",
+        "building / no damage / confirmed / [631,49,786,354]"
+      ],
+      "roles": [
+        "v014_recall_loss"
+      ],
+      "slices": [],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "19",
+      "delta_label": "persistent_false_positive_gap",
+      "image_filename": "19.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "military equipment / destroyed / confirmed / [315,149,690,577]"
+      ],
+      "roles": [
+        "persistent_false_positive_gap"
+      ],
+      "slices": [],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "21",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "21.jpg",
+      "object_count": 3,
+      "object_summaries": [
+        "building / severe damage / confirmed / [146,27,432,328]",
+        "building / moderate damage / confirmed / [429,98,620,322]",
+        "building / no damage / possible / [3,213,96,312]"
+      ],
+      "roles": [
+        "persistent_recall_gap"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "22",
+      "delta_label": "stable_or_clean",
+      "image_filename": "22.jpg",
+      "object_count": 6,
+      "object_summaries": [
+        "military equipment / destroyed / confirmed / [2,362,163,625]",
+        "military equipment / destroyed / confirmed / [360,403,643,557]",
+        "military equipment / destroyed / confirmed / [676,411,901,522]",
+        "military equipment / destroyed / confirmed / [1072,528,1369,667]",
+        "military equipment / destroyed / confirmed / [1036,269,1286,399]",
+        "military equipment / destroyed / confirmed / [726,97,997,233]"
+      ],
+      "roles": [
+        "stable_or_clean"
+      ],
+      "slices": [
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 6,
+        "predicted_targets": 6
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 6,
+        "predicted_targets": 6
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "28",
+      "delta_label": "v014_fp_suppression",
+      "image_filename": "28.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [567,364,862,640]"
+      ],
+      "roles": [
+        "v014_fp_suppression"
+      ],
+      "slices": [],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 2,
+        "matches": 1,
+        "predicted_targets": 3
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "44",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "44.jpg",
+      "object_count": 9,
+      "object_summaries": [
+        "military equipment / destroyed / confirmed / [7,415,443,815]",
+        "military equipment / destroyed / confirmed / [179,621,856,941]",
+        "military equipment / destroyed / confirmed / [529,709,1179,1110]",
+        "military equipment / damaged / confirmed / [591,1155,1170,1642]",
+        "military equipment / no damage / probable / [943,1227,1676,1839]",
+        "military equipment / damaged / probable / [1147,689,1837,1132]",
+        "military equipment / destroyed / probable / [1543,977,2281,1401]",
+        "military equipment / destroyed / confirmed / [2123,383,3014,872]",
+        "military equipment / destroyed / confirmed / [2431,911,3192,1453]"
+      ],
+      "roles": [
+        "persistent_recall_gap"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 2,
+        "false_positives": 0,
+        "matches": 7,
+        "predicted_targets": 7
+      },
+      "v014": {
+        "false_negatives": 2,
+        "false_positives": 0,
+        "matches": 7,
+        "predicted_targets": 7
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "51",
+      "delta_label": "persistent_false_positive_gap",
+      "image_filename": "51.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "military equipment / destroyed / confirmed / [45,120,1199,817]"
+      ],
+      "roles": [
+        "persistent_false_positive_gap"
+      ],
+      "slices": [],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "66",
+      "delta_label": "v014_fp_suppression",
+      "image_filename": "66.jpg",
+      "object_count": 8,
+      "object_summaries": [
+        "military equipment / damaged / confirmed / [459,33,971,482]",
+        "military equipment / damaged / confirmed / [312,128,465,386]",
+        "military equipment / damaged / probable / [239,174,346,363]",
+        "military equipment / no damage / possible / [209,240,242,332]",
+        "military equipment / no damage / possible / [183,249,209,323]",
+        "military equipment / no damage / possible / [160,256,181,316]",
+        "military equipment / no damage / possible / [133,260,161,309]",
+        "military equipment / no damage / possible / [111,263,132,300]"
+      ],
+      "roles": [
+        "v014_fp_suppression"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 5,
+        "matches": 7,
+        "predicted_targets": 12
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 4,
+        "matches": 7,
+        "predicted_targets": 11
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "67",
+      "delta_label": "v014_fp_suppression",
+      "image_filename": "67.jpg",
+      "object_count": 11,
+      "object_summaries": [
+        "military equipment / no damage / possible / [90,172,109,185]",
+        "military equipment / no damage / possible / [131,173,146,190]",
+        "military equipment / no damage / possible / [150,179,162,192]",
+        "military equipment / no damage / possible / [167,180,181,197]",
+        "military equipment / no damage / possible / [185,184,201,200]",
+        "military equipment / no damage / possible / [204,186,226,202]",
+        "military equipment / no damage / possible / [230,188,255,210]",
+        "military equipment / no damage / probable / [256,192,286,217]",
+        "military equipment / no damage / probable / [315,198,351,224]",
+        "military equipment / no damage / confirmed / [424,212,490,251]",
+        "military equipment / no damage / confirmed / [630,235,780,330]"
+      ],
+      "roles": [
+        "v014_fp_suppression"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 10,
+        "false_positives": 12,
+        "matches": 1,
+        "predicted_targets": 13
+      },
+      "v014": {
+        "false_negatives": 10,
+        "false_positives": 8,
+        "matches": 1,
+        "predicted_targets": 9
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "68",
+      "delta_label": "stable_or_clean",
+      "image_filename": "68.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [290,103,1075,599]",
+        "military equipment / no damage / confirmed / [39,167,522,545]"
+      ],
+      "roles": [
+        "stable_or_clean"
+      ],
+      "slices": [],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "69",
+      "delta_label": "persistent_false_positive_gap",
+      "image_filename": "69.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [2,136,467,578]"
+      ],
+      "roles": [
+        "persistent_false_positive_gap"
+      ],
+      "slices": [],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "70",
+      "delta_label": "stable_or_clean",
+      "image_filename": "70.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [148,198,363,295]",
+        "building / destroyed / confirmed / [135,1,588,278]"
+      ],
+      "roles": [
+        "stable_or_clean"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "84",
+      "delta_label": "v014_fp_suppression",
+      "image_filename": "84.jpg",
+      "object_count": 13,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [278,144,724,434]",
+        "military equipment / no damage / confirmed / [174,156,374,339]",
+        "military equipment / no damage / confirmed / [128,178,235,291]",
+        "military equipment / no damage / confirmed / [110,164,164,266]",
+        "military equipment / no damage / confirmed / [93,176,116,264]",
+        "military equipment / no damage / confirmed / [81,181,94,250]",
+        "military equipment / no damage / confirmed / [72,184,82,244]",
+        "military equipment / no damage / confirmed / [58,204,68,240]",
+        "military equipment / no damage / confirmed / [53,208,64,238]",
+        "military equipment / no damage / confirmed / [691,127,765,332]",
+        "military equipment / no damage / confirmed / [0,190,12,236]",
+        "military equipment / no damage / confirmed / [21,186,58,233]",
+        "military equipment / no damage / confirmed / [66,186,100,214]"
+      ],
+      "roles": [
+        "v014_fp_suppression"
+      ],
+      "slices": [
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 8,
+        "false_positives": 2,
+        "matches": 5,
+        "predicted_targets": 7
+      },
+      "v014": {
+        "false_negatives": 8,
+        "false_positives": 1,
+        "matches": 5,
+        "predicted_targets": 6
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "93",
+      "delta_label": "stable_or_clean",
+      "image_filename": "93.jpg",
+      "object_count": 3,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [36,277,244,427]",
+        "military equipment / no damage / confirmed / [275,185,1068,602]",
+        "building / no damage / confirmed / [328,0,1200,525]"
+      ],
+      "roles": [
+        "stable_or_clean"
+      ],
+      "slices": [
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 3,
+        "predicted_targets": 3
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 3,
+        "predicted_targets": 3
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "100",
+      "delta_label": "v014_recall_loss",
+      "image_filename": "100.jpg",
+      "object_count": 3,
+      "object_summaries": [
+        "building / light damage / possible / [0,37,149,574]",
+        "building / destroyed / confirmed / [178,3,834,554]",
+        "building / moderate damage / probable / [844,4,1078,541]"
+      ],
+      "roles": [
+        "v014_recall_loss"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 2,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "101",
+      "delta_label": "precision_recall_tradeoff",
+      "image_filename": "101.jpg",
+      "object_count": 12,
+      "object_summaries": [
+        "military equipment / damaged / possible / [87,151,996,534]",
+        "military equipment / no damage / possible / [59,133,112,180]",
+        "military equipment / no damage / possible / [119,135,206,187]",
+        "military equipment / no damage / possible / [213,140,256,185]",
+        "military equipment / no damage / possible / [232,149,297,195]",
+        "military equipment / no damage / possible / [469,132,525,198]",
+        "military equipment / no damage / possible / [531,131,568,170]",
+        "military equipment / no damage / possible / [531,131,568,170]",
+        "military equipment / no damage / possible / [717,152,791,193]",
+        "military equipment / no damage / possible / [869,142,918,189]",
+        "military equipment / no damage / possible / [926,139,972,180]",
+        "military equipment / no damage / possible / [999,125,1024,184]"
+      ],
+      "roles": [
+        "precision_recall_tradeoff",
+        "required_guardrail_case"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 6,
+        "false_positives": 14,
+        "matches": 6,
+        "predicted_targets": 20
+      },
+      "v014": {
+        "false_negatives": 11,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "110",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "110.jpg",
+      "object_count": 7,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [159,80,259,196]",
+        "military equipment / no damage / confirmed / [132,83,178,142]",
+        "military equipment / no damage / confirmed / [131,56,159,91]",
+        "military equipment / no damage / confirmed / [151,42,168,65]",
+        "military equipment / no damage / confirmed / [150,25,169,43]",
+        "military equipment / no damage / confirmed / [99,12,110,29]",
+        "military equipment / no damage / confirmed / [17,8,28,20]"
+      ],
+      "roles": [
+        "persistent_recall_gap"
+      ],
+      "slices": [
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 6,
+        "false_positives": 2,
+        "matches": 1,
+        "predicted_targets": 3
+      },
+      "v014": {
+        "false_negatives": 6,
+        "false_positives": 2,
+        "matches": 1,
+        "predicted_targets": 3
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "141",
+      "delta_label": "persistent_false_positive_gap",
+      "image_filename": "141.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "military equipment / damaged / possible / [24,21,170,142]"
+      ],
+      "roles": [
+        "persistent_false_positive_gap"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 1,
+        "matches": 1,
+        "predicted_targets": 2
+      },
+      "visual_status": "accurate"
+    },
+    {
+      "case_id": "147",
+      "delta_label": "v014_recall_loss",
+      "image_filename": "147.jpg",
+      "object_count": 3,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [21,124,478,322]",
+        "building / no damage / possible / [207,23,294,92]",
+        "building / no damage / possible / [337,20,423,89]"
+      ],
+      "roles": [
+        "v014_recall_loss"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 3,
+        "predicted_targets": 3
+      },
+      "v014": {
+        "false_negatives": 2,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "154",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "154.jpg",
+      "object_count": 3,
+      "object_summaries": [
+        "military equipment / no damage / confirmed / [33,218,339,408]",
+        "building / severe damage / confirmed / [1,1,613,224]",
+        "building / destroyed / probable / [379,303,612,417]"
+      ],
+      "roles": [
+        "qualitative_bbox_caveat"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "155",
+      "delta_label": "stable_or_clean",
+      "image_filename": "155.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "object_not_found / not applicable / confirmed / [0,0,0,0]"
+      ],
+      "roles": [
+        "protected_out_of_scope_negative",
+        "required_guardrail_case"
+      ],
+      "slices": [
+        "human_out_of_scope_negative_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "159",
+      "delta_label": "stable_or_clean",
+      "image_filename": "159.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "military equipment / damaged / possible / [33,220,251,273]",
+        "military equipment / damaged / probable / [7,105,613,358]"
+      ],
+      "roles": [
+        "qualitative_bbox_caveat"
+      ],
+      "slices": [
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "160",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "160.jpg",
+      "object_count": 5,
+      "object_summaries": [
+        "building / severe damage / confirmed / [2,61,179,321]",
+        "building / severe damage / confirmed / [339,66,543,333]",
+        "building / severe damage / possible / [270,3,477,68]",
+        "building / severe damage / possible / [44,5,206,59]",
+        "building / no damage / possible / [516,1,590,84]"
+      ],
+      "roles": [
+        "persistent_recall_gap",
+        "qualitative_bbox_caveat"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 3,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "v014": {
+        "false_negatives": 3,
+        "false_positives": 0,
+        "matches": 2,
+        "predicted_targets": 2
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "164",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "164.jpg",
+      "object_count": 2,
+      "object_summaries": [
+        "building / destroyed / confirmed / [105,86,565,321]",
+        "building / no damage / possible / [480,159,613,289]"
+      ],
+      "roles": [
+        "qualitative_bbox_caveat"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1"
+      ],
+      "split": "dev",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 0,
+        "matches": 1,
+        "predicted_targets": 1
+      },
+      "visual_status": "accepted_after_user_review"
+    },
+    {
+      "case_id": "166",
+      "delta_label": "persistent_recall_gap",
+      "image_filename": "166.jpg",
+      "object_count": 1,
+      "object_summaries": [
+        "object_not_found / not applicable / confirmed / [0,0,0,0]"
+      ],
+      "roles": [
+        "protected_out_of_scope_negative",
+        "required_guardrail_case"
+      ],
+      "slices": [
+        "human_out_of_scope_negative_slice_v1"
+      ],
+      "split": "holdout",
+      "use_policy": "offline evidence only; do not paste report text into runtime prompts by default",
+      "v009": {
+        "false_negatives": 1,
+        "false_positives": 1,
+        "matches": 0,
+        "predicted_targets": 1
+      },
+      "v014": {
+        "false_negatives": 1,
+        "false_positives": 1,
+        "matches": 0,
+        "predicted_targets": 1
+      },
+      "visual_status": "accepted_after_user_review"
+    }
+  ]
+}

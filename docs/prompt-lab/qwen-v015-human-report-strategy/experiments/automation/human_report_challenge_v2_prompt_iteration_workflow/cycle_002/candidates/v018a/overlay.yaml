@@ -1,0 +1,176 @@
+overlay_id: "qwen-1.2-v018a-detect-dense-formation-body-center-anchor"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Qwen 1.2 v018a detect-only prompt candidate for human_report_challenge_v2.
+  This prompt-only experiment keeps the accepted v017b single-target box-span
+  self-filter and adds dense-formation body-center anchoring for smoke/dust
+  perspective rows such as case 67.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      OUTPUT CONTRACT
+      Return valid JSON only. If no valid target is visible, return:
+      {"detections": []}
+
+      PROMPT METHOD: DISCOVER, ANCHOR, FILTER, THEN BOX
+      Work silently in four stages before final JSON:
+
+      1. DISCOVER
+      Look for visible target candidates across the whole image, including
+      secondary, distant, foreground, background, and off-center locations.
+      Candidate discovery may notice clusters, rows, damage, smoke, fire, dust,
+      or debris, but those context clues are not final detections.
+
+      2. ANCHOR TO TARGET BODY MASS
+      For each possible candidate, silently identify the visible target body:
+      one connected equipment body, wreck body, chassis, hull, vehicle mass,
+      equipment outline, exterior building body, or collapsed exterior
+      structural remain.
+
+      In smoke, dust, haze, perspective rows, convoys, or dense formations,
+      anchor the candidate on the visible body mass and its body center or
+      lower-body/ground-contact footprint. Do not anchor a target on only the
+      dust plume, smoke edge, sky/background edge, rowline, top outline,
+      expected spacing, diagonal formation geometry, road/lane alignment, or a
+      guessed continuation from neighboring targets.
+
+      3. FILTER
+      A candidate may become final only when one visible body anchor is clear
+      enough to draw one tight target box. A candidate is not valid merely
+      because a row or region probably contains targets.
+
+      Keep a candidate out of final JSON when it is only:
+      - a row, convoy, group, cluster, formation, or scene-level region
+      - a broad area containing one or more possible targets somewhere inside
+      - a box interpolated between neighboring targets or repeated marks
+      - dust, smoke, flame, debris, shadow, road, terrain, rubble, sky, or
+        background texture
+      - a top-edge, plume-edge, rowline, spacing cue, or repeated small mark
+      - an uncertain candidate whose individual target body cannot be isolated
+
+      4. BOX
+      Draw the final box only around the visible connected target body or
+      exterior structure. The box must follow the target's own visual extent,
+      not the spacing, angle, plume shape, or row geometry of a larger scene.
+
+      FINAL JSON MAY INCLUDE ONLY BODY-ANCHORED SINGLE-TARGET BOXES.
+
+      DENSE FORMATION ANCHOR RULE
+      In row-like, convoy-like, diagonal, crowded, smoky, dusty, or patterned
+      regions:
+      - Do not enumerate every repeated small shape.
+      - Do not create boxes by equal spacing, row counting, visual
+        extrapolation, or expected count.
+      - Do not output one broad box around the row, convoy, group, or cluster.
+      - Output a dense-row target only when its own body mass or connected
+        wreck outline is visible enough to set the box center and edges.
+      - The box should include the visible body center and the visible
+        lower-body/ground-contact footprint when that footprint is visible.
+      - If only a top edge, dust edge, smoke edge, shadow, or spacing cue is
+        visible, omit that candidate.
+      - If separate bodies are not clear, omit that region.
+
+      BODY-BACKED RECALL
+      - First find obvious body-backed targets.
+      - Then make one missed-target check for secondary, distant, off-center,
+        foreground, background, and edge targets whose own body remains
+        separable and tight-boxable.
+      - Do not stop after the largest, closest, most central, or most damaged
+        target when another body-backed target is clearly visible.
+      - A small or distant target can be valid when its connected body, body
+        center, lower body, footprint, or exterior structure remains separable
+        and tight-boxable.
+      - Burned or destroyed military equipment can be valid when a connected
+        wreck body, chassis, hull, vehicle mass, or outline remains visible.
+      - Never invent targets to match an expected count.
+
+      FINAL BOX AUDIT
+      Before final output, audit every proposed detection:
+      - Can I point to the target body's visible center and visual extent?
+      - Are the box edges set by body mass, not dust, smoke, top-edge cues,
+        rowline, expected spacing, or formation geometry?
+      - Does the box cover one target body or exterior structure, not a larger
+        region where targets may exist?
+      - Is most of the box occupied by the accepted target body or structure?
+      - Could I tighten the box substantially without cutting off the accepted
+        body?
+
+      If any audit answer fails or is uncertain, reject that detection. Do not
+      replace it with a broad proxy box.
+
+      BUILDING TARGET SELECTION
+      - Detect only distinct exterior building bodies or distinct collapsed
+        exterior structural remains.
+      - Do not split one continuous building, attached wing, shared facade,
+        side wall, fire/smoke region, rubble edge, or debris field into
+        multiple boxes.
+      - Do not box smoke, flame, facade texture, shadow, debris, interior
+        rooms, cubicles, furniture, interior walls, ceiling tiles, or adjacent
+        context as a building.
+      - If the image is primarily indoors and no visible exterior building
+        structure or collapsed exterior structural remain is present, return
+        no building detections.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - Detect only clearly visible distinct equipment bodies or wreck bodies.
+      - Burned or destroyed equipment may still count when a connected body,
+        hull, chassis, vehicle mass, or wreck outline is visible.
+      - In dust or smoke, use the plume only to search for a target. Do not use
+        the plume or dust edge as the target box boundary.
+      - Do not infer equipment from tracks, lanes, shadows, repeated marks,
+        smoke, dust, flame, debris, or ambiguous background fragments.
+      - Do not output a long row, convoy region, broad group box, or scene
+        region as one equipment detection.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box only the visible connected man-made body or exterior structure of
+        each accepted target.
+      - Use fire, smoke, dust, or debris only to help locate a target, not to
+        define the box boundary.
+      - Keep the box tight on the visible connected target body that remains.
+      - Do not include smoke plume, flame column, muzzle flash, dust cloud,
+        debris field, rail bed, road, shadow, empty ground, sky, or background
+        context.
+      - Do not draw a box whose main purpose is to cover an area that may
+        contain targets. Draw only boxes around accepted individual targets.
+
+      OUTPUT DISCIPLINE
+      - Produce exactly one bounding box per accepted target.
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or
+        artillery piece.
+      - Return valid JSON only.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v018a_dense_formation_body_center_anchor"
+      parent_version: "v017b_single_target_box_span_self_filter"
+      overlay_role: "v2_dense_formation_body_center_anchor"
+      phase: "human_report_challenge_v2_prompt_iteration_cycle_002"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_automation_package: "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow"
+      prompt_only: true
+      structural_guard_implemented: false

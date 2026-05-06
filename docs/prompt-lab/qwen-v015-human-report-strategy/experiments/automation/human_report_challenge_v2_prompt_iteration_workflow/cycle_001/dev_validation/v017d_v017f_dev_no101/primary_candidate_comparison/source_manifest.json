@@ -1,0 +1,46 @@
+{
+  "package": "v017d_primary_candidate_comparison_rerun",
+  "purpose": "Fresh same-image comparison rerun against human_report_challenge_v2_dev_55_no101 so v017d can be judged against prior candidates and promoted/control baselines using the same 55-image manifest.",
+  "worktree_only_output_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison",
+  "read_only_sources": {
+    "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/validation_manifests/human_report_challenge_v2_dev_55_no101.yaml",
+    "runner": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/scripts/run_v015_candidate_manifest.py",
+    "historical_baselines": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/baselines/dev55_no101_baselines.json",
+    "prior_decision_packet": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/dev_validation_decision_packet.json",
+    "visual_review": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/visual_review/README.md",
+    "dense_formation_comparison": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/visual_review/dense_formation_comparison/v017d_v017f_dense_formation_visual_comparison.json",
+    "main_prompt_methodology": "/home/williambenitez1/Capstone/z_reference_docs/PROMPT_DEVELOPMENT_METHODOLOGY.md",
+    "main_working_changelog": "/home/williambenitez1/Capstone/z_reference_docs/WORKING_CHANGELOG.md"
+  },
+  "fresh_outputs": {
+    "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs",
+    "comparison_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/primary_candidate_comparison.json",
+    "comparison_markdown": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/primary_candidate_comparison.md"
+  },
+  "forbidden_mutations": [
+    "runtime config adoption",
+    "prompt authoring",
+    "holdout execution",
+    "all-current or all-112 execution",
+    "promotion artifacts",
+    "source human-report mutation",
+    "reference-truth mutation",
+    "Graphify refresh",
+    "Mem0 update",
+    "MCP config change",
+    "hook edit"
+  ],
+  "case_policy": {
+    "forward_evaluation_excludes": [
+      "101"
+    ],
+    "positive_control_cases": [
+      "155"
+    ],
+    "dense_formation_cases": [
+      "66",
+      "67",
+      "84"
+    ]
+  }
+}

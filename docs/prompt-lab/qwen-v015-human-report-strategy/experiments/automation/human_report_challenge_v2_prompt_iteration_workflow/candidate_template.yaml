@@ -1,0 +1,27 @@
+candidate_id: v017x_pending
+status: template_only_no_prompt_text
+base_prompt: to_be_selected_after_previous_candidate_analysis
+runtime_prompt_text: null
+must_preserve_placeholders:
+- '{categories}'
+- '{detection_guidance}'
+- '{bbox_format}'
+- '{bbox_scale}'
+human_report_challenge: v2
+allowed_prompt_scope:
+- prompt wording
+- prompt interface/rubric structure
+- self-filter wording
+- candidate-discovery instruction wording
+forbidden_scope:
+- runtime config adoption
+- structural validator implementation
+- source-truth mutation
+- MCP config changes
+- tool installation
+- case-specific raw human-report text pasted into prompt
+required_outputs_when_authored_later:
+- overlay_yaml
+- hypothesis_yaml_or_card
+- candidate_brief_update
+- run_summary_after_approved_inference

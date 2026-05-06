@@ -1,0 +1,34 @@
+{
+  "package_id": "v017b_main_promotion_false_positive_visual_review",
+  "status": "complete_recommendation_pending_user_override_decision",
+  "purpose": "Review the 22 raw bda_eval false positives from the v017b prompt-only main all-current/no101 replay that missed the FP cap by 1.",
+  "candidate": "v017b_group_box_rejection promoted prompt text in main config, uncommitted",
+  "source_artifacts": {
+    "main_promotion_gate_result": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/main_promotion_gate_result.json",
+    "all_current_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/runs/human_report_challenge_v2_all_current_117_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_223526Z/eval/evaluation_2026-05-03_224911Z_summary.json",
+    "all_current_csv": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/runs/human_report_challenge_v2_all_current_117_no101/human_report_challenge_v2_all_current_117_no101_2026-05-03_223526Z/eval/evaluation_2026-05-03_224911Z.csv",
+    "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml",
+    "contact_sheet": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/false_positive_visual_review/artifacts/v017b_fp_visual_review_contact_sheet.jpg"
+  },
+  "forbidden_mutations_confirmed": [
+    "source reports",
+    "source images",
+    "reference truth",
+    "runtime config beyond pending pre-existing main prompt edit",
+    "MCP config",
+    "hooks",
+    "Graphify",
+    "Mem0"
+  ],
+  "review_cases": [
+    "12",
+    "15",
+    "17",
+    "19",
+    "66",
+    "67",
+    "90",
+    "110",
+    "125"
+  ]
+}

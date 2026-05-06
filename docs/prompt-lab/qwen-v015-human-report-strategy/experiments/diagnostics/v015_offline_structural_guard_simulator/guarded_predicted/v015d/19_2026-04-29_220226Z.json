@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "analyst": "bda-svc",
+    "date_created": "2026-04-29T22:02:26Z",
+    "detector_backend_id": "vlm_prompt_detector",
+    "experiment_overlay_ids": [
+      "qwen-1.2-v015d-detect-fail-closed-row-guard"
+    ],
+    "guard_preserves_raw_prediction": false,
+    "guard_simulator_id": "v015_structural_output_shape_guard_v1_offline",
+    "image_filename": "19.jpg",
+    "image_id": "9f095f46-98d5-4e91-823b-ab7db0379d78",
+    "inference_time": "5.07",
+    "location": {
+      "coordinates": "",
+      "crs": ""
+    },
+    "model_line_id": "qwen3-vl:8b-instruct",
+    "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+    "report_type": "PDA",
+    "resolved_config_hash": "d6d0696d59c75c2a536ce2d5a2696cd831f7d8dea3163e192d1895d4853aea17"
+  },
+  "physical_damage": {
+    "target_0": {
+      "bounding_box": [
+        330,
+        114,
+        690,
+        507
+      ],
+      "brief_supporting_logic": "target body catastrophically damaged; major components missing or detached; severe deformation visible; burned-out appearance with no recognizable operational structure",
+      "confidence_level": "PROBABLE",
+      "damage_category": "DESTROYED",
+      "target_type": "military_equipment"
+    }
+  },
+  "summary": "Assessed targets: military_equipment x1 DESTROYED (PROBABLE). The scene summary is limited to the assessed targets and broad visible context. Visible evidence supports severe direct degradation or loss of the assessed targets only."
+}

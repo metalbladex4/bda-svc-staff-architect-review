@@ -1,0 +1,52 @@
+overlay_id: "qwen-1.2-upstream-main-f462ef4-detect-prompt-control"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Prompt-controlled upstream/main baseline for v017b comparison. This overlay
+  uses the exact detect_objects prompt text from upstream/main config.yaml at
+  f462ef4516b63ca1a2cd2434e75692f65d0e94cb while leaving the local Qwen 1.2
+  runtime/model path unchanged.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      RULES
+      - First identify all valid targets using the target-type specific detection guidance below.
+      - Then produce exactly one bounding box per valid target.
+      - The number of detections must match the number of targets identified.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid targets are visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "upstream_main_prompt_controlled_baseline"
+      overlay_role: "upstream_main_prompt_control"
+      phase: "v017b_prompt_only_main_promotion_baseline_comparison"
+      source_upstream_commit: "f462ef4516b63ca1a2cd2434e75692f65d0e94cb"
+      source_config_sha256: "6389404387e2c1034f108d3d961cba144411bf8ffb11c9fda6fd7d51417fca36"
+      prompt_only: true
+      local_qwen_runtime_controlled: true

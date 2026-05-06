@@ -1,0 +1,50 @@
+candidate_id: v023v_qwen_native_nested_overlap_guard
+title: v023v qwen native nested overlap guard
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023s_predicted_json_review
+hypothesis: >
+  v023s has useful recall but many FPs are nested/tiled boxes over the same
+  object or continuous building. Add a targeted overlap/nesting guard that
+  collapses same-body boxes while preserving side-by-side dense-row objects.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, wheel/track contact, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      NESTED / OVERLAP GUARD
+      Before output, compare boxes that overlap heavily or sit inside each other. If overlapping boxes describe the same visible body, the same vehicle, the same wreck mass, or the same continuous building/exterior structure, keep only the single tightest whole-target box. Do not tile one building into quadrants or one vehicle into a telescope of several boxes. Keep side-by-side row members only when each has its own visible body center.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

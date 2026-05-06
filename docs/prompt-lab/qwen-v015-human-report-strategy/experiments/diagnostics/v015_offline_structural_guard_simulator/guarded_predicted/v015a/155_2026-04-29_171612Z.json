@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "analyst": "bda-svc",
+    "date_created": "2026-04-29T17:16:12Z",
+    "detector_backend_id": "vlm_prompt_detector",
+    "experiment_overlay_ids": [
+      "qwen-1.2-v015a-detect-recall-recovery"
+    ],
+    "guard_preserves_raw_prediction": false,
+    "guard_simulator_id": "v015_structural_output_shape_guard_v1_offline",
+    "image_filename": "155.jpg",
+    "image_id": "a91fe929-ddb5-49ad-ba99-dfd583002f55",
+    "inference_time": "1.47",
+    "location": {
+      "coordinates": "",
+      "crs": ""
+    },
+    "model_line_id": "qwen3-vl:8b-instruct",
+    "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+    "report_type": "PDA",
+    "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+  },
+  "physical_damage": {
+    "target_0": {
+      "bounding_box": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "brief_supporting_logic": "No visible targets in image.",
+      "confidence_level": "CONFIRMED",
+      "damage_category": "NOT APPLICABLE",
+      "target_type": "object_not_found"
+    }
+  },
+  "summary": "No relevant targets were assessed in the scene. No target-specific damage effects are supported from visible evidence."
+}

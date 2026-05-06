@@ -1,0 +1,63 @@
+overlay_id: qwen-1.2-v020a_dual_pass_formation_reconciler
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v019c context-shadow filtering while adding a second separable-body sweep and box reconciliation for dense formations.
+generated_from:
+- v019c_anchor_replay
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from anchor replay: preserve the context-shadow filter and control safety, but fix two opposing errors: dense formations miss separable targets while also creating extra row/context boxes.
+
+      DUAL-PASS FORMATION RECONCILER
+      Think silently. Output only final JSON.
+
+      PASS 1: BODY-FIRST SEARCH
+      Scan the full image for every visible target body, wreck body, or exterior building structure. Include small, distant, edge, background, damaged, burned, or partially obscured targets when their own body support is visible.
+
+      PASS 2: MISSED-BODY SWEEP
+      Re-scan crowded rows, formations, large scenes, and partially obscured areas only for bodies that were missed in pass 1. A new detection must have its own separable body edge, center mass, hull/chassis, wreck mass, exterior wall/roof mass, or ground-contact outline.
+
+      RECONCILE BEFORE OUTPUT
+      For each cluster of nearby boxes:
+      - merge or remove duplicate fragments of one connected body
+      - keep separate boxes only when neighboring bodies have visible separation
+      - reject boxes that mostly describe row alignment, road/track spacing, smoke, dust, flame, debris, shadow, blast texture, or terrain marks
+      - reject broad group, convoy, formation, cluster, or scene-region boxes
+      - tighten each surviving box so the accepted target occupies most of it
+
+      CONTEXT SHADOW TEST
+      Use context to search, then mentally remove context to decide. If a candidate disappears when smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, and terrain marks are ignored, reject it.
+
+      FINAL RULE
+      Prefer missing one uncertain context-only target over adding a broad proxy box, but do not omit a clearly separable target body merely because it is small, damaged, crowded, or partly obscured.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

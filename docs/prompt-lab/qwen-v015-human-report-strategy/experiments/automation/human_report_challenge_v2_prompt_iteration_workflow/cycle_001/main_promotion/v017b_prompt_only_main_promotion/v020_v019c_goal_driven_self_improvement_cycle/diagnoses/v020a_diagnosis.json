@@ -1,0 +1,113 @@
+{
+  "avoid": [
+    "raised false positives versus v019c",
+    "case 67 dense formation recall remains weak",
+    "case 66 still carries dense/row false positives",
+    "case 84 still misses many large-scene targets"
+  ],
+  "candidate_id": "v020a",
+  "controls": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 1,
+      "match_count": 2,
+      "predicted_target_count": 3,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0
+    }
+  },
+  "dense_cases": {
+    "66": {
+      "false_negative_count": 0,
+      "false_positive_count": 5,
+      "match_count": 8,
+      "predicted_target_count": 13,
+      "reference_target_count": 8
+    },
+    "67": {
+      "false_negative_count": 9,
+      "false_positive_count": 10,
+      "match_count": 2,
+      "predicted_target_count": 12,
+      "reference_target_count": 11
+    },
+    "84": {
+      "false_negative_count": 7,
+      "false_positive_count": 2,
+      "match_count": 6,
+      "predicted_target_count": 8,
+      "reference_target_count": 13
+    },
+    "97": {
+      "false_negative_count": 0,
+      "false_positive_count": 2,
+      "match_count": 1,
+      "predicted_target_count": 3,
+      "reference_target_count": 1
+    }
+  },
+  "fp_fn_pattern": {
+    "dense_case_snapshot": {
+      "66": {
+        "false_negative_count": 0,
+        "false_positive_count": 5,
+        "match_count": 8,
+        "predicted_target_count": 13,
+        "reference_target_count": 8
+      },
+      "67": {
+        "false_negative_count": 9,
+        "false_positive_count": 10,
+        "match_count": 2,
+        "predicted_target_count": 12,
+        "reference_target_count": 11
+      },
+      "84": {
+        "false_negative_count": 7,
+        "false_positive_count": 2,
+        "match_count": 6,
+        "predicted_target_count": 8,
+        "reference_target_count": 13
+      },
+      "97": {
+        "false_negative_count": 0,
+        "false_positive_count": 2,
+        "match_count": 1,
+        "predicted_target_count": 3,
+        "reference_target_count": 1
+      }
+    },
+    "false_negative_count": 42,
+    "false_positive_count": 67
+  },
+  "generated_utc": "2026-05-05T03:45:16.185380+00:00",
+  "metrics": {
+    "delta_vs_v019c": {
+      "false_negative_count": -3,
+      "false_positive_count": 39,
+      "match_count": 3
+    },
+    "false_negative_count": 42,
+    "false_positive_count": 67,
+    "match_count": 177
+  },
+  "next_axis": "tighten FP veto while preserving full-image recall",
+  "preserve": [
+    "kept 155, 166, and office-negative safe",
+    "preserved or improved v019c match count"
+  ]
+}

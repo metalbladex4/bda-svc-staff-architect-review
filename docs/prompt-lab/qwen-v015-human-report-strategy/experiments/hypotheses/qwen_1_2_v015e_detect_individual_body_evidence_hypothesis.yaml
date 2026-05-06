@@ -1,0 +1,37 @@
+hypothesis_id: "qwen-1.2-v015e-detect-individual-body-evidence"
+status: "hypothesis_only"
+lever_type: "detect_prompt_overlay"
+failure_class: "persistent_case_101_row_fragment_and_broad_box_failure"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v015e-detect-individual-body-evidence"
+runner_session_id: "qwen-1.2-v015e-detect-individual-body-evidence-session-v1"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v015e_candidate_run"
+target_cases:
+  - "101"
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+validation_pack_ids:
+  - "human-report-challenge-v1-v015e-hinge-smoke"
+expected_improvement: >
+  Test whether prompt wording centered on visible individual body
+  evidence can recover more valid targets than v015d while still
+  suppressing case 101 row-fragment enumeration, broad group boxes, and
+  protected negative false positives.
+known_regression_risks:
+  - "May reopen false positives on row-like repeated fragments."
+  - "May remain too conservative and fail to beat v014 recall."
+  - "May still emit a broad group/scene box for case 101."
+  - "May suppress legitimate small or distant targets if the model cannot distinguish compact bodies from pattern fragments."
+stop_rule: >
+  Stop after the hinge-smoke run. Do not run the dev split unless the
+  aggregate hinge gate passes, protected case 155 passes, and case 101
+  has no row-fragment enumeration or broad group box pending manual
+  review.
+author: "William Benitez"
+created_at: "2026-04-29T00:00:00-04:00"

@@ -1,0 +1,93 @@
+{
+  "comparison_id": "v017d_primary_candidate_comparison_rerun",
+  "generated_for": "human_report_challenge_v2_dev_55_no101",
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/validation_manifests/human_report_challenge_v2_dev_55_no101.yaml",
+  "runner_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/scripts/run_v015_candidate_manifest.py",
+  "worktree_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement",
+  "detector_backend": "vlm_prompt_detector",
+  "accepted_v017d_anchor": {
+    "source": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/candidate_manifest_run_summary.json",
+    "match_count": 72,
+    "false_negative_count": 34,
+    "false_positive_count": 16,
+    "positive_155_match_count": 2
+  },
+  "material_drift_threshold": 2,
+  "dense_formation_cases": [
+    "66",
+    "67",
+    "84"
+  ],
+  "positive_control_cases": [
+    "155"
+  ],
+  "excluded_forward_evaluation_cases": [
+    "101"
+  ],
+  "historical_baselines": {
+    "dev55_no101_baselines": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/baselines/dev55_no101_baselines.json",
+    "prior_decision_packet": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/dev_validation_decision_packet.json"
+  },
+  "candidates": [
+    {
+      "candidate_id": "v017d_visual_anchor_lock",
+      "short_id": "v017d",
+      "role": "replay_anchor_primary_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017d/overlay.yaml"
+    },
+    {
+      "candidate_id": "v009_control_baseline",
+      "short_id": "v009",
+      "role": "promoted_control_baseline",
+      "overlay_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/overlays/qwen_1_2_v009_control_baseline.yaml"
+    },
+    {
+      "candidate_id": "v014_weighted_building_selection",
+      "short_id": "v014",
+      "role": "false_positive_suppression_baseline",
+      "overlay_path": "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/overlays/qwen_1_2_v014_detect_weighted_building_selection.yaml"
+    },
+    {
+      "candidate_id": "v015e_individual_body_evidence",
+      "short_id": "v015e",
+      "role": "v015_prompt_lane_final_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/overlays/qwen_1_2_v015e_detect_individual_body_evidence.yaml"
+    },
+    {
+      "candidate_id": "v016a_reference_aware_candidate_discovery",
+      "short_id": "v016a",
+      "role": "reference_aware_candidate_discovery",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/overlays/qwen_1_2_v016a_detect_reference_aware_candidate_discovery.yaml"
+    },
+    {
+      "candidate_id": "v017a_broad_group_box_lock",
+      "short_id": "v017a",
+      "role": "v017_cycle_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017a/overlay.yaml"
+    },
+    {
+      "candidate_id": "v017b_group_box_rejection",
+      "short_id": "v017b",
+      "role": "v017_cycle_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml"
+    },
+    {
+      "candidate_id": "v017c_count_then_anchor",
+      "short_id": "v017c",
+      "role": "v017_cycle_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017c/overlay.yaml"
+    },
+    {
+      "candidate_id": "v017e_anti_span_guard",
+      "short_id": "v017e",
+      "role": "v017_cycle_candidate",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017e/overlay.yaml"
+    },
+    {
+      "candidate_id": "v017f_compact_visual_anchor_balance",
+      "short_id": "v017f",
+      "role": "recall_comparator",
+      "overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017f/overlay.yaml"
+    }
+  ]
+}

@@ -1,0 +1,3438 @@
+{
+  "diagnostic_summary": {
+    "v015a": {
+      "signal_counts": {
+        "broad_group_or_scene_box": 5,
+        "regular_row_fragment_enumeration": 14,
+        "tiny_ambiguous_context_box": 2
+      },
+      "suppressed_target_count": 19
+    },
+    "v015b": {
+      "signal_counts": {
+        "broad_group_or_scene_box": 5,
+        "regular_row_fragment_enumeration": 30,
+        "tiny_ambiguous_context_box": 30
+      },
+      "suppressed_target_count": 35
+    },
+    "v015c": {
+      "signal_counts": {
+        "broad_group_or_scene_box": 5,
+        "regular_row_fragment_enumeration": 30,
+        "tiny_ambiguous_context_box": 30
+      },
+      "suppressed_target_count": 35
+    },
+    "v015d": {
+      "signal_counts": {
+        "broad_group_or_scene_box": 5,
+        "regular_row_fragment_enumeration": 0,
+        "tiny_ambiguous_context_box": 0
+      },
+      "suppressed_target_count": 5
+    }
+  },
+  "generated_utc": "2026-04-29T22:19:56.405908+00:00",
+  "guard_plan": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_structural_output_guard_plan",
+  "guard_simulator_id": "v015_structural_output_shape_guard_v1_offline",
+  "non_runs": [
+    "bda-svc",
+    "vlm_inference",
+    "dev_split",
+    "holdout",
+    "all_112",
+    "runtime_config_adoption",
+    "source_truth_mutation",
+    "graphify_refresh",
+    "evidence_rebuild",
+    "mem0_update"
+  ],
+  "runs": {
+    "v015a": {
+      "case_101": {
+        "guarded": {
+          "metrics": {
+            "false_negatives": 12,
+            "false_positives": 0,
+            "matches": 0,
+            "predicted_targets": 0
+          }
+        },
+        "raw": {
+          "metrics": {
+            "false_negatives": 9,
+            "false_positives": 12,
+            "matches": 3,
+            "predicted_targets": 15
+          }
+        }
+      },
+      "case_diagnostics": [
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/101_2026-04-29_171524Z.json",
+          "image_filename": "101.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/101.jpg",
+          "image_size": {
+            "height": 584,
+            "width": 1024
+          },
+          "raw_positive_target_count": 15,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.7595,
+                "bbox": [
+                  75,
+                  58,
+                  1000,
+                  549
+                ],
+                "height_ratio": 0.8408,
+                "label": "target_1",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.9033
+              }
+            ],
+            "regular_row_fragment_enumeration": [
+              {
+                "action": "suppress",
+                "bbox": [
+                  68,
+                  117,
+                  115,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_0",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 91.5,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  143,
+                  117,
+                  189,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_2",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 166.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  205,
+                  117,
+                  251,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_3",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 228.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  266,
+                  117,
+                  312,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_4",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 289.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  410,
+                  117,
+                  456,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_5",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 433.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  471,
+                  117,
+                  517,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_6",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 494.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  532,
+                  117,
+                  579,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_7",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 555.5,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  594,
+                  117,
+                  640,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_8",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 617.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  655,
+                  117,
+                  701,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_9",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 678.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  717,
+                  117,
+                  763,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_10",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 740.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  778,
+                  117,
+                  824,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_11",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 801.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  840,
+                  117,
+                  886,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_12",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 863.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  901,
+                  117,
+                  947,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_13",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 924.0,
+                "y_center": 134.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  963,
+                  117,
+                  1009,
+                  152
+                ],
+                "group_count": 14,
+                "group_id": "row_fragment_group_1",
+                "label": "target_14",
+                "median_gap_estimate": 61.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 986.0,
+                "y_center": 134.5
+              }
+            ],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0",
+            "target_1",
+            "target_10",
+            "target_11",
+            "target_12",
+            "target_13",
+            "target_14",
+            "target_2",
+            "target_3",
+            "target_4",
+            "target_5",
+            "target_6",
+            "target_7",
+            "target_8",
+            "target_9"
+          ],
+          "suppressed_target_count": 15
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/12_2026-04-29_171553Z.json",
+          "image_filename": "12.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/12.jpg",
+          "image_size": {
+            "height": 559,
+            "width": 775
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/12_2026-04-29_171553Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.5442,
+                "bbox": [
+                  115,
+                  67,
+                  718,
+                  458
+                ],
+                "height_ratio": 0.6995,
+                "label": "target_1",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.7781
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_1"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/13_2026-04-29_171531Z.json",
+          "image_filename": "13.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/13.jpg",
+          "image_size": {
+            "height": 511,
+            "width": 786
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/13_2026-04-29_171531Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3002,
+                "bbox": [
+                  79,
+                  51,
+                  550,
+                  307
+                ],
+                "height_ratio": 0.501,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.5992
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 2,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/147_2026-04-29_171546Z.json",
+          "image_filename": "147.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/147.jpg",
+          "image_size": {
+            "height": 367,
+            "width": 612
+          },
+          "raw_positive_target_count": 3,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/147_2026-04-29_171546Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3709,
+                "bbox": [
+                  27,
+                  115,
+                  452,
+                  311
+                ],
+                "height_ratio": 0.5341,
+                "label": "target_2",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.6944
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_2"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/155_2026-04-29_171612Z.json",
+          "image_filename": "155.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/155.jpg",
+          "image_size": {
+            "height": 401,
+            "width": 612
+          },
+          "raw_positive_target_count": 0,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/155_2026-04-29_171612Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 2,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/19_2026-04-29_171610Z.json",
+          "image_filename": "19.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/19.jpg",
+          "image_size": {
+            "height": 650,
+            "width": 1200
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/19_2026-04-29_171610Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 3,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/28_2026-04-29_171602Z.json",
+          "image_filename": "28.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/28.jpg",
+          "image_size": {
+            "height": 720,
+            "width": 1280
+          },
+          "raw_positive_target_count": 3,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/28_2026-04-29_171602Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": [
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00062,
+                "bbox": [
+                  896,
+                  86,
+                  922,
+                  108
+                ],
+                "height_ratio": 0.0306,
+                "label": "target_1",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0203
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00114,
+                "bbox": [
+                  922,
+                  108,
+                  957,
+                  138
+                ],
+                "height_ratio": 0.0417,
+                "label": "target_2",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0273
+              }
+            ]
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a/42_2026-04-29_171536Z.json",
+          "image_filename": "42.png",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/42.png",
+          "image_size": {
+            "height": 945,
+            "width": 1920
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/42_2026-04-29_171536Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.45,
+                "bbox": [
+                  192,
+                  236,
+                  1918,
+                  709
+                ],
+                "height_ratio": 0.5005,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.899
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        }
+      ],
+      "guarded_evaluation_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/eval/v015a/guarded_evaluation_summary.json",
+      "guarded_gate": {
+        "checks": {
+          "false_negatives_below_v014": false,
+          "false_positives_within_limit": true,
+          "matches_above_v014": false,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 17,
+          "false_positives": 3,
+          "matches": 6
+        }
+      },
+      "guarded_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015a",
+      "guarded_totals": {
+        "false_negatives": 17,
+        "false_positives": 3,
+        "matches": 6
+      },
+      "manifest_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/validation/human_report_challenge_v1_hinge_smoke.yaml",
+      "raw_gate": {
+        "checks": {
+          "false_negatives_below_v014": true,
+          "false_positives_within_limit": false,
+          "matches_above_v014": true,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 10,
+          "false_positives": 15,
+          "matches": 13
+        }
+      },
+      "raw_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted",
+      "raw_totals": {
+        "false_negatives": 10,
+        "false_positives": 15,
+        "matches": 13
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z",
+      "version": "v015a"
+    },
+    "v015b": {
+      "case_101": {
+        "guarded": {
+          "metrics": {
+            "false_negatives": 12,
+            "false_positives": 0,
+            "matches": 0,
+            "predicted_targets": 0
+          }
+        },
+        "raw": {
+          "metrics": {
+            "false_negatives": 9,
+            "false_positives": 28,
+            "matches": 3,
+            "predicted_targets": 31
+          }
+        }
+      },
+      "case_diagnostics": [
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/101_2026-04-29_190755Z.json",
+          "image_filename": "101.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/101.jpg",
+          "image_size": {
+            "height": 584,
+            "width": 1024
+          },
+          "raw_positive_target_count": 31,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/101_2026-04-29_190755Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.8647,
+                "bbox": [
+                  75,
+                  12,
+                  1000,
+                  571
+                ],
+                "height_ratio": 0.9572,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.9033
+              }
+            ],
+            "regular_row_fragment_enumeration": [
+              {
+                "action": "suppress",
+                "bbox": [
+                  102,
+                  117,
+                  133,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_1",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 117.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  133,
+                  117,
+                  164,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_2",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 148.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  164,
+                  117,
+                  195,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_3",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 179.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  195,
+                  117,
+                  225,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_4",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 210.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  225,
+                  117,
+                  256,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_5",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 240.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  256,
+                  117,
+                  287,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_6",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 271.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  287,
+                  117,
+                  317,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_7",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 302.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  317,
+                  117,
+                  348,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_8",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 332.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  348,
+                  117,
+                  379,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_9",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 363.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  379,
+                  117,
+                  410,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_10",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 394.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  410,
+                  117,
+                  440,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_11",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 425.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  440,
+                  117,
+                  471,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_12",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 455.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  471,
+                  117,
+                  502,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_13",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 486.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  502,
+                  117,
+                  532,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_14",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 517.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  532,
+                  117,
+                  563,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_15",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 547.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  563,
+                  117,
+                  594,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_16",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 578.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  594,
+                  117,
+                  625,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_17",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 609.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  625,
+                  117,
+                  655,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_18",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 640.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  655,
+                  117,
+                  686,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_19",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 670.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  686,
+                  117,
+                  717,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_20",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 701.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  717,
+                  117,
+                  748,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_21",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 732.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  748,
+                  117,
+                  778,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_22",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 763.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  778,
+                  117,
+                  809,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_23",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 793.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  809,
+                  117,
+                  840,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_24",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 824.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  840,
+                  117,
+                  870,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_25",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 855.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  870,
+                  117,
+                  901,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_26",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 885.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  901,
+                  117,
+                  932,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_27",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 916.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  932,
+                  117,
+                  963,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_28",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 947.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  963,
+                  117,
+                  993,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_29",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 978.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  993,
+                  117,
+                  1024,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_30",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 1008.5,
+                "y_center": 131.5
+              }
+            ],
+            "tiny_ambiguous_context_box": [
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  102,
+                  117,
+                  133,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_1",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  133,
+                  117,
+                  164,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_2",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  164,
+                  117,
+                  195,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_3",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  195,
+                  117,
+                  225,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_4",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  225,
+                  117,
+                  256,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_5",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  256,
+                  117,
+                  287,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_6",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  287,
+                  117,
+                  317,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_7",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  317,
+                  117,
+                  348,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_8",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  348,
+                  117,
+                  379,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_9",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  379,
+                  117,
+                  410,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_10",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  410,
+                  117,
+                  440,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_11",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  440,
+                  117,
+                  471,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_12",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  471,
+                  117,
+                  502,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_13",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  502,
+                  117,
+                  532,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_14",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  532,
+                  117,
+                  563,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_15",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  563,
+                  117,
+                  594,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_16",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  594,
+                  117,
+                  625,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_17",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  625,
+                  117,
+                  655,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_18",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  655,
+                  117,
+                  686,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_19",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  686,
+                  117,
+                  717,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_20",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  717,
+                  117,
+                  748,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_21",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  748,
+                  117,
+                  778,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_22",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  778,
+                  117,
+                  809,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_23",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  809,
+                  117,
+                  840,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_24",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  840,
+                  117,
+                  870,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_25",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  870,
+                  117,
+                  901,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_26",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  901,
+                  117,
+                  932,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_27",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  932,
+                  117,
+                  963,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_28",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  963,
+                  117,
+                  993,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_29",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  993,
+                  117,
+                  1024,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_30",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              }
+            ]
+          },
+          "suppressed_labels": [
+            "target_0",
+            "target_1",
+            "target_10",
+            "target_11",
+            "target_12",
+            "target_13",
+            "target_14",
+            "target_15",
+            "target_16",
+            "target_17",
+            "target_18",
+            "target_19",
+            "target_2",
+            "target_20",
+            "target_21",
+            "target_22",
+            "target_23",
+            "target_24",
+            "target_25",
+            "target_26",
+            "target_27",
+            "target_28",
+            "target_29",
+            "target_3",
+            "target_30",
+            "target_4",
+            "target_5",
+            "target_6",
+            "target_7",
+            "target_8",
+            "target_9"
+          ],
+          "suppressed_target_count": 31
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/12_2026-04-29_190818Z.json",
+          "image_filename": "12.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/12.jpg",
+          "image_size": {
+            "height": 559,
+            "width": 775
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/12_2026-04-29_190818Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.5651,
+                "bbox": [
+                  115,
+                  56,
+                  718,
+                  462
+                ],
+                "height_ratio": 0.7263,
+                "label": "target_1",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.7781
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_1"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/13_2026-04-29_190802Z.json",
+          "image_filename": "13.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/13.jpg",
+          "image_size": {
+            "height": 511,
+            "width": 786
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/13_2026-04-29_190802Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3002,
+                "bbox": [
+                  79,
+                  51,
+                  550,
+                  307
+                ],
+                "height_ratio": 0.501,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.5992
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/147_2026-04-29_190811Z.json",
+          "image_filename": "147.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/147.jpg",
+          "image_size": {
+            "height": 367,
+            "width": 612
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/147_2026-04-29_190811Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3652,
+                "bbox": [
+                  27,
+                  115,
+                  452,
+                  308
+                ],
+                "height_ratio": 0.5259,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.6944
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/155_2026-04-29_190835Z.json",
+          "image_filename": "155.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/155.jpg",
+          "image_size": {
+            "height": 401,
+            "width": 612
+          },
+          "raw_positive_target_count": 0,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/155_2026-04-29_190835Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 2,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/19_2026-04-29_190833Z.json",
+          "image_filename": "19.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/19.jpg",
+          "image_size": {
+            "height": 650,
+            "width": 1200
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/19_2026-04-29_190833Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/28_2026-04-29_190823Z.json",
+          "image_filename": "28.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/28.jpg",
+          "image_size": {
+            "height": 720,
+            "width": 1280
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/28_2026-04-29_190823Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b/42_2026-04-29_190807Z.json",
+          "image_filename": "42.png",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/42.png",
+          "image_size": {
+            "height": 945,
+            "width": 1920
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/42_2026-04-29_190807Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.45,
+                "bbox": [
+                  192,
+                  236,
+                  1918,
+                  709
+                ],
+                "height_ratio": 0.5005,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.899
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        }
+      ],
+      "guarded_evaluation_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/eval/v015b/guarded_evaluation_summary.json",
+      "guarded_gate": {
+        "checks": {
+          "false_negatives_below_v014": false,
+          "false_positives_within_limit": true,
+          "matches_above_v014": false,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 19,
+          "false_positives": 2,
+          "matches": 4
+        }
+      },
+      "guarded_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015b",
+      "guarded_totals": {
+        "false_negatives": 19,
+        "false_positives": 2,
+        "matches": 4
+      },
+      "manifest_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/validation/human_report_challenge_v1_v015b_hinge_smoke.yaml",
+      "raw_gate": {
+        "checks": {
+          "false_negatives_below_v014": true,
+          "false_positives_within_limit": false,
+          "matches_above_v014": true,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 12,
+          "false_positives": 30,
+          "matches": 11
+        }
+      },
+      "raw_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted",
+      "raw_totals": {
+        "false_negatives": 12,
+        "false_positives": 30,
+        "matches": 11
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z",
+      "version": "v015b"
+    },
+    "v015c": {
+      "case_101": {
+        "guarded": {
+          "metrics": {
+            "false_negatives": 12,
+            "false_positives": 0,
+            "matches": 0,
+            "predicted_targets": 0
+          }
+        },
+        "raw": {
+          "metrics": {
+            "false_negatives": 9,
+            "false_positives": 28,
+            "matches": 3,
+            "predicted_targets": 31
+          }
+        }
+      },
+      "case_diagnostics": [
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/101_2026-04-29_195422Z.json",
+          "image_filename": "101.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/101.jpg",
+          "image_size": {
+            "height": 584,
+            "width": 1024
+          },
+          "raw_positive_target_count": 31,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/101_2026-04-29_195422Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.7022,
+                "bbox": [
+                  75,
+                  117,
+                  1000,
+                  571
+                ],
+                "height_ratio": 0.7774,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.9033
+              }
+            ],
+            "regular_row_fragment_enumeration": [
+              {
+                "action": "suppress",
+                "bbox": [
+                  102,
+                  117,
+                  133,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_1",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 117.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  133,
+                  117,
+                  164,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_2",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 148.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  164,
+                  117,
+                  195,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_3",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 179.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  195,
+                  117,
+                  225,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_4",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 210.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  225,
+                  117,
+                  256,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_5",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 240.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  256,
+                  117,
+                  287,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_6",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 271.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  287,
+                  117,
+                  317,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_7",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 302.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  317,
+                  117,
+                  348,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_8",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 332.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  348,
+                  117,
+                  379,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_9",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 363.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  379,
+                  117,
+                  410,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_10",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 394.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  410,
+                  117,
+                  440,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_11",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 425.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  440,
+                  117,
+                  471,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_12",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 455.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  471,
+                  117,
+                  502,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_13",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 486.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  502,
+                  117,
+                  532,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_14",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 517.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  532,
+                  117,
+                  563,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_15",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 547.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  563,
+                  117,
+                  594,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_16",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 578.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  594,
+                  117,
+                  625,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_17",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 609.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  625,
+                  117,
+                  655,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_18",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 640.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  655,
+                  117,
+                  686,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_19",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 670.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  686,
+                  117,
+                  717,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_20",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 701.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  717,
+                  117,
+                  748,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_21",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 732.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  748,
+                  117,
+                  778,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_22",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 763.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  778,
+                  117,
+                  809,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_23",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 793.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  809,
+                  117,
+                  840,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_24",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 824.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  840,
+                  117,
+                  870,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_25",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 855.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  870,
+                  117,
+                  901,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_26",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 885.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  901,
+                  117,
+                  932,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_27",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 916.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  932,
+                  117,
+                  963,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_28",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 947.5,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  963,
+                  117,
+                  993,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_29",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 978.0,
+                "y_center": 131.5
+              },
+              {
+                "action": "suppress",
+                "bbox": [
+                  993,
+                  117,
+                  1024,
+                  146
+                ],
+                "group_count": 30,
+                "group_id": "row_fragment_group_1",
+                "label": "target_30",
+                "median_gap_estimate": 30.5,
+                "signal": "regular_row_fragment_enumeration",
+                "x_center": 1008.5,
+                "y_center": 131.5
+              }
+            ],
+            "tiny_ambiguous_context_box": [
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  102,
+                  117,
+                  133,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_1",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  133,
+                  117,
+                  164,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_2",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  164,
+                  117,
+                  195,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_3",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  195,
+                  117,
+                  225,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_4",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  225,
+                  117,
+                  256,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_5",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  256,
+                  117,
+                  287,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_6",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  287,
+                  117,
+                  317,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_7",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  317,
+                  117,
+                  348,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_8",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  348,
+                  117,
+                  379,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_9",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  379,
+                  117,
+                  410,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_10",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  410,
+                  117,
+                  440,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_11",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  440,
+                  117,
+                  471,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_12",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  471,
+                  117,
+                  502,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_13",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  502,
+                  117,
+                  532,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_14",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  532,
+                  117,
+                  563,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_15",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  563,
+                  117,
+                  594,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_16",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  594,
+                  117,
+                  625,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_17",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  625,
+                  117,
+                  655,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_18",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  655,
+                  117,
+                  686,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_19",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  686,
+                  117,
+                  717,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_20",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  717,
+                  117,
+                  748,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_21",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  748,
+                  117,
+                  778,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_22",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  778,
+                  117,
+                  809,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_23",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  809,
+                  117,
+                  840,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_24",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  840,
+                  117,
+                  870,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_25",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  870,
+                  117,
+                  901,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_26",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  901,
+                  117,
+                  932,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_27",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  932,
+                  117,
+                  963,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_28",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.00145,
+                "bbox": [
+                  963,
+                  117,
+                  993,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_29",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0293
+              },
+              {
+                "action": "flag_only",
+                "area_ratio": 0.0015,
+                "bbox": [
+                  993,
+                  117,
+                  1024,
+                  146
+                ],
+                "height_ratio": 0.0497,
+                "label": "target_30",
+                "signal": "tiny_ambiguous_context_box",
+                "width_ratio": 0.0303
+              }
+            ]
+          },
+          "suppressed_labels": [
+            "target_0",
+            "target_1",
+            "target_10",
+            "target_11",
+            "target_12",
+            "target_13",
+            "target_14",
+            "target_15",
+            "target_16",
+            "target_17",
+            "target_18",
+            "target_19",
+            "target_2",
+            "target_20",
+            "target_21",
+            "target_22",
+            "target_23",
+            "target_24",
+            "target_25",
+            "target_26",
+            "target_27",
+            "target_28",
+            "target_29",
+            "target_3",
+            "target_30",
+            "target_4",
+            "target_5",
+            "target_6",
+            "target_7",
+            "target_8",
+            "target_9"
+          ],
+          "suppressed_target_count": 31
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/12_2026-04-29_195443Z.json",
+          "image_filename": "12.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/12.jpg",
+          "image_size": {
+            "height": 559,
+            "width": 775
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/12_2026-04-29_195443Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.5442,
+                "bbox": [
+                  115,
+                  67,
+                  718,
+                  458
+                ],
+                "height_ratio": 0.6995,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.7781
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/13_2026-04-29_195429Z.json",
+          "image_filename": "13.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/13.jpg",
+          "image_size": {
+            "height": 511,
+            "width": 786
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/13_2026-04-29_195429Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3002,
+                "bbox": [
+                  79,
+                  51,
+                  550,
+                  307
+                ],
+                "height_ratio": 0.501,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.5992
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/147_2026-04-29_195438Z.json",
+          "image_filename": "147.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/147.jpg",
+          "image_size": {
+            "height": 367,
+            "width": 612
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/147_2026-04-29_195438Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.3709,
+                "bbox": [
+                  27,
+                  115,
+                  452,
+                  311
+                ],
+                "height_ratio": 0.5341,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.6944
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/155_2026-04-29_195500Z.json",
+          "image_filename": "155.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/155.jpg",
+          "image_size": {
+            "height": 401,
+            "width": 612
+          },
+          "raw_positive_target_count": 0,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/155_2026-04-29_195500Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 2,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/19_2026-04-29_195458Z.json",
+          "image_filename": "19.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/19.jpg",
+          "image_size": {
+            "height": 650,
+            "width": 1200
+          },
+          "raw_positive_target_count": 2,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/19_2026-04-29_195458Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/28_2026-04-29_195451Z.json",
+          "image_filename": "28.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/28.jpg",
+          "image_size": {
+            "height": 720,
+            "width": 1280
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/28_2026-04-29_195451Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c/42_2026-04-29_195434Z.json",
+          "image_filename": "42.png",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/42.png",
+          "image_size": {
+            "height": 945,
+            "width": 1920
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/42_2026-04-29_195434Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.45,
+                "bbox": [
+                  192,
+                  236,
+                  1918,
+                  709
+                ],
+                "height_ratio": 0.5005,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.899
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        }
+      ],
+      "guarded_evaluation_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/eval/v015c/guarded_evaluation_summary.json",
+      "guarded_gate": {
+        "checks": {
+          "false_negatives_below_v014": false,
+          "false_positives_within_limit": true,
+          "matches_above_v014": false,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 19,
+          "false_positives": 1,
+          "matches": 4
+        }
+      },
+      "guarded_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015c",
+      "guarded_totals": {
+        "false_negatives": 19,
+        "false_positives": 1,
+        "matches": 4
+      },
+      "manifest_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/validation/human_report_challenge_v1_v015c_hinge_smoke.yaml",
+      "raw_gate": {
+        "checks": {
+          "false_negatives_below_v014": true,
+          "false_positives_within_limit": false,
+          "matches_above_v014": true,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 12,
+          "false_positives": 29,
+          "matches": 11
+        }
+      },
+      "raw_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted",
+      "raw_totals": {
+        "false_negatives": 12,
+        "false_positives": 29,
+        "matches": 11
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z",
+      "version": "v015c"
+    },
+    "v015d": {
+      "case_101": {
+        "guarded": {
+          "metrics": {
+            "false_negatives": 12,
+            "false_positives": 0,
+            "matches": 0,
+            "predicted_targets": 0
+          }
+        },
+        "raw": {
+          "metrics": {
+            "false_negatives": 11,
+            "false_positives": 0,
+            "matches": 1,
+            "predicted_targets": 1
+          }
+        }
+      },
+      "case_diagnostics": [
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/101_2026-04-29_220154Z.json",
+          "image_filename": "101.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/101.jpg",
+          "image_size": {
+            "height": 584,
+            "width": 1024
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/101_2026-04-29_220154Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.8656,
+                "bbox": [
+                  74,
+                  12,
+                  1000,
+                  571
+                ],
+                "height_ratio": 0.9572,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.9043
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/12_2026-04-29_220215Z.json",
+          "image_filename": "12.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/12.jpg",
+          "image_size": {
+            "height": 559,
+            "width": 775
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/12_2026-04-29_220215Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.5651,
+                "bbox": [
+                  115,
+                  56,
+                  718,
+                  462
+                ],
+                "height_ratio": 0.7263,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.7781
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/13_2026-04-29_220158Z.json",
+          "image_filename": "13.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/13.jpg",
+          "image_size": {
+            "height": 511,
+            "width": 786
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/13_2026-04-29_220158Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.2505,
+                "bbox": [
+                  79,
+                  51,
+                  472,
+                  307
+                ],
+                "height_ratio": 0.501,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.5
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/147_2026-04-29_220210Z.json",
+          "image_filename": "147.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/147.jpg",
+          "image_size": {
+            "height": 367,
+            "width": 612
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/147_2026-04-29_220210Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.368,
+                "bbox": [
+                  26,
+                  115,
+                  452,
+                  309
+                ],
+                "height_ratio": 0.5286,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.6961
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/155_2026-04-29_220228Z.json",
+          "image_filename": "155.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/155.jpg",
+          "image_size": {
+            "height": 401,
+            "width": 612
+          },
+          "raw_positive_target_count": 0,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/155_2026-04-29_220228Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/19_2026-04-29_220226Z.json",
+          "image_filename": "19.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/19.jpg",
+          "image_size": {
+            "height": 650,
+            "width": 1200
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/19_2026-04-29_220226Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 1,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/28_2026-04-29_220220Z.json",
+          "image_filename": "28.jpg",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/28.jpg",
+          "image_size": {
+            "height": 720,
+            "width": 1280
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/28_2026-04-29_220220Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [],
+          "suppressed_target_count": 0
+        },
+        {
+          "guarded_positive_target_count": 0,
+          "guarded_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d/42_2026-04-29_220206Z.json",
+          "image_filename": "42.png",
+          "image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/42.png",
+          "image_size": {
+            "height": 945,
+            "width": 1920
+          },
+          "raw_positive_target_count": 1,
+          "raw_prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted/42_2026-04-29_220206Z.json",
+          "signals": {
+            "broad_group_or_scene_box": [
+              {
+                "action": "suppress",
+                "area_ratio": 0.45,
+                "bbox": [
+                  192,
+                  189,
+                  1918,
+                  662
+                ],
+                "height_ratio": 0.5005,
+                "label": "target_0",
+                "signal": "broad_group_or_scene_box",
+                "width_ratio": 0.899
+              }
+            ],
+            "regular_row_fragment_enumeration": [],
+            "tiny_ambiguous_context_box": []
+          },
+          "suppressed_labels": [
+            "target_0"
+          ],
+          "suppressed_target_count": 1
+        }
+      ],
+      "guarded_evaluation_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/eval/v015d/guarded_evaluation_summary.json",
+      "guarded_gate": {
+        "checks": {
+          "false_negatives_below_v014": false,
+          "false_positives_within_limit": true,
+          "matches_above_v014": false,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 20,
+          "false_positives": 0,
+          "matches": 3
+        }
+      },
+      "guarded_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/diagnostics/v015_offline_structural_guard_simulator/guarded_predicted/v015d",
+      "guarded_totals": {
+        "false_negatives": 20,
+        "false_positives": 0,
+        "matches": 3
+      },
+      "manifest_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/validation/human_report_challenge_v1_v015d_hinge_smoke.yaml",
+      "raw_gate": {
+        "checks": {
+          "false_negatives_below_v014": false,
+          "false_positives_within_limit": true,
+          "matches_above_v014": false,
+          "protected_case_passed": true
+        },
+        "passed": false,
+        "protected_case": {
+          "abstention_correct": true,
+          "case": "155.jpg",
+          "false_positive_count": 0
+        },
+        "totals": {
+          "false_negatives": 15,
+          "false_positives": 0,
+          "matches": 8
+        }
+      },
+      "raw_predicted_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z/predicted",
+      "raw_totals": {
+        "false_negatives": 15,
+        "false_positives": 0,
+        "matches": 8
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015d_fail_closed_row_guard/executions/human_report_challenge_v1_v015d_hinge_smoke_2026-04-29_220141Z",
+      "version": "v015d"
+    }
+  },
+  "status": "offline_simulator_complete_no_runtime_change"
+}

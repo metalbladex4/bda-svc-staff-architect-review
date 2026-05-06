@@ -1,0 +1,60 @@
+hypothesis_id: "qwen-1.2-v017c-detect-evidence-named-finalization"
+status: "authorized_for_bounded_live_gate_run"
+lever_type: "detect_prompt_overlay"
+failure_class: "v017b_old_gate_near_miss_case101_now_diagnostic_only"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v017c-detect-evidence-named-finalization"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-001-v017c"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v017c_live_run"
+parent_candidate: "v017b_single_target_box_span_self_filter"
+active_gate_pack_ids:
+  - "human-report-challenge-v2-automation-hinge-11-no101"
+  - "human-report-challenge-v2-changed-source-sanity"
+  - "human-report-challenge-v2-updated-report-smoke"
+  - "legacy-abstention-guard-office-negative-v1"
+diagnostic_only_case_ids:
+  - "101"
+target_cases:
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+  - "66"
+  - "67"
+  - "84"
+  - "97"
+  - "40"
+  - "61"
+  - "65"
+  - "69"
+  - "70"
+  - "77"
+  - "106"
+  - "125"
+  - "141"
+  - "152"
+  - "154"
+  - "156"
+  - "172"
+  - "187"
+  - "office-negative"
+expected_improvement: >
+  Test whether requiring a silently named visible body-evidence phrase before
+  finalization can preserve v017b precision behavior while improving the active
+  11-case recall gate after case 101 was moved to diagnostic-only status.
+known_regression_risks:
+  - "The evidence-naming step may be too conservative and increase false negatives."
+  - "The model may still rely on context clues without actually isolating body evidence."
+  - "The prompt may under-detect small, distant, or burned equipment targets."
+  - "The office-negative guard may fail if context clues are over-weighted."
+stop_rule: >
+  Stop after the v2 hinge-11-no101, changed-source sanity, updated-report smoke,
+  and legacy office-negative guard packs. Do not run dev, holdout, all-112,
+  promotion, runtime config adoption, structural guard implementation,
+  source-truth mutation, MCP config changes, or hook edits.
+author: "William Benitez"
+created_at: "2026-05-03T00:00:00-04:00"

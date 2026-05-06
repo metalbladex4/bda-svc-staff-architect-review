@@ -1,0 +1,226 @@
+{
+  "candidate_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/candidate_manifest_run_summary.json",
+  "candidate_totals": {
+    "false_negatives": 29,
+    "false_positives": 33,
+    "matches": 27,
+    "predicted_targets": 60
+  },
+  "case_101_diagnostic": {
+    "broad_group_box_present": true,
+    "broad_group_boxes": [
+      {
+        "area_ratio": 0.4318,
+        "bbox": [
+          74,
+          58,
+          1000,
+          547
+        ],
+        "height": 489,
+        "label": "target_0",
+        "width": 926
+      }
+    ],
+    "case": "101",
+    "detected_box_count": 23,
+    "diagnostic_passed": false,
+    "false_negative_count": 5,
+    "false_positive_count": 16,
+    "image_filename": "101.jpg",
+    "manual_review_required": true,
+    "match_count": 7,
+    "predicted_target_count": 23,
+    "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/101_2026-04-30_015454Z.json",
+    "present": true,
+    "reason": "case 101 still shows row-fragment enumeration or broad group boxing",
+    "reference_target_count": 12,
+    "row_fragment_enumeration_present": true,
+    "row_fragment_enumeration_suppressed": false,
+    "row_fragment_groups": [
+      {
+        "count": 22,
+        "labels": [
+          "target_1",
+          "target_2",
+          "target_3",
+          "target_4",
+          "target_5",
+          "target_6",
+          "target_7",
+          "target_8",
+          "target_9",
+          "target_10",
+          "target_11",
+          "target_12",
+          "target_13",
+          "target_14",
+          "target_15",
+          "target_16",
+          "target_17",
+          "target_18",
+          "target_19",
+          "target_20",
+          "target_21",
+          "target_22"
+        ],
+        "median_gap_estimate": 41.0,
+        "x_center_range": [
+          121.0,
+          981.5
+        ],
+        "y_center_range": [
+          143.0,
+          143.0
+        ]
+      }
+    ]
+  },
+  "dev_run_recommendation": "blocked",
+  "expanded_hinge_notes": {
+    "155": {
+      "broad_group_boxes": [],
+      "case": "155",
+      "detected_box_count": 0,
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_filename": "155.jpg",
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/155_2026-04-30_015552Z.json",
+      "present": true,
+      "reference_target_count": 1,
+      "review_labels": [
+        "protected_negative_control"
+      ],
+      "row_fragment_groups": []
+    },
+    "66": {
+      "broad_group_boxes": [],
+      "case": "66",
+      "detected_box_count": 11,
+      "false_negative_count": 1,
+      "false_positive_count": 4,
+      "image_filename": "66.jpg",
+      "match_count": 7,
+      "predicted_target_count": 11,
+      "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/66_2026-04-30_015635Z.json",
+      "present": true,
+      "reference_target_count": 8,
+      "review_labels": [
+        "precision_review"
+      ],
+      "row_fragment_groups": []
+    },
+    "67": {
+      "broad_group_boxes": [],
+      "case": "67",
+      "detected_box_count": 10,
+      "false_negative_count": 10,
+      "false_positive_count": 9,
+      "image_filename": "67.jpg",
+      "match_count": 1,
+      "predicted_target_count": 10,
+      "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/67_2026-04-30_015715Z.json",
+      "present": true,
+      "reference_target_count": 11,
+      "review_labels": [
+        "recall_review",
+        "precision_review"
+      ],
+      "row_fragment_groups": []
+    },
+    "84": {
+      "broad_group_boxes": [],
+      "case": "84",
+      "detected_box_count": 5,
+      "false_negative_count": 9,
+      "false_positive_count": 1,
+      "image_filename": "84.jpg",
+      "match_count": 4,
+      "predicted_target_count": 5,
+      "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/84_2026-04-30_015738Z.json",
+      "present": true,
+      "reference_target_count": 13,
+      "review_labels": [
+        "recall_review",
+        "precision_review"
+      ],
+      "row_fragment_groups": []
+    },
+    "97": {
+      "broad_group_boxes": [
+        {
+          "area_ratio": 0.2637,
+          "bbox": [
+            768,
+            0,
+            1280,
+            540
+          ],
+          "height": 540,
+          "label": "target_2",
+          "width": 512
+        }
+      ],
+      "case": "97",
+      "detected_box_count": 3,
+      "false_negative_count": 0,
+      "false_positive_count": 2,
+      "image_filename": "97.jpg",
+      "match_count": 1,
+      "predicted_target_count": 3,
+      "prediction_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/predicted/97_2026-04-30_015755Z.json",
+      "present": true,
+      "reference_target_count": 1,
+      "review_labels": [
+        "precision_review",
+        "broad_group_box_review"
+      ],
+      "row_fragment_groups": []
+    }
+  },
+  "gate": {
+    "false_negatives_max_exclusive": 34,
+    "false_positives_max_inclusive": 16,
+    "manual_diagnostic_case": "101",
+    "matches_min_exclusive": 22,
+    "protected_case": "155"
+  },
+  "gate_key": "expanded_v016a_hinge_smoke",
+  "manual_review_artifacts": {
+    "case_101_manual_review_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/case_101_manual_review.json",
+    "case_101_manual_review_md": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/case_101_manual_review.md",
+    "expanded_hinge_notes_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/expanded_hinge_notes.json",
+    "expanded_hinge_notes_md": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v016a_reference_aware_candidate_discovery/executions/human_report_challenge_v1_v016a_hinge_smoke_2026-04-30_015313Z/expanded_hinge_notes.md"
+  },
+  "note": "Stop after hinge. Case 101 manual review is required regardless of aggregate metrics; any dev split requires later explicit approval.",
+  "pack_id": "human-report-challenge-v1-v016a-hinge-smoke",
+  "protected_case": {
+    "abstention_correct": true,
+    "case": "155",
+    "false_positive_count": 0,
+    "passed": true,
+    "present": true
+  },
+  "standard_checks": {
+    "false_negatives_below_v014": true,
+    "false_positives_within_limit": false,
+    "matches_above_v014": true,
+    "protected_case_passed": true
+  },
+  "standard_gate_passed": false,
+  "two_tier_passed": false,
+  "v009_baseline": {
+    "false_negatives": 25,
+    "false_positives": 39,
+    "matches": 31,
+    "predicted_targets": 70
+  },
+  "v014_baseline": {
+    "false_negatives": 34,
+    "false_positives": 16,
+    "matches": 22,
+    "predicted_targets": 38
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "avoid": [
+    "false positives still at or above the v018e pressure point",
+    "dense formation recall remains weak"
+  ],
+  "candidate_id": "v019e_cartographer_grid_sweep",
+  "controls": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0
+    }
+  },
+  "dense_cases": {
+    "66": {
+      "false_negative_count": 0,
+      "false_positive_count": 3,
+      "match_count": 8,
+      "predicted_target_count": 11,
+      "reference_target_count": 8
+    },
+    "67": {
+      "false_negative_count": 8,
+      "false_positive_count": 9,
+      "match_count": 3,
+      "predicted_target_count": 12,
+      "reference_target_count": 11
+    },
+    "84": {
+      "false_negative_count": 7,
+      "false_positive_count": 0,
+      "match_count": 6,
+      "predicted_target_count": 6,
+      "reference_target_count": 13
+    },
+    "97": {
+      "false_negative_count": 0,
+      "false_positive_count": 2,
+      "match_count": 1,
+      "predicted_target_count": 3,
+      "reference_target_count": 1
+    }
+  },
+  "generated_utc": "2026-05-04T22:49:26.733315+00:00",
+  "metrics": {
+    "delta_vs_anchor": {
+      "false_negative_count": -4,
+      "false_positive_count": 2,
+      "match_count": 4
+    },
+    "false_negative_count": 42,
+    "false_positive_count": 31,
+    "match_count": 177
+  },
+  "next_axis": "tighten final veto without losing full-image sweep",
+  "preserve": [
+    "kept 155, 166, and office-negative safe",
+    "improved recall over the v018e anchor"
+  ],
+  "prior_candidate_count": 4,
+  "verdict": "learning_only"
+}

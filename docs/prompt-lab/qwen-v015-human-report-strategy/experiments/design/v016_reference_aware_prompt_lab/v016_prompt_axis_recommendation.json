@@ -1,0 +1,71 @@
+{
+  "package_id": "v016_reference_aware_prompt_lab",
+  "status": "axis_selected_no_prompt_text",
+  "generated_utc": "2026-04-30T00:34:10Z",
+  "selected_axis": {
+    "axis_id": "v016_reference_aware_candidate_discovery_with_evidence_budget",
+    "chosen": true,
+    "type": "prompt_interface_and_rubric_design",
+    "summary": "Design v016 around a two-stage prompt interface: discover plausible candidates across the scene, then accept only detections with clear target-specific visual evidence and reject broad group boxes, row fragments, adjacent context, and unsupported extras."
+  },
+  "why_this_axis": [
+    "v015e preserved precision but failed dev recall against v014.",
+    "Dense scenes such as 66 and 84 show under-detection when the prompt is too conservative.",
+    "Case 67 shows that asking for more detections can become misplaced enumeration.",
+    "Cases 69, 86, 97, and 103 show local precision failures even when aggregate precision is acceptable.",
+    "Case 101 remains useful only as a manual diagnostic because broad-box behavior and reference-shape caveats complicate metric interpretation.",
+    "The offline structural guard simulator was too blunt and belongs to future scope."
+  ],
+  "target_case_groups": {
+    "dense_recall_recovery": [
+      "66",
+      "84",
+      "100",
+      "101",
+      "147"
+    ],
+    "precision_rebound_controls": [
+      "67",
+      "69",
+      "86",
+      "97",
+      "103"
+    ],
+    "protected_controls": [
+      "155",
+      "166"
+    ],
+    "manual_diagnostic": [
+      "101"
+    ]
+  },
+  "future_prompt_authoring_constraints": [
+    "Preserve categories, detection_guidance, bbox_format, and bbox_scale placeholders.",
+    "Do not paste raw human-report text into the runtime prompt.",
+    "Do not include case-specific examples in the runtime prompt.",
+    "Do not use scene-central-only wording that hides legitimate secondary visible targets.",
+    "Do not ask for blanket enumeration of repeated row-like fragments.",
+    "Reject broad group or scene boxes as final detections.",
+    "Require final detections to have target-specific visual evidence.",
+    "Preserve object-not-found abstention for protected controls.",
+    "Treat generated v016 output as candidate learning evidence until a later approved dev/holdout/promotion path."
+  ],
+  "success_criteria_for_later_authoring_wave": [
+    "Hinge smoke improves or preserves v015e aggregate precision without repeating case 101 broad-box failure.",
+    "Dense recall pressure cases recover more valid targets than v015e without row-fragment enumeration.",
+    "Protected case 155 remains abstention-safe.",
+    "Case 101 is manually reviewed regardless of aggregate metrics.",
+    "No holdout or all-112 run occurs without separate approval."
+  ],
+  "explicit_non_goals": [
+    "No v016 prompt text in this package.",
+    "No v016 overlay in this package.",
+    "No runner session in this package.",
+    "No runtime config adoption.",
+    "No structural guard implementation.",
+    "No source-truth mutation.",
+    "No Graphify refresh.",
+    "No evidence rebuild.",
+    "No Mem0 update."
+  ]
+}

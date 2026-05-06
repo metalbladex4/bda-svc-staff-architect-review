@@ -1,0 +1,79 @@
+{
+  "candidate_id": "v017b_group_box_rejection",
+  "current_status": "ready_for_user_review_as_main_promotion_candidate",
+  "generated_utc": "2026-05-03T22:20:00Z",
+  "main_checkout_state": {
+    "head": "e7a22a9489a982e867fa3bffe0b09997d4c44fa0",
+    "main_equals_origin_main": true,
+    "tracked_diff_clean": true,
+    "tracked_staged_diff_clean": true
+  },
+  "main_surface_finding": {
+    "main_has_runtime_overlay_machinery": false,
+    "main_prompt_hash": "152e07ee34fb792aa79d30b8ad5dcfc194ef9932f99c60bd70a0a92b24033683",
+    "main_prompt_surface": "/home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml",
+    "recommended_surface": "prompt_only_config_yaml_detect_objects"
+  },
+  "recommended_option": {
+    "id": "option_a_prompt_only_main_promotion",
+    "allowed_file": "/home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml",
+    "description": "Replace only prompts.detect_objects in main with the exact v017b prompt text.",
+    "requires_separate_user_approval": true
+  },
+  "rejected_for_this_wave": [
+    {
+      "id": "runtime_overlay_infrastructure_promotion",
+      "reason": "It changes runtime architecture and review surface beyond prompt engineering."
+    },
+    {
+      "id": "automatic_main_promotion",
+      "reason": "This packet is readiness planning only and does not authorize main edits."
+    }
+  ],
+  "runtime_evidence": {
+    "adopted_worktree_surface": "src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml",
+    "experiment_overlay_ids": [],
+    "model_line_overlay_id": "qwen3-vl-8b-instruct-model-line-v017b-defaults-v1",
+    "post_adoption_all_current_no101": {
+      "false_negative_count": 61,
+      "false_positive_count": 18,
+      "image_count": 117,
+      "match_count": 158
+    },
+    "positive_controls": {
+      "155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2
+      },
+      "166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1
+      }
+    },
+    "prompt_hash": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+    "resolved_config_hash": "fcbbbfa826940991b7e20cb5f4667609e3a5ecc01ee369d0c87545baf6a71998"
+  },
+  "suggested_main_promotion_gates": {
+    "all_current_no101": {
+      "false_negative_count_max": 63,
+      "false_positive_count_max": 21,
+      "match_count_min": 156
+    },
+    "case_101": "diagnostic_only_excluded_from_pass_fail",
+    "case_155": "must_pass_positive_control",
+    "case_166": "must_pass_positive_control",
+    "office_negative_abstention": "must_pass"
+  },
+  "what_moves_to_main_if_approved": [
+    "v017b prompt text into /home/williambenitez1/Capstone/src/bda_svc/pipeline/config.yaml prompts.detect_objects"
+  ],
+  "what_stays_local": [
+    "Qwen 1.2 runtime-overlay infrastructure",
+    "docs/prompt-lab experiment packages and run outputs",
+    "Graphify generated outputs",
+    "Mem0 advisory memory",
+    "worktree helper scripts unless separately approved"
+  ]
+}

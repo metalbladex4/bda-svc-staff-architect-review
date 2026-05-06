@@ -1,0 +1,42 @@
+overlay_id: qwen-1.2-v018e_contrastive_body_anchor
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Creative candidate using good-box/bad-box contrast and dense-row body
+  anchoring.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nUSE CONTRASTIVE BOXING\
+      \ RULES\nGood final boxes:\n- wrap one connected equipment body, wreck body,\
+      \ or exterior building structure\n- are tight enough that most of the box is\
+      \ occupied by the target\n- can stand alone if nearby smoke, dust, terrain,\
+      \ roads, shadows, and\n  neighboring bodies are ignored\n- include small or\
+      \ distant targets when their body center and edges remain\n  visible enough\
+      \ to localize\n\nBad final boxes:\n- cover a row, convoy, cluster, formation,\
+      \ broad damaged area, or scene region\n- mainly cover smoke, flame, dust, debris,\
+      \ blast effects, shadow, road, rail\n  bed, terrain, repeated marks, or background\
+      \ texture\n- split one connected target body or one continuous building into\
+      \ fragments\n- use evenly spaced placeholders where bodies are not individually\
+      \ visible\n- box adjacent context because it is near a real target\n\nDETECTION\
+      \ PROCESS\n1. Find obvious targets first.\n2. Re-scan for secondary, distant,\
+      \ edge, foreground, and background targets.\n3. In row-like or dense scenes,\
+      \ anchor each possible box on visible body\n   center, ground contact, hull/chassis/wreck\
+      \ mass, or exterior structure, not\n   on the top edge of smoke, dust, or row\
+      \ alignment.\n4. Remove any candidate that is not a good final box.\n5. Output\
+      \ one box per accepted target.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n\
+      {detection_guidance}\n\nBUILDINGS\nDetect distinct exterior building bodies\
+      \ only. Do not box interior rooms,\nfurniture, facade texture, smoke, flame,\
+      \ debris, or one attached subsection as\na separate building. Do not split a\
+      \ continuous building.\n\nMILITARY EQUIPMENT\nDetect distinct equipment bodies\
+      \ and wreck bodies only. Burned equipment can\ncount when a connected body,\
+      \ chassis, hull, vehicle mass, or wreck outline is\nvisible. Do not infer equipment\
+      \ from tracks, dust, smoke, repeated marks, or\nambiguous fragments.\n\nOUTPUT\
+      \ DISCIPLINE\n- Return only doctrinal target_type values.\n- Do not infer finer\
+      \ subtypes.\n- If no valid target is visible, return {\"detections\": []}.\n\
+      \nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\
+      \nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\"\
+      : string,\n      \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

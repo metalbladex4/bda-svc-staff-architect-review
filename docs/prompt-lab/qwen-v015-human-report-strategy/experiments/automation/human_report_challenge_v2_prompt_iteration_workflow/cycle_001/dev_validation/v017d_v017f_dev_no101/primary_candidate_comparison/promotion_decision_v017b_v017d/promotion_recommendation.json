@@ -1,0 +1,187 @@
+{
+  "combined_dev_holdout_no101": {
+    "delta_v017b_minus_v017d": {
+      "false_negative_count": -1,
+      "false_positive_count": -4,
+      "image_count": 0,
+      "match_count": 1
+    },
+    "v017b_group_box_rejection": {
+      "false_negative_count": 56,
+      "false_positive_count": 17,
+      "image_count": 111,
+      "match_count": 152
+    },
+    "v017d_visual_anchor_lock": {
+      "false_negative_count": 57,
+      "false_positive_count": 21,
+      "image_count": 111,
+      "match_count": 151
+    }
+  },
+  "decision_scope": "recommendation_only_no_runtime_promotion",
+  "dev_no101_precision_evidence": {
+    "aggregate_result": {
+      "net_delta_v017b_minus_v017d": {
+        "false_negative_count": 0,
+        "false_positive_count": -3,
+        "match_count": 0
+      },
+      "v017b_group_box_rejection": {
+        "false_negative_count": 34,
+        "false_positive_count": 13,
+        "match_count": 72,
+        "positive_155_safe": true
+      },
+      "v017d_visual_anchor_lock": {
+        "false_negative_count": 34,
+        "false_positive_count": 16,
+        "match_count": 72,
+        "positive_155_safe": true
+      }
+    },
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/precision_challenger_review/v017b_vs_v017d_precision_challenger_review.json",
+    "recommendation": null
+  },
+  "explicit_non_actions": [
+    "no runtime config edit",
+    "no source-truth mutation",
+    "no Graphify refresh",
+    "no Mem0 write",
+    "no promotion implementation"
+  ],
+  "generated_utc": "2026-05-03T20:14:09.629341+00:00",
+  "holdout_no101": {
+    "candidates": {
+      "v017b_group_box_rejection": {
+        "image_count": 56,
+        "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/runs/v017b_group_box_rejection/human_report_challenge_v2_holdout_56_no101_2026-05-03_200655Z/candidate_manifest_run_summary.json",
+        "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/runs/v017b_group_box_rejection/human_report_challenge_v2_holdout_56_no101_2026-05-03_200655Z/eval/evaluation_2026-05-03_201324Z_summary.json",
+        "totals": {
+          "false_negative_count": 22,
+          "false_positive_count": 4,
+          "match_count": 80,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0
+        }
+      },
+      "v017d_visual_anchor_lock": {
+        "image_count": 56,
+        "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/runs/v017d_visual_anchor_lock/human_report_challenge_v2_holdout_56_no101_2026-05-03_195956Z/candidate_manifest_run_summary.json",
+        "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/runs/v017d_visual_anchor_lock/human_report_challenge_v2_holdout_56_no101_2026-05-03_195956Z/eval/evaluation_2026-05-03_200636Z_summary.json",
+        "totals": {
+          "false_negative_count": 23,
+          "false_positive_count": 5,
+          "match_count": 79,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0
+        }
+      }
+    },
+    "case_166": {
+      "v017b_group_box_rejection": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "v017d_visual_anchor_lock": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      }
+    },
+    "differing_cases": {
+      "152": {
+        "delta_v017b_minus_v017d": {
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "match_count": -1,
+          "predicted_target_count": -1,
+          "reference_target_count": 0
+        },
+        "v017b_group_box_rejection": {
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "predicted_target_count": 2,
+          "reference_target_count": 3
+        },
+        "v017d_visual_anchor_lock": {
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 3,
+          "predicted_target_count": 3,
+          "reference_target_count": 3
+        }
+      },
+      "44": {
+        "delta_v017b_minus_v017d": {
+          "false_negative_count": -1,
+          "false_positive_count": -1,
+          "match_count": 1,
+          "predicted_target_count": 0,
+          "reference_target_count": 0
+        },
+        "v017b_group_box_rejection": {
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 9
+        },
+        "v017d_visual_anchor_lock": {
+          "false_negative_count": 3,
+          "false_positive_count": 1,
+          "match_count": 6,
+          "predicted_target_count": 7,
+          "reference_target_count": 9
+        }
+      },
+      "96": {
+        "delta_v017b_minus_v017d": {
+          "false_negative_count": -1,
+          "false_positive_count": 0,
+          "match_count": 1,
+          "predicted_target_count": 1,
+          "reference_target_count": 0
+        },
+        "v017b_group_box_rejection": {
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "match_count": 2,
+          "predicted_target_count": 2,
+          "reference_target_count": 2
+        },
+        "v017d_visual_anchor_lock": {
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "match_count": 1,
+          "predicted_target_count": 1,
+          "reference_target_count": 2
+        }
+      }
+    },
+    "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/validation_manifests/human_report_challenge_v2_holdout_56_no101.yaml"
+  },
+  "live_decision_packets": {
+    "v017b": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017b/live_2026-05-03_032920Z/decision_packet.md",
+    "v017d": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017d/live_2026-05-03_042808Z/decision_packet.md"
+  },
+  "package_id": "v017b_v017d_promotion_decision",
+  "recommendation": {
+    "confidence": "high",
+    "recommendation": "promote_v017b_group_box_rejection",
+    "runner_up": "v017d_visual_anchor_lock",
+    "why": [
+      "v017b is no worse on holdout recall and is no worse on holdout precision",
+      "v017b previously tied v017d on dev/no101 recall while reducing false positives by 3",
+      "v017b preserves corrected positive holdout diagnostic 166"
+    ]
+  }
+}

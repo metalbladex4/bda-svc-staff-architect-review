@@ -1,0 +1,60 @@
+hypothesis_id: "qwen-1.2-v017e-detect-footprint-aligned-anchors"
+status: "authorized_for_bounded_live_gate_run"
+lever_type: "detect_prompt_overlay"
+failure_class: "v017d_potential_winner_with_case67_footprint_alignment_error"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v017e-detect-footprint-aligned-anchors"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-001-v017e"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v017e_live_run"
+parent_candidate: "v017d_visual_anchor_lock"
+active_gate_pack_ids:
+  - "human-report-challenge-v2-automation-hinge-11-no101"
+  - "human-report-challenge-v2-changed-source-sanity"
+  - "human-report-challenge-v2-updated-report-smoke"
+  - "legacy-abstention-guard-office-negative-v1"
+diagnostic_only_case_ids:
+  - "101"
+target_cases:
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+  - "66"
+  - "67"
+  - "84"
+  - "97"
+  - "40"
+  - "61"
+  - "65"
+  - "69"
+  - "70"
+  - "77"
+  - "106"
+  - "125"
+  - "141"
+  - "152"
+  - "154"
+  - "156"
+  - "172"
+  - "187"
+  - "office-negative"
+expected_improvement: >
+  Test whether explicit target-footprint alignment can improve row and formation
+  localization, especially case 67, without reopening broad-box or false-positive
+  behavior.
+known_regression_risks:
+  - "Footprint wording may overfit to vehicle rows and reduce building/equipment recall elsewhere."
+  - "The model may shift boxes too low or too large when footprint cues are ambiguous."
+  - "The hinge pass could be lost if false negatives rise above the cap."
+  - "The office-negative guard may fail if ground-contact language over-detects ordinary objects."
+stop_rule: >
+  Stop after the v2 hinge-11-no101, changed-source sanity, updated-report smoke,
+  and legacy office-negative guard packs. Do not run dev, holdout, all-112,
+  promotion, runtime config adoption, structural guard implementation,
+  source-truth mutation, MCP config changes, or hook edits.
+author: "William Benitez"
+created_at: "2026-05-03T00:00:00-04:00"

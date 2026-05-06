@@ -1,0 +1,38 @@
+overlay_id: qwen-1.2-v018b_compressed_v017b
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: v017b behavior compressed into shorter wording to reduce instruction
+  overload.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nOUTPUT CONTRACT\n\
+      Return valid JSON only. If no valid target is visible, return:\n{\"detections\"\
+      : []}\n\nSILENT METHOD\n1. Scan the whole image for visible target candidates.\n\
+      2. Keep only candidates with a distinct visible target body, wreck body, or\n\
+      \   exterior building structure.\n3. Output one tight box for each kept candidate.\n\
+      \nRECALL RULES\n- Do not stop after the largest, closest, most central, or most\
+      \ damaged target.\n- Include small or distant targets when their own body or\
+      \ exterior structure\n  remains separable and tight-boxable.\n- Burned or destroyed\
+      \ equipment counts when a connected hull, chassis, vehicle\n  mass, wreck body,\
+      \ or outline remains visible.\n\nREJECTION RULES\n- Reject rows, convoys, clusters,\
+      \ group regions, and scene regions.\n- Reject smoke, flame, dust, debris, shadow,\
+      \ road, rail bed, terrain, repeated\n  marks, background texture, and adjacent\
+      \ context.\n- Reject uncertain targets whose individual body cannot be isolated.\n\
+      - Reject duplicate partial boxes for the same body or building.\n- In crowded\
+      \ rows, output only bodies that are visually separable from\n  neighbors; if\
+      \ bodies are not clear, omit that region.\n- For buildings, detect distinct\
+      \ exterior structures only; do not split one\n  continuous building or box interior\
+      \ rooms, furniture, facade texture, smoke,\n  flame, or debris as a building.\n\
+      \nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\nBOX AUDIT\n\
+      For every proposed detection, ask silently:\n- Is this one target body or exterior\
+      \ structure?\n- Is most of the box occupied by that target rather than context?\n\
+      - Does the box avoid spanning a row, group, or multiple possible targets?\n\
+      - Can it be tightened without cutting off the accepted target?\nIf any answer\
+      \ fails, remove the detection instead of using a broad proxy box.\n\nBOUNDING\
+      \ BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\n\
+      OUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n\
+      \      \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

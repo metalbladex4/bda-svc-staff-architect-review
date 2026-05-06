@@ -1,0 +1,33 @@
+overlay_id: qwen-1.2-v018c_upstream_first_precision_audit
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Upstream recall-first behavior followed by a compact v017b-style single-target
+  audit.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nRECALL-FIRST PASS\n\
+      First, find all visible targets using the target-type specific detection\nguidance\
+      \ below. Look across the full image, including foreground, background,\nedges,\
+      \ distant areas, and off-center areas. A target can be valid even when\nsmall,\
+      \ partially damaged, burned, or distant, if its own visible body or\nexterior\
+      \ structure can be separated from the scene.\n\nPRECISION AUDIT PASS\nAfter\
+      \ recall, audit each proposed target before final JSON:\n- Keep it only if the\
+      \ box is tight around one target body, one wreck body, or\n  one exterior building\
+      \ structure.\n- Remove it if the box is a row, group, cluster, broad scene region,\
+      \ smoke,\n  flame, dust, debris, shadow, road, terrain, repeated mark, or adjacent\n\
+      \  context.\n- Remove it if the target body cannot be isolated from neighbors.\n\
+      - Remove duplicate boxes that describe the same target or a subsection of one\n\
+      \  continuous building.\n- Never replace a rejected target with a larger proxy\
+      \ box.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\n\
+      COUNT DISCIPLINE\n- Produce exactly one detection per accepted target.\n- Do\
+      \ not invent targets to match an expected count.\n- Do not infer a finer subtype;\
+      \ use only the doctrinal target_type category.\n- If no valid target remains\
+      \ after the audit, return {\"detections\": []}.\n\nBOUNDING BOX FORMAT\n- Format:\
+      \ {bbox_format}\n- Coordinate scale: {bbox_scale}\n\nOUTPUT\nReturn valid JSON\
+      \ only.\nReturn a JSON object with a top-level detections field.\n\nOUTPUT SCHEMA\n\
+      {\n  \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\"\
+      : {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

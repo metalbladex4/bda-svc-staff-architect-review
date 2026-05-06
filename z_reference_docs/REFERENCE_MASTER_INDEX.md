@@ -37,12 +37,226 @@ path, and the Capstone-specific shortlist from `awesome-codex-subagents`:
 - start with
   `z_reference_docs/CODEX_SUBAGENT_CATALOG_ANALYSIS.md`
 
+If you want the portable Codex capability playbook for another project:
+- start with `z_reference_docs/CODEX_CAPABILITY_TRANSFER_DOSSIER.md`
+- use it to transfer MCP routing, skills, subagent discipline, AGENTS layering,
+  Graphify/project-brain patterns, evidence workflows, memory citations, and
+  live-document habits without copying Capstone-specific paths verbatim
+- for the incoming MediaLab-derived comparison dossier, read
+  `z_reference_docs/The_Incomming_CODEX_CAPABILITIES_DOSSIER.md` as the source
+  of adopted/adapted/deferred ideas now summarized in the transfer dossier
+
 If you need the current global Codex tooling overlay that now guides repo-local
 work:
 - start with `/home/williambenitez1/.codex/AGENTS.md`
 - then use `/home/williambenitez1/.codex/MCP_USAGE_GUIDE.md`
+- for canonical installed-tool names, risk labels, Mem0 boundaries, and future
+  spences10 `available_tools`/`recommended_tools` inputs, use
+  `/home/williambenitez1/.codex/TOOL_INVENTORY.md`,
+  `/home/williambenitez1/.codex/tool_inventory.json`, and the Capstone overlay
+  at `/home/williambenitez1/Capstone/TOOL_INVENTORY.md`
+- `sequential-thinking` is active and implemented by Spences10
+  `mcp-sequentialthinking-tools`; `mcpfinder` is active as an approval-gated
+  missing-MCP discovery scout. NCP / Natural Context Provider remains the
+  future/planned/deferred MCP router candidate after Wave 5B confirmed `run`
+  exposure. Use the global MCP usage guide and canonical tool inventory for
+  current routing boundaries.
+- `mem0` is active as durable advisory memory only; it is manual,
+  approval-gated for writes/deletes, and separate from Graphify/project-brain,
+  native/project memory, and the existing MCP `memory` server
+- `superpowers-skill-pack` is active as a global Codex skill pack from
+  `obra/superpowers` `v5.0.7`; use it in Capstone-adapted mode for workflow
+  scaffolding only, not as source truth, promotion authority, automatic
+  subagent routing, or an override of existing prompt/eval gates
+- for the global guarded Graphify prompt-submit reminder, inspect
+  `/home/williambenitez1/.codex/hooks.json` and
+  `/home/williambenitez1/.codex/hooks/user_prompt_submit_graphify_reminder.py`
 - for the installed custom-agent subset and refresh provenance, use:
   `/home/williambenitez1/.codex/agents/VENDOR_MANIFEST.md`
+- for visual BDA dataset/case review, use the `fiftyone` MCP only when the
+  task explicitly needs local image/sample/bounding-box inspection; deterministic
+  scoring and promotion authority still come from `bda_eval`, runner summaries,
+  manifests, reference JSON, and promotion reports
+
+If you need local-only Graphify routing:
+- start with `z_reference_docs/PROJECT_BRAIN.md`
+- use `.graphify_fleet/corpus/` or MCP `capstone-architecture-graph` for
+  architecture, worktree-map, dependency, code-path, detector/eval
+  implementation, and "how does this code connect?" questions
+- use `.graphify_project_brain/corpus/` or MCP `capstone-project-brain` for
+  experiment history, Qwen/Gemma status, architect-feedback rollout, promotion
+  path, decisions, and rationale
+- review `.graphify_fleet/corpus/graphify-out/GRAPH_REPORT.md` for the
+  architecture graph
+- review `.graphify_fleet/corpus/graphify-out/FLEET_KNOWLEDGE_REPORT.md` for
+  the architecture/fleet semantic report; the older
+  `PROJECT_BRAIN_REPORT.md` filename is only a compatibility alias there
+- review
+  `.graphify_project_brain/corpus/graphify-out/PROJECT_KNOWLEDGE_REPORT.md`
+  for the project-knowledge brain
+- use `.graphify_project_brain/corpus/graphify-out/wiki/index.md` as the
+  generated agent-readable project-brain wiki
+- use each graph's `capstone_benchmark_report.md` to see whether Graphify is
+  high-signal for the question class before relying on graph recall
+- use `.graphify_project_brain/corpus/graphify-out/memory/verified/` only for
+  source-verified query notes that should become reusable local memory
+- for project-state, promotion, evidence, and decision questions, start with
+  `.graphify_project_brain/capstone_graphify.py recall` before broad
+  `graphify query`; use `recall-benchmark` after retrieval changes to confirm
+  expected trusted-note and semantic-seed hits still work
+- use `.graphify_project_brain/capstone_graphify.py recall --deep` or
+  `.graphify_project_brain/capstone_graphify.py search-all` only for broader
+  discovery across notes, seeds, wiki, graph, and evidence-index hits; these
+  commands label trust level and keep generated/wiki/index results separate
+  from source-verified memory
+- use `.graphify_project_brain/capstone_graphify.py doctor` for a local health
+  check and `.graphify_project_brain/capstone_graphify.py update` for a full
+  profile refresh
+- use `.graphify_project_brain/capstone_graphify.py doctor --strict-stale`
+  when graph freshness should be enforced before acting
+- use `.graphify_project_brain/capstone_graphify.py evidence-index` and
+  `.graphify_project_brain/capstone_graphify.py analytics` for local-only
+  SQLite/DuckDB evidence query surfaces
+- use `.graphify_project_brain/capstone_graphify.py estimate-extraction` to
+  size broad safe-corpus LLM extraction before any future approval to run it
+- use the generated GraphML exports only as local interoperability artifacts:
+  `.graphify_fleet/corpus/graphify-out/capstone_architecture_graph.graphml`
+  and
+  `.graphify_project_brain/corpus/graphify-out/capstone_project_brain.graphml`
+- treat graph output as a navigation aid and verify important claims against
+  source files, manifests, decision notes, or runner artifacts
+
+If you need the reference-organization and archive roadmap:
+- start with `z_reference_docs/zz_archive/README.md`
+- use `z_reference_docs/zz_archive/ORGANIZATION_INVENTORY.md` for the current
+  hot/warm/cold/archive classification
+- use `z_reference_docs/zz_archive/PROPOSED_MOVE_MANIFEST.csv` before any
+  later approved move wave
+- use `z_reference_docs/zz_archive/REDUNDANCY_REVIEW.md` for overlap and
+  consolidation candidates
+- use `z_reference_docs/zz_archive/GRAPHIFY_ARCHIVE_INDEX.md` for Graphify
+  generated-history cleanup planning and status
+- use `z_reference_docs/zz_archive/data_set_storage/` before any future
+  `Data_set_Storage` cleanup or archive wave
+  - use
+    `z_reference_docs/zz_archive/data_set_storage/DATA_SET_REPORT_PROVENANCE_REVIEW.md`
+    before touching `DATA_SET/Reports_(OLD)/` or
+    `DATA_SET/Updated_Reports/`
+  - use
+    `z_reference_docs/zz_archive/data_set_storage/EMPTY_FOLDER_CLEANUP_REVIEW.md`
+    before deleting or moving empty `Data_set_Storage` folders
+- use `z_reference_docs/zz_archive/indexed_existing_archives/` for central
+  registration indexes of archive folders that remain in their original
+  locations
+- Phase 0 created planning/index artifacts only
+- Phase 1 moved the approved loose local-doc files into `zz_archive`
+- Phase 2 moved only ignored Graphify generated-history folders into
+  `.graphify_project_brain/archive/`; source files, Prompt_Labs evidence,
+  human-report data, current graphs, trusted seeds, and worktrees stayed hot
+- Phase 3 registered existing archive-like folders without moving them:
+  `Prompt_Labs/archive/` and
+  `Prompting/Model_research-Archive-Not-to-be Used/`
+- Phase 4 completed the redundancy/consolidation review as a recommendation
+  package only; no active docs were merged or moved, and proposed future rows
+  remain unapproved
+- SequentialThinking trigger policy is now canonical in the global AGENTS file,
+  with Capstone-specific triggers in the Capstone root AGENTS overlay; use it as
+  a compact checkpoint for genuinely complex or risky work, not merely because
+  Plan Mode is active
+- Phase 5 completed the `Data_set_Storage` data-path audit only; no images,
+  reports, data folders, Prompt_Labs evidence, worktrees, source files, or
+  Graphify outputs moved
+- Phase 5A completed the `DATA_SET` old-vs-updated report provenance review
+  only; it found `Updated_Reports/` is a partial structured-conversion lane,
+  not a clean authoritative replacement
+- Phase 5B completed the empty-folder cleanup review only; it found seven
+  empty-folder candidates and recommended no deletion or move until a later
+  explicit cleanup approval
+- After explicit approval, only the empty `RoboFlow_/` placeholder was removed;
+  use
+  `z_reference_docs/zz_archive/data_set_storage/ROBOFLOW_EMPTY_FOLDER_CLEANUP.md`
+  for the cleanup record and rollback command
+
+If you need the new human-written report/image dataset intake and audit:
+- start with
+  `z_reference_docs/human_report_dataset_audit/HUMAN_REPORT_DATASET_INTAKE_AND_AUDIT.md`
+- then review
+  `z_reference_docs/human_report_dataset_audit/HUMAN_REPORT_DATASET_VISUAL_AUDIT.md`
+  for the first-pass visual findings and the current active/held-out split
+- for the approved prompt-example semantic index, use
+  `z_reference_docs/human_report_dataset_audit/APPROVED_HUMAN_REPORT_EXAMPLES.md`
+  and
+  `z_reference_docs/human_report_dataset_audit/approved_human_report_examples_index.json`
+  - this is also routed as the `human_report_examples` Graphify extraction
+    shard
+  - use this deterministic semantic index first; do not start agent/subagent
+    extraction unless retrieval or prompt work proves the index too shallow
+- use
+  `z_reference_docs/human_report_dataset_audit/human_report_dataset_intake_summary.json`
+  for active image/report counts, deterministic bbox/schema issue IDs, and
+  visual-audit status counts
+- use
+  `z_reference_docs/human_report_dataset_audit/human_report_dataset_audit_ledger.csv`
+  as the working audit ledger
+- proposed draft/correction queue files live under
+  `z_reference_docs/human_report_dataset_audit/proposed_corrections/`
+- source images and reports live under
+  `z_reference_docs/Data_set_Storage/human_reports/`
+- held-out images and removed reports live under
+  `z_reference_docs/Data_set_Storage/human_reports/no_reports/`
+- the current active prompt-example candidate pool is `112` usable reports:
+  `99` first-pass accurate plus `13` accepted after user review
+- for broader `Data_set_Storage` organization and future path-move risk, start
+  with `z_reference_docs/zz_archive/data_set_storage/DATA_PATH_AUDIT.md`
+  before touching any source dataset path
+- for older `DATA_SET` report provenance, use
+  `z_reference_docs/zz_archive/data_set_storage/DATA_SET_REPORT_PROVENANCE_REVIEW.md`;
+  do not treat `Reports_(OLD)/` or `Updated_Reports/` as current prompt-example
+  truth without a later repair/review package
+- for empty dataset-folder cleanup readiness, use
+  `z_reference_docs/zz_archive/data_set_storage/EMPTY_FOLDER_CLEANUP_REVIEW.md`;
+  Phase 5B did not delete or move any empty folder, and the later approved
+  cleanup removed only `RoboFlow_/`
+- for corrected human-report prompt gates, use
+  `human_report_challenge_v2` rather than the historical v1 lane:
+  - source-refresh package:
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/source_refresh/human_report_challenge_v2_refresh/`
+  - automation framework:
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/`
+  - `155` and `166` are positive military-equipment cases in v2, not
+    protected negatives; `166` remains holdout-only unless separately approved
+  - current abstention guard is the separate legacy `office-negative` control
+  - latest v2 source state has `118` approved pairs and `231` report objects;
+    updated/recovered report cases `40`, `61`, `65`, `69`, `70`, `77`, `106`,
+    `125`, `172`, and `187` are represented in current v2 references
+  - the six recovered additions `40`, `65`, `106`, `125`, `172`, and `187`
+    now have fresh v009/v014 baseline coverage in the current v2 source-refresh
+    package
+  - current automation must use the current v2 manifest and updated-report
+    smoke manifest, not stale all-112 assumptions
+  - first live v2 automation result, `v017a`, is a near miss, not a winner or
+    promotion candidate
+  - `v017a` Superpowers reassessment and consumed next-axis recommendation:
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/reassessments/v017a_superpowers_reassessment/`
+    - consumed axis: `v017b_single_target_box_span_self_filter`
+  - latest `v017b` bounded live run and diagnosis:
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017b/live_2026-05-03_032920Z/`
+    and
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/reassessments/v017b_gate_result/`
+    - `v017b` is a near miss, not a winner: aggregate hinge checks,
+      changed-source sanity, updated-report smoke, positive `155`, and
+      `office-negative` abstention held, but case `101` still emitted one broad
+      group/scene box `[75, 58, 1000, 547]`
+    - no `v017c`, dev, holdout, all-112, promotion, runtime adoption,
+      source-truth mutation, or structural guard implementation is approved by
+      the `v017b` result
+  - Superpowers adoption note for this lane:
+    `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/superpowers_adoption/README.md`
+- for the global creature-friendly Codex instruction override, use
+  `/home/williambenitez1/.codex/AGENTS.md` and
+  `/home/williambenitez1/.codex/MCP_USAGE_GUIDE.md`; the active file is
+  `/home/williambenitez1/.codex/model_instructions/gpt-5.5-creatures-free.txt`
+  and it does not replace Capstone source-truth or approval boundaries
 
 If you need the new cross-branch Qwen detect-surface inspection before another
 Qwen detect-only cycle:
@@ -65,6 +279,51 @@ turned into the next prompt revision:
 If you want the active prompt-experiment state:
 - start with `z_reference_docs/Prompt_Labs/PROMPT_LABS_INDEX.md`
 
+If you want the formal post-architect Qwen adaptive follow-up protocol for
+multi-attempt cycles and confirmation replays:
+- start with
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/cycles/README.md`
+
+If you want the completed Qwen building-reference truth audit, corrected replay,
+and historical promotion-readiness evidence for `v014`:
+- start with
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/decisions/qwen_1_2_building_reference_truth_audit_2026-04-23.md`
+- then review
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runner_sessions/executions/qwen_1_2_v014_detect_weighted_building_selection_session_v1_2026-04-23_212114Z/runner_session_summary.json`
+- and
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/decisions/qwen_1_2_v014_promotion_readiness_review_2026-04-23.md`
+- for the Step 1 formal package, use
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/decisions/qwen_1_2_v014_formal_promotion_package_2026-04-27.md`
+  and
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/promotion_reports/v014_detect_weighted_building_selection_pending_promotion.yaml`
+  and remember this package is now paused/superseded by the human-report-informed
+  comparison process
+
+If you want the current Qwen `v009` vs `v014` human-report-informed comparison
+and `v015` planning gate:
+- start with
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/decisions/qwen_1_2_human_report_informed_v009_v014_comparison_plan_2026-04-28.md`
+- then review
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/comparison_summary.md`
+  and
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/executions/qwen_v009_vs_v014_all_112_2026-04-28_022159Z/slice_comparison_summary.md`
+- use the challenge-lane context in
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/README.md`
+  and
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/doctrine_grounding_report.md`
+- then use the worktree-only `v015` strategy package at
+  `/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/README.md`
+  for the failure taxonomy, stratified dev/holdout split, offline example bank,
+  v015a-v015e prompt-candidate evidence, the v016 reference-aware design
+  package, the blocked v016a expanded-hinge result, and the current next-step
+  decision to build a `v016a` failure synthesis plus `v016b` prompt-axis
+  decision package before another prompt authoring/run. This package remains
+  worktree-only prompt-lab evidence, not runtime adoption or promotion truth.
+
+If you want the recorded first detector-backend pilot comparison and decision:
+- start with
+  `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.4_feat__qwen3-vl-8b-instruct__detector-backend-pilot/experiments/decisions/qwen_detector_backend_strategy_phase7.md`
+
 If you want the live prompt-method record:
 - start with `z_reference_docs/PROMPT_DEVELOPMENT_METHODOLOGY.md`
 
@@ -75,8 +334,32 @@ workflow:
 If you want the current overall project state and plan:
 - start with `z_reference_docs/WORKING_CHANGELOG.md`
 
+If you want the short completed-vs-deferred read on the staff-architect
+feedback rollout:
+- start with `z_reference_docs/ARCHITECT_FEEDBACK_COMPLETION_CHECKLIST.md`
+
+If you want the architect-facing implementation narrative that explains how the
+recommendations were actually carried out, where we adapted them, what
+experiments were run, and what we now want reviewed next:
+- start with `z_reference_docs/ARCHITECT_IMPLEMENTATION_PROGRESS_REPORT.md`
+
+If you want the whole-program technical deep dive, experiment ledger, worktree
+inventory, and extensibility/customization map:
+- start with `z_reference_docs/PROGRAM_DEEP_DIVE_AND_EXTENSIBILITY_REPORT.md`
+- then use `z_reference_docs/PROGRAM_EXPERIMENT_LEDGER.md`
+- and `z_reference_docs/PROGRAM_FILE_AND_WORKTREE_INVENTORY.md`
+
 If you want the safe branch/worktree update procedure for future upstream syncs:
 - start with `z_reference_docs/GIT_WORKTREE_UPDATE_WORKFLOW.md`
+
+If you need the canonical volatile worktree-state contract or the local
+preservation validator that now protects future upstream refreshes:
+- start with `z_reference_docs/WORKTREE_STATE.yaml`
+- then use `z_reference_docs/local_tools/validate_worktree_state.py`
+
+If you want the local prompt-lab integrity wrapper that can dispatch to the
+Qwen or Gemma worktree validators:
+- start with `z_reference_docs/local_tools/validate_prompt_lab_integrity.py`
 
 If you want the copy-paste command checklist for the current Qwen branch line:
 - start with `z_reference_docs/GIT_WORKTREE_UPDATE_CHECKLIST_QWEN.md`
@@ -136,12 +419,16 @@ Primary indexes:
 
 These are support/context files, not primary doctrine or prompting authorities.
 
-- `z_reference_docs/Notes.txt`
+- `z_reference_docs/zz_archive/research/model_shortlists/Notes_2026-04-28.txt`
   Tags: personal notes, working context
-- `z_reference_docs/config.yaml.backup`
+- `z_reference_docs/zz_archive/backups/configs/config.yaml.backup`
   Tags: prior model config snapshot, backup reference
-- `z_reference_docs/Capstone.code-workspace`
-  Tags: saved workspace, main repo
+- `z_reference_docs/Capstone-Project.code-workspace`
+  Tags: saved workspace, main repo plus active worktree root
+- `z_reference_docs/zz_archive/workspaces/Capstone.code-workspace`
+  Tags: archived smaller workspace, main repo only
+- `z_reference_docs/zz_archive/codex_agents/Prompt_to_Start_up_agents_in_new_project_2026-04-28.txt`
+  Tags: archived AGENTS planning prompt, superseded by current AGENTS layers
 - `z_reference_docs/PROMPT_DEVELOPMENT_METHODOLOGY.md`
   Tags: living prompt methodology, source usage, experiments, prompt decisions
 - `z_reference_docs/PROMPT_CRAFTING_INSTRUCTIONAL_GUIDE.md`
@@ -150,8 +437,26 @@ These are support/context files, not primary doctrine or prompting authorities.
   Tags: local AGENTS spec, canonical template, worktree guidance, instruction baseline
 - `z_reference_docs/WORKING_CHANGELOG.md`
   Tags: running project understanding, current way forward, meaningful changes
+- `z_reference_docs/PROJECT_BRAIN.md`
+  Tags: project brain, Graphify, knowledge graph, architecture map, worktree map, verification rules
+- `z_reference_docs/ARCHITECT_FEEDBACK_COMPLETION_CHECKLIST.md`
+  Tags: architect review status, completed phases, intentionally deferred work, rollout closeout
+- `z_reference_docs/ARCHITECT_IMPLEMENTATION_PROGRESS_REPORT.md`
+  Tags: architect-facing implementation narrative, recommendation response, experiment ledger, worktree-vs-main rationale, next-review questions
+- `z_reference_docs/PROGRAM_DEEP_DIVE_AND_EXTENSIBILITY_REPORT.md`
+  Tags: whole-program deep dive, worktree map, runtime architecture, evaluation architecture, tooling, extensibility, current Qwen lane
+- `z_reference_docs/PROGRAM_EXPERIMENT_LEDGER.md`
+  Tags: experiment ledger, Qwen runs, Gemma runs, backend pilot, doctrine shadow, cause-and-effect analysis, current Codex assessment
+- `z_reference_docs/PROGRAM_FILE_AND_WORKTREE_INVENTORY.md`
+  Tags: file inventory, worktree inventory, prompt-lab run roots, Codex customization, AGENTS, skills, subagents, secret boundary
 - `z_reference_docs/GIT_WORKTREE_UPDATE_WORKFLOW.md`
   Tags: git workflow, worktree refresh procedure, upstream sync safety, full parity completion
+- `z_reference_docs/WORKTREE_STATE.yaml`
+  Tags: canonical volatile state, branch direction contract, shadow-lane semantics, protected invariants, upstream refresh preservation
+- `z_reference_docs/local_tools/validate_worktree_state.py`
+  Tags: local validator, worktree governance, state-contract checks, preservation gate
+- `z_reference_docs/local_tools/validate_prompt_lab_integrity.py`
+  Tags: local validator wrapper, prompt-lab integrity, overlay contracts, model-line dispatch
 - `z_reference_docs/GIT_WORKTREE_UPDATE_CHECKLIST_QWEN.md`
   Tags: qwen branch checklist, copy-paste commands, upstream refresh steps, smoke validation
 - `z_reference_docs/GIT_WORKTREE_UPDATE_CHECKLIST_GEMMA.md`
@@ -160,6 +465,10 @@ These are support/context files, not primary doctrine or prompting authorities.
   Tags: ChatGPT Deep Research prompts, MCP server research, tokenization theory, prompt-language research, local support bundle
 - `z_reference_docs/CODEX_SUBAGENT_CATALOG_ANALYSIS.md`
   Tags: Codex subagents, vendor catalog, selective activation, global tooling, external reference analysis
+- `z_reference_docs/CODEX_CAPABILITY_TRANSFER_DOSSIER.md`
+  Tags: portable Codex playbook, MCP routing, skills, subagents, AGENTS layers, Graphify, memory citations, evidence workflow
+- `z_reference_docs/The_Incomming_CODEX_CAPABILITIES_DOSSIER.md`
+  Tags: incoming Codex playbook, MediaLab comparison, Graphify hook pattern, graph lane taxonomy, adoption source
 - `z_reference_docs/Prompt_Labs/AGENTS.md`
   Tags: prompt-lab instructions, local experimentation, promotion discipline, private workflow guardrails
 - `z_reference_docs/Doctrine_Experiments/Phase_1_Doctrine_Replacement/README.md`
@@ -265,7 +574,7 @@ Current working labs:
 - `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1_model__qwen3-vl-8b-instruct/`
   Tags: model branch root, clean mirrored-main descendant, future qwen model-line work, smoke-capable reusable root
 - `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/`
-  Tags: first feature branch root, dedicated worktree, post-reset grounding work, local `v010` detect candidate
+  Tags: first feature branch root, dedicated worktree, post-reset grounding work, `v009` tracked control, `v014` promotion paused by human-report comparison, completed building-reference correction replay
 - `z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.3_feat__qwen3-vl-8b-instruct__doctrine-bda-alignment/`
   Tags: qwen doctrine A/B branch root, phase-1 doctrine replacement, local-only control comparison, detect-surface verification lane
 - `z_reference_docs/Doctrine_Experiments/Phase_1_Doctrine_Replacement/qwen_destroyed_building4_manual_review.md`

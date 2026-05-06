@@ -1,0 +1,45 @@
+{
+  "package_id": "v017d_dev_outlier_visual_review",
+  "created_at": "2026-05-03",
+  "mode": "visual_review_only",
+  "candidate": "v017d_visual_anchor_lock",
+  "split": "human_report_challenge_v2_dev_55_no101",
+  "source_run": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/",
+  "source_artifacts": {
+    "evaluation_summary": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/eval/evaluation_2026-05-03_063836Z_summary.json",
+    "evaluation_csv": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/eval/evaluation_2026-05-03_063836Z.csv",
+    "bbox_review_images_dir": "../runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_063205Z/eval/images_bbox_review/",
+    "dev_validation_decision_packet_md": "../dev_validation_decision_packet.md",
+    "dev_validation_decision_packet_json": "../dev_validation_decision_packet.json",
+    "dev55_no101_baselines": "../baselines/dev55_no101_baselines.json"
+  },
+  "reviewed_cases": [
+    "66",
+    "67",
+    "84",
+    "100",
+    "103",
+    "147",
+    "155",
+    "97"
+  ],
+  "selection_rule": "Review every v017d dev case with false_positive_count > 0, every case with false_negative_count >= 2, and selected v017 control or pressure cases.",
+  "forward_evaluation_exclusions": {
+    "case_101": "excluded_from_forward_evaluation_and_diagnostic_only",
+    "case_166": "holdout_only_and_absent_from_dev_no101"
+  },
+  "forbidden_mutations": [
+    "source_human_reports",
+    "source_images",
+    "reference_truth",
+    "evaluation_outputs",
+    "prompt_overlays",
+    "runner_sessions",
+    "runtime_config",
+    "promotion_artifacts"
+  ],
+  "new_inference_run": false,
+  "source_truth_mutated": false,
+  "prompt_authored": false,
+  "candidate_promoted": false
+}

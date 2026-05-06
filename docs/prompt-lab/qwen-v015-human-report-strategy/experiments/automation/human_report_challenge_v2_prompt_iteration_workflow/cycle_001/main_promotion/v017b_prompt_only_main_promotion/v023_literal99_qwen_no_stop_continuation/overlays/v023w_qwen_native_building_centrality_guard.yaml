@@ -1,0 +1,51 @@
+candidate_id: v023w_qwen_native_building_centrality_guard
+title: v023w qwen native building centrality guard
+generated_from:
+  - v023s_qwen_native_conservative_json
+  - v023s_predicted_json_review
+hypothesis: >
+  v023s's recall gain comes from military-equipment behavior, while several
+  false positives are building tiling or peripheral/intact building boxes.
+  Add a building-only centrality and tiling guard without changing equipment
+  detection behavior.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, wheel/track contact, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters, output one tight box for each distinct visible target body. Do not output a broad row or cluster box.
+
+      BUILDING-ONLY GUARD
+      For target_type buildings, detect only buildings that are central to the scene or essential to interpreting it. Do not tile one continuous building into multiple boxes for facade sections, roof sections, quadrants, wings, or floors unless the visible exterior structure is truly separate. Skip peripheral or intact background buildings that are not scene-essential.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

@@ -1,0 +1,64 @@
+candidate_id: v023f_compact_shadow_audit
+title: v023f compact shadow audit
+generated_from:
+- v020c_anchor_replay
+- v023e_v020c_stability_rail
+hypothesis: >
+  v020c works but appears fragile when expanded. Compress its winning behavior
+  into a shorter prompt: visible connected bodies, context as search aid only,
+  dense-row visible-body splitting, and a final extra-box audit.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      CORE RULE
+      Return one tight box for each visible target body, wreck body, or distinct exterior building structure.
+
+      SEARCH BROADLY
+      Scan the whole image for obvious, small, damaged, crowded, edge, foreground, and background targets. Smoke, dust, flame, shadow, road, debris, tracks, terrain marks, blast texture, and repeated spacing may help you search, but they cannot justify a detection by themselves.
+
+      KEEP
+      - a connected target body or wreck body that remains visible enough to localize
+      - a distinct exterior building structure
+      - a small, damaged, or partly obscured target when its own body or structure is visible
+      - each separable target in a row or cluster when its own visible body is present
+
+      REJECT
+      - smoke, dust, flame, shadow, debris, road, terrain, track marks, gaps, or row spacing
+      - broad group boxes around a row, convoy, cluster, damaged area, or scene region
+      - duplicate boxes or fragments of one connected body
+      - interior rooms, facade texture, debris piles, or attached subsections of one continuous building
+      - evenly spaced placeholder boxes where an individual body is not visible
+
+      FINAL EXTRA-BOX AUDIT
+      Before output, remove any box that does not contain its own visible target body or distinct exterior structure. If two boxes describe the same connected target, keep only the tighter whole-body box. In dense rows, output one box per visible body, left to right, without boxing gaps or effects.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

@@ -1,0 +1,115 @@
+pack_id: human-report-challenge-v1-v015c-hinge-smoke
+eval_mode: detection_study
+images_dir: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports
+cases:
+- case_id: human-report-101
+  image_filename: 101.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/101.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/101.json
+  expected_target_count: 12
+  expected_target_types:
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  - military_equipment
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accepted_after_user_review
+  allowed_regressions: []
+- case_id: human-report-13
+  image_filename: 13.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/13.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/13.json
+  expected_target_count: 2
+  expected_target_types:
+  - buildings
+  - buildings
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accurate
+  allowed_regressions: []
+- case_id: human-report-42
+  image_filename: 42.png
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/42.png
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/42.json
+  expected_target_count: 2
+  expected_target_types:
+  - military_equipment
+  - military_equipment
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accurate
+  allowed_regressions: []
+- case_id: human-report-147
+  image_filename: 147.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/147.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/147.json
+  expected_target_count: 3
+  expected_target_types:
+  - military_equipment
+  - buildings
+  - buildings
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accepted_after_user_review
+  allowed_regressions: []
+- case_id: human-report-12
+  image_filename: 12.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/12.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/12.json
+  expected_target_count: 1
+  expected_target_types:
+  - buildings
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accurate
+  allowed_regressions: []
+- case_id: human-report-28
+  image_filename: 28.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/28.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/28.json
+  expected_target_count: 1
+  expected_target_types:
+  - military_equipment
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accurate
+  allowed_regressions: []
+- case_id: human-report-19
+  image_filename: 19.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/19.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/19.json
+  expected_target_count: 1
+  expected_target_types:
+  - military_equipment
+  negative_scene: false
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accurate
+  allowed_regressions: []
+- case_id: human-report-155
+  image_filename: 155.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/155.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/human_report_challenge_v1/references/155.json
+  expected_target_count: 1
+  expected_target_types:
+  - object_not_found
+  negative_scene: true
+  required_controls:
+  - human_report_challenge_v1
+  - visual_status:accepted_after_user_review
+  allowed_regressions: []

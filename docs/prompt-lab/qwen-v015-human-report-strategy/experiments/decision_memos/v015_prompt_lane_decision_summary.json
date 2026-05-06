@@ -1,0 +1,100 @@
+{
+  "decision_id": "qwen_v015_prompt_lane_decision",
+  "status": "v015_closed_v016_reference_aware_prompt_lab_next",
+  "generated_utc": "2026-04-29T23:40:00Z",
+  "worktree": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement",
+  "memo": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/decision_memos/v015_prompt_lane_decision_memo.md",
+  "source_artifacts": {
+    "v015e_hinge_gate_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_v015e_hinge_smoke_2026-04-29_223729Z/v015e_gate_check_summary.json",
+    "v015e_case_101_manual_review": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_v015e_hinge_smoke_2026-04-29_223729Z/case_101_manual_review.md",
+    "v015e_dev_eval_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/eval/evaluation_2026-04-29_231946Z_summary.json",
+    "v015e_dev_gate_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015e_individual_body_evidence/executions/human_report_challenge_v1_dev_56_2026-04-29_231342Z/v015e_dev_gate_summary.json"
+  },
+  "v015_sequence": [
+    {
+      "candidate": "v015a_recall_recovery",
+      "result": "hinge_failed_false_positive_rebound",
+      "lesson": "Recall pressure worked, but reopened false positives."
+    },
+    {
+      "candidate": "v015b_distinct_object_guard",
+      "result": "hinge_failed_case_101_row_fragments_and_broad_box",
+      "lesson": "Distinct-object guard did not prevent row-fragment enumeration."
+    },
+    {
+      "candidate": "v015c_count_first_uncertainty_gate",
+      "result": "hinge_failed_false_positive_rebound",
+      "lesson": "Count-first wording did not suppress case 101 row fragments or broad group boxing."
+    },
+    {
+      "candidate": "v015d_fail_closed_row_guard",
+      "result": "hinge_failed_recall_not_above_v014",
+      "lesson": "Fail-closed wording protected precision but became too conservative."
+    },
+    {
+      "candidate": "v015e_individual_body_evidence",
+      "result": "dev_failed_recall_gate",
+      "lesson": "Precision held, but recall recovery did not generalize to dev."
+    }
+  ],
+  "v015e_hinge": {
+    "standard_gate_passed": true,
+    "two_tier_passed": false,
+    "match_count": 10,
+    "false_negative_count": 13,
+    "false_positive_count": 0,
+    "protected_155_passed": true,
+    "case_101_issue": "row_fragment_enumeration_suppressed_but_broad_group_box_remains"
+  },
+  "v015e_dev": {
+    "dev_gate_passed": false,
+    "match_count": 61,
+    "false_negative_count": 56,
+    "false_positive_count": 17,
+    "v014_dev_baseline": {
+      "match_count": 70,
+      "false_negative_count": 47,
+      "false_positive_count": 17
+    },
+    "false_positive_cap": 21,
+    "protected_155_abstention_safe": true
+  },
+  "closed_decisions": [
+    "do_not_promote_v015_candidates",
+    "do_not_adopt_v015e_into_runtime_config",
+    "do_not_run_v015e_holdout_or_all_112_without_new_approval",
+    "treat_case_101_as_manual_diagnostic_with_reference_shape_caveats",
+    "next_experiment_remains_prompting_focused"
+  ],
+  "next_experiment": {
+    "name": "v016_reference_aware_prompt_lab",
+    "type": "prompting_focused_design_package",
+    "first_artifact": "reference_aware_design_memo",
+    "not_allowed_in_first_wave": [
+      "v016_runtime_prompt_text",
+      "v016_overlay",
+      "runtime_config_change",
+      "structural_validator",
+      "source_truth_mutation",
+      "holdout_run",
+      "all_112_run",
+      "promotion"
+    ],
+    "pre_authoring_cases": [
+      "101",
+      "67",
+      "84",
+      "86",
+      "97",
+      "103",
+      "155",
+      "166"
+    ]
+  },
+  "non_prompt_structural_guard_discussion": {
+    "status": "future_different_scope_discussion_only",
+    "description": "A deterministic post-model rejection or correction layer for broad boxes, group boxes, row-fragment enumeration, duplicate detections, or impossible geometry.",
+    "requires_separate_approval": true,
+    "not_next_implementation": true
+  }
+}

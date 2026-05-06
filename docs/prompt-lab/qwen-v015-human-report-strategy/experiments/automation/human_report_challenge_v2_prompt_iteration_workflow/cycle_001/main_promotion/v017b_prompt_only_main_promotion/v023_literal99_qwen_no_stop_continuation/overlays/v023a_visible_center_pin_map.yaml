@@ -1,0 +1,89 @@
+candidate_id: v023a_visible_center_pin_map
+title: v023a visible-center pin map
+generated_from:
+- v020c_anchor_replay
+- v022_literal99_prompt_only_plateau
+hypothesis: >
+  Replace extra cleanup language with a visible-body-center pin map. The model
+  should preserve dense neighboring targets only when each target has its own
+  visible body center, while rejecting smoke/debris/context pins before box
+  construction.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      WINNING BASELINE BEHAVIOR
+      Keep the v020c balance: context can help search, but a final box must be
+      supported by the visible target itself, not by smoke, dust, road marks,
+      debris, row spacing, blast texture, or terrain context.
+
+      VISIBLE-CENTER PIN MAP
+      Before drawing boxes, silently make a pin map:
+      1. Put one mental pin at the visual center of every visible connected
+         target body, wreck body, or exterior building structure.
+      2. A pin is valid only when there is visible target material around it:
+         body surface, hull/roof mass, exterior wall, turret/body shape, or
+         another solid target edge.
+      3. Do not create pins from smoke plumes, dust clouds, flame, shadows,
+         roads, tracks, repeated spacing, blast marks, debris piles, or the
+         empty space between targets.
+      4. In dense rows or clusters, nearby pins are allowed. Keep neighboring
+         targets separate only when each has its own visible body center.
+      5. If a broad row/cluster box would cover more than one pin, do not output
+         the broad box; output the tight individual boxes for valid pins.
+
+      CONTEXT SHADOW REVERSAL
+      For each pinned candidate, imagine removing smoke, dust, flame, shadow,
+      road, debris, row alignment, blast texture, tracks, terrain marks, and
+      repeated spacing. Keep the candidate only if the target body, wreck body,
+      or exterior structure remains visible enough to draw a tight box after
+      those context cues are removed.
+
+      GOOD FINAL BOX
+      - one connected target body, wreck body, or exterior building structure
+      - centered on a valid visible-body pin
+      - tight enough that the target occupies most of the box
+      - not a proxy for damage effects, row position, nearby roads, repeated
+        spacing, or debris
+
+      BAD FINAL BOX
+      - context-only cue with no visible target-body center
+      - group, row, convoy, cluster, or scene region
+      - duplicate fragment of one connected body
+      - interior/facade/debris subsection of one continuous building
+      - extra neighboring box whose distinct body center is not visible
+
+      FINAL BALANCE
+      Small, damaged, crowded, or partly obscured targets are valid when their
+      own visible body center remains after context is removed. Do not remove a
+      true separable target body just because it is close to another target.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

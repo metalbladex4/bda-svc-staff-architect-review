@@ -1,0 +1,96 @@
+overlay_id: "qwen-1.2-v015b-detect-distinct-object-guard"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Human-report-informed Qwen v015b detect-only candidate. This overlay
+  keeps the v015a recall-recovery intent but adds a stronger distinct
+  object filter to avoid row-fragment enumeration, broad group boxes,
+  adjacent context boxes, and tiny ambiguous distant false positives.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      DETECTION GOAL
+      - Find every clearly visible distinct doctrinal target.
+      - Preserve recall for valid secondary, distant, partly occluded, or non-central targets when enough visible target body exists to box them.
+      - Do not recover recall by boxing fragments, patterns, context, or grouped regions as extra targets.
+
+      DISTINCT-OBJECT FILTER
+      A detection is valid only if all of these are true:
+      - The candidate has visible connected object-body or building-structure evidence.
+      - The candidate can be boxed as one distinct target, not just a repeated texture, row fragment, shadow, smoke edge, road mark, debris piece, or background shape.
+      - The candidate is not merely adjacent context around another already boxed target.
+      - The candidate is not a broad scene, convoy, row, building complex, or target group box when individual targets are the requested output.
+      - The candidate is not a duplicate of another box or a second crop of the same visible body.
+
+      ENUMERATION ORDER
+      - First scan the full image for clearly visible doctrinal targets.
+      - Then apply the distinct-object filter before output.
+      - If a possible target fails the distinct-object filter, omit it rather than lowering the evidence threshold.
+      - If several small shapes form a row or repeated pattern, output only shapes with clear individual target bodies.
+
+      BUILDING TARGET SELECTION
+      - For buildings, count each clearly distinct exterior building body or clearly distinct collapsed exterior structural remain.
+      - Do not split one continuous building, attached wing, shared facade, side wall, fire/smoke region, or rubble edge into multiple boxes.
+      - Do not box smoke, flame, facade texture, shadow, debris, or adjacent context as a separate building.
+      - Do not treat indoor rooms, office interiors, cubicles, partitions, furniture, interior walls, ceiling tiles, or ordinary room contents as doctrinal building targets.
+      - If the image is primarily an indoor scene and no visible exterior building structure or collapsed exterior structural remains are present, do not detect a building target.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - For military equipment, count each clearly visible distinct equipment body.
+      - Small or distant equipment may be detected only when its visible body is sufficiently clear to box as a specific object.
+      - Do not invent equipment from smoke, dust, muzzle flash, tracks, roads, shadows, repeated row marks, debris, or ambiguous background fragments.
+      - Do not output a long row, convoy region, or broad group box as one equipment detection.
+
+      RULES
+      - Produce exactly one bounding box per valid distinct target.
+      - If multiple valid targets are visibly separate, output multiple detections.
+      - Do not merge neighboring valid targets into one broad box.
+      - Do not inflate a box to include nearby context, smoke, fire, road, debris, or adjacent targets.
+      - If no valid targets are visible, return {"detections": []}.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box the visible connected man-made body or structure of each target only.
+      - Use fire, smoke, muzzle flash, or debris only to help locate the target, not to define the box boundary.
+      - If smoke, flame, or dust hides part of a target, keep the box on the visible connected target body that remains.
+      - If two targets are visibly separate, even with nearby debris or overlap in the scene, return separate boxes.
+      - On intact or operational targets, box the visible target body only when the doctrinal target itself is clearly visible. Do not widen the detection prior from scene context alone.
+      - Do not box the smoke plume, flame column, muzzle flash, debris field between targets, rail bed, road, shadow, empty ground, or background context.
+
+      OUTPUT DISCIPLINE
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or artillery piece.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v015b_distinct_object_guard"
+      parent_version: "v015a_recall_recovery"
+      overlay_role: "human_report_distinct_object_precision_guard"
+      phase: "v015_human_report_hinge"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_diagnostic_package: "experiments/diagnostics/v015a_hinge_failure_diagnostic"

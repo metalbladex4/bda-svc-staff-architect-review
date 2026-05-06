@@ -1,0 +1,62 @@
+candidate_id: v023p_four_edge_boundary_detector
+title: v023p four edge boundary detector
+generated_from:
+  - v020c_anchor_replay
+  - v023o_v020c_output_contract_first
+  - incumbent_error_concentration_review
+hypothesis: >
+  Remaining errors are mostly bad support or missed partly visible bodies.
+  Instead of adding generic recall, require every final box edge to be anchored
+  to visible target-body or exterior-structure pixels. This may reduce context
+  FPs while improving coordinate fit for dense rows and partial targets.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      FOUR-EDGE BOUNDARY TEST
+      A detection is valid only when the final box is supported by visible target evidence.
+
+      1. Search the whole image for possible targets.
+      2. For each candidate, identify its visible connected target body, wreck body, or exterior building structure.
+      3. Draw the tightest box whose left, right, top, and bottom sides are explained by that visible body or exterior-structure boundary.
+      4. Reject any candidate whose box edge is mainly explained by smoke, dust, flame, shadow, road, terrain, debris, repeated spacing, blast texture, row position, or empty context.
+      5. In rows, convoys, clusters, or crowded scenes, keep one box per distinct visible body. Do not invent boxes in gaps or continue a row beyond bodies you can see.
+
+      EDGE SUPPORT RULES
+      - vehicle or equipment target: use visible hull, chassis, turret, roofline, wheel/track contact, wreck mass, or solid body silhouette as support
+      - building target: use the visible exterior outline or continuous exterior wall/roof structure as support
+      - partly obscured target: valid only when enough of its own body or exterior outline remains visible to support a tight four-edge box
+      - damaged target: valid when a connected wreck body, frame, hull, or exterior structure remains visible
+
+      FINAL BOX AUDIT
+      Before output, silently inspect every box. Remove boxes that are context-only, duplicate fragments, broad groups, row/convoy regions, debris patches, smoke/dust patches, shadow regions, or extra neighboring boxes without their own visible boundary support. If two boxes describe the same connected body or same continuous exterior building, keep only the tighter whole-body box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

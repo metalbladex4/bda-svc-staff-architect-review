@@ -1,0 +1,63 @@
+candidate_id: v022c_candidate_ledger_balance
+title: v022c candidate ledger balance
+overlay_id: qwen-v022c-candidate-ledger-balance
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Reframe v020c as a silent accept/reject ledger so dense visible bodies are protected before extras are pruned.
+generated_from:
+  - v020c_anchor_replay
+  - v022a_micro_target_sweep
+  - v022b_sparse_scene_proxy_filter
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Use a silent candidate ledger. Do not show the ledger. Output JSON only.
+
+      LEDGER STEP 1 - ACCEPT VISIBLE BODIES
+      Add a candidate only when you can point to one connected target body, wreck body, or exterior building structure. The candidate may be small, damaged, crowded, or partly obscured, but it must have its own visible body center or exterior-structure mass.
+
+      LEDGER STEP 2 - PROTECT DENSE FORMATIONS
+      Before rejecting anything in a row, cluster, convoy, or formation, first preserve each candidate with a distinct visible body center. Nearby targets may overlap visually; do not merge them into a row box, and do not delete one merely because it is close to another.
+
+      LEDGER STEP 3 - CONTEXT SHADOW REVERSAL
+      For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, blast texture, row alignment, repeated spacing, tracks, and terrain marks. Keep the candidate only if its visible body or exterior structure remains after those cues are removed.
+
+      LEDGER STEP 4 - BOX COMMIT
+      Draw one tight box around the accepted body or exterior structure. If two accepted candidates are the same connected body, keep only the tighter whole-body box. If two accepted candidates have distinct visible body centers, keep both.
+
+      REJECT
+      - context-only cue
+      - group, row, convoy, cluster, or scene region
+      - duplicate fragment of one connected body
+      - smoke, shadow, road, debris, blast mark, terrain mark, or damage halo
+      - interior/facade/debris subsection of one continuous building
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

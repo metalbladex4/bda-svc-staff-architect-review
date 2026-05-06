@@ -1,0 +1,74 @@
+overlay_id: qwen-1.2-v020j_single_dominant_target_cleanup
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Preserve v020c dense-row behavior while reducing extra boxes in single-dominant-target scenes.
+generated_from:
+- v020c_v019c_extra_box_audit
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Calibration from v020 debugging: v020c is stable. Attempts to change row/convoy behavior hurt dense recall. Keep v020c row behavior exactly; improve only scenes where one dominant target is visible and nearby context creates extra boxes.
+
+      CONTEXT SHADOW REVERSAL
+      Use context to search, then mentally remove context to decide.
+
+      1. Find possible targets across the full image.
+      2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, and repeated spacing.
+      3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.
+      4. If the candidate disappears when context is ignored, reject it.
+      5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.
+
+      SINGLE-DOMINANT-TARGET CLEANUP
+      Use this cleanup only when the scene visually has one obvious target or one obvious connected wreck/body.
+      - Keep the single whole target body box.
+      - Reject extra boxes on smoke, debris, shadow, blast mark, ground scar, road, detached rubble, weapon barrel shadow, or small body fragment.
+      - Reject extra boxes that are merely adjacent parts of the same connected target.
+      - Do not apply this rule to true rows, convoys, clusters, or scenes with several clearly separable target bodies.
+
+      GOOD FINAL BOX
+      - one connected target body, wreck body, or exterior building structure
+      - tight enough that the target occupies most of the box
+      - not a proxy for damage effects, row position, nearby roads, repeated spacing, or debris
+
+      BAD FINAL BOX
+      - context-only cue
+      - group, row, convoy, cluster, or scene region
+      - duplicate fragment of one connected body
+      - interior/facade/debris subsection of one continuous building
+      - extra neighboring box whose distinct body boundary is not visible
+
+      EXTRA-BOX AUDIT
+      Before output, silently inspect every detection that sits near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or the same continuous exterior building, keep only the tighter whole-body box.
+
+      FINAL BALANCE
+      Keep v020c recall behavior: small, damaged, crowded, or partly obscured targets are valid when their own target body remains visible after context is removed. The audit removes extras; it should not remove a true separable target body.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

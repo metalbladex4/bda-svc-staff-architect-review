@@ -1,0 +1,50 @@
+candidate_id: v022d_compressed_context_shadow
+title: v022d compressed context shadow
+overlay_id: qwen-v022d-compressed-context-shadow
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Compress v020c into a shorter grounding prompt, preserving context-shadow and extra-box audit without added filters.
+generated_from:
+  - v020c_anchor_replay
+  - v022a_micro_target_sweep
+  - v022b_sparse_scene_proxy_filter
+  - v022c_candidate_ledger_balance
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      Use context to search, but use visible target evidence to decide. A valid detection is one connected target body, wreck body, or exterior building structure with a tight box around that body. Small, damaged, crowded, distant, or partly obscured targets are valid when their own visible body remains.
+
+      Before accepting a box, mentally remove smoke, dust, flame, shadow, road, debris, blast texture, row alignment, repeated spacing, tracks, and terrain marks. Keep the box only if a target body or exterior structure still remains visible.
+
+      In dense formations, box each distinct visible body center separately. Never box a whole row, convoy, cluster, or scene region. Do not delete a true neighboring target just because it is close to another target.
+
+      Reject context-only cues, broad group boxes, duplicate fragments, facade/interior/debris subsections of one building, and extra boxes whose distinct body boundary is not visible. If two boxes describe the same connected body or continuous exterior building, keep only the tighter whole-body box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime adoption.

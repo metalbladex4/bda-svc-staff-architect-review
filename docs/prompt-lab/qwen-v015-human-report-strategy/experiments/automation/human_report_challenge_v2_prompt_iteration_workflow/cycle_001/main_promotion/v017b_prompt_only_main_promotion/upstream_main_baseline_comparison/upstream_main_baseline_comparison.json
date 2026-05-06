@@ -1,0 +1,177 @@
+{
+  "comparison_id": "v017b_vs_current_upstream_main_prompt_baseline",
+  "dataset": "human_report_challenge_v2_all_current_117_no101",
+  "deltas": {
+    "interpretation": "v017b remains a precision/control-safety candidate rather than a raw recall winner. The upstream-code/Ollama compatibility row passed 155/166/office controls and scored 166/53/26, which is slightly better recall but worse raw FPs than the existing local v017b row, and worse raw totals than the upstream prompt-controlled row except for corrected 155 behavior.",
+    "v017b_minus_upstream_prompt_controlled": {
+      "false_negative_count": 4,
+      "false_positive_count_effective_extra_target": -3,
+      "false_positive_count_raw": -2,
+      "match_count": -4
+    },
+    "v017b_upstream_code_compat_minus_existing_v017b_local_qwen": {
+      "false_negative_count_delta": -1,
+      "false_positive_count_raw_delta": 4,
+      "match_count_delta": 1
+    },
+    "v017b_upstream_code_compat_minus_upstream_prompt_controlled": {
+      "false_negative_count_delta": 3,
+      "false_positive_count_delta": 2,
+      "match_count_delta": -3
+    }
+  },
+  "exact_upstream_runtime_attempt": {
+    "attempt_id": "exact_upstream_runtime_preflight",
+    "config_source": "upstream/main:src/bda_svc/pipeline/config.yaml",
+    "fallback_used": false,
+    "generated_utc": "2026-05-04T17:44:55.033018+00:00",
+    "interpretation": "Exact upstream runtime was not executed; this is an endpoint availability blocker, not a prompt-quality result.",
+    "openai_base_url": "http://localhost:8000/v1",
+    "preflight_error": "URLError: <urlopen error [Errno 111] Connection refused>",
+    "required_model": "Qwen/Qwen3-VL-8B-Instruct",
+    "status": "not_run_endpoint_unavailable",
+    "upstream_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb"
+  },
+  "generated_utc": "2026-05-04T18:39:07.691627+00:00",
+  "practical_upstream_code_ollama_compat_attempt": {
+    "all_current_result": {
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "command_count": 118,
+      "eval_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/eval",
+      "false_negative_count": 53,
+      "false_positive_count": 26,
+      "image_count": 117,
+      "match_count": 166,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/predicted",
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat/human_report_challenge_v2_all_current_117_no101_2026-05-04_182205Z/upstream_code_manifest_run_summary.json"
+    },
+    "attempt_id": "v017b_upstream_code_ollama_openai_compat",
+    "code_path": "current upstream/main bda-svc runtime code in isolated scratch worktree",
+    "comparison_notes": {
+      "vs_existing_v017b_local_qwen": {
+        "false_negative_count_delta": -1,
+        "false_positive_count_raw_delta": 4,
+        "match_count_delta": 1
+      },
+      "vs_upstream_prompt_controlled": {
+        "false_negative_count_delta": 3,
+        "false_positive_count_delta": 2,
+        "match_count_delta": -3
+      }
+    },
+    "generated_utc": "2026-05-04T18:39:07.691627+00:00",
+    "manifest": {
+      "case_101_present": false,
+      "case_155_present": true,
+      "case_166_present": true,
+      "image_count": 117,
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml"
+    },
+    "model_overrides": {
+      "BDA_ASSESSMENT_MODEL": "qwen3-vl:8b-instruct",
+      "BDA_DETECTION_MODEL": "qwen3-vl:8b-instruct"
+    },
+    "not_pure_upstream_server_reason": "The upstream OpenAI-compatible code path was used, but the backing server was Ollama rather than the default upstream localhost:8000/v1 endpoint.",
+    "office_negative_result": {
+      "command_count": 2,
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_count": 1,
+      "match_count": 1,
+      "missing_outputs": [],
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "nonzero_command_count": 0,
+      "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/v017b_upstream_code_openai_compat_office_negative/legacy_abstention_guard_office_negative_2026-05-04_182132Z/upstream_code_manifest_run_summary.json"
+    },
+    "openai_api_key_label": "no-auth",
+    "openai_base_url": "http://localhost:11434/v1",
+    "scratch_config_change": "prompts.detect_objects replaced with accepted v017b prompt only",
+    "server_label": "ollama_openai_compatible_endpoint",
+    "status": "completed",
+    "upstream_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+    "v017b_prompt_sha256": "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259",
+    "verdict": "v017b_upstream_code_compat_passed_controls_but_not_raw_metric_winner"
+  },
+  "prompt_controlled_baseline": {
+    "case_155": {
+      "false_negative_count": 2,
+      "false_positive_count": 1,
+      "match_count": 0,
+      "predicted_target_count": 1,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "false_negative_count": 50,
+    "false_positive_count": 24,
+    "image_count": 117,
+    "match_count": 169,
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0
+    },
+    "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/prompt_controlled_upstream_main_office_negative/legacy_abstention_guard_office_negative_2026-05-04_180619Z/candidate_manifest_run_summary.json",
+    "run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/runs/prompt_controlled_upstream_main/human_report_challenge_v2_all_current_117_no101_2026-05-04_174441Z/candidate_manifest_run_summary.json"
+  },
+  "reviewer_safe_summary": "On the same 117-image no-101 pack, upstream/main prompt-controlled scored 169 matches, 50 FNs, and 24 FPs but failed positive control 155. Existing v017b local-Qwen scored 165 matches, 54 FNs, and 22 raw FPs / 21 effective extra-target FPs while passing 155, 166, and office-negative. The practical upstream-code/Ollama OpenAI-compatible v017b run scored 166 matches, 53 FNs, and 26 FPs while still passing 155, 166, and office-negative. The safest PR claim is corrected-control and prompt discipline improvement, not raw metric superiority over upstream/main.",
+  "upstream_main": {
+    "commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+    "config_sha256": "6389404387e2c1034f108d3d961cba144411bf8ffb11c9fda6fd7d51417fca36",
+    "config_snapshot": "snapshots/upstream_main_config_f462ef4516b63ca1a2cd2434e75692f65d0e94cb.yaml"
+  },
+  "v017b_reference": {
+    "case_155": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 2,
+      "predicted_target_count": 2,
+      "reference_target_count": 2
+    },
+    "case_166": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "predicted_target_count": 1,
+      "reference_target_count": 1
+    },
+    "false_negative_count": 54,
+    "false_positive_count_effective_extra_target": 21,
+    "false_positive_count_raw": 22,
+    "image_count": 117,
+    "match_count": 165,
+    "office_negative": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "match_count": 1,
+      "negative_scene_abstention_correct_count": 1,
+      "negative_scene_false_positive_count": 0
+    },
+    "override_source": "../promotion_override_decision.md",
+    "run_summary": "../main_promotion_gate_result.json"
+  },
+  "verdict": "v017b_control_safety_candidate_not_raw_metric_winner_over_upstream_main"
+}

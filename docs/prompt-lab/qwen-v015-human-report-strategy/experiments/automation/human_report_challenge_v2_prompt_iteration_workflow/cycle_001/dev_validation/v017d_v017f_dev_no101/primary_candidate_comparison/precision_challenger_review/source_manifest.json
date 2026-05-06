@@ -1,0 +1,34 @@
+{
+  "package": "v017b_vs_v017d_precision_challenger_review",
+  "generated_utc": "2026-05-03T19:16:44Z",
+  "purpose": "Review the fresh comparison wrinkle where v017b tied v017d on matches and false negatives while reducing false positives from 16 to 13 on human_report_challenge_v2_dev_55_no101.",
+  "parent_package": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison",
+  "source_artifacts": {
+    "primary_comparison_markdown": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/primary_candidate_comparison.md",
+    "primary_comparison_json": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/primary_candidate_comparison.json",
+    "v017d_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017d_visual_anchor_lock/human_report_challenge_v2_dev_55_no101_2026-05-03_173618Z/candidate_manifest_run_summary.json",
+    "v017b_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/runs/v017b_group_box_rejection/human_report_challenge_v2_dev_55_no101_2026-05-03_181508Z/candidate_manifest_run_summary.json",
+    "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/validation_manifests/human_report_challenge_v2_dev_55_no101.yaml"
+  },
+  "review_cases": [
+    "66",
+    "67",
+    "84",
+    "103",
+    "155"
+  ],
+  "case_policy": {
+    "case_101": "diagnostic_only_not_forward_eval",
+    "case_155": "positive_control"
+  },
+  "forbidden_mutations": [
+    "prompt authoring",
+    "holdout execution",
+    "all-current or all-112 execution",
+    "promotion artifacts",
+    "runtime config adoption",
+    "source truth mutation",
+    "Graphify refresh",
+    "Mem0 update"
+  ]
+}

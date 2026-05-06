@@ -1,0 +1,302 @@
+{
+  "detector_backend_ids": [
+    "vlm_prompt_detector"
+  ],
+  "eval_mode": "detection_study",
+  "generated_at": "2026-04-29T22:19:56Z",
+  "image_count": 8,
+  "images": [
+    {
+      "false_negative_count": 12,
+      "false_positive_count": 0,
+      "image_filename": "101.jpg",
+      "match_count": 0,
+      "matches": [],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 0,
+      "reference_target_count": 12,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 1,
+      "false_positive_count": 0,
+      "image_filename": "13.jpg",
+      "match_count": 1,
+      "matches": [
+        {
+          "center_error_px": 46.330335634441504,
+          "iou": 0.583435032568261,
+          "overlap_coverage": 0.839344262295082,
+          "predicted_area_ratio": 1.2779693283976732,
+          "predicted_label": "target_1",
+          "reference_label": "target_2",
+          "score": 0.43491320254343885,
+          "score_assess": 0.6213045750620555,
+          "score_logic": 0,
+          "target_type": "buildings"
+        }
+      ],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 1,
+      "reference_target_count": 2,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 2,
+      "false_positive_count": 0,
+      "image_filename": "42.png",
+      "match_count": 0,
+      "matches": [],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 0,
+      "reference_target_count": 2,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 1,
+      "false_positive_count": 0,
+      "image_filename": "147.jpg",
+      "match_count": 2,
+      "matches": [
+        {
+          "center_error_px": 26.315394733881533,
+          "iou": 0.464,
+          "overlap_coverage": 0.5893719806763285,
+          "predicted_area_ratio": 0.8595702148925537,
+          "predicted_label": "target_0",
+          "reference_label": "target_2",
+          "score": 0.32709090909090904,
+          "score_assess": 0.46727272727272723,
+          "score_logic": 0,
+          "target_type": "buildings"
+        },
+        {
+          "center_error_px": 14.430869689661812,
+          "iou": 0.6377325066430469,
+          "overlap_coverage": 0.7280080889787665,
+          "predicted_area_ratio": 0.8695652173913043,
+          "predicted_label": "target_1",
+          "reference_label": "target_3",
+          "score": 0.43764795877284807,
+          "score_assess": 0.6252113696754973,
+          "score_logic": 0,
+          "target_type": "buildings"
+        }
+      ],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 2,
+      "reference_target_count": 3,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 1,
+      "false_positive_count": 1,
+      "image_filename": "12.jpg",
+      "match_count": 0,
+      "matches": [],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 1,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 1,
+      "reference_target_count": 1,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 0,
+      "false_positive_count": 2,
+      "image_filename": "28.jpg",
+      "match_count": 1,
+      "matches": [
+        {
+          "center_error_px": 101.38170446387257,
+          "iou": 0.46706268874655693,
+          "overlap_coverage": 0.6914271677720462,
+          "predicted_area_ratio": 1.1718005404077623,
+          "predicted_label": "target_0",
+          "reference_label": "target_1",
+          "score": 0.3608580746568999,
+          "score_assess": 0.5155115352241427,
+          "score_logic": 0,
+          "target_type": "military equipment"
+        }
+      ],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 2,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 3,
+      "reference_target_count": 1,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_filename": "19.jpg",
+      "match_count": 1,
+      "matches": [
+        {
+          "center_error_px": 38.73306081372863,
+          "iou": 0.8048526863084922,
+          "overlap_coverage": 0.8680373831775701,
+          "predicted_area_ratio": 0.9465420560747664,
+          "predicted_label": "target_1",
+          "reference_label": "target_1",
+          "score": 0.5599062549235859,
+          "score_assess": 0.7998660784622657,
+          "score_logic": 0,
+          "target_type": "military equipment"
+        }
+      ],
+      "negative_scene_metrics": {
+        "abstention_correct": null,
+        "false_positive_count": 0,
+        "negative_scene": false,
+        "summary_consistency": null,
+        "unsupported_damage_claim": null
+      },
+      "predicted_target_count": 1,
+      "reference_target_count": 1,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    },
+    {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "image_filename": "155.jpg",
+      "match_count": 1,
+      "matches": [
+        {
+          "center_error_px": 0.0,
+          "iou": 1.0,
+          "overlap_coverage": 1.0,
+          "predicted_area_ratio": 1.0,
+          "predicted_label": "target_0",
+          "reference_label": "target_1",
+          "score": 1.0,
+          "score_assess": 1.0,
+          "score_logic": 1.0,
+          "target_type": "object not found"
+        }
+      ],
+      "negative_scene_metrics": {
+        "abstention_correct": true,
+        "false_positive_count": 0,
+        "negative_scene": true,
+        "summary_consistency": false,
+        "unsupported_damage_claim": false
+      },
+      "predicted_target_count": 1,
+      "reference_target_count": 1,
+      "runtime_metadata": {
+        "detector_backend_id": "vlm_prompt_detector",
+        "experiment_overlay_ids": [
+          "qwen-1.2-v015a-detect-recall-recovery"
+        ],
+        "model_line_id": "qwen3-vl:8b-instruct",
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "resolved_config_hash": "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+      }
+    }
+  ],
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/validation/human_report_challenge_v1_hinge_smoke.yaml",
+  "pack_id": "human-report-challenge-v1-v015a-hinge-smoke",
+  "predicted_label": "v015a",
+  "reference_label": "manifest_reference",
+  "resolved_config_hashes": [
+    "4e0fa64539e590de041dd7434d1990688a70ea7c07f07f87a26929c718af4cb2"
+  ],
+  "totals": {
+    "false_negative_count": 17,
+    "false_positive_count": 3,
+    "match_count": 6,
+    "negative_scene_abstention_correct_count": 1,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0
+  }
+}

@@ -1,0 +1,77 @@
+promotion_id: "qwen-1.2-v017b-group-box-rejection-promotion"
+candidate_id: "v017b_group_box_rejection"
+branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+model_line: "qwen3-vl:8b-instruct"
+overlay_stack:
+  - "qwen-1.2-v017b-detect-single-target-box-span-self-filter"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-001-v017b"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "fcbbbfa826940991b7e20cb5f4667609e3a5ecc01ee369d0c87545baf6a71998"
+base_commit: "6ab67d6844d0842ed49285ec5e3fb94f514e4f4e"
+promotion_commit: "local_worktree_adoption_pending_commit"
+promoted_surfaces:
+  - "src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml"
+model_backend:
+  detection_model: "qwen3-vl:8b-instruct"
+  assessment_model: "qwen3-vl:8b-instruct"
+prompt_hash: "331bf0d27d08f62f153050c9bf20ab0a2b76d63828974217a7a24d3964ab2259"
+doctrine_hash: "16a15dbc398311b2bbec14132e0be2d867540b02a611fc21c9ab56e3b6319e29"
+config_hash: "fcbbbfa826940991b7e20cb5f4667609e3a5ecc01ee369d0c87545baf6a71998"
+validation_pack_ids:
+  - "human-report-challenge-v2-hinge-11-no101"
+  - "human-report-challenge-v2-dev-55-no101"
+  - "human-report-challenge-v2-holdout-56-no101"
+  - "human-report-challenge-v2-all-current-117-no101"
+  - "human-report-challenge-v2-changed-source-sanity"
+  - "human-report-challenge-v2-updated-report-smoke"
+  - "legacy-abstention-guard-office-negative-v1"
+deterministic_metrics_summary:
+  mode: "runtime_adoption"
+  summary: >
+    `v017b_group_box_rejection` is approved for the Qwen 1.2 model-line runtime
+    overlay after tying or beating `v017d_visual_anchor_lock` on dev/holdout
+    no-101 validation and passing the final all-current no-101 pre-adoption
+    gate. Case 101 remains diagnostic-only and excluded from forward pass/fail
+    gates.
+  key_outcomes:
+    - "Dev+holdout no101: v017b scored 152 matches, 56 false negatives, and 17 false positives across 111 images."
+    - "Compared with v017d over dev+holdout no101, v017b gained 1 match, reduced false negatives by 1, and reduced false positives by 4."
+    - "Final all-current no101: v017b scored 158 matches, 61 false negatives, and 25 false positives across 117 images."
+    - "Positive control 155 passed with 2 matches, 0 false negatives, and 0 false positives."
+    - "Positive control 166 passed with 1 match, 0 false negatives, and 0 false positives."
+    - "Office-negative abstention passed with 0 negative-scene false positives."
+  evidence_runs:
+    - "experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/promotion_recommendation.json"
+    - "experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/pre_adoption_summary.json"
+regressions: []
+manual_review_refs:
+  - kind: "candidate_overlay"
+    path: "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/candidates/v017b/overlay.yaml"
+    note: "Exact experiment overlay promoted into the Qwen model-line overlay."
+  - kind: "promotion_recommendation"
+    path: "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/dev_validation/v017d_v017f_dev_no101/primary_candidate_comparison/promotion_decision_v017b_v017d/promotion_recommendation.md"
+    note: "Fresh v017b/v017d dev-holdout no101 comparison that selected v017b."
+  - kind: "pre_adoption_summary"
+    path: "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/pre_adoption_summary.md"
+    note: "Final all-current no101 and smoke evidence before runtime adoption."
+  - kind: "promoted_surface"
+    path: "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml"
+    note: "Tracked model-line overlay now containing the v017b detection prompt."
+reviewer_note: >
+  User approved the recommendation to adopt `v017b_group_box_rejection` after
+  the final pre-adoption gate. The runtime fold-in uses the Qwen model-line
+  overlay instead of direct base config mutation so the default resolved runtime
+  uses the promoted prompt without an experiment overlay.
+rollback_plan: >
+  Restore `src/bda_svc/pipeline/overlays/model_lines/qwen3-vl-8b-instruct.yaml`
+  to the previous model-line defaults that only set runtime model-line identity
+  and detector backend id. That removes the v017b detection prompt from the
+  default runtime while preserving the experiment overlay and evidence
+  artifacts.
+llmaaj_advisory:
+  status: "not_required"
+  note: >
+    LLMaaJ remains advisory only. Promotion is grounded in deterministic
+    manifest-based evaluation, positive controls, office-negative abstention,
+    and user approval.
+decision: "approved"

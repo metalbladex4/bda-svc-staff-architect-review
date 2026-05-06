@@ -1,0 +1,61 @@
+hypothesis_id: "qwen-1.2-v017b-detect-single-target-box-span-self-filter"
+status: "authorized_for_bounded_live_gate_run"
+lever_type: "detect_prompt_overlay"
+failure_class: "v017a_near_miss_case101_broad_group_scene_box"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+overlay_id: "qwen-1.2-v017b-detect-single-target-box-span-self-filter"
+runner_session_id: "human-report-challenge-v2-prompt-iteration-cycle-001-v017b"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v017b_live_run"
+parent_candidate: "v017a_body_backed_candidate_filter"
+target_cases:
+  - "101"
+  - "13"
+  - "42"
+  - "147"
+  - "12"
+  - "28"
+  - "19"
+  - "155"
+  - "66"
+  - "67"
+  - "84"
+  - "97"
+  - "40"
+  - "61"
+  - "65"
+  - "69"
+  - "70"
+  - "77"
+  - "106"
+  - "125"
+  - "141"
+  - "152"
+  - "154"
+  - "156"
+  - "172"
+  - "187"
+  - "office-negative"
+validation_pack_ids:
+  - "human-report-challenge-v2-automation-hinge-12"
+  - "human-report-challenge-v2-changed-source-sanity"
+  - "human-report-challenge-v2-updated-report-smoke"
+  - "legacy-abstention-guard-office-negative-v1"
+expected_improvement: >
+  Test whether a single-target box-span self-filter can preserve v017a's useful
+  row-fragment suppression, positive-control 155 behavior, and abstention safety
+  while eliminating the case 101 broad group/scene box failure.
+known_regression_risks:
+  - "The single-target audit may become too conservative and suppress legitimate secondary or distant targets."
+  - "The model may still treat a broad region that contains target evidence as one accepted body."
+  - "The added audit may increase false negatives on changed-source positive cases."
+  - "The model may ignore the instruction to reject broad proxy boxes."
+  - "The office-negative guard may fail if context clues are over-weighted."
+stop_rule: >
+  Stop after the v2 hinge, changed-source sanity, updated-report smoke, and
+  legacy office-negative guard packs. Do not run dev, holdout, all-112,
+  promotion, runtime config adoption, structural guard implementation,
+  source-truth mutation, MCP config changes, hook edits, Graphify refresh, or
+  Mem0 update without later explicit approval.
+author: "William Benitez"
+created_at: "2026-05-02T00:00:00-04:00"

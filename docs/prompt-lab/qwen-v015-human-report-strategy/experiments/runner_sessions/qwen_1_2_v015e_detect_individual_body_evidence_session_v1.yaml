@@ -1,0 +1,15 @@
+runner_session_id: "qwen-1.2-v015e-detect-individual-body-evidence-session-v1"
+control_branch: "feat/qwen3-vl-8b-instruct/two-pass-refinement"
+control_overlay_paths: []
+candidate_overlay_paths:
+  - "../overlays/qwen_1_2_v015e_detect_individual_body_evidence.yaml"
+detector_backend_id: "vlm_prompt_detector"
+resolved_config_hash: "pending_until_v015e_candidate_run"
+validation_packs:
+  - pack_id: "human-report-challenge-v1-v015e-hinge-smoke"
+    manifest_path: "../validation/human_report_challenge_v1_v015e_hinge_smoke.yaml"
+    max_false_positive_count: 3
+    max_false_negative_count: 14
+stop_rule: "run_all_candidates"
+max_iterations: 1
+allowed_critique_mode: "manual_with_notes"

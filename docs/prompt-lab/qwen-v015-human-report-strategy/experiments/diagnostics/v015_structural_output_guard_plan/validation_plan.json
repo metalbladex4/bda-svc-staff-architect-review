@@ -1,0 +1,41 @@
+{
+  "approval_gates": [
+    "run offline simulator on existing hinge predictions only",
+    "compare raw vs guarded metrics without inference",
+    "manually review case 101 before any dev recommendation",
+    "do not insert into runtime until simulator proves value and user approves"
+  ],
+  "future_outputs": [
+    "guarded_predicted/",
+    "guard_diagnostics.json",
+    "before_after_gate_summary.json",
+    "case_101_guard_review.md"
+  ],
+  "input_runs": [
+    "v015a_recall_recovery hinge smoke",
+    "v015b_distinct_object_guard hinge smoke",
+    "v015c_count_first_uncertainty_gate hinge smoke",
+    "v015d_fail_closed_row_guard hinge smoke"
+  ],
+  "must_preserve": [
+    "raw predicted outputs",
+    "source references",
+    "human-report source data",
+    "runtime config",
+    "main checkout cleanliness"
+  ],
+  "recommended_next_wave": "offline_guard_simulator_only",
+  "status": "future_wave_plan",
+  "success_criteria_for_offline_simulator": {
+    "primary": [
+      "row-fragment groups on v015b/v015c case 101 are flagged",
+      "v015d broad group box on case 101 is flagged",
+      "raw predictions remain available for audit"
+    ],
+    "secondary": [
+      "guard does not alter protected 155 abstention",
+      "guard preserves v015c-safe 12 and 28 outputs",
+      "before/after metrics are explicit about recall loss"
+    ]
+  }
+}

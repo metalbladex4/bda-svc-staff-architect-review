@@ -1,0 +1,35 @@
+overlay_id: qwen-1.2-v019e_cartographer_grid_sweep
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Silent spatial sweep inspired by visual grounding research, then merge/veto.
+generated_from:
+- v019d_triage_ladder_detector
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration from prior\
+      \ run: tighten the final veto against context-heavy boxes; preserve the recall\
+      \ gain but add a sharper precision filter; dense formations still need a separable-body\
+      \ test, not placeholder spacing; large multi-target scenes still need a second\
+      \ pass for missed bodies.\n\nCARTOGRAPHER GRID SWEEP\nThink silently. Treat\
+      \ the image as a map with overlapping zones: center, four\ncorners, four edges,\
+      \ foreground, midground, and background. Do not output this\nmap.\n\n1. Sweep\
+      \ each zone for visible target bodies or exterior structures.\n2. In each zone,\
+      \ mark only candidates with their own body support.\n3. Merge duplicate candidates\
+      \ that refer to the same connected body across\n   neighboring zones.\n4. Apply\
+      \ the body-anchor veto: if a candidate is mostly context, damage effect,\n \
+      \  row alignment, or scene texture, remove it.\n5. Output one tight box per\
+      \ surviving target.\n\nSPATIAL DISCIPLINE\n- A target near an image edge is\
+      \ valid only when its own body is visible enough\n  to localize.\n- A target\
+      \ in a row is valid only when its body separates from neighbors.\n- A large\
+      \ structure is one target when it is one continuous exterior building.\n- A\
+      \ broad area is never a substitute for uncertain individual targets.\n\nTARGET-TYPE\
+      \ SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\nBOUNDING BOX FORMAT\n\
+      - Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\nOUTPUT\nReturn\
+      \ valid JSON only.\nReturn a JSON object with a top-level detections field.\n\
+      If no valid target is visible, return {\"detections\": []}.\n\nOUTPUT SCHEMA\n\
+      {\n  \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\"\
+      : {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

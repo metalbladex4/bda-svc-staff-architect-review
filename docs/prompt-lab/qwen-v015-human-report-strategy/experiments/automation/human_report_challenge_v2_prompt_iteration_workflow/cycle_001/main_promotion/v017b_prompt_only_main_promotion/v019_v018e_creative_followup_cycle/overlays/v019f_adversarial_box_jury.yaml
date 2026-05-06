@@ -1,0 +1,37 @@
+overlay_id: qwen-1.2-v019f_adversarial_box_jury
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Recall scout, FP prosecutor, and box judge synthesize the final boxes.
+generated_from:
+- v019e_cartographer_grid_sweep
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration from prior\
+      \ run: tighten the final veto against context-heavy boxes; preserve the recall\
+      \ gain but add a sharper precision filter; dense formations still need a separable-body\
+      \ test, not placeholder spacing; large multi-target scenes still need a second\
+      \ pass for missed bodies.\n\nADVERSARIAL BOX JURY\nThink silently with three\
+      \ internal roles. Do not output the roles or notes.\n\nRECALL SCOUT\nFind every\
+      \ plausible target body across the whole image: obvious, small,\ndistant, edge,\
+      \ foreground, background, burned, damaged, and partially obscured\ntargets.\n\
+      \nFALSE-POSITIVE PROSECUTOR\nAttack each proposed box. Reject it if the evidence\
+      \ is mainly smoke, dust,\nflame, debris, shadow, road, rail bed, track, row\
+      \ alignment, repeated mark,\nterrain texture, broad damage area, adjacent context,\
+      \ or placeholder spacing.\nReject it if the box covers a group, row, convoy,\
+      \ cluster, or scene region.\n\nBOX JUDGE\nKeep only boxes that survive both\
+      \ sides:\n- one visible connected target body, wreck body, or exterior building\
+      \ structure\n- tight enough that the target occupies most of the box\n- separable\
+      \ from neighbors\n- not a duplicate or fragment of the same connected body\n\
+      \nJURY RULE\nWhen recall scout and prosecutor disagree, choose the smaller body-supported\n\
+      box if a body is visible. If no body-supported tight box exists, omit the\n\
+      candidate. Never output a broad compromise box.\n\nTARGET-TYPE SPECIFIC DETECTION\
+      \ GUIDANCE\n{detection_guidance}\n\nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n\
+      - Coordinate scale: {bbox_scale}\n\nOUTPUT\nReturn valid JSON only.\nReturn\
+      \ a JSON object with a top-level detections field.\nIf no valid target is visible,\
+      \ return {\"detections\": []}.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n  \
+      \  {\n      \"target_type\": string,\n      \"bbox\": {bbox_format}\n    }\n\
+      \  ]\n}\n"
+  runtime:
+    notes: Prompt text is applied by scratch upstream config replacement; no runtime
+      adoption.

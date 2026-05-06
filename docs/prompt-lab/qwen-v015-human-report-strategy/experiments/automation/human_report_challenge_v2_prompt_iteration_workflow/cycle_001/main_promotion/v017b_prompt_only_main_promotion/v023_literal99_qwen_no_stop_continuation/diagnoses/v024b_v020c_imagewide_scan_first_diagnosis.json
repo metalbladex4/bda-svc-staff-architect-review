@@ -1,0 +1,74 @@
+{
+  "backend": {
+    "backend_id": "ollama_openai_compat_fallback_11434",
+    "model": "qwen3-vl:8b-instruct",
+    "openai_base_url": "http://localhost:11434/v1",
+    "server_kind": "fallback_ollama_openai_compatible_endpoint"
+  },
+  "candidate": "v024b_v020c_imagewide_scan_first",
+  "case_155": {
+    "false_negative_count": 0,
+    "false_positive_count": 2,
+    "match_count": 2,
+    "predicted_target_count": 4,
+    "reference_target_count": 2
+  },
+  "case_166": {
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "match_count": 1,
+    "predicted_target_count": 1,
+    "reference_target_count": 1
+  },
+  "controls_pass": true,
+  "dense_cases": {
+    "66": {
+      "false_negative_count": 0,
+      "false_positive_count": 6,
+      "match_count": 8,
+      "predicted_target_count": 14,
+      "reference_target_count": 8
+    },
+    "67": {
+      "false_negative_count": 10,
+      "false_positive_count": 9,
+      "match_count": 1,
+      "predicted_target_count": 10,
+      "reference_target_count": 11
+    },
+    "84": {
+      "false_negative_count": 6,
+      "false_positive_count": 0,
+      "match_count": 7,
+      "predicted_target_count": 7,
+      "reference_target_count": 13
+    },
+    "97": {
+      "false_negative_count": 0,
+      "false_positive_count": 2,
+      "match_count": 1,
+      "predicted_target_count": 3,
+      "reference_target_count": 1
+    }
+  },
+  "generated_utc": "2026-05-06T08:42:38.338704+00:00",
+  "metrics": {
+    "false_negative_count": 44,
+    "false_positive_count": 40,
+    "literal_99_target_met": false,
+    "match_count": 175,
+    "total_error_count": 84
+  },
+  "office_negative": {
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "image_count": 1,
+    "match_count": 1,
+    "negative_scene_abstention_correct_count": 1,
+    "negative_scene_false_positive_count": 0
+  },
+  "run_summaries": {
+    "all_current": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024b_v020c_imagewide_scan_first/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_082652Z/upstream_openai_compat_manifest_run_summary.json",
+    "office_negative": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024b_v020c_imagewide_scan_first/office_negative/legacy_abstention_guard_office_negative_2026-05-06_082646Z/upstream_openai_compat_manifest_run_summary.json"
+  }
+}

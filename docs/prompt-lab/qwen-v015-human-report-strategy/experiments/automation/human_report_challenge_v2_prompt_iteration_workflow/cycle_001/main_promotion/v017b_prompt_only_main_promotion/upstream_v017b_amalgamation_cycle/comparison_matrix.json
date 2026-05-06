@@ -1,0 +1,474 @@
+{
+  "baselines": {
+    "upstream_prompt_controlled": {
+      "case_155_passed": false,
+      "false_negative_count": 50,
+      "false_positive_count": 24,
+      "match_count": 169
+    },
+    "v017b_local_qwen": {
+      "case_155_passed": true,
+      "false_negative_count": 54,
+      "false_positive_count_effective_extra_target": 21,
+      "false_positive_count_raw": 22,
+      "match_count": 165
+    },
+    "v017b_upstream_code_compat": {
+      "case_155_passed": true,
+      "false_negative_count": 53,
+      "false_positive_count": 26,
+      "match_count": 166
+    }
+  },
+  "cycle_id": "v018_upstream_v017b_amalgamation_cycle",
+  "final_verdict": "no_outright_winner_rank_best_pareto_candidate",
+  "generated_utc": "2026-05-04T20:14:06.726032+00:00",
+  "ranking": [
+    "v018d_evidence_budget_pruner",
+    "v018b_compressed_v017b",
+    "v018c_upstream_first_precision_audit",
+    "v018a_upstream_plus_control_guard",
+    "v018e_contrastive_body_anchor"
+  ],
+  "recommended_candidate": "v018d_evidence_budget_pruner",
+  "recovery_events": [
+    {
+      "candidate_id": "v018a_upstream_plus_control_guard",
+      "command": {
+        "cmd": [
+          "git",
+          "worktree",
+          "remove",
+          "--force",
+          "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018a_upstream_plus_control_guard_20260504_185908Z"
+        ],
+        "cwd": "/home/williambenitez1/Capstone",
+        "returncode": 0,
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      "scratch": "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018a_upstream_plus_control_guard_20260504_185908Z",
+      "status": "removed",
+      "type": "scratch_cleanup"
+    },
+    {
+      "candidate_id": "v018b_compressed_v017b",
+      "command": {
+        "cmd": [
+          "git",
+          "worktree",
+          "remove",
+          "--force",
+          "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018b_compressed_v017b_20260504_191358Z"
+        ],
+        "cwd": "/home/williambenitez1/Capstone",
+        "returncode": 0,
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      "scratch": "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018b_compressed_v017b_20260504_191358Z",
+      "status": "removed",
+      "type": "scratch_cleanup"
+    },
+    {
+      "candidate_id": "v018c_upstream_first_precision_audit",
+      "command": {
+        "cmd": [
+          "git",
+          "worktree",
+          "remove",
+          "--force",
+          "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018c_upstream_first_precision_audit_20260504_192857Z"
+        ],
+        "cwd": "/home/williambenitez1/Capstone",
+        "returncode": 0,
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      "scratch": "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018c_upstream_first_precision_audit_20260504_192857Z",
+      "status": "removed",
+      "type": "scratch_cleanup"
+    },
+    {
+      "candidate_id": "v018d_evidence_budget_pruner",
+      "command": {
+        "cmd": [
+          "git",
+          "worktree",
+          "remove",
+          "--force",
+          "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018d_evidence_budget_pruner_20260504_194405Z"
+        ],
+        "cwd": "/home/williambenitez1/Capstone",
+        "returncode": 0,
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      "scratch": "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018d_evidence_budget_pruner_20260504_194405Z",
+      "status": "removed",
+      "type": "scratch_cleanup"
+    },
+    {
+      "candidate_id": "v018e_contrastive_body_anchor",
+      "command": {
+        "cmd": [
+          "git",
+          "worktree",
+          "remove",
+          "--force",
+          "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018e_contrastive_body_anchor_20260504_195930Z"
+        ],
+        "cwd": "/home/williambenitez1/Capstone",
+        "returncode": 0,
+        "stderr_tail": "",
+        "stdout_tail": ""
+      },
+      "scratch": "/home/williambenitez1/Capstone_worktrees/_scratch_v018_v018e_contrastive_body_anchor_20260504_195930Z",
+      "status": "removed",
+      "type": "scratch_cleanup"
+    }
+  ],
+  "results": [
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018a_upstream_plus_control_guard/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-04_185921Z/upstream_code_manifest_run_summary.json",
+      "axis": "Upstream skeleton plus minimal v017b controls for broad/group boxes, object_not_found, and positive targets.",
+      "candidate_id": "v018a_upstream_plus_control_guard",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "match_count": 2,
+        "predicted_target_count": 3,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 5,
+          "match_count": 8,
+          "predicted_target_count": 13,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 7,
+          "false_positive_count": 8,
+          "match_count": 4,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 7,
+          "false_positive_count": 2,
+          "match_count": 6,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 1,
+          "false_positive_count": 1,
+          "match_count": 0,
+          "predicted_target_count": 1,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "false_negative_count": 45,
+      "false_positive_count": 40,
+      "image_count": 117,
+      "match_count": 174,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018a_upstream_plus_control_guard/office_negative/legacy_abstention_guard_office_negative_2026-05-04_185908Z/upstream_code_manifest_run_summary.json",
+      "outright_winner": false,
+      "title": "Upstream Plus Control Guard"
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018b_compressed_v017b/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-04_191403Z/upstream_code_manifest_run_summary.json",
+      "axis": "v017b behavior compressed into shorter wording to reduce instruction overload.",
+      "candidate_id": "v018b_compressed_v017b",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 5,
+          "match_count": 8,
+          "predicted_target_count": 13,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 7,
+          "false_positive_count": 8,
+          "match_count": 4,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 6,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "false_negative_count": 41,
+      "false_positive_count": 36,
+      "image_count": 117,
+      "match_count": 178,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018b_compressed_v017b/office_negative/legacy_abstention_guard_office_negative_2026-05-04_191358Z/upstream_code_manifest_run_summary.json",
+      "outright_winner": false,
+      "title": "Compressed v017b"
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018c_upstream_first_precision_audit/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-04_192905Z/upstream_code_manifest_run_summary.json",
+      "axis": "Upstream recall-first behavior followed by a compact v017b-style single-target audit.",
+      "candidate_id": "v018c_upstream_first_precision_audit",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 5,
+          "match_count": 8,
+          "predicted_target_count": 13,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 10,
+          "false_positive_count": 10,
+          "match_count": 1,
+          "predicted_target_count": 11,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 6,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 1,
+          "false_positive_count": 1,
+          "match_count": 0,
+          "predicted_target_count": 1,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "false_negative_count": 44,
+      "false_positive_count": 43,
+      "image_count": 117,
+      "match_count": 175,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018c_upstream_first_precision_audit/office_negative/legacy_abstention_guard_office_negative_2026-05-04_192857Z/upstream_code_manifest_run_summary.json",
+      "outright_winner": false,
+      "title": "Upstream First Precision Audit"
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018d_evidence_budget_pruner/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-04_194411Z/upstream_code_manifest_run_summary.json",
+      "axis": "Creative candidate using body-support evidence budget and pruning.",
+      "candidate_id": "v018d_evidence_budget_pruner",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 1,
+          "false_positive_count": 5,
+          "match_count": 7,
+          "predicted_target_count": 12,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 9,
+          "false_positive_count": 9,
+          "match_count": 2,
+          "predicted_target_count": 11,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 6,
+          "false_positive_count": 0,
+          "match_count": 7,
+          "predicted_target_count": 7,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 2,
+          "match_count": 1,
+          "predicted_target_count": 3,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "false_negative_count": 39,
+      "false_positive_count": 39,
+      "image_count": 117,
+      "match_count": 180,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018d_evidence_budget_pruner/office_negative/legacy_abstention_guard_office_negative_2026-05-04_194405Z/upstream_code_manifest_run_summary.json",
+      "outright_winner": false,
+      "title": "Evidence Budget Pruner"
+    },
+    {
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018e_contrastive_body_anchor/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-04_195938Z/upstream_code_manifest_run_summary.json",
+      "axis": "Creative candidate using good-box/bad-box contrast and dense-row body anchoring.",
+      "candidate_id": "v018e_contrastive_body_anchor",
+      "case_155": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 2,
+        "predicted_target_count": 2,
+        "reference_target_count": 2
+      },
+      "case_166": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "match_count": 1,
+        "predicted_target_count": 1,
+        "reference_target_count": 1
+      },
+      "controls_pass": true,
+      "dense_cases": {
+        "66": {
+          "false_negative_count": 0,
+          "false_positive_count": 5,
+          "match_count": 8,
+          "predicted_target_count": 13,
+          "reference_target_count": 8
+        },
+        "67": {
+          "false_negative_count": 9,
+          "false_positive_count": 10,
+          "match_count": 2,
+          "predicted_target_count": 12,
+          "reference_target_count": 11
+        },
+        "84": {
+          "false_negative_count": 5,
+          "false_positive_count": 0,
+          "match_count": 8,
+          "predicted_target_count": 8,
+          "reference_target_count": 13
+        },
+        "97": {
+          "false_negative_count": 0,
+          "false_positive_count": 1,
+          "match_count": 1,
+          "predicted_target_count": 2,
+          "reference_target_count": 1
+        }
+      },
+      "disqualified": false,
+      "false_negative_count": 46,
+      "false_positive_count": 29,
+      "image_count": 117,
+      "match_count": 173,
+      "missing_outputs": [],
+      "nonzero_command_count": 0,
+      "office_negative": {
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "image_count": 1,
+        "match_count": 1,
+        "negative_scene_abstention_correct_count": 1,
+        "negative_scene_false_positive_count": 0
+      },
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_v017b_amalgamation_cycle/runs/v018e_contrastive_body_anchor/office_negative/legacy_abstention_guard_office_negative_2026-05-04_195930Z/upstream_code_manifest_run_summary.json",
+      "outright_winner": false,
+      "title": "Contrastive Body Anchor"
+    }
+  ],
+  "source_comparison": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison/upstream_main_baseline_comparison.json"
+}

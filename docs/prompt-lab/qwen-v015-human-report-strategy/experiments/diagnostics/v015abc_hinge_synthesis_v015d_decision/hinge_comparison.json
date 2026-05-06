@@ -1,0 +1,565 @@
+{
+  "aggregate_interpretation": {
+    "guard_signal": "v015c repaired the v015a/v015b false positives on cases 12 and 28 while preserving 155 abstention, but did not fix 101.",
+    "precision_failure": "All three failed the false-positive cap; v015b and v015c concentrated the rebound in case 101.",
+    "recall_signal": "All three v015 candidates exceeded the v014 hinge match baseline and reduced false negatives versus v014.",
+    "stop_rule": "Do not run dev for v015a, v015b, or v015c from these hinge results."
+  },
+  "baselines": {
+    "v009": {
+      "false_negatives": 6,
+      "false_positives": 17,
+      "matches": 17,
+      "predicted_targets": 34
+    },
+    "v014": {
+      "false_negatives": 15,
+      "false_positives": 1,
+      "matches": 8,
+      "predicted_targets": 9
+    }
+  },
+  "candidates": {
+    "v015a": {
+      "baselines": {
+        "v009": {
+          "false_negatives": 6,
+          "false_positives": 17,
+          "matches": 17,
+          "predicted_targets": 34
+        },
+        "v014": {
+          "false_negatives": 15,
+          "false_positives": 1,
+          "matches": 8,
+          "predicted_targets": 9
+        }
+      },
+      "candidate_id": "v015a_recall_recovery",
+      "case_101": {
+        "metrics": {
+          "false_negatives": 9,
+          "false_positives": 12,
+          "matches": 3,
+          "predicted_targets": 15,
+          "reference_targets": 12
+        },
+        "prediction_diagnostic": {
+          "broad_group_box_present": true,
+          "broad_group_boxes": [
+            {
+              "area_ratio": 0.4331,
+              "bbox": [
+                75,
+                58,
+                1000,
+                549
+              ],
+              "height": 491,
+              "label": "target_1",
+              "width": 925
+            }
+          ],
+          "detected_box_count": 15,
+          "prediction_found": true,
+          "prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/predicted/101_2026-04-29_171524Z.json",
+          "row_fragment_enumeration_present": true,
+          "row_fragment_groups": [
+            {
+              "count": 14,
+              "labels": [
+                "target_0",
+                "target_2",
+                "target_3",
+                "target_4",
+                "target_5",
+                "target_6",
+                "target_7",
+                "target_8",
+                "target_9",
+                "target_10",
+                "target_11",
+                "target_12",
+                "target_13",
+                "target_14"
+              ],
+              "median_gap_estimate": 61.5,
+              "x_center_range": [
+                91.5,
+                986.0
+              ],
+              "y_center_range": [
+                134.5,
+                134.5
+              ]
+            }
+          ]
+        }
+      },
+      "checks": {
+        "false_negatives_below_v014": true,
+        "false_positives_within_limit": false,
+        "matches_above_v014": true,
+        "protected_case_passed": true
+      },
+      "gate_passed": false,
+      "gate_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/v015a_gate_check_summary.json",
+      "pack_id": "human-report-challenge-v1-v015a-hinge-smoke",
+      "per_case": {
+        "101.jpg": {
+          "false_negatives": 9,
+          "false_positives": 12,
+          "matches": 3,
+          "predicted_targets": 15,
+          "reference_targets": 12
+        },
+        "12.jpg": {
+          "false_negatives": 0,
+          "false_positives": 1,
+          "matches": 1,
+          "predicted_targets": 2,
+          "reference_targets": 1
+        },
+        "13.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 2,
+          "predicted_targets": 2,
+          "reference_targets": 2
+        },
+        "147.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 3,
+          "predicted_targets": 3,
+          "reference_targets": 3
+        },
+        "155.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "19.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "28.jpg": {
+          "false_negatives": 0,
+          "false_positives": 2,
+          "matches": 1,
+          "predicted_targets": 3,
+          "reference_targets": 1
+        },
+        "42.png": {
+          "false_negatives": 1,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 2
+        }
+      },
+      "protected_case": {
+        "abstention_correct": true,
+        "case": "155.jpg",
+        "false_positive_count": 0,
+        "passed": true,
+        "present": true
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z",
+      "run_readme": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/README.md",
+      "strategy": "recall recovery",
+      "summary_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015a_recall_recovery/executions/human_report_challenge_v1_hinge_smoke_2026-04-29_171438Z/candidate_manifest_run_summary.json",
+      "totals": {
+        "false_negatives": 10,
+        "false_positives": 15,
+        "matches": 13
+      }
+    },
+    "v015b": {
+      "baselines": {
+        "v009": {
+          "false_negatives": 6,
+          "false_positives": 17,
+          "matches": 17,
+          "predicted_targets": 34
+        },
+        "v014": {
+          "false_negatives": 15,
+          "false_positives": 1,
+          "matches": 8,
+          "predicted_targets": 9
+        }
+      },
+      "candidate_id": "v015b_distinct_object_guard",
+      "case_101": {
+        "metrics": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "prediction_diagnostic": {
+          "broad_group_box_present": true,
+          "broad_group_boxes": [
+            {
+              "area_ratio": 0.4931,
+              "bbox": [
+                75,
+                12,
+                1000,
+                571
+              ],
+              "height": 559,
+              "label": "target_0",
+              "width": 925
+            }
+          ],
+          "detected_box_count": 31,
+          "prediction_found": true,
+          "prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/predicted/101_2026-04-29_190755Z.json",
+          "row_fragment_enumeration_present": true,
+          "row_fragment_groups": [
+            {
+              "count": 30,
+              "labels": [
+                "target_1",
+                "target_2",
+                "target_3",
+                "target_4",
+                "target_5",
+                "target_6",
+                "target_7",
+                "target_8",
+                "target_9",
+                "target_10",
+                "target_11",
+                "target_12",
+                "target_13",
+                "target_14",
+                "target_15",
+                "target_16",
+                "target_17",
+                "target_18",
+                "target_19",
+                "target_20",
+                "target_21",
+                "target_22",
+                "target_23",
+                "target_24",
+                "target_25",
+                "target_26",
+                "target_27",
+                "target_28",
+                "target_29",
+                "target_30"
+              ],
+              "median_gap_estimate": 30.5,
+              "x_center_range": [
+                117.5,
+                1008.5
+              ],
+              "y_center_range": [
+                131.5,
+                131.5
+              ]
+            }
+          ]
+        }
+      },
+      "checks": {
+        "false_negatives_below_v014": true,
+        "false_positives_within_limit": false,
+        "matches_above_v014": true,
+        "protected_case_passed": true
+      },
+      "gate_passed": false,
+      "gate_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/v015b_gate_check_summary.json",
+      "pack_id": "human-report-challenge-v1-v015b-hinge-smoke",
+      "per_case": {
+        "101.jpg": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "12.jpg": {
+          "false_negatives": 0,
+          "false_positives": 1,
+          "matches": 1,
+          "predicted_targets": 2,
+          "reference_targets": 1
+        },
+        "13.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 2,
+          "predicted_targets": 2,
+          "reference_targets": 2
+        },
+        "147.jpg": {
+          "false_negatives": 2,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 3
+        },
+        "155.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "19.jpg": {
+          "false_negatives": 0,
+          "false_positives": 1,
+          "matches": 1,
+          "predicted_targets": 2,
+          "reference_targets": 1
+        },
+        "28.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "42.png": {
+          "false_negatives": 1,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 2
+        }
+      },
+      "protected_case": {
+        "abstention_correct": true,
+        "case": "155.jpg",
+        "false_positive_count": 0,
+        "passed": true,
+        "present": true
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z",
+      "run_readme": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/README.md",
+      "strategy": "distinct object guard",
+      "summary_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015b_distinct_object_guard/executions/human_report_challenge_v1_v015b_hinge_smoke_2026-04-29_190631Z/candidate_manifest_run_summary.json",
+      "totals": {
+        "false_negatives": 12,
+        "false_positives": 30,
+        "matches": 11
+      }
+    },
+    "v015c": {
+      "baselines": {
+        "v009": {
+          "false_negatives": 6,
+          "false_positives": 17,
+          "matches": 17,
+          "predicted_targets": 34
+        },
+        "v014": {
+          "false_negatives": 15,
+          "false_positives": 1,
+          "matches": 8,
+          "predicted_targets": 9
+        }
+      },
+      "candidate_id": "v015c_count_first_uncertainty_gate",
+      "case_101": {
+        "metrics": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "prediction_diagnostic": {
+          "broad_group_box_present": true,
+          "broad_group_boxes": [
+            {
+              "area_ratio": 0.4005,
+              "bbox": [
+                75,
+                117,
+                1000,
+                571
+              ],
+              "height": 454,
+              "label": "target_0",
+              "width": 925
+            }
+          ],
+          "detected_box_count": 31,
+          "prediction_found": true,
+          "prediction_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/predicted/101_2026-04-29_195422Z.json",
+          "row_fragment_enumeration_present": true,
+          "row_fragment_groups": [
+            {
+              "count": 30,
+              "labels": [
+                "target_1",
+                "target_2",
+                "target_3",
+                "target_4",
+                "target_5",
+                "target_6",
+                "target_7",
+                "target_8",
+                "target_9",
+                "target_10",
+                "target_11",
+                "target_12",
+                "target_13",
+                "target_14",
+                "target_15",
+                "target_16",
+                "target_17",
+                "target_18",
+                "target_19",
+                "target_20",
+                "target_21",
+                "target_22",
+                "target_23",
+                "target_24",
+                "target_25",
+                "target_26",
+                "target_27",
+                "target_28",
+                "target_29",
+                "target_30"
+              ],
+              "median_gap_estimate": 30.5,
+              "x_center_range": [
+                117.5,
+                1008.5
+              ],
+              "y_center_range": [
+                131.5,
+                131.5
+              ]
+            }
+          ]
+        }
+      },
+      "checks": {
+        "false_negatives_below_v014": true,
+        "false_positives_within_limit": false,
+        "matches_above_v014": true,
+        "protected_case_passed": true
+      },
+      "gate_passed": false,
+      "gate_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/v015c_gate_check_summary.json",
+      "pack_id": "human-report-challenge-v1-v015c-hinge-smoke",
+      "per_case": {
+        "101.jpg": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "12.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "13.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 2,
+          "predicted_targets": 2,
+          "reference_targets": 2
+        },
+        "147.jpg": {
+          "false_negatives": 2,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 3
+        },
+        "155.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "19.jpg": {
+          "false_negatives": 0,
+          "false_positives": 1,
+          "matches": 1,
+          "predicted_targets": 2,
+          "reference_targets": 1
+        },
+        "28.jpg": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "42.png": {
+          "false_negatives": 1,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 2
+        }
+      },
+      "protected_case": {
+        "abstention_correct": true,
+        "case": "155.jpg",
+        "false_positive_count": 0,
+        "passed": true,
+        "present": true
+      },
+      "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z",
+      "run_readme": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/README.md",
+      "strategy": "count-first uncertainty gate",
+      "summary_path": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/runs/v015c_count_first_uncertainty_gate/executions/human_report_challenge_v1_v015c_hinge_smoke_2026-04-29_195257Z/candidate_manifest_run_summary.json",
+      "totals": {
+        "false_negatives": 12,
+        "false_positives": 29,
+        "matches": 11
+      }
+    }
+  },
+  "gate": {
+    "false_negatives_max_exclusive": 15,
+    "false_positives_max_inclusive": 3,
+    "manual_diagnostic_case": "101",
+    "matches_min_exclusive": 8,
+    "protected_case": "155"
+  },
+  "generated_utc": "2026-04-29T21:54:33.170208+00:00",
+  "scope": {
+    "candidates": [
+      "v015a",
+      "v015b",
+      "v015c"
+    ],
+    "cases": [
+      "101.jpg",
+      "13.jpg",
+      "42.png",
+      "147.jpg",
+      "12.jpg",
+      "28.jpg",
+      "19.jpg",
+      "155.jpg"
+    ],
+    "no_dev_holdout_or_all_112_run": true,
+    "no_new_inference": true,
+    "no_prompt_overlay_authored": true
+  },
+  "status": "diagnostic_only_no_prompt_text"
+}

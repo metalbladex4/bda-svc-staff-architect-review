@@ -1,0 +1,56 @@
+{
+  "recommendation_id": "v017b_prompt_axis_recommendation",
+  "status": "approved_and_executed_as_v017b_near_miss",
+  "recommended_axis_id": "v017b_single_target_box_span_self_filter",
+  "axis_type": "prompt_interface_and_self_filter",
+  "authoring_authorized": true,
+  "run_authorized": true,
+  "parent_candidate": {
+    "candidate_id": "v017a",
+    "classification": "near_miss_not_winner",
+    "primary_blocker": "case_101_broad_group_scene_box"
+  },
+  "rationale": [
+    "v017a suppressed row-fragment enumeration on case 101.",
+    "v017a preserved positive control 155 and the office-negative abstention guard.",
+    "v017a still accepted one broad group/scene box as a final military-equipment detection.",
+    "The next axis must separate candidate discovery from final single-target box acceptance."
+  ],
+  "preserve": [
+    "human_report_challenge_v2 gate authority",
+    "positive control 155 semantics",
+    "166 holdout-only boundary",
+    "office-negative abstention guard",
+    "row-fragment suppression",
+    "legitimate secondary and distant target recall",
+    "runtime placeholders if later prompt text is authored"
+  ],
+  "add_constraints": [
+    "final detection must be one distinct target body",
+    "final box must be tight to the accepted target body",
+    "broad group boxes must be rejected even when target evidence exists inside the span",
+    "large context spans must not become proxy detections",
+    "uncertain candidates should be omitted from final JSON"
+  ],
+  "executed_result": {
+    "classification": "near_miss_not_winner",
+    "diagnosis_artifact": "../v017b_gate_result/v017b_failure_diagnosis.json",
+    "run_directory": "../../runs/v017b/live_2026-05-03_032920Z",
+    "summary": "v017b was authored and run under bounded approval. It improved aggregate checks but failed the case 101 broad-box diagnostic."
+  },
+  "forbidden_after_v017b_result": [
+    "v017c overlay without later approval",
+    "runner session without later approval",
+    "validation manifest without later approval",
+    "run directory without later approval",
+    "VLM inference",
+    "dev run",
+    "holdout run",
+    "all-112 run",
+    "promotion",
+    "runtime config adoption",
+    "structural guard implementation",
+    "source-truth mutation"
+  ],
+  "next_required_approval": "Review v017b near-miss evidence before any v017c prompt-authoring wave."
+}

@@ -1,0 +1,84 @@
+{
+  "non_prompt_guard_signal": {
+    "assessment": "worth_planning_before_more_dev_runs",
+    "reason": "The failure has a detectable output shape: regular rows of small boxes and broad group boxes."
+  },
+  "observations": [
+    {
+      "evidence": {
+        "v015a": 13,
+        "v015b": 11,
+        "v015c": 11
+      },
+      "id": "recall_recovery_real_but_uncontrolled",
+      "summary": "Each candidate improved matches versus v014 hinge baseline, so the human-report lever has recall signal."
+    },
+    {
+      "evidence": {
+        "v015a": {
+          "false_negatives": 9,
+          "false_positives": 12,
+          "matches": 3,
+          "predicted_targets": 15,
+          "reference_targets": 12
+        },
+        "v015b": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "v015c": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        }
+      },
+      "id": "case_101_is_persistent_blocker",
+      "summary": "All candidates failed case 101; v015b and v015c returned 31 predicted targets with 28 false positives."
+    },
+    {
+      "evidence": {
+        "v015c_101": {
+          "false_negatives": 9,
+          "false_positives": 28,
+          "matches": 3,
+          "predicted_targets": 31,
+          "reference_targets": 12
+        },
+        "v015c_12": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "v015c_155": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        },
+        "v015c_28": {
+          "false_negatives": 0,
+          "false_positives": 0,
+          "matches": 1,
+          "predicted_targets": 1,
+          "reference_targets": 1
+        }
+      },
+      "id": "count_first_helped_side_guards_not_main_hinge",
+      "summary": "v015c removed false positives from 12 and 28 while preserving 155, but it did not suppress 101 row enumeration."
+    }
+  ],
+  "primary_blocker": "case_101_row_fragment_and_group_box_failure",
+  "prompt_only_risk": {
+    "assessment": "high",
+    "reason": "Three prompt-only variants changed wording but did not enforce the structural boundary that 101 needs."
+  },
+  "status": "diagnostic_only"
+}

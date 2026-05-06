@@ -1,0 +1,343 @@
+{
+  "baselines_loaded": true,
+  "filtered_baseline_summary": {
+    "human_report_challenge_v2_changed_source_sanity": {
+      "case_ids": [
+        "141",
+        "152",
+        "154",
+        "155",
+        "156"
+      ],
+      "holdout_only_positive_excluded": [
+        "166"
+      ],
+      "v009": {
+        "totals": {
+          "false_negative_count": 4,
+          "false_positive_count": 2,
+          "image_count": 5,
+          "match_count": 8,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 10,
+          "reference_target_count": 12
+        }
+      },
+      "v014": {
+        "totals": {
+          "false_negative_count": 5,
+          "false_positive_count": 2,
+          "image_count": 5,
+          "match_count": 7,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 9,
+          "reference_target_count": 12
+        }
+      }
+    },
+    "human_report_challenge_v2_hinge_12": {
+      "case_ids": [
+        "101",
+        "13",
+        "42",
+        "147",
+        "12",
+        "28",
+        "19",
+        "155",
+        "66",
+        "67",
+        "84",
+        "97"
+      ],
+      "v009": {
+        "totals": {
+          "false_negative_count": 27,
+          "false_positive_count": 40,
+          "image_count": 12,
+          "match_count": 30,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 70,
+          "reference_target_count": 57
+        }
+      },
+      "v014": {
+        "totals": {
+          "false_negative_count": 36,
+          "false_positive_count": 17,
+          "image_count": 12,
+          "match_count": 21,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 38,
+          "reference_target_count": 57
+        }
+      }
+    },
+    "human_report_challenge_v2_updated_report_smoke": {
+      "case_ids": [
+        "40",
+        "61",
+        "65",
+        "69",
+        "70",
+        "77",
+        "106",
+        "125",
+        "141",
+        "152",
+        "154",
+        "155",
+        "156",
+        "172",
+        "187"
+      ],
+      "v009": {
+        "totals": {
+          "false_negative_count": 8,
+          "false_positive_count": 4,
+          "image_count": 15,
+          "match_count": 23,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 27,
+          "reference_target_count": 31
+        }
+      },
+      "v014": {
+        "totals": {
+          "false_negative_count": 11,
+          "false_positive_count": 4,
+          "image_count": 15,
+          "match_count": 20,
+          "negative_scene_abstention_correct_count": 0,
+          "negative_scene_count": 0,
+          "negative_scene_false_positive_count": 0,
+          "predicted_target_count": 24,
+          "reference_target_count": 31
+        }
+      }
+    }
+  },
+  "gate_policy_summary": {
+    "packs": {
+      "human_report_challenge_v2_changed_source_sanity": {
+        "baseline": {
+          "v009": {
+            "false_negative_count": 4,
+            "false_positive_count": 2,
+            "image_count": 5,
+            "match_count": 8,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 10,
+            "reference_target_count": 12
+          },
+          "v014": {
+            "false_negative_count": 5,
+            "false_positive_count": 2,
+            "image_count": 5,
+            "match_count": 7,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 9,
+            "reference_target_count": 12
+          }
+        },
+        "case_ids": [
+          "141",
+          "152",
+          "154",
+          "155",
+          "156"
+        ],
+        "gate": {
+          "false_negative_count_max_exclusive": 5,
+          "false_positive_count_max_inclusive": 4,
+          "match_count_min_exclusive": 7,
+          "positive_control_155": "must_have_at_least_one_match_and_nonzero_reference_targets",
+          "positive_control_166": "holdout_only_not_in_this_pack"
+        },
+        "holdout_only_positive_excluded": [
+          "166"
+        ]
+      },
+      "human_report_challenge_v2_hinge_12": {
+        "baseline": {
+          "v009": {
+            "false_negative_count": 27,
+            "false_positive_count": 40,
+            "image_count": 12,
+            "match_count": 30,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 70,
+            "reference_target_count": 57
+          },
+          "v014": {
+            "false_negative_count": 36,
+            "false_positive_count": 17,
+            "image_count": 12,
+            "match_count": 21,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 38,
+            "reference_target_count": 57
+          }
+        },
+        "case_ids": [
+          "101",
+          "13",
+          "42",
+          "147",
+          "12",
+          "28",
+          "19",
+          "155",
+          "66",
+          "67",
+          "84",
+          "97"
+        ],
+        "gate": {
+          "false_negative_count_max_exclusive": 36,
+          "false_positive_count_max_inclusive": 21,
+          "manual_diagnostic_101": "must_have_no_row_fragment_enumeration_or_broad_group_scene_box",
+          "match_count_min_exclusive": 21,
+          "positive_control_155": "must_have_at_least_one_match_and_nonzero_reference_targets"
+        }
+      },
+      "human_report_challenge_v2_updated_report_smoke": {
+        "baseline": {
+          "v009": {
+            "false_negative_count": 8,
+            "false_positive_count": 4,
+            "image_count": 15,
+            "match_count": 23,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 27,
+            "reference_target_count": 31
+          },
+          "v014": {
+            "false_negative_count": 11,
+            "false_positive_count": 4,
+            "image_count": 15,
+            "match_count": 20,
+            "negative_scene_abstention_correct_count": 0,
+            "negative_scene_count": 0,
+            "negative_scene_false_positive_count": 0,
+            "predicted_target_count": 24,
+            "reference_target_count": 31
+          }
+        },
+        "case_ids": [
+          "40",
+          "61",
+          "65",
+          "69",
+          "70",
+          "77",
+          "106",
+          "125",
+          "141",
+          "152",
+          "154",
+          "155",
+          "156",
+          "172",
+          "187"
+        ],
+        "gate": {
+          "no_v1_reference_paths": true,
+          "parse_and_manifest_presence": true
+        },
+        "status": "fresh_v009_v014_baseline_covered_source_refresh_smoke"
+      },
+      "legacy_abstention_guard_office_negative": {
+        "case_ids": [
+          "office-negative"
+        ],
+        "gate": {
+          "negative_scene_abstention_correct_count": 1,
+          "negative_scene_count": 1,
+          "negative_scene_false_positive_count": 0
+        }
+      }
+    },
+    "protected_negative_replacement": {
+      "current_abstention_guard": "office-negative",
+      "old_controls": [
+        "155",
+        "166"
+      ],
+      "old_controls_status": "superseded_positive_cases_in_v2"
+    },
+    "v1_status": "historical_only_not_current_gate_authority"
+  },
+  "generated_utc": "2026-05-01T02:06:39.565792+00:00",
+  "issues": [],
+  "manifest_checks": {
+    "case_155_positive_control_present": true,
+    "case_166_holdout_only_excluded": true,
+    "changed_source_sanity_case_ids": [
+      "141",
+      "152",
+      "154",
+      "155",
+      "156"
+    ],
+    "hinge_case_ids": [
+      "101",
+      "13",
+      "42",
+      "147",
+      "12",
+      "28",
+      "19",
+      "155",
+      "66",
+      "67",
+      "84",
+      "97"
+    ],
+    "legacy_abstention_guard_case_ids": [
+      "office_negative"
+    ],
+    "legacy_abstention_guard_separate": true,
+    "updated_report_smoke_case_ids": [
+      "40",
+      "61",
+      "65",
+      "69",
+      "70",
+      "77",
+      "106",
+      "125",
+      "141",
+      "152",
+      "154",
+      "155",
+      "156",
+      "172",
+      "187"
+    ]
+  },
+  "mode": "dry_run_gate_readiness",
+  "passed": true,
+  "policy_loaded": true,
+  "status": "dry_run_not_evaluated"
+}

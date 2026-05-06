@@ -1,0 +1,45 @@
+{
+  "guard_name": "structural_output_shape_guard_v1",
+  "input_shape": {
+    "bbox": "xyxy pixel coordinates or normalized coordinates converted to image-relative ratios",
+    "candidate": "list of Detection-like records or final physical_damage targets",
+    "required_fields": [
+      "target_type",
+      "bbox"
+    ]
+  },
+  "non_goals": [
+    "replace prompt grounding",
+    "change reference truth",
+    "hide raw model output",
+    "promote guarded output without manual review",
+    "make case 101 pass by deleting evidence without audit"
+  ],
+  "signals": [
+    {
+      "default_action_for_offline_simulator": "flag_and_optionally_suppress",
+      "draft_rule": "area_ratio >= 0.25 OR width_ratio >= 0.70 and height_ratio >= 0.30",
+      "id": "broad_group_or_scene_box",
+      "purpose": "flag boxes too large to represent one distinct target body",
+      "risk": "may suppress a legitimate very large building or grouped reference target",
+      "source": "adapted from v015c/v015d case 101 diagnostic thresholds"
+    },
+    {
+      "default_action_for_offline_simulator": "flag_group_and_optionally_suppress_member_boxes",
+      "draft_rule": "at least 5 small boxes in a narrow y-band with regular x gaps",
+      "id": "regular_row_fragment_enumeration",
+      "purpose": "flag many small boxes aligned in a regular row pattern",
+      "risk": "may suppress legitimate convoy/equipment rows if the image truly contains distinct vehicles",
+      "source": "v015b/v015c case 101 row-fragment pattern"
+    },
+    {
+      "default_action_for_offline_simulator": "flag_only",
+      "draft_rule": "small area plus no nearby standalone-body evidence; diagnostic-only in first simulator",
+      "id": "tiny_ambiguous_context_box",
+      "purpose": "flag tiny boxes likely to be distant context, debris, smoke edge, or texture",
+      "risk": "body-evidence cannot be proven from geometry alone",
+      "source": "v015a/v015b cases 12, 28, and 19 side false positives"
+    }
+  ],
+  "status": "candidate_guard_spec_only"
+}

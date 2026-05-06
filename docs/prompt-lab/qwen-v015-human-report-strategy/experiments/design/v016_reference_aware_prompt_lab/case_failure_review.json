@@ -1,0 +1,380 @@
+{
+  "package_id": "v016_reference_aware_prompt_lab",
+  "status": "case_failure_review_complete",
+  "generated_utc": "2026-04-30T00:34:10Z",
+  "selection_rule": "all v015e dev cases with false_positive_count > 0 or false_negative_count >= 2, plus protected/manual controls",
+  "allowed_labels": [
+    "true_prompt_recall_failure",
+    "true_prompt_precision_failure",
+    "reference_shape_caveat",
+    "evaluation_shape_caveat",
+    "manual_diagnostic_case",
+    "protected_negative_control",
+    "prompt_axis_candidate",
+    "not_prompt_authoring_ready"
+  ],
+  "aggregate_context": {
+    "v015e_dev": {
+      "match_count": 61,
+      "false_negative_count": 56,
+      "false_positive_count": 17,
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 1
+    },
+    "v014_dev_baseline": {
+      "match_count": 70,
+      "false_negative_count": 47,
+      "false_positive_count": 17
+    },
+    "interpretation": "v015e held precision but failed dev recall, so v016 should change the prompt-lab method rather than merely tighten individual-body wording."
+  },
+  "reviewed_cases": [
+    "66",
+    "67",
+    "69",
+    "84",
+    "86",
+    "97",
+    "100",
+    "101",
+    "103",
+    "147",
+    "155",
+    "166"
+  ],
+  "cases": [
+    {
+      "case_id": "66",
+      "split": "dev",
+      "target_types": [
+        "military equipment"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "stratified_split_label": "v014_fp_suppression",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 7,
+        "false_positive_count": 0,
+        "reference_target_count": 8,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "Dense military-equipment recall collapsed to one prediction without a false-positive rebound.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata; treat as prompt-recall evidence unless a later visual audit proves otherwise.",
+      "v016_implication": "v016 needs a candidate-discovery mechanism that does not stop after one confident target in dense scenes."
+    },
+    {
+      "case_id": "67",
+      "split": "dev",
+      "target_types": [
+        "military equipment"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "stratified_split_label": "v014_fp_suppression",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 10,
+        "false_positive_count": 10,
+        "reference_target_count": 11,
+        "predicted_target_count": 11
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "true_prompt_precision_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "The model emitted many detections but only one matched, showing that count recovery alone can become misplaced enumeration.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 must combine discovery with an evidence budget and self-filter instead of asking for more boxes generically."
+    },
+    {
+      "case_id": "69",
+      "split": "dev",
+      "target_types": [
+        "military equipment"
+      ],
+      "slices": [],
+      "stratified_split_label": "persistent_false_positive_gap",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "reference_target_count": 1,
+        "predicted_target_count": 2
+      },
+      "classification_labels": [
+        "true_prompt_precision_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "A one-target case gained an extra unsupported prediction.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should keep a final evidence filter for extra single-case detections."
+    },
+    {
+      "case_id": "84",
+      "split": "dev",
+      "target_types": [
+        "military equipment"
+      ],
+      "slices": [
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "stratified_split_label": "v014_fp_suppression",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 12,
+        "false_positive_count": 0,
+        "reference_target_count": 13,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "The largest dense recall collapse in the reviewed set, with precision preserved by under-detection.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should explicitly handle dense target discovery before final filtering, without resorting to row-fragment enumeration."
+    },
+    {
+      "case_id": "86",
+      "split": "dev",
+      "target_types": [
+        "building"
+      ],
+      "slices": [],
+      "stratified_split_label": "stable_or_clean",
+      "v015e_metrics": {
+        "match_count": 0,
+        "false_negative_count": 1,
+        "false_positive_count": 1,
+        "reference_target_count": 1,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "true_prompt_precision_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "The model selected the wrong target shape/location rather than abstaining.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should make final detections justify the selected object boundary, not just the category."
+    },
+    {
+      "case_id": "97",
+      "split": "dev",
+      "target_types": [
+        "building"
+      ],
+      "slices": [],
+      "stratified_split_label": "v014_fp_suppression",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 4,
+        "reference_target_count": 1,
+        "predicted_target_count": 5
+      },
+      "classification_labels": [
+        "true_prompt_precision_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "Building precision regressed through unsupported extra detections.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should discourage adjacent context boxes and require one final box per clearly supported target."
+    },
+    {
+      "case_id": "100",
+      "split": "dev",
+      "target_types": [
+        "building"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "stratified_split_label": "v014_recall_loss",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 2,
+        "false_positive_count": 0,
+        "reference_target_count": 3,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "A smaller multi-building recall miss that mirrors the dense-equipment failures.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should handle secondary visible targets without using scene-central-only logic."
+    },
+    {
+      "case_id": "101",
+      "split": "dev",
+      "target_types": [
+        "military equipment"
+      ],
+      "slices": [
+        "human_confidence_distance_slice_v1",
+        "human_dense_multi_target_slice_v1",
+        "human_military_equipment_damage_slice_v1"
+      ],
+      "stratified_split_label": "precision_recall_tradeoff",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 11,
+        "false_positive_count": 0,
+        "reference_target_count": 12,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "reference_shape_caveat",
+        "evaluation_shape_caveat",
+        "manual_diagnostic_case",
+        "prompt_axis_candidate",
+        "not_prompt_authoring_ready"
+      ],
+      "prompt_relevance": "Case 101 is still useful as a hinge, but only with manual interpretation because the broad-box failure and reference caveats distort simple metric reading.",
+      "reference_eval_notes": "Manual review records a large foreground reference box and duplicate reference boxes for target_7/target_8. The v015e hinge prediction remained a broad group/scene box.",
+      "v016_implication": "Use 101 as a manual diagnostic, not a single numeric optimization target. v016 should separate dense recall, broad-box rejection, and reference-shape caveats."
+    },
+    {
+      "case_id": "103",
+      "split": "dev",
+      "target_types": [
+        "building"
+      ],
+      "slices": [],
+      "stratified_split_label": "stable_or_clean",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 1,
+        "reference_target_count": 1,
+        "predicted_target_count": 2
+      },
+      "classification_labels": [
+        "true_prompt_precision_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "Another one-target building case with an extra unsupported detection.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 needs a final duplicate/adjacent-context rejection step inside the prompt interface."
+    },
+    {
+      "case_id": "147",
+      "split": "dev",
+      "target_types": [
+        "building",
+        "military equipment"
+      ],
+      "slices": [
+        "human_building_damage_slice_v1",
+        "human_dense_multi_target_slice_v1"
+      ],
+      "stratified_split_label": "v014_recall_loss",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 2,
+        "false_positive_count": 0,
+        "reference_target_count": 3,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "true_prompt_recall_failure",
+        "prompt_axis_candidate"
+      ],
+      "prompt_relevance": "Mixed-category scene where v015e preserved precision by missing supported targets.",
+      "reference_eval_notes": "No source-recorded reference-shape caveat in the split metadata.",
+      "v016_implication": "v016 should make category-specific discovery explicit without broadening into context hallucinations."
+    },
+    {
+      "case_id": "155",
+      "split": "dev",
+      "target_types": [
+        "object_not_found"
+      ],
+      "slices": [
+        "human_out_of_scope_negative_slice_v1"
+      ],
+      "stratified_split_label": "stable_or_clean",
+      "v015e_metrics": {
+        "match_count": 1,
+        "false_negative_count": 0,
+        "false_positive_count": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 1
+      },
+      "classification_labels": [
+        "protected_negative_control"
+      ],
+      "prompt_relevance": "Protected object-not-found behavior remained safe in dev.",
+      "reference_eval_notes": "Protected control should remain a no-regression gate.",
+      "v016_implication": "Any v016 prompt must preserve object-not-found abstention and avoid adding positive detections here."
+    },
+    {
+      "case_id": "166",
+      "split": "holdout_reference_only",
+      "target_types": [
+        "object_not_found"
+      ],
+      "slices": [
+        "human_out_of_scope_negative_slice_v1"
+      ],
+      "stratified_split_label": "persistent_recall_gap",
+      "v015e_metrics": null,
+      "classification_labels": [
+        "protected_negative_control",
+        "not_prompt_authoring_ready"
+      ],
+      "prompt_relevance": "Holdout protected control is tracked as a future no-regression guard, not as dev evidence.",
+      "reference_eval_notes": "Reference-only in this package; v015e holdout was not run.",
+      "v016_implication": "Do not tune directly on 166 before a separately approved holdout wave."
+    }
+  ],
+  "case_set_validation": {
+    "expected_cases": [
+      "66",
+      "67",
+      "69",
+      "84",
+      "86",
+      "97",
+      "100",
+      "101",
+      "103",
+      "147",
+      "155",
+      "166"
+    ],
+    "actual_cases": [
+      "66",
+      "67",
+      "69",
+      "84",
+      "86",
+      "97",
+      "100",
+      "101",
+      "103",
+      "147",
+      "155",
+      "166"
+    ],
+    "matches_expected": true
+  }
+}

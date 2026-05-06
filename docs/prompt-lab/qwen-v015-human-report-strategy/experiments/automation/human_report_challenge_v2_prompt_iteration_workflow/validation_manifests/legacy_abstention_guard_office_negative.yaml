@@ -1,0 +1,14 @@
+pack_id: legacy-abstention-guard-office-negative-v1
+eval_mode: detection_study
+images_dir: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images
+cases:
+- case_id: office-negative
+  image_filename: office_negative.jpg
+  image_path: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg
+  reference_report: /home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/qwen_candidate_a/office_negative_2026-04-21_001027Z.json
+  expected_target_count: 0
+  expected_target_types: []
+  negative_scene: true
+  required_controls:
+  - negative_scene_no_hallucination
+  allowed_regressions: []

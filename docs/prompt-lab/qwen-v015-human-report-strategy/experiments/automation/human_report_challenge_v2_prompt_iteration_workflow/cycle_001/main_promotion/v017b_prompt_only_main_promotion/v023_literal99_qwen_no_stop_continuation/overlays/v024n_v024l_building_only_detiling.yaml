@@ -1,0 +1,50 @@
+candidate_id: v024n_v024l_building_only_detiling
+title: v024n v024l building-only de-tiling
+generated_from:
+  - v024l_v023s_no_wheel_track_ablation
+  - v024m_v024l_bda_salience_gate
+hypothesis: >
+  v024m reduced sparse building false positives but collapsed military-equipment
+  rows. Test the same lesson as a narrow building-only de-tiling rule with an
+  explicit exemption for military equipment rows, convoys, and clusters.
+overrides:
+  prompts:
+    detect_objects: |
+      Detect every visible target whose doctrinal target_type is one of:
+      {categories}
+
+      Return JSON bounding boxes only. Use one detection per distinct visible target body, wreck body, or exterior building structure.
+
+      Include a target when its own visible body, wreck mass, hull/chassis/roofline, silhouette, or exterior wall/roof boundary is visible enough to box tightly.
+
+      BUILDING-ONLY DE-TILING
+      This rule applies only to target_type buildings. Do not split one intact continuous building, campus wing, roof plane, facade, floor band, or background structure into several building boxes. For buildings, keep one tight whole-structure box unless separate damaged exterior structures are visibly distinct. This building-only rule does not apply to military equipment.
+
+      Exclude boxes for smoke, dust, flame, shadows, roads, terrain, blast marks, debris-only patches, row spacing, empty gaps, broad groups, duplicate fragments, and context without a visible target body.
+
+      In crowded rows, convoys, or clusters of military equipment, output one tight box for each distinct visible target body. Do not output a broad row or cluster box, and do not remove a true military-equipment body just because it is small, close to another target, or partly obscured by dust.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion

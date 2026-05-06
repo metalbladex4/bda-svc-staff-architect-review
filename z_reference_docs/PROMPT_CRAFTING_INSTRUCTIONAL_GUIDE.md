@@ -35,8 +35,28 @@ Practical rule:
   reflex
 - treat installed custom agents as optional specialists, not default
   participants in every prompt task
-- use `sequentialthinking` before substantive updates to live maintained docs,
-  global rules, or any `AGENTS.md`
+- follow the canonical SequentialThinking trigger policy in
+  `/home/williambenitez1/.codex/AGENTS.md` and the Capstone overlay in
+  `/home/williambenitez1/Capstone/AGENTS.md`
+- the active `sequential-thinking` server uses Spences10
+  `mcp-sequentialthinking-tools`; when tool planning matters, use task-scoped
+  canonical inventory names and correct any `invalid_recommendations` before
+  acting
+- use SequentialThinking only as a compact checkpoint for genuinely complex,
+  branchy, evidence-sensitive, critique-heavy, or high-blast-radius prompt/eval
+  decisions; do not invoke it merely because Plan Mode is active
+- keep SequentialThinking non-authoritative: it organizes the work but does
+  not replace source inspection, tests, runner artifacts, eval outputs, or
+  human review
+- Mem0 is active but manual/advisory only, MCPfinder is active only for
+  missing-MCP discovery, and NCP remains planned/deferred rather than an active
+  prompt-work router
+- Superpowers is installed as a global Codex skill pack and may be used as
+  Capstone-adapted workflow scaffolding for brainstorming, planning,
+  systematic debugging, subagent orchestration, review, and verification
+- when a project has an existing Graphify profile, refresh the graph after
+  meaningful live-document updates unless the change is typo-only or otherwise
+  non-substantive
 
 Teaching implication:
 
@@ -44,6 +64,15 @@ Teaching implication:
   support
 - it still does not replace the need for a clean evidence hub, repeated runs,
   clear promotion gates, and code-to-doc verification
+- Superpowers does not make prompt work automatic authority; it helps structure
+  the loop, while source artifacts, eval outputs, visual/manual review, and
+  explicit user approval still decide whether a candidate advances
+- once the manual phase-4 hypothesis/run/promotion workflow proves stable, the
+  next packaging step should be a dedicated prompt-eval-runner Codex skill
+  rather than more ad hoc operator instructions
+- until that packaging step happens, the phase-5 bounded runner should stay a
+  local protocol tool with fixed overlay queues, fixed validation packs, and no
+  authority to self-promote anything
 
 ## Capability Map Before Repo Specifics
 
@@ -104,6 +133,9 @@ But the general lesson is:
 
 - any prompt workflow needs a stable runtime inference layer whose contract is
   treated as real engineering surface, not as disposable scaffolding
+- once the workflow matures, keep the tracked runtime as a control baseline and
+  move day-to-day candidates into overlays instead of rewriting tracked config
+  for each local experiment
 
 ### 3. An Evaluation And Visual Review Layer
 
@@ -886,3 +918,44 @@ prompt text. It is the structure:
 - broader validation before promotion
 
 That structure is what made `v009` believable.
+
+## Post-Architect Extension
+
+Once the control-line workflow is stable enough, extend the same structure in
+this order:
+
+1. prove a new detector/backend candidate in a dedicated pilot lane
+2. make the keep/defer/promote decision from recorded runner evidence
+3. package the bounded workflow into a local-only skill for repeatable use
+4. add heavier automation only after the protocol is stable
+5. widen the proven architecture to the next model line
+
+Important boundary:
+
+- the skill is a workflow wrapper, not runtime truth
+- backend pilots are comparison lanes, not promotion by branch existence
+- model-line ports should inherit the proven control-line architecture, not the
+  unfinished pilot churn
+
+## Post-Rollout Qwen Follow-Up Rule
+
+Once the architecture is in place and the work returns to Qwen detect-only
+iteration, use a bounded adaptive cycle rather than ad hoc candidate hopping.
+
+Default shape:
+
+1. keep one active base candidate
+2. author up to three real follow-up attempts
+3. run each attempt through a declared runner session
+4. replay significantly good results immediately with no extra research
+5. for anomalies, control regressions, or truth conflicts, do light diagnosis
+   first and then replay exactly with no edits
+6. pause the cycle if a truth conflict survives replay instead of spending more
+   attempts against unstable or contradictory evidence
+
+Teaching implication:
+
+- the runner session is the execution unit
+- the adaptive cycle is the decision-and-learning unit
+- separating those two layers keeps the workflow bounded without making it
+  rigid

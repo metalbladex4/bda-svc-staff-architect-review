@@ -1,0 +1,237 @@
+{
+  "false_positive_instances_by_case": {
+    "101": [
+      {
+        "bbox": [
+          143,
+          117,
+          189,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_2",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          205,
+          117,
+          251,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_3",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          266,
+          117,
+          312,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_4",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          410,
+          117,
+          456,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_5",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          471,
+          117,
+          517,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_6",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          594,
+          117,
+          640,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_8",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          655,
+          117,
+          701,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_9",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          717,
+          117,
+          763,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_10",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          778,
+          117,
+          824,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_11",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          840,
+          117,
+          886,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_12",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          901,
+          117,
+          947,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_13",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          963,
+          117,
+          1009,
+          152
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_14",
+        "target_type": "military_equipment"
+      }
+    ],
+    "12": [
+      {
+        "bbox": [
+          8,
+          123,
+          132,
+          436
+        ],
+        "confidence_level": "PROBABLE",
+        "damage_category": "DESTROYED",
+        "pred_target_label": "target_0",
+        "target_type": "buildings"
+      }
+    ],
+    "155": [],
+    "28": [
+      {
+        "bbox": [
+          896,
+          86,
+          922,
+          108
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_1",
+        "target_type": "military_equipment"
+      },
+      {
+        "bbox": [
+          922,
+          108,
+          957,
+          138
+        ],
+        "confidence_level": "CONFIRMED",
+        "damage_category": "NO DAMAGE",
+        "pred_target_label": "target_2",
+        "target_type": "military_equipment"
+      }
+    ]
+  },
+  "generated_utc": "2026-04-29T18:19:58.316167+00:00",
+  "label_definitions": {
+    "adjacent_context_false_positive": "Adjacent context, smoke, building parts, or tiny distant shapes become extra targets.",
+    "bbox_or_reference_shape_artifact": "Metric interpretation is affected by reference geometry or grouped boxes.",
+    "duplicate_reference_target": "The source reference contains duplicated target geometry.",
+    "pattern_fragment_row_enumeration": "The model enumerates repeated row-like fragments as independent targets.",
+    "protected_abstention_preserved": "Protected object-not-found abstention remained safe.",
+    "valid_recall_recovery": "The candidate recovered at least one true-positive target signal.",
+    "whole_scene_or_group_box": "A broad candidate box covers a large target group or scene region instead of a single distinct object."
+  },
+  "labels_to_cases": {
+    "adjacent_context_false_positive": [
+      "12",
+      "28"
+    ],
+    "bbox_or_reference_shape_artifact": [
+      "101"
+    ],
+    "duplicate_reference_target": [
+      "101"
+    ],
+    "pattern_fragment_row_enumeration": [
+      "101"
+    ],
+    "protected_abstention_preserved": [
+      "155"
+    ],
+    "valid_recall_recovery": [
+      "101",
+      "12",
+      "28"
+    ],
+    "whole_scene_or_group_box": [
+      "101"
+    ]
+  },
+  "package_id": "v015a_hinge_failure_diagnostic",
+  "required_labels": [
+    "whole_scene_or_group_box",
+    "pattern_fragment_row_enumeration",
+    "adjacent_context_false_positive",
+    "bbox_or_reference_shape_artifact",
+    "duplicate_reference_target",
+    "valid_recall_recovery",
+    "protected_abstention_preserved"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "candidate_id": "v017f",
+  "candidate_name": "v017f_compact_visual_anchor_balance",
+  "status": "potential_winner_recall_variant_not_best_balanced",
+  "case_101_policy": "diagnostic_only_excluded_from_forward_pass_fail_gate",
+  "run_dir": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017f/live_2026-05-03_044145Z",
+  "gate_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/runs/v017f/live_2026-05-03_044145Z/gate_check_candidate_summary.json",
+  "classification": "potential_winner",
+  "passed": true,
+  "metrics": {
+    "human_report_challenge_v2_hinge_11_no101": {
+      "match_count": 23,
+      "false_negative_count": 22,
+      "false_positive_count": 17,
+      "positive_control_155_passed": true
+    },
+    "human_report_challenge_v2_changed_source_sanity": {
+      "match_count": 9,
+      "false_negative_count": 3,
+      "false_positive_count": 1,
+      "positive_control_155_passed": true
+    },
+    "human_report_challenge_v2_updated_report_smoke": {
+      "match_count": 24,
+      "false_negative_count": 7,
+      "false_positive_count": 2
+    },
+    "legacy_abstention_guard_office_negative": {
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 1
+    }
+  },
+  "comparison_to_v017d": {
+    "recall_advantage": "v017f has one more hinge match and one fewer hinge false negative",
+    "precision_tradeoff": "v017f has four more hinge false positives, one changed-source false positive, and one more updated-smoke false positive",
+    "balanced_recommendation": "v017d"
+  }
+}

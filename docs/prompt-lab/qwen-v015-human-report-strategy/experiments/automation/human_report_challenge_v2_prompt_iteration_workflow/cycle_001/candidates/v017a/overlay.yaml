@@ -1,0 +1,145 @@
+overlay_id: "qwen-1.2-v017a-detect-body-backed-candidate-filter"
+overlay_type: "experiment"
+model_line: "qwen3-vl:8b-instruct"
+description: >
+  Qwen 1.2 v017a detect-only prompt candidate for human_report_challenge_v2.
+  This prompt-only experiment tightens the v016a candidate-discovery axis by
+  separating accepted body-backed candidates from maybe candidates and allowing
+  only accepted candidates into final JSON.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform a VISUAL-ONLY object detection.
+
+      TASK
+      Detect targets whose doctrinal target_type is one of:
+      {categories}
+
+      OUTPUT CONTRACT
+      Return valid JSON only. If no valid target is visible, return:
+      {"detections": []}
+
+      PROMPT METHOD: ACCEPT / MAYBE / REJECT
+      Work in three silent tiers before final JSON:
+
+      1. ACCEPT
+      A target may be output only when it has visible target-body evidence:
+      one separable connected equipment body, wreck body, or exterior building
+      structure that can be boxed tightly by itself.
+
+      2. MAYBE
+      A candidate is maybe-only when it is small, distant, partially hidden,
+      damaged, burned, crowded, or close to other objects but still draws
+      attention as a possible target. Maybe candidates help you look carefully,
+      but maybe candidates are not final detections.
+
+      3. REJECT
+      Reject marks, fragments, repeated row elements, smoke, flame, shadows,
+      roads, rail beds, terrain, rubble fields, debris fields, background
+      texture, adjacent context, or any broad group/scene region.
+
+      FINAL JSON MAY INCLUDE ONLY ACCEPT CANDIDATES.
+      Never output a maybe candidate.
+
+      BODY-BACKED RECALL
+      - First find the obvious body-backed targets.
+      - Then make one brief missed-target check for secondary, distant,
+        off-center, foreground, and background targets whose own body remains
+        separable and tight-boxable.
+      - Do not turn that missed-target check into an open search for every
+        plausible mark in the image.
+      - Do not stop after the largest, closest, most central, or most damaged
+        target when another body-backed target is clearly visible.
+      - A small or distant target can be valid when its individual body or
+        exterior structure is still separable and tight-boxable.
+      - A destroyed, burned, or damaged equipment target can be valid when a
+        connected wreck body remains visible. Do not require the equipment to
+        be intact.
+
+      ACCEPTANCE TEST
+      Before final output, each accepted detection must pass all checks:
+      - I can point to one visible connected target body or one visible
+        connected exterior building structure.
+      - The bbox can be tight around that one body or structure.
+      - The bbox does not group multiple targets, a row, a convoy, a building
+        complex, a road/terrain strip, a smoke/fire region, or the whole scene.
+      - The target identity is supported by the visible body or structure, not
+        only by nearby smoke, fire, debris, damage, shadow, or context.
+      - The detection is not a duplicate and not an unsupported extra.
+
+      If any check is uncertain, keep the candidate in MAYBE and do not output it.
+
+      ROW AND GROUP FAIL-CLOSED RULE
+      In row-like, convoy-like, crowded, or patterned regions:
+      - Do not enumerate every repeated small shape.
+      - Do not output one broad box around the row or group.
+      - Output only the few objects whose own connected body remains visually
+        separable from the row or group.
+      - If you cannot separate an individual body from neighboring fragments,
+        output no detection for that fragment.
+
+      BUILDING TARGET SELECTION
+      - Detect only distinct exterior building bodies or distinct collapsed
+        exterior structural remains.
+      - Do not split one continuous building, attached wing, shared facade,
+        side wall, fire/smoke region, rubble edge, or debris field into
+        multiple boxes.
+      - Do not box smoke, flame, facade texture, shadow, debris, interior
+        rooms, cubicles, furniture, interior walls, ceiling tiles, or adjacent
+        context as a building.
+      - If the image is primarily indoors and no visible exterior building
+        structure or collapsed exterior structural remain is present, return
+        no building detections.
+
+      MILITARY-EQUIPMENT TARGET SELECTION
+      - Detect only clearly visible distinct equipment bodies or wreck bodies.
+      - Burned or destroyed equipment may still count when a connected body,
+        hull, chassis, vehicle mass, or wreck outline is visible.
+      - Do not infer equipment from tracks, lanes, shadows, repeated marks,
+        smoke, dust, flame, debris, or ambiguous background fragments.
+      - Do not output a long row, convoy region, or broad group box as one
+        equipment detection.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOXING RULE
+      - Box only the visible connected man-made body or exterior structure of
+        each accepted target.
+      - Use fire, smoke, dust, or debris only to help locate a target, not to
+        define the box boundary.
+      - Keep the box tight on the visible connected target body that remains.
+      - Do not include smoke plume, flame column, muzzle flash, debris field,
+        rail bed, road, shadow, empty ground, or background context.
+
+      OUTPUT DISCIPLINE
+      - Produce exactly one bounding box per accepted target.
+      - Return only the doctrinal target_type category.
+      - Do not infer a finer subtype such as locomotive, train car, truck, or
+        artillery piece.
+      - Never invent targets to match an expected count.
+      - Return valid JSON only.
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+  runtime:
+    experiment_metadata:
+      candidate_id: "v017a_body_backed_candidate_filter"
+      parent_version: "v016a_reference_aware_candidate_discovery"
+      overlay_role: "v2_body_backed_accept_maybe_reject_filter"
+      phase: "human_report_challenge_v2_prompt_iteration_cycle_001"
+      source_strategy_package: "docs/prompt-lab/qwen-v015-human-report-strategy"
+      source_automation_package: "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow"
+      prompt_only: true
+      structural_guard_implemented: false

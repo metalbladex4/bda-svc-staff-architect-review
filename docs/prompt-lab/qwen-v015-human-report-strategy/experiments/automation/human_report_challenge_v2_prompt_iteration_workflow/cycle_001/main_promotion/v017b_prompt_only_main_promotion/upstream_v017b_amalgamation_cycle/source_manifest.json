@@ -1,0 +1,36 @@
+{
+  "boundaries": {
+    "commit_or_push": false,
+    "doctrine_edit": false,
+    "graphify_refresh": false,
+    "mem0_write": false,
+    "runtime_adoption": false,
+    "source_truth_mutation": false
+  },
+  "cycle_id": "v018_upstream_v017b_amalgamation_cycle",
+  "endpoint_check": {
+    "model_ids": [
+      "qwen3-vl:8b-instruct",
+      "qwen3-vl:8b-instruct-q8_0",
+      "qwen3-vl:8b"
+    ],
+    "status": "available",
+    "url": "http://localhost:11434/v1/models"
+  },
+  "generated_utc": "2026-05-04T18:59:08.014836+00:00",
+  "manifest_checks": {
+    "all_current_count": 117,
+    "all_current_has_101": false,
+    "all_current_has_155": true,
+    "all_current_has_166": true,
+    "all_current_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml",
+    "office_negative_count": 1,
+    "office_negative_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml"
+  },
+  "model": "qwen3-vl:8b-instruct",
+  "openai_base_url": "http://localhost:11434/v1",
+  "previous_comparison_package": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/upstream_main_baseline_comparison",
+  "purpose": "Test five detect prompt amalgamations of upstream/main and v017b.",
+  "runtime_path": "current upstream/main code with Ollama OpenAI-compatible endpoint",
+  "upstream_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb"
+}

@@ -1,0 +1,53 @@
+candidate_id: v024a_coco_instance_annotator
+title: v024a coco instance annotator
+generated_from:
+  - v020c_anchor_replay
+  - v023s_qwen_native_conservative_json
+  - v023z_qwen_native_high_confidence_filter
+hypothesis: >
+  Prior cleanup/audit language preserves controls but repeatedly collapses dense
+  row behavior. Shift the model into a COCO-style instance-annotation frame:
+  one physical visible target instance, one whole-instance box, no part/effect
+  boxes, while preserving dense row enumeration.
+overrides:
+  prompts:
+    detect_objects: |
+      Perform VISUAL-ONLY target annotation.
+
+      Annotate every visible physical instance whose doctrinal target_type is one of:
+      {categories}
+
+      Work like a strict instance-labeling annotator:
+      - one physical target instance = one detection
+      - one detection = one tight whole-instance bounding box
+      - scan the full image before output
+      - in rows, convoys, formations, or clusters, annotate each separable visible target instance
+      - do not infer targets from spacing, smoke, blast marks, road position, shadows, terrain, debris, or neighboring context
+      - do not annotate broad groups, scene regions, duplicate boxes, subparts, facade pieces, smoke, dust, flame, roads, tracks, or debris-only patches
+
+      A valid target instance has its own visible body, wreck mass, vehicle hull/chassis, roofline, wall/roof boundary, wheel/track contact, silhouette, or exterior structure boundary that can support a tight box.
+
+      TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+      {detection_guidance}
+
+      BOUNDING BOX FORMAT
+      - Format: {bbox_format}
+      - Coordinate scale: {bbox_scale}
+
+      OUTPUT
+      Return valid JSON only.
+      Return a JSON object with a top-level detections field.
+      If no valid target is visible, return {"detections": []}.
+
+      OUTPUT SCHEMA
+      {
+        "detections": [
+          {
+            "target_type": string,
+            "bbox": {bbox_format}
+          }
+        ]
+      }
+notes:
+  prompt_surface: detect_objects only
+  no_stop_contract: continue until literal target, user interrupt, or usage exhaustion
