@@ -1,0 +1,31 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "status": "visual_review_scaffolding_created",
+  "promotion_recommendation": "none",
+  "incumbent": "v020c_anchor_replay",
+  "challenger_learning_evidence": "v024l_v023s_no_wheel_track_ablation",
+  "excluded_evidence": [
+    {
+      "candidate_id": "v024o_v024l_intact_building_piece_exclusion",
+      "reason": "partial interrupted run; not scored"
+    }
+  ],
+  "next_required_action": "complete visual_failure_taxonomy.csv and v020c_v024l_delta_review.md before authoring a prompt candidate",
+  "allowed_next_base_options_after_review": [
+    "continue_from_v020c",
+    "continue_from_v024l",
+    "compact_hybrid",
+    "pause_prompting"
+  ],
+  "mutations_excluded": [
+    "source_truth",
+    "doctrine",
+    "assessment_prompt",
+    "runtime_code",
+    "eval_ground_truth",
+    "prompt_candidate",
+    "promotion_branch",
+    "graphify_refresh",
+    "mem0_write"
+  ]
+}

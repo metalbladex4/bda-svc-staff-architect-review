@@ -1,0 +1,61 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "candidate_authoring_status": "not_started",
+  "candidate_authoring_gate": "visual failure review must classify the target failure class before any new detect_objects prompt is written",
+  "registered_source_rows": [
+    {
+      "candidate_id": "v020c_anchor_replay",
+      "prompt_identity": "v020c_extra_box_audit",
+      "role": "incumbent",
+      "metrics": {
+        "matches": 186,
+        "false_negatives": 33,
+        "false_positives": 25,
+        "combined_errors": 58
+      },
+      "controls": {
+        "155": "passed",
+        "166": "passed",
+        "office_negative": "passed"
+      },
+      "use_as_base_when": "default base unless visual delta review proves the v024l branch has a safer prompt-addressable recall cue"
+    },
+    {
+      "candidate_id": "v024l_v023s_no_wheel_track_ablation",
+      "prompt_identity": "v024l_v023s_no_wheel_track_ablation",
+      "role": "high_recall_learning_evidence_only",
+      "metrics": {
+        "matches": 188,
+        "false_negatives": 31,
+        "false_positives": 35,
+        "combined_errors": 66
+      },
+      "controls": {
+        "155": "passed",
+        "166": "passed",
+        "office_negative": "passed"
+      },
+      "use_as_base_when": "only if visual review shows recovered true targets and added false positives fall into one compact prompt-addressable class"
+    }
+  ],
+  "explicitly_excluded_rows": [
+    {
+      "candidate_id": "v024o_v024l_intact_building_piece_exclusion",
+      "reason": "interrupted before all-current completion; partial and unscored; must not be used as evidence"
+    }
+  ],
+  "future_candidate_slots": [
+    {
+      "candidate_id": "v025a_visual_delta_micro_hybrid",
+      "status": "blocked_until_visual_review_complete"
+    },
+    {
+      "candidate_id": "v025b_dense_safe_duplicate_context_audit",
+      "status": "blocked_until_visual_review_complete"
+    },
+    {
+      "candidate_id": "v025c_high_recall_branch_salvage",
+      "status": "blocked_until_visual_review_complete"
+    }
+  ]
+}

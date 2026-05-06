@@ -1,0 +1,116 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "created_date": "2026-05-06",
+  "purpose": "Prepare a visual failure review before authoring any new Qwen detect prompt candidate.",
+  "operating_doctrine": {
+    "path": "/home/williambenitez1/Capstone/z_reference_docs/GPT-Pro_collab/CODEX_QWEN_PROMPT_ENGINEERING_DIRECTION_2026-05-06.md",
+    "sha256": "1e251a10f983187b5ac56e50e765ef5ed5972b881cd590b1eea79883dbbfc2b0"
+  },
+  "upstream_source_package": {
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation",
+    "status": "source_artifact_for_visual_delta_review"
+  },
+  "manifest": {
+    "pack_id": "human-report-challenge-v2-all-current-117-no101",
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml",
+    "expected_image_count": 117,
+    "excluded_case": "101",
+    "required_cases": [
+      "155",
+      "166"
+    ]
+  },
+  "candidates": {
+    "v020c_anchor_replay": {
+      "role": "incumbent",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v020c_anchor_replay",
+      "all_current_run": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v020c_anchor_replay/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_033103Z",
+      "office_negative_run": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v020c_anchor_replay/office_negative/legacy_abstention_guard_office_negative_2026-05-06_033056Z",
+      "summary_json": {
+        "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v020c_anchor_replay/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_033103Z/eval/evaluation_2026-05-06_034545Z_summary.json",
+        "sha256": "39260b51a94e16b69f12be7a5ecddbc00cb3718357cb7fd8c2300acd89c6ad00"
+      },
+      "eval_csv": {
+        "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v020c_anchor_replay/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_033103Z/eval/evaluation_2026-05-06_034545Z.csv",
+        "sha256": "b1bd01db890f6bc91bec15d9f51ccb3d268947cec68f3ff978f65a73640d55af"
+      },
+      "metrics": {
+        "image_count": 117,
+        "matches": 186,
+        "false_negatives": 33,
+        "false_positives": 25,
+        "combined_errors": 58
+      },
+      "artifact_counts": {
+        "raw_predictions": 117,
+        "eval_predictions": 117,
+        "images_bbox_review": 117,
+        "images_bbox_both": 111,
+        "images_bbox_predicted": 111,
+        "images_bbox_reference": 111,
+        "images_crop_predicted": 111,
+        "images_crop_reference": 111
+      }
+    },
+    "v024l_v023s_no_wheel_track_ablation": {
+      "role": "high_recall_learning_evidence_only",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024l_v023s_no_wheel_track_ablation",
+      "all_current_run": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024l_v023s_no_wheel_track_ablation/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_113019Z",
+      "office_negative_run": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024l_v023s_no_wheel_track_ablation/office_negative/legacy_abstention_guard_office_negative_2026-05-06_113011Z",
+      "overlay": {
+        "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/overlays/v024l_v023s_no_wheel_track_ablation.yaml",
+        "sha256": "246112c192b860cc3dd673a1ed4f6a3fb3d695158aa5ddd2515bd58c76f20eb2"
+      },
+      "summary_json": {
+        "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024l_v023s_no_wheel_track_ablation/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_113019Z/eval/evaluation_2026-05-06_114613Z_summary.json",
+        "sha256": "88906c15c1ebf44d8ae1583da5b7fb7b12a915c8f857169b8356c72f36a6c41a"
+      },
+      "eval_csv": {
+        "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/runs/v024l_v023s_no_wheel_track_ablation/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-06_113019Z/eval/evaluation_2026-05-06_114613Z.csv",
+        "sha256": "a4dd93a7bd99d342a3fac7e10278730a588914d2c58d2ea5df54adc7c9ab8ced"
+      },
+      "metrics": {
+        "image_count": 117,
+        "matches": 188,
+        "false_negatives": 31,
+        "false_positives": 35,
+        "combined_errors": 66
+      },
+      "artifact_counts": {
+        "raw_predictions": 117,
+        "eval_predictions": 117,
+        "images_bbox_review": 117,
+        "images_bbox_both": 111,
+        "images_bbox_predicted": 111,
+        "images_bbox_reference": 111,
+        "images_crop_predicted": 111,
+        "images_crop_reference": 111
+      }
+    }
+  },
+  "artifact_caveats": [
+    "images_bbox_review is complete for all 117 cases in both source runs.",
+    "images_bbox_both and crop folders contain 111 images per candidate; priority cases 42 and 90 have review images but lack some crop/bbox-both derivatives.",
+    "No v024o predictions are copied or scored in this package."
+  ],
+  "priority_cases": [
+    "12",
+    "14",
+    "16",
+    "21",
+    "42",
+    "66",
+    "67",
+    "76",
+    "77",
+    "84",
+    "88",
+    "90",
+    "97",
+    "103",
+    "155",
+    "164",
+    "166",
+    "172"
+  ]
+}

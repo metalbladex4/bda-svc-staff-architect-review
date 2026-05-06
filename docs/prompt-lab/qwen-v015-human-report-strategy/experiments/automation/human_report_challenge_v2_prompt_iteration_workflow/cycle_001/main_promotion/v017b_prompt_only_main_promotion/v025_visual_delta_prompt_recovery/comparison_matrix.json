@@ -1,0 +1,62 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "new_inference_run": false,
+  "rows": [
+    {
+      "candidate_id": "v020c_anchor_replay",
+      "role": "incumbent",
+      "matches": 186,
+      "false_negatives": 33,
+      "false_positives": 25,
+      "combined_errors": 58,
+      "case_155": "pass",
+      "case_166": "pass",
+      "office_negative": "pass",
+      "v025_status": "base_incumbent"
+    },
+    {
+      "candidate_id": "v024l_v023s_no_wheel_track_ablation",
+      "role": "high_recall_learning_evidence_only",
+      "matches": 188,
+      "false_negatives": 31,
+      "false_positives": 35,
+      "combined_errors": 66,
+      "case_155": "pass",
+      "case_166": "pass",
+      "office_negative": "pass",
+      "v025_status": "review_only_challenger"
+    },
+    {
+      "candidate_id": "v024o_v024l_intact_building_piece_exclusion",
+      "role": "interrupted_partial",
+      "matches": null,
+      "false_negatives": null,
+      "false_positives": null,
+      "combined_errors": null,
+      "case_155": "not_scored",
+      "case_166": "not_scored",
+      "office_negative": "office_only_partial",
+      "v025_status": "excluded_not_scored"
+    }
+  ],
+  "priority_delta": [
+    {"case_id": "12", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
+    {"case_id": "14", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
+    {"case_id": "16", "v020c": "1/0/0", "v024l": "1/0/2", "delta": "+0/+0/+2", "category": "added_fp"},
+    {"case_id": "21", "v020c": "3/0/0", "v024l": "2/1/0", "delta": "-1/+1/+0", "category": "recall_regression"},
+    {"case_id": "42", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
+    {"case_id": "66", "v020c": "8/0/4", "v024l": "8/0/6", "delta": "+0/+0/+2", "category": "dense_added_fp"},
+    {"case_id": "67", "v020c": "9/2/4", "v024l": "9/2/3", "delta": "+0/+0/-1", "category": "dense_sentinel"},
+    {"case_id": "76", "v020c": "2/1/0", "v024l": "1/2/0", "delta": "-1/+1/+0", "category": "recall_regression"},
+    {"case_id": "77", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
+    {"case_id": "84", "v020c": "8/5/0", "v024l": "7/6/0", "delta": "-1/+1/+0", "category": "dense_recall_regression"},
+    {"case_id": "88", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
+    {"case_id": "90", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
+    {"case_id": "97", "v020c": "1/0/2", "v024l": "1/0/2", "delta": "+0/+0/+0", "category": "unchanged_fp_burden"},
+    {"case_id": "103", "v020c": "1/0/1", "v024l": "1/0/4", "delta": "+0/+0/+3", "category": "added_fp"},
+    {"case_id": "155", "v020c": "2/0/0", "v024l": "2/0/0", "delta": "+0/+0/+0", "category": "positive_control"},
+    {"case_id": "164", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
+    {"case_id": "166", "v020c": "1/0/0", "v024l": "1/0/0", "delta": "+0/+0/+0", "category": "positive_control"},
+    {"case_id": "172", "v020c": "1/2/0", "v024l": "3/0/0", "delta": "+2/-2/+0", "category": "recovered_fn"}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "new_inference_run": false,
+  "backend_used_in_source_runs": {
+    "preferred_endpoint": "http://localhost:8000/v1",
+    "actual_endpoint": "http://localhost:11434/v1",
+    "label": "authorized Ollama-backed OpenAI-compatible fallback",
+    "model": "qwen3-vl:8b-instruct"
+  },
+  "source_preflight_reference": {
+    "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v023_literal99_qwen_no_stop_continuation/backend_preflight.json",
+    "sha256": "1329b76c22fb121634ad7153ab9e6aff87203420dd25848d0170e2225e783ba7"
+  },
+  "current_wave_decision": {
+    "run_model": false,
+    "author_prompt": false,
+    "score_v024o": false,
+    "reason": "This wave creates visual-review scaffolding only."
+  },
+  "fiftyone_preflight": {
+    "plain_python_import_available": false,
+    "mcp_entry_seen": true,
+    "first_pass_decision": "use_static_overlays_and_crops",
+    "escalation_condition": "use FiftyOne only if static review cannot classify dominant FP/FN families or review scope grows beyond the priority slice"
+  }
+}

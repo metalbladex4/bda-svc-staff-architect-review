@@ -1,0 +1,21 @@
+{
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "runtime_recovery_required": false,
+  "model_inference_run": false,
+  "events": [
+    {
+      "event_type": "artifact_inventory_caveat",
+      "description": "Both source runs contain 117 images_bbox_review files, but images_bbox_both and crop folders contain 111 images per candidate.",
+      "affected_priority_cases": [
+        "42",
+        "90"
+      ],
+      "resolution": "Use images_bbox_review as the complete visual surface and use crops/bbox-both where present."
+    }
+  ],
+  "stop_conditions_preserved": {
+    "v024o_not_scored": true,
+    "no_prompt_candidate_authored": true,
+    "no_source_truth_mutation": true
+  }
+}
