@@ -78,14 +78,20 @@ def get_report(report_path: Path) -> list | None:
         try:
             # Load less strictly to prevent issues (ex. newlines in values)
             objects = [json.load(file, strict=False)]
+
+            # Remove outer list wrapper (if necessary)
+            if isinstance(objects[0], list) and len(objects) == 1:
+                objects = objects[0]
         except json.JSONDecodeError:
             try:
                 file.seek(0)
 
                 # Split by empty line
-                objects = [json.loads(s) for s in re.split(regex_pattern, file.read())]
+                file_str = file.read()
+                objects = [json.loads(s) for s in re.split(regex_pattern, file_str)]
+
             except json.JSONDecodeError:
-                print(f"\nUnable to load JSON data from {report_path}. Skipping.")
+                print(f"[*] Unable to load JSON data from {report_path}. Skipping.")
                 return None
 
     return objects
@@ -141,6 +147,8 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
         "object_not_found",
     ]
 
+    error_msg = f"[*] Unable to fix report {report_path}"
+
     try:
         template["metadata"]["image_filename"] = f"{report_path.stem}.jpg"
 
@@ -151,7 +159,9 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
                 target_type += "s"
 
                 if target_type not in target_types:
-                    print("Unable to parse 'obj'. Skipping")
+                    print(
+                        f"[*] Unable to parse '{target_type}' in {report_path}. Skipping"
+                    )
                     continue
 
             template["physical_damage"][f"target_{i}"] = {
@@ -168,8 +178,11 @@ def fix_json(report_path: Path, objects: list) -> dict | None:
             }
 
         return template
-    except KeyError:
-        print(f"\nUnable to fix report {report_path} (KeyError). Skipping.")
+    except KeyError as e:
+        print(f"{error_msg} ({e}). Skipping.")
+        return None
+    except TypeError as e:
+        print(f"{error_msg} ({e}). Skipping.")
         return None
 
 
@@ -194,12 +207,15 @@ def convert_reports(ref_folder: str, output_path: Path) -> bool:
             if objects:
                 report_fixed = fix_json(report_path, objects)
 
-                with open(
-                    f"{output_path}/{report_path.stem}.json", "w", encoding="utf-8"
-                ) as file:
-                    json.dump(report_fixed, file, indent=4)
+                if report_fixed is not None:
+                    with open(
+                        f"{output_path}/{report_path.stem}.json", "w", encoding="utf-8"
+                    ) as file:
+                        json.dump(report_fixed, file, indent=4)
 
-                print(f"Writing {report_path}")
+                    print(f"Writing {report_path}")
+                else:
+                    continue
 
         return True
     else:

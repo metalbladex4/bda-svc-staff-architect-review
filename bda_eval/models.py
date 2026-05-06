@@ -38,6 +38,7 @@ class TargetType(BDAEnum):
     BUILDINGS = 1
     MILITARY_EQUIPMENT = 7
     OBJECT_NOT_FOUND = 21
+    UNKNOWN_HALLUCINATED = 99
 
 
 class DamageBridge(BDAEnum):
@@ -71,7 +72,7 @@ class DamageMilitaryEquipment(BDAEnum):
 class DamageNotFound(BDAEnum):
     """IntEnum containing damage level for images without doctrinal objects."""
 
-    NA = 0
+    NOT_APPLICABLE = 0
 
 
 class Confidence(BDAEnum):
@@ -193,8 +194,11 @@ class BDAMatch:
     ref_target: BDATarget
     pred_target: BDATarget
     iou: float
+    w_i: float
     w_d: float
     w_c: float
+    d_cost: float
+    c_cost: float
     cost: float
     score_assess: float
     score_logic: float | None
@@ -260,26 +264,32 @@ class BDAReport:
         target_list = []
 
         for target_label, target_data in bda_dict["physical_damage"].items():
-            # Get inner dictionary from target_damage_map dictionary
-            #     ex. td_map = { "target_type": ..., "damage_category": ... }
-            td_map = target_damage_map[target_data["target_type"]]
-
-            # Store BDA fields as IntEnum-subclassed objects
-            target_type = td_map["target_type"]
-
             try:
+                # Get inner dictionary from target_damage_map dictionary
+                #     ex. td_map = { "target_type": ..., "damage_category": ... }
+                target_type = TargetType[
+                    target_data["target_type"].upper().replace(" ", "_")
+                ]
+                td_map = target_damage_map[target_data["target_type"]]
+
                 damage_category = td_map["damage_category"][
                     target_data["damage_category"].upper().replace(" ", "_")
                 ]
+
+                confidence = Confidence[
+                    target_data["confidence_level"].upper().replace(" ", "_")
+                ]
             except KeyError as e:
                 print(
-                    f"[*] Unknown damage category {e} for {target_label} in {metadata.image_filename}. Skipping."
+                    f"[*] Unknown attribute {e} for {target_label} "
+                    f"in {metadata.image_filename}. Marking as FP."
                 )
-                continue
 
-            confidence = Confidence[target_data["confidence_level"].upper()]
+                target_type = TargetType.UNKNOWN_HALLUCINATED
+                damage_category = DamageNotFound.NOT_APPLICABLE
+                confidence = Confidence.POSSIBLE
 
-            logic = target_data["brief_supporting_logic"]
+            logic = target_data.get("brief_supporting_logic", "")
 
             try:
                 if isinstance(target_data["bounding_box"], list):
@@ -288,7 +298,8 @@ class BDAReport:
                     box = BoundingBox(**target_data["bounding_box"])
             except TypeError:
                 print(
-                    f"[*] Error parsing bounding box for {target_label} in {metadata.image_filename}. Skipping."
+                    f"[*] Error parsing bounding box for {target_label} in "
+                    f"{metadata.image_filename}. Skipping."
                 )
                 continue
 
@@ -332,7 +343,7 @@ class BDAReport:
         # print(f"[*] Human logic: {ref_bda.logic}\n")
         # print(f"[*] Model logic: {pred_bda.logic}\n")
 
-        max_retries = 6
+        max_retries = 10
 
         query = f"""You are an expert military intelligence analyst acting as an impartial judge for an automated Battle Damage Assessment (BDA) pipeline.
 
@@ -490,7 +501,24 @@ Output ONLY valid JSON.
         #   Case 3: score_assess=0.0, score_logic=1.0 --> 0.0
         #   Case 4: score_assess=0.5, score_logic=1.0 --> 0.5
 
-        return score_assess * (w_assess + (score_logic * w_logic))
+        return (w_assess * score_assess) + (w_logic * score_logic)
+
+    def _get_ollama_client(self) -> Client:
+        """Dynamically configures the Ollama client based on environment variables."""
+        # Defaults to local host if no environment variable is set
+        host = environ.get("OLLAMA_HOST", "http://localhost:11434")
+        api_key = environ.get("OLLAMA_API_KEY")
+
+        # Only attach Auth headers if an API key actually exists
+        headers = {}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        return Client(
+            host=host,
+            headers=headers,
+            timeout=60 * 15,
+        )
 
     def _evaluate_logic(self, R, matches: list[BDAMatch]):
         """Evaluates BDAMatch logic concurrently (updating in-place).
@@ -499,28 +527,21 @@ Output ONLY valid JSON.
             R: The BDAReport containing human assessments.
             matches: List of BDAMatch objects.
         """
-        api_key = environ.get("OLLAMA_API_KEY")
-        if not api_key:
-            raise KeyError("[*] Environment variable 'OLLAMA_API_KEY' not set.")
-
-        timeout_secs = 60 * 15
-
-        # Share Client object between match queries
-        shared_client = Client(
-            host="https://ollama.com",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-            },
-            timeout=timeout_secs,
-        )
+        shared_client = self._get_ollama_client()
+        model_name = environ.get("OLLAMA_MODEL", "gpt-oss:20b")
+        max_workers = int(environ.get("OLLAMA_MAX_WORKERS", 2))
 
         # Use a ThreadPool to run requests concurrently
         # `max_workers`` helps us keep Ollama Cloud happy
-        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Dictionary to keep track of which future belongs to which match
             future_to_match = {
                 executor.submit(
-                    self._llmaaj, match.ref_target, match.pred_target, shared_client
+                    self._llmaaj,
+                    match.ref_target,
+                    match.pred_target,
+                    shared_client,
+                    model_name,
                 ): match
                 for match in matches
             }
@@ -547,8 +568,7 @@ Output ONLY valid JSON.
         self,
         R: Self,
         min_iou: float = 0.001,
-        w_d: float = 0.05,
-        w_c: float = 0.05,
+        w_i: float = 0.4,
         w_assess: float = 0.7,
     ) -> tuple[list[BDAMatch], list[BDATarget], list[BDATarget]] | None:
         """Pairs predictions to reference BDAs using the Hungarian Algorithm.
@@ -559,8 +579,7 @@ Output ONLY valid JSON.
         Args:
             R: The BDAReport containing human assessments.
             min_iou: Minimum IoU required to consider a match valid.
-            w_d: Weight of the damage penalty tiebreaker.
-            w_c: Weight of the confidence penalty tiebreaker.
+            w_i: Weight of the IoU (bounding box) cost.
             w_assess: Relative weight of the assessment component score.
 
         Returns:
@@ -572,7 +591,11 @@ Output ONLY valid JSON.
         matches = []
         max_cost = 1e5
 
-        # Weights should add up to one
+        # Cost weights (should add up to one)
+        w_d = (1 - w_i) / 2
+        w_c = 1 - w_i - w_d
+
+        # Component score weights (i.e. Assessment, Logic) should add up to one
         w_logic = 1 - w_assess
 
         if len(R.targets) == 0:
@@ -605,7 +628,7 @@ Output ONLY valid JSON.
                     iou = P_target.box.calc_iou(R_target.box)
 
                     if iou >= min_iou:
-                        base_cost = 1.0 - iou
+                        cost_iou = 1.0 - iou
 
                         # Subcost 1: Normalized Damage Cost (no longer subtracted from one)
                         #     K = number of damage levels for target_R
@@ -624,7 +647,7 @@ Output ONLY valid JSON.
                         )
 
                         # Total (weighted) cost
-                        cost_matrix[i, j] = base_cost + (w_d * c_d) + (w_c * c_c)
+                        cost_matrix[i, j] = (w_i * cost_iou) + (w_d * c_d) + (w_c * c_c)
                     else:
                         # IoU doesn't meet threshold IoU
                         cost_matrix[i, j] = max_cost
@@ -642,11 +665,14 @@ Output ONLY valid JSON.
                 actual_iou = p_bda.box.calc_iou(r_bda.box)
 
                 if actual_iou >= min_iou:
-                    score_assess = (
-                        (1 + w_d + w_c) - cost_matrix[p_idx, r_idx].item()
-                    ) / (1 + w_d + w_c)
+                    # Recalculate c_c and d_c for successful match
+                    k = r_bda.damage_category.k_len
+                    c_d = abs(
+                        p_bda.damage_category.value - r_bda.damage_category.value
+                    ) / max(1, k - 1)
+                    c_c = abs(p_bda.confidence.value - r_bda.confidence.value) / 2.0
 
-                    # score_logic = self._llmaaj(r_bda, p_bda)
+                    score_assess = 1 - cost_matrix[p_idx, r_idx].item()
 
                     matches.append(
                         BDAMatch(
@@ -654,8 +680,11 @@ Output ONLY valid JSON.
                             pred_target=p_bda,
                             cost=cost_matrix[p_idx, r_idx].item(),
                             iou=actual_iou,
+                            w_i=w_i,
                             w_d=w_d,
                             w_c=w_c,
+                            d_cost=c_d,
+                            c_cost=c_c,
                             score_assess=score_assess,
                             score_logic=0,
                             w_assess=w_assess,
@@ -671,8 +700,11 @@ Output ONLY valid JSON.
                                 pred_target=p_bda,
                                 cost=0,
                                 iou=0,
+                                w_i=w_i,
                                 w_d=w_d,
                                 w_c=w_c,
+                                d_cost=0,
+                                c_cost=0,
                                 score_assess=0,
                                 score_logic=0,
                                 w_assess=0,
@@ -705,3 +737,157 @@ Output ONLY valid JSON.
         false_positives = [p for p in self.targets if id(p) not in pred_match_ids]
 
         return matches, false_negatives, false_positives
+
+
+class SceneReport:
+    """Stores score data for a particular scene."""
+
+    def __init__(
+        self,
+        model_name: str,
+        image_filename: str,
+        matches: list[BDAMatch],
+        count_targets: int,
+        count_fn: int,
+        count_fp: int,
+        inference_time: float = 0.0,
+    ):
+        """Init."""
+        self.model_name = model_name
+        self.image = image_filename
+        self.count_targets = count_targets
+        self.count_fn = count_fn
+        self.count_fp = count_fp
+        self.inference_time = inference_time
+        self.sum_assess = 0.0
+        self.sum_logic = 0.0
+        self.sum_total = 0.0
+        self.assess = 0.0
+        self.logic = 0.0
+        self.total = 0.0
+
+        self._calc_scores(matches)
+
+    def _calc_scores(self, matches: list[BDAMatch]) -> None:
+        """Calculate scores for a particular scene.
+
+        Args:
+            matches: List of BDAMatch objects
+        """
+        # Calculate sums
+        for match in matches:
+            self.sum_assess += match.score_assess
+
+            if match.score_logic is not None:
+                self.sum_logic += match.score_logic
+
+            if match.score is not None:
+                self.sum_total += match.score
+
+        # denominator == TP + FN + FP
+        denominator = self.count_targets + self.count_fp
+
+        # Calculate averages
+        if denominator > 0:
+            self.assess = self.sum_assess / denominator
+            self.total = self.sum_total / denominator
+
+            # Logic only applies to objects that actually exist so we don't penalize with FPs
+            if self.count_targets > 0 and len(matches) > 0:
+                self.logic = self.sum_logic / self.count_targets
+            else:
+                self.logic = None
+
+
+class ModelReport:
+    """Calculates the overall score for the tested model."""
+
+    def __init__(self, scene_reports: list[SceneReport]):
+        """Init.
+
+        Args:
+            scene_reports: List of SceneReport objects
+        """
+        self.model_name = scene_reports[0].model_name
+
+        self.model_sum_assess = 0.0
+        self.model_sum_logic = 0.0
+        self.model_sum_total = 0.0
+
+        self.model_targets = 0
+        self.model_fp = 0
+        self.model_fn = 0
+
+        self.total_inference_time = 0.0
+
+        # Store the number of images for this batch
+        self.image_count = len(scene_reports)
+
+        # Calculate totals independently across all images
+        for scene in scene_reports:
+            self.model_sum_assess += scene.sum_assess
+            self.model_sum_logic += scene.sum_logic
+            self.model_sum_total += scene.sum_total
+
+            self.model_targets += scene.count_targets
+            self.model_fp += scene.count_fp
+            self.model_fn += scene.count_fn
+
+            # Accumulate total time
+            self.total_inference_time += getattr(scene, "inference_time", 0.0)
+
+        # Denominator == TP + FN + FP (across all images)
+        denominator = self.model_targets + self.model_fp
+
+        if denominator > 0:
+            self.model_score_assess = self.model_sum_assess / denominator
+            self.model_score_total = self.model_sum_total / denominator
+        else:
+            self.model_score_assess = 0.0
+            self.model_score_total = 0.0
+
+        # Logic Denominator == TP + FN (ignore FP for fairer calc)
+        if self.model_targets > 0:
+            self.model_score_logic = self.model_sum_logic / self.model_targets
+        else:
+            self.model_score_logic = None
+
+        # Calculate average inference time
+        if self.image_count > 0:
+            self.avg_inference_time = self.total_inference_time / self.image_count
+        else:
+            self.avg_inference_time = 0.0
+
+    def print_summary(self) -> None:
+        """Prints the final model scores."""
+        print(f"\n{'=' * 45}")
+        print(f"{'OVERALL MODEL SCORE':^45}")
+        print("=" * 45)
+        print(f"{'Total Reference Targets ':>34}: {self.model_targets:>5}")
+        print(f"{'Total False Negatives (Missed) ':>34}: {self.model_fn:>5}")
+        print(f"{'Total False Positives (Halluc) ':>34}: {self.model_fp:>5}")
+        print(f"{'Avg Inference Time/Img ':>34}: {self.avg_inference_time:>4.2f}s")
+        print("-" * 45)
+
+        print(f"{'OVERALL ASSESS SCORE ':>34}: {self.model_score_assess:.3f}")
+
+        if self.model_score_logic is not None:
+            print(f"{'OVERALL LOGIC SCORE ':>34}: {self.model_score_logic:.3f}")
+        else:
+            print(f"{'OVERALL LOGIC SCORE ':>34}:   N/A")
+
+        print(f"{'OVERALL TOTAL SCORE ':>34}: {self.model_score_total:.3f}")
+        print("=" * 45 + "\n")
+
+    def to_dict(self) -> dict:
+        """Return dictionary-based ModelReport."""
+        return {
+            "model_name": self.model_name,
+            "count_target": self.model_targets,
+            "count_fn": self.model_fn,
+            "count_fp": self.model_fp,
+            "inference_time_avg": self.avg_inference_time,
+            "assess_avg": self.model_score_assess,
+            "logic_avg": self.model_score_logic,
+            "total_avg": self.model_score_total,
+        }

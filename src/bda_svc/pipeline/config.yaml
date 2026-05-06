@@ -2,25 +2,25 @@
 # DETECTION VLM BACKEND
 # ------------------------------------------------------------
 detection_vlm:
-  model: qwen3-vl:8b-instruct  # str, required; Ollama model name.
-  bbox_convention: xyxy_1000  # str, required; VLM bounding box format: One of xyxy_1, yxyx_1, xyxy_1000, yxyx_1000, xyxy_pixels, yxyx_pixels.
-  temperature: 0.0  # float, required; Sampling temperature for generation.
-  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
-  crop_buffer_ratio: 0.2  # float, required; Padding ratio applied around each detection box when creating crops.
+  model: Qwen/Qwen3-VL-8B-Instruct # str, required; Model identifier for the detection VLM backend.
+  bbox_convention: xyxy_1000 # str, required; VLM bounding box format: One of xyxy_1, yxyx_1, xyxy_1000, yxyx_1000, xyxy_pixels, yxyx_pixels.
+  temperature: 0.0 # float, required; Sampling temperature for generation.
+  max_image_size: 1024 # int, required; Maximum input image width or height before downsizing.
+  crop_buffer_ratio: 0.2 # float, required; Padding ratio applied around each detection box when creating crops.
 
 # ------------------------------------------------------------
 # ASSESSMENT VLM BACKEND
 # ------------------------------------------------------------
 assessment_vlm:
-  model: qwen3-vl:8b-instruct  # str, required; Ollama model name.
-  temperature: 0.0  # float, required; Sampling temperature for generation.
-  max_image_size: 1024  # int, required; Maximum input image width or height before downsizing.
+  model: Qwen/Qwen3-VL-8B-Instruct # str, required; Model identifier for the assessment VLM backend.
+  temperature: 0.0 # float, required; Sampling temperature for generation.
+  max_image_size: 1024 # int, required; Maximum input image width or height before downsizing.
 
 # ------------------------------------------------------------
 # PROMPT TEMPLATES
 # ------------------------------------------------------------
 prompts:
-  system: |  # str, required; Shared system prompt used for all VLM calls.
+  system: | # str, required; Shared system prompt used for all VLM calls.
     You are a military strike assessment analyst performing a STRICT visual-only assessment.
 
     CORE PRINCIPLES
@@ -30,7 +30,7 @@ prompts:
     - Use doctrinal definitions when provided.
     - Follow output instructions and schema exactly.
 
-  detect_objects: |  # str, required; Object detection prompt.
+  detect_objects: | # str, required; Object detection prompt.
     Perform a VISUAL-ONLY object detection.
 
     TASK
@@ -103,7 +103,7 @@ prompts:
       "brief_supporting_logic": string
     }
 
-  summarize_scene: |  # str, required; Scene summary prompt.
+  summarize_scene: | # str, required; Scene summary prompt.
     Perform a VISUAL-ONLY scene summary.
 
     INPUTS

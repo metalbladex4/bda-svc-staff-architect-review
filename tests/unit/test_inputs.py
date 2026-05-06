@@ -24,20 +24,20 @@ def test_uses_command_line_path(tmp_path: Path) -> None:
     assert result == real_folder
 
 
-def test_uses_env_var_if_no_arg(
+def test_uses_default_path_if_no_arg(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    """If arg is None, it should use BDA_INPUT environment variable."""
-    env_folder = tmp_path / "env_images"
-    env_folder.mkdir()
+    """If arg is None, it should use DEFAULT_INPUT_PATH constant."""
+    default_folder = tmp_path / "default_images"
+    default_folder.mkdir()
 
-    # 'monkeypatch' lets us safely fake environment variables just for this test
-    monkeypatch.setenv("BDA_INPUT", str(env_folder))
+    # 'monkeypatch' lets us safely fake variables just for this test
+    monkeypatch.setattr(inputs.constants, "DEFAULT_INPUT_PATH", str(default_folder))
 
     # Pass None to simulate no command line flag being used
     result = inputs.get_input_folder(None)
 
-    assert result == env_folder
+    assert result == default_folder
 
 
 def test_exits_if_folder_missing() -> None:

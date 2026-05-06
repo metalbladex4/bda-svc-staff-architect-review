@@ -58,15 +58,15 @@ def patch_backends(
     assessment_vlm: FakeVLM,
     model_names: list[str],
 ) -> None:
-    """Replace `OllamaVLM` with `FakeVLM` for pipeline tests."""
+    """Replace `VLMBackend` with `FakeVLM` for pipeline tests."""
     fake_instances = [detection_vlm, assessment_vlm]
 
-    def fake_ollama_vlm(model: str) -> FakeVLM:
+    def fake_vlm_backend(model: str) -> FakeVLM:
         """Record the model name and return the next fake backend."""
         model_names.append(model)
         return fake_instances.pop(0)
 
-    monkeypatch.setattr(pipeline_model, "OllamaVLM", fake_ollama_vlm)
+    monkeypatch.setattr(pipeline_model, "VLMBackend", fake_vlm_backend)
 
 
 def patch_config_overrides(
