@@ -1,7 +1,7 @@
 {
   "package_id": "v025_visual_delta_prompt_recovery",
-  "candidate_authoring_status": "not_started",
-  "candidate_authoring_gate": "visual failure review must classify the target failure class before any new detect_objects prompt is written",
+  "candidate_authoring_status": "v025a_completed",
+  "candidate_authoring_gate": "v025a was explicitly approved after visual failure review",
   "registered_source_rows": [
     {
       "candidate_id": "v020c_anchor_replay",
@@ -46,10 +46,6 @@
   ],
   "future_candidate_slots": [
     {
-      "candidate_id": "v025a_visual_delta_micro_hybrid",
-      "status": "blocked_until_visual_review_complete"
-    },
-    {
       "candidate_id": "v025b_dense_safe_duplicate_context_audit",
       "status": "blocked_until_visual_review_complete"
     },
@@ -57,5 +53,29 @@
       "candidate_id": "v025c_high_recall_branch_salvage",
       "status": "blocked_until_visual_review_complete"
     }
-  ]
+  ],
+  "authored_candidates": [
+    {
+      "candidate_id": "v025a_v020c_compact_separate_body_recovery",
+      "prompt_identity": "v025a_v020c_compact_separate_body_recovery",
+      "role": "single_compact_v020c_based_candidate",
+      "generated_from": "v020c_v019c_extra_box_audit",
+      "metrics": {
+        "matches": 176,
+        "false_negatives": 43,
+        "false_positives": 35,
+        "combined_errors": 78
+      },
+      "controls": {
+        "155": "passed",
+        "166": "passed",
+        "office_negative": "passed"
+      },
+      "decision_status": "rejected",
+      "overlay": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v025_visual_delta_prompt_recovery/overlays/v025a_v020c_compact_separate_body_recovery.yaml",
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v025_visual_delta_prompt_recovery/runs/v025a_v020c_compact_separate_body_recovery/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-07_010954Z/upstream_openai_compat_manifest_run_summary.json",
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v025_visual_delta_prompt_recovery/runs/v025a_v020c_compact_separate_body_recovery/office_negative/legacy_abstention_guard_office_negative_2026-05-07_010937Z/upstream_openai_compat_manifest_run_summary.json"
+    }
+  ],
+  "last_updated_utc": "2026-05-07T01:26:05+00:00"
 }

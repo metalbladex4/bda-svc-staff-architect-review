@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "bc5794e6-521d-41c2-9ee2-e89e463e48ab",
+        "image_filename": "154.jpg",
+        "date_created": "2026-05-07T01:22:23Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.78"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible collapse of structural elements including large sections of wall and roof; significant debris field; multiple large openings consistent with 45-75% structural damage.",
+            "bounding_box": [
+                0,
+                0,
+                612,
+                218
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank shows no visible deformations, holes, scorching, or missing components; tracks and turret appear intact; no evidence of physical damage consistent with doctrinal definitions.",
+            "bounding_box": [
+                61,
+                218,
+                324,
+                395
+            ]
+        }
+    },
+    "summary": "One building shows SEVERE DAMAGE with probable 45-75% structural loss and a visible debris field, while one military tank shows NO DAMAGE with intact components. The scene depicts a heavily damaged urban area with collapsed structures and rubble, but the tank remains operational. The severe damage to the building likely renders it non-functional, while the undamaged tank suggests continued military capability in the area."
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "20f79e5b-2512-4b6c-9641-b37593356a8f",
+        "image_filename": "100.jpg",
+        "date_created": "2026-05-07T01:19:58Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.63"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits complete structural collapse of upper floors; facade is extensively missing; roof and internal structural elements are destroyed; debris field indicates total loss of structural integrity.",
+            "bounding_box": [
+                0,
+                60,
+                181,
+                434
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible collapse of upper floors and extensive debris field; structural framing appears compromised; damage covers more than 45% of visible target area.",
+            "bounding_box": [
+                181,
+                33,
+                1075,
+                523
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle exhibits catastrophic structural damage with missing front section, melted body panels, and no discernible operational components; consistent with K-kill destruction.",
+            "bounding_box": [
+                839,
+                469,
+                970,
+                538
+            ]
+        }
+    },
+    "summary": "One building is confirmed DESTROYED, another shows SEVERE DAMAGE, and one military vehicle is confirmed DESTROYED. The scene depicts a residential area with multiple multi-story buildings suffering catastrophic structural damage, including collapsed floors, missing facades, and widespread debris. The likely functional impact is complete loss of residential and structural functionality across the assessed targets."
+}

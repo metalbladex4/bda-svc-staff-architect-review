@@ -1,7 +1,7 @@
 {
   "package_id": "v025_visual_delta_prompt_recovery",
-  "status": "first_pass_static_visual_review_complete",
-  "review_timestamp_utc": "2026-05-07T00:05:56Z",
+  "status": "v025a_evaluated",
+  "review_timestamp_utc": "2026-05-07T01:26:05+00:00",
   "promotion_recommendation": "none",
   "incumbent": "v020c_anchor_replay",
   "challenger_learning_evidence": "v024l_v023s_no_wheel_track_ablation",
@@ -46,18 +46,45 @@
   "decision": {
     "next_prompt_base_if_approved": "v020c_anchor_replay",
     "do_not_branch_from": "v024l_v023s_no_wheel_track_ablation",
-    "reason": "v024l recovered separate-body recall but added diverse false positives across building slivers, intact background objects, dense-row fragments, and facade or roof sections."
+    "reason": "v024l recovered separate-body recall but added diverse false positives across building slivers, intact background objects, dense-row fragments, and facade or roof sections.",
+    "v025a_decision": "rejected",
+    "v025a_primary_failure": "case_67_below_v020c",
+    "do_not_attempt": "another positive separate-body cue in the audit/final-balance region",
+    "next_direction": "D. Run a targeted replay/micro-ablation pack before all-current"
   },
-  "next_required_action": "seek explicit approval before authoring any v025a detect_objects prompt candidate",
+  "next_required_action": "review v025a prompt delta and case 67 collapse autopsies before any v025b decision",
   "mutations_excluded": [
     "source_truth",
     "doctrine",
     "assessment_prompt",
     "runtime_code",
     "eval_ground_truth",
-    "prompt_candidate",
+    "v025b_prompt_candidate",
     "promotion_branch",
     "graphify_refresh",
     "mem0_write"
-  ]
+  ],
+  "latest_candidate": {
+    "candidate_id": "v025a_v020c_compact_separate_body_recovery",
+    "metrics": {
+      "matches": 176,
+      "false_negatives": 43,
+      "false_positives": 35,
+      "combined_errors": 78
+    },
+    "decision_status": "rejected",
+    "hard_disqualifiers": [
+      "case_67_below_v020c"
+    ],
+    "reopened_fp_classes": [
+      "adjacent_off_target_object",
+      "nested_fragment_box"
+    ]
+  },
+  "autopsy": {
+    "prompt_delta_autopsy": "diagnoses/v025a_prompt_delta_autopsy.md",
+    "case67_collapse_autopsy": "diagnoses/v025a_case67_collapse_autopsy.md",
+    "exact_delta_summary": "one positive separate-body recovery sentence added inside EXTRA-BOX AUDIT; no text removed or moved",
+    "recommended_next_direction": "D. Run a targeted replay/micro-ablation pack before all-current"
+  }
 }

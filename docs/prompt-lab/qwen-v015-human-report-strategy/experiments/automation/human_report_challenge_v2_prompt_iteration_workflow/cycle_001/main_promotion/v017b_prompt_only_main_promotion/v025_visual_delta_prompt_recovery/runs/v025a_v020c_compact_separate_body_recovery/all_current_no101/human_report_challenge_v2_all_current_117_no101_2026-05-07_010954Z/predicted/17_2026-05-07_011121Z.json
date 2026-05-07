@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "cd14ecb4-b91e-43b6-9973-7a6e26dc5f6b",
+        "image_filename": "17.jpg",
+        "date_created": "2026-05-07T01:11:21Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "8.62"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible structural damage to the building's facade and upper floors; significant interior collapse and debris; damage consistent with 15 to 45 percent of target element area affected.",
+            "bounding_box": [
+                178,
+                437,
+                390,
+                574
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible collapse of multiple floors with exposed internal structure; facade and roof sections missing; debris piled within voids; consistent with 75-100% structural loss per doctrinal definitions.",
+            "bounding_box": [
+                491,
+                0,
+                1114,
+                955
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with MODERATE DAMAGE (CONFIRMED) showing structural facade and upper floor damage with interior collapse, and another DESTROYED (CONFIRMED) with multi-floor collapse, missing facade and roof, and debris. The scene depicts a heavily damaged urban area with a central building in advanced ruin, surrounded by intact structures and greenery, indicating localized destruction. The functional impact is likely severe, with the destroyed building completely uninhabitable and the moderately damaged one suffering significant structural and interior loss."
+}

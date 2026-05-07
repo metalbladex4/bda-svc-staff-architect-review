@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "79a7c58c-1d3f-44d0-95de-8dffced62530",
+        "image_filename": "108.jpg",
+        "date_created": "2026-05-07T01:20:43Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.95"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible destruction of facade and roof panels across multiple floors; structural framing appears intact but non-load-bearing elements are extensively damaged, consistent with 45-75% area damage per doctrinal definition.",
+            "bounding_box": [
+                336,
+                169,
+                1488,
+                469
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible destruction of upper floors with missing walls and exposed structural elements; significant facade collapse and debris consistent with 45-75% structural damage.",
+            "bounding_box": [
+                1488,
+                319,
+                1918,
+                431
+            ]
+        }
+    },
+    "summary": "Two buildings assessed with SEVERE DAMAGE, both confirmed to have 45-75% area damage with visible facade and structural collapse. The overall scene depicts a multi-story building with extensive upper-floor destruction and exposed structural elements, alongside a smaller adjacent structure with minimal visible damage. The likely functional impact is complete loss of occupancy and operational capability for the severely damaged building."
+}

@@ -1,62 +1,43 @@
 # v025 Final Recommendation
 
-Review timestamp: `2026-05-07T00:05:56Z`
+Review timestamp: `2026-05-07T01:26:05+00:00`
 
 ## Status
 
-The first-pass static visual delta review is complete for the priority slice.
-This package remains evidence-only and has no promotion recommendation.
+`v025a_v020c_compact_separate_body_recovery` has been authored and evaluated as a single-candidate evidence wave.
 
 ## Current Recommendation
 
 - Keep `v020c_anchor_replay` / `v020c_extra_box_audit` as the Qwen incumbent.
-- Treat `v024l_v023s_no_wheel_track_ablation` as high-recall learning evidence
-  only.
+- Reject `v025a_v020c_compact_separate_body_recovery` for this wave because it collapses case `67` below the v020c baseline.
+- Treat `v024l_v023s_no_wheel_track_ablation` as high-recall learning evidence only.
+- Do not branch from `v024l`.
 - Do not use `v024o` unless it is rerun from scratch.
-- Do not author `v025a` until the user explicitly approves prompt authoring.
+- Do not attempt another positive separate-body cue in the audit/final-balance region.
+- Do not author `v025b` until the prompt delta autopsy and case `67` collapse autopsy are reviewed.
 
-## Visual Review Finding
+## v025a Result
 
-`v024l` recovered useful recall by splitting separate visible target bodies that
-`v020c` sometimes merged:
-
-- lower smoke-obscured tank in `14`
-- right towed tank in `42`
-- left building and destroyed red vehicle in `172`
-
-But `v024l` added diverse false positives:
-
-- adjacent building slivers in `12`, `77`, and `90`
-- intact background objects in `16` and `88`
-- dense-row nested vehicle fragments in `66`
-- extra facade/roof/building-piece boxes in `97` and `103`
-
-Because those FPs are diverse, `v024l` should not be used as the next base
-prompt.
-
-## Next Action
-
-If prompt authoring is later approved, branch from `v020c`, not `v024l`.
-
-Recommended later axis:
-
-```text
-v025a_v020c_compact_separate_body_recovery
-```
-
-Intent:
-
-- preserve `v020c` FP discipline
-- import only a compact `v024l` lesson about separate visible target bodies
-- avoid broad building-only cleanup wording
-- preserve case `67`, positive controls `155` and `166`, and office-negative
-
-FiftyOne is not needed before that next step. Static overlays/crops were enough
-for this first pass. Use FiftyOne later only if the review expands beyond the
-priority slice or if static patch browsing becomes too slow.
+| Candidate | Matches | FNs | FPs | Errors | Status |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `v020c_anchor_replay` | 186 | 33 | 25 | 58 | incumbent |
+| `v024l_v023s_no_wheel_track_ablation` | 188 | 31 | 35 | 66 | learning evidence |
+| `v025a_v020c_compact_separate_body_recovery` | 176 | 43 | 35 | 78 | rejected |
 
 ## Boundary
 
-No source truth, doctrine, assessment prompt, runtime code, eval ground truth,
-Graphify refresh, Mem0 write, prompt authoring, or promotion is adopted by this
-package.
+No source truth, doctrine, assessment prompt, runtime code, eval ground truth, Graphify refresh, Mem0 write, promotion, or `v025b` authoring is adopted by this package.
+
+## Autopsy Decision
+
+The exact v025a delta was one added sentence inside `EXTRA-BOX AUDIT`. That
+sentence likely made the final audit act like a split-recovery instruction
+instead of a pure extra-box rejection gate. The next candidate, if later
+approved, must be decided from the autopsy rather than from the original v025a
+hypothesis.
+
+Recommended next direction:
+
+```text
+D. Run a targeted replay/micro-ablation pack before all-current.
+```

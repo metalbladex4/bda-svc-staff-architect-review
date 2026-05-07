@@ -1,50 +1,10 @@
 # Recovery Log
 
-Review timestamp: `2026-05-07T00:05:56Z`
+Updated: `2026-05-07T01:26:05+00:00`
 
-No runtime recovery was required because this wave did not run model inference.
-
-## Commands And Checks Performed
-
-- Confirmed local Capstone and Qwen worktree status before edits.
-- Confirmed `/tmp/bda-svc-staff-architect-review` was clean and pulled
-  `origin/main` with `git pull --ff-only origin main`.
-- Published the initial v025 scaffold to the review repo and pushed commit
-  `485eb18` to `origin/main`.
-- Inspected source summaries, eval CSVs, raw/eval predictions, and static image
-  artifacts for `v020c_anchor_replay` and `v024l_v023s_no_wheel_track_ablation`.
-- Generated temporary contact sheets under `/tmp/v025_visual_review/` for local
-  inspection only.
-- Populated `visual_failure_taxonomy.csv` and updated the delta review,
-  recommendation, and plan artifacts.
-
-## Artifact Caveat
-
-The first scaffold under-counted some derived images by extension because some
-artifacts are `.png` rather than `.jpg`.
-
-Recheck result:
-
-- both source runs contain 117 `images_bbox_review` files
-- both source runs contain 117 `images_bbox_both` files
-- both source runs contain 117 `images_crop_predicted` files
-- both source runs contain 117 `images_crop_reference` files
-- all first-pass priority cases have the needed static artifacts
-
-Decision:
-
-- static overlays/crops were sufficient for this first-pass review
-- no FiftyOne escalation is needed before the next prompt-candidate planning
-  step
-- no eval artifacts were regenerated
-
-## Stop Conditions Preserved
-
-- `v024o` remains unscored
-- no prompt candidate was authored
-- no source truth was mutated
-- no doctrine file was changed
-- no assessment prompt was changed
-- no runtime code was changed
-- no eval ground truth was changed
-- no Graphify refresh or Mem0 write occurred
+- `2026-05-07T00:05:56Z` `review_repo_initial_publish`: Initial v025 scaffold copied to the staff architect review repo and pushed to origin/main.
+- `2026-05-07T00:05:56Z` `artifact_inventory_recheck`: Rechecked static artifact availability using mixed jpg/png extensions.
+- `2026-05-07T00:05:56Z` `static_visual_review`: Reviewed priority cases using static overlays, crops, eval CSVs, raw predictions, and temporary annotated contact sheets under /tmp/v025_visual_review.
+- `2026-05-07T01:08:44.799229+00:00` `backend_fallback`: Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.
+- `2026-05-07T01:26:05+00:00` `v025a_run`: Authored and evaluated v025a as the single approved compact separate-body recovery prompt candidate.
+- `2026-05-07T02:06:00Z` `v025a_autopsy`: Wrote exact prompt-delta and case 67 collapse autopsies; recommended targeted replay/micro-ablation before any all-current v025b.

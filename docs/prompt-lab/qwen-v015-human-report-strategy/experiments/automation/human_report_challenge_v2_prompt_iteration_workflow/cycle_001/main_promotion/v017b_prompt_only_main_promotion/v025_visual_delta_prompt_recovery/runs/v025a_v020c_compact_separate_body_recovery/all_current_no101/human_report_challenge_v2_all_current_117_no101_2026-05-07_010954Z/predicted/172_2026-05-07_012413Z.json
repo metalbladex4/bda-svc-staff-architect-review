@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "b4f0a8a7-4c79-40b7-870b-52d1a72f5cdf",
+        "image_filename": "172.jpg",
+        "date_created": "2026-05-07T01:24:13Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.16"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible roof collapse and extensive facade damage; multiple windows blown out; structural integrity compromised; damage appears consistent with 45-75% of target element area affected.",
+            "bounding_box": [
+                0,
+                204,
+                195,
+                458
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple floors show extensive window and balcony damage; facade is heavily compromised with visible structural degradation; no collapse but significant non-load-bearing element destruction consistent with 45-75% damage threshold.",
+            "bounding_box": [
+                334,
+                135,
+                1300,
+                509
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The vehicle is a complete wreck with its body frame severely deformed, doors and hood missing, and internal components exposed; no repairable parts remain, consistent with catastrophic (K-kill) damage.",
+            "bounding_box": [
+                806,
+                699,
+                1001,
+                789
+            ]
+        }
+    },
+    "summary": "Two buildings show SEVERE DAMAGE with probable 45-75% structural degradation, including collapsed roofs and blown-out windows. One military vehicle is CONFIRMED DESTROYED, with no repairable parts remaining. The scene depicts a heavily damaged urban area with widespread destruction to residential structures and a destroyed vehicle, indicating significant functional impairment of the area."
+}

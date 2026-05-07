@@ -1,6 +1,6 @@
 {
   "package_id": "v025_visual_delta_prompt_recovery",
-  "new_inference_run": false,
+  "new_inference_run": true,
   "rows": [
     {
       "candidate_id": "v020c_anchor_replay",
@@ -37,26 +37,291 @@
       "case_166": "not_scored",
       "office_negative": "office_only_partial",
       "v025_status": "excluded_not_scored"
+    },
+    {
+      "candidate_id": "v025a_v020c_compact_separate_body_recovery",
+      "role": "v020c_based_single_compact_candidate",
+      "matches": 176,
+      "false_negatives": 43,
+      "false_positives": 35,
+      "combined_errors": 78,
+      "case_155": "pass",
+      "case_166": "pass",
+      "office_negative": "pass",
+      "v025_status": "rejected"
     }
   ],
   "priority_delta": [
-    {"case_id": "12", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
-    {"case_id": "14", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
-    {"case_id": "16", "v020c": "1/0/0", "v024l": "1/0/2", "delta": "+0/+0/+2", "category": "added_fp"},
-    {"case_id": "21", "v020c": "3/0/0", "v024l": "2/1/0", "delta": "-1/+1/+0", "category": "recall_regression"},
-    {"case_id": "42", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
-    {"case_id": "66", "v020c": "8/0/4", "v024l": "8/0/6", "delta": "+0/+0/+2", "category": "dense_added_fp"},
-    {"case_id": "67", "v020c": "9/2/4", "v024l": "9/2/3", "delta": "+0/+0/-1", "category": "dense_sentinel"},
-    {"case_id": "76", "v020c": "2/1/0", "v024l": "1/2/0", "delta": "-1/+1/+0", "category": "recall_regression"},
-    {"case_id": "77", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
-    {"case_id": "84", "v020c": "8/5/0", "v024l": "7/6/0", "delta": "-1/+1/+0", "category": "dense_recall_regression"},
-    {"case_id": "88", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
-    {"case_id": "90", "v020c": "1/0/0", "v024l": "1/0/1", "delta": "+0/+0/+1", "category": "added_fp"},
-    {"case_id": "97", "v020c": "1/0/2", "v024l": "1/0/2", "delta": "+0/+0/+0", "category": "unchanged_fp_burden"},
-    {"case_id": "103", "v020c": "1/0/1", "v024l": "1/0/4", "delta": "+0/+0/+3", "category": "added_fp"},
-    {"case_id": "155", "v020c": "2/0/0", "v024l": "2/0/0", "delta": "+0/+0/+0", "category": "positive_control"},
-    {"case_id": "164", "v020c": "1/1/0", "v024l": "2/0/0", "delta": "+1/-1/+0", "category": "recovered_fn"},
-    {"case_id": "166", "v020c": "1/0/0", "v024l": "1/0/0", "delta": "+0/+0/+0", "category": "positive_control"},
-    {"case_id": "172", "v020c": "1/2/0", "v024l": "3/0/0", "delta": "+2/-2/+0", "category": "recovered_fn"}
-  ]
+    {
+      "case_id": "12",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "delta": "+0/+0/+1",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "14",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "delta": "+1/-1/+0",
+      "category": "recovered_fn"
+    },
+    {
+      "case_id": "16",
+      "v020c": "1/0/0",
+      "v024l": "1/0/2",
+      "delta": "+0/+0/+2",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "21",
+      "v020c": "3/0/0",
+      "v024l": "2/1/0",
+      "delta": "-1/+1/+0",
+      "category": "recall_regression"
+    },
+    {
+      "case_id": "42",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "delta": "+1/-1/+0",
+      "category": "recovered_fn"
+    },
+    {
+      "case_id": "66",
+      "v020c": "8/0/4",
+      "v024l": "8/0/6",
+      "delta": "+0/+0/+2",
+      "category": "dense_added_fp"
+    },
+    {
+      "case_id": "67",
+      "v020c": "9/2/4",
+      "v024l": "9/2/3",
+      "delta": "+0/+0/-1",
+      "category": "dense_sentinel"
+    },
+    {
+      "case_id": "76",
+      "v020c": "2/1/0",
+      "v024l": "1/2/0",
+      "delta": "-1/+1/+0",
+      "category": "recall_regression"
+    },
+    {
+      "case_id": "77",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "delta": "+0/+0/+1",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "84",
+      "v020c": "8/5/0",
+      "v024l": "7/6/0",
+      "delta": "-1/+1/+0",
+      "category": "dense_recall_regression"
+    },
+    {
+      "case_id": "88",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "delta": "+0/+0/+1",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "90",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "delta": "+0/+0/+1",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "97",
+      "v020c": "1/0/2",
+      "v024l": "1/0/2",
+      "delta": "+0/+0/+0",
+      "category": "unchanged_fp_burden"
+    },
+    {
+      "case_id": "103",
+      "v020c": "1/0/1",
+      "v024l": "1/0/4",
+      "delta": "+0/+0/+3",
+      "category": "added_fp"
+    },
+    {
+      "case_id": "155",
+      "v020c": "2/0/0",
+      "v024l": "2/0/0",
+      "delta": "+0/+0/+0",
+      "category": "positive_control"
+    },
+    {
+      "case_id": "164",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "delta": "+1/-1/+0",
+      "category": "recovered_fn"
+    },
+    {
+      "case_id": "166",
+      "v020c": "1/0/0",
+      "v024l": "1/0/0",
+      "delta": "+0/+0/+0",
+      "category": "positive_control"
+    },
+    {
+      "case_id": "172",
+      "v020c": "1/2/0",
+      "v024l": "3/0/0",
+      "delta": "+2/-2/+0",
+      "category": "recovered_fn"
+    }
+  ],
+  "last_updated_utc": "2026-05-07T01:26:05+00:00",
+  "v025a_priority_delta": [
+    {
+      "case_id": "12",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "v025a": "1/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "14",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "v025a": "1/1/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "16",
+      "v020c": "1/0/0",
+      "v024l": "1/0/2",
+      "v025a": "1/0/2",
+      "v025a_vs_v020c": "+0/+0/+2"
+    },
+    {
+      "case_id": "21",
+      "v020c": "3/0/0",
+      "v024l": "2/1/0",
+      "v025a": "3/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "42",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "v025a": "1/1/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "66",
+      "v020c": "8/0/4",
+      "v024l": "8/0/6",
+      "v025a": "8/0/6",
+      "v025a_vs_v020c": "+0/+0/+2"
+    },
+    {
+      "case_id": "67",
+      "v020c": "9/2/4",
+      "v024l": "9/2/3",
+      "v025a": "1/10/9",
+      "v025a_vs_v020c": "-8/+8/+5"
+    },
+    {
+      "case_id": "76",
+      "v020c": "2/1/0",
+      "v024l": "1/2/0",
+      "v025a": "2/1/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "77",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "v025a": "1/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "84",
+      "v020c": "8/5/0",
+      "v024l": "7/6/0",
+      "v025a": "8/5/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "88",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "v025a": "1/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "90",
+      "v020c": "1/0/0",
+      "v024l": "1/0/1",
+      "v025a": "1/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "97",
+      "v020c": "1/0/2",
+      "v024l": "1/0/2",
+      "v025a": "0/1/1",
+      "v025a_vs_v020c": "-1/+1/-1"
+    },
+    {
+      "case_id": "103",
+      "v020c": "1/0/1",
+      "v024l": "1/0/4",
+      "v025a": "1/0/1",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "155",
+      "v020c": "2/0/0",
+      "v024l": "2/0/0",
+      "v025a": "2/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "164",
+      "v020c": "1/1/0",
+      "v024l": "2/0/0",
+      "v025a": "2/0/0",
+      "v025a_vs_v020c": "+1/-1/+0"
+    },
+    {
+      "case_id": "166",
+      "v020c": "1/0/0",
+      "v024l": "1/0/0",
+      "v025a": "1/0/0",
+      "v025a_vs_v020c": "+0/+0/+0"
+    },
+    {
+      "case_id": "172",
+      "v020c": "1/2/0",
+      "v024l": "3/0/0",
+      "v025a": "3/0/0",
+      "v025a_vs_v020c": "+2/-2/+0"
+    }
+  ],
+  "v025a_decision": {
+    "status": "rejected",
+    "case_155_pass": true,
+    "case_166_pass": true,
+    "office_negative_pass": true,
+    "case_67_preserved": false,
+    "case_84_collapsed": false,
+    "fp_explosion": false,
+    "reopened_fp_classes": [
+      "adjacent_off_target_object",
+      "nested_fragment_box"
+    ],
+    "hard_disqualifiers": [
+      "case_67_below_v020c"
+    ]
+  }
 }

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "80474ea0-5054-4f31-89d1-5d8826feb089",
+        "image_filename": "19.jpg",
+        "date_created": "2026-05-07T01:11:41Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "7.15"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "The building's roof and upper walls are extensively damaged with visible structural collapse; debris is scattered around the base; the structure appears to have lost significant portions of its external sheathing and framing, consistent with 45 to 75 percent damage.",
+            "bounding_box": [
+                1008,
+                84,
+                1200,
+                260
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull is completely destroyed with no recognizable structural integrity; turret is missing; tracks and engine compartment are obliterated; consistent with K-kill catastrophic damage.",
+            "bounding_box": [
+                300,
+                130,
+                684,
+                520
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed destroyed, and one building target is probable severely damaged. The scene depicts a heavily damaged area with a destroyed tank and a collapsed building, indicating significant combat impact. The destruction of the tank and severe damage to the building suggest a major disruption to local military or operational capabilities."
+}

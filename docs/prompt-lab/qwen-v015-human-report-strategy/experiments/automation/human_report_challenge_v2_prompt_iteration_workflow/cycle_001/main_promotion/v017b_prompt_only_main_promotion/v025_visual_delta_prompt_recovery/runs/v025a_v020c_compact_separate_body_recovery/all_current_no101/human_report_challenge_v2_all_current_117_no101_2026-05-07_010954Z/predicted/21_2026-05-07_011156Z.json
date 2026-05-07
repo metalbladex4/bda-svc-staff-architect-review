@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "af45b60b-7df6-4df5-8fc8-338b34cb77ae",
+        "image_filename": "21.jpg",
+        "date_created": "2026-05-07T01:11:56Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "7.00"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible structural damage including missing facade elements and broken windows; no complete collapse observed; damage appears consistent with 15 to 45 percent of target element area affected.",
+            "bounding_box": [
+                0,
+                203,
+                94,
+                284
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits extensive structural collapse with missing floors and exposed internal framing; over 75 percent of visible facade and structural elements are destroyed.",
+            "bounding_box": [
+                143,
+                33,
+                419,
+                302
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits near-total structural collapse with debris scattered across the entire footprint; visible absence of intact load-bearing walls and floors; consistent with 75 to 100 percent damage per doctrinal definition.",
+            "bounding_box": [
+                419,
+                91,
+                624,
+                284
+            ]
+        }
+    },
+    "summary": "Three buildings are assessed: one with moderate damage (probable), and two destroyed (confirmed). The scene depicts a heavily damaged urban area with multiple collapsed structures and widespread debris across the foreground. The functional impact is likely severe, with the destroyed buildings no longer usable and the moderately damaged one likely compromised for habitation or operations."
+}

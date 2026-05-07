@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "bab16961-1619-4ab4-ac5b-04eccb66f9da",
+        "image_filename": "85.jpg",
+        "date_created": "2026-05-07T01:18:06Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.60"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a tank with its turret completely detached and hull severely mangled; structural integrity is lost, and no functional components remain visible.",
+            "bounding_box": [
+                0,
+                253,
+                198,
+                468
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The vehicle is on its side with severe structural deformation, missing armor plates, and extensive scorching; no major components appear intact, consistent with catastrophic (K-kill) damage.",
+            "bounding_box": [
+                87,
+                192,
+                539,
+                393
+            ]
+        }
+    },
+    "summary": "Two military equipment targets are assessed as DESTROYED with CONFIRMED confidence: one tank with a detached turret and mangled hull, and another vehicle on its side with severe deformation and scorching. The scene depicts a desolate, smoke-filled battlefield with multiple destroyed armored vehicles, indicating a recent and intense engagement. The confirmed destruction of both targets suggests a significant loss of combat capability in the area."
+}

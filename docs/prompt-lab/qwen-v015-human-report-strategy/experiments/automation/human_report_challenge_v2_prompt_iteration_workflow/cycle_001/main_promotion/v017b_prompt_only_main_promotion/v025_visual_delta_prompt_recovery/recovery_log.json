@@ -1,24 +1,20 @@
 {
-  "package_id": "v025_visual_delta_prompt_recovery",
-  "review_timestamp_utc": "2026-05-07T00:05:56Z",
-  "runtime_recovery_required": false,
-  "model_inference_run": false,
   "events": [
     {
-      "event_type": "review_repo_initial_publish",
       "description": "Initial v025 scaffold copied to the staff architect review repo and pushed to origin/main.",
-      "review_repo_commit": "485eb18",
-      "resolution": "Published scaffold before the static visual review."
+      "event_type": "review_repo_initial_publish",
+      "resolution": "Published scaffold before the static visual review.",
+      "review_repo_commit": "485eb18"
     },
     {
-      "event_type": "artifact_inventory_recheck",
-      "description": "Rechecked static artifact availability using mixed jpg/png extensions.",
       "affected_priority_cases": [],
+      "description": "Rechecked static artifact availability using mixed jpg/png extensions.",
+      "event_type": "artifact_inventory_recheck",
       "resolution": "All priority cases have bbox review, bbox both, predicted crop, and reference crop artifacts in both source runs."
     },
     {
-      "event_type": "static_visual_review",
       "description": "Reviewed priority cases using static overlays, crops, eval CSVs, raw predictions, and temporary annotated contact sheets under /tmp/v025_visual_review.",
+      "event_type": "static_visual_review",
       "priority_cases_reviewed": [
         12,
         14,
@@ -40,17 +36,124 @@
         172
       ],
       "resolution": "Static artifacts were sufficient; FiftyOne is not needed before the next prompt-candidate planning step."
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-07T01:08:44.799229+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "event_type": "v025a_run",
+      "timestamp_utc": "2026-05-07T01:26:05+00:00",
+      "description": "Authored and evaluated v025a as the single approved compact separate-body recovery prompt candidate.",
+      "fetch_upstream_main": {
+        "cmd": [
+          "git",
+          "fetch",
+          "upstream",
+          "main"
+        ],
+        "returncode": null,
+        "stdout_tail": "not rerun; reused completed v025a run summaries",
+        "stderr_tail": ""
+      },
+      "backend_selection": {
+        "selected": {
+          "backend_id": "ollama_openai_compat_fallback_11434",
+          "model": "qwen3-vl:8b-instruct",
+          "openai_api_key": "no-auth",
+          "openai_base_url": "http://localhost:11434/v1",
+          "server_kind": "fallback_ollama_openai_compatible_endpoint"
+        },
+        "attempts": [],
+        "fallback_used": true,
+        "reuse_existing": true
+      },
+      "all_current_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v025_visual_delta_prompt_recovery/runs/v025a_v020c_compact_separate_body_recovery/all_current_no101/human_report_challenge_v2_all_current_117_no101_2026-05-07_010954Z/upstream_openai_compat_manifest_run_summary.json",
+      "office_negative_run_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v025_visual_delta_prompt_recovery/runs/v025a_v020c_compact_separate_body_recovery/office_negative/legacy_abstention_guard_office_negative_2026-05-07_010937Z/upstream_openai_compat_manifest_run_summary.json",
+      "decision_status": "rejected",
+      "hard_disqualifiers": [
+        "case_67_below_v020c"
+      ],
+      "resolution": "Stopped after v025a diagnosis; no v025b authored."
+    },
+    {
+      "event_type": "v025a_autopsy",
+      "timestamp_utc": "2026-05-07T02:06:00Z",
+      "description": "Wrote exact prompt-delta and case 67 collapse autopsies after v025a rejection.",
+      "resolution": "Recommended targeted replay/micro-ablation before any all-current v025b; no v025b authored."
     }
   ],
+  "model_inference_run": true,
+  "package_id": "v025_visual_delta_prompt_recovery",
+  "review_timestamp_utc": "2026-05-07T00:05:56Z",
+  "runtime_recovery_required": true,
   "stop_conditions_preserved": {
-    "v024o_not_scored": true,
-    "no_prompt_candidate_authored": true,
-    "no_source_truth_mutation": true,
-    "no_doctrine_edit": true,
     "no_assessment_prompt_edit": true,
-    "no_runtime_code_edit": true,
+    "no_doctrine_edit": true,
     "no_eval_ground_truth_edit": true,
     "no_graphify_refresh": true,
-    "no_mem0_write": true
+    "no_mem0_write": true,
+    "no_prompt_candidate_authored": false,
+    "no_runtime_code_edit": true,
+    "no_source_truth_mutation": true,
+    "v024o_not_scored": true,
+    "only_v025a_prompt_candidate_authored": true,
+    "no_v025b_authored": true,
+    "no_promotion": true,
+    "no_review_repo_push": true
   }
 }

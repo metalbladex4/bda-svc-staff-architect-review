@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "c6e54da7-645f-4ff2-baef-2b895344b330",
+        "image_filename": "164.jpg",
+        "date_created": "2026-05-07T01:23:25Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.53"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Roof structure is completely collapsed; major portion of walls is missing or collapsed; debris covers ground; chimney remains but structure is non-functional.",
+            "bounding_box": [
+                184,
+                90,
+                551,
+                318
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target building shows complete collapse of roof and upper structure; visible debris and exposed internal framing indicate 75 to 100 percent of target element area damaged.",
+            "bounding_box": [
+                474,
+                155,
+                611,
+                245
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed as DESTROYED with CONFIRMED confidence: one with a completely collapsed roof and missing walls, and another with full collapse of roof and upper structure, both showing extensive debris. The overall scene depicts a rural area with multiple ruined structures, snow-covered ground, and bare trees, indicating widespread destruction. The functional impact is likely complete loss of utility for the assessed buildings, as they are non-functional ruins."
+}

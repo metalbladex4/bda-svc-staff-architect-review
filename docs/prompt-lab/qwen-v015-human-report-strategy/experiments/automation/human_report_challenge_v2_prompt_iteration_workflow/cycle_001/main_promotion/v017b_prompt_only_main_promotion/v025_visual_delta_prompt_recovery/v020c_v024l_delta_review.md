@@ -195,3 +195,56 @@ Expected FP risk: building-piece FPs if wording says split too broadly
 Expected FN risk: suppressing tiny/distant no-damage targets if the cue is over-defensive
 Stop/disqualifier rule: any 155/166/office failure or case 67 collapse below v020c behavior
 ```
+
+## v025a Result Addendum
+
+Generated: `2026-05-07T01:26:05+00:00`
+
+`v025a_v020c_compact_separate_body_recovery` was authored after explicit approval as a one-cue v020c-based candidate.
+
+| Candidate | Matches | FNs | FPs | Errors | Status |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `v020c_anchor_replay` | 186 | 33 | 25 | 58 | incumbent |
+| `v024l_v023s_no_wheel_track_ablation` | 188 | 31 | 35 | 66 | high-recall learning evidence |
+| `v025a_v020c_compact_separate_body_recovery` | 176 | 43 | 35 | 78 | rejected |
+
+Decision:
+
+```text
+rejected
+```
+
+Hard disqualifiers:
+
+```text
+['case_67_below_v020c']
+```
+
+Reopened FP classes:
+
+```text
+['adjacent_off_target_object', 'nested_fragment_box']
+```
+
+Boundary: no `v025b` was authored, no prompt was promoted, and no Graphify or Mem0 write occurred in this wave.
+
+## v025a Autopsy Addendum
+
+The exact prompt delta was one sentence added inside `EXTRA-BOX AUDIT`.
+Autopsy files:
+
+- `diagnoses/v025a_prompt_delta_autopsy.md`
+- `diagnoses/v025a_case67_collapse_autopsy.md`
+
+Autopsy decision:
+
+```text
+v025a is rejected. Keep v020c as incumbent. Do not branch from v024l. Do not
+attempt another positive separate-body cue in the audit/final-balance region.
+```
+
+Recommended next direction:
+
+```text
+D. Run a targeted replay/micro-ablation pack before all-current.
+```
