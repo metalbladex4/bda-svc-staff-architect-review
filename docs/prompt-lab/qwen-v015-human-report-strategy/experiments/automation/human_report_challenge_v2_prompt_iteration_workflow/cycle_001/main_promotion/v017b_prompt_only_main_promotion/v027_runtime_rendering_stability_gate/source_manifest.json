@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-05-07T20:46:46Z",
+  "upstream_fetch": {
+    "cmd": [
+      "git",
+      "fetch",
+      "upstream",
+      "main"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "From https://github.com/cmu-bda/bda-svc\n * branch            main       -> FETCH_HEAD\n"
+  },
+  "upstream_main_commit": "f462ef4516b63ca1a2cd2434e75692f65d0e94cb",
+  "qwen_worktree": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement",
+  "package_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate",
+  "v020c_incumbent": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v024l_learning_only": {
+    "matches": 188,
+    "false_negatives": 31,
+    "false_positives": 35,
+    "combined_errors": 66
+  },
+  "v025a_rejected": {
+    "matches": 176,
+    "false_negatives": 43,
+    "false_positives": 35,
+    "combined_errors": 78
+  },
+  "v024o_status": "partial_unscored_forbidden",
+  "v026_stop_reason": "runtime_shape_sensitivity_pause; rendered prompt/request evidence was missing",
+  "base_overlay": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+  "all_current_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml",
+  "office_negative_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "backend_preflight": {
+    "generated_at": "2026-05-07T20:46:46Z",
+    "preferred_endpoint_status": {
+      "ok": false,
+      "url": "http://localhost:8000/v1/models",
+      "payload": null,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    "fallback_endpoint_status": {
+      "ok": true,
+      "url": "http://localhost:11434/v1/models",
+      "payload": {
+        "object": "list",
+        "data": [
+          {
+            "id": "qwen3-vl:8b-instruct",
+            "object": "model",
+            "created": 1775868872,
+            "owned_by": "library"
+          },
+          {
+            "id": "qwen3-vl:8b-instruct-q8_0",
+            "object": "model",
+            "created": 1775151091,
+            "owned_by": "library"
+          },
+          {
+            "id": "qwen3-vl:8b",
+            "object": "model",
+            "created": 1770157077,
+            "owned_by": "library"
+          }
+        ]
+      },
+      "error": null
+    },
+    "selected_backend": {
+      "label": "ollama_openai_compat_fallback_11434",
+      "base_url": "http://localhost:11434/v1",
+      "api_key": "no-auth",
+      "model": "qwen3-vl:8b-instruct"
+    },
+    "backend_selected_reason": "preferred endpoint unavailable; authorized fallback available",
+    "ollama_version": {
+      "cmd": [
+        "ollama",
+        "--version"
+      ],
+      "cwd": "/home/williambenitez1/Capstone",
+      "returncode": 0,
+      "stdout": "ollama version is 0.15.2\n",
+      "stderr": ""
+    }
+  }
+}

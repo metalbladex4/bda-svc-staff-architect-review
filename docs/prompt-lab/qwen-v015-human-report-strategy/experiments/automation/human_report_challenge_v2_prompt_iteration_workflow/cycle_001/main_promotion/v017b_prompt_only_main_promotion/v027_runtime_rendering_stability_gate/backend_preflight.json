@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-07T20:46:46Z",
+  "preferred_endpoint_status": {
+    "ok": false,
+    "url": "http://localhost:8000/v1/models",
+    "payload": null,
+    "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+  },
+  "fallback_endpoint_status": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "selected_backend": {
+    "label": "ollama_openai_compat_fallback_11434",
+    "base_url": "http://localhost:11434/v1",
+    "api_key": "no-auth",
+    "model": "qwen3-vl:8b-instruct"
+  },
+  "backend_selected_reason": "preferred endpoint unavailable; authorized fallback available",
+  "ollama_version": {
+    "cmd": [
+      "ollama",
+      "--version"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "ollama version is 0.15.2\n",
+    "stderr": ""
+  }
+}

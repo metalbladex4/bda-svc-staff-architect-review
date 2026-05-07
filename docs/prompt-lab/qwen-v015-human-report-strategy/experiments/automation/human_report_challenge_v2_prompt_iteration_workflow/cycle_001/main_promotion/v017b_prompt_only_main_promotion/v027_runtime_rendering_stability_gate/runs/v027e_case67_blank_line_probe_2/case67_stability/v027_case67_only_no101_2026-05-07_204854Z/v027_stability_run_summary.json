@@ -1,0 +1,145 @@
+{
+  "candidate_id": "v027e_case67_blank_line_probe_2",
+  "stage": "case67_stability",
+  "backend": {
+    "label": "ollama_openai_compat_fallback_11434",
+    "base_url": "http://localhost:11434/v1",
+    "api_key": "no-auth",
+    "model": "qwen3-vl:8b-instruct"
+  },
+  "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/validation_manifests/v027_case67_only_no101.yaml",
+  "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/predicted",
+  "eval_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/eval/evaluation_2026-05-07_204917Z_summary.json",
+  "scratch_config_sha256": "e23f7f6505ba4705feb780a59db9a1f40572f4c222fecaa12ae5becb5a38c4bc",
+  "command_records": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/scripts/instrumented_bda_runner.py",
+        "--scratch-root",
+        "/tmp/bda_v027_v027e_case67_blank_line_probe_2_2026-05-07_204854Z",
+        "--image",
+        "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/67.jpg",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/predicted",
+        "--trace-output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/traces/human-report-67.json",
+        "--candidate-id",
+        "v027e_case67_blank_line_probe_2",
+        "--backend-label",
+        "ollama_openai_compat_fallback_11434",
+        "--endpoint-url",
+        "http://localhost:11434/v1",
+        "--source-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/overlays/v027e_case67_blank_line_probe_2.yaml",
+        "--base-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+        "--stage",
+        "case67_stability",
+        "--intended-changes-json",
+        "[\"one extra blank line after the categories placeholder\"]"
+      ],
+      "cwd": "/tmp/bda_v027_v027e_case67_blank_line_probe_2_2026-05-07_204854Z",
+      "returncode": 0,
+      "stdout": "[*] Exported: /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/predicted/67_2026-05-07_204916Z.json\n",
+      "stderr": "Using CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///tmp/bda_v027_v027e_case67_blank_line_probe_2_2026-05-07_204854Z\n      Built bda-svc @ file:///tmp/bda_v027_v027e_case67_blank_line_probe_2_2026-05-07_204854Z\nInstalled 74 packages in 104ms\n"
+    },
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "main.py",
+        "--manifest",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/validation_manifests/v027_case67_only_no101.yaml",
+        "--predicted",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/predicted",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/eval"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/bda_eval",
+      "returncode": 0,
+      "stdout": "\n[*] Submitting matches to LLMaaJ:\n\n[*] Skipping LLMaaJ logic evaluation because 'OLLAMA_API_KEY' is not set.\n\n[*] Successfully created evaluation report '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/eval/evaluation_2026-05-07_204917Z.csv'.\n\n[*] Wrote evaluation summary '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/eval/evaluation_2026-05-07_204917Z_summary.json'.\n\n",
+      "stderr": ""
+    }
+  ],
+  "eval_summary_payload": {
+    "generated_at": "2026-05-07T20:49:17Z",
+    "eval_mode": "detection_study",
+    "pack_id": "v027_case67_only_no101",
+    "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/validation_manifests/v027_case67_only_no101.yaml",
+    "reference_label": "manifest_reference",
+    "predicted_label": "predicted",
+    "detector_backend_ids": [],
+    "resolved_config_hashes": [],
+    "image_count": 1,
+    "totals": {
+      "match_count": 1,
+      "false_negative_count": 10,
+      "false_positive_count": 9,
+      "negative_scene_count": 0,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 0
+    },
+    "images": [
+      {
+        "image_filename": "67.jpg",
+        "runtime_metadata": {
+          "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+          "detector_backend_id": "",
+          "resolved_config_hash": "",
+          "experiment_overlay_ids": [],
+          "model_line_id": ""
+        },
+        "reference_target_count": 11,
+        "predicted_target_count": 10,
+        "match_count": 1,
+        "false_negative_count": 10,
+        "false_positive_count": 9,
+        "negative_scene_metrics": {
+          "negative_scene": false,
+          "false_positive_count": 9,
+          "abstention_correct": null,
+          "unsupported_damage_claim": null,
+          "summary_consistency": null
+        },
+        "matches": [
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_11",
+            "predicted_label": "target_9",
+            "iou": 0.45080500894454384,
+            "center_error_px": 40.1403786728526,
+            "predicted_area_ratio": 0.7073684210526315,
+            "overlap_coverage": 0.5305263157894737,
+            "score_assess": 0.5007318263132218,
+            "score_logic": 0,
+            "score": 0.3505122784192552
+          }
+        ]
+      }
+    ]
+  },
+  "trace_files": [
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/traces/human-report-67.json"
+  ],
+  "matrix_record": {
+    "candidate_id": "v027e_case67_blank_line_probe_2",
+    "stage": "case67_stability",
+    "backend_label": "ollama_openai_compat_fallback_11434",
+    "matches": 1,
+    "false_negatives": 10,
+    "false_positives": 9,
+    "combined_errors": 19,
+    "case_67": "1/10/9",
+    "rendered_prompt_hash": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+    "request_shape_hash": "95ec81aab89890c30b58564012ca928dc500abdcad05d1e80cc3b028f91e6f60",
+    "response_trace_captured": true,
+    "status": "stability_fail",
+    "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z/eval/evaluation_2026-05-07_204917Z_summary.json",
+    "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v027_runtime_rendering_stability_gate/runs/v027e_case67_blank_line_probe_2/case67_stability/v027_case67_only_no101_2026-05-07_204854Z"
+  }
+}
