@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-05-07T23:27:12Z",
+  "records": [
+    {
+      "candidate_id": "v028a_case67_exact_v020c_replay_1",
+      "overlay_application": {
+        "overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "",
+        "scratch_detect_objects_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": true,
+        "intended_semantic_changes": [],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028a_case67_exact_v020c_replay_1/case67_stability/v028_case67_only_no101_2026-05-07_232716Z"
+    },
+    {
+      "candidate_id": "v028b_case67_exact_v020c_replay_2",
+      "overlay_application": {
+        "overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "",
+        "scratch_detect_objects_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": true,
+        "intended_semantic_changes": [],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028b_case67_exact_v020c_replay_2/case67_stability/v028_case67_only_no101_2026-05-07_232747Z"
+    },
+    {
+      "candidate_id": "v028c_case67_exact_v020c_replay_3",
+      "overlay_application": {
+        "overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "",
+        "scratch_detect_objects_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": true,
+        "intended_semantic_changes": [],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028c_case67_exact_v020c_replay_3/case67_stability/v028_case67_only_no101_2026-05-07_232820Z"
+    },
+    {
+      "candidate_id": "v028d_case67_blank_line_probe_1",
+      "overlay_application": {
+        "overlay_template_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "--- v020c_detect_objects_template\n+++ v028d_case67_blank_line_probe_1_detect_objects_template\n@@ -3,6 +3,7 @@\n TASK\n Detect targets whose doctrinal target_type is one of:\n {categories}\n+\n \n Calibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n \n",
+        "scratch_detect_objects_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": false,
+        "intended_semantic_changes": [
+          "one extra blank line after the categories placeholder"
+        ],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028d_case67_blank_line_probe_1/case67_stability/v028_case67_only_no101_2026-05-07_232852Z"
+    },
+    {
+      "candidate_id": "v028e_case67_blank_line_probe_2",
+      "overlay_application": {
+        "overlay_template_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "--- v020c_detect_objects_template\n+++ v028e_case67_blank_line_probe_2_detect_objects_template\n@@ -3,6 +3,7 @@\n TASK\n Detect targets whose doctrinal target_type is one of:\n {categories}\n+\n \n Calibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n \n",
+        "scratch_detect_objects_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": false,
+        "intended_semantic_changes": [
+          "one extra blank line after the categories placeholder"
+        ],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028e_case67_blank_line_probe_2/case67_stability/v028_case67_only_no101_2026-05-07_232915Z"
+    },
+    {
+      "candidate_id": "v028f_case67_trailing_space_probe",
+      "overlay_application": {
+        "overlay_template_sha256": "edb8c376c02c9b7a85248eb4142eeb3f42a47db9b5f7066eb1211ceb8cfc4e5a",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "--- v020c_detect_objects_template\n+++ v028f_case67_trailing_space_probe_detect_objects_template\n@@ -2,7 +2,7 @@\n \n TASK\n Detect targets whose doctrinal target_type is one of:\n-{categories}\n+{categories} \n \n Calibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n \n",
+        "scratch_detect_objects_sha256": "edb8c376c02c9b7a85248eb4142eeb3f42a47db9b5f7066eb1211ceb8cfc4e5a",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": false,
+        "intended_semantic_changes": [
+          "one trailing space after the categories placeholder line"
+        ],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028f_case67_trailing_space_probe/case67_stability/v028_case67_only_no101_2026-05-07_232943Z"
+    },
+    {
+      "candidate_id": "v028g_case67_noop_template_roundtrip",
+      "overlay_application": {
+        "overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "overlay_template_diff_from_base": "",
+        "scratch_detect_objects_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+        "scratch_detect_vs_intended_overlay_diff": "",
+        "overlay_actually_applied": true,
+        "candidate_unintended_no_op": true,
+        "intended_semantic_changes": [
+          "YAML roundtrip no-op; no intended semantic change"
+        ],
+        "rendered_template_changes": "captured after placeholder substitution"
+      },
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v028_stable_backend_recovery_and_prompt_resume/runs/v028g_case67_noop_template_roundtrip/case67_stability/v028_case67_only_no101_2026-05-07_233009Z"
+    }
+  ],
+  "updated_at": "2026-05-07T23:30:42Z"
+}

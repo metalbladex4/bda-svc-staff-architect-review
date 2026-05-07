@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-07T23:32:12Z",
+  "decision": "D. no_stable_backend_available_stop_prompt_mutation",
+  "stable_backend_recovered_or_launched": false,
+  "semantic_prompt_refinement_resumed": false,
+  "original_preferred_backend_available_before_recovery": false,
+  "backend_tested": {
+    "label": "ollama_deterministic_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "no-auth",
+    "model": "qwen3-vl:8b-instruct-v028-deterministic"
+  },
+  "stage1_passed": false,
+  "stage2_run": false,
+  "reason": "A deterministic Ollama-backed local endpoint on port 8000 still failed Stage 1: exact v020c replay 1 collapsed to 1/10/9 while exact replays 2 and 3 returned 9/2/4; blank-line and trailing-space probes also collapsed."
+}

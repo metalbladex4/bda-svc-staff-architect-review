@@ -1,0 +1,6 @@
+FROM qwen3-vl:8b-instruct
+PARAMETER temperature 0
+PARAMETER top_k 1
+PARAMETER top_p 1
+PARAMETER seed 42
+PARAMETER num_ctx 4096
