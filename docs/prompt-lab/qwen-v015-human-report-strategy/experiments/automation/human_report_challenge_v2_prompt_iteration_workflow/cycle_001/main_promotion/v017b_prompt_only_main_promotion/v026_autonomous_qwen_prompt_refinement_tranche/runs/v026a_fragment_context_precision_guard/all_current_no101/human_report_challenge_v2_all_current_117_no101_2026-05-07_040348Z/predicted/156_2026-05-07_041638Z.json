@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "868b4e30-47e4-449f-a493-96925740d12e",
+        "image_filename": "156.jpg",
+        "date_created": "2026-05-07T04:16:38Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.50"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building shows extensive structural collapse with debris covering the ground; visible absence of upper floors and walls; structural framing members appear intact but the building is reduced to rubble consistent with 75-100% damage.",
+            "bounding_box": [
+                0,
+                0,
+                611,
+                236
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank exhibits severe structural damage with missing tracks, burnt and melted components, and collapsed turret; no functional parts visible; consistent with catastrophic (K-kill) damage.",
+            "bounding_box": [
+                61,
+                292,
+                355,
+                435
+            ]
+        }
+    },
+    "summary": "One building is confirmed destroyed and one military tank is confirmed destroyed. The scene depicts a heavily damaged urban environment with collapsed structures and debris covering the ground, alongside a burnt-out tank. The destruction of both the building and the tank indicates significant loss of infrastructure and military capability in the area."
+}

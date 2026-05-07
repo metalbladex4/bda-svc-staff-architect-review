@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "643289be-b418-4dc6-b519-f1128b000a97",
+        "image_filename": "91.jpg",
+        "date_created": "2026-05-07T04:36:52Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.81"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The tank is completely overturned with its main gun and turret detached; smoke is rising from the wreckage; major structural components are missing and the hull is severely deformed, indicating catastrophic damage.",
+            "bounding_box": [
+                109,
+                390,
+                515,
+                469
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The selected military truck shows no visible deformations, holes, scorching, or missing components; all major structural elements appear intact and functional.",
+            "bounding_box": [
+                758,
+                262,
+                1153,
+                641
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The tank exhibits catastrophic physical damage: its turret is detached and lies askew, the main gun barrel is broken and angled, and the hull is severely deformed with visible scorching and structural collapse; no functional components remain.",
+            "bounding_box": [
+                1101,
+                262,
+                1299,
+                516
+            ]
+        }
+    },
+    "summary": "Two military tanks are assessed as DESTROYED, with one overturned and smoking, and the other with detached turret and broken gun; one military truck is assessed as NO DAMAGE. The scene depicts a desert battlefield with destroyed armored vehicles and intact military transport moving along a track, indicating a combat zone with significant damage to armored forces. The presence of destroyed tanks suggests a major tactical defeat or successful strike against armored units."
+}

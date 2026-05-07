@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "c143b074-7ff9-4c68-8d8e-45e61c0ea1f7",
+        "image_filename": "159.jpg",
+        "date_created": "2026-05-07T05:08:54Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.50"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible extensive rust and corrosion on the tank's hull and turret; tracks and wheels appear intact but weathered; no visible holes or catastrophic structural damage; overall condition suggests long-term exposure to elements.",
+            "bounding_box": [
+                6,
+                99,
+                610,
+                338
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The tank is stationary and shows no visible physical deformations, holes, scorching, or missing components; it appears to be a preserved exhibit with intact structure.",
+            "bounding_box": [
+                48,
+                216,
+                237,
+                262
+            ]
+        }
+    },
+    "summary": "Two military tanks are present: one is DAMAGED with extensive rust and corrosion but intact tracks and wheels, while the other shows NO DAMAGE with no visible physical deformations or holes. The scene depicts a grassy, tree-lined area with multiple rusted tanks displayed, suggesting a museum or memorial setting. The functional impact is likely negligible as both tanks appear non-operational due to their corroded state and lack of visible mechanical integrity."
+}

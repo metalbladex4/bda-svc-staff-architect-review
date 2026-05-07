@@ -1,0 +1,25 @@
+# v026 Recovery Log
+
+- `2026-05-07T03:56:32.578185+00:00` `backend_fallback`: Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.
+- `2026-05-07T03:56:32+00:00` `backend_fallback`: Preferred localhost:8000/v1 unavailable; using Ollama-backed OpenAI-compatible fallback.
+- `2026-05-07T03:57:00.594076+00:00` `backend_fallback`: Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.
+- `2026-05-07T03:57:28+00:00` `backend_fallback`: Preferred localhost:8000/v1 unavailable; using Ollama-backed OpenAI-compatible fallback.
+- `2026-05-07T04:18:27+00:00` `candidate_full_completed`: v026a_fragment_context_precision_guard completed full all-current.
+- `2026-05-07T04:23:00+00:00` `candidate_micro_rejected`: v026b_audit_removal_only_lock rejected by micro-pack.
+- `2026-05-07T04:42:41+00:00` `candidate_full_completed`: v026c_vehicle_body_anchor_not_rowline completed full all-current.
+- `2026-05-07T04:46:46+00:00` `candidate_micro_rejected`: v026d_qwen_native_grounding_header rejected by micro-pack.
+- `2026-05-07T04:50:33+00:00` `candidate_micro_rejected`: v026e_low_salience_separate_body_good_box rejected by micro-pack.
+- `2026-05-07T05:10:25+00:00` `candidate_full_completed`: v026f_tight_box_occupancy_guard completed full all-current.
+- `2026-05-07T05:15:00+00:00` `candidate_micro_rejected`: v026g_actual_tight_occupancy_guard rejected by micro-pack.
+- `2026-05-07T05:19:09+00:00` `candidate_micro_rejected`: v026h_remove_calibration_preamble rejected by micro-pack.
+- `2026-05-07T05:22:43+00:00` `candidate_micro_rejected`: v026i_remove_v019c_label_only rejected by micro-pack.
+- `2026-05-07T05:27:10+00:00` `candidate_micro_rejected`: v026j_visible_body_occupancy_phrase rejected by micro-pack.
+- `2026-05-07T05:31:30+00:00` `candidate_micro_rejected`: v026k_unrelated_background_object_guard rejected by micro-pack.
+- `2026-05-07T05:36:00+00:00` `candidate_micro_rejected`: v026l_compact_context_shadow_schema rejected by micro-pack.
+- `2026-05-07T05:39:56+00:00` `candidate_micro_rejected`: v026m_target_guidance_before_context rejected by micro-pack.
+- `2026-05-07T05:44:01+00:00` `candidate_micro_rejected`: v026n_dense_row_body_safety_cue rejected by micro-pack.
+- `2026-05-07T05:47:43+00:00` `candidate_micro_rejected`: v026o_output_only_no_extra_keys rejected by micro-pack.
+- `2026-05-07T05:51:52+00:00` `candidate_micro_rejected`: v026p_quadrant_scan_search_cue rejected by micro-pack.
+- `2026-05-07T05:55:33+00:00` `candidate_micro_rejected`: v026q_blank_line_shape_probe rejected by micro-pack.
+- `2026-05-07T05:56:25Z` `fresh_baseline_check`: exact v020c sentinel replay completed on fallback backend; result `38/11/11`, case `67` at `9/2/4`, controls passed.
+- `2026-05-07T06:01:04Z` `tranche_paused`: paused under runtime-validity rule because exact v020c remained stable while a blank-line-only prompt-shape probe collapsed case `67`; preferred `http://localhost:8000/v1` remained unavailable.

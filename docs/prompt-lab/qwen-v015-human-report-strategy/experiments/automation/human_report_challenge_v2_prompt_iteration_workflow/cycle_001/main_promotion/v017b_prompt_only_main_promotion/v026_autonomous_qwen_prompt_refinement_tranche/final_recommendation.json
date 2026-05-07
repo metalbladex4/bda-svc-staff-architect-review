@@ -1,0 +1,60 @@
+{
+  "generated_utc": "2026-05-07T06:01:04Z",
+  "status": "paused_runtime_shape_sensitivity",
+  "target_met": false,
+  "product_incumbent": "v020c_anchor_replay",
+  "tranche_working_best": "v020c_anchor_replay",
+  "promotion": "none",
+  "backend": {
+    "preferred": "http://localhost:8000/v1",
+    "used": "http://localhost:11434/v1",
+    "used_label": "ollama_openai_compat_fallback_11434",
+    "reason": "preferred endpoint unavailable; fallback authorized by plan"
+  },
+  "incumbent_metrics": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fresh_v020c_sentinel_check": {
+    "matches": 38,
+    "false_negatives": 11,
+    "false_positives": 11,
+    "combined_errors": 22,
+    "case_67": "9/2/4",
+    "case_155": "2/0/0",
+    "case_166": "1/0/0",
+    "office_negative": "pass"
+  },
+  "best_full_candidate": {
+    "candidate_id": "v026a_fragment_context_precision_guard",
+    "note": "No effective prompt delta rendered; exact v020c replay artifact.",
+    "stage": "full_all_current",
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58,
+    "case_67": "9/2/4",
+    "case_155": "2/0/0",
+    "case_166": "1/0/0",
+    "office_negative": "pass"
+  },
+  "hard_lesson": "Rendered prompt deltas through v026q failed the sentinel gate; even v026q's blank-line-only prompt-shape probe collapsed case 67 on the fallback endpoint.",
+  "resume_conditions": [
+    "preferred_backend_available_and_replay_checked",
+    "user_authorizes_continuing_fallback_random_micro_search",
+    "user_authorizes_visual_review_plus_deterministic_diagnostic_support_before_next_prompt"
+  ],
+  "boundaries_preserved": {
+    "product_config_modified": false,
+    "doctrine_modified": false,
+    "assessment_prompt_modified": false,
+    "runtime_code_modified": false,
+    "eval_truth_modified": false,
+    "promotion_created": false,
+    "commit_or_push": false,
+    "graphify_refresh": false,
+    "mem0_write": false
+  }
+}

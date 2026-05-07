@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "17a507d9-3a32-4eb2-9162-f6172043b1a3",
+        "image_filename": "16.jpg",
+        "date_created": "2026-05-07T05:53:18Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.57"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Building appears structurally intact with no visible collapse; roof and walls show minor scorch marks and debris, consistent with up to 15% damage.",
+            "bounding_box": [
+                1259,
+                744,
+                2473,
+                1275
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building within the green outline appears structurally intact with no visible holes, collapsed sections, or burn marks; its roof and walls show no signs of physical damage consistent with any damage category.",
+            "bounding_box": [
+                3147,
+                894,
+                4046,
+                1350
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull is severely deformed with missing turret; main gun barrel is detached and lying on ground; tracks and armor plates are shattered and scattered; no major components remain intact.",
+            "bounding_box": [
+                0,
+                1050,
+                3147,
+                1950
+            ]
+        }
+    },
+    "summary": "One military tank is confirmed destroyed with its hull severely deformed and main gun detached. One building is confirmed with no damage, and another building is assessed as light damage with minor scorch marks. The scene depicts a rural area with a destroyed tank on a dirt road and two buildings in the background, one of which shows no visible damage while the other shows light damage. The destruction of the tank likely renders the area impassable for armored vehicles and indicates a significant tactical impact."
+}

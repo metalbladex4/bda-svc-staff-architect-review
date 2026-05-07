@@ -1,0 +1,67 @@
+image_filename,model_name,detector_backend_id,resolved_config_hash,experiment_overlay_ids,inference_time,target_type,ref_target_label,pred_target_label,ref_damage,pred_damage,ref_confidence,pred_confidence,iou_score,w_d,w_c,cost,score_assess,score_logic,w_assess,w_logic,score,center_error_px,predicted_area_ratio,overlap_coverage,eval_mode,match_status
+12.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.12,buildings,target_1,target_0,3,4,2,2,0.805,,,0.207,0.811,0.000,,,0.568,36.582,0.805,0.805,detection_study,TP
+14.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,3.79,military equipment,target_2,target_0,1,2,0,2,0.503,,,0.572,0.480,0.000,,,0.336,85.646,1.513,0.841,detection_study,TP
+14.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,3.79,military equipment,target_1,,1,,0,,,,,,,,,,,,,,detection_study,FN
+16.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.52,military equipment,target_1,target_0,2,2,2,2,0.835,,,0.165,0.850,0.000,,,0.595,80.909,0.919,0.873,detection_study,TP
+42.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,4.81,military equipment,target_1,target_0,0,2,1,2,0.526,,,0.549,0.501,0.000,,,0.351,369.887,1.676,0.922,detection_study,TP
+42.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,4.81,military equipment,target_2,,1,,0,,,,,,,,,,,,,,detection_study,FN
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_8,target_6,0,1,0,1,0.415,,,0.635,0.422,0.000,,,0.296,8.746,1.174,0.637,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_7,target_7,0,1,0,1,0.709,,,0.341,0.690,0.000,,,0.483,7.517,0.945,0.807,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_6,target_8,0,1,0,1,0.470,,,0.580,0.473,0.000,,,0.331,8.382,1.657,0.850,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_5,target_9,0,1,0,1,0.543,,,0.507,0.539,0.000,,,0.377,9.552,1.534,0.892,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_4,target_10,0,1,0,1,0.489,,,0.561,0.490,0.000,,,0.343,14.534,1.612,0.858,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_3,target_11,1,1,1,1,0.439,,,0.561,0.490,0.000,,,0.343,12.816,0.439,0.439,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_2,target_12,1,1,2,1,0.568,,,0.457,0.585,0.000,,,0.409,28.182,0.698,0.615,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,target_1,target_13,1,1,2,2,0.682,,,0.318,0.711,0.000,,,0.498,28.539,0.682,0.682,detection_study,TP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_0,,1,,1,,,,,,,,,,,,,detection_study,FP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_1,,1,,1,,,,,,,,,,,,,detection_study,FP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_2,,1,,1,,,,,,,,,,,,,detection_study,FP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_3,,1,,1,,,,,,,,,,,,,detection_study,FP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_4,,1,,1,,,,,,,,,,,,,detection_study,FP
+66.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,28.60,military equipment,,target_5,,1,,1,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_9,target_8,0,0,1,2,0.332,,,0.693,0.370,0.000,,,0.259,11.402,0.893,0.472,detection_study,TP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_11,target_10,0,0,2,2,0.451,,,0.549,0.501,0.000,,,0.351,40.140,0.707,0.531,detection_study,TP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_1,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_2,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_3,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_4,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_5,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_6,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_7,,0,,0,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_8,,0,,1,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,target_10,,0,,2,,,,,,,,,,,,,,detection_study,FN
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_0,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_1,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_2,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_3,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_4,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_5,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_6,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_7,,0,,2,,,,,,,,,,,,,detection_study,FP
+67.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,22.62,military equipment,,target_9,,0,,2,,,,,,,,,,,,,detection_study,FP
+77.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.37,buildings,target_1,target_0,3,3,2,2,0.797,,,0.203,0.815,0.000,,,0.571,135.636,0.798,0.797,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_5,target_0,0,0,2,2,0.141,,,0.859,0.219,0.000,,,0.153,36.787,2.312,0.409,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_12,target_1,0,0,2,2,0.094,,,0.906,0.177,0.000,,,0.124,61.533,3.669,0.403,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_6,target_2,0,0,2,2,0.066,,,0.934,0.151,0.000,,,0.106,37.336,10.739,0.725,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_13,target_3,0,0,2,2,0.059,,,0.941,0.144,0.000,,,0.101,78.476,17.054,1.000,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_3,target_4,0,0,2,2,0.434,,,0.566,0.485,0.000,,,0.340,19.039,2.072,0.929,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_4,target_5,0,0,2,2,0.084,,,0.916,0.167,0.000,,,0.117,119.211,7.349,0.648,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_2,target_6,0,0,2,2,0.535,,,0.465,0.577,0.000,,,0.404,53.600,1.869,1.000,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_1,target_7,0,0,2,2,0.681,,,0.319,0.710,0.000,,,0.497,24.865,1.468,1.000,detection_study,TP
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_7,,0,,2,,,,,,,,,,,,,,detection_study,FN
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_8,,0,,2,,,,,,,,,,,,,,detection_study,FN
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_9,,0,,2,,,,,,,,,,,,,,detection_study,FN
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_10,,0,,2,,,,,,,,,,,,,,detection_study,FN
+84.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,15.66,military equipment,target_11,,0,,2,,,,,,,,,,,,,,detection_study,FN
+88.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.86,military equipment,target_1,target_0,2,2,2,2,0.935,,,0.065,0.941,0.000,,,0.659,31.627,0.935,0.935,detection_study,TP
+90.png,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,4.64,buildings,target_1,target_0,3,4,2,2,0.765,,,0.248,0.775,0.000,,,0.542,14.509,0.765,0.765,detection_study,TP
+97.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,1.97,buildings,target_1,,3,,2,,,,,,,,,,,,,,detection_study,FN
+97.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,1.97,object not found,,target_0,,0,,2,,,,,,,,,,,,,detection_study,FP
+103.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.67,buildings,target_1,target_1,0,0,2,2,0.663,,,0.337,0.694,0.000,,,0.486,55.036,0.698,0.677,detection_study,TP
+103.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.67,buildings,,target_0,,0,,2,,,,,,,,,,,,,detection_study,FP
+155.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.24,military equipment,target_2,target_0,2,2,1,2,0.769,,,0.256,0.767,0.000,,,0.537,8.062,0.769,0.769,detection_study,TP
+155.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.24,military equipment,target_1,target_1,2,2,2,2,0.819,,,0.181,0.835,0.000,,,0.585,13.200,1.155,0.970,detection_study,TP
+166.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,4.47,military equipment,target_1,target_0,2,2,2,2,0.483,,,0.517,0.530,0.000,,,0.371,25.318,0.483,0.483,detection_study,TP
+172.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.70,buildings,target_2,target_0,1,3,1,1,0.544,,,0.481,0.563,0.000,,,0.394,174.511,0.924,0.678,detection_study,TP
+172.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.70,buildings,target_1,,3,,1,,,,,,,,,,,,,,detection_study,FN
+172.jpg,detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct,,,,5.70,military equipment,target_3,,2,,2,,,,,,,,,,,,,,detection_study,FN

@@ -1,0 +1,78 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "e232d705-e4d4-4bbf-9749-62c49e86e844",
+        "image_filename": "160.jpg",
+        "date_created": "2026-05-07T04:41:16Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.55"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits extensive structural collapse with missing upper floors and exposed internal framework; debris field indicates complete loss of structural integrity consistent with 75-100% damage.",
+            "bounding_box": [
+                0,
+                62,
+                177,
+                332
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building shows extensive structural collapse with missing upper floors and exposed internal framework; debris field indicates 75-100% of structure is damaged.",
+            "bounding_box": [
+                339,
+                79,
+                589,
+                332
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a light-colored truck with visible wheels and intact body structure; no holes, scorching, or blown-off components are evident; no physical deformations consistent with damage.",
+            "bounding_box": [
+                251,
+                91,
+                286,
+                108
+            ]
+        },
+        "target_3": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a small, low-profile structure with no visible deformation, holes, scorching, or missing components consistent with military equipment damage; it appears to be a civilian building or utility structure.",
+            "bounding_box": [
+                286,
+                91,
+                316,
+                108
+            ]
+        },
+        "target_4": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible deformation and structural compromise in the vehicle's body; partial obscuration prevents definitive assessment of catastrophic damage.",
+            "bounding_box": [
+                316,
+                91,
+                345,
+                108
+            ]
+        }
+    },
+    "summary": "Two buildings are confirmed destroyed with extensive structural collapse and debris fields indicating 75-100% damage. One military vehicle is probable damaged with visible deformation, while two other military equipment targets are confirmed undamaged. The scene depicts a heavily damaged urban area with collapsed buildings, exposed interiors, and debris, suggesting significant destruction and likely loss of functional infrastructure."
+}

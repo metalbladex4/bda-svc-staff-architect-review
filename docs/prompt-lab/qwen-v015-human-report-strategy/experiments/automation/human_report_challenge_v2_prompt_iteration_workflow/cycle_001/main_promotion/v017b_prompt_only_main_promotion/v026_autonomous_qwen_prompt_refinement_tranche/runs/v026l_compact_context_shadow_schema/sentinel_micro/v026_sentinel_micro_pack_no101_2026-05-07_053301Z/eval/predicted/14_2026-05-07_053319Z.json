@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "7d64de0b-ba39-4732-a7ef-307ba9666626",
+        "image_filename": "14.jpg",
+        "date_created": "2026-05-07T05:33:19Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "5.62"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank shows catastrophic physical damage with visible fire, thick smoke, and structural deformation; no discernible intact major components; consistent with K-kill",
+            "bounding_box": [
+                350,
+                62,
+                500,
+                219
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a tank with visible fire and thick smoke emanating from its hull; the main gun barrel is missing, and the turret appears severely damaged and detached, indicating catastrophic destruction.",
+            "bounding_box": [
+                380,
+                219,
+                500,
+                381
+            ]
+        }
+    },
+    "summary": "Two military equipment targets are assessed as DESTROYED with CONFIRMED confidence; both show catastrophic physical damage including visible fire, thick smoke, and structural deformation consistent with K-kill. The scene depicts an aerial view of a single tank lying on its side in a ravine, emitting smoke and fire, with no other targets visible. The functional impact is complete loss of operational capability for the assessed targets."
+}

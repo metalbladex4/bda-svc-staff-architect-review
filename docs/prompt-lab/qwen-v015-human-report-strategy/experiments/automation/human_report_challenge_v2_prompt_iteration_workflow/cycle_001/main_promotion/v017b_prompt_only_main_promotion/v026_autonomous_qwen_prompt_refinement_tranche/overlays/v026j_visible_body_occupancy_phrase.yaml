@@ -1,0 +1,48 @@
+candidate_id: v026j_visible_body_occupancy_phrase
+title: v026j visible body occupancy phrase
+overlay_id: qwen-1.2-v026j-visible-body-occupancy-phrase
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: Exact v020c with one existing GOOD FINAL BOX tightness phrase made more
+  visually concrete.
+generated_from:
+- v020c_v019c_extra_box_audit
+hypothesis: Rewriting an existing tight-box phrase may reduce context/broad boxes
+  without adding a new rejection bullet or split salience.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets\
+      \ whose doctrinal target_type is one of:\n{categories}\n\nCalibration from prior\
+      \ runs: broad recall additions raised false positives. Return to the v019c context-shadow\
+      \ balance and improve only the final cleanup of extra boxes.\n\nCONTEXT SHADOW\
+      \ REVERSAL\nUse context to search, then mentally remove context to decide.\n\
+      \n1. Find possible targets across the full image.\n2. For each candidate, imagine\
+      \ removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture,\
+      \ tracks, terrain marks, and repeated spacing.\n3. Keep the candidate only if\
+      \ a target body, wreck body, or exterior structure remains visible enough to\
+      \ draw a tight box after those context cues are removed.\n4. If the candidate\
+      \ disappears when context is ignored, reject it.\n5. If a broad box contains\
+      \ several possible targets, split only when distinct bodies are visible; otherwise\
+      \ reject the broad box.\n\nGOOD FINAL BOX\n- one connected target body, wreck\
+      \ body, or exterior building structure\n- tight enough that the visible target\
+      \ body or exterior structure occupies most of the box\n- not a proxy for damage\
+      \ effects, row position, nearby roads, repeated spacing, or debris\n\nBAD FINAL\
+      \ BOX\n- context-only cue\n- group, row, convoy, cluster, or scene region\n\
+      - duplicate fragment of one connected body\n- interior/facade/debris subsection\
+      \ of one continuous building\n- extra neighboring box whose distinct body boundary\
+      \ is not visible\n\nEXTRA-BOX AUDIT\nBefore output, silently inspect every detection\
+      \ that sits near another detection or near a strong context cue. Remove it unless\
+      \ it has its own visible body center and at least one visible body edge or exterior-structure\
+      \ boundary. If two boxes describe the same connected body or the same continuous\
+      \ exterior building, keep only the tighter whole-body box.\n\nFINAL BALANCE\n\
+      Keep v019c recall behavior: small, damaged, crowded, or partly obscured targets\
+      \ are valid when their own target body remains visible after context is removed.\
+      \ The audit removes extras; it should not remove a true separable target body.\n\
+      \nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\nBOUNDING\
+      \ BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\n\
+      OUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT\
+      \ SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n  \
+      \    \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Applied only inside upstream/main scratch config; no product adoption.

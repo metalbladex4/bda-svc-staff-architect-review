@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "c4eb768a-650b-4f68-8671-6af0bc3dbcd9",
+        "image_filename": "97.jpg",
+        "date_created": "2026-05-07T05:18:38Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "7.56"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field covers the ground; facade is heavily damaged with missing sections; structural elements appear compromised; consistent with 45-75% of target element area damaged.",
+            "bounding_box": [
+                0,
+                0,
+                480,
+                540
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building on the right has its upper floors completely collapsed, with debris piled high and structural elements missing; the remaining lower section is heavily damaged with exposed interiors and collapsed walls, indicating 75 to 100 percent area damage consistent with destroyed.",
+            "bounding_box": [
+                800,
+                0,
+                1280,
+                540
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (confirmed, 45-75% area damaged) and one DESTROYED (confirmed, 75-100% area damaged). The scene depicts a narrow street choked with rubble, collapsed structures, and exposed interiors, indicating widespread destruction across multiple buildings. The functional impact is likely catastrophic, with infrastructure and habitable space rendered unusable due to the extent of damage."
+}

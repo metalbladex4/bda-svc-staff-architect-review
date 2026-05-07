@@ -1,0 +1,92 @@
+{
+  "generated_utc": "2026-05-07T03:57:28+00:00",
+  "fetch_upstream_main": {
+    "cmd": [
+      "git",
+      "fetch",
+      "upstream",
+      "main"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout_tail": "",
+    "stderr_tail": "From https://github.com/cmu-bda/bda-svc\n * branch            main       -> FETCH_HEAD\n"
+  },
+  "selection": {
+    "selected": {
+      "backend_id": "ollama_openai_compat_fallback_11434",
+      "openai_base_url": "http://localhost:11434/v1",
+      "model": "qwen3-vl:8b-instruct",
+      "openai_api_key": "no-auth",
+      "server_kind": "fallback_ollama_openai_compatible_endpoint"
+    },
+    "attempts": [
+      {
+        "backend": {
+          "backend_id": "upstream_openai_compat_preferred_8000",
+          "openai_base_url": "http://localhost:8000/v1",
+          "model": "Qwen/Qwen3-VL-8B-Instruct",
+          "openai_api_key": "EMPTY",
+          "server_kind": "preferred_upstream_openai_compatible_endpoint"
+        },
+        "check": {
+          "url": "http://localhost:8000/v1/models",
+          "status": "unavailable",
+          "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+          "model": "Qwen/Qwen3-VL-8B-Instruct"
+        }
+      },
+      {
+        "backend": {
+          "backend_id": "upstream_openai_compat_preferred_8000",
+          "openai_base_url": "http://localhost:8000/v1",
+          "model": "Qwen/Qwen3-VL-8B-Instruct",
+          "openai_api_key": "EMPTY",
+          "server_kind": "preferred_upstream_openai_compatible_endpoint"
+        },
+        "check": {
+          "url": "http://localhost:8000/v1/models",
+          "status": "unavailable",
+          "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+          "model": "Qwen/Qwen3-VL-8B-Instruct"
+        },
+        "recovery_attempt": "preferred_endpoint_retry"
+      },
+      {
+        "backend": {
+          "backend_id": "ollama_openai_compat_fallback_11434",
+          "openai_base_url": "http://localhost:11434/v1",
+          "model": "qwen3-vl:8b-instruct",
+          "openai_api_key": "no-auth",
+          "server_kind": "fallback_ollama_openai_compatible_endpoint"
+        },
+        "check": {
+          "url": "http://localhost:11434/v1/models",
+          "status": "available",
+          "model": "qwen3-vl:8b-instruct",
+          "model_ids": [
+            "qwen3-vl:8b-instruct",
+            "qwen3-vl:8b-instruct-q8_0",
+            "qwen3-vl:8b"
+          ]
+        },
+        "recovery_attempt": "authorized_fallback"
+      }
+    ],
+    "fallback_used": true
+  },
+  "preferred_backend": {
+    "backend_id": "upstream_openai_compat_preferred_8000",
+    "openai_base_url": "http://localhost:8000/v1",
+    "model": "Qwen/Qwen3-VL-8B-Instruct",
+    "openai_api_key": "EMPTY",
+    "server_kind": "preferred_upstream_openai_compatible_endpoint"
+  },
+  "fallback_backend": {
+    "backend_id": "ollama_openai_compat_fallback_11434",
+    "openai_base_url": "http://localhost:11434/v1",
+    "model": "qwen3-vl:8b-instruct",
+    "openai_api_key": "no-auth",
+    "server_kind": "fallback_ollama_openai_compatible_endpoint"
+  }
+}

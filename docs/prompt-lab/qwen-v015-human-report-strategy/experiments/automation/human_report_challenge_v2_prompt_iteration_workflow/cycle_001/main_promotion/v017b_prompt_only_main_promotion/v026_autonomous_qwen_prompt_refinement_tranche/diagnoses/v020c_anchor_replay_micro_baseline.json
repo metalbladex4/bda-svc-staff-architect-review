@@ -1,0 +1,263 @@
+{
+  "candidate_id": "v020c_anchor_replay",
+  "stage": "micro_pack_only",
+  "backend": {
+    "backend_id": "ollama_openai_compat_fallback_11434",
+    "openai_base_url": "http://localhost:11434/v1",
+    "model": "qwen3-vl:8b-instruct",
+    "openai_api_key": "no-auth",
+    "server_kind": "fallback_ollama_openai_compatible_endpoint"
+  },
+  "image_count": 15,
+  "matches": 38,
+  "false_negatives": 11,
+  "false_positives": 11,
+  "combined_errors": 22,
+  "case_101_seen": false,
+  "cases": {
+    "12": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "14": {
+      "reference_target_count": 2,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 1,
+      "false_positive_count": 0
+    },
+    "16": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "42": {
+      "reference_target_count": 2,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 1,
+      "false_positive_count": 0
+    },
+    "66": {
+      "reference_target_count": 8,
+      "predicted_target_count": 12,
+      "match_count": 8,
+      "false_negative_count": 0,
+      "false_positive_count": 4
+    },
+    "67": {
+      "reference_target_count": 11,
+      "predicted_target_count": 13,
+      "match_count": 9,
+      "false_negative_count": 2,
+      "false_positive_count": 4
+    },
+    "77": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "84": {
+      "reference_target_count": 13,
+      "predicted_target_count": 8,
+      "match_count": 8,
+      "false_negative_count": 5,
+      "false_positive_count": 0
+    },
+    "88": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "90": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "97": {
+      "reference_target_count": 1,
+      "predicted_target_count": 3,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 2
+    },
+    "103": {
+      "reference_target_count": 1,
+      "predicted_target_count": 2,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 1
+    },
+    "155": {
+      "reference_target_count": 2,
+      "predicted_target_count": 2,
+      "match_count": 2,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "166": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "172": {
+      "reference_target_count": 3,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 2,
+      "false_positive_count": 0
+    }
+  },
+  "dense_cases": {
+    "66": {
+      "reference_target_count": 8,
+      "predicted_target_count": 12,
+      "match_count": 8,
+      "false_negative_count": 0,
+      "false_positive_count": 4
+    },
+    "67": {
+      "reference_target_count": 11,
+      "predicted_target_count": 13,
+      "match_count": 9,
+      "false_negative_count": 2,
+      "false_positive_count": 4
+    },
+    "84": {
+      "reference_target_count": 13,
+      "predicted_target_count": 8,
+      "match_count": 8,
+      "false_negative_count": 5,
+      "false_positive_count": 0
+    },
+    "97": {
+      "reference_target_count": 1,
+      "predicted_target_count": 3,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 2
+    }
+  },
+  "controls": {
+    "155": {
+      "reference_target_count": 2,
+      "predicted_target_count": 2,
+      "match_count": 2,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "166": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    }
+  },
+  "target_visual_cases": {
+    "14": {
+      "reference_target_count": 2,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 1,
+      "false_positive_count": 0
+    },
+    "42": {
+      "reference_target_count": 2,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 1,
+      "false_positive_count": 0
+    },
+    "172": {
+      "reference_target_count": 3,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 2,
+      "false_positive_count": 0
+    }
+  },
+  "fp_risk_cases": {
+    "12": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "16": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "66": {
+      "reference_target_count": 8,
+      "predicted_target_count": 12,
+      "match_count": 8,
+      "false_negative_count": 0,
+      "false_positive_count": 4
+    },
+    "77": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "88": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "90": {
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0
+    },
+    "97": {
+      "reference_target_count": 1,
+      "predicted_target_count": 3,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 2
+    },
+    "103": {
+      "reference_target_count": 1,
+      "predicted_target_count": 2,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 1
+    }
+  },
+  "office_negative": {
+    "image_count": 1,
+    "pass": true,
+    "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v026_autonomous_qwen_prompt_refinement_tranche/runs/v020c_anchor_replay/office_negative/legacy_abstention_guard_office_negative_2026-05-07_035747Z/eval/evaluation_2026-05-07_035804Z_summary.json"
+  },
+  "run_summaries": {
+    "stage": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v026_autonomous_qwen_prompt_refinement_tranche/runs/v020c_anchor_replay/sentinel_micro/v026_sentinel_micro_pack_no101_2026-05-07_035804Z/upstream_openai_compat_manifest_run_summary.json",
+    "office_negative": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v026_autonomous_qwen_prompt_refinement_tranche/runs/v020c_anchor_replay/office_negative/legacy_abstention_guard_office_negative_2026-05-07_035747Z/upstream_openai_compat_manifest_run_summary.json"
+  },
+  "runtime_json_valid": true,
+  "nonzero_command_count": 0,
+  "missing_outputs": []
+}

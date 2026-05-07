@@ -1,0 +1,488 @@
+{
+  "events": [
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-07T03:56:32.578185+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "backend_selection": {
+        "attempts": [
+          {
+            "backend": {
+              "backend_id": "upstream_openai_compat_preferred_8000",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "openai_api_key": "EMPTY",
+              "openai_base_url": "http://localhost:8000/v1",
+              "server_kind": "preferred_upstream_openai_compatible_endpoint"
+            },
+            "check": {
+              "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "status": "unavailable",
+              "url": "http://localhost:8000/v1/models"
+            }
+          },
+          {
+            "backend": {
+              "backend_id": "upstream_openai_compat_preferred_8000",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "openai_api_key": "EMPTY",
+              "openai_base_url": "http://localhost:8000/v1",
+              "server_kind": "preferred_upstream_openai_compatible_endpoint"
+            },
+            "check": {
+              "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "status": "unavailable",
+              "url": "http://localhost:8000/v1/models"
+            },
+            "recovery_attempt": "preferred_endpoint_retry"
+          },
+          {
+            "backend": {
+              "backend_id": "ollama_openai_compat_fallback_11434",
+              "model": "qwen3-vl:8b-instruct",
+              "openai_api_key": "no-auth",
+              "openai_base_url": "http://localhost:11434/v1",
+              "server_kind": "fallback_ollama_openai_compatible_endpoint"
+            },
+            "check": {
+              "model": "qwen3-vl:8b-instruct",
+              "model_ids": [
+                "qwen3-vl:8b-instruct",
+                "qwen3-vl:8b-instruct-q8_0",
+                "qwen3-vl:8b"
+              ],
+              "status": "available",
+              "url": "http://localhost:11434/v1/models"
+            },
+            "recovery_attempt": "authorized_fallback"
+          }
+        ],
+        "fallback_used": true,
+        "selected": {
+          "backend_id": "ollama_openai_compat_fallback_11434",
+          "model": "qwen3-vl:8b-instruct",
+          "openai_api_key": "no-auth",
+          "openai_base_url": "http://localhost:11434/v1",
+          "server_kind": "fallback_ollama_openai_compatible_endpoint"
+        }
+      },
+      "description": "Preferred localhost:8000/v1 unavailable; using Ollama-backed OpenAI-compatible fallback.",
+      "event_type": "backend_fallback",
+      "timestamp_utc": "2026-05-07T03:56:32+00:00"
+    },
+    {
+      "attempts": [
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          }
+        },
+        {
+          "backend": {
+            "backend_id": "upstream_openai_compat_preferred_8000",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "openai_api_key": "EMPTY",
+            "openai_base_url": "http://localhost:8000/v1",
+            "server_kind": "preferred_upstream_openai_compatible_endpoint"
+          },
+          "check": {
+            "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+            "model": "Qwen/Qwen3-VL-8B-Instruct",
+            "status": "unavailable",
+            "url": "http://localhost:8000/v1/models"
+          },
+          "recovery_attempt": "preferred_endpoint_retry"
+        },
+        {
+          "backend": {
+            "backend_id": "ollama_openai_compat_fallback_11434",
+            "model": "qwen3-vl:8b-instruct",
+            "openai_api_key": "no-auth",
+            "openai_base_url": "http://localhost:11434/v1",
+            "server_kind": "fallback_ollama_openai_compatible_endpoint"
+          },
+          "check": {
+            "model": "qwen3-vl:8b-instruct",
+            "model_ids": [
+              "qwen3-vl:8b-instruct",
+              "qwen3-vl:8b-instruct-q8_0",
+              "qwen3-vl:8b"
+            ],
+            "status": "available",
+            "url": "http://localhost:11434/v1/models"
+          },
+          "recovery_attempt": "authorized_fallback"
+        }
+      ],
+      "generated_utc": "2026-05-07T03:57:00.594076+00:00",
+      "message": "Preferred localhost:8000/v1 unavailable after retry; using authorized Ollama OpenAI-compatible fallback.",
+      "type": "backend_fallback"
+    },
+    {
+      "timestamp_utc": "2026-05-07T03:57:28+00:00",
+      "event_type": "backend_fallback",
+      "description": "Preferred localhost:8000/v1 unavailable; using Ollama-backed OpenAI-compatible fallback.",
+      "backend_selection": {
+        "selected": {
+          "backend_id": "ollama_openai_compat_fallback_11434",
+          "openai_base_url": "http://localhost:11434/v1",
+          "model": "qwen3-vl:8b-instruct",
+          "openai_api_key": "no-auth",
+          "server_kind": "fallback_ollama_openai_compatible_endpoint"
+        },
+        "attempts": [
+          {
+            "backend": {
+              "backend_id": "upstream_openai_compat_preferred_8000",
+              "openai_base_url": "http://localhost:8000/v1",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "openai_api_key": "EMPTY",
+              "server_kind": "preferred_upstream_openai_compatible_endpoint"
+            },
+            "check": {
+              "url": "http://localhost:8000/v1/models",
+              "status": "unavailable",
+              "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+              "model": "Qwen/Qwen3-VL-8B-Instruct"
+            }
+          },
+          {
+            "backend": {
+              "backend_id": "upstream_openai_compat_preferred_8000",
+              "openai_base_url": "http://localhost:8000/v1",
+              "model": "Qwen/Qwen3-VL-8B-Instruct",
+              "openai_api_key": "EMPTY",
+              "server_kind": "preferred_upstream_openai_compatible_endpoint"
+            },
+            "check": {
+              "url": "http://localhost:8000/v1/models",
+              "status": "unavailable",
+              "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
+              "model": "Qwen/Qwen3-VL-8B-Instruct"
+            },
+            "recovery_attempt": "preferred_endpoint_retry"
+          },
+          {
+            "backend": {
+              "backend_id": "ollama_openai_compat_fallback_11434",
+              "openai_base_url": "http://localhost:11434/v1",
+              "model": "qwen3-vl:8b-instruct",
+              "openai_api_key": "no-auth",
+              "server_kind": "fallback_ollama_openai_compatible_endpoint"
+            },
+            "check": {
+              "url": "http://localhost:11434/v1/models",
+              "status": "available",
+              "model": "qwen3-vl:8b-instruct",
+              "model_ids": [
+                "qwen3-vl:8b-instruct",
+                "qwen3-vl:8b-instruct-q8_0",
+                "qwen3-vl:8b"
+              ]
+            },
+            "recovery_attempt": "authorized_fallback"
+          }
+        ],
+        "fallback_used": true
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T04:18:27+00:00",
+      "event_type": "candidate_full_completed",
+      "description": "v026a_fragment_context_precision_guard completed full all-current.",
+      "decision": {
+        "status": "learning_evidence",
+        "hard_disqualifiers": []
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T04:23:00+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026b_audit_removal_only_lock rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression",
+          "case_84_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T04:42:41+00:00",
+      "event_type": "candidate_full_completed",
+      "description": "v026c_vehicle_body_anchor_not_rowline completed full all-current.",
+      "decision": {
+        "status": "learning_evidence",
+        "hard_disqualifiers": []
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T04:46:46+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026d_qwen_native_grounding_header rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T04:50:33+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026e_low_salience_separate_body_good_box rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:10:25+00:00",
+      "event_type": "candidate_full_completed",
+      "description": "v026f_tight_box_occupancy_guard completed full all-current.",
+      "decision": {
+        "status": "learning_evidence",
+        "hard_disqualifiers": []
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:15:00+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026g_actual_tight_occupancy_guard rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression",
+          "case_97_match_loss"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:19:09+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026h_remove_calibration_preamble rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:22:43+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026i_remove_v019c_label_only rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression",
+          "case_84_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:27:10+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026j_visible_body_occupancy_phrase rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_155_failed",
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:31:30+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026k_unrelated_background_object_guard rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_155_failed",
+          "case_67_regression",
+          "nested_fragment_or_context_fp_reopened"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:36:00+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026l_compact_context_shadow_schema rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:39:56+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026m_target_guidance_before_context rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_155_failed",
+          "case_67_regression",
+          "case_84_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:44:01+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026n_dense_row_body_safety_cue rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:47:43+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026o_output_only_no_extra_keys rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression",
+          "case_84_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:51:52+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026p_quadrant_scan_search_cue rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:55:33+00:00",
+      "event_type": "candidate_micro_rejected",
+      "description": "v026q_blank_line_shape_probe rejected by micro-pack.",
+      "decision": {
+        "status": "rejected",
+        "hard_disqualifiers": [
+          "case_67_regression",
+          "case_84_regression"
+        ],
+        "run_full_all_current": false
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T05:56:25Z",
+      "event_type": "fresh_baseline_check",
+      "description": "Exact v020c sentinel replay completed on fallback backend after v026q.",
+      "result": {
+        "matches": 38,
+        "false_negatives": 11,
+        "false_positives": 11,
+        "combined_errors": 22,
+        "case_67": "9/2/4",
+        "case_155": "2/0/0",
+        "case_166": "1/0/0",
+        "office_negative": "pass"
+      }
+    },
+    {
+      "timestamp_utc": "2026-05-07T06:01:04Z",
+      "event_type": "tranche_paused",
+      "description": "Paused under runtime-validity rule because exact v020c remained stable while blank-line-only v026q collapsed case 67; preferred backend remained unavailable.",
+      "decision": {
+        "status": "paused_runtime_shape_sensitivity",
+        "product_incumbent": "v020c_anchor_replay",
+        "tranche_working_best": "v020c_anchor_replay",
+        "target_met": false,
+        "promotion": "none"
+      }
+    }
+  ]
+}

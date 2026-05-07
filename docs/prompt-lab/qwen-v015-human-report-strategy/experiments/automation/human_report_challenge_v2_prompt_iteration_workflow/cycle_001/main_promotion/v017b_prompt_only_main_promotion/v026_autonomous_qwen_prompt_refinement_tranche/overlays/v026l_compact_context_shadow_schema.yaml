@@ -1,0 +1,35 @@
+candidate_id: v026l_compact_context_shadow_schema
+title: v026l compact context shadow schema
+overlay_id: qwen-1.2-v026l-compact-context-shadow-schema
+overlay_type: experiment
+model_line: qwen3-vl:8b-instruct
+description: A compact v020c-inspired rewrite using Qwen-style JSON grounding wording
+  without branching from v024l.
+generated_from:
+- v020c_v019c_extra_box_audit
+hypothesis: A shorter prompt may reach a different Qwen grounding attractor while
+  retaining v020c context-shadow and audit principles.
+overrides:
+  prompts:
+    detect_objects: "Perform a VISUAL-ONLY object detection.\n\nDetect every visible\
+      \ valid target whose doctrinal target_type is one of:\n{categories}\n\nUse context\
+      \ to search the whole image, but final boxes must be supported by the target\
+      \ itself.\n\nKEEP\n- one tight box per visible target body, wreck body, or exterior\
+      \ building structure\n- small, damaged, crowded, or partly obscured targets\
+      \ when their own body remains visible\n- separate boxes only when separate visible\
+      \ bodies are clear\n\nREJECT\n- smoke, dust, flame, shadow, road, terrain, blast\
+      \ texture, tracks, debris, row alignment, or spacing without a visible target\
+      \ body\n- broad group, row, convoy, cluster, or scene-region boxes\n- duplicate\
+      \ boxes or fragments of one connected body\n- interior/facade/debris subsections\
+      \ of one continuous building\n- neighboring boxes whose distinct body boundary\
+      \ is not visible\n\nBefore output, silently audit boxes near another detection\
+      \ or strong context cue. Keep the box only if it still has its own visible body\
+      \ center and at least one visible body edge or exterior-structure boundary after\
+      \ context cues are ignored.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\n{detection_guidance}\n\
+      \nBOUNDING BOX FORMAT\n- Format: {bbox_format}\n- Coordinate scale: {bbox_scale}\n\
+      \nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections\
+      \ field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT\
+      \ SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n  \
+      \    \"bbox\": {bbox_format}\n    }\n  ]\n}\n"
+  runtime:
+    notes: Applied only inside upstream/main scratch config; no product adoption.

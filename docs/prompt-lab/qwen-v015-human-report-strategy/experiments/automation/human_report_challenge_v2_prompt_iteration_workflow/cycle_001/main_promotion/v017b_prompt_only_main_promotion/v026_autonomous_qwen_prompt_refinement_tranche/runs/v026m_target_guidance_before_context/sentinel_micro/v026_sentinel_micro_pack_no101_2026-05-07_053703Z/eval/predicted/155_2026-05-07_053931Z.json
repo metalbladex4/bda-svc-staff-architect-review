@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "3c4e6765-d070-4835-9a72-c6dc01c06247",
+        "image_filename": "155.jpg",
+        "date_created": "2026-05-07T05:39:31Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "7.03"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a vehicle with its roof completely caved in, chassis exposed, and all major structural components collapsed and charred; this represents 100 percent of the target element area damaged.",
+            "bounding_box": [
+                17,
+                100,
+                148,
+                179
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is completely consumed by fire with no discernible structural integrity; all major components are charred and fused together; no repairable parts visible.",
+            "bounding_box": [
+                17,
+                100,
+                148,
+                179
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is completely charred with no discernible structural integrity; all major components are melted or consumed by fire; consistent with catastrophic (K-kill) damage.",
+            "bounding_box": [
+                87,
+                125,
+                446,
+                400
+            ]
+        }
+    },
+    "summary": "Two military equipment targets and one building target are assessed as DESTROYED with CONFIRMED confidence. The scene depicts a road with multiple vehicles completely burned and structurally collapsed, with soldiers standing nearby. The functional impact is likely severe, as all assessed targets are rendered non-operational and appear to have been destroyed by catastrophic force."
+}

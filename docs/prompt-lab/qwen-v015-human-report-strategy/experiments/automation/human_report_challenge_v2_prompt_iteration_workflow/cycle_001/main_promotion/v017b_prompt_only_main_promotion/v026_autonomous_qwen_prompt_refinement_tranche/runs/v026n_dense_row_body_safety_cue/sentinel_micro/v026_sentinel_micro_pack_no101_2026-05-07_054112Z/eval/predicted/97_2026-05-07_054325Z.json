@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "d954ca6f-19a2-42dd-80b7-01cce0dfd459",
+        "image_filename": "97.jpg",
+        "date_created": "2026-05-07T05:43:25Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.72"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible collapse of upper floors and facade; extensive debris field covering ground; structural elements like walls and roof panels are missing or heavily damaged; consistent with 45 to 75 percent of target element area damaged.",
+            "bounding_box": [
+                0,
+                0,
+                448,
+                562
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field covers most ground; facade shows extensive structural damage with collapsed sections; multiple floors appear compromised; consistent with 45-75% target element area damaged.",
+            "bounding_box": [
+                448,
+                0,
+                832,
+                432
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building's facade is largely collapsed with debris covering the ground; structural elements are missing and the remaining walls show severe fragmentation, consistent with 75 to 100 percent damage.",
+            "bounding_box": [
+                832,
+                0,
+                1280,
+                562
+            ]
+        }
+    },
+    "summary": "Three buildings assessed: two with SEVERE DAMAGE (45-75% area damaged) and one DESTROYED (75-100% area damaged). The scene depicts a narrow street choked with rubble, collapsed walls, and debris, indicating widespread structural failure across multiple buildings. The functional impact is likely catastrophic, with the street rendered impassable and buildings non-functional due to extensive destruction."
+}

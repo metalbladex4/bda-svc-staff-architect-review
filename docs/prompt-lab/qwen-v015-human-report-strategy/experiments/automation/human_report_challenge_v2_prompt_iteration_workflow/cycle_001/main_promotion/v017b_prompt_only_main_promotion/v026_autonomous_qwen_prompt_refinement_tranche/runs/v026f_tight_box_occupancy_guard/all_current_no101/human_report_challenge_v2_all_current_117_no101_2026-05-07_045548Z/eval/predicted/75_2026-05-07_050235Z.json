@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "e7a4c1ec-a8c9-43e8-b448-b08bff12e750",
+        "image_filename": "75.jpg",
+        "date_created": "2026-05-07T05:02:35Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "7.63"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a tank with extensive structural damage including missing armor plates, exposed internal components, and severe rusting indicating catastrophic failure; no functional parts remain.",
+            "bounding_box": [
+                145,
+                438,
+                224,
+                470
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Catastrophic structural damage visible including missing armor plates, exposed internal components, and severe rusting indicating unrepairable condition.",
+            "bounding_box": [
+                292,
+                342,
+                1235,
+                809
+            ]
+        }
+    },
+    "summary": "Two military tanks are present, both assessed as DESTROYED with CONFIRMED confidence; one is in the foreground with severe rusting and missing armor, the other is in the background with similar catastrophic damage. The scene depicts a desolate, open field with both tanks abandoned and in advanced states of decay. The functional impact is complete loss of operational capability for both targets, as confirmed by their destroyed condition."
+}

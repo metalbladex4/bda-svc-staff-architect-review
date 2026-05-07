@@ -1,0 +1,66 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "f8e575cb-4cfc-4a10-8d51-964e8f410329",
+        "image_filename": "03.jpg",
+        "date_created": "2026-05-07T04:56:01Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.41"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "POSSIBLE",
+            "brief_supporting_logic": "Visible damage to roof and facade; windows appear intact; structural framing not visibly compromised; damage appears limited to non-load-bearing elements.",
+            "bounding_box": [
+                1075,
+                94,
+                1267,
+                202
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible roof damage and partial facade collapse; structural framing appears intact; damage covers less than 15% of visible target area.",
+            "bounding_box": [
+                1075,
+                266,
+                1267,
+                374
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible structural integrity of the building appears intact; roof and walls show no signs of collapse or major deformation; damage limited to minor facade disruption and possible window breakage, consistent with up to 15% area affected.",
+            "bounding_box": [
+                1075,
+                374,
+                1267,
+                482
+            ]
+        },
+        "target_3": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle appears intact with no visible holes, scorching, or blown-off components; tracks/wheels and armored plates are not present to assess deformation; no observable physical deformations.",
+            "bounding_box": [
+                589,
+                331,
+                678,
+                389
+            ]
+        }
+    },
+    "summary": "Three buildings assessed with LIGHT damage: two with PROBABLE confidence and one with POSSIBLE confidence, all showing limited facade or roof damage without structural compromise. One military vehicle assessed with NO DAMAGE, appearing intact. Overall scene shows a snow-covered area with a road, railway tracks, and residential buildings; no visible active combat or widespread destruction. Functional impact is likely minimal, as assessed targets show only superficial damage and no operational disruption."
+}

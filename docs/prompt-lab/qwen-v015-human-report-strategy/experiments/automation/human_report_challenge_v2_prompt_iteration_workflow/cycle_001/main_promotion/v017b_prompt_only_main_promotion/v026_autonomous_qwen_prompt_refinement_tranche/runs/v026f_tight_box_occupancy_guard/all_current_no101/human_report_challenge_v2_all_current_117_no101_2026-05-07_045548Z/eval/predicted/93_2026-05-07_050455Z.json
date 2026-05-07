@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "98d0f8df-b62a-4fdd-9aca-477cd430bb36",
+        "image_filename": "93.jpg",
+        "date_created": "2026-05-07T05:04:55Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.41"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Building shows extensive facade damage with missing windows and charred surfaces; structural integrity appears compromised with visible collapse of upper floors and exposed internal elements; damage exceeds 45% of visible target element area.",
+            "bounding_box": [
+                360,
+                0,
+                1199,
+                333
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The tank in the cropped image shows no visible deformations, holes, scorching, or missing components; tracks and armor appear intact; no evidence of physical damage.",
+            "bounding_box": [
+                54,
+                312,
+                198,
+                410
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank shows no visible deformations, holes, scorching, or missing components; tracks and armor appear intact; soldiers are actively positioned on top, indicating operational status.",
+            "bounding_box": [
+                264,
+                210,
+                1004,
+                608
+            ]
+        }
+    },
+    "summary": "One building shows SEVERE DAMAGE with collapsed upper floors and charred facade, while two tanks show NO DAMAGE with intact armor and active soldiers onboard. The scene depicts military equipment operating in a heavily damaged urban environment with a ruined building in the background. The presence of undamaged tanks suggests continued operational capability despite the surrounding destruction."
+}

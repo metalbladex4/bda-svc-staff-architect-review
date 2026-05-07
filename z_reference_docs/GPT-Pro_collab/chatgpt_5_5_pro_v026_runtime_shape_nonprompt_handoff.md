@@ -13,9 +13,22 @@ Please read this handoff together with:
 z_reference_docs/GPT-Pro_collab/chatgpt_5_5_pro_prompt_engineering_handoff.md
 z_reference_docs/GPT-Pro_collab/CODEX_QWEN_PROMPT_ENGINEERING_DIRECTION_2026-05-06.md
 z_reference_docs/GPT-Pro_collab/bda_svc_qwen_prompt_engineering_deep_research_bundle.md
+z_reference_docs/GPT-Pro_collab/V026_RUNTIME_SHAPE_REVIEW_POINTER.md
 z_reference_docs/WORKING_CHANGELOG.md
 z_reference_docs/PROMPT_DEVELOPMENT_METHODOLOGY.md
 z_reference_docs/PROJECT_BRAIN.md
+```
+
+Published v026 evidence package:
+
+```text
+docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v026_autonomous_qwen_prompt_refinement_tranche/
+```
+
+Runtime-shape probe evidence:
+
+```text
+docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v026_autonomous_qwen_prompt_refinement_tranche/runtime_shape_probe_evidence.md
 ```
 
 The new task is not to write another detection prompt immediately. The new task
@@ -446,4 +459,3 @@ New workflow skills:
 /home/williambenitez1/Capstone/z_reference_docs/Codex_Skills/capstone-qwen-recursive-prompt-refinement/
 /home/williambenitez1/Capstone/z_reference_docs/Codex_Skills/recursive-prompt-engineering-method/
 ```
-

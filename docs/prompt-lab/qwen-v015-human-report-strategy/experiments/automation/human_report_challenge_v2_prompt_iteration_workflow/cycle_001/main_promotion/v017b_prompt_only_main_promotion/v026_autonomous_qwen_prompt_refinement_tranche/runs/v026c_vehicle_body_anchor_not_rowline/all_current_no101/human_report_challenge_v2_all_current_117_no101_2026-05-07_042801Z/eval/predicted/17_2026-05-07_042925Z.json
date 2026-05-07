@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=qwen3-vl:8b-instruct;assessment=qwen3-vl:8b-instruct",
+        "image_id": "67114410-888a-4aa6-997d-011f741628e2",
+        "image_filename": "17.jpg",
+        "date_created": "2026-05-07T04:29:25Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "8.53"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building within the green outline is fully intact with no visible structural damage, missing windows, or collapsed sections; all facade elements appear undamaged.",
+            "bounding_box": [
+                169,
+                437,
+                390,
+                574
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 75-100% of the building's facade and structural elements are missing or collapsed; interior floors and walls are exposed and heavily damaged; no intact load-bearing walls or framing remain visible.",
+            "bounding_box": [
+                488,
+                0,
+                1114,
+                955
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one is confirmed as NO DAMAGE, fully intact with no visible structural damage, while the other is confirmed as DESTROYED, with 75-100% of its facade and structural elements missing or collapsed. The overall scene depicts a heavily damaged urban environment with one severely destroyed building dominating the foreground and a fully intact building visible in the background. The likely functional impact is that the destroyed building is uninhabitable and structurally compromised, while the intact building remains functional."
+}
