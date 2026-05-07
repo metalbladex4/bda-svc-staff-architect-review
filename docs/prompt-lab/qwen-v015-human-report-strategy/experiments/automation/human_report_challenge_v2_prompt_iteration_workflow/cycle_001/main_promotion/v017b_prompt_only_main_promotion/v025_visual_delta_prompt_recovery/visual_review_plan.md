@@ -40,6 +40,17 @@ Reason: both source runs already have complete `images_bbox_review` sets for
 all 117 all-current cases. FiftyOne is useful later, but not required to begin
 the priority slice.
 
+First-pass result:
+
+- static artifacts were sufficient for the priority slice
+- all priority cases had `images_bbox_review`, `images_bbox_both`,
+  `images_crop_predicted`, and `images_crop_reference` available in both source
+  runs
+- temporary annotated contact sheets were created under `/tmp/v025_visual_review`
+  as local review aids only; they were not copied into this package or the
+  review repo
+- FiftyOne is not needed before the next prompt-candidate planning step
+
 Escalate to FiftyOne only after the first pass if:
 
 - the priority-slice review cannot classify dominant failure classes,
@@ -96,3 +107,17 @@ After the first visual pass, choose exactly one next action:
 
 No prompt candidate may be authored until this gate has a filled decision in
 `v020c_v024l_delta_review.md`.
+
+Current gate result:
+
+```text
+continue_from_v020c
+```
+
+Reason:
+
+- `v024l` recovered useful separate-body recall in `14`, `42`, and `172`
+- `v024l` also introduced diverse FPs across building slivers, intact
+  background objects, dense-row nested fragments, and facade/roof pieces
+- the next prompt candidate, if separately approved, should branch from `v020c`
+  and import only one compact separate-visible-body cue

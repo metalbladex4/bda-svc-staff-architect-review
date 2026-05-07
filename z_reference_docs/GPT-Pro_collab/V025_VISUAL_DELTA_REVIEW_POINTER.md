@@ -17,7 +17,7 @@ candidate is authored.
 ## Current Status
 
 The v025 scaffold has been created and published for review. First-pass static
-visual review is pending or in progress.
+visual review is complete for the priority slice.
 
 ## Source Candidates
 
@@ -36,3 +36,11 @@ scratch.
 
 No `v025a` or other `detect_objects` prompt candidate has been authored in this
 package.
+
+## Current Recommendation
+
+If prompt authoring is later approved, branch from `v020c`, not `v024l`.
+`v024l` recovered useful separate-body recall, but its added false positives
+span building slivers, intact background objects, dense-row fragments, and
+facade/roof pieces. FiftyOne is not needed before the next prompt-candidate
+planning step.
