@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "0d0c788a-513d-470d-9b9c-f4d18a38a65e",
+        "image_filename": "160.jpg",
+        "date_created": "2026-05-08T01:07:30Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.90"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's structural and non-structural elements are damaged; facade is heavily breached, windows are blown out, and significant portions of upper floors and roof are missing or collapsed, consistent with severe damage.",
+            "bounding_box": [
+                0,
+                55,
+                177,
+                332
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged, including collapsed balconies, missing walls, and exposed internal structures; no visible collapse of load-bearing elements, consistent with severe damage to a framed building.",
+            "bounding_box": [
+                349,
+                74,
+                546,
+                332
+            ]
+        }
+    },
+    "summary": "Two buildings assessed as SEVERE damage, both confirmed: one shows 45-75% structural and non-structural damage with breached facade and missing roof/floor elements; the other shows 45-75% facade and structural damage with collapsed balconies and exposed internals. The overall scene depicts a heavily damaged urban area with multiple ruined buildings, collapsed structures, and debris-strewn streets. The likely functional impact is complete loss of habitability and structural integrity for the assessed buildings, consistent with severe destruction."
+}

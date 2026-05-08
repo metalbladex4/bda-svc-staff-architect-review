@@ -1,0 +1,327 @@
+{
+  "generated_at": "2026-05-08T01:12:49Z",
+  "decision": "D. stable_backend_found_but_v020c_baseline_unacceptable_pause",
+  "semantic_prompt_refinement_resumed": false,
+  "backend": {
+    "label": "vllm_quantized_qwen3_vl_8b_local_8000",
+    "endpoint": "http://localhost:8000/v1",
+    "served_model_name": "Qwen/Qwen3-VL-8B-Instruct",
+    "actual_model_root": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+    "server_kind": "vLLM OpenAI-compatible",
+    "non_ollama": true
+  },
+  "model_source": {
+    "target_exact_model": "Qwen/Qwen3-VL-8B-Instruct",
+    "exact_model_public_non_gated": true,
+    "exact_model_weight_bytes": 17534339512,
+    "exact_model_feasibility_note": "17.53 GB of weights exceeds the 16 GB VRAM envelope before KV/cache, so exact BF16 8B was not launched.",
+    "served_quantized_model": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+    "served_quantized_public_non_gated": true,
+    "served_quantized_weight_bytes": 7224284152,
+    "download_or_cache_status": "downloaded_public_hf_into_local_cache_by_vLLM"
+  },
+  "prior_incumbent": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fresh_v020c_baseline": {
+    "matches": 153,
+    "false_negatives": 66,
+    "false_positives": 25,
+    "combined_errors": 91,
+    "image_count": 117,
+    "case_101_present": false,
+    "selected_cases": {
+      "12": {
+        "image_filename": "12.jpg",
+        "matches": 0,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 0
+      },
+      "14": {
+        "image_filename": "14.jpg",
+        "matches": 1,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 2,
+        "predicted_target_count": 1
+      },
+      "16": {
+        "image_filename": "16.jpg",
+        "matches": 1,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 1
+      },
+      "42": {
+        "image_filename": "42.png",
+        "matches": 1,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 2,
+        "predicted_target_count": 1
+      },
+      "66": {
+        "image_filename": "66.jpg",
+        "matches": 8,
+        "false_negatives": 0,
+        "false_positives": 6,
+        "reference_target_count": 8,
+        "predicted_target_count": 14
+      },
+      "67": {
+        "image_filename": "67.jpg",
+        "matches": 9,
+        "false_negatives": 2,
+        "false_positives": 5,
+        "reference_target_count": 11,
+        "predicted_target_count": 14
+      },
+      "77": {
+        "image_filename": "77.jpg",
+        "matches": 0,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 0
+      },
+      "84": {
+        "image_filename": "84.jpg",
+        "matches": 5,
+        "false_negatives": 8,
+        "false_positives": 1,
+        "reference_target_count": 13,
+        "predicted_target_count": 6
+      },
+      "88": {
+        "image_filename": "88.jpg",
+        "matches": 1,
+        "false_negatives": 0,
+        "false_positives": 1,
+        "reference_target_count": 1,
+        "predicted_target_count": 2
+      },
+      "90": {
+        "image_filename": "90.png",
+        "matches": 0,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 0
+      },
+      "97": {
+        "image_filename": "97.jpg",
+        "matches": 0,
+        "false_negatives": 1,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 0
+      },
+      "103": {
+        "image_filename": "103.jpg",
+        "matches": 1,
+        "false_negatives": 0,
+        "false_positives": 3,
+        "reference_target_count": 1,
+        "predicted_target_count": 4
+      },
+      "155": {
+        "image_filename": "155.jpg",
+        "matches": 2,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "reference_target_count": 2,
+        "predicted_target_count": 2
+      },
+      "166": {
+        "image_filename": "166.jpg",
+        "matches": 1,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "reference_target_count": 1,
+        "predicted_target_count": 1
+      },
+      "172": {
+        "image_filename": "172.jpg",
+        "matches": 0,
+        "false_negatives": 3,
+        "false_positives": 0,
+        "reference_target_count": 3,
+        "predicted_target_count": 0
+      }
+    }
+  },
+  "office_negative": {
+    "record": {
+      "candidate_id": "v020c_vllm_quantized_office_negative",
+      "backend_label": "vllm_quantized_qwen3_vl_8b_local_8000",
+      "endpoint": "http://localhost:8000/v1",
+      "local_model_source": "existing_service",
+      "stage": "office_negative_guard",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "combined_errors": 0,
+      "vs_v020c_errors_delta": "n/a",
+      "case_67": "n/a",
+      "case_155": "n/a",
+      "case_166": "n/a",
+      "office_negative": "n/a",
+      "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+      "request_shape_hash": "c8d043f62d59021ab0f98f167b1c2b555bf9010e6d01859fc2f2667e49385f62",
+      "response_trace_captured": true,
+      "raw_response_hash": "b554825c6ff39f97cd60fc5273ca081297e6bf8e4ff6a0642f7218aba418efe1",
+      "status": "stability_fail",
+      "main_lesson": "Case 67 or instrumentation failed the stability threshold.",
+      "next_axis": "Stop semantic prompt mutation and diagnose runtime/request-shape instability."
+    },
+    "image_count": 1,
+    "totals": {
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "negative_scene_count": 1,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 1
+    },
+    "passed": true
+  },
+  "stability": {
+    "stage1_passed": true,
+    "stage2_passed": true,
+    "stage1_records": [
+      {
+        "candidate_id": "v029a_case67_exact_v020c_replay_1",
+        "stage": "case67_stability",
+        "case_67": "8/3/7",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "9bf71a69f61ab2a9518b8abec8bee7a779c8c597f1d21033a719b51cdd8c9dc4",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029b_case67_exact_v020c_replay_2",
+        "stage": "case67_stability",
+        "case_67": "8/3/7",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "9bf71a69f61ab2a9518b8abec8bee7a779c8c597f1d21033a719b51cdd8c9dc4",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029c_case67_exact_v020c_replay_3",
+        "stage": "case67_stability",
+        "case_67": "8/3/7",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "9bf71a69f61ab2a9518b8abec8bee7a779c8c597f1d21033a719b51cdd8c9dc4",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029d_case67_blank_line_probe_1",
+        "stage": "case67_stability",
+        "case_67": "9/2/7",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+        "request_shape_hash": "a221a5ff1acfbcd79e27100b901d67c634379f5a61e3a4cd05fe5f0b0bc41e30",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029e_case67_blank_line_probe_2",
+        "stage": "case67_stability",
+        "case_67": "9/2/8",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+        "request_shape_hash": "a221a5ff1acfbcd79e27100b901d67c634379f5a61e3a4cd05fe5f0b0bc41e30",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029f_case67_trailing_space_probe",
+        "stage": "case67_stability",
+        "case_67": "8/3/7",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "cc40f0dbeb7d8489e8e0cb709eb51124415ffe56a9d1823f5e4e101908142dbd",
+        "request_shape_hash": "966d5e86b46d971c8498229683efaaca52156c3bc15b9a19ae4b0cc9d2eda2cd",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029g_case67_noop_template_roundtrip",
+        "stage": "case67_stability",
+        "case_67": "9/2/8",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "9bf71a69f61ab2a9518b8abec8bee7a779c8c597f1d21033a719b51cdd8c9dc4",
+        "status": "stability_pass"
+      }
+    ],
+    "stage2_records": [
+      {
+        "candidate_id": "v029h_sentinel_exact_v020c_replay_1",
+        "stage": "sentinel_stability",
+        "case_67": "9/2/5",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "dd4fc604e4ac0b9c3cd59b414e97b5c0ded3857751a0f2c2fe6abbe1fceef474",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029i_sentinel_exact_v020c_replay_2",
+        "stage": "sentinel_stability",
+        "case_67": "9/2/5",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "dd4fc604e4ac0b9c3cd59b414e97b5c0ded3857751a0f2c2fe6abbe1fceef474",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029j_sentinel_blank_line_shape_probe",
+        "stage": "sentinel_stability",
+        "case_67": "9/2/9",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+        "request_shape_hash": "c1efcd98973e833fc3bc2900b07272d205dca51bb2069ce34c79030104cb6439",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029k_sentinel_trailing_space_shape_probe",
+        "stage": "sentinel_stability",
+        "case_67": "9/2/4",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "cc40f0dbeb7d8489e8e0cb709eb51124415ffe56a9d1823f5e4e101908142dbd",
+        "request_shape_hash": "a5427cc2c3b91374e71d3fa32b36873a992dc84c5b18391b03730d110c113936",
+        "status": "stability_pass"
+      },
+      {
+        "candidate_id": "v029l_sentinel_noop_template_roundtrip",
+        "stage": "sentinel_stability",
+        "case_67": "9/2/5",
+        "raw_response_hash": null,
+        "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "request_shape_hash": "dd4fc604e4ac0b9c3cd59b414e97b5c0ded3857751a0f2c2fe6abbe1fceef474",
+        "status": "stability_pass"
+      }
+    ]
+  },
+  "baseline_gate": {
+    "old_combined_errors": 58,
+    "new_combined_errors": 91,
+    "delta": 33,
+    "pause_threshold_delta": 20,
+    "passed": false
+  },
+  "hard_boundaries": {
+    "product_config_modified": false,
+    "doctrine_modified": false,
+    "assessment_prompt_modified": false,
+    "runtime_code_modified_as_product_truth": false,
+    "eval_truth_modified": false,
+    "semantic_prompt_candidate_authored": false,
+    "promotion_performed": false,
+    "v024o_used_as_scored_evidence": false
+  }
+}

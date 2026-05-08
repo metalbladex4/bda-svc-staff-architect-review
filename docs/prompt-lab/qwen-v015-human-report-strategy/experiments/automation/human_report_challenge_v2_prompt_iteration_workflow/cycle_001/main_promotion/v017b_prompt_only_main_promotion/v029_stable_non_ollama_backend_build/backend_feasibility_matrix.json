@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-08T01:12:49Z",
+  "options": [
+    {
+      "backend": "vLLM",
+      "status": "launched",
+      "model": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+      "reason": "vLLM installed in isolated /tmp env; exact 8B BF16 not VRAM-feasible; quantized public derivative loaded."
+    },
+    {
+      "backend": "SGLang",
+      "status": "not_attempted_after_vllm_launch",
+      "reason": "vLLM achieved non-Ollama compatibility and stability; no need to widen install surface."
+    },
+    {
+      "backend": "Transformers/FastAPI shim",
+      "status": "not_attempted_after_vllm_launch",
+      "reason": "vLLM achieved OpenAI-compatible multimodal serving."
+    },
+    {
+      "backend": "Ollama",
+      "status": "comparison_only_blocked_for_prompt_optimization",
+      "reason": "v027/v028 showed fallback instability."
+    }
+  ]
+}

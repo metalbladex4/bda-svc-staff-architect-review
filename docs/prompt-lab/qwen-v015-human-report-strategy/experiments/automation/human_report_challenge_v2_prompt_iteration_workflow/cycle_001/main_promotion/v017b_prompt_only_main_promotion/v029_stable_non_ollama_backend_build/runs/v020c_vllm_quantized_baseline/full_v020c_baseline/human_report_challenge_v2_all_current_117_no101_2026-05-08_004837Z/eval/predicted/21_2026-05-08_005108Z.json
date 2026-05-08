@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "0d950d06-7f14-49aa-a875-fb5ba74931d7",
+        "image_filename": "21.jpg",
+        "date_created": "2026-05-08T00:51:08Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.21"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 75-100% of the building's structural mass is collapsed or reduced to rubble; remaining sections are heavily fragmented with no intact load-bearing walls or floors; consistent with destroyed category per doctrine.",
+            "bounding_box": [
+                146,
+                35,
+                424,
+                298
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's structural and non-structural elements are damaged; multiple floors exhibit collapsed or missing exterior walls and exposed internal framing; debris field indicates significant structural compromise consistent with severe damage.",
+            "bounding_box": [
+                431,
+                95,
+                618,
+                298
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one confirmed destroyed, the other confirmed severe. The scene depicts a wide-area urban destruction zone with multiple collapsed and heavily damaged multi-story structures, scattered debris, and two armed personnel in the foreground. The functional impact is likely total loss of structural integrity and operational capacity for the assessed buildings, consistent with their destruction and severe damage conditions."
+}

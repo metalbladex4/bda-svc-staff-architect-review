@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-05-08T00:18:35Z",
+  "upstream_fetch": {
+    "cmd": [
+      "git",
+      "fetch",
+      "upstream",
+      "main"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "From https://github.com/cmu-bda/bda-svc\n * branch            main       -> FETCH_HEAD\n"
+  },
+  "upstream_main_commit": "c5d12008fb696997c493ddcdebdb6003b5610a2f",
+  "qwen_worktree": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement",
+  "package_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build",
+  "v020c_incumbent": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v024l_learning_only": {
+    "matches": 188,
+    "false_negatives": 31,
+    "false_positives": 35,
+    "combined_errors": 66
+  },
+  "v025a_rejected": {
+    "matches": 176,
+    "false_negatives": 43,
+    "false_positives": 35,
+    "combined_errors": 78
+  },
+  "v024o_status": "partial_unscored_forbidden",
+  "v026_stop_reason": "runtime_shape_sensitivity_pause; rendered prompt/request evidence was missing",
+  "v027_stop_reason": "fallback instability; identical rendered/request hashes produced both collapsed and stable case-67 responses",
+  "base_overlay": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+  "all_current_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/pre_adoption/v017b_group_box_rejection/validation_manifests/human_report_challenge_v2_all_current_117_no101.yaml",
+  "office_negative_manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "backend_preflight": {
+    "generated_at": "2026-05-08T00:18:34Z",
+    "preferred_endpoint_status": {
+      "ok": true,
+      "url": "http://localhost:8000/v1/models",
+      "payload": {
+        "object": "list",
+        "data": [
+          {
+            "id": "Qwen/Qwen3-VL-8B-Instruct",
+            "object": "model",
+            "created": 1778199514,
+            "owned_by": "vllm",
+            "root": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+            "parent": null,
+            "max_model_len": 4096,
+            "permission": [
+              {
+                "id": "modelperm-81ba438c7e81a52a",
+                "object": "model_permission",
+                "created": 1778199514,
+                "allow_create_engine": false,
+                "allow_sampling": true,
+                "allow_logprobs": true,
+                "allow_search_indices": false,
+                "allow_view": true,
+                "allow_fine_tuning": false,
+                "organization": "*",
+                "group": null,
+                "is_blocking": false
+              }
+            ]
+          }
+        ]
+      },
+      "error": null
+    },
+    "fallback_endpoint_status": {
+      "ok": true,
+      "url": "http://localhost:11434/v1/models",
+      "payload": {
+        "object": "list",
+        "data": [
+          {
+            "id": "qwen3-vl:8b-instruct-v028-deterministic",
+            "object": "model",
+            "created": 1778196433,
+            "owned_by": "library"
+          },
+          {
+            "id": "qwen3-vl:8b-instruct",
+            "object": "model",
+            "created": 1775868872,
+            "owned_by": "library"
+          },
+          {
+            "id": "qwen3-vl:8b-instruct-q8_0",
+            "object": "model",
+            "created": 1775151091,
+            "owned_by": "library"
+          },
+          {
+            "id": "qwen3-vl:8b",
+            "object": "model",
+            "created": 1770157077,
+            "owned_by": "library"
+          }
+        ]
+      },
+      "error": null
+    },
+    "deterministic_ollama_create": null,
+    "deterministic_ollama_8000_launch": null,
+    "deterministic_ollama_11434_status": null,
+    "selected_backend": {
+      "label": "vllm_quantized_qwen3_vl_8b_local_8000",
+      "base_url": "http://localhost:8000/v1",
+      "api_key": "EMPTY",
+      "model": "Qwen/Qwen3-VL-8B-Instruct"
+    },
+    "backend_selected_reason": "non-Ollama vLLM endpoint available on localhost:8000 with expected served model name; actual model root is recorded in /v1/models",
+    "ollama_version": {
+      "cmd": [
+        "ollama",
+        "--version"
+      ],
+      "cwd": "/home/williambenitez1/Capstone",
+      "returncode": 0,
+      "stdout": "ollama version is 0.15.2\n",
+      "stderr": ""
+    },
+    "vllm_version": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "/tmp/bda_v029_vllm_env/bin/python - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','torch','transformers','openai','fastapi','uvicorn','compressed-tensors']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+      ],
+      "cwd": "/home/williambenitez1/Capstone",
+      "returncode": 0,
+      "stdout": "vllm 0.20.1\ntorch 2.11.0\ntransformers 5.8.0\nopenai 2.36.0\nfastapi 0.136.1\nuvicorn 0.46.0\ncompressed-tensors 0.15.0.1\n",
+      "stderr": ""
+    },
+    "python_package_probe": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "python3 - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','sglang','transformers','accelerate','torch','openai','fastapi','uvicorn','litellm']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+      ],
+      "cwd": "/home/williambenitez1/Capstone",
+      "returncode": 0,
+      "stdout": "vllm unavailable\nsglang unavailable\ntransformers unavailable\naccelerate unavailable\ntorch unavailable\nopenai unavailable\nfastapi unavailable\nuvicorn unavailable\nlitellm unavailable\n",
+      "stderr": ""
+    },
+    "non_ollama_requirement": "semantic prompt work remains blocked unless this vLLM endpoint passes stability and baseline gates"
+  }
+}

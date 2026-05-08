@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "6c94e20c-30c0-4d5f-8425-4351e5b5b74c",
+        "image_filename": "88.jpg",
+        "date_created": "2026-05-08T00:37:46Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.32"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Catastrophic structural failure; turret and hull extensively mangled; tracks and hull components missing or shattered; no intact major components visible",
+            "bounding_box": [
+                0,
+                466,
+                2462,
+                1676
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The white truck is intact with no visible deformations, holes, or missing components; all structural elements appear undamaged and functional.",
+            "bounding_box": [
+                1300,
+                699,
+                1432,
+                816
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed destroyed, and one is confirmed with no damage. The scene depicts a destroyed tank in the foreground with a white truck visible in the distance on a road. The functional impact is likely neutralized for the destroyed tank, while the intact truck remains operational."
+}

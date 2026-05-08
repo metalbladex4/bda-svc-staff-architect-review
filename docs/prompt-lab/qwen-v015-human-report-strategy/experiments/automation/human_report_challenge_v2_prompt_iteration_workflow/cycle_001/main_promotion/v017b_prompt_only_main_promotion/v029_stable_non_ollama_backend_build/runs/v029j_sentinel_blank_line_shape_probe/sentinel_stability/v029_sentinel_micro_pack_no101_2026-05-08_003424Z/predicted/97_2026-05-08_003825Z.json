@@ -1,0 +1,78 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "1b11dc19-c3c4-4d96-a277-e6a641125a63",
+        "image_filename": "97.jpg",
+        "date_created": "2026-05-08T00:38:25Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "23.90"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field extends to building facade; large sections of wall and roof material collapsed; structural elements appear compromised; damage exceeds 45% of visible target area",
+            "bounding_box": [
+                0,
+                0,
+                431,
+                540
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged, including collapsed upper floors, exposed internal framing, and debris covering the ground level; no visible intact load-bearing walls remain; consistent with severe damage definition for framed buildings.",
+            "bounding_box": [
+                431,
+                0,
+                640,
+                454
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field obscures lower floors; upper floors show extensive facade/external sheathing damage; structural collapse evident with partial roof and wall collapse; damage consistent with 45-75% of target element area.",
+            "bounding_box": [
+                640,
+                0,
+                852,
+                454
+            ]
+        },
+        "target_3": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged; significant portions of the wall are collapsed or missing, with debris covering the ground; structural framing appears compromised but not fully collapsed, consistent with severe damage to a load-bearing wall building.",
+            "bounding_box": [
+                852,
+                0,
+                1066,
+                540
+            ]
+        },
+        "target_4": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the target building's facade and structural elements are damaged; significant portions of the wall are collapsed or missing, with debris covering the ground; structural integrity appears compromised; no visible evidence of total collapse or 75%+ destruction.",
+            "bounding_box": [
+                1066,
+                0,
+                1280,
+                540
+            ]
+        }
+    },
+    "summary": "Five buildings assessed as SEVERE damage, each confirmed to have 45-75% of facade and structural elements destroyed, with visible collapse, debris fields, and compromised load-bearing elements. The overall scene depicts a narrow street choked with rubble and debris from collapsed buildings, with visible structural damage extending across multiple structures. The functional impact is likely catastrophic, with all assessed buildings rendered uninhabitable and infrastructure severely degraded."
+}

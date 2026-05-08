@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "ae975bec-9c3f-4ccd-9460-13e125d867ed",
+        "image_filename": "108.jpg",
+        "date_created": "2026-05-08T01:04:01Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.72"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and upper floors are missing, exposing internal structure; this aligns with severe damage definition for framed buildings.",
+            "bounding_box": [
+                263,
+                150,
+                1344,
+                435
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows partial window breakage and minor facade damage; no structural collapse or significant loss of load-bearing elements; damage extent consistent with up to 15% of target element area.",
+            "bounding_box": [
+                1325,
+                315,
+                1670,
+                405
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one with severe damage (45-75% facade and upper floors missing, confirmed) and one with light damage (partial window breakage, minor facade damage, confirmed). The overall scene depicts a multi-story building with extensive structural damage, including exposed floors and missing walls, alongside a smaller, less damaged adjacent structure. The likely functional impact is total loss of operational capability for the severely damaged building, with the lightly damaged building potentially retaining partial function."
+}

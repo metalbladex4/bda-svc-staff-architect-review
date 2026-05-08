@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "2b2168ec-3190-4781-934f-a97f3fd5b345",
+        "image_filename": "141.jpg",
+        "date_created": "2026-05-08T01:04:42Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "10.26"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank is overturned and embedded in ground; main gun barrel is broken and detached; hull and turret show severe structural deformation and fragmentation; tracks are torn and non-functional; no visible operational components remain.",
+            "bounding_box": [
+                20,
+                22,
+                160,
+                128
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Target is a military truck; no visible physical deformations, holes, scorching, or component loss; appears intact and operational.",
+            "bounding_box": [
+                140,
+                38,
+                180,
+                68
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Target is a military truck; no visible physical deformations, holes, scorching, or component loss; appears intact and operational.",
+            "bounding_box": [
+                170,
+                38,
+                200,
+                68
+            ]
+        }
+    },
+    "summary": "One tank is destroyed, two military trucks show no damage. The scene depicts a destroyed tank overturned in sand, with two intact trucks nearby. The destruction of the tank likely renders it non-functional, while the trucks remain operational."
+}

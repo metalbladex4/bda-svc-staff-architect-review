@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "ca6b696c-97c4-46e9-9ee6-7acc78f7fb43",
+        "image_filename": "93.jpg",
+        "date_created": "2026-05-08T01:01:15Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.22"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade area is damaged; windows are mostly blown out or missing; significant charring and structural degradation evident on multiple floors; consistent with severe damage per doctrinal thresholds.",
+            "bounding_box": [
+                358,
+                0,
+                1198,
+                288
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Target is a military tank with intact hull, tracks, and turret; no visible holes, scorching, or missing components; no physical deformations or signs of catastrophic damage.",
+            "bounding_box": [
+                56,
+                309,
+                204,
+                412
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Armor plating intact; tracks and turret undamaged; no visible holes, scorching, or blown-off components; camouflage netting intact; no signs of combat damage or structural failure.",
+            "bounding_box": [
+                276,
+                213,
+                1002,
+                600
+            ]
+        }
+    },
+    "summary": "The scene contains three assessed targets: one building with severe damage, and two military tanks with no damage. The overall scene depicts military vehicles in a war-torn urban environment with a heavily damaged building in the background. The functional impact is likely minimal for the undamaged tanks, while the damaged building indicates significant prior destruction."
+}

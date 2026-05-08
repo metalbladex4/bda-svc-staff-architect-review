@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "d859efc4-61c1-40bf-9e51-2d945c101a1f",
+        "image_filename": "76.jpg",
+        "date_created": "2026-05-08T00:58:12Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.97"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged, including missing windows, exposed internal frames, and collapsed sections; the building is a multi-story structure with visible collapse of upper floors and partial facade loss consistent with severe damage.",
+            "bounding_box": [
+                404,
+                488,
+                801,
+                926
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged, including large sections of missing exterior walls, exposed internal framing, and collapsed balconies; no visible collapse of load-bearing elements, consistent with severe damage to a framed building",
+            "bounding_box": [
+                932,
+                377,
+                1539,
+                1018
+            ]
+        }
+    },
+    "summary": "Two buildings assessed as SEVERE damage: one with 45-75% facade and structural damage, missing windows, exposed frames, and upper floor collapse; the other with large missing exterior walls, exposed framing, and collapsed balconies. The overall scene shows two multi-story concrete buildings with extensive structural and facade damage, partially obscured by trees and vegetation, under a clear sky. The likely functional impact is complete loss of habitability and structural integrity, consistent with the prior assessments."
+}

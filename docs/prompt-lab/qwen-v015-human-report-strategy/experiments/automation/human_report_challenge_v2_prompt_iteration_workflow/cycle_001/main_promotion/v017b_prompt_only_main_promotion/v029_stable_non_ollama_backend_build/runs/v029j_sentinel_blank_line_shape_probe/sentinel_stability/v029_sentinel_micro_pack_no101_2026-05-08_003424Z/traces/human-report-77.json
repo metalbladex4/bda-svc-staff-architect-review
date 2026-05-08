@@ -1,0 +1,397 @@
+{
+  "generated_at": "2026-05-08T00:36:56Z",
+  "candidate_id": "v029j_sentinel_blank_line_shape_probe",
+  "stage": "sentinel_stability",
+  "backend_label": "vllm_quantized_qwen3_vl_8b_local_8000",
+  "endpoint_url": "http://localhost:8000/v1",
+  "model_name_env": "Qwen/Qwen3-VL-8B-Instruct",
+  "server_kind": "openai_compatible",
+  "scratch_root": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z",
+  "git": {
+    "branch": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "--abbrev-ref",
+        "HEAD"
+      ],
+      "cwd": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z",
+      "returncode": 0,
+      "stdout": "HEAD",
+      "stderr": ""
+    },
+    "commit": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z",
+      "returncode": 0,
+      "stdout": "c5d12008fb696997c493ddcdebdb6003b5610a2f",
+      "stderr": ""
+    },
+    "status_short": {
+      "cmd": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z",
+      "returncode": 0,
+      "stdout": "M src/bda_svc/pipeline/config.yaml",
+      "stderr": ""
+    }
+  },
+  "runtime_versions": {
+    "python": "3.12.3",
+    "openai": "2.32.0",
+    "pillow": "12.1.1",
+    "pydantic": "2.12.5"
+  },
+  "source_files": {
+    "source_overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/overlays/v029j_sentinel_blank_line_shape_probe.yaml",
+    "base_overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+    "scratch_config_path": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z/src/bda_svc/pipeline/config.yaml",
+    "doctrine_path": "/tmp/bda_v029_v029j_sentinel_blank_line_shape_probe_2026-05-08_003424Z/src/bda_svc/pipeline/doctrine.yaml",
+    "source_overlay_sha256": "5d4c1e2b5b9713041d5cf9cda1f0420de1118ddd8b5a911fcf9ec80d5492798d",
+    "base_overlay_sha256": "28c70aac7d3832e632a8dd79effd6d319f33ad936d8816f592992dec2103b0cc",
+    "scratch_config_sha256": "e23f7f6505ba4705feb780a59db9a1f40572f4c222fecaa12ae5becb5a38c4bc",
+    "doctrine_sha256": "bd83e50bd1b5cf369264f53db3d2fe58e46d7a032211db1a51ab6cbdb94b9813"
+  },
+  "overlay_application": {
+    "overlay_template_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+    "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+    "overlay_template_diff_from_base": "--- v020c_detect_objects_template\n+++ v029j_sentinel_blank_line_shape_probe_detect_objects_template\n@@ -3,6 +3,7 @@\n TASK\n Detect targets whose doctrinal target_type is one of:\n {categories}\n+\n \n Calibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n \n",
+    "scratch_detect_objects_sha256": "de9aa26fc3d99b2ff5443c1013e8f50b94ca982de9837060cc43c1123f4ef5d5",
+    "scratch_detect_vs_intended_overlay_diff": "",
+    "overlay_actually_applied": true,
+    "candidate_unintended_no_op": false,
+    "intended_semantic_changes": [
+      "one extra blank line after the categories placeholder"
+    ],
+    "rendered_template_changes": "captured after placeholder substitution"
+  },
+  "image_source": {
+    "original_image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/77.jpg",
+    "original_image_sha256": "28888db6da94d8e6e6f363fd5bba4fc5b679a04c97112565d32f00794d036c0f",
+    "original_image_size": [
+      1880,
+      1253
+    ]
+  },
+  "analysis": {
+    "final_report_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/runs/v029j_sentinel_blank_line_shape_probe/sentinel_stability/v029_sentinel_micro_pack_no101_2026-05-08_003424Z/predicted/77_2026-05-08_003708Z.json",
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+    "inference_time_seconds": 11.954077185000642,
+    "physical_damage_count": 2
+  },
+  "exception": null,
+  "rendered_prompt": {
+    "rendered_prompt_text": "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets whose doctrinal target_type is one of:\nbuildings, military_equipment\n\n\nCalibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n\nCONTEXT SHADOW REVERSAL\nUse context to search, then mentally remove context to decide.\n\n1. Find possible targets across the full image.\n2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, and repeated spacing.\n3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.\n4. If the candidate disappears when context is ignored, reject it.\n5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.\n\nGOOD FINAL BOX\n- one connected target body, wreck body, or exterior building structure\n- tight enough that the target occupies most of the box\n- not a proxy for damage effects, row position, nearby roads, repeated spacing, or debris\n\nBAD FINAL BOX\n- context-only cue\n- group, row, convoy, cluster, or scene region\n- duplicate fragment of one connected body\n- interior/facade/debris subsection of one continuous building\n- extra neighboring box whose distinct body boundary is not visible\n\nEXTRA-BOX AUDIT\nBefore output, silently inspect every detection that sits near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or the same continuous exterior building, keep only the tighter whole-body box.\n\nFINAL BALANCE\nKeep v019c recall behavior: small, damaged, crowded, or partly obscured targets are valid when their own target body remains visible after context is removed. The audit removes extras; it should not remove a true separable target body.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\nbuildings:\n\nDetect only buildings that are central to the scene or essential to interpreting it. Skip background or peripheral buildings that do not materially affect the scene.\n\nmilitary_equipment:\n\nMilitary equipment is generally defined as armored vehicles, artillery systems, trucks, locomotives, aircrafts, rocket and missile systems, radar antennas, or fire control components.\nDetect military equipment as individual objects -- do NOT merge multiple objects into one such as a group of vehicles.\nInclude all pieces of military equipment including partially visible ones, only skip objects whose boundaries cannot be distinguished from surrounding objects or background.\n\nBOUNDING BOX FORMAT\n- Format: [xmin, ymin, xmax, ymax]\n- Coordinate scale: normalized coordinates from 0 to 1000\n\nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\": [xmin, ymin, xmax, ymax]\n    }\n  ]\n}\n",
+    "rendered_prompt_sha256": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+    "rendered_prompt_byte_length": 3165,
+    "rendered_prompt_line_count": 65,
+    "placeholder_substitution_hashes": {
+      "categories": "f2b6fcfc9c2a5b35a8d7e5648a2b1e7371cdd807d7d426e42a547cb810f4df18",
+      "detection_guidance": "da4b9a506113c6e3612f6dd4777a15e4b1482facbc21b863d1bc23e0ea005f83",
+      "bbox_format": "bc3ffabd2d0142460780fb41328c638a952c0e6f9b02d0739432ad691119a71f",
+      "bbox_scale": "e7d8a62868aac1843fb7cffd722548c5fea3ec784d1532e2318252d6880331e3"
+    },
+    "unresolved_placeholders": [],
+    "json_schema_instruction_preserved": true,
+    "runtime_prompt_mentions_case_ids": false,
+    "bbox_convention": "xyxy_1000",
+    "max_image_size": 1024,
+    "resized_vlm_image_size": [
+      1024,
+      682
+    ],
+    "rendered_prompt_diff_from_base": null
+  },
+  "detection_parse_trace": {
+    "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [63, 0, 828, 500]\n    },\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [812, 0, 1000, 520]\n    }\n  ]\n}",
+    "raw_response_sha256": "87a5e1fdb553ff946d9e5ae981a5b69fd9f5dcf339e05085e0720dc6519f9a75",
+    "repaired_json_text": "{\"detections\": [{\"target_type\": \"buildings\", \"bbox\": [63, 0, 828, 500]}, {\"target_type\": \"buildings\", \"bbox\": [812, 0, 1000, 520]}]}",
+    "repaired_json_sha256": "5fe641b9b8243a80ccafed05dec7b640d995b57d3f1940f99acdcb883457e192",
+    "pydantic_validation_success": true,
+    "validation_error": null,
+    "raw_detections_count": 2,
+    "accepted_after_target_type_validation_count": 2,
+    "rejected_detections": [],
+    "final_detections_count": 2,
+    "final_detection_bbox_list": [
+      {
+        "label": "buildings",
+        "bbox": [
+          118,
+          0,
+          1557,
+          626
+        ]
+      },
+      {
+        "label": "buildings",
+        "bbox": [
+          1527,
+          0,
+          1880,
+          652
+        ]
+      }
+    ],
+    "failure_stage": "none"
+  },
+  "request_response_traces": [
+    {
+      "call_index": 0,
+      "call_kind": "detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "6fbf853dfef7bf71f84e826194160bf27edac9b1c73d972d335b2d84b25a5926",
+        "user_prompt_byte_length": 3165,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              682
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "4eddc5a474866935b225152e3b19002d7b253eb865ed47ffdfcddcc2626759e4",
+            "base64_image_payload_sha256": "cc7531e9aeb1925665b9ca99eb6892a4190115ddc1b2fd8993186add38d2891d",
+            "png_byte_length": 1007344
+          }
+        ]
+      },
+      "request_shape_hash": "52cccf2220bc341df6661d89dbd5e777a2bb7bed50caf35151a812bd0aea6d1e",
+      "raw_request_payload_hash_sanitized": "52cccf2220bc341df6661d89dbd5e777a2bb7bed50caf35151a812bd0aea6d1e",
+      "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [63, 0, 828, 500]\n    },\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [812, 0, 1000, 520]\n    }\n  ]\n}",
+      "raw_response_sha256": "87a5e1fdb553ff946d9e5ae981a5b69fd9f5dcf339e05085e0720dc6519f9a75",
+      "exception": null,
+      "detection_parse_trace": {
+        "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [63, 0, 828, 500]\n    },\n    {\n      \"target_type\": \"buildings\",\n      \"bbox\": [812, 0, 1000, 520]\n    }\n  ]\n}",
+        "raw_response_sha256": "87a5e1fdb553ff946d9e5ae981a5b69fd9f5dcf339e05085e0720dc6519f9a75",
+        "repaired_json_text": "{\"detections\": [{\"target_type\": \"buildings\", \"bbox\": [63, 0, 828, 500]}, {\"target_type\": \"buildings\", \"bbox\": [812, 0, 1000, 520]}]}",
+        "repaired_json_sha256": "5fe641b9b8243a80ccafed05dec7b640d995b57d3f1940f99acdcb883457e192",
+        "pydantic_validation_success": true,
+        "validation_error": null,
+        "raw_detections_count": 2,
+        "accepted_after_target_type_validation_count": 2,
+        "rejected_detections": [],
+        "final_detections_count": 2,
+        "final_detection_bbox_list": [
+          {
+            "label": "buildings",
+            "bbox": [
+              118,
+              0,
+              1557,
+              626
+            ]
+          },
+          {
+            "label": "buildings",
+            "bbox": [
+              1527,
+              0,
+              1880,
+              652
+            ]
+          }
+        ],
+        "failure_stage": "none"
+      }
+    },
+    {
+      "call_index": 1,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "95eb3629317bd5f36717bf54946d8737ca2372e564603f8acf7d1c349c6f3d90",
+        "user_prompt_byte_length": 3537,
+        "user_content_item_sequence": [
+          "text",
+          "image_url",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 2,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "8ab295d05b526dbb0e31e3baf6567adeed64acd8f7c5ef39f8588daaf985e1d7",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              682
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "cdd38da0333e139a4525abef5cb38ec6d3a0cea4de3c41129eab870a92027f7c",
+            "base64_image_payload_sha256": "a4e0f26cd05880d6f671fc98e09d5bd72cba5a01790e4f4d72edc583e05fff12",
+            "png_byte_length": 1005430
+          },
+          {
+            "index": 1,
+            "size": [
+              1024,
+              417
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "038c255b4073b355de22599cf87377861635a98be47f61faab10f99a12e170ea",
+            "base64_image_payload_sha256": "c47bad7d96b1062cf71be17b3bbf569fce9e319c8a5b7949a92cc2c5eb12550e",
+            "png_byte_length": 678439
+          }
+        ]
+      },
+      "request_shape_hash": "8f637f94818e477756525f5e11e72119985e4b89317651459181a4113161c7c7",
+      "raw_request_payload_hash_sanitized": "8f637f94818e477756525f5e11e72119985e4b89317651459181a4113161c7c7",
+      "raw_response_text": "{\n  \"damage_category\": \"severe\",\n  \"confidence_level\": \"confirmed\",\n  \"brief_supporting_logic\": \"Visible evidence shows 45-75% of the building's structural and non-structural elements are damaged; facade is extensively breached, windows are mostly blown out, and debris fills the lower floors; structural framing remains largely intact, consistent with framed building damage assessment.\"\n}",
+      "raw_response_sha256": "312283a57eeb270d041b2a2949111cbce6905c27864875ecac5488500d79dea8",
+      "exception": null
+    },
+    {
+      "call_index": 2,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "95eb3629317bd5f36717bf54946d8737ca2372e564603f8acf7d1c349c6f3d90",
+        "user_prompt_byte_length": 3537,
+        "user_content_item_sequence": [
+          "text",
+          "image_url",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 2,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "8ab295d05b526dbb0e31e3baf6567adeed64acd8f7c5ef39f8588daaf985e1d7",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              682
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "920cd31725602e49b33b9db92943f743acf28f28338794f0e74c415420fba15e",
+            "base64_image_payload_sha256": "e9023589dde2b86c11eb71d1eef1dcc700c247e4f122297b122873655e18e710",
+            "png_byte_length": 1006939
+          },
+          {
+            "index": 1,
+            "size": [
+              424,
+              782
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "0232d32a83e67fd7a0ab8a270e7624bce36fe4053da9c8db7597bbba39a205c6",
+            "base64_image_payload_sha256": "dafc4af177e165e1e3cc1da8f6ecaf4e00e0bf9b160722110cd9a1c21d0b8247",
+            "png_byte_length": 360315
+          }
+        ]
+      },
+      "request_shape_hash": "cd75468ed52901a8699a58648ed043199e30a10556d03100b7c43d2d4d81c0fa",
+      "raw_request_payload_hash_sanitized": "cd75468ed52901a8699a58648ed043199e30a10556d03100b7c43d2d4d81c0fa",
+      "raw_response_text": "{\n  \"damage_category\": \"severe\",\n  \"confidence_level\": \"confirmed\",\n  \"brief_supporting_logic\": \"Visible evidence shows 45-75% of the target building's structural area is damaged; significant portions of walls and roof are collapsed or missing; debris field indicates extensive destruction consistent with severe damage.\"\n}",
+      "raw_response_sha256": "915e848047945a47a92decf5580b53be2fa6992bc3f3c729c18eceaa21f1fff8",
+      "exception": null
+    },
+    {
+      "call_index": 3,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "53d0533004937f7180470037e6208239a22485b71cc64bf01d33c9ccde50fa88",
+        "user_prompt_byte_length": 1715,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": null,
+        "json_schema_hash": null,
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              682
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "4eddc5a474866935b225152e3b19002d7b253eb865ed47ffdfcddcc2626759e4",
+            "base64_image_payload_sha256": "cc7531e9aeb1925665b9ca99eb6892a4190115ddc1b2fd8993186add38d2891d",
+            "png_byte_length": 1007344
+          }
+        ]
+      },
+      "request_shape_hash": "764cb15019fd9951ce7694fee0a85d268885b3cd2ee676c4ac81be5c1dbb8081",
+      "raw_request_payload_hash_sanitized": "764cb15019fd9951ce7694fee0a85d268885b3cd2ee676c4ac81be5c1dbb8081",
+      "raw_response_text": "Two buildings assessed as SEVERE damage: one with 45-75% structural and non-structural damage, facade breached, windows blown out; the other with collapsed/missing walls and roof sections. The overall scene depicts a street with heavily damaged multi-story buildings, debris fields, and a single intact vehicle. The functional impact is likely total loss of building utility, with infrastructure and public space rendered non-operational.",
+      "raw_response_sha256": "ccc960557a48023feb780fce564a2c9c303f99f0d5f9aed8ce904a807e74d429",
+      "exception": null
+    }
+  ],
+  "response_trace_captured": true
+}

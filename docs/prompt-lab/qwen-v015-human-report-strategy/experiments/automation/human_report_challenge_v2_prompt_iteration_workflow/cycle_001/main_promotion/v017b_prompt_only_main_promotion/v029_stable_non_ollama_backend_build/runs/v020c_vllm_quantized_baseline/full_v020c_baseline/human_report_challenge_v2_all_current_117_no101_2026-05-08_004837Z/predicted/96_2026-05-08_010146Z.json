@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "69aa0828-b2ba-4e2e-a0f8-ac2f16d0af92",
+        "image_filename": "96.jpg",
+        "date_created": "2026-05-08T01:01:46Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.01"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's facade and structural elements are damaged; multiple floors exhibit collapsed balconies, exposed interiors, and missing exterior walls; no visible structural framing collapse, consistent with severe damage to a framed building.",
+            "bounding_box": [
+                0,
+                0,
+                849,
+                624
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible loss of roof and upper floors; extensive facade collapse; structural integrity compromised; damage exceeds 45% of visible target area",
+            "bounding_box": [
+                979,
+                314,
+                1276,
+                576
+            ]
+        }
+    },
+    "summary": "Two buildings assessed as SEVERE damage: one with 45-75% facade and structural damage, collapsed balconies, and exposed interiors; the other with roof and upper floor loss, extensive facade collapse, and compromised structural integrity. The overall scene depicts a war-damaged urban environment with multiple multi-story buildings showing catastrophic structural failure and widespread debris. The likely functional impact is complete loss of habitability and structural safety for all assessed targets."
+}

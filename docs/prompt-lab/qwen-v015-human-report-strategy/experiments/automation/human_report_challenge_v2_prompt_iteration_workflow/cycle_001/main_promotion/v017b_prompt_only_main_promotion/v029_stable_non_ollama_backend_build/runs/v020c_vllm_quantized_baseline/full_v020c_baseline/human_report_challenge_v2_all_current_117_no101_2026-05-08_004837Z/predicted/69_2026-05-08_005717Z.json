@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "6e95badb-cfd5-4bb5-98ae-5eb16dddb2e9",
+        "image_filename": "69.jpg",
+        "date_created": "2026-05-08T00:57:17Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.99"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "building shows 75-100% of visible structural elements collapsed or missing; exposed rebar and skeletal frame indicate total loss of structural integrity; debris field surrounds base of structure; no intact walls or roof sections remain",
+            "bounding_box": [
+                682,
+                112,
+                978,
+                390
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Armor plating intact; tracks and wheels functional; no visible holes, scorching, or blown-off components; vehicle appears operational and actively manned.",
+            "bounding_box": [
+                0,
+                141,
+                468,
+                551
+            ]
+        }
+    },
+    "summary": "One building is confirmed destroyed, with 75-100% of visible structural elements collapsed or missing, and one military vehicle is confirmed with no damage, appearing operational and manned. The scene depicts a heavily damaged urban environment with widespread rubble and collapsed structures under a clear sky. The presence of an operational military vehicle suggests continued tactical activity despite the destruction."
+}

@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-05-08T00:18:34Z",
+  "preferred_endpoint": {
+    "ok": true,
+    "url": "http://localhost:8000/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "object": "model",
+          "created": 1778199514,
+          "owned_by": "vllm",
+          "root": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+          "parent": null,
+          "max_model_len": 4096,
+          "permission": [
+            {
+              "id": "modelperm-81ba438c7e81a52a",
+              "object": "model_permission",
+              "created": 1778199514,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "error": null
+  },
+  "fallback_endpoint": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct-v028-deterministic",
+          "object": "model",
+          "created": 1778196433,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "selected_backend": {
+    "label": "vllm_quantized_qwen3_vl_8b_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct"
+  },
+  "backend_selected_reason": "non-Ollama vLLM endpoint available on localhost:8000 with expected served model name; actual model root is recorded in /v1/models",
+  "running_process_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "    180       1  1-02:25:25 /usr/local/bin/ollama serve\n 247035  246968    04:03:46 /home/williambenitez1/.vscode-server/extensions/openai.chatgpt-26.506.20924-linux-x64/bin/linux-x86_64/codex app-server --analytics-default-enabled\n 326758  247035       01:23 /tmp/bda_v029_vllm_env/bin/python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8000 --model SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16 --served-model-name Qwen/Qwen3-VL-8B-Instruct --trust-remote-code --dtype auto --max-model-len 4096 --limit-mm-per-prompt.image 2 --gpu-memory-utilization 0.85 --enforce-eager --seed 42 --generation-config vllm\n 326905  326758       01:01 /tmp/bda_v029_vllm_env/bin/python -c from multiprocessing.resource_tracker import main;main(40)\n 326906  326758       01:01 VLLM::EngineCore\n 327316  247035       00:00 /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/.venv/bin/python docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/scripts/run_v029_non_ollama_backend_gate.py --run\n 327393  327316       00:00 bash -lc ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true\n 327400  327393       00:00 rg -i vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl\n",
+    "stderr": ""
+  },
+  "gpu_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "nvidia-smi || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Thu May  7 20:18:34 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.112                Driver Version: 581.95         CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA RTX 5000 Ada Gene...    On  |   00000000:01:00.0 Off |                  Off |\n| N/A   44C    P8              3W /  130W |   12552MiB /  16376MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "disk_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "df -h /home /tmp /home/williambenitez1/.cache /home/williambenitez1/.ollama 2>/dev/null || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sdd       1007G  128G  828G  14% /\n/dev/sdd       1007G  128G  828G  14% /\n/dev/sdd       1007G  128G  828G  14% /\n/dev/sdd       1007G  128G  828G  14% /\n",
+    "stderr": ""
+  },
+  "package_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "python3 - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','sglang','transformers','accelerate','torch','openai','fastapi','uvicorn','litellm']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "vllm unavailable\nsglang unavailable\ntransformers unavailable\naccelerate unavailable\ntorch unavailable\nopenai unavailable\nfastapi unavailable\nuvicorn unavailable\nlitellm unavailable\n",
+    "stderr": ""
+  },
+  "vllm_launch_doc": "Project README documents: vllm serve Qwen/Qwen3-VL-8B-Instruct",
+  "vllm_feasibility": "vLLM/SGLang/Transformers were not installed; Qwen/Qwen3-VL-8B-Instruct is public/apache-2.0 but not cached locally and full BF16 8.8B weights are not treated as safe to pull/load blindly on 16GB VRAM during this tranche."
+}

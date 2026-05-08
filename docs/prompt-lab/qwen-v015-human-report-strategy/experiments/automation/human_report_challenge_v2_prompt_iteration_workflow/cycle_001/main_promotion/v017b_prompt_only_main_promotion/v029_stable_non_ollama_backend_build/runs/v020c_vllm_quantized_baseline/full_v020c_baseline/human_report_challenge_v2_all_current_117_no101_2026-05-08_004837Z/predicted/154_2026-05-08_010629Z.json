@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "eacfaa23-aecd-49f9-934c-fa95f5ec900b",
+        "image_filename": "154.jpg",
+        "date_created": "2026-05-08T01:06:29Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "9.38"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's target element area damaged; large sections of facade and structural elements are missing, exposing interior voids and rubble piles; damage is concentrated in the central and right portions of the building, consistent with severe damage thresholds.",
+            "bounding_box": [
+                0,
+                0,
+                612,
+                208
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible physical deformations including dents and scorch marks on hull and turret; tracks appear intact but show signs of wear; no major components blown off or catastrophic structural failure",
+            "bounding_box": [
+                51,
+                220,
+                332,
+                403
+            ]
+        }
+    },
+    "summary": "One building shows SEVERE damage with 45-75% of its facade and structural elements missing, and one military vehicle is DAMAGED with visible dents and scorch marks. The scene depicts a war-torn urban environment with rubble-strewn ground, collapsed structures, and debris. The damage to the building and vehicle suggests significant functional impairment, likely rendering the building unusable and the vehicle non-operational."
+}

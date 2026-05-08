@@ -1,0 +1,174 @@
+{
+  "generated_at": "2026-05-08T01:09:18Z",
+  "all_current_record": {
+    "candidate_id": "v020c_vllm_quantized_baseline",
+    "backend_label": "vllm_quantized_qwen3_vl_8b_local_8000",
+    "endpoint": "http://localhost:8000/v1",
+    "local_model_source": "existing_service",
+    "stage": "full_v020c_baseline",
+    "matches": 153,
+    "false_negatives": 66,
+    "false_positives": 25,
+    "combined_errors": 91,
+    "vs_v020c_errors_delta": 1,
+    "case_67": "9/2/5",
+    "case_155": "n/a",
+    "case_166": "n/a",
+    "office_negative": "n/a",
+    "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+    "request_shape_hash": "fb2cf0f7aa0f34453f7d593db93af42bf529b97155fe91e3e155ee12017f5685",
+    "response_trace_captured": true,
+    "raw_response_hash": "c93388c3c181e05f4112c7f7a249a5cbce64a3762014fdfa130e2f923bd40d73",
+    "status": "stability_pass",
+    "main_lesson": "Case 67 stayed within the v020c stability threshold.",
+    "next_axis": "Continue the planned stability probe sequence."
+  },
+  "office_negative_record": {
+    "candidate_id": "v020c_vllm_quantized_office_negative",
+    "backend_label": "vllm_quantized_qwen3_vl_8b_local_8000",
+    "endpoint": "http://localhost:8000/v1",
+    "local_model_source": "existing_service",
+    "stage": "office_negative_guard",
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "combined_errors": 0,
+    "vs_v020c_errors_delta": "n/a",
+    "case_67": "n/a",
+    "case_155": "n/a",
+    "case_166": "n/a",
+    "office_negative": "n/a",
+    "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+    "request_shape_hash": "c8d043f62d59021ab0f98f167b1c2b555bf9010e6d01859fc2f2667e49385f62",
+    "response_trace_captured": true,
+    "raw_response_hash": "b554825c6ff39f97cd60fc5273ca081297e6bf8e4ff6a0642f7218aba418efe1",
+    "status": "stability_fail",
+    "main_lesson": "Case 67 or instrumentation failed the stability threshold.",
+    "next_axis": "Stop semantic prompt mutation and diagnose runtime/request-shape instability."
+  },
+  "selected_case_metrics": {
+    "12": {
+      "image_filename": "12.jpg",
+      "matches": 0,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 0
+    },
+    "14": {
+      "image_filename": "14.jpg",
+      "matches": 1,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 2,
+      "predicted_target_count": 1
+    },
+    "16": {
+      "image_filename": "16.jpg",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 1
+    },
+    "42": {
+      "image_filename": "42.png",
+      "matches": 1,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 2,
+      "predicted_target_count": 1
+    },
+    "66": {
+      "image_filename": "66.jpg",
+      "matches": 8,
+      "false_negatives": 0,
+      "false_positives": 6,
+      "reference_target_count": 8,
+      "predicted_target_count": 14
+    },
+    "67": {
+      "image_filename": "67.jpg",
+      "matches": 9,
+      "false_negatives": 2,
+      "false_positives": 5,
+      "reference_target_count": 11,
+      "predicted_target_count": 14
+    },
+    "77": {
+      "image_filename": "77.jpg",
+      "matches": 0,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 0
+    },
+    "84": {
+      "image_filename": "84.jpg",
+      "matches": 5,
+      "false_negatives": 8,
+      "false_positives": 1,
+      "reference_target_count": 13,
+      "predicted_target_count": 6
+    },
+    "88": {
+      "image_filename": "88.jpg",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_target_count": 1,
+      "predicted_target_count": 2
+    },
+    "90": {
+      "image_filename": "90.png",
+      "matches": 0,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 0
+    },
+    "97": {
+      "image_filename": "97.jpg",
+      "matches": 0,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 0
+    },
+    "103": {
+      "image_filename": "103.jpg",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 3,
+      "reference_target_count": 1,
+      "predicted_target_count": 4
+    },
+    "155": {
+      "image_filename": "155.jpg",
+      "matches": 2,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_target_count": 2,
+      "predicted_target_count": 2
+    },
+    "166": {
+      "image_filename": "166.jpg",
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_target_count": 1,
+      "predicted_target_count": 1
+    },
+    "172": {
+      "image_filename": "172.jpg",
+      "matches": 0,
+      "false_negatives": 3,
+      "false_positives": 0,
+      "reference_target_count": 3,
+      "predicted_target_count": 0
+    }
+  },
+  "all_current_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/runs/v020c_vllm_quantized_baseline/full_v020c_baseline/human_report_challenge_v2_all_current_117_no101_2026-05-08_004837Z/eval/evaluation_2026-05-08_010917Z_summary.json",
+  "office_negative_summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/runs/v020c_vllm_quantized_office_negative/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_010930Z/eval/evaluation_2026-05-08_010935Z_summary.json",
+  "decision": "D. stable_backend_found_but_v020c_baseline_unacceptable_pause"
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "c6eb3cf8-cf67-41c3-8eb6-098346e10801",
+        "image_filename": "100.jpg",
+        "date_created": "2026-05-08T01:02:49Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "13.39"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the building's structural and non-structural elements are damaged; roof is partially collapsed, facade is heavily compromised, and multiple floors show significant internal destruction consistent with severe damage.",
+            "bounding_box": [
+                0,
+                60,
+                181,
+                448
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 45-75% of the target building's structural and non-structural elements are destroyed, including collapsed floors, exposed framing, and missing walls; no visible collapse of load-bearing members, consistent with severe damage to a framed building.",
+            "bounding_box": [
+                181,
+                37,
+                1075,
+                538
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "vehicle is completely consumed by fire and impact; all exterior panels and structural components are fused, charred, and unrecognizable as functional equipment; no discernible parts remain intact",
+            "bounding_box": [
+                833,
+                476,
+                963,
+                538
+            ]
+        }
+    },
+    "summary": "Three targets assessed: two buildings with severe damage (confirmed) and one military vehicle destroyed (confirmed). The scene depicts a heavily damaged urban area with multiple multi-story buildings showing extensive structural collapse, exposed interiors, and debris-strewn grounds. The functional impact is likely catastrophic, with buildings rendered uninhabitable and the destroyed vehicle indicating a direct strike on military assets."
+}

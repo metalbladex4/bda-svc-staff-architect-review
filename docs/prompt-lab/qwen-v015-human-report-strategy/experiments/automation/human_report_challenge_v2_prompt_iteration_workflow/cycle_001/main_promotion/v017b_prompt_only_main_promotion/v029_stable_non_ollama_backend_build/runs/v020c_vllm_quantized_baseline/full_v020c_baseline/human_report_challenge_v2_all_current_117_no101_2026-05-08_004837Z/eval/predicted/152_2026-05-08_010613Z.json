@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "a2bda147-fdfb-47b2-a1f3-d6fcb6908a67",
+        "image_filename": "152.jpg",
+        "date_created": "2026-05-08T01:06:13Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "11.46"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is unrecognizable as operational; chassis is twisted, engine block is missing, and all body panels are charred and collapsed; consistent with catastrophic destruction",
+            "bounding_box": [
+                0,
+                141,
+                206,
+                412
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Cannon barrel intact; chassis and mounting base severely mangled and fused; surrounding ground covered in debris and scorched residue; no discernible functional components remain",
+            "bounding_box": [
+                267,
+                171,
+                359,
+                322
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle appears intact with no visible holes, scorching, or blown-off components; all major components present and functional; no physical deformations or signs of catastrophic damage.",
+            "bounding_box": [
+                399,
+                180,
+                514,
+                283
+            ]
+        }
+    },
+    "summary": "Three military equipment targets are assessed: one destroyed, one destroyed, and one with no damage. The scene depicts a damaged vehicle on the left, a destroyed artillery piece in the center, and a functional vehicle with troops on the right, all on a debris-strewn road. The presence of two destroyed vehicles suggests significant combat impact, potentially degrading local mobility and firepower capability."
+}

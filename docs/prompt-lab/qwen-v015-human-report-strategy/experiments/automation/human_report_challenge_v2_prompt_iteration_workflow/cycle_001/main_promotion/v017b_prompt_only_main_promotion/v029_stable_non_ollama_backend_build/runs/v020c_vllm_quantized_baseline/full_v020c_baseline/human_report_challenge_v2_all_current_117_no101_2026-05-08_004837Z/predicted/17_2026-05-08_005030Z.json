@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "b8ae5ec7-93ee-4047-adad-8f53dae4986e",
+        "image_filename": "17.jpg",
+        "date_created": "2026-05-08T00:50:30Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "13.76"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target building is fully intact; no visible structural damage, missing walls, or collapsed elements are present.",
+            "bounding_box": [
+                169,
+                427,
+                312,
+                561
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible destruction of multiple floors with exposed interior structures; significant collapse of facade and roof sections; debris filling interior spaces; structural integrity compromised across multiple levels",
+            "bounding_box": [
+                498,
+                0,
+                1113,
+                867
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible structural collapse of multiple floors; exposed interior framing and debris; significant loss of exterior walls and roof elements; damage consistent with 45-75% of target element area.",
+            "bounding_box": [
+                1113,
+                741,
+                1296,
+                836
+            ]
+        }
+    },
+    "summary": "The scene contains three assessed building targets: one with NO DAMAGE and two with SEVERE damage. The overall scene depicts a heavily damaged multi-story building with exposed interiors and collapsed floors, set against a backdrop of other intact structures and greenery. The severe damage to the primary target suggests significant functional impact, likely rendering it uninhabitable and structurally compromised."
+}

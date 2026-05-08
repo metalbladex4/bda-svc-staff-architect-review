@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "5d53929a-8993-4130-af8c-9c9727f348c8",
+        "image_filename": "70.jpg",
+        "date_created": "2026-05-08T00:57:30Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.35"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows 75-100% of the building's structural mass is collapsed or reduced to rubble; remaining sections are heavily fragmented with no intact load-bearing walls or structural framing visible; consistent with destroyed category per doctrinal definition.",
+            "bounding_box": [
+                119,
+                7,
+                591,
+                244
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The armored vehicle is intact with no visible holes, scorching, or blown-off components; all major components appear functional and undamaged.",
+            "bounding_box": [
+                134,
+                205,
+                306,
+                286
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible structural deformation of the truck's cab and chassis; front bumper and grille missing; multiple wheels appear damaged or missing; vehicle is immobilized in debris.",
+            "bounding_box": [
+                565,
+                232,
+                629,
+                281
+            ]
+        }
+    },
+    "summary": "One building is confirmed destroyed, one military vehicle is confirmed undamaged, and one military vehicle is confirmed damaged. The scene depicts a war-torn urban environment with heavily damaged or destroyed buildings, debris-strewn ground, and soldiers moving through the area. The presence of one undamaged vehicle and one damaged vehicle suggests mixed operational impact, potentially indicating a recent or ongoing conflict with varying degrees of success in targeting."
+}

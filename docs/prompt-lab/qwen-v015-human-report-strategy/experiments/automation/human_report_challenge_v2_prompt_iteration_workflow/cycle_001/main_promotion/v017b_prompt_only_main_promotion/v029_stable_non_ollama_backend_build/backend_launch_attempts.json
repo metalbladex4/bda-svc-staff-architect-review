@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-05-08T01:10:00Z",
+  "attempts": [
+    {
+      "backend": "vLLM",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "status": "not_launched",
+      "reason": "Exact BF16 weight shards measured about 17.53 GB, exceeding the local 16 GB VRAM envelope before KV/cache."
+    },
+    {
+      "backend": "vLLM",
+      "model": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+      "served_model_name": "Qwen/Qwen3-VL-8B-Instruct",
+      "status": "launched_with_limit_1_then_request_shape_failed",
+      "reason": "bda-svc assessment sends two images, while the initial vLLM launch allowed only one image per prompt."
+    },
+    {
+      "backend": "vLLM",
+      "model": "SherlockID365/Qwen3-VL-8B-Instruct-quantized.w4a16",
+      "served_model_name": "Qwen/Qwen3-VL-8B-Instruct",
+      "status": "launched_successfully",
+      "reason": "Relaunched with --limit-mm-per-prompt.image 2 and completed stability plus baseline gates."
+    },
+    {
+      "backend": "SGLang",
+      "status": "not_attempted",
+      "reason": "vLLM achieved non-Ollama serving and stability before SGLang was needed."
+    },
+    {
+      "backend": "Transformers/FastAPI shim",
+      "status": "not_attempted",
+      "reason": "vLLM achieved OpenAI-compatible multimodal serving before a custom shim was needed."
+    }
+  ]
+}

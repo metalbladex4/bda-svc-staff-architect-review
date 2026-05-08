@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-05-08T00:24:24Z",
+  "eval_mode": "detection_study",
+  "pack_id": "v029_case67_only_no101",
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v029_stable_non_ollama_backend_build/validation_manifests/v029_case67_only_no101.yaml",
+  "reference_label": "manifest_reference",
+  "predicted_label": "predicted",
+  "detector_backend_ids": [],
+  "resolved_config_hashes": [],
+  "image_count": 1,
+  "totals": {
+    "match_count": 8,
+    "false_negative_count": 3,
+    "false_positive_count": 7,
+    "negative_scene_count": 0,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 0
+  },
+  "images": [
+    {
+      "image_filename": "67.jpg",
+      "runtime_metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "detector_backend_id": "",
+        "resolved_config_hash": "",
+        "experiment_overlay_ids": [],
+        "model_line_id": ""
+      },
+      "reference_target_count": 11,
+      "predicted_target_count": 15,
+      "match_count": 8,
+      "false_negative_count": 3,
+      "false_positive_count": 7,
+      "negative_scene_metrics": {
+        "negative_scene": false,
+        "false_positive_count": 7,
+        "abstention_correct": null,
+        "unsupported_damage_claim": null,
+        "summary_consistency": null
+      },
+      "matches": [
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_1",
+          "predicted_label": "target_6",
+          "iou": 0.25646551724137934,
+          "center_error_px": 8.077747210701755,
+          "predicted_area_ratio": 1.360323886639676,
+          "overlap_coverage": 0.4817813765182186,
+          "score_assess": 0.2786050156739812,
+          "score_logic": 0,
+          "score": 0.19502351097178683
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_2",
+          "predicted_label": "target_8",
+          "iou": 0.32323232323232326,
+          "center_error_px": 10.012492197250394,
+          "predicted_area_ratio": 1.5686274509803921,
+          "overlap_coverage": 0.6274509803921569,
+          "score_assess": 0.3393021120293849,
+          "score_logic": 0,
+          "score": 0.23751147842056938
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_4",
+          "predicted_label": "target_9",
+          "iou": 0.49065420560747663,
+          "center_error_px": 2.1213203435596424,
+          "predicted_area_ratio": 1.680672268907563,
+          "overlap_coverage": 0.8823529411764706,
+          "score_assess": 0.4915038232795242,
+          "score_logic": 0,
+          "score": 0.34405267629566694
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_6",
+          "predicted_label": "target_10",
+          "iou": 0.40250447227191416,
+          "center_error_px": 9.5524865872714,
+          "predicted_area_ratio": 1.2272727272727273,
+          "overlap_coverage": 0.6392045454545454,
+          "score_assess": 0.41136770206537654,
+          "score_logic": 0,
+          "score": 0.28795739144576354
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_7",
+          "predicted_label": "target_11",
+          "iou": 0.746268656716418,
+          "center_error_px": 1.4142135623730951,
+          "predicted_area_ratio": 1.1272727272727272,
+          "overlap_coverage": 0.9090909090909091,
+          "score_assess": 0.7238805970149255,
+          "score_logic": 0,
+          "score": 0.5067164179104477
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_9",
+          "predicted_label": "target_12",
+          "iou": 0.696969696969697,
+          "center_error_px": 4.47213595499958,
+          "predicted_area_ratio": 0.9743589743589743,
+          "overlap_coverage": 0.8108974358974359,
+          "score_assess": 0.7017906336088154,
+          "score_logic": 0,
+          "score": 0.4912534435261708
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_10",
+          "predicted_label": "target_13",
+          "iou": 0.6493055555555556,
+          "center_error_px": 10.307764064044152,
+          "predicted_area_ratio": 0.8453768453768454,
+          "overlap_coverage": 0.7264957264957265,
+          "score_assess": 0.6811868686868687,
+          "score_logic": 0,
+          "score": 0.4768308080808081
+        },
+        {
+          "target_type": "military equipment",
+          "reference_label": "target_11",
+          "predicted_label": "target_14",
+          "iou": 0.7211093990755008,
+          "center_error_px": 11.597413504743201,
+          "predicted_area_ratio": 0.8812631578947369,
+          "overlap_coverage": 0.7882105263157895,
+          "score_assess": 0.7464630900686371,
+          "score_logic": 0,
+          "score": 0.5225241630480459
+        }
+      ]
+    }
+  ]
+}

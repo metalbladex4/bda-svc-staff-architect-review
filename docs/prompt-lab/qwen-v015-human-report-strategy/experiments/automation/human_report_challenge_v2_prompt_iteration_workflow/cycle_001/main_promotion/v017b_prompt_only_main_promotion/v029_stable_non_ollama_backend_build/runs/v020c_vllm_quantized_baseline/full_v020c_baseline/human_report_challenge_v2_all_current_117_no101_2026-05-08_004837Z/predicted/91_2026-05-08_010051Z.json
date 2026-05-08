@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct;assessment=Qwen/Qwen3-VL-8B-Instruct",
+        "image_id": "f81e98c6-081f-4c26-ac7d-71a58eed4c7b",
+        "image_filename": "91.jpg",
+        "date_created": "2026-05-08T01:00:51Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.12"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull severely deformed; turret missing; main gun barrel broken and detached; smoke plume indicates recent catastrophic event",
+            "bounding_box": [
+                112,
+                391,
+                429,
+                474
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle appears intact with no visible deformations, holes, or missing components; all structural elements and equipment are present and functional in appearance.",
+            "bounding_box": [
+                732,
+                263,
+                1126,
+                641
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The selected target is a military truck with visible structural integrity; no holes, scorching, or blown-off components are present; all major components appear intact and functional.",
+            "bounding_box": [
+                1087,
+                254,
+                1295,
+                518
+            ]
+        }
+    },
+    "summary": "Three military targets are assessed: one tank destroyed, and two other vehicles with no damage. The scene depicts a desert environment with a destroyed tank in the distance and two intact military trucks in the foreground, one with soldiers aboard. The functional impact is likely minimal for the intact vehicles, while the destroyed tank is non-operational."
+}
