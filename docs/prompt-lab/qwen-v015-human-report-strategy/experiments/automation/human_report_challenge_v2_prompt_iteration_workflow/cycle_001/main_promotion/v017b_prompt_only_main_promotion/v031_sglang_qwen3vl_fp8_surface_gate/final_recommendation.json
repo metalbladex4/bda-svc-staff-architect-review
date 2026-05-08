@@ -1,0 +1,142 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "final_decision": "F. vllm_qwen3vl_8b_fp8_red_do_not_resume",
+  "surface_color": "red",
+  "semantic_prompt_refinement_resumed": false,
+  "product_incumbent": "v020c_anchor_replay / v020c_extra_box_audit remains old product incumbent under prior evidence",
+  "old_product_v020c": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v024l": {
+    "matches": 188,
+    "false_negatives": 31,
+    "false_positives": 35,
+    "combined_errors": 66,
+    "status": "learning_evidence_only"
+  },
+  "v025a": {
+    "matches": 176,
+    "false_negatives": 43,
+    "false_positives": 35,
+    "combined_errors": 78,
+    "status": "rejected"
+  },
+  "v024o": "partial_unscored_forbidden",
+  "sglang_result": "launched official FP8 but failed case67 at 0/11/1 on all probes",
+  "vllm_result": "launched official FP8; passed case67 and sentinel stability; failed full baseline acceptance",
+  "vllm_full_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71,
+    "image_count": 117,
+    "case_101_excluded": true
+  },
+  "office_negative_guard": {
+    "image_count": 1,
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 1,
+    "pass": true
+  },
+  "case_metrics": {
+    "12": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "14": {
+      "matches": 1,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_targets": 2,
+      "predicted_targets": 1
+    },
+    "16": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "66": {
+      "matches": 8,
+      "false_negatives": 0,
+      "false_positives": 5,
+      "reference_targets": 8,
+      "predicted_targets": 13
+    },
+    "67": {
+      "matches": 10,
+      "false_negatives": 1,
+      "false_positives": 2,
+      "reference_targets": 11,
+      "predicted_targets": 12
+    },
+    "77": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "84": {
+      "matches": 9,
+      "false_negatives": 4,
+      "false_positives": 0,
+      "reference_targets": 13,
+      "predicted_targets": 9
+    },
+    "88": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "97": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "103": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 3,
+      "reference_targets": 1,
+      "predicted_targets": 4
+    },
+    "155": {
+      "matches": 2,
+      "false_negatives": 0,
+      "false_positives": 2,
+      "reference_targets": 2,
+      "predicted_targets": 4
+    },
+    "166": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "172": {
+      "matches": 3,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 3,
+      "predicted_targets": 3
+    }
+  },
+  "recommendation": "Do not resume existing autonomous prompt branch on this surface. Keep old v020c frozen as incumbent. Either find a closer acceptable surface or start a separately scoped FP8 model-line effort with explicit user approval."
+}

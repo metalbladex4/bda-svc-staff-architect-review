@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "056807f1-6a4c-464f-a7b2-d22d56851193",
+        "image_filename": "16.jpg",
+        "date_created": "2026-05-08T21:52:27Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.65"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "POSSIBLE",
+            "brief_supporting_logic": "Visible structural elements of the building appear intact; roof and walls show no signs of collapse or major deformation; damage is limited to minor surface indications such as discoloration or possible minor cracking, consistent with light damage threshold.",
+            "bounding_box": [
+                1340,
+                789,
+                2644,
+                1299
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "LIGHT",
+            "confidence_level": "POSSIBLE",
+            "brief_supporting_logic": "Visible structural integrity appears intact; roof and walls show no clear collapse or major breaches; obscured by vegetation and distance; damage level cannot be confirmed beyond light.",
+            "bounding_box": [
+                3201,
+                921,
+                4159,
+                1419
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Catastrophic structural failure; turret and hull are severely mangled and fused; main gun barrel is detached and broken; no intact major components visible; consistent with K-kill",
+            "bounding_box": [
+                0,
+                1101,
+                3282,
+                2001
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed destroyed, and two building targets are assessed as possibly light damaged. The scene depicts a destroyed tank on a dirt road with two buildings in the background showing no visible structural collapse. The likely functional impact is the complete loss of the tank's combat capability and minimal disruption to the buildings' structural integrity."
+}

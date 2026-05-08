@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "3c5d1aa1-6918-40cf-9aae-06423492e5a5",
+        "image_filename": "100.jpg",
+        "date_created": "2026-05-08T22:31:22Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "21.39"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "MODERATE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible damage includes significant roof and facade destruction; multiple floors show collapsed balconies and exposed internal structures; debris is piled at base; structural framing appears intact but non-load-bearing elements are extensively damaged.",
+            "bounding_box": [
+                0,
+                55,
+                181,
+                441
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The central section of the building shows extensive structural collapse with debris piled at ground level; upper floors are heavily compromised with missing walls and roofs; visible damage exceeds 75% of the target element area consistent with destroyed classification.",
+            "bounding_box": [
+                181,
+                37,
+                1075,
+                531
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is unrecognizable with severe structural deformation; front end completely crushed and missing; body panels torn and detached; no intact major components visible.",
+            "bounding_box": [
+                831,
+                476,
+                962,
+                541
+            ]
+        }
+    },
+    "summary": "Three targets assessed: one building with moderate damage, one building destroyed, and one military vehicle destroyed. The scene depicts a heavily damaged urban area with multiple multi-story buildings showing extensive structural collapse and debris, alongside a destroyed vehicle. The assessed targets indicate significant functional impairment of the buildings and the loss of the military vehicle."
+}

@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "decision": "F. vllm_qwen3vl_8b_fp8_red_do_not_resume",
+  "decision_code": "F",
+  "surface_color": "red",
+  "semantic_prompt_refinement_resumed": false,
+  "reason": "vLLM official FP8 passed case-67 and sentinel stability, but the fresh v020c all-current baseline was 71 combined errors and case 155 reopened two false positives. The SGLang official FP8 path launched but failed case 67 at 0/11/1 on every probe.",
+  "green_gate": "<=63 combined errors with no 67/155/166/office regression",
+  "yellow_gate": "64-68 combined errors, stable but pause for review",
+  "red_gate": "69+ combined errors or any key-control regression",
+  "vllm_full_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71,
+    "image_count": 117,
+    "case_101_excluded": true
+  },
+  "office_negative_guard": {
+    "image_count": 1,
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 1,
+    "pass": true
+  },
+  "case_metrics": {
+    "12": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "14": {
+      "matches": 1,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_targets": 2,
+      "predicted_targets": 1
+    },
+    "16": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "66": {
+      "matches": 8,
+      "false_negatives": 0,
+      "false_positives": 5,
+      "reference_targets": 8,
+      "predicted_targets": 13
+    },
+    "67": {
+      "matches": 10,
+      "false_negatives": 1,
+      "false_positives": 2,
+      "reference_targets": 11,
+      "predicted_targets": 12
+    },
+    "77": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "84": {
+      "matches": 9,
+      "false_negatives": 4,
+      "false_positives": 0,
+      "reference_targets": 13,
+      "predicted_targets": 9
+    },
+    "88": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "97": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "103": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 3,
+      "reference_targets": 1,
+      "predicted_targets": 4
+    },
+    "155": {
+      "matches": 2,
+      "false_negatives": 0,
+      "false_positives": 2,
+      "reference_targets": 2,
+      "predicted_targets": 4
+    },
+    "166": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "172": {
+      "matches": 3,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 3,
+      "predicted_targets": 3
+    }
+  },
+  "old_incumbent_reference": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v024l_learning_only": {
+    "matches": 188,
+    "false_negatives": 31,
+    "false_positives": 35,
+    "combined_errors": 66,
+    "status": "learning_evidence_only"
+  },
+  "v025a_rejected": {
+    "matches": 176,
+    "false_negatives": 43,
+    "false_positives": 35,
+    "combined_errors": 78,
+    "status": "rejected"
+  },
+  "v024o_status": "partial_unscored_forbidden_as_scored_evidence"
+}

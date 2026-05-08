@@ -1,0 +1,134 @@
+{
+  "candidate_id": "v031c_case67_warm_exact_v020c_replay_1",
+  "stage": "case67_stability",
+  "backend": {
+    "label": "sglang_qwen3vl_8b_fp8_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+  },
+  "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+  "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/predicted",
+  "eval_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/eval/evaluation_2026-05-08_212633Z_summary.json",
+  "scratch_config_sha256": "2fe3d5b7b4a8b1c5099f82748a55b8e2a0af8fdeaff0fc6f30347ce1eaebe46a",
+  "command_records": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/scripts/instrumented_bda_runner.py",
+        "--scratch-root",
+        "/tmp/bda_v031_v031c_case67_warm_exact_v020c_replay_1_2026-05-08_212625Z",
+        "--image",
+        "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/67.jpg",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/predicted",
+        "--trace-output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/traces/human-report-67.json",
+        "--candidate-id",
+        "v031c_case67_warm_exact_v020c_replay_1",
+        "--backend-label",
+        "sglang_qwen3vl_8b_fp8_local_8000",
+        "--endpoint-url",
+        "http://localhost:8000/v1",
+        "--source-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/overlays/v031c_case67_warm_exact_v020c_replay_1.yaml",
+        "--base-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+        "--stage",
+        "case67_stability",
+        "--intended-changes-json",
+        "[]"
+      ],
+      "cwd": "/tmp/bda_v031_v031c_case67_warm_exact_v020c_replay_1_2026-05-08_212625Z",
+      "returncode": 0,
+      "stdout": "[*] Exported: /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/predicted/67_2026-05-08_212632Z.json\n",
+      "stderr": "Using CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///tmp/bda_v031_v031c_case67_warm_exact_v020c_replay_1_2026-05-08_212625Z\n      Built bda-svc @ file:///tmp/bda_v031_v031c_case67_warm_exact_v020c_replay_1_2026-05-08_212625Z\nInstalled 74 packages in 88ms\n"
+    },
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "main.py",
+        "--manifest",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+        "--predicted",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/predicted",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/eval"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/bda_eval",
+      "returncode": 0,
+      "stdout": "\n[*] Successfully created evaluation report '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/eval/evaluation_2026-05-08_212633Z.csv'.\n\n[*] Wrote evaluation summary '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/eval/evaluation_2026-05-08_212633Z_summary.json'.\n\n",
+      "stderr": ""
+    }
+  ],
+  "eval_summary_payload": {
+    "generated_at": "2026-05-08T21:26:33Z",
+    "eval_mode": "detection_study",
+    "pack_id": "v031_case67_only_no101",
+    "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+    "reference_label": "manifest_reference",
+    "predicted_label": "predicted",
+    "detector_backend_ids": [],
+    "resolved_config_hashes": [],
+    "image_count": 1,
+    "totals": {
+      "match_count": 0,
+      "false_negative_count": 11,
+      "false_positive_count": 1,
+      "negative_scene_count": 0,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 0
+    },
+    "images": [
+      {
+        "image_filename": "67.jpg",
+        "runtime_metadata": {
+          "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "detector_backend_id": "",
+          "resolved_config_hash": "",
+          "experiment_overlay_ids": [],
+          "model_line_id": ""
+        },
+        "reference_target_count": 11,
+        "predicted_target_count": 1,
+        "match_count": 0,
+        "false_negative_count": 11,
+        "false_positive_count": 1,
+        "negative_scene_metrics": {
+          "negative_scene": false,
+          "false_positive_count": 0,
+          "abstention_correct": null,
+          "unsupported_damage_claim": null,
+          "summary_consistency": null
+        },
+        "matches": []
+      }
+    ]
+  },
+  "trace_files": [
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/traces/human-report-67.json"
+  ],
+  "matrix_record": {
+    "candidate_id": "v031c_case67_warm_exact_v020c_replay_1",
+    "stage": "case67_stability",
+    "backend_label": "sglang_qwen3vl_8b_fp8_local_8000",
+    "endpoint": "http://localhost:8000/v1",
+    "local_model_source": "existing_service",
+    "matches": 0,
+    "false_negatives": 11,
+    "false_positives": 1,
+    "combined_errors": 12,
+    "case_67": "0/11/1",
+    "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+    "request_shape_hash": "4aee3798aa1d1d3353ae9fa204fd26ad9764634f53bd3a20a19b787cfdb9d6fe",
+    "response_trace_captured": true,
+    "status": "stability_fail",
+    "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z/eval/evaluation_2026-05-08_212633Z_summary.json",
+    "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031c_case67_warm_exact_v020c_replay_1/case67_stability/v031_case67_only_no101_2026-05-08_212625Z"
+  }
+}

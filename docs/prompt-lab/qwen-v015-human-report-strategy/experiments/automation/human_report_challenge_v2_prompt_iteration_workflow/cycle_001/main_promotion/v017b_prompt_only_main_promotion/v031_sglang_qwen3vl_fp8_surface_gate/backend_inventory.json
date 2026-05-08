@@ -1,0 +1,125 @@
+{
+  "generated_at": "2026-05-08T21:29:06Z",
+  "preferred_endpoint": {
+    "ok": true,
+    "url": "http://localhost:8000/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "object": "model",
+          "created": 1778275745,
+          "owned_by": "vllm",
+          "root": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "parent": null,
+          "max_model_len": 4096,
+          "permission": [
+            {
+              "id": "modelperm-a9528dda68e91d90",
+              "object": "model_permission",
+              "created": 1778275745,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "error": null
+  },
+  "fallback_endpoint": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct-v028-deterministic",
+          "object": "model",
+          "created": 1778196433,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "selected_backend": {
+    "label": "vllm_qwen3vl_8b_fp8_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+  },
+  "backend_selected_reason": "vLLM official Qwen3-VL FP8 endpoint available on localhost:8000 with expected served model name; actual model root is recorded in /v1/models",
+  "running_process_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "    180       1  1-22:47:14 /usr/local/bin/ollama serve\n 466553  466468    06:05:21 /home/williambenitez1/.vscode-server/extensions/openai.chatgpt-26.506.21252-linux-x64/bin/linux-x86_64/codex app-server --analytics-default-enabled\n 550958  466553       01:15 /bin/bash -lc HF_HUB_DISABLE_TELEMETRY=1 /tmp/bda_v029_vllm_env/bin/python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8000 --model Qwen/Qwen3-VL-8B-Instruct-FP8 --served-model-name Qwen/Qwen3-VL-8B-Instruct-FP8 --trust-remote-code --dtype bfloat16 --max-model-len 4096 --limit-mm-per-prompt.image 2 --gpu-memory-utilization 0.90 --enforce-eager --seed 42 --generation-config vllm --mm-processor-kwargs '{\"min_pixels\":784,\"max_pixels\":1003520}' 2>&1 | tee docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/backend_logs/vllm_fp8_launch_$(date -u +%Y%m%dT%H%M%SZ).log\n 550964  550958       01:15 /tmp/bda_v029_vllm_env/bin/python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8000 --model Qwen/Qwen3-VL-8B-Instruct-FP8 --served-model-name Qwen/Qwen3-VL-8B-Instruct-FP8 --trust-remote-code --dtype bfloat16 --max-model-len 4096 --limit-mm-per-prompt.image 2 --gpu-memory-utilization 0.90 --enforce-eager --seed 42 --generation-config vllm --mm-processor-kwargs {\"min_pixels\":784,\"max_pixels\":1003520}\n 550965  550958       01:15 tee docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/backend_logs/vllm_fp8_launch_20260508T212746Z.log\n 551228  550964       00:54 /tmp/bda_v029_vllm_env/bin/python -c from multiprocessing.resource_tracker import main;main(40)\n 551229  550964       00:54 VLLM::EngineCore\n 551579  466553       00:00 /tmp/bda_v031_sglang_env/bin/python docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/scripts/run_v031_surface_gate.py --run\n 551649  551579       00:00 bash -lc ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true\n 551656  551649       00:00 rg -i vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl\n",
+    "stderr": ""
+  },
+  "gpu_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "nvidia-smi || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Fri May  8 17:29:06 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.112                Driver Version: 581.95         CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA RTX 5000 Ada Gene...    On  |   00000000:01:00.0 Off |                  Off |\n| N/A   42C    P8              3W /  130W |   14976MiB /  16376MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          551229      C   /python3.12                           N/A      |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "disk_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "df -h /home /tmp /home/williambenitez1/.cache /home/williambenitez1/.ollama 2>/dev/null || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sdd       1007G  162G  795G  17% /\n/dev/sdd       1007G  162G  795G  17% /\n/dev/sdd       1007G  162G  795G  17% /\n/dev/sdd       1007G  162G  795G  17% /\n",
+    "stderr": ""
+  },
+  "package_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "python3 - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','sglang','transformers','accelerate','torch','openai','fastapi','uvicorn','litellm']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "vllm unavailable\nsglang unavailable\ntransformers unavailable\naccelerate unavailable\ntorch unavailable\nopenai unavailable\nfastapi unavailable\nuvicorn unavailable\nlitellm unavailable\n",
+    "stderr": ""
+  },
+  "vllm_launch_doc": "Project README documents: vllm serve Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "vllm_feasibility": "vLLM/SGLang/Transformers were not installed; Qwen/Qwen3-VL-8B-Instruct-FP8 is public/apache-2.0 but not cached locally and full BF16 8.8B weights are not treated as safe to pull/load blindly on 16GB VRAM during this tranche."
+}

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "c2fc87b2-7309-41e3-92fb-0e2d22c7f4a0",
+        "image_filename": "12.jpg",
+        "date_created": "2026-05-08T21:51:55Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.49"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural damage including collapsed roof sections, exposed internal framing, and widespread facade destruction; damage covers more than 45% of the visible target element area.",
+            "bounding_box": [
+                40,
+                250,
+                118,
+                474
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural collapse with debris scattered across the ground; roof and upper floors are missing; facade is heavily damaged with exposed internal structure; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                83,
+                763,
+                475
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE damage (45%+ visible area affected) and another DESTROYED (75-100% damage). The overall scene depicts a large, multi-story building with extensive fire and structural collapse, smoke billowing, and debris scattered across the ground, indicating catastrophic destruction. The functional impact is likely complete loss of use for the building and surrounding area due to the severity of damage and ongoing fire."
+}

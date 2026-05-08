@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "30bba9e3-2c4e-4da0-838e-e78c7d4d9599",
+        "image_filename": "165.jpg",
+        "date_created": "2026-05-08T22:39:34Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "20.10"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building in the background is fully intact with no visible structural damage, missing walls, or collapsed sections; windows and facade appear undamaged.",
+            "bounding_box": [
+                0,
+                229,
+                221,
+                450
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building's structural integrity is compromised; significant portions of walls and roof are missing, exposing internal structure; debris field covers the ground; visible collapse of multiple floors and sections; consistent with 75-100% damage per doctrinal definition.",
+            "bounding_box": [
+                191,
+                0,
+                1105,
+                847
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building shows extensive structural collapse with debris piled at the base; upper floors are missing, exposing internal framing; walls are severely compromised with large sections missing, consistent with 75-100% damage.",
+            "bounding_box": [
+                1105,
+                395,
+                1299,
+                513
+            ]
+        }
+    },
+    "summary": "Three buildings were assessed: one with NO DAMAGE and two with DESTROYED status. The scene depicts a heavily damaged urban area with rubble-strewn ground and collapsed structures, while a distant building remains intact. The functional impact is likely severe, as two buildings are completely destroyed, rendering them unusable."
+}

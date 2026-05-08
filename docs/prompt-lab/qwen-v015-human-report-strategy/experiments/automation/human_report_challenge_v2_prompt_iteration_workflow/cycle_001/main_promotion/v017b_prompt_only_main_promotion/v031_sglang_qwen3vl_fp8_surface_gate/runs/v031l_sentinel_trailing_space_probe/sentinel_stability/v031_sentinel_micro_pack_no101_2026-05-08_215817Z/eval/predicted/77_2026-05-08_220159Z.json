@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "8cdc4a4f-e54b-492c-b3c4-d467b0a64847",
+        "image_filename": "77.jpg",
+        "date_created": "2026-05-08T22:01:59Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.60"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field at base; upper floors show extensive facade loss and structural collapse; structural framing appears intact per doctrinal definition; damage exceeds 45% of visible target element area.",
+            "bounding_box": [
+                118,
+                59,
+                1555,
+                626
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The right wing of the building shows complete collapse of its upper floors and roof; structural elements are missing; debris pile indicates total loss of structural integrity; damage exceeds 75% of visible target element area.",
+            "bounding_box": [
+                1527,
+                0,
+                1880,
+                642
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one with SEVERE DAMAGE (CONFIRMED) showing extensive facade loss and structural collapse, and another DESTROYED (CONFIRMED) with complete upper floor and roof collapse. The scene depicts a street with heavily damaged multi-story buildings, debris fields, and a single intact car, indicating widespread structural destruction. The functional impact is likely severe, with buildings rendered uninhabitable and infrastructure compromised."
+}

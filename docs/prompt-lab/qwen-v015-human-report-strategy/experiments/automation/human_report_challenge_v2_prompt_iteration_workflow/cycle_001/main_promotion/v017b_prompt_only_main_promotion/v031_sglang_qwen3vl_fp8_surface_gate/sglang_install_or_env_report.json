@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "env_path": "/tmp/bda_v031_sglang_env",
+  "install_command": "uv venv /tmp/bda_v031_sglang_env --python 3.12 && uv pip install --python /tmp/bda_v031_sglang_env/bin/python sglang[all]",
+  "installed_version": "sglang 0.5.9 observed from install output",
+  "local_fixes": [
+    "downloaded and extracted libnuma1 into /tmp/bda_v031_sglang_env/local_libs instead of system install",
+    "installed nvidia-cudnn-cu12==9.16.0.29 inside isolated env",
+    "used --disable-cuda-graph after CUDA graph compile failed due missing nvcc"
+  ],
+  "result": "SGLang launched official FP8 but failed case67 behavior on every probe"
+}

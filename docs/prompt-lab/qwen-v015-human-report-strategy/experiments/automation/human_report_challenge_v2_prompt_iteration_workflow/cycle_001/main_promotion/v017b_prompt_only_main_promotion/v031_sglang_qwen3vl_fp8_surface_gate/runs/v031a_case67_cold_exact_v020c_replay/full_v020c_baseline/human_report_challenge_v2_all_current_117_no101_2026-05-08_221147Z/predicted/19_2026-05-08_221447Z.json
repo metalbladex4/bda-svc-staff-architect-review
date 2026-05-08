@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "2c24d577-8250-422e-852b-7f883be29889",
+        "image_filename": "19.jpg",
+        "date_created": "2026-05-08T22:14:47Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.57"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "The building's roof and upper walls show extensive structural compromise; debris is scattered around the base; the structure appears partially collapsed with visible internal damage; the damage level exceeds 45% of the target element area based on visible destruction.",
+            "bounding_box": [
+                1014,
+                83,
+                1200,
+                300
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull is catastrophically breached with missing turret; tracks are severed and detached; engine compartment is exposed and charred; no major components remain intact; consistent with K-kill",
+            "bounding_box": [
+                300,
+                138,
+                690,
+                545
+            ]
+        }
+    },
+    "summary": "One building with SEVERE damage and one military tank confirmed DESTROYED are visible in the scene. The overall scene depicts a heavily damaged area with debris scattered across the ground, indicating recent destructive events. The functional impact is likely significant, as the destroyed tank and severely damaged building suggest a major operational disruption."
+}

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "a39610ef-a29d-4915-923a-02f45123119d",
+        "image_filename": "88.jpg",
+        "date_created": "2026-05-08T21:56:19Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.16"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Catastrophic structural damage visible; turret and hull extensively melted and fragmented; tracks broken and scattered; main gun barrel detached; no intact major components remain.",
+            "bounding_box": [
+                0,
+                466,
+                2465,
+                1674
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The white truck is intact with no visible deformations, holes, scorching, or missing components; it appears operational and undamaged.",
+            "bounding_box": [
+                1308,
+                699,
+                1438,
+                818
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed DESTROYED, and one military equipment target is confirmed NO DAMAGE. The scene depicts a severely damaged tank with melted and fragmented components lying on a road, alongside an intact white truck in the distance. The functional impact is likely neutralized for the destroyed tank, while the intact truck remains operational."
+}

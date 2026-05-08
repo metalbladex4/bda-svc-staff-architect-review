@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "endpoint": "http://localhost:8000/v1",
+  "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "launch_log": "backend_logs/vllm_fp8_launch_20260508T212746Z.log",
+  "launch_status": "launched_and_stability_passed",
+  "version": "vLLM 0.20.1 observed in server model metadata/logs",
+  "launch_command": "/tmp/bda_v029_vllm_env/bin/python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8000 --model Qwen/Qwen3-VL-8B-Instruct-FP8 --served-model-name Qwen/Qwen3-VL-8B-Instruct-FP8 --trust-remote-code --dtype bfloat16 --max-model-len 4096 --limit-mm-per-prompt.image 2 --gpu-memory-utilization 0.90 --enforce-eager --seed 42 --generation-config vllm --mm-processor-kwargs {\"min_pixels\":784,\"max_pixels\":1003520}",
+  "case67_results": [
+    {
+      "candidate_id": "v031a_case67_cold_exact_v020c_replay",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031b_case67_warmup_request",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031c_case67_warm_exact_v020c_replay_1",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031d_case67_warm_exact_v020c_replay_2",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031e_case67_warm_exact_v020c_replay_3",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031f_case67_blank_line_probe",
+      "case_67": "8/3/5",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031g_case67_trailing_space_probe",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031h_case67_noop_template_roundtrip",
+      "case_67": "10/1/2",
+      "raw_response_hash": null,
+      "status": "stability_pass"
+    }
+  ],
+  "sentinel_results": [
+    {
+      "candidate_id": "v031i_sentinel_exact_v020c_replay_1",
+      "case_67": "10/1/2",
+      "matches": 42,
+      "false_negatives": 7,
+      "false_positives": 15,
+      "combined_errors": 22,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031j_sentinel_exact_v020c_replay_2",
+      "case_67": "10/1/2",
+      "matches": 42,
+      "false_negatives": 7,
+      "false_positives": 15,
+      "combined_errors": 22,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031k_sentinel_blank_line_probe",
+      "case_67": "8/3/5",
+      "matches": 38,
+      "false_negatives": 11,
+      "false_positives": 19,
+      "combined_errors": 30,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031l_sentinel_trailing_space_probe",
+      "case_67": "10/1/2",
+      "matches": 40,
+      "false_negatives": 9,
+      "false_positives": 21,
+      "combined_errors": 30,
+      "status": "stability_pass"
+    },
+    {
+      "candidate_id": "v031m_sentinel_noop_template_roundtrip",
+      "case_67": "10/1/2",
+      "matches": 42,
+      "false_negatives": 7,
+      "false_positives": 15,
+      "combined_errors": 22,
+      "status": "stability_pass"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "ffbb7ff1-8715-46f6-b612-13a8be305a93",
+        "image_filename": "167.jpg",
+        "date_created": "2026-05-08T22:40:02Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "17.19"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible large sections of exterior wall missing, exposing internal structure; multiple windows blown out; significant structural damage concentrated on one side; damage exceeds 45% of visible target element area.",
+            "bounding_box": [
+                46,
+                0,
+                833,
+                638
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The cropped target shows two collapsed, heavily damaged sections with missing roofs and structural collapse; the building's facade is severely compromised with exposed internal structure and missing walls, consistent with 75-100% damage to the target element area.",
+            "bounding_box": [
+                809,
+                436,
+                939,
+                493
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (CONFIRMED) showing large missing wall sections and blown-out windows, and another with DESTROYED status (CONFIRMED) exhibiting collapsed sections and exposed internal structure. The overall scene depicts a multi-story building with significant structural damage concentrated on one side, alongside a distant, heavily damaged structure, indicating widespread destruction. The functional impact is likely severe, with the primary building rendered uninhabitable and the secondary structure completely non-functional."
+}

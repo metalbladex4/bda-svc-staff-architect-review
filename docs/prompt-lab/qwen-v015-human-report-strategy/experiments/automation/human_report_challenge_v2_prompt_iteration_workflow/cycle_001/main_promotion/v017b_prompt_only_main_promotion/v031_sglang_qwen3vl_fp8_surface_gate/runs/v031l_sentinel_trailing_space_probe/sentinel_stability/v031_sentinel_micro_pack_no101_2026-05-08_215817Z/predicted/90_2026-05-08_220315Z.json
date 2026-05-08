@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "aa4d80ac-b093-42da-8da5-a4dca1908c45",
+        "image_filename": "90.png",
+        "date_created": "2026-05-08T22:03:15Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.89"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural damage including collapsed roof sections, exposed internal framing, and widespread facade destruction; damage appears to cover more than 45% of the visible target element area.",
+            "bounding_box": [
+                40,
+                249,
+                121,
+                479
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Large portions of roof and upper floors are missing; facade is heavily damaged with exposed structural elements; debris field at base indicates collapse of significant structural mass; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                77,
+                763,
+                479
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (45%+ visible area affected) and another DESTROYED (75-100% damage). The scene depicts a large, multi-story building with extensive fire, smoke, and structural collapse, surrounded by debris, indicating catastrophic destruction. The functional impact is likely complete loss of use for the targeted structures."
+}

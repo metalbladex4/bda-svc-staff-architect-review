@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "a8b974bc-c1e6-47c4-a768-e9bb7d103004",
+        "image_filename": "159.jpg",
+        "date_created": "2026-05-08T22:37:58Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.72"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Severe rust and structural degradation visible on hull and turret; tracks appear broken and non-functional; overall condition indicates unrepairable, catastrophic damage consistent with K-kill.",
+            "bounding_box": [
+                6,
+                105,
+                610,
+                357
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Target is an armored vehicle; visible rust and weathering consistent with long-term outdoor exposure, no holes, scorching, or missing components indicating physical damage.",
+            "bounding_box": [
+                48,
+                216,
+                237,
+                272
+            ]
+        }
+    },
+    "summary": "Two military equipment targets are assessed: one is DESTROYED with CONFIRMED confidence, showing severe rust and broken tracks, while the other is NO DAMAGE with CONFIRMED confidence, exhibiting only weathering. The scene depicts multiple rusted tanks in a grassy, wooded area, appearing as abandoned or decommissioned exhibits. Given the confirmed destroyed status of one tank, the overall scene indicates a loss of combat capability for at least one unit, with the other remaining non-operational due to age and environmental exposure."
+}

@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "target_model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "hardware": {
+    "gpu": "NVIDIA RTX 5000 Ada Generation Laptop GPU, 16376 MiB VRAM",
+    "system_ram": "31 GiB",
+    "disk_free_at_start": "about 811 GiB"
+  },
+  "candidates": [
+    {
+      "backend": "SGLang",
+      "status": "launched_but_red_case67",
+      "endpoint": "http://localhost:8000/v1",
+      "notes": "Required isolated SGLang env, local libnuma extraction, nvidia-cudnn-cu12 9.16.0.29, and --disable-cuda-graph due missing nvcc."
+    },
+    {
+      "backend": "vLLM",
+      "status": "launched_stable_but_red_baseline",
+      "endpoint": "http://localhost:8000/v1",
+      "notes": "Passed case67 and sentinel stability, then failed surface acceptance on all-current 71 errors and 155 FP regression."
+    },
+    {
+      "backend": "Transformers debug",
+      "status": "not_needed_after_vllm_backup_launched",
+      "notes": "Reserved debug path only; not used as scoring surface."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "f3de9395-1ead-4d39-9cef-468ae2b0c7c0",
+        "image_filename": "69.jpg",
+        "date_created": "2026-05-08T22:23:55Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.19"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a multi-story building with exposed structural frame; upper floors are completely collapsed and reduced to rubble; remaining sections show no intact load-bearing walls or floors; consistent with 75-100% damage per doctrinal definition for framed buildings.",
+            "bounding_box": [
+                0,
+                0,
+                192,
+                147
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building is a multi-story concrete structure with exposed structural frames; upper floors are missing, walls are collapsed or reduced to skeletal remains, and debris covers the ground; this indicates 75-100% of the target element area is damaged.",
+            "bounding_box": [
+                684,
+                110,
+                980,
+                382
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Armor plating appears intact; tracks and wheels are fully present and functional; no visible holes, scorching, or missing components; vehicle is operational and positioned for movement.",
+            "bounding_box": [
+                0,
+                137,
+                472,
+                551
+            ]
+        }
+    },
+    "summary": "Two buildings are confirmed destroyed and one military vehicle shows no damage. The scene depicts a heavily damaged urban environment with rubble-strewn streets and collapsed structures, while a combat vehicle remains operational. The presence of an intact military vehicle in a destroyed urban setting suggests continued operational capability despite significant infrastructure damage."
+}

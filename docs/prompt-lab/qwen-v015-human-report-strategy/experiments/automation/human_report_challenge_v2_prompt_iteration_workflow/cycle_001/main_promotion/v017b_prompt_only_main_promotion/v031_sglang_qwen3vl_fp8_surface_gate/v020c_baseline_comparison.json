@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "old_product_v020c": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v031_vllm_fp8_v020c_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71,
+    "image_count": 117,
+    "case_101_excluded": true
+  },
+  "delta_vs_old_product": {
+    "matches": -6,
+    "false_negatives": 6,
+    "false_positives": 7,
+    "combined_errors": 13
+  },
+  "case_metrics": {
+    "12": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "14": {
+      "matches": 1,
+      "false_negatives": 1,
+      "false_positives": 0,
+      "reference_targets": 2,
+      "predicted_targets": 1
+    },
+    "16": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "66": {
+      "matches": 8,
+      "false_negatives": 0,
+      "false_positives": 5,
+      "reference_targets": 8,
+      "predicted_targets": 13
+    },
+    "67": {
+      "matches": 10,
+      "false_negatives": 1,
+      "false_positives": 2,
+      "reference_targets": 11,
+      "predicted_targets": 12
+    },
+    "77": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "84": {
+      "matches": 9,
+      "false_negatives": 4,
+      "false_positives": 0,
+      "reference_targets": 13,
+      "predicted_targets": 9
+    },
+    "88": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "97": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 1,
+      "reference_targets": 1,
+      "predicted_targets": 2
+    },
+    "103": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 3,
+      "reference_targets": 1,
+      "predicted_targets": 4
+    },
+    "155": {
+      "matches": 2,
+      "false_negatives": 0,
+      "false_positives": 2,
+      "reference_targets": 2,
+      "predicted_targets": 4
+    },
+    "166": {
+      "matches": 1,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 1,
+      "predicted_targets": 1
+    },
+    "172": {
+      "matches": 3,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "reference_targets": 3,
+      "predicted_targets": 3
+    }
+  },
+  "old_selected_case_metrics": {
+    "66": "8/0/4",
+    "67": "9/2/4",
+    "84": "8/5/0",
+    "97": "1/0/2",
+    "155": "2/0/0",
+    "166": "1/0/0"
+  },
+  "office_negative_guard": {
+    "image_count": 1,
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 1,
+    "pass": true
+  },
+  "source_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031a_case67_cold_exact_v020c_replay/full_v020c_baseline/human_report_challenge_v2_all_current_117_no101_2026-05-08_221147Z/eval/evaluation_2026-05-08_224121Z_summary.json",
+  "office_summary": "docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031a_case67_cold_exact_v020c_replay/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_224133Z/eval/evaluation_2026-05-08_224140Z_summary.json"
+}

@@ -1,0 +1,66 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "abfde80b-18f7-4cb9-b21d-ef9fd47106cd",
+        "image_filename": "160.jpg",
+        "date_created": "2026-05-08T22:38:25Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "24.79"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits extensive structural collapse with over 75% of its visible facade and upper floors missing; debris field indicates complete loss of structural integrity consistent with destroyed category.",
+            "bounding_box": [
+                0,
+                55,
+                177,
+                332
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible structural collapse of roof and upper walls; significant debris field; facade and windows extensively damaged; structural framing appears compromised but not fully collapsed; damage consistent with 45-75% of target element area.",
+            "bounding_box": [
+                177,
+                55,
+                344,
+                104
+            ]
+        },
+        "target_2": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible destruction of facade and roof; multiple floors show collapsed balconies and missing exterior walls; structural framing appears intact but non-load-bearing elements are extensively damaged, consistent with 45-75% area damage per doctrine.",
+            "bounding_box": [
+                344,
+                75,
+                546,
+                332
+            ]
+        },
+        "target_3": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target building shows complete structural collapse with no remaining standing walls or roof; debris field indicates 100% target element area damaged.",
+            "bounding_box": [
+                546,
+                17,
+                590,
+                75
+            ]
+        }
+    },
+    "summary": "Four buildings assessed: one confirmed destroyed, two confirmed severe damage, and one probable severe damage. The scene depicts a heavily damaged urban area with multiple multi-story buildings reduced to rubble and structural collapse, with debris fields and missing facades dominating the view. The functional impact is likely complete loss of residential and commercial use in the assessed targets, with surrounding infrastructure also visibly compromised."
+}

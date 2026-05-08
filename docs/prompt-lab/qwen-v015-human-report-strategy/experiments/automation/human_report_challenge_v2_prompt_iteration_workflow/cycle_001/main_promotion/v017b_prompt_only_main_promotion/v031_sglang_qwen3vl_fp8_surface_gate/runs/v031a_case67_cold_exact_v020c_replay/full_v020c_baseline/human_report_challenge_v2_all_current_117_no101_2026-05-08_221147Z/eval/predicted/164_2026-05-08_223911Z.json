@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "14341fc3-cabb-49ed-8362-c7c1195bcb67",
+        "image_filename": "164.jpg",
+        "date_created": "2026-05-08T22:39:11Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.20"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Roof and upper walls are completely collapsed; structural framing is exposed and broken; debris is piled at base; chimney remains but structure is non-functional.",
+            "bounding_box": [
+                191,
+                87,
+                552,
+                322
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Roof structure is extensively collapsed and debris is visible; significant portions of walls appear compromised; damage to non-load-bearing elements is extensive; structural framing may be compromised but not fully visible; damage appears to exceed 45% of target element area.",
+            "bounding_box": [
+                481,
+                161,
+                611,
+                297
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one confirmed destroyed with collapsed roof and exposed framing, and another probable severe damage with extensive roof collapse and compromised walls. The overall scene depicts a rural area with multiple derelict structures showing significant structural degradation under overcast, snowy conditions. The likely functional impact is complete loss of utility for the destroyed building and severe impairment for the severely damaged one, rendering them non-functional."
+}

@@ -1,0 +1,255 @@
+{
+  "candidate_id": "v031b_case67_warmup_request",
+  "stage": "case67_stability",
+  "backend": {
+    "label": "vllm_qwen3vl_8b_fp8_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+  },
+  "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+  "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/predicted",
+  "eval_summary": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/eval/evaluation_2026-05-08_213127Z_summary.json",
+  "scratch_config_sha256": "2fe3d5b7b4a8b1c5099f82748a55b8e2a0af8fdeaff0fc6f30347ce1eaebe46a",
+  "command_records": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/scripts/instrumented_bda_runner.py",
+        "--scratch-root",
+        "/tmp/bda_v031_v031b_case67_warmup_request_2026-05-08_213017Z",
+        "--image",
+        "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/67.jpg",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/predicted",
+        "--trace-output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/traces/human-report-67.json",
+        "--candidate-id",
+        "v031b_case67_warmup_request",
+        "--backend-label",
+        "vllm_qwen3vl_8b_fp8_local_8000",
+        "--endpoint-url",
+        "http://localhost:8000/v1",
+        "--source-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/overlays/v031b_case67_warmup_request.yaml",
+        "--base-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+        "--stage",
+        "case67_stability",
+        "--intended-changes-json",
+        "[]"
+      ],
+      "cwd": "/tmp/bda_v031_v031b_case67_warmup_request_2026-05-08_213017Z",
+      "returncode": 0,
+      "stdout": "[*] Exported: /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/predicted/67_2026-05-08_213127Z.json\n",
+      "stderr": "Using CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///tmp/bda_v031_v031b_case67_warmup_request_2026-05-08_213017Z\n      Built bda-svc @ file:///tmp/bda_v031_v031b_case67_warmup_request_2026-05-08_213017Z\nInstalled 74 packages in 116ms\n"
+    },
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "main.py",
+        "--manifest",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+        "--predicted",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/predicted",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/eval"
+      ],
+      "cwd": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/bda_eval",
+      "returncode": 0,
+      "stdout": "\n[*] Submitting matches to LLMaaJ:\n\n[*] Skipping LLMaaJ logic evaluation because 'OLLAMA_API_KEY' is not set.\n\n[*] Successfully created evaluation report '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/eval/evaluation_2026-05-08_213127Z.csv'.\n\n[*] Wrote evaluation summary '/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/eval/evaluation_2026-05-08_213127Z_summary.json'.\n\n",
+      "stderr": ""
+    }
+  ],
+  "eval_summary_payload": {
+    "generated_at": "2026-05-08T21:31:27Z",
+    "eval_mode": "detection_study",
+    "pack_id": "v031_case67_only_no101",
+    "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/validation_manifests/v031_case67_only_no101.yaml",
+    "reference_label": "manifest_reference",
+    "predicted_label": "predicted",
+    "detector_backend_ids": [],
+    "resolved_config_hashes": [],
+    "image_count": 1,
+    "totals": {
+      "match_count": 10,
+      "false_negative_count": 1,
+      "false_positive_count": 2,
+      "negative_scene_count": 0,
+      "negative_scene_false_positive_count": 0,
+      "negative_scene_abstention_correct_count": 0
+    },
+    "images": [
+      {
+        "image_filename": "67.jpg",
+        "runtime_metadata": {
+          "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "detector_backend_id": "",
+          "resolved_config_hash": "",
+          "experiment_overlay_ids": [],
+          "model_line_id": ""
+        },
+        "reference_target_count": 11,
+        "predicted_target_count": 12,
+        "match_count": 10,
+        "false_negative_count": 1,
+        "false_positive_count": 2,
+        "negative_scene_metrics": {
+          "negative_scene": false,
+          "false_positive_count": 2,
+          "abstention_correct": null,
+          "unsupported_damage_claim": null,
+          "summary_consistency": null
+        },
+        "matches": [
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_1",
+            "predicted_label": "target_2",
+            "iou": 0.24161073825503357,
+            "center_error_px": 9.219544457292887,
+            "predicted_area_ratio": 1.9959514170040487,
+            "overlap_coverage": 0.582995951417004,
+            "score_assess": 0.2651006711409396,
+            "score_logic": 0,
+            "score": 0.1855704697986577
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_2",
+            "predicted_label": "target_3",
+            "iou": 0.3015075376884422,
+            "center_error_px": 6.800735254367722,
+            "predicted_area_ratio": 2.0470588235294116,
+            "overlap_coverage": 0.7058823529411765,
+            "score_assess": 0.3195523069894929,
+            "score_logic": 0,
+            "score": 0.223686614892645
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_3",
+            "predicted_label": "target_4",
+            "iou": 0.21505376344086022,
+            "center_error_px": 9.300537618869138,
+            "predicted_area_ratio": 3.3461538461538463,
+            "overlap_coverage": 0.7692307692307693,
+            "score_assess": 0.2409579667644184,
+            "score_logic": 0,
+            "score": 0.1686705767350929
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_5",
+            "predicted_label": "target_5",
+            "iou": 0.24489795918367346,
+            "center_error_px": 7.566372975210778,
+            "predicted_area_ratio": 1.859375,
+            "overlap_coverage": 0.5625,
+            "score_assess": 0.2680890538033396,
+            "score_logic": 0,
+            "score": 0.1876623376623377
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_6",
+            "predicted_label": "target_6",
+            "iou": 0.3785488958990536,
+            "center_error_px": 7.433034373659253,
+            "predicted_area_ratio": 1.4829545454545454,
+            "overlap_coverage": 0.6818181818181818,
+            "score_assess": 0.389589905362776,
+            "score_logic": 0,
+            "score": 0.2727129337539432
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_7",
+            "predicted_label": "target_7",
+            "iou": 0.3669724770642202,
+            "center_error_px": 8.902246907382429,
+            "predicted_area_ratio": 0.8963636363636364,
+            "overlap_coverage": 0.509090909090909,
+            "score_assess": 0.3790658882402002,
+            "score_logic": 0,
+            "score": 0.26534612176814015
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_8",
+            "predicted_label": "target_8",
+            "iou": 0.1925133689839572,
+            "center_error_px": 17.72004514666935,
+            "predicted_area_ratio": 0.784,
+            "overlap_coverage": 0.288,
+            "score_assess": 0.2431939718035975,
+            "score_logic": 0,
+            "score": 0.17023578026251823
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_9",
+            "predicted_label": "target_9",
+            "iou": 0.8333333333333334,
+            "center_error_px": 2.23606797749979,
+            "predicted_area_ratio": 0.9743589743589743,
+            "overlap_coverage": 0.8974358974358975,
+            "score_assess": 0.8257575757575758,
+            "score_logic": 0,
+            "score": 0.578030303030303
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_10",
+            "predicted_label": "target_10",
+            "iou": 0.4942602040816326,
+            "center_error_px": 15.811388300841896,
+            "predicted_area_ratio": 0.8205128205128205,
+            "overlap_coverage": 0.6021756021756022,
+            "score_assess": 0.5402365491651206,
+            "score_logic": 0,
+            "score": 0.37816558441558445
+          },
+          {
+            "target_type": "military equipment",
+            "reference_label": "target_11",
+            "predicted_label": "target_11",
+            "iou": 0.7126422006555692,
+            "center_error_px": 11.543396380615196,
+            "predicted_area_ratio": 0.8699649122807017,
+            "overlap_coverage": 0.7781052631578947,
+            "score_assess": 0.7387656369596084,
+            "score_logic": 0,
+            "score": 0.5171359458717258
+          }
+        ]
+      }
+    ]
+  },
+  "trace_files": [
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/traces/human-report-67.json"
+  ],
+  "matrix_record": {
+    "candidate_id": "v031b_case67_warmup_request",
+    "stage": "case67_stability",
+    "backend_label": "vllm_qwen3vl_8b_fp8_local_8000",
+    "endpoint": "http://localhost:8000/v1",
+    "local_model_source": "existing_service",
+    "matches": 10,
+    "false_negatives": 1,
+    "false_positives": 2,
+    "combined_errors": 3,
+    "case_67": "10/1/2",
+    "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+    "request_shape_hash": "4aee3798aa1d1d3353ae9fa204fd26ad9764634f53bd3a20a19b787cfdb9d6fe",
+    "response_trace_captured": true,
+    "status": "stability_pass",
+    "summary_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z/eval/evaluation_2026-05-08_213127Z_summary.json",
+    "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/runs/v031b_case67_warmup_request/case67_stability/v031_case67_only_no101_2026-05-08_213017Z"
+  }
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "810968e2-9d36-4a89-bab5-2cb14e2d0512",
+        "image_filename": "172.jpg",
+        "date_created": "2026-05-08T22:04:52Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "20.35"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Roof section is missing; multiple upper floors show significant structural compromise; facade is heavily damaged with exposed internal elements; debris at base indicates partial collapse; damage appears concentrated on upper levels consistent with severe damage threshold.",
+            "bounding_box": [
+                0,
+                211,
+                205,
+                547
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple windows and balconies are blown out; facade shows significant structural degradation; roof appears compromised; damage is widespread across visible floors; no evidence of total collapse but structural integrity appears compromised.",
+            "bounding_box": [
+                342,
+                132,
+                1300,
+                529
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is unrecognizable as operational; chassis and body are severely mangled, doors and panels are missing, engine compartment is exposed and fragmented; consistent with catastrophic (K-kill) damage.",
+            "bounding_box": [
+                806,
+                694,
+                1001,
+                791
+            ]
+        }
+    },
+    "summary": "Two buildings show SEVERE DAMAGE with PROBABLE confidence, and one military vehicle is DESTROYED with CONFIRMED confidence. The scene depicts a residential area with multiple multi-story buildings exhibiting widespread structural damage including missing roofs, blown-out windows, and exposed interiors, alongside a destroyed vehicle in a grassy yard. The damage to the buildings and the destroyed vehicle indicates significant functional impairment, likely rendering the area uninhabitable and non-operational."
+}

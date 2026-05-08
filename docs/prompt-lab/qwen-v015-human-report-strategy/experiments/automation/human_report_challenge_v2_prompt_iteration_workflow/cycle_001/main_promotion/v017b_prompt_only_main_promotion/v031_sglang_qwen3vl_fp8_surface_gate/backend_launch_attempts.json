@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-05-08T22:45:58Z",
+  "attempts": [
+    {
+      "backend": "SGLang",
+      "result": "initial import failed missing libnuma.so.1"
+    },
+    {
+      "backend": "SGLang",
+      "result": "after local libnuma, torch/cudnn check required nvidia-cudnn-cu12==9.16.0.29"
+    },
+    {
+      "backend": "SGLang",
+      "result": "after cudnn, CUDA graph compile failed due missing nvcc"
+    },
+    {
+      "backend": "SGLang",
+      "result": "with --disable-cuda-graph, launched successfully but failed case67 behavior"
+    },
+    {
+      "backend": "vLLM",
+      "result": "launched successfully and passed stability, failed baseline acceptance"
+    }
+  ]
+}
