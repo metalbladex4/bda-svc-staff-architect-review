@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-08T16:08:55Z",
+  "backend_logs": [
+    "backend_logs/hf_transformers_exact_input_none_launch_20260508T160242Z.log",
+    "backend_logs/hf_transformers_exact_launch_20260508T155800Z.log",
+    "backend_logs/vllm_exact_cpuoffload4_gpu089_launch_20260508T154756Z.log",
+    "backend_logs/vllm_exact_cpuoffload4_launch_20260508T154706Z.log",
+    "backend_logs/vllm_exact_cpuoffload8_launch_20260508T154925Z.log",
+    "backend_logs/vllm_exact_cpuoffload_launch_20260508T153717Z.log",
+    "backend_logs/vllm_exact_launch_20260508T153659Z.log"
+  ],
+  "attempts": [
+    {
+      "backend": "vLLM exact",
+      "command_summary": "vLLM OpenAI server, exact Qwen, bfloat16, max_model_len=4096, CPU offload 12",
+      "result": "launched but first BDA case-67 request timed out at client timeout"
+    },
+    {
+      "backend": "vLLM exact",
+      "command_summary": "CPU offload 4, gpu util 0.92/0.89 variants",
+      "result": "one launch rejected free-memory target, one launch failed KV cache allocation"
+    },
+    {
+      "backend": "vLLM exact",
+      "command_summary": "CPU offload 8, gpu util 0.85",
+      "result": "launched, but first BDA case-67 request timed out"
+    },
+    {
+      "backend": "HF Transformers shim",
+      "command_summary": "FastAPI OpenAI-compatible shim, exact Qwen, device_map auto, bfloat16, CPU offload folder",
+      "result": "tiny multimodal JSON smoke passed; first BDA request hit meta-device error with cuda inputs; retry with CPU/no forced input device timed out"
+    }
+  ]
+}

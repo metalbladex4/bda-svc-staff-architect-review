@@ -1,0 +1,96 @@
+{
+  "generated_at": "2026-05-08T16:03:25Z",
+  "preferred_endpoint_status": {
+    "ok": true,
+    "url": "http://localhost:8000/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "object": "model",
+          "created": 1778256180,
+          "owned_by": "local-huggingface-transformers"
+        }
+      ]
+    },
+    "error": null
+  },
+  "fallback_endpoint_status": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct-v028-deterministic",
+          "object": "model",
+          "created": 1778196433,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "deterministic_ollama_create": null,
+  "deterministic_ollama_8000_launch": null,
+  "deterministic_ollama_11434_status": null,
+  "selected_backend": {
+    "label": "vllm_exact_qwen3_vl_8b_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct"
+  },
+  "backend_selected_reason": "non-Ollama vLLM endpoint available on localhost:8000 with expected served model name; actual model root is recorded in /v1/models",
+  "ollama_version": {
+    "cmd": [
+      "ollama",
+      "--version"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "ollama version is 0.15.2\n",
+    "stderr": ""
+  },
+  "vllm_version": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "/tmp/bda_v030_vllm_env/bin/python - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','torch','transformers','openai','fastapi','uvicorn','compressed-tensors']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 127,
+    "stdout": "",
+    "stderr": "bash: line 1: /tmp/bda_v030_vllm_env/bin/python: No such file or directory\n"
+  },
+  "python_package_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "python3 - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','sglang','transformers','accelerate','torch','openai','fastapi','uvicorn','litellm']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "vllm unavailable\nsglang unavailable\ntransformers unavailable\naccelerate unavailable\ntorch unavailable\nopenai unavailable\nfastapi unavailable\nuvicorn unavailable\nlitellm unavailable\n",
+    "stderr": ""
+  },
+  "non_ollama_requirement": "semantic prompt work remains blocked unless this vLLM endpoint passes stability and baseline gates"
+}

@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-08T16:08:55Z",
+  "decision": "G_exact_model_infeasible_no_acceptable_surface_stop_prompt_mutation",
+  "target_reached": false,
+  "semantic_prompt_refinement_resumed": false,
+  "exact_model_feasible_to_download": true,
+  "exact_model_operational_for_bda_gate": false,
+  "case67_stability_passed": false,
+  "sentinel_stability_passed": false,
+  "fresh_v020c_baseline_run": false,
+  "reason": "Exact Qwen was downloaded and could be launched, but neither vLLM nor the local Hugging Face Transformers shim completed the required BDA case-67 gate. Therefore prompt attribution remains unsafe and semantic prompt mutation stays blocked.",
+  "hard_boundaries_preserved": true,
+  "status": {
+    "v020c": {
+      "matches": 186,
+      "false_negatives": 33,
+      "false_positives": 25,
+      "combined_errors": 58
+    },
+    "v024l_learning_only": {
+      "matches": 188,
+      "false_negatives": 31,
+      "false_positives": 35,
+      "combined_errors": 66
+    },
+    "v025a_rejected": {
+      "matches": 176,
+      "false_negatives": 43,
+      "false_positives": 35,
+      "combined_errors": 78
+    },
+    "v024o": "partial_unscored_forbidden"
+  }
+}

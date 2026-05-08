@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-05-08T16:08:55Z",
+  "gpu": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "nvidia-smi --query-gpu=name,memory.total,memory.used,memory.free,driver_version --format=csv,noheader || true"
+    ],
+    "returncode": 0,
+    "stdout": "NVIDIA RTX 5000 Ada Generation Laptop GPU, 16376 MiB, 0 MiB, 16050 MiB, 581.95",
+    "stderr": ""
+  },
+  "memory": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "free -h"
+    ],
+    "returncode": 0,
+    "stdout": "total        used        free      shared  buff/cache   available\nMem:            31Gi       3.4Gi       9.8Gi       3.5Mi        18Gi        27Gi\nSwap:          8.0Gi       2.8Gi       5.2Gi",
+    "stderr": ""
+  },
+  "disk": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "df -h /home/williambenitez1 /tmp | tail -n +2"
+    ],
+    "returncode": 0,
+    "stdout": "/dev/sdd       1007G  145G  811G  16% /\n/dev/sdd       1007G  145G  811G  16% /",
+    "stderr": ""
+  }
+}

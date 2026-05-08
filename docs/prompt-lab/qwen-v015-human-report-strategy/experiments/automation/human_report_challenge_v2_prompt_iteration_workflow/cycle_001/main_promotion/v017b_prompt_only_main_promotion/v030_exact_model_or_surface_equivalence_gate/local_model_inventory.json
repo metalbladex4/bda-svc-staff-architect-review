@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-05-08T16:03:25Z",
+  "huggingface_cache_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "find /home/williambenitez1/.cache/huggingface/hub -maxdepth 2 -type d -printf '%p\\n' 2>/dev/null | sed -n '1,120p'"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "/home/williambenitez1/.cache/huggingface/hub\n/home/williambenitez1/.cache/huggingface/hub/models--IDEA-Research--grounding-dino-base\n/home/williambenitez1/.cache/huggingface/hub/models--IDEA-Research--grounding-dino-base/.no_exist\n/home/williambenitez1/.cache/huggingface/hub/models--IDEA-Research--grounding-dino-base/blobs\n/home/williambenitez1/.cache/huggingface/hub/models--IDEA-Research--grounding-dino-base/snapshots\n/home/williambenitez1/.cache/huggingface/hub/models--IDEA-Research--grounding-dino-base/refs\n/home/williambenitez1/.cache/huggingface/hub/.locks\n/home/williambenitez1/.cache/huggingface/hub/.locks/models--IDEA-Research--grounding-dino-base\n/home/williambenitez1/.cache/huggingface/hub/.locks/models--Qwen--Qwen3-VL-8B-Instruct\n/home/williambenitez1/.cache/huggingface/hub/.locks/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16\n/home/williambenitez1/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct\n/home/williambenitez1/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/.no_exist\n/home/williambenitez1/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/blobs\n/home/williambenitez1/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/snapshots\n/home/williambenitez1/.cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/refs\n/home/williambenitez1/.cache/huggingface/hub/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16\n/home/williambenitez1/.cache/huggingface/hub/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16/.no_exist\n/home/williambenitez1/.cache/huggingface/hub/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16/blobs\n/home/williambenitez1/.cache/huggingface/hub/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16/snapshots\n/home/williambenitez1/.cache/huggingface/hub/models--SherlockID365--Qwen3-VL-8B-Instruct-quantized.w4a16/refs\n",
+    "stderr": ""
+  },
+  "ollama_list": {
+    "cmd": [
+      "ollama",
+      "list"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "NAME                                       ID              SIZE      MODIFIED     \nqwen3-vl:8b-instruct-v028-deterministic    0410c13e9d9d    6.1 GB    17 hours ago    \nqwen3-vl:8b-instruct                       0533d74300e4    6.1 GB    3 weeks ago     \nqwen3-vl:8b-instruct-q8_0                  eff3eb825b32    9.8 GB    5 weeks ago     \nqwen3-vl:8b                                901cae732162    6.1 GB    3 months ago    \n",
+    "stderr": ""
+  },
+  "ollama_qwen_show": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "ollama show qwen3-vl:8b-instruct --modelfile 2>/dev/null | rg -n '^(FROM|TEMPLATE|RENDERER|PARSER|PARAMETER)' || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "5:FROM /usr/share/ollama/.ollama/models/blobs/sha256-1329cd5ab37e5ef6faef37cd8ff8660ffc96ed5b47b34fddf8eb0912e6c82466\n6:TEMPLATE {{ .Prompt }}\n7:RENDERER qwen3-vl-instruct\n8:PARSER qwen3-vl-instruct\n9:PARAMETER temperature 1\n10:PARAMETER top_k 20\n11:PARAMETER top_p 0.95\n",
+    "stderr": ""
+  },
+  "deterministic_model_create": null,
+  "deterministic_8000_launch": null
+}

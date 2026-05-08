@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-05-08T16:08:55Z",
+  "old_v020c_prior_evidence": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "v024l_learning_only": {
+    "matches": 188,
+    "false_negatives": 31,
+    "false_positives": 35,
+    "combined_errors": 66
+  },
+  "v025a_rejected": {
+    "matches": 176,
+    "false_negatives": 43,
+    "false_positives": 35,
+    "combined_errors": 78
+  },
+  "v029_quantized_vllm_baseline": {
+    "matches": 153,
+    "false_negatives": 66,
+    "false_positives": 25,
+    "combined_errors": 91
+  },
+  "v030_exact_model_baseline": null,
+  "reason_not_run": "No v030 exact/acceptable surface passed Stage 1 case-67 stability; full all-current baseline was not valid to run."
+}

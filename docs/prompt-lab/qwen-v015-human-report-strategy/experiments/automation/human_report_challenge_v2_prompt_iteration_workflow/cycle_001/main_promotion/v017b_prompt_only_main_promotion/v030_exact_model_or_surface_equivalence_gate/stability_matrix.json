@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-05-08T16:08:55Z",
+  "stage_1_case67": {
+    "status": "failed",
+    "reason": "no exact or close acceptable surface completed the first v020c case-67 replay"
+  },
+  "stage_2_sentinel": {
+    "status": "not_run",
+    "reason": "Stage 1 did not pass"
+  },
+  "trace_summaries": [
+    {
+      "path": "runs/v030a_case67_exact_v020c_replay_1/case67_stability/v030_case67_only_no101_2026-05-08_154317Z/traces/human-report-67.json",
+      "candidate_id": "v030a_case67_exact_v020c_replay_1",
+      "backend_label": "vllm_exact_qwen3_vl_8b_local_8000",
+      "endpoint_url": "http://localhost:8000/v1",
+      "exception": "APITimeoutError('Request timed out.')",
+      "rendered_prompt_sha256": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+      "request_shape_hash": null,
+      "analysis": {
+        "failed": true
+      }
+    },
+    {
+      "path": "runs/v030a_case67_exact_v020c_replay_1/case67_stability/v030_case67_only_no101_2026-05-08_155111Z/traces/human-report-67.json",
+      "candidate_id": "v030a_case67_exact_v020c_replay_1",
+      "backend_label": "vllm_exact_qwen3_vl_8b_local_8000",
+      "endpoint_url": "http://localhost:8000/v1",
+      "exception": "APITimeoutError('Request timed out.')",
+      "rendered_prompt_sha256": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+      "request_shape_hash": null,
+      "analysis": {
+        "failed": true
+      }
+    },
+    {
+      "path": "runs/v030a_case67_exact_v020c_replay_1/case67_stability/v030_case67_only_no101_2026-05-08_155914Z/traces/human-report-67.json",
+      "candidate_id": "v030a_case67_exact_v020c_replay_1",
+      "backend_label": "vllm_exact_qwen3_vl_8b_local_8000",
+      "endpoint_url": "http://localhost:8000/v1",
+      "exception": "InternalServerError('Error code: 500 - {\\'detail\\': \"RuntimeError(\\'Tensor on device cuda:0 is not on the expected device meta!\\')\"}')",
+      "rendered_prompt_sha256": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+      "request_shape_hash": null,
+      "analysis": {
+        "failed": true
+      }
+    },
+    {
+      "path": "runs/v030a_case67_exact_v020c_replay_1/case67_stability/v030_case67_only_no101_2026-05-08_160325Z/traces/human-report-67.json",
+      "candidate_id": "v030a_case67_exact_v020c_replay_1",
+      "backend_label": "vllm_exact_qwen3_vl_8b_local_8000",
+      "endpoint_url": "http://localhost:8000/v1",
+      "exception": "APITimeoutError('Request timed out.')",
+      "rendered_prompt_sha256": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+      "request_shape_hash": null,
+      "analysis": {
+        "failed": true
+      }
+    }
+  ]
+}

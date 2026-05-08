@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-05-08T16:03:25Z",
+  "preferred_endpoint": {
+    "ok": true,
+    "url": "http://localhost:8000/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct",
+          "object": "model",
+          "created": 1778256180,
+          "owned_by": "local-huggingface-transformers"
+        }
+      ]
+    },
+    "error": null
+  },
+  "fallback_endpoint": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct-v028-deterministic",
+          "object": "model",
+          "created": 1778196433,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "selected_backend": {
+    "label": "vllm_exact_qwen3_vl_8b_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct"
+  },
+  "backend_selected_reason": "non-Ollama vLLM endpoint available on localhost:8000 with expected served model name; actual model root is recorded in /v1/models",
+  "running_process_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "    180       1  1-17:36:00 /usr/local/bin/ollama serve\n 466553  466468       54:06 /home/williambenitez1/.vscode-server/extensions/openai.chatgpt-26.506.21252-linux-x64/bin/linux-x86_64/codex app-server --analytics-default-enabled\n 487217  466553       00:41 /bin/bash -lc HF_HUB_DISABLE_TELEMETRY=1 HF_MODEL_ID=Qwen/Qwen3-VL-8B-Instruct HF_SERVED_MODEL_NAME=Qwen/Qwen3-VL-8B-Instruct HF_DTYPE=bfloat16 HF_MAX_NEW_TOKENS=256 HF_INPUT_DEVICE=none HF_SHIM_PORT=8000 HF_OFFLOAD_DIR=docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/traces/hf_transformers_offload_none /tmp/bda_v029_vllm_env/bin/python docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/scripts/hf_transformers_openai_shim.py 2>&1 | tee docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/backend_logs/hf_transformers_exact_input_none_launch_$(date -u +%Y%m%dT%H%M%SZ).log\n 487223  487217       00:41 /tmp/bda_v029_vllm_env/bin/python docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/scripts/hf_transformers_openai_shim.py\n 487224  487217       00:41 tee docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/backend_logs/hf_transformers_exact_input_none_launch_20260508T160242Z.log\n 487469  466553       00:00 /tmp/bda_v029_vllm_env/bin/python docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v030_exact_model_or_surface_equivalence_gate/scripts/run_v030_surface_gate.py --run\n 487540  487469       00:00 bash -lc ps -eo pid,ppid,etime,cmd --sort=pid | rg -i 'vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl' || true\n 487547  487540       00:00 rg -i vllm|sglang|ollama|transformers|fastapi|uvicorn|litellm|openai|qwen|qwen3|vl\n",
+    "stderr": ""
+  },
+  "gpu_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "nvidia-smi || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Fri May  8 12:03:25 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.112                Driver Version: 581.95         CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA RTX 5000 Ada Gene...    On  |   00000000:01:00.0 Off |                  Off |\n| N/A   45C    P8              4W /  129W |   14470MiB /  16376MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A          487223      C   /python3.12                           N/A      |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": ""
+  },
+  "disk_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "df -h /home /tmp /home/williambenitez1/.cache /home/williambenitez1/.ollama 2>/dev/null || true"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sdd       1007G  145G  811G  16% /\n/dev/sdd       1007G  145G  811G  16% /\n/dev/sdd       1007G  145G  811G  16% /\n/dev/sdd       1007G  145G  811G  16% /\n",
+    "stderr": ""
+  },
+  "package_probe": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "python3 - <<'PY'\nimport importlib.metadata as md\nfor p in ['vllm','sglang','transformers','accelerate','torch','openai','fastapi','uvicorn','litellm']:\n    try: print(p, md.version(p))\n    except Exception: print(p, 'unavailable')\nPY"
+    ],
+    "cwd": "/home/williambenitez1/Capstone",
+    "returncode": 0,
+    "stdout": "vllm unavailable\nsglang unavailable\ntransformers unavailable\naccelerate unavailable\ntorch unavailable\nopenai unavailable\nfastapi unavailable\nuvicorn unavailable\nlitellm unavailable\n",
+    "stderr": ""
+  },
+  "vllm_launch_doc": "Project README documents: vllm serve Qwen/Qwen3-VL-8B-Instruct",
+  "vllm_feasibility": "vLLM/SGLang/Transformers were not installed; Qwen/Qwen3-VL-8B-Instruct is public/apache-2.0 but not cached locally and full BF16 8.8B weights are not treated as safe to pull/load blindly on 16GB VRAM during this tranche."
+}
