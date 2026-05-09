@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-05-09T20:45:10Z",
+  "status": "beat_old_v020c_reference",
+  "best_composite_fp8_result": {
+    "id": "pp0157",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 20,
+    "image_count": 117,
+    "combined_errors": 58
+  },
+  "any_intervention_beat_62": true,
+  "reached_or_beat_old_v020c_58": true,
+  "target_le_1_reached": false,
+  "winning_intervention_type": "postprocess_simulation",
+  "remaining_residual_error_classes": [
+    "adjacent_target_confusion",
+    "broad_context_scene_box",
+    "building_or_structure_piece",
+    "contained_duplicate_prediction",
+    "dense_valid_target_missed",
+    "oversized_group_box",
+    "small_valid_target_missed",
+    "smoke_or_debris_confusion",
+    "verifier_needed"
+  ],
+  "postprocessed_scoring_should_continue": true,
+  "hard_boundaries_preserved": true,
+  "next_axis": "Use visual/crop verifier review before any live verifier suppression, postprocessor integration, or prompt mutation.",
+  "promotion_status": "not_promoted_experiment_only",
+  "office_negative": "not_rerun_offline_only"
+}

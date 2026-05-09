@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-09T20:45:10Z",
+  "intervention_id": "vd001_crop_level_residual_verifier_design",
+  "type": "verifier_design",
+  "status": "design_only",
+  "input": [
+    "image crop around candidate box",
+    "full image with bbox overlay",
+    "candidate target_type",
+    "neighbor boxes if any"
+  ],
+  "output_schema": {
+    "decision": "keep_prediction | suppress_prediction | needs_visual_review",
+    "target_body_visible": "boolean",
+    "box_mostly_target_body": "boolean",
+    "duplicate_or_nested_context": "boolean",
+    "broad_context_scene_box": "boolean",
+    "rationale_short": "string"
+  },
+  "guardrails": [
+    "Verifier is advisory and experiment-only.",
+    "Do not suppress if target body visibility is uncertain in dense cases 66/67/84/97.",
+    "Do not use ground truth at inference time.",
+    "Score verifier decisions separately before product consideration."
+  ],
+  "priority_failure_classes": [
+    "adjacent_target_confusion",
+    "broad_context_scene_box",
+    "building_or_structure_piece",
+    "contained_duplicate_prediction",
+    "oversized_group_box",
+    "verifier_needed"
+  ]
+}

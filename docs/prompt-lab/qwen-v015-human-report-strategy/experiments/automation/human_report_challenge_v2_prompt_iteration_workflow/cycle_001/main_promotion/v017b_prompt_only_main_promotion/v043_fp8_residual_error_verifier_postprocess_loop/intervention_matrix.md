@@ -1,0 +1,54 @@
+# v043 Intervention Matrix
+
+| Intervention | Type | Family | Metrics | Removed | Removed TPs | Safe | Status |
+|---|---|---|---|---:|---:|---|---|
+| `pp0001` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0002` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0003` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0004` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0005` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0006` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0007` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0008` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0009` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0010` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0011` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0012` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0013` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0014` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0015` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0016` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0017` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0018` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0019` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0020` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0021` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0022` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0023` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0024` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0025` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0026` | postprocess_simulation | same_label_containment | `179/40/23/63` | 3 | 2 | False | rejected |
+| `pp0027` | postprocess_simulation | same_label_containment | `179/40/23/63` | 3 | 2 | False | rejected |
+| `pp0028` | postprocess_simulation | same_label_containment | `179/40/23/63` | 3 | 2 | False | rejected |
+| `pp0029` | postprocess_simulation | same_label_containment | `179/40/23/63` | 3 | 2 | False | rejected |
+| `pp0030` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0031` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0032` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0033` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0034` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0035` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0036` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0037` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0038` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0039` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0040` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0041` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0042` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0043` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0044` | postprocess_simulation | same_label_containment | `180/39/24/63` | 1 | 1 | False | rejected |
+| `pp0045` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
+| `pp0046` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0047` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0048` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0049` | postprocess_simulation | same_label_containment | `180/39/23/62` | 2 | 1 | False | rejected |
+| `pp0050` | postprocess_simulation | same_label_containment | `181/38/24/62` | 0 | 0 | True | learning_evidence |
