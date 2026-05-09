@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-05-09T22:36:31Z",
+  "visual_pass": true,
+  "rows": [
+    {
+      "case_id": "100",
+      "image_filename": "100.jpg",
+      "removed_label": "target_2",
+      "removed_target_type": "military_equipment",
+      "removed_bbox": "[830.0, 476.0, 962.0, 542.0]",
+      "kept_larger_label": "target_1",
+      "kept_larger_target_type": "buildings",
+      "kept_larger_bbox": "[181.0, 37.0, 1075.0, 531.0]",
+      "same_label": "false",
+      "cross_label": "true",
+      "visual_verdict": "true_false_positive",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited",
+      "reviewer_note": "The removed box encloses a civilian-looking parked vehicle at the lower edge of a damaged building scene; it does not present as a military-equipment target. Cross-label suppression is accepted for experiment-only continuation, but broader deployability still needs verifier or visual review.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v045_fp8_pp044a_cross_label_visual_review/review_images/local_only_pp044a_100_review.jpg"
+    },
+    {
+      "case_id": "155",
+      "image_filename": "155.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "military_equipment",
+      "removed_bbox": "[18.0, 111.0, 48.0, 143.0]",
+      "kept_larger_label": "target_0",
+      "kept_larger_target_type": "military_equipment",
+      "kept_larger_bbox": "[13.0, 93.0, 153.0, 176.0]",
+      "same_label": "true",
+      "cross_label": "false",
+      "visual_verdict": "duplicate/local artifact",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "yes_for_same_wreck_duplicates",
+      "reviewer_note": "The removed box is the previously identified same-wreck local duplicate nested inside the larger valid wreck body.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v045_fp8_pp044a_cross_label_visual_review/review_images/local_only_pp044a_155_review.jpg"
+    }
+  ]
+}

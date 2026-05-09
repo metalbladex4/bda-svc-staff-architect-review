@@ -1,0 +1,69 @@
+{
+  "rule_id": "pp044a_contained_military_equipment_cross_label_probe",
+  "family": "contained_military_equipment_prediction",
+  "containment_min": 0.8,
+  "area_ratio_max": 0.1,
+  "removed_target_type": "military_equipment",
+  "removed_image_area_max": 0.02,
+  "same_label_required": false,
+  "cross_label_allowed": true,
+  "uses_reference_or_eval_fields_at_inference": false,
+  "deployability_caveat": "Needs visual review because cross-label containment can hide valid cross-category detections on future data.",
+  "metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 18,
+    "image_count": 117,
+    "combined_errors": 56
+  },
+  "removals": [
+    {
+      "case_id": "100",
+      "image_filename": "100.jpg",
+      "removed_label": "target_2",
+      "removed_target_type": "military_equipment",
+      "kept_larger_label": "target_1",
+      "kept_larger_target_type": "buildings",
+      "removed_bbox": [
+        830.0,
+        476.0,
+        962.0,
+        542.0
+      ],
+      "kept_larger_bbox": [
+        181.0,
+        37.0,
+        1075.0,
+        531.0
+      ],
+      "containment_ratio": 0.8333333333333334,
+      "area_ratio": 0.01972665271852838,
+      "same_label": false,
+      "cross_label": true
+    },
+    {
+      "case_id": "155",
+      "image_filename": "155.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "military_equipment",
+      "kept_larger_label": "target_0",
+      "kept_larger_target_type": "military_equipment",
+      "removed_bbox": [
+        18.0,
+        111.0,
+        48.0,
+        143.0
+      ],
+      "kept_larger_bbox": [
+        13.0,
+        93.0,
+        153.0,
+        176.0
+      ],
+      "containment_ratio": 1.0,
+      "area_ratio": 0.08261617900172118,
+      "same_label": true,
+      "cross_label": false
+    }
+  ]
+}
