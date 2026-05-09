@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-05-09T23:30:21Z",
+  "rows": [
+    {
+      "intervention_id": "vr001_pp046a_removed_box_visual_review",
+      "type": "visual_review",
+      "baseline": "pp046a_38",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 0,
+        "image_count": 117,
+        "combined_errors": 38
+      },
+      "removed_predictions": 11,
+      "removed_true_positives": 0,
+      "status": "visual_fail",
+      "visual_verdict": "mixed",
+      "case_metrics": {
+        "66": "8/0/0",
+        "67": "10/1/0",
+        "84": "8/5/0",
+        "100": "1/2/0",
+        "110": "3/4/0",
+        "155": "2/0/0",
+        "166": "1/0/0"
+      },
+      "unsafe_or_ambiguous_count": 5
+    },
+    {
+      "intervention_id": "fn001_residual_fn_inventory",
+      "type": "fn_inventory",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "status": "fn_inventory_complete",
+      "fn_count": 38,
+      "classes": [
+        "building_or_structure_piece",
+        "dense_valid_target_missed",
+        "small_valid_target_missed",
+        "smoke_or_debris_obscured",
+        "unknown"
+      ]
+    },
+    {
+      "intervention_id": "vd001_verifier_fn_recovery_plan",
+      "type": "verifier_design",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "status": "verifier_plan_complete",
+      "prompt_candidate_authored": false
+    }
+  ]
+}

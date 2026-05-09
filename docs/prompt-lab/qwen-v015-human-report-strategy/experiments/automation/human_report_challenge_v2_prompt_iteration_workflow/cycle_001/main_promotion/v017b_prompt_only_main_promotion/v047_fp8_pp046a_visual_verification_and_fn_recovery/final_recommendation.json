@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-05-09T23:30:21Z",
+  "pp046a_visual_review_passed": false,
+  "pp046a_locked_as_experiment_only_baseline": false,
+  "selected_experiment_only_baseline": {
+    "id": "fp8_composite_pp045c_baseline",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 11,
+    "image_count": 117,
+    "combined_errors": 49
+  },
+  "diagnostic_pp046a_result": {
+    "id": "pp046a_prediction_only_residual_fp_cleanup_probe",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 0,
+    "image_count": 117,
+    "combined_errors": 38,
+    "visual_status": "mixed_fail"
+  },
+  "target_le_1_reached": false,
+  "residual_fn_classes": [
+    "building_or_structure_piece",
+    "dense_valid_target_missed",
+    "small_valid_target_missed",
+    "smoke_or_debris_obscured",
+    "unknown"
+  ],
+  "optional_prompt_candidate_run": false,
+  "next_work": "verifier_or_tiling_crop_strategy_before_prompt",
+  "hard_boundaries_preserved": true
+}

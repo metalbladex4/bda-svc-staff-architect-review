@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-05-09T23:30:21Z",
+  "selected_baseline": "pp045c_49",
+  "prompt_candidate_authored": false,
+  "reason_no_prompt_candidate": "pp046a visual review failed/mixed; broad recall prompt remains high-risk, and FN clusters need crop/tiling/verifier review first.",
+  "recommended_next_work": [
+    {
+      "axis": "visual_review",
+      "description": "Review unsafe pp046a military-equipment removals in cases 66, 67, and 92 before any residual-FP rule lock."
+    },
+    {
+      "axis": "crop_level_verifier",
+      "description": "Create crops for each FN reference bbox and nearby predicted boxes to classify recoverable small/dense/smoke-obscured misses."
+    },
+    {
+      "axis": "tiling_crop_strategy",
+      "description": "Run experiment-only crop or tile pass for dense/small FN clusters before prompt wording."
+    },
+    {
+      "axis": "prompt",
+      "description": "Do not author prompt until FN crop review identifies one low-risk cluster and a micro-gated recall cue."
+    }
+  ]
+}
