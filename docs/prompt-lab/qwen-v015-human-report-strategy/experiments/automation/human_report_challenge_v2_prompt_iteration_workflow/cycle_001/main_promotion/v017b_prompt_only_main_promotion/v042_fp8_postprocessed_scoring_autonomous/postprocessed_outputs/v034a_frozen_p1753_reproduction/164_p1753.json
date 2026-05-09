@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "4720280c-4d2d-4655-96f2-78cc67648721",
+    "image_filename": "164.jpg",
+    "date_created": "2026-05-09T02:59:58Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "13.49"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Roof and upper walls are completely collapsed; structural framing is exposed and broken; debris is piled at base; chimney remains but structure is non-functional.",
+      "bounding_box": [
+        191,
+        87,
+        552,
+        322
+      ]
+    },
+    "target_1": {
+      "target_type": "buildings",
+      "damage_category": "SEVERE",
+      "confidence_level": "PROBABLE",
+      "brief_supporting_logic": "Roof structure is extensively collapsed and debris is visible; significant portions of the facade and structural elements appear compromised; damage appears to exceed 45% of the target element area based on visible destruction.",
+      "bounding_box": [
+        480,
+        161,
+        611,
+        294
+      ]
+    }
+  },
+  "summary": "Two buildings are assessed: one confirmed destroyed with collapsed roof and exposed framing, and another probable severe damage with extensive roof collapse and compromised facade. The overall scene depicts a rural area with multiple derelict structures showing significant structural failure and debris accumulation. The likely functional impact is complete loss of utility for the destroyed building and severe impairment for the severely damaged one, rendering them non-functional."
+}

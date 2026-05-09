@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-05-09T18:56:12Z",
+  "status": "backend_unavailable",
+  "best_raw_fp8_candidate": "v034a_fp8_broad_context_scene_box_guard",
+  "best_raw_metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 25,
+    "combined_errors": 63
+  },
+  "best_postprocessed_fp8_candidate": "v034a_fp8_broad_context_scene_box_guard+p1753",
+  "best_postprocessed_metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 24,
+    "combined_errors": 62
+  },
+  "beat_composite_62": false,
+  "reached_or_beat_old_v020c_58": false,
+  "target_le_1_reached": false,
+  "p1753_behavior": {
+    "rule_id": "p1753",
+    "v034a_removed_predictions": 1,
+    "v034a_removed_true_positives": 0,
+    "v034a_removed_cases": [
+      "88"
+    ]
+  },
+  "postprocessed_scoring_should_continue": true,
+  "blocked_until_backend_repair": true,
+  "hard_boundaries_preserved": true,
+  "next_axis": "Restart or repair the vLLM FP8 endpoint at http://localhost:8000/v1 before v042 autonomy can continue."
+}

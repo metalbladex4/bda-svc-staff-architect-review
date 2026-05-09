@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "f05cc6bb-0f98-4bd6-be74-db78f64f2055",
+    "image_filename": "172.jpg",
+    "date_created": "2026-05-09T03:01:24Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "23.07"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "SEVERE DAMAGE",
+      "confidence_level": "PROBABLE",
+      "brief_supporting_logic": "Roof section is missing; upper floors show significant structural compromise; facade is heavily damaged with exposed internal elements; debris at base indicates partial collapse; damage appears concentrated on upper levels consistent with severe damage threshold.",
+      "bounding_box": [
+        0,
+        216,
+        200,
+        547
+      ]
+    },
+    "target_1": {
+      "target_type": "buildings",
+      "damage_category": "SEVERE DAMAGE",
+      "confidence_level": "PROBABLE",
+      "brief_supporting_logic": "Multiple windows and balconies are blown out; facade shows significant structural degradation; roof appears compromised; damage is widespread across visible floors; no visible collapse of load-bearing elements but overall structural integrity appears compromised.",
+      "bounding_box": [
+        342,
+        134,
+        1300,
+        529
+      ]
+    },
+    "target_2": {
+      "target_type": "military_equipment",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Vehicle is completely wrecked with no recognizable structural integrity; chassis and body are mangled and fragmented; no functional components visible.",
+      "bounding_box": [
+        810,
+        694,
+        1004,
+        791
+      ]
+    }
+  },
+  "summary": "Two buildings show SEVERE DAMAGE with PROBABLE confidence, and one military vehicle is DESTROYED with CONFIRMED confidence. The scene depicts a residential area with multiple multi-story buildings exhibiting widespread structural damage including missing roofs, blown-out windows, and exposed interiors, alongside a wrecked vehicle in a grassy yard. The visible damage to buildings and the destroyed vehicle suggest significant functional impairment of the area, likely rendering it uninhabitable and non-operational."
+}
