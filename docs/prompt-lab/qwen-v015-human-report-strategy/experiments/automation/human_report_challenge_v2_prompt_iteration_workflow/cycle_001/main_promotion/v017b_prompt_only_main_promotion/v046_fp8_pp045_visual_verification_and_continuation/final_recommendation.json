@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-09T23:10:42Z",
+  "pp045b_visual_review_passed": true,
+  "pp045c_visual_review_passed": true,
+  "selected_experiment_only_baseline": {
+    "id": "fp8_composite_pp045c_baseline",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 11,
+    "image_count": 117,
+    "combined_errors": 49
+  },
+  "best_locked_composite_fp8_result": {
+    "id": "fp8_composite_pp045c_baseline",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 11,
+    "image_count": 117,
+    "combined_errors": 49
+  },
+  "best_simulation_fp8_result": {
+    "id": "pp046a_prediction_only_residual_fp_cleanup_probe",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 0,
+    "image_count": 117,
+    "combined_errors": 38,
+    "status": "simulation_only_needs_visual_review",
+    "removed_true_positives": 0
+  },
+  "any_intervention_beat_49": true,
+  "any_locked_intervention_beat_49": false,
+  "target_le_1_reached": false,
+  "remaining_residual_error_classes": [
+    "building_or_structure_piece",
+    "dense_valid_target_missed",
+    "small_valid_target_missed",
+    "smoke_or_debris_confusion"
+  ],
+  "next_work": "visual_review_then_verifier_design",
+  "hard_boundaries_preserved": true
+}

@@ -1,0 +1,87 @@
+{
+  "rule_id": "pp045c_small_lower_building_context_probe",
+  "family": "small_lower_building_context_prediction",
+  "target_type": "buildings",
+  "image_area_ratio_min": 0.005,
+  "image_area_ratio_max": 0.03,
+  "center_y_ratio_min": 0.5,
+  "uses_reference_or_eval_fields_at_inference": false,
+  "deployability_caveat": "Simulation-only until removed building-context boxes receive visual review.",
+  "metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 11,
+    "image_count": 117,
+    "combined_errors": 49
+  },
+  "removals": [
+    {
+      "case_id": "105",
+      "image_filename": "105.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": [
+        1052.0,
+        346.0,
+        1179.0,
+        525.0
+      ],
+      "image_area_ratio": 0.015786805555555554,
+      "center_y_ratio": 0.5806666666666667,
+      "reason_removed": "small lower-building context prediction",
+      "after_the_fact_eval_status": "FP",
+      "source_stage": "after_pp045b"
+    },
+    {
+      "case_id": "17",
+      "image_filename": "17.jpg",
+      "removed_label": "target_0",
+      "removed_target_type": "buildings",
+      "removed_bbox": [
+        169.0,
+        425.0,
+        299.0,
+        559.0
+      ],
+      "image_area_ratio": 0.01401673640167364,
+      "center_y_ratio": 0.5146443514644351,
+      "reason_removed": "small lower-building context prediction",
+      "after_the_fact_eval_status": "FP",
+      "source_stage": "after_pp045b"
+    },
+    {
+      "case_id": "57",
+      "image_filename": "57.png",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": [
+        430.0,
+        315.0,
+        510.0,
+        403.0
+      ],
+      "image_area_ratio": 0.02171847427718203,
+      "center_y_ratio": 0.64568345323741,
+      "reason_removed": "small lower-building context prediction",
+      "after_the_fact_eval_status": "FP",
+      "source_stage": "after_pp045b"
+    },
+    {
+      "case_id": "86",
+      "image_filename": "86.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": [
+        891.0,
+        360.0,
+        1001.0,
+        521.0
+      ],
+      "image_area_ratio": 0.02640642939150402,
+      "center_y_ratio": 0.6574626865671642,
+      "reason_removed": "small lower-building context prediction",
+      "after_the_fact_eval_status": "FP",
+      "source_stage": "after_pp045b"
+    }
+  ]
+}

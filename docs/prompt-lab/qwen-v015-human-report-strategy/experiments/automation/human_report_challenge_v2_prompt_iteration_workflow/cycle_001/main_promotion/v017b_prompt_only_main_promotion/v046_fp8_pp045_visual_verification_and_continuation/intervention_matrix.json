@@ -1,0 +1,398 @@
+{
+  "generated_at": "2026-05-09T23:10:42Z",
+  "rows": [
+    {
+      "intervention_id": "vr001_pp045b_case28_visual_review",
+      "type": "visual_review",
+      "baseline": "pp045b_53",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 15,
+        "image_count": 117,
+        "combined_errors": 53
+      },
+      "removed_predictions": 3,
+      "removed_true_positives": 0,
+      "status": "visual_pass",
+      "visual_verdict": "pass",
+      "case_metrics": {
+        "28": "1/0/0",
+        "66": "8/0/1",
+        "67": "10/1/3",
+        "84": "8/5/0",
+        "100": "1/2/0",
+        "110": "3/4/1",
+        "155": "2/0/0",
+        "166": "1/0/0"
+      },
+      "removals": [
+        {
+          "case_id": "28",
+          "image_filename": "28.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            1018.0,
+            145.0,
+            1052.0,
+            176.0
+          ],
+          "image_area_ratio": 0.0011436631944444445,
+          "center_x_ratio": 0.80859375,
+          "center_y_ratio": 0.22291666666666668,
+          "military_equipment_count": 4,
+          "reason_removed": "tiny upper-right sparse military-equipment prediction"
+        },
+        {
+          "case_id": "28",
+          "image_filename": "28.jpg",
+          "removed_label": "target_2",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            1039.0,
+            104.0,
+            1069.0,
+            135.0
+          ],
+          "image_area_ratio": 0.0010091145833333334,
+          "center_x_ratio": 0.8234375,
+          "center_y_ratio": 0.16597222222222222,
+          "military_equipment_count": 4,
+          "reason_removed": "tiny upper-right sparse military-equipment prediction"
+        },
+        {
+          "case_id": "28",
+          "image_filename": "28.jpg",
+          "removed_label": "target_3",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            1047.0,
+            76.0,
+            1066.0,
+            99.0
+          ],
+          "image_area_ratio": 0.00047417534722222224,
+          "center_x_ratio": 0.825390625,
+          "center_y_ratio": 0.12152777777777778,
+          "military_equipment_count": 4,
+          "reason_removed": "tiny upper-right sparse military-equipment prediction"
+        }
+      ]
+    },
+    {
+      "intervention_id": "vr002_pp045c_building_context_visual_review",
+      "type": "visual_review",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "removed_predictions": 4,
+      "removed_true_positives": 0,
+      "status": "visual_pass",
+      "visual_verdict": "pass",
+      "case_metrics": {
+        "28": "1/0/0",
+        "66": "8/0/1",
+        "67": "10/1/3",
+        "84": "8/5/0",
+        "100": "1/2/0",
+        "110": "3/4/1",
+        "155": "2/0/0",
+        "166": "1/0/0"
+      },
+      "removals": [
+        {
+          "case_id": "105",
+          "image_filename": "105.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            1052.0,
+            346.0,
+            1179.0,
+            525.0
+          ],
+          "image_area_ratio": 0.015786805555555554,
+          "center_y_ratio": 0.5806666666666667,
+          "reason_removed": "small lower-building context prediction"
+        },
+        {
+          "case_id": "17",
+          "image_filename": "17.jpg",
+          "removed_label": "target_0",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            169.0,
+            425.0,
+            299.0,
+            559.0
+          ],
+          "image_area_ratio": 0.01401673640167364,
+          "center_y_ratio": 0.5146443514644351,
+          "reason_removed": "small lower-building context prediction"
+        },
+        {
+          "case_id": "57",
+          "image_filename": "57.png",
+          "removed_label": "target_1",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            430.0,
+            315.0,
+            510.0,
+            403.0
+          ],
+          "image_area_ratio": 0.02171847427718203,
+          "center_y_ratio": 0.64568345323741,
+          "reason_removed": "small lower-building context prediction"
+        },
+        {
+          "case_id": "86",
+          "image_filename": "86.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            891.0,
+            360.0,
+            1001.0,
+            521.0
+          ],
+          "image_area_ratio": 0.02640642939150402,
+          "center_y_ratio": 0.6574626865671642,
+          "reason_removed": "small lower-building context prediction"
+        }
+      ]
+    },
+    {
+      "intervention_id": "pp046a_prediction_only_residual_fp_cleanup_probe",
+      "type": "postprocess_simulation",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 0,
+        "image_count": 117,
+        "combined_errors": 38
+      },
+      "removed_predictions": 11,
+      "removed_true_positives": 0,
+      "status": "learning_evidence",
+      "visual_verdict": "needs_visual_review",
+      "case_metrics": {
+        "28": "1/0/0",
+        "66": "8/0/0",
+        "67": "10/1/0",
+        "84": "8/5/0",
+        "100": "1/2/0",
+        "110": "3/4/0",
+        "155": "2/0/0",
+        "166": "1/0/0"
+      },
+      "removals": [
+        {
+          "case_id": "103",
+          "image_filename": "103.jpg",
+          "removed_label": "target_0",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            238.0,
+            328.0,
+            745.0,
+            525.0
+          ],
+          "image_area_ratio": 0.06936041666666666,
+          "center_x_ratio": 0.2559895833333333,
+          "center_y_ratio": 0.5686666666666667,
+          "x2_ratio": 0.3880208333333333,
+          "reason_removed": "lower-left mid building context cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "105",
+          "image_filename": "105.jpg",
+          "removed_label": "target_2",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            1505.0,
+            356.0,
+            1836.0,
+            562.0
+          ],
+          "image_area_ratio": 0.04735138888888889,
+          "center_x_ratio": 0.8700520833333333,
+          "center_y_ratio": 0.612,
+          "x2_ratio": 0.95625,
+          "reason_removed": "right-edge small building context cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "110",
+          "image_filename": "110.jpg",
+          "removed_label": "target_0",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            109.0,
+            42.0,
+            133.0,
+            73.0
+          ],
+          "image_area_ratio": 0.011464497041420118,
+          "center_x_ratio": 0.38782051282051283,
+          "center_y_ratio": 0.2764423076923077,
+          "x2_ratio": 0.42628205128205127,
+          "reason_removed": "upper-left small military-equipment context or dense-tail cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "19",
+          "image_filename": "19.jpg",
+          "removed_label": "target_0",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            1014.0,
+            81.0,
+            1200.0,
+            300.0
+          ],
+          "image_area_ratio": 0.05222307692307692,
+          "center_x_ratio": 0.9225,
+          "center_y_ratio": 0.29307692307692307,
+          "x2_ratio": 1.0,
+          "reason_removed": "right-edge small building context cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "66",
+          "image_filename": "66.jpg",
+          "removed_label": "target_4",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            94.0,
+            269.0,
+            117.0,
+            299.0
+          ],
+          "image_area_ratio": 0.001252007294303367,
+          "center_x_ratio": 0.10624370594159113,
+          "center_y_ratio": 0.5117117117117117,
+          "x2_ratio": 0.11782477341389729,
+          "reason_removed": "mid-left lower tiny military-equipment tail cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "67",
+          "image_filename": "67.jpg",
+          "removed_label": "target_0",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            29.0,
+            150.0,
+            58.0,
+            172.0
+          ],
+          "image_area_ratio": 0.00123070987654321,
+          "center_x_ratio": 0.0453125,
+          "center_y_ratio": 0.29814814814814816,
+          "x2_ratio": 0.06041666666666667,
+          "reason_removed": "upper-left small military-equipment context or dense-tail cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "67",
+          "image_filename": "67.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            48.0,
+            154.0,
+            77.0,
+            176.0
+          ],
+          "image_area_ratio": 0.00123070987654321,
+          "center_x_ratio": 0.06510416666666667,
+          "center_y_ratio": 0.3055555555555556,
+          "x2_ratio": 0.08020833333333334,
+          "reason_removed": "upper-left small military-equipment context or dense-tail cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "67",
+          "image_filename": "67.jpg",
+          "removed_label": "target_2",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            67.0,
+            158.0,
+            96.0,
+            181.0
+          ],
+          "image_area_ratio": 0.0012866512345679013,
+          "center_x_ratio": 0.08489583333333334,
+          "center_y_ratio": 0.3138888888888889,
+          "x2_ratio": 0.1,
+          "reason_removed": "upper-left small military-equipment context or dense-tail cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "77",
+          "image_filename": "77.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            1527.0,
+            0.0,
+            1880.0,
+            642.0
+          ],
+          "image_area_ratio": 0.09620570205973748,
+          "center_x_ratio": 0.9061170212765958,
+          "center_y_ratio": 0.2561851556264964,
+          "x2_ratio": 1.0,
+          "reason_removed": "right-edge tall building context band cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "92",
+          "image_filename": "92.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "military_equipment",
+          "removed_bbox": [
+            428.0,
+            177.0,
+            561.0,
+            279.0
+          ],
+          "image_area_ratio": 0.03691428571428571,
+          "center_x_ratio": 0.7064285714285714,
+          "center_y_ratio": 0.4342857142857143,
+          "x2_ratio": 0.8014285714285714,
+          "reason_removed": "mid-right military-equipment context band cleanup",
+          "after_the_fact_eval_status": "FP"
+        },
+        {
+          "case_id": "97",
+          "image_filename": "97.jpg",
+          "removed_label": "target_1",
+          "removed_target_type": "buildings",
+          "removed_bbox": [
+            806.0,
+            0.0,
+            1280.0,
+            531.0
+          ],
+          "image_area_ratio": 0.27310546875,
+          "center_x_ratio": 0.81484375,
+          "center_y_ratio": 0.36875,
+          "x2_ratio": 1.0,
+          "reason_removed": "right-edge oversized building context band cleanup",
+          "after_the_fact_eval_status": "FP"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-05-09T23:10:42Z",
+  "pp045b_visual_pass": true,
+  "pp045c_visual_pass": true,
+  "rows": [
+    {
+      "case_id": "28",
+      "image_filename": "28.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "military_equipment",
+      "removed_bbox": "[1018.0, 145.0, 1052.0, 176.0]",
+      "rule_that_removed_it": "pp045b_tiny_upper_right_sparse_military_probe",
+      "visual_verdict": "tiny local artifact",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Small upper-right road/side dark patch near distant traffic, not the main vehicle target.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_28_review.jpg"
+    },
+    {
+      "case_id": "28",
+      "image_filename": "28.jpg",
+      "removed_label": "target_2",
+      "removed_target_type": "military_equipment",
+      "removed_bbox": "[1039.0, 104.0, 1069.0, 135.0]",
+      "rule_that_removed_it": "pp045b_tiny_upper_right_sparse_military_probe",
+      "visual_verdict": "tiny local artifact",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Small upper-right roadside/blur artifact above the distant vehicle line, not an annotatable military-equipment target.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_28_review.jpg"
+    },
+    {
+      "case_id": "28",
+      "image_filename": "28.jpg",
+      "removed_label": "target_3",
+      "removed_target_type": "military_equipment",
+      "removed_bbox": "[1047.0, 76.0, 1066.0, 99.0]",
+      "rule_that_removed_it": "pp045b_tiny_upper_right_sparse_military_probe",
+      "visual_verdict": "tiny local artifact",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Very small upper-right speck/roadside artifact; too small and off-target to trust as military equipment.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_28_review.jpg"
+    },
+    {
+      "case_id": "105",
+      "image_filename": "105.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": "[1052.0, 346.0, 1179.0, 525.0]",
+      "rule_that_removed_it": "pp045c_small_lower_building_context_probe",
+      "visual_verdict": "true_false_positive",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Intact roof/spire context next to a non-damaged waterfront building, not a damaged building target.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_105_review.jpg"
+    },
+    {
+      "case_id": "17",
+      "image_filename": "17.jpg",
+      "removed_label": "target_0",
+      "removed_target_type": "buildings",
+      "removed_bbox": "[169.0, 425.0, 299.0, 559.0]",
+      "rule_that_removed_it": "pp045c_small_lower_building_context_probe",
+      "visual_verdict": "true_false_positive",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Distant intact apartment block beside the actual damaged high-rise target.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_17_review.jpg"
+    },
+    {
+      "case_id": "57",
+      "image_filename": "57.png",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": "[430.0, 315.0, 510.0, 403.0]",
+      "rule_that_removed_it": "pp045c_small_lower_building_context_probe",
+      "visual_verdict": "true_false_positive",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Small intact/background building patch partially behind trees, not the primary building target.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_57_review.jpg"
+    },
+    {
+      "case_id": "86",
+      "image_filename": "86.jpg",
+      "removed_label": "target_1",
+      "removed_target_type": "buildings",
+      "removed_bbox": "[891.0, 360.0, 1001.0, 521.0]",
+      "rule_that_removed_it": "pp045c_small_lower_building_context_probe",
+      "visual_verdict": "true_false_positive",
+      "removal_should_be_trusted": "true",
+      "generalizes_safely": "limited_needs_replay",
+      "reviewer_note": "Adjacent intact facade at the right edge, context rather than target damage.",
+      "source_artifact_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/review_images/local_only_pp045_case_86_review.jpg"
+    }
+  ]
+}
