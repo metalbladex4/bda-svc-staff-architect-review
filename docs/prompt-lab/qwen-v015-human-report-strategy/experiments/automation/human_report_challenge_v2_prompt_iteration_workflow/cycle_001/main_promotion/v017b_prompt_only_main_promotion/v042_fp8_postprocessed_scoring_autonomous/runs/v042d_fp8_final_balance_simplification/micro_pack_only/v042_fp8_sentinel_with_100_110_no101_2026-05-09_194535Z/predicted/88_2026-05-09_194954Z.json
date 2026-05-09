@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "cb34e8e3-294c-495d-ad85-dc341f63d53f",
+        "image_filename": "88.jpg",
+        "date_created": "2026-05-09T19:49:54Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.63"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Cannon barrel detached; turret completely destroyed with internal components exposed; tracks broken and scattered; hull severely deformed and scorched; no functional components visible.",
+            "bounding_box": [
+                0,
+                464,
+                2468,
+                1674
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The white truck is intact with no visible deformations, holes, scorching, or missing components; it appears operational and is moving on the road.",
+            "bounding_box": [
+                1308,
+                699,
+                1440,
+                816
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed DESTROYED, and one is confirmed NO DAMAGE. The scene depicts a destroyed tank on a rural road with a white truck moving in the background, indicating ongoing activity despite the wreckage. The functional impact is likely minimal for the scene as a whole, since the destroyed tank is non-operational and the truck appears unaffected and operational."
+}

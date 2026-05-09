@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "26a8d63d-9e44-4177-857d-8779de51a533",
+        "image_filename": "90.png",
+        "date_created": "2026-05-09T19:58:14Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.08"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible evidence shows significant structural damage including collapsed roof sections, exposed internal framing, and widespread window destruction; however, the building's main structural frame appears intact, consistent with severe damage for a framed building.",
+            "bounding_box": [
+                40,
+                249,
+                118,
+                479
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Large portions of roof and upper floors are missing; facade is heavily damaged with exposed structural elements; debris field at base indicates collapse of significant structural mass; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                77,
+                763,
+                479
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (PROBABLE confidence) showing collapsed roof sections and exposed framing, and another DESTROYED (CONFIRMED confidence) with missing upper floors, exposed structure, and a debris field. The overall scene depicts a large, multi-story building complex engulfed in fire and smoke, with extensive structural damage and debris scattered across the foreground. The functional impact is likely catastrophic, as the destroyed building is non-operational and the severely damaged building is likely uninhabitable and unsafe."
+}

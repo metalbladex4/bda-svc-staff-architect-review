@@ -1,0 +1,117 @@
+{
+  "candidate_id": "v042e_fp8_separate_small_target_row_exception",
+  "stage": "office_negative_guard_v042e",
+  "backend": {
+    "label": "vllm_qwen3vl_8b_fp8",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+  },
+  "manifest": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z",
+  "predicted_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/predicted",
+  "scratch_config_sha256": null,
+  "request_timeout_seconds": 180,
+  "max_retries": 2,
+  "retry_cooldown_seconds": 5,
+  "retry_records": [
+    {
+      "case_id": "office-negative",
+      "attempt": 1,
+      "returncode": 0,
+      "elapsed_seconds": 3.747517008014256,
+      "trace_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/traces/office-negative_attempt1.json",
+      "trace_exception": null
+    }
+  ],
+  "completed_cases": [
+    "office-negative"
+  ],
+  "failed_cases": [],
+  "runtime_invalid": false,
+  "raw_metrics": {
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "combined_errors": 0,
+    "image_count": 1
+  },
+  "postprocessed_metrics": {
+    "matches": 1,
+    "false_negatives": 0,
+    "false_positives": 0,
+    "combined_errors": 0,
+    "image_count": 1
+  },
+  "raw_case_metrics": {
+    "66": "n/a",
+    "67": "n/a",
+    "84": "n/a",
+    "88": "n/a",
+    "97": "n/a",
+    "100": "n/a",
+    "110": "n/a",
+    "155": "n/a",
+    "166": "n/a"
+  },
+  "postprocessed_case_metrics": {
+    "66": "n/a",
+    "67": "n/a",
+    "84": "n/a",
+    "88": "n/a",
+    "97": "n/a",
+    "100": "n/a",
+    "110": "n/a",
+    "155": "n/a",
+    "166": "n/a"
+  },
+  "postprocess_removed_predictions": 0,
+  "postprocess_removed_true_positives": 0,
+  "postprocess_removed_false_positives": 0,
+  "rendered_prompt_hash": "4affb23572653eeb84939f4082985b1af5129ce95605e269beff0999fc497865",
+  "request_shape_hash": "d8c85af66274b9c3ead518f706af4d4392ca9a52e6ed1af9586faf326f71928d",
+  "raw_response_hash": "b554825c6ff39f97cd60fc5273ca081297e6bf8e4ff6a0642f7218aba418efe1",
+  "response_trace_captured": true,
+  "trace_files": [
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/traces/office-negative_attempt1.json"
+  ],
+  "command_records": [
+    {
+      "cmd": [
+        "uv",
+        "run",
+        "python",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v037_fp8_same_wreck_duplicate_guard_autonomous/scripts/instrumented_bda_runner.py",
+        "--scratch-root",
+        "/tmp/bda_v042_v042e_fp8_separate_small_target_row_exception_2026-05-09_200024Z",
+        "--image",
+        "/home/williambenitez1/Capstone/z_reference_docs/Prompt_Labs/1_qwen3-vl-8b-instruct/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/experiments/runs/detect_surface/run01_2026-04-20_200611_EDT/input_images/office_negative.jpg",
+        "--output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/predicted",
+        "--trace-output",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/traces/office-negative_attempt1.json",
+        "--candidate-id",
+        "v042e_fp8_separate_small_target_row_exception",
+        "--backend-label",
+        "vllm_qwen3vl_8b_fp8",
+        "--endpoint-url",
+        "http://localhost:8000/v1",
+        "--source-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/overlays/v042e_fp8_separate_small_target_row_exception.yaml",
+        "--base-overlay",
+        "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+        "--stage",
+        "office_negative_guard_v042e",
+        "--intended-changes-json",
+        "[\"Add one compact GOOD FINAL BOX clause for a separate small target near other targets when its own body can be boxed tightly.\", \"Preserve the v020c extra-box audit.\", \"Preserve the v034a broad-context/scene-box guard.\", \"Avoid same-wreck duplicate wording, dense-fragment wording, and broad recall language.\"]"
+      ],
+      "cwd": "/tmp/bda_v042_v042e_fp8_separate_small_target_row_exception_2026-05-09_200024Z",
+      "returncode": 0,
+      "stdout": "[*] Exported: /home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/runs/v042e_fp8_separate_small_target_row_exception/office_negative_guard_v042e/legacy_abstention_guard_office_negative_2026-05-09_200024Z/predicted/office_negative_2026-05-09_200028Z.json\n",
+      "stderr": "warning: `VIRTUAL_ENV=/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\nUsing CPython 3.12.3 interpreter at: /usr/bin/python3\nCreating virtual environment at: .venv\n   Building bda-svc @ file:///tmp/bda_v042_v042e_fp8_separate_small_target_row_exception_2026-05-09_200024Z\n      Built bda-svc @ file:///tmp/bda_v042_v042e_fp8_separate_small_target_row_exception_2026-05-09_200024Z\nInstalled 74 packages in 124ms\n",
+      "elapsed_seconds": 3.747517008014256,
+      "case_id": "office-negative",
+      "attempt": 1
+    }
+  ]
+}

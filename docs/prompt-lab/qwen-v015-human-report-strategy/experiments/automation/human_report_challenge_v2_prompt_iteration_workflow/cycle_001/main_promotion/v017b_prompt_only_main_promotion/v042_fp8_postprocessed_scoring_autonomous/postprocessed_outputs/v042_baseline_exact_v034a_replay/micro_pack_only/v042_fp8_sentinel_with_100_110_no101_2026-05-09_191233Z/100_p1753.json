@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "d93329d2-a604-425e-b5ae-057e4b3a52a5",
+    "image_filename": "100.jpg",
+    "date_created": "2026-05-09T19:18:02Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "19.61"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "MODERATE",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Visible damage includes significant roof and facade destruction; multiple floors show collapsed balconies and exposed internal structures; debris is piled at base; structural framing appears intact but non-load-bearing elements are extensively damaged.",
+      "bounding_box": [
+        0,
+        55,
+        181,
+        441
+      ]
+    },
+    "target_1": {
+      "target_type": "buildings",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "The central section of the building shows extensive structural collapse with debris piled at ground level; upper floors are heavily compromised with missing walls and roofs; visible damage exceeds 75% of the target element area consistent with destroyed classification.",
+      "bounding_box": [
+        181,
+        37,
+        1075,
+        531
+      ]
+    },
+    "target_2": {
+      "target_type": "military_equipment",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Vehicle is completely crushed and unrecognizable as operational; structural integrity is lost; all major components are mangled and fused with debris; no repairable state visible.",
+      "bounding_box": [
+        830,
+        476,
+        962,
+        542
+      ]
+    }
+  },
+  "summary": "One building is assessed as MODERATE damage, one as DESTROYED, and one military vehicle is DESTROYED. The scene depicts a heavily damaged urban area with multiple multi-story buildings showing extensive structural collapse, exposed interiors, and debris-strewn grounds, alongside a crushed vehicle. The functional impact is likely severe, with residential and operational capabilities rendered inoperable across the assessed targets."
+}

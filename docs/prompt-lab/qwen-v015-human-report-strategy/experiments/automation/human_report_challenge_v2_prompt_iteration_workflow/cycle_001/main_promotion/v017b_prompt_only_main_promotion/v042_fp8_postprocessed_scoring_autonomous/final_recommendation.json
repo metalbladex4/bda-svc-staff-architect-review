@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-09T18:56:12Z",
-  "status": "backend_unavailable",
+  "generated_at": "2026-05-09T20:00:28Z",
+  "status": "rejected",
   "best_raw_fp8_candidate": "v034a_fp8_broad_context_scene_box_guard",
   "best_raw_metrics": {
     "matches": 181,
@@ -26,8 +26,14 @@
       "88"
     ]
   },
+  "v040_hybrid_oracle_non_deployable": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 22,
+    "combined_errors": 60
+  },
   "postprocessed_scoring_should_continue": true,
-  "blocked_until_backend_repair": true,
+  "prompt_wording_should_pause": true,
   "hard_boundaries_preserved": true,
-  "next_axis": "Restart or repair the vLLM FP8 endpoint at http://localhost:8000/v1 before v042 autonomy can continue."
+  "next_axis": "Pause near-neighbor prompt wording and move to verifier/postprocessing or visual review of remaining v034a+p1753 deltas."
 }

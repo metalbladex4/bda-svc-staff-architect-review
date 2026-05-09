@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "8e7e0d1d-b719-4df1-a771-428ccdada923",
+        "image_filename": "77.jpg",
+        "date_created": "2026-05-09T19:41:35Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "18.32"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field at base; upper floors show extensive facade loss and structural collapse; structural framing appears intact; damage exceeds 45% of visible target element area.",
+            "bounding_box": [
+                117,
+                59,
+                1551,
+                626
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The right wing of the building shows complete collapse of its upper floors and roof; structural elements are missing; debris pile indicates total loss of structural integrity; damage exceeds 75% of visible target element area.",
+            "bounding_box": [
+                1527,
+                0,
+                1880,
+                642
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE damage (CONFIRMED) showing extensive facade loss and structural collapse, and another with DESTROYED status (CONFIRMED) exhibiting complete upper floor and roof collapse with total loss of structural integrity. The scene depicts a street with heavily damaged multi-story buildings, debris fields, and a single intact car, indicating widespread destruction. The functional impact is likely severe, with the buildings rendered uninhabitable and unusable due to the confirmed levels of damage."
+}

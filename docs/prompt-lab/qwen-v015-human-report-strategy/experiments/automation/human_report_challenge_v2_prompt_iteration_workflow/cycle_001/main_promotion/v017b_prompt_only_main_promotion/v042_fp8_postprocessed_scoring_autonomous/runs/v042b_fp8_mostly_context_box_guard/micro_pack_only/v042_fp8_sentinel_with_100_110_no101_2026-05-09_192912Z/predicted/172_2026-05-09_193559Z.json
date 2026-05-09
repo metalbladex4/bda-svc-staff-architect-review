@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "fe2ba47d-8f31-4191-a84f-429debb7cfd3",
+        "image_filename": "172.jpg",
+        "date_created": "2026-05-09T19:35:59Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.95"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Roof and upper floors show extensive structural collapse; facade is heavily damaged with missing sections; debris is visible at base; damage appears consistent with 45-75% of target element area affected.",
+            "bounding_box": [
+                0,
+                214,
+                200,
+                540
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple windows and balconies are blown out; facade shows significant structural degradation; roofline is damaged; visible debris and partial collapse of external elements consistent with 45-75% damage to non-load-bearing elements.",
+            "bounding_box": [
+                342,
+                135,
+                1300,
+                529
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is unrecognizable; chassis and body are severely mangled, engine compartment is exposed and fragmented, and all structural integrity is lost.",
+            "bounding_box": [
+                810,
+                694,
+                1001,
+                791
+            ]
+        }
+    },
+    "summary": "Three targets assessed: two buildings with SEVERE DAMAGE (one CONFIRMED, one PROBABLE) and one military vehicle DESTROYED (CONFIRMED). The scene depicts a residential area with multiple multi-story buildings showing extensive structural damage and debris, alongside a destroyed vehicle in a grassy yard. The assessed damage suggests significant functional impairment of the buildings and complete loss of the vehicle’s operational capability."
+}

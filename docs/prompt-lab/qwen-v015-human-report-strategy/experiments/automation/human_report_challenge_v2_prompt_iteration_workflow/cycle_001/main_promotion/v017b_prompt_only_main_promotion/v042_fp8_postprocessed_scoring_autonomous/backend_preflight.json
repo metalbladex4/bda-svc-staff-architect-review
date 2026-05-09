@@ -1,37 +1,15 @@
 {
-  "generated_at": "2026-05-09T18:56:12Z",
+  "generated_at": "2026-05-09T19:53:25Z",
   "backend": {
     "label": "vllm_qwen3vl_8b_fp8",
     "base_url": "http://localhost:8000/v1",
     "api_key": "EMPTY",
     "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
   },
-  "models": {
-    "ok": false,
-    "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))",
-    "model_present": false
-  },
-  "status": "fail",
+  "status": "not_yet_run",
   "timeout_policy": {
     "per_request_timeout_seconds": 180,
     "max_retries": 2,
     "cooldown_seconds": 5
-  },
-  "p1753_reproduction": {
-    "status": "pass",
-    "raw_metrics": {
-      "matches": 181,
-      "false_negatives": 38,
-      "false_positives": 25,
-      "combined_errors": 63,
-      "image_count": 117
-    },
-    "postprocessed_metrics": {
-      "matches": 181,
-      "false_negatives": 38,
-      "false_positives": 24,
-      "combined_errors": 62,
-      "image_count": 117
-    }
   }
 }

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "a3798d12-a4f3-4195-a5be-db833de363d4",
+        "image_filename": "88.jpg",
+        "date_created": "2026-05-09T19:42:29Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "14.72"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Turret is completely obliterated with no recognizable internal components; main gun barrel is detached and broken; tracks are severed and scattered; extensive scorching and structural collapse indicate catastrophic damage consistent with K-kill.",
+            "bounding_box": [
+                0,
+                466,
+                2462,
+                1674
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The white truck is intact with no visible deformations, holes, scorching, or missing components; it appears operational and undamaged.",
+            "bounding_box": [
+                1305,
+                699,
+                1438,
+                816
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed DESTROYED and one is confirmed NO DAMAGE. The scene depicts a severely damaged tank with its turret obliterated, tracks severed, and main gun barrel broken, lying on a road alongside an intact white truck. The functional impact is likely neutralized for the destroyed tank, while the intact truck remains operational."
+}

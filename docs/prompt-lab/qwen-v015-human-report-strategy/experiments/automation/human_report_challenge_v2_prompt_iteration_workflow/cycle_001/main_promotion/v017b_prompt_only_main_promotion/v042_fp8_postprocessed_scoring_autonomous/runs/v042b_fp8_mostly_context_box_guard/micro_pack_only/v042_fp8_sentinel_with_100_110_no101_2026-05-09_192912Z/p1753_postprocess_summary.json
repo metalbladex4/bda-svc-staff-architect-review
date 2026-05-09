@@ -1,0 +1,36 @@
+{
+  "rule": {
+    "rule_id": "p1753",
+    "containment_threshold": 0.8,
+    "iou_threshold": 0.0,
+    "area_ratio_threshold": 0.03,
+    "center_inside_required": true,
+    "same_label_required": true,
+    "cross_label_allowed": false,
+    "cross_area_ratio_threshold": null,
+    "cross_containment_threshold": null,
+    "cross_removed_not_only_type_required": true,
+    "larger_image_area_max_ratio": null,
+    "keep_largest_only": true,
+    "never_suppress_if_smaller_contains_prediction": true,
+    "oracle_fields_used": []
+  },
+  "raw_metrics": {
+    "matches": 43,
+    "false_negatives": 16,
+    "false_positives": 19,
+    "combined_errors": 35,
+    "image_count": 17
+  },
+  "postprocessed_metrics": {
+    "matches": 43,
+    "false_negatives": 16,
+    "false_positives": 18,
+    "combined_errors": 34,
+    "image_count": 17
+  },
+  "removed_predictions": 1,
+  "removed_true_positives": 0,
+  "removed_false_positives": 1,
+  "postprocessed_output_dir": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v042_fp8_postprocessed_scoring_autonomous/postprocessed_outputs/v042b_fp8_mostly_context_box_guard/micro_pack_only/v042_fp8_sentinel_with_100_110_no101_2026-05-09_192912Z"
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "a606c4f4-4115-4789-803e-e902a7ad56f9",
+        "image_filename": "100.jpg",
+        "date_created": "2026-05-09T19:50:36Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.61"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Roof and upper floors extensively collapsed; facade heavily damaged with large sections missing; structural integrity visibly compromised; debris pile at base indicates significant collapse.",
+            "bounding_box": [
+                0,
+                59,
+                181,
+                441
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The central section of the building shows extensive structural collapse with debris piled at ground level; upper floors are heavily compromised with missing walls and roofs; visible damage exceeds 75% of the target element area consistent with destroyed classification.",
+            "bounding_box": [
+                181,
+                37,
+                1075,
+                531
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is completely crushed and unrecognizable as operational; structural integrity is non-existent; consistent with catastrophic damage (K-kill) per doctrinal definition.",
+            "bounding_box": [
+                831,
+                476,
+                962,
+                542
+            ]
+        }
+    },
+    "summary": "Three targets assessed: one building with severe damage, one building destroyed, and one military vehicle destroyed. The scene depicts a heavily damaged urban area with multiple multi-story buildings showing extensive structural collapse and debris, alongside a destroyed vehicle. The functional impact is likely catastrophic, with residential and operational infrastructure rendered inoperable."
+}

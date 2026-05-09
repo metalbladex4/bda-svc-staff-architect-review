@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "6f1dba45-3601-477f-82ae-cb9c35aa913b",
+        "image_filename": "90.png",
+        "date_created": "2026-05-09T19:42:45Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.51"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible evidence shows extensive facade destruction, multiple floors with missing windows and structural elements, and debris at ground level; damage appears to cover more than 45% of the visible target area but less than 75%, consistent with severe damage per doctrinal definitions.",
+            "bounding_box": [
+                45,
+                250,
+                122,
+                479
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Building shows extensive structural collapse with roof and upper floors missing; debris field at base; visible fire and smoke; consistent with 75-100% damage per doctrinal definition for framed buildings.",
+            "bounding_box": [
+                115,
+                83,
+                763,
+                479
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (PROBABLE confidence) showing extensive facade destruction and debris, and another DESTROYED (CONFIRMED confidence) with collapsed roof and upper floors, visible fire, and a large debris field. The overall scene depicts a heavily damaged urban area with multiple buildings suffering catastrophic structural failure, widespread debris, and active fire and smoke, indicating a significant loss of functional capacity and likely rendering the area uninhabitable or unusable."
+}
