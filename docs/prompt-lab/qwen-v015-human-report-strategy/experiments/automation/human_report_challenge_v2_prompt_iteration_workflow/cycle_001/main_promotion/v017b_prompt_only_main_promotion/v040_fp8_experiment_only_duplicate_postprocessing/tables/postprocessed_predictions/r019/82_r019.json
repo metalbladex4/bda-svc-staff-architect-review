@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "6973cbe8-e8c1-4116-a711-8ee6cb1e535e",
+    "image_filename": "82.jpg",
+    "date_created": "2026-05-09T02:47:18Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "15.78"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "military_equipment",
+      "damage_category": "NO DAMAGE",
+      "confidence_level": "POSSIBLE",
+      "brief_supporting_logic": "Target is an armored vehicle; visible in context with smoke but no physical deformations, holes, or missing components; smoke may indicate activity or recent firing, not damage.",
+      "bounding_box": [
+        64,
+        270,
+        314,
+        410
+      ]
+    },
+    "target_1": {
+      "target_type": "military_equipment",
+      "damage_category": "NO DAMAGE",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Vehicle is operational with intact tracks and turret; smoke is consistent with engine operation or firing, not catastrophic failure; no visible holes, scorching, or missing components.",
+      "bounding_box": [
+        314,
+        340,
+        1174,
+        696
+      ]
+    }
+  },
+  "summary": "Two military armored vehicles are present in the scene, both assessed as showing NO DAMAGE; one with POSSIBLE confidence and the other with CONFIRMED confidence. The scene depicts two tracked armored vehicles operating in a snowy, mountainous terrain, emitting smoke consistent with engine operation or firing. Based on the prior assessments, the vehicles appear to be functional and operational with no visible damage."
+}

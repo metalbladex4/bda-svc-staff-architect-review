@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "0d4ebdce-de10-4e14-a679-dff7bde1b72b",
+    "image_filename": "156.jpg",
+    "date_created": "2026-05-09T02:58:12Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "13.77"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "The building shows extensive structural collapse with debris covering the ground; visible absence of upper floors and significant damage to load-bearing elements; consistent with 75-100% damage per doctrinal definition for framed buildings.",
+      "bounding_box": [
+        0,
+        0,
+        611,
+        242
+      ]
+    },
+    "target_1": {
+      "target_type": "military_equipment",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Tank exhibits catastrophic physical deformations including severe scorching, missing or shattered tracks, and structural collapse of the hull and turret; no functional components visible; consistent with K-kill",
+      "bounding_box": [
+        72,
+        299,
+        367,
+        436
+      ]
+    }
+  },
+  "summary": "One building is confirmed destroyed and one military tank is confirmed destroyed. The scene depicts widespread urban destruction with rubble-strewn streets, collapsed structures, and a damaged tank in the foreground. The confirmed destruction of both a building and military equipment suggests significant operational disruption and likely renders the area non-functional for military or civilian use."
+}

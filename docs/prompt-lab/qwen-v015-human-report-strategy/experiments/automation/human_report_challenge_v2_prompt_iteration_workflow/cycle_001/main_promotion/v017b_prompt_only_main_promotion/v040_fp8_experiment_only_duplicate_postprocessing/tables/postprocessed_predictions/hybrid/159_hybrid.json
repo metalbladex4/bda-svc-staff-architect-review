@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "ef80d141-cba6-4acb-9732-7498db309660",
+    "image_filename": "159.jpg",
+    "date_created": "2026-05-09T02:58:47Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "14.35"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "military_equipment",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Severe rust and structural degradation visible on hull and turret; tracks appear broken and non-functional; overall condition indicates unrepairable, catastrophic damage consistent with K-kill.",
+      "bounding_box": [
+        6,
+        105,
+        610,
+        357
+      ]
+    },
+    "target_1": {
+      "target_type": "military_equipment",
+      "damage_category": "NO DAMAGE",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "The target is an armored vehicle; its hull and turret show extensive rust and weathering, but no visible holes, scorching, or missing major components; it appears stationary and intact as a display piece.",
+      "bounding_box": [
+        48,
+        217,
+        237,
+        272
+      ]
+    }
+  },
+  "summary": "Two military equipment targets are assessed: one is DESTROYED with CONFIRMED confidence, showing severe rust and broken tracks, while the other is NO DAMAGE with CONFIRMED confidence, appearing intact despite rust. The scene depicts a grassy outdoor area with multiple rusted tanks displayed among trees, suggesting a museum or memorial setting. Given the prior assessments, the destroyed tank is non-functional and the undamaged one is stationary, indicating no operational impact from any strike."
+}

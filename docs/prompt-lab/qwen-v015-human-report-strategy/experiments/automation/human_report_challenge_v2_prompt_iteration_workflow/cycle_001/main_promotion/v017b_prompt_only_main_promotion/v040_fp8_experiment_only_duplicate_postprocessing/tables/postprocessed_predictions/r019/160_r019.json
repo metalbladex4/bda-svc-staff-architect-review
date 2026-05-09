@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "93718a92-dede-49fa-9902-d9097289aea5",
+    "image_filename": "160.jpg",
+    "date_created": "2026-05-09T02:59:10Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "19.90"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "The building exhibits extensive structural collapse with 75-100% of its visible facade and upper floors missing; debris field indicates complete loss of structural integrity consistent with destroyed category.",
+      "bounding_box": [
+        0,
+        58,
+        177,
+        332
+      ]
+    },
+    "target_1": {
+      "target_type": "buildings",
+      "damage_category": "LIGHT",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "The building has intact structural framing; visible damage includes broken windows and partial facade loss, consistent with up to 15% target element area damaged.",
+      "bounding_box": [
+        177,
+        58,
+        344,
+        100
+      ]
+    },
+    "target_2": {
+      "target_type": "buildings",
+      "damage_category": "SEVERE DAMAGE",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Visible loss of facade and roof sections; multiple upper floors show collapsed balconies and exposed structural voids; damage exceeds 45% of visible target element area consistent with severe damage definition.",
+      "bounding_box": [
+        344,
+        77,
+        546,
+        332
+      ]
+    }
+  },
+  "summary": "Three buildings are assessed: one DESTROYED (0-177, 58-332), one LIGHT (177-344, 58-100), and one SEVERE DAMAGE (344-546, 77-332). The scene depicts a heavily damaged urban area with multiple collapsed and ruined structures, debris fields, and a street with minimal activity. The combined damage suggests significant disruption to residential and possibly commercial functions in the area."
+}

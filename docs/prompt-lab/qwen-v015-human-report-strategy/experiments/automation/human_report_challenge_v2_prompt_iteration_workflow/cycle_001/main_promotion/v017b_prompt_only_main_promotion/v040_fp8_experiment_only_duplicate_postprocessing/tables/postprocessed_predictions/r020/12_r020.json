@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "image_id": "d15be0a2-a9b7-4511-aca9-1e1a25969dd6",
+    "image_filename": "12.jpg",
+    "date_created": "2026-05-09T02:33:51Z",
+    "location": {
+      "crs": "",
+      "coordinates": ""
+    },
+    "report_type": "PDA",
+    "analyst": "bda-svc",
+    "inference_time": "15.15"
+  },
+  "physical_damage": {
+    "target_0": {
+      "target_type": "buildings",
+      "damage_category": "SEVERE",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Visible evidence shows extensive structural damage including collapsed roof sections, exposed internal framing, and widespread facade destruction; damage appears to exceed 45% of the target element area consistent with severe damage definition.",
+      "bounding_box": [
+        40,
+        244,
+        121,
+        474
+      ]
+    },
+    "target_1": {
+      "target_type": "buildings",
+      "damage_category": "DESTROYED",
+      "confidence_level": "CONFIRMED",
+      "brief_supporting_logic": "Visible evidence shows extensive structural collapse with debris scattered across the ground; roof and upper floors are missing; facade is severely compromised; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+      "bounding_box": [
+        115,
+        83,
+        763,
+        475
+      ]
+    }
+  },
+  "summary": "Two buildings are assessed: one with SEVERE damage showing collapsed roof sections and exposed framing, and another with DESTROYED status exhibiting complete structural collapse and debris field. The overall scene depicts a large, multi-story building engulfed in fire and smoke with extensive structural damage across its facade and roofline, surrounded by scattered rubble. The functional impact is likely catastrophic, as the assessed targets indicate complete loss of structural integrity and operational capability."
+}

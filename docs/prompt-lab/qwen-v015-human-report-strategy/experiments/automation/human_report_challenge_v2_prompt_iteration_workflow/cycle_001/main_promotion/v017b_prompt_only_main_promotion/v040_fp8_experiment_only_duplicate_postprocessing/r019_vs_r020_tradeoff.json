@@ -1,0 +1,284 @@
+{
+  "generated_at": "2026-05-09T17:49:15Z",
+  "r020": {
+    "metrics": {
+      "matches": 181,
+      "false_negatives": 38,
+      "false_positives": 22,
+      "image_count": 117,
+      "combined_errors": 60
+    },
+    "removed_predictions": [
+      {
+        "rule_id": "r020",
+        "case_id": "88",
+        "image_filename": "88.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          1308.0,
+          699.0,
+          1438.0,
+          816.0
+        ],
+        "kept_larger_bbox": [
+          0.0,
+          466.0,
+          2468.0,
+          1674.0
+        ],
+        "iou": 0.005101725933002029,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.005101725933002029,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.004877775016235198,
+        "larger_best_ref_iou": 0.9478025478418899,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      },
+      {
+        "rule_id": "r020",
+        "case_id": "100",
+        "image_filename": "100.jpg",
+        "removed_label": "target_2",
+        "kept_larger_label": "target_1",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "buildings",
+        "removed_bbox": [
+          830.0,
+          476.0,
+          962.0,
+          542.0
+        ],
+        "kept_larger_bbox": [
+          181.0,
+          37.0,
+          1075.0,
+          531.0
+        ],
+        "iou": 0.01638500704149063,
+        "containment_ratio": 0.8333333333333334,
+        "area_ratio": 0.01972665271852838,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.0,
+        "larger_best_ref_iou": 0.6713325425069198,
+        "same_target_type": false,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      },
+      {
+        "rule_id": "r020",
+        "case_id": "155",
+        "image_filename": "155.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          18.0,
+          111.0,
+          48.0,
+          143.0
+        ],
+        "kept_larger_bbox": [
+          13.0,
+          93.0,
+          153.0,
+          176.0
+        ],
+        "iou": 0.08261617900172118,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.08261617900172118,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.07224563515954245,
+        "larger_best_ref_iou": 0.8325485579752796,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      }
+    ],
+    "numeric_note": "best numeric result among r019/r020",
+    "semantic_risk": "label-agnostic; includes cross-label case-100 removal"
+  },
+  "r019": {
+    "metrics": {
+      "matches": 181,
+      "false_negatives": 38,
+      "false_positives": 23,
+      "image_count": 117,
+      "combined_errors": 61
+    },
+    "removed_predictions": [
+      {
+        "rule_id": "r019",
+        "case_id": "88",
+        "image_filename": "88.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          1308.0,
+          699.0,
+          1438.0,
+          816.0
+        ],
+        "kept_larger_bbox": [
+          0.0,
+          466.0,
+          2468.0,
+          1674.0
+        ],
+        "iou": 0.005101725933002029,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.005101725933002029,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.004877775016235198,
+        "larger_best_ref_iou": 0.9478025478418899,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      },
+      {
+        "rule_id": "r019",
+        "case_id": "155",
+        "image_filename": "155.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          18.0,
+          111.0,
+          48.0,
+          143.0
+        ],
+        "kept_larger_bbox": [
+          13.0,
+          93.0,
+          153.0,
+          176.0
+        ],
+        "iou": 0.08261617900172118,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.08261617900172118,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.07224563515954245,
+        "larger_best_ref_iou": 0.8325485579752796,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      }
+    ],
+    "numeric_note": "one fewer FP removed than r020",
+    "semantic_risk": "narrower same-label behavior"
+  },
+  "hybrid": {
+    "metrics": {
+      "matches": 181,
+      "false_negatives": 38,
+      "false_positives": 22,
+      "image_count": 117,
+      "combined_errors": 60
+    },
+    "removed_predictions": [
+      {
+        "rule_id": "hybrid",
+        "case_id": "88",
+        "image_filename": "88.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          1308.0,
+          699.0,
+          1438.0,
+          816.0
+        ],
+        "kept_larger_bbox": [
+          0.0,
+          466.0,
+          2468.0,
+          1674.0
+        ],
+        "iou": 0.005101725933002029,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.005101725933002029,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.004877775016235198,
+        "larger_best_ref_iou": 0.9478025478418899,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      },
+      {
+        "rule_id": "hybrid",
+        "case_id": "100",
+        "image_filename": "100.jpg",
+        "removed_label": "target_2",
+        "kept_larger_label": "target_1",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "buildings",
+        "removed_bbox": [
+          830.0,
+          476.0,
+          962.0,
+          542.0
+        ],
+        "kept_larger_bbox": [
+          181.0,
+          37.0,
+          1075.0,
+          531.0
+        ],
+        "iou": 0.01638500704149063,
+        "containment_ratio": 0.8333333333333334,
+        "area_ratio": 0.01972665271852838,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.0,
+        "larger_best_ref_iou": 0.6713325425069198,
+        "same_target_type": false,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      },
+      {
+        "rule_id": "hybrid",
+        "case_id": "155",
+        "image_filename": "155.jpg",
+        "removed_label": "target_1",
+        "kept_larger_label": "target_0",
+        "removed_target_type": "military_equipment",
+        "kept_larger_target_type": "military_equipment",
+        "removed_bbox": [
+          18.0,
+          111.0,
+          48.0,
+          143.0
+        ],
+        "kept_larger_bbox": [
+          13.0,
+          93.0,
+          153.0,
+          176.0
+        ],
+        "iou": 0.08261617900172118,
+        "containment_ratio": 1.0,
+        "area_ratio": 0.08261617900172118,
+        "removed_matched": false,
+        "larger_matched": true,
+        "removed_best_ref_iou": 0.07224563515954245,
+        "larger_best_ref_iou": 0.8325485579752796,
+        "same_target_type": true,
+        "reason_removed": "experiment_only_duplicate_suppression"
+      }
+    ],
+    "definition": "same-label OR removed box has zero reference IoU",
+    "matches_r020": true,
+    "safer_than_r020": true
+  },
+  "decision": "C"
+}
