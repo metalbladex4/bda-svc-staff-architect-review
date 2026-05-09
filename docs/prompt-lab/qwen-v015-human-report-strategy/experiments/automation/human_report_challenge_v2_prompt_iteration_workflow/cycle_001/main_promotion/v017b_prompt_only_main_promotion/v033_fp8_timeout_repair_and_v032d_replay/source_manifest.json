@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-09T00:55:36Z",
+  "package": "v033_fp8_timeout_repair_and_v032d_replay",
+  "source_artifacts": [
+    "V032_FP8_MODEL_LINE_PROMPT_REFINEMENT_POINTER.md if present in local workspace",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/diagnoses/v032_runtime_timeout_case110_diagnosis.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/diagnoses/v032d_fp8_v019c_anchor_replay_diagnosis.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/comparison_matrix.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/live_metrics_log.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v031_sglang_qwen3vl_fp8_surface_gate/final_recommendation.md"
+  ],
+  "old_product_v020c": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fp8_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71
+  },
+  "v024l_status": "learning_evidence_only",
+  "v025a_status": "rejected",
+  "v024o_status": "partial_unscored_forbidden",
+  "hard_boundaries": {
+    "no_promotion": true,
+    "no_product_source_truth_mutation": true,
+    "no_v024o_scored_evidence": true,
+    "no_new_semantic_candidate_before_v032d_replay": true
+  }
+}

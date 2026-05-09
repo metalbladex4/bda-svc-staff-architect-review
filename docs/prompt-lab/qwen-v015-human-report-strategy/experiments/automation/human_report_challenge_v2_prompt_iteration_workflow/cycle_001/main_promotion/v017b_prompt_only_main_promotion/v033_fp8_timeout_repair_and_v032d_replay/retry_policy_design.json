@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-05-09T00:55:36Z",
+  "scope": "experiment_only_v033",
+  "per_case_timeout_seconds": 180,
+  "max_retries_per_case": 2,
+  "cooldown_seconds_between_retries": 5,
+  "backend_restart_between_retries": false,
+  "resume_without_rerunning_previous_cases": "case-level retry inside one run; failed complete packs remain unscored",
+  "all_retries_fail_policy": "mark runtime_invalid and stop without scoring partial output",
+  "comparability_policy": "same policy applies to case110 validation and v032d full replay"
+}

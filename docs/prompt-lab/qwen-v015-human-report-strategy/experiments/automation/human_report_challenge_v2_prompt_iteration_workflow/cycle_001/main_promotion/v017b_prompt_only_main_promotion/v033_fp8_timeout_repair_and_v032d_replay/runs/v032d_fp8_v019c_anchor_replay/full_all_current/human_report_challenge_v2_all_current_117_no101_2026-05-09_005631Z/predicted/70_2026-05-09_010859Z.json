@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "7fa46bb2-cf3b-43cf-baa4-9fafd863d74b",
+        "image_filename": "70.jpg",
+        "date_created": "2026-05-09T01:08:59Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.84"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building exhibits extensive structural collapse with large sections missing, including floors and walls; debris piles at the base indicate complete loss of structural integrity; the remaining structure is fragmented and non-functional.",
+            "bounding_box": [
+                118,
+                0,
+                592,
+                243
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "POSSIBLE",
+            "brief_supporting_logic": "The armored vehicle appears intact with no visible holes, scorching, or blown-off components; however, the scene context shows widespread destruction, making definitive assessment of operational status uncertain.",
+            "bounding_box": [
+                136,
+                211,
+                304,
+                285
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "POSSIBLE",
+            "brief_supporting_logic": "The vehicle appears structurally intact with no visible holes, scorching, or blown-off components; however, the image quality and distance limit definitive assessment of minor damage.",
+            "bounding_box": [
+                566,
+                232,
+                624,
+                274
+            ]
+        }
+    },
+    "summary": "One building is confirmed destroyed, two military vehicles show possible no damage. The scene depicts widespread urban destruction with soldiers and intact military equipment amidst collapsed structures. The presence of undamaged vehicles suggests continued operational capability despite the devastated environment."
+}

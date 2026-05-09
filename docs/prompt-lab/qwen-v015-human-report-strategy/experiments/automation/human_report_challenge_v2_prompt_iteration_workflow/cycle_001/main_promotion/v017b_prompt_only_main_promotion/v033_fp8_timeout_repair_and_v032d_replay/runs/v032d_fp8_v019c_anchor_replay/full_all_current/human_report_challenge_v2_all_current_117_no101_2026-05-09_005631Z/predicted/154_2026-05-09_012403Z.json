@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "2c1216f3-0787-4955-a42c-0d877e4f0224",
+        "image_filename": "154.jpg",
+        "date_created": "2026-05-09T01:24:03Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "12.09"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Large sections of facade and roof are missing; significant structural collapse visible; debris pile indicates substantial damage to building envelope; damage appears concentrated in specific areas but overall structure remains standing.",
+            "bounding_box": [
+                0,
+                0,
+                612,
+                203
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank shows no visible deformations, holes, scorching, or missing components; tracks and main armor appear intact; no evidence of catastrophic damage.",
+            "bounding_box": [
+                53,
+                220,
+                332,
+                400
+            ]
+        }
+    },
+    "summary": "One building shows SEVERE DAMAGE with PROBABLE confidence and one military tank shows NO DAMAGE with CONFIRMED confidence. The scene depicts a war-torn urban area with a heavily damaged building and a tank parked amidst rubble. The tank’s intact condition suggests it remains operational despite the surrounding destruction."
+}

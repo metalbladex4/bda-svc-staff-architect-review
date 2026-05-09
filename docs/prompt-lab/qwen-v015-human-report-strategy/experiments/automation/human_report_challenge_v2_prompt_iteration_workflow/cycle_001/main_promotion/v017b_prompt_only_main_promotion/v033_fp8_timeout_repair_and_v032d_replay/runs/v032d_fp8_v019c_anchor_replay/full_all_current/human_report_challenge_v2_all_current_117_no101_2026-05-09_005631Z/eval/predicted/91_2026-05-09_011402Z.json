@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "44291842-714b-468d-a395-b5f58aaf2dc3",
+        "image_filename": "91.jpg",
+        "date_created": "2026-05-09T01:14:02Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "18.95"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull is severely deformed and ruptured; main gun barrel is detached and lying separately; smoke plume indicates recent catastrophic event; no visible operational components remain.",
+            "bounding_box": [
+                111,
+                391,
+                429,
+                471
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The truck shows no visible deformations, holes, scorching, or missing components; all major structural elements appear intact and functional.",
+            "bounding_box": [
+                732,
+                262,
+                1121,
+                641
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target is a military truck with visible soldiers on top; no physical deformations, holes, scorching, or missing components are observed; the vehicle appears operational and intact.",
+            "bounding_box": [
+                1086,
+                286,
+                1299,
+                518
+            ]
+        }
+    },
+    "summary": "One military tank is confirmed destroyed with severe hull deformation and detached main gun, while two military trucks are confirmed with no damage, appearing intact and operational. The scene depicts a desert environment with military vehicles, including a destroyed tank in the distance and two undamaged trucks in the foreground with soldiers aboard. The functional impact is likely minimal for the convoy as two of the three assessed targets remain operational."
+}

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "796c725a-2965-45e0-ae49-b0626e630569",
+        "image_filename": "19.jpg",
+        "date_created": "2026-05-09T00:59:33Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.24"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "The building's roof and upper walls show extensive structural compromise; visible debris and collapsed sections suggest 45-75% of the target element area is damaged, consistent with severe damage.",
+            "bounding_box": [
+                1014,
+                81,
+                1200,
+                300
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull is severely deformed and fragmented; turret is missing; tracks are broken and detached; engine compartment is exposed and charred; no major components remain intact.",
+            "bounding_box": [
+                300,
+                138,
+                690,
+                549
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed destroyed and one building target is assessed as severe damage. The scene depicts a heavily damaged area with a destroyed tank and a severely compromised building, indicating significant operational disruption and likely loss of combat capability in the vicinity."
+}
