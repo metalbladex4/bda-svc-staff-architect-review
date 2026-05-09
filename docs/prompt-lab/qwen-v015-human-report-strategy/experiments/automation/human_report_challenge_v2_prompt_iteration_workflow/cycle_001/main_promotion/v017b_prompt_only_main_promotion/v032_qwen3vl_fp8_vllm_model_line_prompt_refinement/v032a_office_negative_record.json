@@ -1,0 +1,23 @@
+{
+  "candidate_id": "v032a_fp8_context_fragment_precision_guard",
+  "backend_label": "vllm_qwen3vl_8b_fp8_local_8000",
+  "endpoint": "http://localhost:8000/v1",
+  "local_model_source": "existing_service",
+  "stage": "office_negative_guard",
+  "matches": 1,
+  "false_negatives": 0,
+  "false_positives": 0,
+  "combined_errors": 0,
+  "vs_v020c_errors_delta": "n/a",
+  "case_67": "n/a",
+  "case_155": "n/a",
+  "case_166": "n/a",
+  "office_negative": "n/a",
+  "rendered_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+  "request_shape_hash": "c02a2fe43bacbb1c90c200add7eb4c25bcb3460920858e9ae063da1b25661fc4",
+  "response_trace_captured": true,
+  "raw_response_hash": "b554825c6ff39f97cd60fc5273ca081297e6bf8e4ff6a0642f7218aba418efe1",
+  "status": "stability_fail",
+  "main_lesson": "Case 67 or instrumentation failed the stability threshold.",
+  "next_axis": "Stop semantic prompt mutation and diagnose runtime/request-shape instability."
+}

@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "256250f4-2f59-4d0a-97f9-358143eaf8ab",
+        "image_filename": "77.jpg",
+        "date_created": "2026-05-08T23:28:03Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.93"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible collapse of upper floors and roof; extensive debris field; structural framing appears intact but non-load-bearing elements are heavily damaged; damage exceeds 45% of visible target area.",
+            "bounding_box": [
+                117,
+                0,
+                1557,
+                626
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The right wing of the building shows complete collapse of its upper floors and roof; structural elements are missing; debris pile indicates total loss of structural integrity; damage exceeds 75% of visible target element area.",
+            "bounding_box": [
+                1527,
+                0,
+                1880,
+                642
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one with SEVERE damage (confirmed) and one DESTROYED (confirmed). The scene depicts a street with heavily damaged multi-story buildings showing collapsed upper floors, exposed structural frames, and extensive debris fields. The functional impact is likely severe, with the buildings rendered uninhabitable and unusable due to total structural loss or near-total collapse."
+}

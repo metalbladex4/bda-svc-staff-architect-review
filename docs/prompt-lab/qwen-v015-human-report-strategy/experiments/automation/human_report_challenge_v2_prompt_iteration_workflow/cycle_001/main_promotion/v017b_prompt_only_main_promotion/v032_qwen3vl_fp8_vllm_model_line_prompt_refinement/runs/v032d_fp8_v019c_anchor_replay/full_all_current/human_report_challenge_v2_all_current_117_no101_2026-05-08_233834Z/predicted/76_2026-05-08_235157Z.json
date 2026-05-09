@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "bf66b8df-ec2e-4592-8854-f31a8e643add",
+        "image_filename": "76.jpg",
+        "date_created": "2026-05-08T23:51:57Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.87"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible extensive facade damage with large sections missing; multiple floors show collapsed or missing balconies and windows; structural integrity appears compromised with leaning and partial collapse; damage covers more than 45% of visible target element area.",
+            "bounding_box": [
+                404,
+                485,
+                804,
+                926
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible extensive damage to facade and balconies; large sections of exterior walls missing; structural elements appear compromised; damage exceeds 45% of visible target area consistent with severe damage definition.",
+            "bounding_box": [
+                932,
+                373,
+                1539,
+                1023
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one with SEVERE DAMAGE (PROBABLE confidence) and another with SEVERE DAMAGE (CONFIRMED confidence). The scene depicts two multi-story residential buildings with extensive facade damage, missing windows, and compromised structural elements, situated beside a road with trees and vegetation. The likely functional impact is complete loss of habitability and structural safety for both buildings."
+}

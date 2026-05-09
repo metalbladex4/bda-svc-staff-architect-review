@@ -1,0 +1,23 @@
+{
+  "candidate_id": "v032c_fp8_compact_calibration",
+  "backend_label": "vllm_qwen3vl_8b_fp8_local_8000",
+  "endpoint": "http://localhost:8000/v1",
+  "local_model_source": "existing_service",
+  "stage": "micro_pack_only",
+  "matches": 40,
+  "false_negatives": 9,
+  "false_positives": 17,
+  "combined_errors": 26,
+  "vs_v020c_errors_delta": -3,
+  "case_67": "10/1/2",
+  "case_155": "n/a",
+  "case_166": "n/a",
+  "office_negative": "n/a",
+  "rendered_prompt_hash": "3266b2143aa47026c45f62d5498e966f8b9d8d90cd38346afe9a01471c97e41b",
+  "request_shape_hash": "b3db2f38e9e06e0cf81de547d5ca97bace146f5f94a90edd1e09bb9e98b93bb1",
+  "response_trace_captured": true,
+  "raw_response_hash": "b248d0d30fc62183f4ebc984632781c64a0e05e9e2fe3b314b52a16577a8c3d8",
+  "status": "stability_pass",
+  "main_lesson": "Case 67 stayed within the v020c stability threshold.",
+  "next_axis": "Continue the planned stability probe sequence."
+}

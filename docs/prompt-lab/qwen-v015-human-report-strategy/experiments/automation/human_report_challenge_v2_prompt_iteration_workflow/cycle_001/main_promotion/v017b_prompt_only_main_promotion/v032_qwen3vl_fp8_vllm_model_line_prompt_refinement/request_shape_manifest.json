@@ -1,0 +1,393 @@
+{
+  "generated_at": "2026-05-08T23:02:46Z",
+  "records": [
+    {
+      "candidate_id": "v032_baseline_exact_v020c_fp8_replay",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "user_prompt_byte_length": 3164,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              400
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "adea8dc62e6e25ac987de505f0a66a6b41c8f28feadcf57ac031e102730d9f44",
+            "base64_image_payload_sha256": "fe0fccd7af22dd353ddc4dc72538b12da24a68349c22a29bd2882de3608cffcd",
+            "png_byte_length": 640973
+          }
+        ]
+      },
+      "request_shape_hash": "2f6019492aea6726860a6d34acaa49020c4f8c47d740ab973640a4b5efc2f6c1",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032_baseline_exact_v020c_fp8_replay/baseline_sentinel_replay/v032_sentinel_micro_pack_no101_2026-05-08_230246Z"
+    },
+    {
+      "candidate_id": "v032a_fp8_context_fragment_precision_guard",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "user_prompt_byte_length": 3164,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              400
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "adea8dc62e6e25ac987de505f0a66a6b41c8f28feadcf57ac031e102730d9f44",
+            "base64_image_payload_sha256": "fe0fccd7af22dd353ddc4dc72538b12da24a68349c22a29bd2882de3608cffcd",
+            "png_byte_length": 640973
+          }
+        ]
+      },
+      "request_shape_hash": "2f6019492aea6726860a6d34acaa49020c4f8c47d740ab973640a4b5efc2f6c1",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032a_fp8_context_fragment_precision_guard/micro_pack_only/v032_sentinel_micro_pack_no101_2026-05-08_230938Z"
+    },
+    {
+      "candidate_id": "v032a_fp8_context_fragment_precision_guard",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "0587223980d60833ca82c1458f3c878aebf7c66f2f470a260175dda4d77ae80b",
+        "user_prompt_byte_length": 3164,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              768,
+              1024
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "9415bca41386c1e3903781b9c15ca16e2f16a25225e5c34a9b89bcc8370b425c",
+            "base64_image_payload_sha256": "1904c98395cabb6f6229dfe8d3621c19d74fab9c6aeba1890f4ad87bef17870f",
+            "png_byte_length": 962971
+          }
+        ]
+      },
+      "request_shape_hash": "c02a2fe43bacbb1c90c200add7eb4c25bcb3460920858e9ae063da1b25661fc4",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032a_fp8_context_fragment_precision_guard/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_231611Z"
+    },
+    {
+      "candidate_id": "v032b_fp8_real_context_fragment_precision_guard",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "0cd29a82d8c002e540ba8c5d61238eb6689ddba69bdbccb1ea1cc45d0da6d015",
+        "user_prompt_byte_length": 3312,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              400
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "adea8dc62e6e25ac987de505f0a66a6b41c8f28feadcf57ac031e102730d9f44",
+            "base64_image_payload_sha256": "fe0fccd7af22dd353ddc4dc72538b12da24a68349c22a29bd2882de3608cffcd",
+            "png_byte_length": 640973
+          }
+        ]
+      },
+      "request_shape_hash": "84af36c07e16c484125dc780e4e5ffcd94dbe3e0601c8c5dbf3326164907ef0e",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032b_fp8_real_context_fragment_precision_guard/micro_pack_only/v032_sentinel_micro_pack_no101_2026-05-08_231725Z"
+    },
+    {
+      "candidate_id": "v032b_fp8_real_context_fragment_precision_guard",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "0cd29a82d8c002e540ba8c5d61238eb6689ddba69bdbccb1ea1cc45d0da6d015",
+        "user_prompt_byte_length": 3312,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              768,
+              1024
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "9415bca41386c1e3903781b9c15ca16e2f16a25225e5c34a9b89bcc8370b425c",
+            "base64_image_payload_sha256": "1904c98395cabb6f6229dfe8d3621c19d74fab9c6aeba1890f4ad87bef17870f",
+            "png_byte_length": 962971
+          }
+        ]
+      },
+      "request_shape_hash": "ce85c32c24d798c7bfe74811d504d04595d6ceb62afb6cd476f8d15340b9967e",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032b_fp8_real_context_fragment_precision_guard/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_232341Z"
+    },
+    {
+      "candidate_id": "v032c_fp8_compact_calibration",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "3266b2143aa47026c45f62d5498e966f8b9d8d90cd38346afe9a01471c97e41b",
+        "user_prompt_byte_length": 3122,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              400
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "adea8dc62e6e25ac987de505f0a66a6b41c8f28feadcf57ac031e102730d9f44",
+            "base64_image_payload_sha256": "fe0fccd7af22dd353ddc4dc72538b12da24a68349c22a29bd2882de3608cffcd",
+            "png_byte_length": 640973
+          }
+        ]
+      },
+      "request_shape_hash": "b3db2f38e9e06e0cf81de547d5ca97bace146f5f94a90edd1e09bb9e98b93bb1",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032c_fp8_compact_calibration/micro_pack_only/v032_sentinel_micro_pack_no101_2026-05-08_232417Z"
+    },
+    {
+      "candidate_id": "v032c_fp8_compact_calibration",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "3266b2143aa47026c45f62d5498e966f8b9d8d90cd38346afe9a01471c97e41b",
+        "user_prompt_byte_length": 3122,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              768,
+              1024
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "9415bca41386c1e3903781b9c15ca16e2f16a25225e5c34a9b89bcc8370b425c",
+            "base64_image_payload_sha256": "1904c98395cabb6f6229dfe8d3621c19d74fab9c6aeba1890f4ad87bef17870f",
+            "png_byte_length": 962971
+          }
+        ]
+      },
+      "request_shape_hash": "8cde55e2748d373a943a49cabedb7f8af380d50ba34009880e5170fe460309af",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032c_fp8_compact_calibration/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_233105Z"
+    },
+    {
+      "candidate_id": "v032d_fp8_v019c_anchor_replay",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "aeff2baeecf7f47b14114280c26b853d072172f883e5ed495dbdbf609c4af72f",
+        "user_prompt_byte_length": 2565,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              400
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "adea8dc62e6e25ac987de505f0a66a6b41c8f28feadcf57ac031e102730d9f44",
+            "base64_image_payload_sha256": "fe0fccd7af22dd353ddc4dc72538b12da24a68349c22a29bd2882de3608cffcd",
+            "png_byte_length": 640973
+          }
+        ]
+      },
+      "request_shape_hash": "5dae1eea84303081acbbe463b67865834928354dace58c391683e2ce6c1f73d3",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032d_fp8_v019c_anchor_replay/micro_pack_only/v032_sentinel_micro_pack_no101_2026-05-08_233152Z"
+    },
+    {
+      "candidate_id": "v032d_fp8_v019c_anchor_replay",
+      "detection_request": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "aeff2baeecf7f47b14114280c26b853d072172f883e5ed495dbdbf609c4af72f",
+        "user_prompt_byte_length": 2565,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=60 from upstream VLMBackend",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              768,
+              1024
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "9415bca41386c1e3903781b9c15ca16e2f16a25225e5c34a9b89bcc8370b425c",
+            "base64_image_payload_sha256": "1904c98395cabb6f6229dfe8d3621c19d74fab9c6aeba1890f4ad87bef17870f",
+            "png_byte_length": 962971
+          }
+        ]
+      },
+      "request_shape_hash": "c866d9f09a1e6baad12821265a633f6ad388b060b26f4564c5cd52e10eb4259d",
+      "run_root": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/runs/v032d_fp8_v019c_anchor_replay/office_negative_guard/legacy_abstention_guard_office_negative_2026-05-08_233759Z"
+    }
+  ],
+  "updated_at": "2026-05-08T23:38:06Z"
+}

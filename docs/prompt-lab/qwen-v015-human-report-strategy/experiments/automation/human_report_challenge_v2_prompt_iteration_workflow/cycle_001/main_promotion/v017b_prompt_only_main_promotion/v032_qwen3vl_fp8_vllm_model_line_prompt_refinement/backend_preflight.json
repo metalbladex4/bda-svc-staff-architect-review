@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-05-08T23:02:46Z",
+  "selected_backend": {
+    "label": "vllm_qwen3vl_8b_fp8_local_8000",
+    "base_url": "http://localhost:8000/v1",
+    "api_key": "EMPTY",
+    "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+  },
+  "backend_selected_reason": "v032 separate FP8 model-line refinement; vLLM FP8 endpoint verified available",
+  "preferred_endpoint_status": {
+    "ok": true,
+    "url": "http://localhost:8000/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "object": "model",
+          "created": 1778281366,
+          "owned_by": "vllm",
+          "root": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "parent": null,
+          "max_model_len": 4096,
+          "permission": [
+            {
+              "id": "modelperm-845c4b3fe81ade89",
+              "object": "model_permission",
+              "created": 1778281366,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "error": null
+  },
+  "fallback_endpoint_status": {
+    "ok": true,
+    "url": "http://localhost:11434/v1/models",
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "qwen3-vl:8b-instruct-v028-deterministic",
+          "object": "model",
+          "created": 1778196433,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct",
+          "object": "model",
+          "created": 1775868872,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b-instruct-q8_0",
+          "object": "model",
+          "created": 1775151091,
+          "owned_by": "library"
+        },
+        {
+          "id": "qwen3-vl:8b",
+          "object": "model",
+          "created": 1770157077,
+          "owned_by": "library"
+        }
+      ]
+    },
+    "error": null
+  },
+  "v032_closeout_note": "vLLM FP8 endpoint was usable for completed micro runs; v032d full run timed out on case 110.",
+  "backend_endpoint": "http://localhost:8000/v1",
+  "model": "Qwen/Qwen3-VL-8B-Instruct-FP8"
+}

@@ -1,0 +1,64 @@
+Perform a VISUAL-ONLY object detection.
+
+TASK
+Detect targets whose doctrinal target_type is one of:
+buildings, military_equipment
+
+Calibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.
+
+CONTEXT SHADOW REVERSAL
+Use context to search, then mentally remove context to decide.
+
+1. Find possible targets across the full image.
+2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, and repeated spacing.
+3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.
+4. If the candidate disappears when context is ignored, reject it.
+5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.
+
+GOOD FINAL BOX
+- one connected target body, wreck body, or exterior building structure
+- tight enough that the target occupies most of the box
+- not a proxy for damage effects, row position, nearby roads, repeated spacing, or debris
+
+BAD FINAL BOX
+- context-only cue
+- group, row, convoy, cluster, or scene region
+- duplicate fragment of one connected body
+- interior/facade/debris subsection of one continuous building
+- extra neighboring box whose distinct body boundary is not visible
+
+EXTRA-BOX AUDIT
+Before output, silently inspect every detection that sits near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or the same continuous exterior building, keep only the tighter whole-body box.
+
+FINAL BALANCE
+Keep v019c recall behavior: small, damaged, crowded, or partly obscured targets are valid when their own target body remains visible after context is removed. The audit removes extras; it should not remove a true separable target body.
+
+TARGET-TYPE SPECIFIC DETECTION GUIDANCE
+buildings:
+
+Detect only buildings that are central to the scene or essential to interpreting it. Skip background or peripheral buildings that do not materially affect the scene.
+
+military_equipment:
+
+Military equipment is generally defined as armored vehicles, artillery systems, trucks, locomotives, aircrafts, rocket and missile systems, radar antennas, or fire control components.
+Detect military equipment as individual objects -- do NOT merge multiple objects into one such as a group of vehicles.
+Include all pieces of military equipment including partially visible ones, only skip objects whose boundaries cannot be distinguished from surrounding objects or background.
+
+BOUNDING BOX FORMAT
+- Format: [xmin, ymin, xmax, ymax]
+- Coordinate scale: normalized coordinates from 0 to 1000
+
+OUTPUT
+Return valid JSON only.
+Return a JSON object with a top-level detections field.
+If no valid target is visible, return {"detections": []}.
+
+OUTPUT SCHEMA
+{
+  "detections": [
+    {
+      "target_type": string,
+      "bbox": [xmin, ymin, xmax, ymax]
+    }
+  ]
+}

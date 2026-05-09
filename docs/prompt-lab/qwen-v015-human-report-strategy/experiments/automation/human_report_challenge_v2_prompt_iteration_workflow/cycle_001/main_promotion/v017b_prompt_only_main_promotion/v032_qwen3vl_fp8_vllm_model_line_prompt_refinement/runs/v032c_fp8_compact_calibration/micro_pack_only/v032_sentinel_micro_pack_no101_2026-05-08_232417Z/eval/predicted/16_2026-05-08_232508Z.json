@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "d6a7db9a-ff36-4ef5-b899-e9b969b7b138",
+        "image_filename": "16.jpg",
+        "date_created": "2026-05-08T23:25:08Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.29"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building in the background shows no visible structural damage, missing walls, or collapsed sections; its roof and walls appear intact relative to the surrounding environment.",
+            "bounding_box": [
+                1340,
+                786,
+                2644,
+                1311
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "NO DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Building visible in background appears structurally intact; roof and walls show no visible signs of damage or deformation; no debris or structural failure indicators present.",
+            "bounding_box": [
+                3201,
+                924,
+                4168,
+                1410
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Tank hull and turret are catastrophically fragmented; main gun barrel is detached and broken; extensive scorching and structural collapse indicate K-kill condition",
+            "bounding_box": [
+                0,
+                1086,
+                3291,
+                1986
+            ]
+        }
+    },
+    "summary": "One military equipment target is assessed as DESTROYED, while two buildings are assessed as NO DAMAGE. The scene depicts a destroyed tank on a dirt road with intact buildings in the background, indicating localized destruction. The functional impact is likely neutralized for the destroyed tank, with no visible impact on the surrounding structures."
+}

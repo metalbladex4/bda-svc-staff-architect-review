@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "acea37b8-f651-4c31-b10f-983c5ebb2c25",
+        "image_filename": "97.jpg",
+        "date_created": "2026-05-08T23:57:34Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.15"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible debris field covering ground; facade elements missing; structural collapse evident; damage appears to exceed 45% of target element area based on visual extent of destruction.",
+            "bounding_box": [
+                0,
+                0,
+                637,
+                540
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building on the right has its upper floors collapsed, exposing internal structure; debris field extends across entire width of street; facade is heavily damaged with missing sections; structural integrity appears compromised beyond repair.",
+            "bounding_box": [
+                806,
+                0,
+                1280,
+                540
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (PROBABLE confidence) and another DESTROYED (CONFIRMED confidence). The scene depicts a narrow street choked with rubble and debris, with collapsed structures and exposed interiors on both sides, indicating widespread destruction. The functional impact is likely catastrophic, with the street rendered impassable and buildings beyond repair."
+}

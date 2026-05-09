@@ -1,0 +1,23 @@
+{
+  "candidate_id": "v032d_fp8_v019c_anchor_replay",
+  "backend_label": "vllm_qwen3vl_8b_fp8_local_8000",
+  "endpoint": "http://localhost:8000/v1",
+  "local_model_source": "existing_service",
+  "stage": "micro_pack_only",
+  "matches": 39,
+  "false_negatives": 10,
+  "false_positives": 12,
+  "combined_errors": 22,
+  "vs_v020c_errors_delta": -1,
+  "case_67": "8/3/2",
+  "case_155": "n/a",
+  "case_166": "n/a",
+  "office_negative": "n/a",
+  "rendered_prompt_hash": "aeff2baeecf7f47b14114280c26b853d072172f883e5ed495dbdbf609c4af72f",
+  "request_shape_hash": "5dae1eea84303081acbbe463b67865834928354dace58c391683e2ce6c1f73d3",
+  "response_trace_captured": true,
+  "raw_response_hash": "d4e43a596295e7daf624cb1074975f3fa44406cd36a3e361fdea9fe5fd1fab3e",
+  "status": "stability_pass",
+  "main_lesson": "Case 67 stayed within the v020c stability threshold.",
+  "next_axis": "Continue the planned stability probe sequence."
+}

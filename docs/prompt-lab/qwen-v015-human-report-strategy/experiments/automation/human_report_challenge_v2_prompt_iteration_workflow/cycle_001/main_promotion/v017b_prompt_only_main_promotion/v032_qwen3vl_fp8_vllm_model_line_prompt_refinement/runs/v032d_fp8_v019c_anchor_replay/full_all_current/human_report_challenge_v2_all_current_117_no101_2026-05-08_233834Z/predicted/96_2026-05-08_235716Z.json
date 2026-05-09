@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "303cc998-fdb2-4c6d-ad03-60ac8598deea",
+        "image_filename": "96.jpg",
+        "date_created": "2026-05-08T23:57:16Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.22"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Multiple floors show extensive facade destruction; balconies are collapsed or missing; large sections of exterior walls are missing; debris is piled at base; structural framing appears intact but non-load-bearing elements are heavily damaged.",
+            "bounding_box": [
+                0,
+                0,
+                858,
+                624
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Top floors show complete structural collapse; upper sections are missing; facade is heavily compromised with exposed internal structure; damage appears to exceed 75% of visible target element area.",
+            "bounding_box": [
+                979,
+                312,
+                1279,
+                576
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE showing extensive facade destruction and collapsed balconies, and another DESTROYED with complete upper structural collapse and exposed internal structure. The overall scene depicts a war-damaged urban area with multiple multi-story buildings reduced to skeletal ruins, debris scattered across snow-dusted ground, and bare trees, indicating widespread destruction. The functional impact is likely complete loss of habitation and structural integrity for both buildings, rendering the area uninhabitable and unsafe."
+}

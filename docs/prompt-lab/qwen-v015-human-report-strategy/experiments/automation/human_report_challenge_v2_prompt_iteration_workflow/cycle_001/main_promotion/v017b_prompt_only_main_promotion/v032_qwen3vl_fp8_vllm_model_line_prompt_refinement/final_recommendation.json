@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-05-09T00:08:00Z",
+  "status": "paused_runtime_timeout",
+  "best_fp8_candidate": "v020c_fp8_vllm_baseline",
+  "any_candidate_beat_fp8_baseline_71": false,
+  "any_candidate_reached_or_beat_old_58_reference": false,
+  "stretch_target_le_1_reached": false,
+  "decision": "keep_fp8_as_separate_model_line_paused_pending_runtime_timeout_resolution",
+  "old_product_incumbent": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fp8_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71
+  },
+  "completed_candidates": [
+    "v032a",
+    "v032b",
+    "v032c",
+    "v032d_micro_only"
+  ],
+  "invalid_incomplete_runs": [
+    {
+      "candidate_id": "v032d_fp8_v019c_anchor_replay",
+      "stage": "full_all_current",
+      "failure_case": "110",
+      "exception": "APITimeoutError('Request timed out.')",
+      "trace": "runs/v032d_fp8_v019c_anchor_replay/full_all_current/human_report_challenge_v2_all_current_117_no101_2026-05-08_233834Z/traces/human-report-110.json"
+    }
+  ],
+  "hard_boundaries_preserved": true
+}

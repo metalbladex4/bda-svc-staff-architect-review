@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "746ae0c9-890c-4b2c-9e85-8603029fe31b",
+        "image_filename": "99.jpg",
+        "date_created": "2026-05-08T23:58:05Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "17.89"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is a truck; cab shows severe structural damage with missing roof and windshield; chassis and cargo bed are heavily charred and deformed; no intact components visible; consistent with catastrophic, unrepairable damage.",
+            "bounding_box": [
+                37,
+                290,
+                514,
+                653
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible scorch marks and deformation on turret; tracks appear intact but show wear; main gun barrel intact; no catastrophic structural failure or missing major components.",
+            "bounding_box": [
+                123,
+                252,
+                1547,
+                927
+            ]
+        }
+    },
+    "summary": "Two military targets are assessed: one truck confirmed DESTROYED with severe structural damage and charred chassis, and one tank confirmed DAMAGED with scorch marks and turret deformation but intact tracks and main gun. The scene depicts a large, open, debris-strewn area with multiple abandoned military vehicles, including the two assessed targets, suggesting a post-conflict or decommissioned military yard. The assessed targets are likely non-operational, with the destroyed truck rendered unusable and the damaged tank suffering significant but not catastrophic damage."
+}

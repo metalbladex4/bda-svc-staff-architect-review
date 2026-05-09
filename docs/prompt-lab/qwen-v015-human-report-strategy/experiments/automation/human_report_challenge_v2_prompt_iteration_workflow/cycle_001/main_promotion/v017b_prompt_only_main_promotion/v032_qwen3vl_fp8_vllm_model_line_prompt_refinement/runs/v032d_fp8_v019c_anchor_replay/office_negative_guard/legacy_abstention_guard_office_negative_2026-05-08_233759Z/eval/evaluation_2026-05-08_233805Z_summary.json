@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-05-08T23:38:05Z",
+  "eval_mode": "detection_study",
+  "pack_id": "legacy-abstention-guard-office-negative-v1",
+  "manifest_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/validation_manifests/legacy_abstention_guard_office_negative.yaml",
+  "reference_label": "manifest_reference",
+  "predicted_label": "predicted",
+  "detector_backend_ids": [],
+  "resolved_config_hashes": [],
+  "image_count": 1,
+  "totals": {
+    "match_count": 1,
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "negative_scene_count": 1,
+    "negative_scene_false_positive_count": 0,
+    "negative_scene_abstention_correct_count": 1
+  },
+  "images": [
+    {
+      "image_filename": "office_negative.jpg",
+      "runtime_metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "detector_backend_id": "",
+        "resolved_config_hash": "",
+        "experiment_overlay_ids": [],
+        "model_line_id": ""
+      },
+      "reference_target_count": 1,
+      "predicted_target_count": 1,
+      "match_count": 1,
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "negative_scene_metrics": {
+        "negative_scene": true,
+        "false_positive_count": 0,
+        "abstention_correct": true,
+        "unsupported_damage_claim": false,
+        "summary_consistency": true
+      },
+      "matches": [
+        {
+          "target_type": "object not found",
+          "reference_label": "target_0",
+          "predicted_label": "target_0",
+          "iou": 1.0,
+          "center_error_px": 0.0,
+          "predicted_area_ratio": 1.0,
+          "overlap_coverage": 1.0,
+          "score_assess": 1.0,
+          "score_logic": 1.0,
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}
