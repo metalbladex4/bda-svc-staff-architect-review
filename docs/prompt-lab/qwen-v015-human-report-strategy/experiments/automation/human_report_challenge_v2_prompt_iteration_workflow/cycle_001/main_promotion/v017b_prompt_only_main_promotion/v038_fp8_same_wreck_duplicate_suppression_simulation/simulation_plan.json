@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-05-09T17:10:51Z",
+  "method": "offline_in_memory_removal_then_bda_eval_matching_recompute",
+  "uses_vlm": false,
+  "rules": {
+    "containment_thresholds": [
+      0.7,
+      0.8,
+      0.9,
+      0.95
+    ],
+    "iou_thresholds": [
+      0.1,
+      0.2,
+      0.3,
+      0.5
+    ],
+    "area_ratio_thresholds": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "center_inside_required": [
+      true,
+      false
+    ],
+    "same_label_required": [
+      true,
+      false
+    ],
+    "only_suppress_if_larger_matched": [
+      true,
+      false
+    ],
+    "never_suppress_if_smaller_matched": true,
+    "never_suppress_if_both_overlap_distinct_refs": true
+  },
+  "safety_gates": [
+    "no_fn_increase",
+    "no_match_decrease",
+    "case_67_not_worse",
+    "case_84_not_worse",
+    "case_110_not_worse",
+    "case_155_not_worse",
+    "case_166_not_worse",
+    "office_negative_pass"
+  ]
+}
