@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "d65f66bf-3601-417b-a5fa-915a137be299",
+        "image_filename": "77.jpg",
+        "date_created": "2026-05-09T16:17:24Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "18.11"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field at base; significant facade collapse; multiple windows and roof sections missing; structural framing appears intact but non-load-bearing elements extensively damaged; damage exceeds 45% of visible target element area.",
+            "bounding_box": [
+                117,
+                0,
+                1555,
+                639
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The target building shows complete collapse of its upper structure; debris piles at ground level; structural framing is missing; facade is entirely gone; consistent with 75-100% damage per doctrinal definition for framed buildings.",
+            "bounding_box": [
+                1527,
+                0,
+                1880,
+                639
+            ]
+        }
+    },
+    "summary": "Two buildings assessed: one with SEVERE DAMAGE (CONFIRMED) showing significant facade collapse and missing windows/roof, and one DESTROYED (CONFIRMED) with complete upper structure collapse and missing framing. The overall scene depicts a street-level view of heavily damaged urban structures with rubble and debris, a single intact car parked in front, and no visible functional infrastructure. The damage to the buildings suggests the area is non-operational and likely uninhabitable."
+}

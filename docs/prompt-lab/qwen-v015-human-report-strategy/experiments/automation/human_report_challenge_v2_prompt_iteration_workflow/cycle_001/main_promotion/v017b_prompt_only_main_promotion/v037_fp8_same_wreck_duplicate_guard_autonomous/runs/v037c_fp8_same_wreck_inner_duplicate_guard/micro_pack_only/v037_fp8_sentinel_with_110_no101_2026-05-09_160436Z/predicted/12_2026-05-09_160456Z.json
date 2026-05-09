@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "04cf3dff-8dba-4868-a26a-d7cd78b4ac81",
+        "image_filename": "12.jpg",
+        "date_created": "2026-05-09T16:04:56Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.56"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural damage including collapsed roof sections, exposed internal framing, and widespread debris; damage covers more than 45% of the visible facade and roof area, consistent with severe damage definition for framed buildings.",
+            "bounding_box": [
+                40,
+                245,
+                118,
+                479
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Large portions of roof and upper floors are missing; facade is heavily damaged with exposed structural elements; debris field at base indicates collapse of significant structural mass; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                77,
+                763,
+                479
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (40-118, 245-479) and another DESTROYED (115-763, 77-479). The scene depicts a large, multi-story building with extensive fire and structural collapse, smoke billowing from multiple points, and a debris field at the base, indicating catastrophic destruction. The functional impact is likely total loss of the destroyed building and severe impairment of the severely damaged one, rendering them unusable."
+}

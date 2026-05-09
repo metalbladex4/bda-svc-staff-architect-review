@@ -1,0 +1,228 @@
+{
+  "generated_at": "2026-05-09T16:23:57Z",
+  "rows": [
+    {
+      "candidate_id": "v020c_old_product_reference",
+      "stage": "prior_all_current",
+      "metrics": {
+        "matches": 186,
+        "false_negatives": 33,
+        "false_positives": 25,
+        "combined_errors": 58,
+        "image_count": 117
+      },
+      "case_66": "n/a",
+      "case_67": "n/a",
+      "case_84": "n/a",
+      "case_97": "n/a",
+      "case_110": "n/a",
+      "case_155": "n/a",
+      "case_166": "n/a",
+      "office_negative": "n/a",
+      "status": "old_product_reference_not_fp8_replacement",
+      "note": "Prior non-FP8 product-reference evidence only.",
+      "hashes": {}
+    },
+    {
+      "candidate_id": "v020c_fp8_vllm_baseline",
+      "stage": "v031_full_all_current",
+      "metrics": {
+        "matches": 180,
+        "false_negatives": 39,
+        "false_positives": 32,
+        "combined_errors": 71,
+        "image_count": 117
+      },
+      "case_66": "n/a",
+      "case_67": "n/a",
+      "case_84": "n/a",
+      "case_97": "n/a",
+      "case_110": "n/a",
+      "case_155": "n/a",
+      "case_166": "n/a",
+      "office_negative": "n/a",
+      "status": "fp8_baseline",
+      "note": "",
+      "hashes": {}
+    },
+    {
+      "candidate_id": "v032d_fp8_v019c_anchor_replay",
+      "stage": "v033_clean_full",
+      "metrics": {
+        "matches": 185,
+        "false_negatives": 34,
+        "false_positives": 57,
+        "combined_errors": 91,
+        "image_count": 117
+      },
+      "case_66": "n/a",
+      "case_67": "8/3/2",
+      "case_84": "n/a",
+      "case_97": "n/a",
+      "case_110": "3/4/32",
+      "case_155": "2/0/0",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "rejected",
+      "note": "Fixed case 155 but exploded FPs, especially case 110.",
+      "hashes": {}
+    },
+    {
+      "candidate_id": "v034a_fp8_broad_context_scene_box_guard",
+      "stage": "v034_full_all_current",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 25,
+        "combined_errors": 63,
+        "image_count": 117
+      },
+      "case_66": "8/0/5",
+      "case_67": "10/1/3",
+      "case_84": "8/5/0",
+      "case_97": "1/0/1",
+      "case_110": "3/4/1",
+      "case_155": "2/0/1",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "fp8_working_best",
+      "note": "",
+      "hashes": {}
+    },
+    {
+      "candidate_id": "v037_baseline_exact_v034a_replay",
+      "stage": "v037_baseline_micro",
+      "metrics": {
+        "matches": 44,
+        "false_negatives": 12,
+        "false_positives": 14,
+        "combined_errors": 26,
+        "image_count": 16
+      },
+      "case_66": "8/0/5",
+      "case_67": "10/1/3",
+      "case_84": "8/5/0",
+      "case_97": "1/0/1",
+      "case_110": "3/4/1",
+      "case_155": "2/0/1",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "baseline_replay",
+      "note": "Exact v034a replay before v037 prompt mutations.",
+      "hashes": {
+        "rendered_prompt_hash": "63289d8d1e56f657bcfc9c0dc3e69fcbae2ff6fd699ae92e36a3446cf48a6bbc",
+        "request_shape_hash": "f955636874daa01fc3161d1d13e670845654f22b3d8a6cb623e057a005140415",
+        "raw_response_hash": "36a667184f1599deac220fa8a664272541ecd94777e0c0d57950e9353419de1b",
+        "response_trace_captured": true
+      }
+    },
+    {
+      "candidate_id": "v037a_fp8_same_wreck_duplicate_local_guard",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": 41,
+        "false_negatives": 15,
+        "false_positives": 30,
+        "combined_errors": 45,
+        "image_count": 16
+      },
+      "case_66": "8/0/6",
+      "case_67": "9/2/2",
+      "case_84": "8/5/0",
+      "case_97": "0/1/1",
+      "case_110": "2/5/16",
+      "case_155": "2/0/0",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "rejected",
+      "note": "Case 155 improved to 2/0/0 but case 110 exploded to 16 FPs and case 66 worsened.",
+      "hashes": {
+        "rendered_prompt_hash": "abbf465c7373c924408206cf1b08d9e279d05771c6baff501ea38350d7e10aee",
+        "request_shape_hash": "46371b81f61e11df54eb8790dededab658f14c04662d8766e83957122fb05d11",
+        "raw_response_hash": "2675c53775aefef8523265e5bd5a931db999d8d6dece69050228eae9ff0ee167",
+        "response_trace_captured": true
+      }
+    },
+    {
+      "candidate_id": "v037b_fp8_same_wreck_inside_box_guard",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": null,
+        "false_negatives": null,
+        "false_positives": null,
+        "combined_errors": null,
+        "image_count": null
+      },
+      "case_66": "n/a",
+      "case_67": "n/a",
+      "case_84": "n/a",
+      "case_97": "n/a",
+      "case_110": "n/a",
+      "case_155": "n/a",
+      "case_166": "n/a",
+      "office_negative": "pass",
+      "status": "runtime_invalid",
+      "note": "Case 110 hit the 4096-token context cap after three attempts.",
+      "hashes": {
+        "rendered_prompt_hash": "31867c596a0a1e787bc0aab2c24a9284610bb9be74117e2b4fb3c72f978ce0ba",
+        "request_shape_hash": "d832e0022f4f0ea27791b07526bcd837a53e05409a83de12871bd3d052699c00",
+        "raw_response_hash": "51e35323b4df02cfa00442ac3e9392bb5fc4895e2175ec3941c091aaf3e11690",
+        "response_trace_captured": true
+      }
+    },
+    {
+      "candidate_id": "v037c_fp8_same_wreck_inner_duplicate_guard",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": 43,
+        "false_negatives": 13,
+        "false_positives": 17,
+        "combined_errors": 30,
+        "image_count": 16
+      },
+      "case_66": "8/0/6",
+      "case_67": "9/2/3",
+      "case_84": "8/5/0",
+      "case_97": "1/0/1",
+      "case_110": "3/4/1",
+      "case_155": "2/0/1",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "rejected",
+      "note": "Shortened same-wreck wording avoided runtime failure but did not improve case 155 and worsened case 66.",
+      "hashes": {
+        "rendered_prompt_hash": "1d9af4dc67088e24910cdffa25cd322ba7f39fd34d14ea192da7021c857f892a",
+        "request_shape_hash": "f73a51efdd0045f11160d8c49630ef7431eabeb4bfbae38023c1165fb36716ca",
+        "raw_response_hash": "fb16ae8dbcb3e178926b2fe4e7a2945812db29e5fac7a00e1b53fc14e5ce57e1",
+        "response_trace_captured": true
+      }
+    },
+    {
+      "candidate_id": "v037d_fp8_low_contrast_body_recall_cue",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": 42,
+        "false_negatives": 14,
+        "false_positives": 18,
+        "combined_errors": 32,
+        "image_count": 16
+      },
+      "case_66": "8/0/7",
+      "case_67": "8/3/6",
+      "case_84": "8/5/0",
+      "case_97": "1/0/1",
+      "case_110": "3/4/1",
+      "case_155": "2/0/0",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "rejected",
+      "note": "Low-contrast recall cue fixed case 155 but did not improve case 84 and worsened dense precision.",
+      "hashes": {
+        "rendered_prompt_hash": "4a86d897293e300eb1c425743ad75e1b414658f62e7f2323689ce9d53dd07724",
+        "request_shape_hash": "a8c5172e1feb79f0eb0d38981a30eb310d3e35be80386a42e71accc217711f4e",
+        "raw_response_hash": "e6333cdcb6383471e54f926d1f2f17f3b6b05ce7fe20e5c6ff95505337eeda29",
+        "response_trace_captured": true
+      }
+    }
+  ]
+}

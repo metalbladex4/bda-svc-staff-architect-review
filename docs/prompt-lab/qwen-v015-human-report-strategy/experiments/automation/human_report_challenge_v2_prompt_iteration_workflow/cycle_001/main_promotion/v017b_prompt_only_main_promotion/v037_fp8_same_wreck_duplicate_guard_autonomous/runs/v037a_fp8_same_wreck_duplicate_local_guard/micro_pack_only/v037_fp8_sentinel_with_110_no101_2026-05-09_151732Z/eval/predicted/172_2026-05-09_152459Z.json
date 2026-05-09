@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "0ec0f689-11af-456a-b57d-6933635e455c",
+        "image_filename": "172.jpg",
+        "date_created": "2026-05-09T15:24:59Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "19.63"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Roof and upper floors show significant structural damage with missing sections; facade is heavily compromised with broken windows and exposed internal elements; debris is visible at base; damage appears consistent with 45-75% of target element area affected.",
+            "bounding_box": [
+                0,
+                214,
+                200,
+                547
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple windows and balconies are blown out; facade shows significant structural degradation; roof appears compromised; damage is widespread across visible floors; no visible collapse of load-bearing elements but overall structural integrity appears compromised.",
+            "bounding_box": [
+                342,
+                134,
+                1300,
+                529
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is unrecognizable; chassis and body are severely mangled, engine compartment is exposed and fragmented, and all structural integrity is lost.",
+            "bounding_box": [
+                810,
+                694,
+                1001,
+                791
+            ]
+        }
+    },
+    "summary": "Two buildings show severe damage with probable structural compromise and widespread facade destruction, and one military vehicle is confirmed destroyed with no recognizable form. The scene depicts a residential area with multiple damaged buildings and debris, indicating significant destruction. The functional impact is likely severe, with residential and potential military operations capacity lost."
+}

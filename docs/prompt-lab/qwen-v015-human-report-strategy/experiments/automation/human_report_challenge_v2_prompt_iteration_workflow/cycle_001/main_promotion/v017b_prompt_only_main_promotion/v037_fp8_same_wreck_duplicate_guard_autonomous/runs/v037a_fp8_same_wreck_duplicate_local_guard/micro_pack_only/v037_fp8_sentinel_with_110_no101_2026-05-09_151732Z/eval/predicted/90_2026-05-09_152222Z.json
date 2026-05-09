@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "51f95949-d591-4cc8-810b-cdba4fa84bce",
+        "image_filename": "90.png",
+        "date_created": "2026-05-09T15:22:22Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.14"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural damage to the target building including collapsed roof sections, exposed internal framing, and widespread facade destruction; the damage covers more than 45% of the visible target element area consistent with severe damage definition.",
+            "bounding_box": [
+                40,
+                244,
+                118,
+                479
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Building shows extensive structural collapse with roof and upper floors missing; debris field at base; visible fire and smoke; consistent with 75-100% damage per doctrinal definition for framed buildings.",
+            "bounding_box": [
+                115,
+                83,
+                763,
+                479
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (40-118, 244-479) and another DESTROYED (115-763, 83-479). The scene depicts a large, multi-story building with extensive fire, smoke, and structural collapse, surrounded by debris, indicating a major destructive event. The functional impact is likely catastrophic, with both assessed buildings rendered unusable and the surrounding area severely compromised."
+}

@@ -1,0 +1,54 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "8e0181d4-33f0-4ba8-a177-c8e683646d27",
+        "image_filename": "172.jpg",
+        "date_created": "2026-05-09T16:11:17Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "21.03"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Roof and upper floors show significant structural collapse; facade is heavily damaged with missing sections; debris at base indicates partial collapse; damage appears concentrated on upper levels consistent with severe damage threshold.",
+            "bounding_box": [
+                0,
+                214,
+                200,
+                545
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Multiple windows and balconies are missing or heavily damaged; facade shows significant structural degradation; roof appears compromised in multiple areas; overall visual evidence suggests 45-75% of visible target element area is damaged.",
+            "bounding_box": [
+                342,
+                134,
+                1300,
+                526
+            ]
+        },
+        "target_2": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is completely wrecked with no recognizable structural integrity; chassis and body are mangled and fragmented; no functional components visible.",
+            "bounding_box": [
+                810,
+                694,
+                1004,
+                791
+            ]
+        }
+    },
+    "summary": "Two buildings show SEVERE DAMAGE with PROBABLE confidence, and one military vehicle is DESTROYED with CONFIRMED confidence. The scene depicts a residential area with multiple damaged multi-story buildings and a wrecked vehicle in a grassy yard, indicating significant structural and functional degradation. The assessed targets suggest the area is likely non-operational and uninhabitable."
+}

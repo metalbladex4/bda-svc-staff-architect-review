@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "56913c97-8a2e-4c71-964d-37dd29778371",
+        "image_filename": "12.jpg",
+        "date_created": "2026-05-09T15:26:47Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.51"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible evidence shows significant structural damage to the target building including collapsed roof sections, exposed internal framing, and widespread window destruction; however, the building's main structural frame appears largely intact, consistent with severe damage for a framed building.",
+            "bounding_box": [
+                45,
+                250,
+                122,
+                474
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural collapse with debris scattered across the ground; roof and upper floors are missing; facade is severely compromised; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                83,
+                763,
+                475
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE damage (PROBABLE confidence) showing collapsed roof sections and exposed framing, and another with DESTROYED status (CONFIRMED confidence) exhibiting complete structural collapse and debris. The overall scene depicts a large, multi-story building engulfed in fire and smoke, with extensive debris scattered across the ground and surrounding structures showing significant damage. The likely functional impact is complete loss of operational capability for the destroyed building and severe impairment for the severely damaged one."
+}

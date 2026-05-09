@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-05-09T15:10:49Z",
+  "package": "v037_fp8_same_wreck_duplicate_guard_autonomous",
+  "source_artifacts": [
+    "V036_FP8_CASE155_DENSE_SYNTHESIS_REVIEW_POINTER.md in review repo",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v036_fp8_case155_dense_synthesis/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v036_fp8_case155_dense_synthesis/prompt_axis_decision.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v036_fp8_case155_dense_synthesis/case155_fp_synthesis.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v036_fp8_case155_dense_synthesis/dense_case_regression_synthesis.md",
+    "V034_FP8_PRECISION_RECOVERY_REVIEW_POINTER.md if present locally",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v034_fp8_vllm_precision_recovery_autonomous/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v034_fp8_vllm_precision_recovery_autonomous/diagnoses/v034a_fp8_broad_context_scene_box_guard_diagnosis.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v034_fp8_vllm_precision_recovery_autonomous/comparison_matrix.md",
+    "V033_FP8_TIMEOUT_REPAIR_REVIEW_POINTER.md if present locally",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v033_fp8_timeout_repair_and_v032d_replay/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v033_fp8_timeout_repair_and_v032d_replay/diagnoses/v033_v032d_clean_replay_diagnosis.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v032_qwen3vl_fp8_vllm_model_line_prompt_refinement/final_recommendation.md",
+    "V032_FP8_MODEL_LINE_PROMPT_REFINEMENT_POINTER.md if present locally",
+    "V031_QWEN3VL_FP8_SURFACE_REVIEW_POINTER.md if present locally"
+  ],
+  "old_product_v020c": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fp8_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71
+  },
+  "v034a_working_best": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 25,
+    "combined_errors": 63
+  },
+  "v032d_clean_full": {
+    "matches": 185,
+    "false_negatives": 34,
+    "false_positives": 57,
+    "combined_errors": 91,
+    "status": "rejected"
+  },
+  "v024l_status": "learning_evidence_only",
+  "v025a_status": "rejected",
+  "v024o_status": "partial_unscored_forbidden",
+  "v035a_micro": {
+    "matches": 41,
+    "false_negatives": 15,
+    "false_positives": 19,
+    "combined_errors": 34,
+    "status": "rejected"
+  },
+  "v036_decision": "Axis B: local case-155 same-wreck duplicate guard; do not use broad dense/fragment wording.",
+  "hard_boundaries": {
+    "no_promotion": true,
+    "no_product_truth_mutation": true,
+    "no_v024o": true,
+    "no_v032d_as_base": true,
+    "no_v035a_as_base": true
+  }
+}
