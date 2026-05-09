@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "7551f1a6-f2b1-4172-967a-3fbd555e833d",
+        "image_filename": "99.jpg",
+        "date_created": "2026-05-09T02:52:13Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.19"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "military_equipment",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Vehicle is non-armored truck; cab is severely burned and charred; windshield is shattered; front door is missing; engine compartment is exposed and damaged; structural integrity is compromised; consistent with catastrophic, unrepairable damage.",
+            "bounding_box": [
+                37,
+                290,
+                515,
+                650
+            ]
+        },
+        "target_1": {
+            "target_type": "military_equipment",
+            "damage_category": "DAMAGED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible scorch marks and deformation on turret; tracks appear intact but show wear; main gun barrel intact but shows signs of use; no catastrophic structural failure or missing major components.",
+            "bounding_box": [
+                123,
+                253,
+                1546,
+                927
+            ]
+        }
+    },
+    "summary": "One military equipment target is confirmed DESTROYED, and one is confirmed DAMAGED. The scene depicts a derelict military vehicle yard with a destroyed non-armored truck and a damaged tank, both showing signs of combat or heavy use, situated in a dusty, debris-strewn area. The functional impact is likely severe, as the destroyed vehicle is non-operational and the damaged tank, while retaining some components, shows significant wear and scorch marks indicating reduced or compromised combat capability."
+}

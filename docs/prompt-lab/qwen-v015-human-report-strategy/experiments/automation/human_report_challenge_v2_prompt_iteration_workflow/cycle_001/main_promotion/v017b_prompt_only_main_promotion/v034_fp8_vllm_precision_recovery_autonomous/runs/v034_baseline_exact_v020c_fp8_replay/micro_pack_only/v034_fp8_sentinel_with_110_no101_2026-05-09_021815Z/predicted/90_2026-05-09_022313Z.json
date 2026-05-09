@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "b4f951cf-8ceb-4618-8a26-8d0a418d4669",
+        "image_filename": "90.png",
+        "date_created": "2026-05-09T02:23:13Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.43"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE",
+            "confidence_level": "PROBABLE",
+            "brief_supporting_logic": "Visible evidence shows extensive facade damage, multiple floors with broken windows and exposed interiors, and significant structural deformation; however, the building's load-bearing frame appears partially intact, consistent with severe damage in framed buildings.",
+            "bounding_box": [
+                40,
+                244,
+                122,
+                474
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible evidence shows extensive structural collapse with debris scattered across the ground; roof and upper floors are missing; facade is severely compromised; fire and smoke indicate ongoing destruction consistent with 75-100% damage.",
+            "bounding_box": [
+                115,
+                83,
+                763,
+                475
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE damage (PROBABLE confidence) showing extensive facade damage and structural deformation, and another that is DESTROYED (CONFIRMED confidence) with collapsed structure and debris. The overall scene depicts a large, multi-story building heavily damaged by fire and explosion, with smoke rising, debris scattered across the ground, and visible structural collapse across multiple floors. The functional impact is likely catastrophic, as the destroyed building is unusable and the severely damaged one is likely compromised beyond repair."
+}

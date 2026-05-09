@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "cdccdbed-a114-4a19-a250-e7c1f38581f6",
+        "image_filename": "96.jpg",
+        "date_created": "2026-05-09T02:51:27Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "16.94"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Multiple floors show extensive facade destruction; balconies are collapsed or missing; large sections of exterior walls are missing; debris is piled at base; structural framing appears intact but non-load-bearing elements are heavily damaged.",
+            "bounding_box": [
+                0,
+                0,
+                860,
+                619
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Top floors show complete structural collapse with missing roof and upper walls; lower floors are heavily damaged with exposed interiors and missing facade elements; visual evidence indicates over 75% of target element area is damaged.",
+            "bounding_box": [
+                979,
+                314,
+                1279,
+                588
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE showing extensive facade destruction and collapsed balconies, and another DESTROYED with complete structural collapse and over 75% damage. The scene depicts a war-torn urban area with multiple damaged multi-story residential buildings, debris-strewn ground, and snow-covered streets, indicating significant destruction. The functional impact is likely complete loss of habitation and structural integrity for the destroyed building, and severe impairment for the severely damaged one."
+}

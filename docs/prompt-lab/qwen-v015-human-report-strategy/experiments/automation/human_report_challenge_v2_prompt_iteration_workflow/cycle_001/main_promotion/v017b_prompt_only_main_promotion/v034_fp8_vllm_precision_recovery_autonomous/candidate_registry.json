@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-05-09T03:02:00Z",
+  "candidates": [
+    {
+      "candidate_id": "v020c_old_product_reference",
+      "stage": "prior_all_current",
+      "metrics": {
+        "matches": 186,
+        "false_negatives": 33,
+        "false_positives": 25,
+        "combined_errors": 58
+      },
+      "status": "product_reference"
+    },
+    {
+      "candidate_id": "v020c_fp8_vllm_baseline",
+      "stage": "v031_all_current",
+      "metrics": {
+        "matches": 180,
+        "false_negatives": 39,
+        "false_positives": 32,
+        "combined_errors": 71
+      },
+      "status": "fp8_working_baseline"
+    },
+    {
+      "candidate_id": "v032d_fp8_v019c_anchor_replay",
+      "stage": "v033_clean_full",
+      "metrics": {
+        "matches": 185,
+        "false_negatives": 34,
+        "false_positives": 57,
+        "combined_errors": 91
+      },
+      "case_67": "8/3/2",
+      "case_110": "3/4/32",
+      "case_155": "2/0/0",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "rejected"
+    },
+    {
+      "candidate_id": "v034_baseline_exact_v020c_fp8_replay",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": 45,
+        "false_negatives": 11,
+        "false_positives": 17,
+        "combined_errors": 28,
+        "image_count": 16
+      },
+      "case_67": "10/1/2",
+      "case_110": "3/4/2",
+      "case_155": "2/0/2",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "baseline_replay"
+    },
+    {
+      "candidate_id": "v034a_fp8_broad_context_scene_box_guard",
+      "stage": "micro_pack_only",
+      "metrics": {
+        "matches": 44,
+        "false_negatives": 12,
+        "false_positives": 14,
+        "combined_errors": 26,
+        "image_count": 16
+      },
+      "case_67": "10/1/3",
+      "case_110": "3/4/1",
+      "case_155": "2/0/1",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "micro_pass"
+    },
+    {
+      "candidate_id": "v034a_fp8_broad_context_scene_box_guard",
+      "stage": "full_all_current",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 25,
+        "combined_errors": 63,
+        "image_count": 117
+      },
+      "case_67": "10/1/3",
+      "case_110": "3/4/1",
+      "case_155": "2/0/1",
+      "case_166": "1/0/0",
+      "office_negative": "pass",
+      "status": "new_fp8_working_best"
+    }
+  ]
+}
