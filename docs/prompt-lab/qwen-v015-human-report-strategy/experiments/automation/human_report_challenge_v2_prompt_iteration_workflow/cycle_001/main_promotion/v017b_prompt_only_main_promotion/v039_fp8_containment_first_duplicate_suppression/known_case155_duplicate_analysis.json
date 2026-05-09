@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-05-09T17:33:03Z",
+  "case_id": "155",
+  "v034a_metrics": "2/0/1",
+  "known_duplicate_pair": {
+    "image_filename": "155.jpg",
+    "smaller_label": "target_1",
+    "larger_label": "target_0",
+    "smaller_target_type": "military_equipment",
+    "larger_target_type": "military_equipment",
+    "same_target_type": true,
+    "small_area": 960.0,
+    "large_area": 11620.0,
+    "smaller_bbox": [
+      18.0,
+      111.0,
+      48.0,
+      143.0
+    ],
+    "larger_bbox": [
+      13.0,
+      93.0,
+      153.0,
+      176.0
+    ],
+    "area_ratio": 0.08261617900172118,
+    "containment_ratio": 1.0,
+    "iou": 0.08261617900172118,
+    "center_inside_larger": true,
+    "smaller_matched": false,
+    "larger_matched": true,
+    "smaller_matched_ref": null,
+    "larger_matched_ref": "target_2",
+    "smaller_viable_refs": [],
+    "larger_viable_refs": [
+      "target_2"
+    ],
+    "smaller_best_ref_iou": 0.07224563515954245,
+    "larger_best_ref_iou": 0.8325485579752796,
+    "smaller_best_ref_label": "target_2",
+    "larger_best_ref_label": "target_2",
+    "smaller_has_better_ref_iou": false,
+    "both_overlap_distinct_refs": false
+  },
+  "known_duplicate_reconstructed": true,
+  "smaller_is_fp": true,
+  "larger_is_tp_matched": true,
+  "why_v038_missed_it": "v038's minimum IoU threshold was 0.10; this pair's IoU is approximately 0.083."
+}

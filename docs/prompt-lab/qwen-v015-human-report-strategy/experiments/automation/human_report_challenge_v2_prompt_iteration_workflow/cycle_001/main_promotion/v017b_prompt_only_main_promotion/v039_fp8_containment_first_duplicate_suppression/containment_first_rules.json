@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-05-09T17:33:03Z",
+  "rule_count": 360,
+  "containment_thresholds": [
+    0.8,
+    0.9,
+    0.95,
+    0.98,
+    1.0
+  ],
+  "iou_thresholds": [
+    "none",
+    0.0,
+    0.03,
+    0.05,
+    0.08,
+    0.1
+  ],
+  "area_ratio_thresholds": [
+    0.03,
+    0.05,
+    0.08,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "center_inside_required": true,
+  "same_label_variants": [
+    true,
+    false
+  ],
+  "only_suppress_if_larger_matched": true,
+  "never_suppress_if_smaller_matched": true,
+  "never_suppress_if_both_overlap_distinct_refs": true,
+  "never_suppress_if_smaller_has_better_ref_iou": true
+}
