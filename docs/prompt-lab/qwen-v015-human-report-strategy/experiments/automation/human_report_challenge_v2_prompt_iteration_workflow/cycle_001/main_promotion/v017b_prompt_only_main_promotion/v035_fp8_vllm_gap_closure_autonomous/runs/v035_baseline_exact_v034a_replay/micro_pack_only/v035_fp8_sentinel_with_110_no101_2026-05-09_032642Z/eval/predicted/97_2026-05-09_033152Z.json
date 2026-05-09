@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "image_id": "3683aaab-f689-4048-ae43-2888456d33d0",
+        "image_filename": "97.jpg",
+        "date_created": "2026-05-09T03:31:52Z",
+        "location": {
+            "crs": "",
+            "coordinates": ""
+        },
+        "report_type": "PDA",
+        "analyst": "bda-svc",
+        "inference_time": "15.02"
+    },
+    "physical_damage": {
+        "target_0": {
+            "target_type": "buildings",
+            "damage_category": "SEVERE DAMAGE",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "Visible debris field covering ground; facade and upper floors extensively damaged with collapsed sections; structural elements appear compromised; consistent with 45-75% area damage per doctrinal definition.",
+            "bounding_box": [
+                0,
+                0,
+                637,
+                531
+            ]
+        },
+        "target_1": {
+            "target_type": "buildings",
+            "damage_category": "DESTROYED",
+            "confidence_level": "CONFIRMED",
+            "brief_supporting_logic": "The building on the right is reduced to rubble with no visible structural framing; debris covers the entire footprint; walls are collapsed and fragmented; no load-bearing elements remain intact.",
+            "bounding_box": [
+                806,
+                0,
+                1280,
+                531
+            ]
+        }
+    },
+    "summary": "Two buildings are assessed: one with SEVERE DAMAGE (CONFIRMED) showing collapsed sections and debris, and another DESTROYED (CONFIRMED) reduced to rubble with no structural elements remaining. The scene depicts a narrow street choked with rubble and debris from collapsed buildings, with visible structural compromise and widespread destruction extending into the background. The functional impact is likely catastrophic, with complete loss of structural integrity and utility in the destroyed building and severe disruption in the severely damaged one."
+}

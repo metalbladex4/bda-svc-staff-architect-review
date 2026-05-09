@@ -1,0 +1,399 @@
+{
+  "generated_at": "2026-05-09T03:37:52Z",
+  "candidate_id": "v035a_fp8_dense_uncertain_fragment_guard",
+  "stage": "micro_pack_only",
+  "backend_label": "vllm_qwen3vl_8b_fp8",
+  "endpoint_url": "http://localhost:8000/v1",
+  "model_name_env": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "server_kind": "openai_compatible",
+  "scratch_root": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z",
+  "git": {
+    "branch": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "--abbrev-ref",
+        "HEAD"
+      ],
+      "cwd": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z",
+      "returncode": 0,
+      "stdout": "HEAD",
+      "stderr": ""
+    },
+    "commit": {
+      "cmd": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z",
+      "returncode": 0,
+      "stdout": "c5d12008fb696997c493ddcdebdb6003b5610a2f",
+      "stderr": ""
+    },
+    "status_short": {
+      "cmd": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z",
+      "returncode": 0,
+      "stdout": "M src/bda_svc/pipeline/config.yaml",
+      "stderr": ""
+    }
+  },
+  "runtime_versions": {
+    "python": "3.12.3",
+    "openai": "2.32.0",
+    "pillow": "12.1.1",
+    "pydantic": "2.12.5"
+  },
+  "source_files": {
+    "source_overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v035_fp8_vllm_gap_closure_autonomous/overlays/v035a_fp8_dense_uncertain_fragment_guard.yaml",
+    "base_overlay_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v020_v019c_goal_driven_self_improvement_cycle/overlays/v020c_v019c_extra_box_audit.yaml",
+    "scratch_config_path": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z/src/bda_svc/pipeline/config.yaml",
+    "doctrine_path": "/tmp/bda_v035_v035a_fp8_dense_uncertain_fragment_guard_2026-05-09_033335Z/src/bda_svc/pipeline/doctrine.yaml",
+    "source_overlay_sha256": "7f0102d622d60dd2d37ad0a39b7897a4bd7537591032939ebc87b45a5246a037",
+    "base_overlay_sha256": "28c70aac7d3832e632a8dd79effd6d319f33ad936d8816f592992dec2103b0cc",
+    "scratch_config_sha256": "e65ed61cff0bfc0d821d097f98b1299cd42757f151f02da46de4d5f63e54d85b",
+    "doctrine_sha256": "bd83e50bd1b5cf369264f53db3d2fe58e46d7a032211db1a51ab6cbdb94b9813"
+  },
+  "overlay_application": {
+    "overlay_template_sha256": "31407d320098420298872c67ee79be0af6cec887327ebf169eab05125dfca8a1",
+    "base_v020c_overlay_template_sha256": "fb3d1d2705bd5a0b567c50257f1929fb056b3a685e8fe4d731dfaadfa0b29b95",
+    "overlay_template_diff_from_base": "--- v020c_detect_objects_template\n+++ v035a_fp8_dense_uncertain_fragment_guard_detect_objects_template\n@@ -26,6 +26,8 @@\n - duplicate fragment of one connected body\n - interior/facade/debris subsection of one continuous building\n - extra neighboring box whose distinct body boundary is not visible\n+- broad context or scene boxes whose strongest support is a row, blast area, road, debris field, smoke plume, or multiple uncertain fragments rather than one visible target body\n+- isolated dense-scene marks or partial fragments when the target body center and exterior boundary are not both visible\n \n EXTRA-BOX AUDIT\n Before output, silently inspect every detection that sits near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or the same continuous exterior building, keep only the tighter whole-body box.\n",
+    "scratch_detect_objects_sha256": "31407d320098420298872c67ee79be0af6cec887327ebf169eab05125dfca8a1",
+    "scratch_detect_vs_intended_overlay_diff": "",
+    "overlay_actually_applied": true,
+    "candidate_unintended_no_op": false,
+    "intended_semantic_changes": [
+      "Add one compact BAD FINAL BOX guard for isolated dense-scene marks or partial fragments when target body center and exterior boundary are not both visible.",
+      "Preserve the v034a broad-context/scene-box guard.",
+      "Preserve the v020c extra-box audit without weakening or removing it."
+    ],
+    "rendered_template_changes": "captured after placeholder substitution"
+  },
+  "image_source": {
+    "original_image_path": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports/88.jpg",
+    "original_image_sha256": "db8a9ad1c33ad4921507f8a4adfe9bcab8fb3cba3611af0fb5cb40bc5d94fbfe",
+    "original_image_size": [
+      2500,
+      1676
+    ]
+  },
+  "analysis": {
+    "final_report_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v035_fp8_vllm_gap_closure_autonomous/runs/v035a_fp8_dense_uncertain_fragment_guard/micro_pack_only/v035_fp8_sentinel_with_110_no101_2026-05-09_033335Z/predicted/88_2026-05-09_033808Z.json",
+    "model_name": "detection=Qwen/Qwen3-VL-8B-Instruct-FP8;assessment=Qwen/Qwen3-VL-8B-Instruct-FP8",
+    "inference_time_seconds": 13.986852387984982,
+    "physical_damage_count": 2
+  },
+  "exception": null,
+  "rendered_prompt": {
+    "rendered_prompt_text": "Perform a VISUAL-ONLY object detection.\n\nTASK\nDetect targets whose doctrinal target_type is one of:\nbuildings, military_equipment\n\nCalibration from prior runs: broad recall additions raised false positives. Return to the v019c context-shadow balance and improve only the final cleanup of extra boxes.\n\nCONTEXT SHADOW REVERSAL\nUse context to search, then mentally remove context to decide.\n\n1. Find possible targets across the full image.\n2. For each candidate, imagine removing smoke, dust, flame, shadow, road, debris, row alignment, blast texture, tracks, terrain marks, and repeated spacing.\n3. Keep the candidate only if a target body, wreck body, or exterior structure remains visible enough to draw a tight box after those context cues are removed.\n4. If the candidate disappears when context is ignored, reject it.\n5. If a broad box contains several possible targets, split only when distinct bodies are visible; otherwise reject the broad box.\n\nGOOD FINAL BOX\n- one connected target body, wreck body, or exterior building structure\n- tight enough that the target occupies most of the box\n- not a proxy for damage effects, row position, nearby roads, repeated spacing, or debris\n\nBAD FINAL BOX\n- context-only cue\n- group, row, convoy, cluster, or scene region\n- duplicate fragment of one connected body\n- interior/facade/debris subsection of one continuous building\n- extra neighboring box whose distinct body boundary is not visible\n- broad context or scene boxes whose strongest support is a row, blast area, road, debris field, smoke plume, or multiple uncertain fragments rather than one visible target body\n- isolated dense-scene marks or partial fragments when the target body center and exterior boundary are not both visible\n\nEXTRA-BOX AUDIT\nBefore output, silently inspect every detection that sits near another detection or near a strong context cue. Remove it unless it has its own visible body center and at least one visible body edge or exterior-structure boundary. If two boxes describe the same connected body or the same continuous exterior building, keep only the tighter whole-body box.\n\nFINAL BALANCE\nKeep v019c recall behavior: small, damaged, crowded, or partly obscured targets are valid when their own target body remains visible after context is removed. The audit removes extras; it should not remove a true separable target body.\n\nTARGET-TYPE SPECIFIC DETECTION GUIDANCE\nbuildings:\n\nDetect only buildings that are central to the scene or essential to interpreting it. Skip background or peripheral buildings that do not materially affect the scene.\n\nmilitary_equipment:\n\nMilitary equipment is generally defined as armored vehicles, artillery systems, trucks, locomotives, aircrafts, rocket and missile systems, radar antennas, or fire control components.\nDetect military equipment as individual objects -- do NOT merge multiple objects into one such as a group of vehicles.\nInclude all pieces of military equipment including partially visible ones, only skip objects whose boundaries cannot be distinguished from surrounding objects or background.\n\nBOUNDING BOX FORMAT\n- Format: [xmin, ymin, xmax, ymax]\n- Coordinate scale: normalized coordinates from 0 to 1000\n\nOUTPUT\nReturn valid JSON only.\nReturn a JSON object with a top-level detections field.\nIf no valid target is visible, return {\"detections\": []}.\n\nOUTPUT SCHEMA\n{\n  \"detections\": [\n    {\n      \"target_type\": string,\n      \"bbox\": [xmin, ymin, xmax, ymax]\n    }\n  ]\n}\n",
+    "rendered_prompt_sha256": "2e7acd623e5bba40ed89d5ef7256233ca47bc6a2bb7f871e064cc9f979eb394d",
+    "rendered_prompt_byte_length": 3463,
+    "rendered_prompt_line_count": 66,
+    "placeholder_substitution_hashes": {
+      "categories": "f2b6fcfc9c2a5b35a8d7e5648a2b1e7371cdd807d7d426e42a547cb810f4df18",
+      "detection_guidance": "da4b9a506113c6e3612f6dd4777a15e4b1482facbc21b863d1bc23e0ea005f83",
+      "bbox_format": "bc3ffabd2d0142460780fb41328c638a952c0e6f9b02d0739432ad691119a71f",
+      "bbox_scale": "e7d8a62868aac1843fb7cffd722548c5fea3ec784d1532e2318252d6880331e3"
+    },
+    "unresolved_placeholders": [],
+    "json_schema_instruction_preserved": true,
+    "runtime_prompt_mentions_case_ids": false,
+    "bbox_convention": "xyxy_1000",
+    "max_image_size": 1024,
+    "resized_vlm_image_size": [
+      1024,
+      686
+    ],
+    "rendered_prompt_diff_from_base": null
+  },
+  "detection_parse_trace": {
+    "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [0, 277, 987, 999]\n    },\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [523, 417, 575, 487]\n    }\n  ]\n}",
+    "raw_response_sha256": "a05b8e20e9eb98d4717a49f858bb8bd63bc492afd6e5b0860f7a6c9baae81346",
+    "repaired_json_text": "{\"detections\": [{\"target_type\": \"military_equipment\", \"bbox\": [0, 277, 987, 999]}, {\"target_type\": \"military_equipment\", \"bbox\": [523, 417, 575, 487]}]}",
+    "repaired_json_sha256": "a3df619646b5f028b5f0b37e9bef90b8b81a1d867d29778e7ba2028d582bc686",
+    "pydantic_validation_success": true,
+    "validation_error": null,
+    "raw_detections_count": 2,
+    "accepted_after_target_type_validation_count": 2,
+    "rejected_detections": [],
+    "final_detections_count": 2,
+    "final_detection_bbox_list": [
+      {
+        "label": "military_equipment",
+        "bbox": [
+          0,
+          464,
+          2468,
+          1674
+        ]
+      },
+      {
+        "label": "military_equipment",
+        "bbox": [
+          1308,
+          699,
+          1438,
+          816
+        ]
+      }
+    ],
+    "failure_stage": "none"
+  },
+  "request_response_traces": [
+    {
+      "call_index": 0,
+      "call_kind": "detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "2e7acd623e5bba40ed89d5ef7256233ca47bc6a2bb7f871e064cc9f979eb394d",
+        "user_prompt_byte_length": 3463,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "e8acbcaee2543c0aae5236b56eced35abd2a0f85c2bc6febc87b52a49adee103",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=180 from v033 experiment-only instrumentation",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              686
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "be02c7fd214fee4dc10560992bcbc7642d87d4d842082ecdfacc9c1ec89a8b86",
+            "base64_image_payload_sha256": "6e04c295f669eff65200fdaeafdb41c0a50d8590e47b487132635e2974584c7d",
+            "png_byte_length": 1187475
+          }
+        ]
+      },
+      "request_shape_hash": "bf41ec73153f820597fd0389a6f89dca0627c090fe4fa869c29d0218c4adb4e6",
+      "raw_request_payload_hash_sanitized": "bf41ec73153f820597fd0389a6f89dca0627c090fe4fa869c29d0218c4adb4e6",
+      "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [0, 277, 987, 999]\n    },\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [523, 417, 575, 487]\n    }\n  ]\n}",
+      "raw_response_sha256": "a05b8e20e9eb98d4717a49f858bb8bd63bc492afd6e5b0860f7a6c9baae81346",
+      "exception": null,
+      "detection_parse_trace": {
+        "raw_response_text": "{\n  \"detections\": [\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [0, 277, 987, 999]\n    },\n    {\n      \"target_type\": \"military_equipment\",\n      \"bbox\": [523, 417, 575, 487]\n    }\n  ]\n}",
+        "raw_response_sha256": "a05b8e20e9eb98d4717a49f858bb8bd63bc492afd6e5b0860f7a6c9baae81346",
+        "repaired_json_text": "{\"detections\": [{\"target_type\": \"military_equipment\", \"bbox\": [0, 277, 987, 999]}, {\"target_type\": \"military_equipment\", \"bbox\": [523, 417, 575, 487]}]}",
+        "repaired_json_sha256": "a3df619646b5f028b5f0b37e9bef90b8b81a1d867d29778e7ba2028d582bc686",
+        "pydantic_validation_success": true,
+        "validation_error": null,
+        "raw_detections_count": 2,
+        "accepted_after_target_type_validation_count": 2,
+        "rejected_detections": [],
+        "final_detections_count": 2,
+        "final_detection_bbox_list": [
+          {
+            "label": "military_equipment",
+            "bbox": [
+              0,
+              464,
+              2468,
+              1674
+            ]
+          },
+          {
+            "label": "military_equipment",
+            "bbox": [
+              1308,
+              699,
+              1438,
+              816
+            ]
+          }
+        ],
+        "failure_stage": "none"
+      }
+    },
+    {
+      "call_index": 1,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "e6fa768f6acae1630c7cde3b654a3027ec2b556bc7b028a3ce88f5d0c04b8f81",
+        "user_prompt_byte_length": 3109,
+        "user_content_item_sequence": [
+          "text",
+          "image_url",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 2,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "8ab295d05b526dbb0e31e3baf6567adeed64acd8f7c5ef39f8588daaf985e1d7",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=180 from v033 experiment-only instrumentation",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              686
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "0ca829f01c71797bf6e65bc0de32fe0dd2f1720ddc6e341345078d5fe3508854",
+            "base64_image_payload_sha256": "cfa55c84761d5ecd2ab98e293f892c263fd9cc9aa497ef7e0a3b09100d6823ba",
+            "png_byte_length": 1183038
+          },
+          {
+            "index": 1,
+            "size": [
+              1024,
+              596
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "5a238926ca2b185bd9743d79858d86914ae29ff2f61d611e1bb110b93a96a592",
+            "base64_image_payload_sha256": "7f2526180f2aad73dacd18f120451ef3e79c91770914c9e2bb657e1653b63427",
+            "png_byte_length": 1095695
+          }
+        ]
+      },
+      "request_shape_hash": "ac0d6e8609f0eba80f63009ec9d1bfa35f5259fd736cdc2d5b1981f01ac674a8",
+      "raw_request_payload_hash_sanitized": "ac0d6e8609f0eba80f63009ec9d1bfa35f5259fd736cdc2d5b1981f01ac674a8",
+      "raw_response_text": "{\n  \"damage_category\": \"DESTROYED\",\n  \"confidence_level\": \"confirmed\",\n  \"brief_supporting_logic\": \"Cannon barrel detached; turret completely destroyed with internal components exposed; tracks broken and scattered; hull severely deformed and scorched; no functional components visible.\"\n}",
+      "raw_response_sha256": "2734478d7187e365753bf20019346cfc161de1b57a9133f8f45c6ecb867e53fc",
+      "exception": null
+    },
+    {
+      "call_index": 2,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "e6fa768f6acae1630c7cde3b654a3027ec2b556bc7b028a3ce88f5d0c04b8f81",
+        "user_prompt_byte_length": 3109,
+        "user_content_item_sequence": [
+          "text",
+          "image_url",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 2,
+        "response_format_type": "json_schema",
+        "json_schema_hash": "8ab295d05b526dbb0e31e3baf6567adeed64acd8f7c5ef39f8588daaf985e1d7",
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=180 from v033 experiment-only instrumentation",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              686
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "8ff0f66b75e11123b1013daad0971342b9e1d292b07291eb6752b6ff39f7b204",
+            "base64_image_payload_sha256": "c69ba89b33e484967b7630866d8ef311b11ba599918675c096262e55383d85fb",
+            "png_byte_length": 1187385
+          },
+          {
+            "index": 1,
+            "size": [
+              182,
+              163
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "7c3db48e1ffa5139ef237862af40f16ea42cb55609534cb41c0bb740c3d589b4",
+            "base64_image_payload_sha256": "9c55bab4ccf2843e1b4f32f5d72ff845912806ad37326d6f3598b32df187a367",
+            "png_byte_length": 44524
+          }
+        ]
+      },
+      "request_shape_hash": "de5215466fffdf48583dee61680462d15e8593edac017a67abd9070dca720a74",
+      "raw_request_payload_hash_sanitized": "de5215466fffdf48583dee61680462d15e8593edac017a67abd9070dca720a74",
+      "raw_response_text": "{\n  \"damage_category\": \"NO DAMAGE\",\n  \"confidence_level\": \"confirmed\",\n  \"brief_supporting_logic\": \"The white truck is intact with no visible deformations, holes, scorching, or missing components; it appears operational and undamaged.\"\n}",
+      "raw_response_sha256": "59a9191828d4c264115b6740234c29061687c3a6642dc3f231f56e60f2158cf6",
+      "exception": null
+    },
+    {
+      "call_index": 3,
+      "call_kind": "non_detection",
+      "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+      "request_shape": {
+        "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+        "message_role_sequence": [
+          "system",
+          "user"
+        ],
+        "number_of_messages": 2,
+        "system_prompt_text_hash": "c06d4c7be79abfdbf5690aaae75b0422bfe94eb219c0e66b937f0c355c905cd6",
+        "system_prompt_byte_length": 350,
+        "user_prompt_hash": "2d40aa897a93e7fa3efbbe0c5bae37166d8e21704d6fc6fe43e3042e4f14c1c1",
+        "user_prompt_byte_length": 1548,
+        "user_content_item_sequence": [
+          "text",
+          "image_url"
+        ],
+        "text_first": true,
+        "image_second": true,
+        "number_of_images_attached": 1,
+        "response_format_type": null,
+        "json_schema_hash": null,
+        "temperature": 0.0,
+        "max_tokens": null,
+        "stop": null,
+        "timeout": "OpenAI client timeout=180 from v033 experiment-only instrumentation",
+        "images": [
+          {
+            "index": 0,
+            "size": [
+              1024,
+              686
+            ],
+            "mode": "RGB",
+            "resized_png_byte_sha256": "be02c7fd214fee4dc10560992bcbc7642d87d4d842082ecdfacc9c1ec89a8b86",
+            "base64_image_payload_sha256": "6e04c295f669eff65200fdaeafdb41c0a50d8590e47b487132635e2974584c7d",
+            "png_byte_length": 1187475
+          }
+        ]
+      },
+      "request_shape_hash": "c993709d4090d2e2238ee1bc42b9162323fc7166732237773ad4e5e79f77bd64",
+      "raw_request_payload_hash_sanitized": "c993709d4090d2e2238ee1bc42b9162323fc7166732237773ad4e5e79f77bd64",
+      "raw_response_text": "One military equipment target is confirmed destroyed and one is confirmed with no damage. The scene depicts a severely damaged tank with its turret and tracks destroyed, lying on a road alongside a white truck that appears undamaged. The functional impact is likely neutralized for the tank, while the truck remains operational.",
+      "raw_response_sha256": "9a4cc483b6ad92065d8762a48a7250038236f4557370b6805c3174a901c05771",
+      "exception": null
+    }
+  ],
+  "response_trace_captured": true
+}
