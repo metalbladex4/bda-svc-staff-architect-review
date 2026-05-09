@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-09T18:17:47Z",
+  "oracle_dependent_v039_v040_fields": [
+    "larger_matched",
+    "smaller_matched",
+    "both_overlap_distinct_refs",
+    "smaller_has_better_ref_iou",
+    "removed_best_ref_iou",
+    "larger_best_ref_iou",
+    "matched/unmatched state",
+    "reference boxes"
+  ],
+  "deployable_fields": [
+    "predicted boxes",
+    "predicted target_type",
+    "bbox geometry",
+    "area ratios",
+    "containment",
+    "IoU between predictions",
+    "center-inside relation",
+    "image dimensions",
+    "prediction labels/order"
+  ],
+  "risk_after_de_oracle": "without match/reference guards, a geometry-only rule may suppress a true positive or a distinct valid target",
+  "mitigation": "score after suppression only, reject any rule that removes TPs, reduces matches, increases FNs, or harms dense/control cases"
+}

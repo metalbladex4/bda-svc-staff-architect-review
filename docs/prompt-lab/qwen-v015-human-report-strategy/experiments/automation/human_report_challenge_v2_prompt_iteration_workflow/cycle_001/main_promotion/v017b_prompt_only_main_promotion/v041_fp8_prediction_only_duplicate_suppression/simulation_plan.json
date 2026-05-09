@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-05-09T18:17:47Z",
+  "method": "apply_prediction_only_rule_to_frozen_v034a_predictions_then_score_with_bda_eval",
+  "uses_vlm": false,
+  "uses_prompt_candidates": false,
+  "rule_logic_uses_ground_truth": false,
+  "ground_truth_used_only_for_after_the_fact_scoring": true,
+  "safety_gates": [
+    "reject_fn_increase",
+    "reject_match_decrease",
+    "reject_case_66_worse",
+    "reject_case_67_worse",
+    "reject_case_84_worse",
+    "reject_case_110_worse",
+    "reject_155_166_office_harm",
+    "reject_removed_true_positive"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-05-09T18:19:59Z",
+  "decision": "C",
+  "decision_text": "Prediction-only rule improves v034a but does not match oracle results.",
+  "best_rule": "p1753",
+  "best_metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 24,
+    "image_count": 117,
+    "combined_errors": 62
+  },
+  "matched_r020_hybrid": false,
+  "matched_r019": false,
+  "removed_true_positives": 0,
+  "removed_predictions": [
+    {
+      "rule_id": "p1753",
+      "case_id": "88",
+      "image_filename": "88.jpg",
+      "removed_label": "target_1",
+      "kept_larger_label": "target_0",
+      "removed_target_type": "military_equipment",
+      "kept_larger_target_type": "military_equipment",
+      "removed_bbox": [
+        1308.0,
+        699.0,
+        1438.0,
+        816.0
+      ],
+      "kept_larger_bbox": [
+        0.0,
+        466.0,
+        2468.0,
+        1674.0
+      ],
+      "iou": 0.005101725933002029,
+      "containment_ratio": 1.0,
+      "area_ratio": 0.005101725933002029,
+      "center_inside": true,
+      "same_label": true,
+      "cross_label": false,
+      "removed_type_count": 2,
+      "removed_not_only_type": true,
+      "larger_image_area_ratio": 0.7115379474940334,
+      "smaller_contains_prediction": false,
+      "prediction_only_reason_removed": "contained_smaller_prediction_geometry_rule",
+      "removed_true_positive": false,
+      "removed_false_positive": true,
+      "match_count_changed": false,
+      "fn_changed": false,
+      "fp_changed": true,
+      "case_delta_matches": 0,
+      "case_delta_false_negatives": 0,
+      "case_delta_false_positives": -1
+    }
+  ],
+  "cross_label_suppression_acceptable": true,
+  "case155_fixed_rule_count": 21900,
+  "safe_case155_fixed_rule_count": 8480,
+  "best_safe_case155_rule": "p7885",
+  "best_safe_case155_metrics": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 24,
+    "image_count": 117,
+    "combined_errors": 62
+  },
+  "best_safe_case155_removed_predictions": [
+    {
+      "rule_id": "p7885",
+      "case_id": "155",
+      "image_filename": "155.jpg",
+      "removed_label": "target_1",
+      "kept_larger_label": "target_0",
+      "removed_target_type": "military_equipment",
+      "kept_larger_target_type": "military_equipment",
+      "removed_bbox": [
+        18.0,
+        111.0,
+        48.0,
+        143.0
+      ],
+      "kept_larger_bbox": [
+        13.0,
+        93.0,
+        153.0,
+        176.0
+      ],
+      "iou": 0.08261617900172118,
+      "containment_ratio": 1.0,
+      "area_ratio": 0.08261617900172118,
+      "center_inside": true,
+      "same_label": true,
+      "cross_label": false,
+      "removed_type_count": 3,
+      "removed_not_only_type": true,
+      "larger_image_area_ratio": 0.04734894789170864,
+      "smaller_contains_prediction": false,
+      "prediction_only_reason_removed": "contained_smaller_prediction_geometry_rule",
+      "removed_true_positive": false,
+      "removed_false_positive": true,
+      "match_count_changed": false,
+      "fn_changed": false,
+      "fp_changed": true,
+      "case_delta_matches": 0,
+      "case_delta_false_negatives": 0,
+      "case_delta_false_positives": -1
+    }
+  ],
+  "safe_both_88_155_rule_count": 0,
+  "de_oracle_loss_mode": "case155 duplicate removal is separable as a one-FP rule, but r019-style two-FP removal was not separable from a case-159 TP using this prediction-only geometry grid",
+  "next_work": "v042_experiment_only_postprocessing_integration_on_future_fp8_outputs",
+  "autonomous_prompt_refinement_can_resume_with_postprocessed_scoring_as_separate_experimental_objective": true,
+  "hard_boundaries_preserved": true,
+  "old_v020c_reference": {
+    "matches": 186,
+    "false_negatives": 33,
+    "false_positives": 25,
+    "combined_errors": 58
+  },
+  "fp8_baseline": {
+    "matches": 180,
+    "false_negatives": 39,
+    "false_positives": 32,
+    "combined_errors": 71
+  },
+  "v034a_prompt_working_best": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 25,
+    "combined_errors": 63
+  },
+  "v040_hybrid_oracle_score": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 22,
+    "combined_errors": 60
+  },
+  "v024o_status": "partial_unscored_forbidden"
+}

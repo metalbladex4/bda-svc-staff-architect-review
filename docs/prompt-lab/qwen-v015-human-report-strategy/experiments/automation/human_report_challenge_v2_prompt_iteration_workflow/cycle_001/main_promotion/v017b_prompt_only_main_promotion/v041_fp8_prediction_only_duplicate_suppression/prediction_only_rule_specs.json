@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-05-09T18:17:47Z",
+  "rule_count": 52560,
+  "rule_logic_uses_oracle_fields": false,
+  "containment_thresholds": [
+    0.8,
+    0.9,
+    0.95,
+    0.98,
+    1.0
+  ],
+  "iou_thresholds": [
+    "none",
+    0.0,
+    0.03,
+    0.05,
+    0.08,
+    0.1
+  ],
+  "area_ratio_thresholds": [
+    0.03,
+    0.05,
+    0.08,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "center_inside_required": true,
+  "same_label_required_variants": [
+    true,
+    false
+  ],
+  "cross_label_variants": {
+    "cross_area_ratio_thresholds": [
+      0.03,
+      0.05,
+      0.08
+    ],
+    "cross_containment_thresholds": [
+      0.9,
+      0.95,
+      0.98
+    ],
+    "removed_not_only_type_options": [
+      true,
+      false
+    ],
+    "larger_image_area_max_ratio_options": [
+      null,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "keep_largest_only_options": [
+    true,
+    false
+  ],
+  "never_suppress_if_smaller_contains_prediction_options": [
+    true,
+    false
+  ]
+}
