@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-05-09T22:08:48Z",
+  "pp0157_visual_review_passed": true,
+  "pp0157_locked_as_experiment_only_baseline": true,
+  "best_composite_fp8_result": {
+    "id": "pp044a_contained_military_equipment_cross_label_probe",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 18,
+    "image_count": 117,
+    "combined_errors": 56
+  },
+  "pp0157_baseline": {
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 20,
+    "combined_errors": 58
+  },
+  "any_intervention_beat_58": true,
+  "target_le_1_reached": false,
+  "remaining_residual_error_classes": [
+    "adjacent_target_confusion",
+    "broad_context_scene_box",
+    "building_or_structure_piece",
+    "dense_valid_target_missed",
+    "small_valid_target_missed",
+    "smoke_or_debris_confusion",
+    "verifier_needed"
+  ],
+  "next_work": "visual_review_then_verifier_design",
+  "hard_boundaries_preserved": true
+}

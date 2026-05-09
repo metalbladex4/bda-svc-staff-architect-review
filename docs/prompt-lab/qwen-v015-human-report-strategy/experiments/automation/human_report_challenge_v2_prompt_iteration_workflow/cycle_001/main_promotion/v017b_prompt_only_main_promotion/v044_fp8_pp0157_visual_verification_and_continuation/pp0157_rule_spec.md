@@ -1,0 +1,14 @@
+# pp0157 Rule Spec
+
+```json
+{
+  "rule_id": "pp0157",
+  "family": "tiny_dense_prediction",
+  "target_type_filter": "military_equipment",
+  "image_area_max": 0.001,
+  "same_type_count_min": 5,
+  "same_label_required": true,
+  "cross_label_allowed": false,
+  "uses_reference_or_eval_fields_at_inference": false
+}
+```
