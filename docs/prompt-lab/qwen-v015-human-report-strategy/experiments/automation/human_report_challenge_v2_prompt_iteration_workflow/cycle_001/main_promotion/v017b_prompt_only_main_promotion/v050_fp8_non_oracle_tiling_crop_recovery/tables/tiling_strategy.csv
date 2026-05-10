@@ -1,0 +1,5 @@
+crop_generation_without_ground_truth,fp_risk,intended_recovery,name,strategy
+four 62 percent image tiles anchored at image corners,medium,"building pieces, dense/small targets, smoke/debris targets",full-image 2x2 overlap,A
+middle-lower and lower full-width strips from image geometry only,medium_high,dense row and lower-band small objects,generic dense-row strips,B
+padded crops around the three largest locked baseline detections,medium_high,adjacent target confusion,prediction-anchored neighbor crops,C
+single centered 84 percent image crop,medium,smoke/debris-obscured and broad context misses,smoke/debris broad context crop,D

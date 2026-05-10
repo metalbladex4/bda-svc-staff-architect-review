@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-10T01:33:24Z",
+  "uses_reference_boxes_for_inference": false,
+  "strategies": [
+    {
+      "strategy": "A",
+      "name": "full-image 2x2 overlap",
+      "crop_generation_without_ground_truth": "four 62 percent image tiles anchored at image corners",
+      "intended_recovery": "building pieces, dense/small targets, smoke/debris targets",
+      "fp_risk": "medium"
+    },
+    {
+      "strategy": "B",
+      "name": "generic dense-row strips",
+      "crop_generation_without_ground_truth": "middle-lower and lower full-width strips from image geometry only",
+      "intended_recovery": "dense row and lower-band small objects",
+      "fp_risk": "medium_high"
+    },
+    {
+      "strategy": "C",
+      "name": "prediction-anchored neighbor crops",
+      "crop_generation_without_ground_truth": "padded crops around the three largest locked baseline detections",
+      "intended_recovery": "adjacent target confusion",
+      "fp_risk": "medium_high"
+    },
+    {
+      "strategy": "D",
+      "name": "smoke/debris broad context crop",
+      "crop_generation_without_ground_truth": "single centered 84 percent image crop",
+      "intended_recovery": "smoke/debris-obscured and broad context misses",
+      "fp_risk": "medium"
+    }
+  ]
+}

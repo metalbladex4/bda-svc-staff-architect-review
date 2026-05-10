@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-05-10T01:33:24Z",
+  "preserve_locked_pp045c_baseline_detections": true,
+  "accepted_postprocessing_chain": [
+    "p1753",
+    "pp0157",
+    "pp044a",
+    "pp045b",
+    "pp045c"
+  ],
+  "excluded_postprocessors": [
+    {
+      "rule": "pp046a",
+      "reason": "failed visual lock and remains diagnostic only"
+    }
+  ],
+  "candidate_filters": [
+    "valid crop-local bbox",
+    "valid target_type",
+    "confidence >= 0.55",
+    "not intact_context",
+    "ambiguous requires confidence >= 0.78",
+    "reject self-reported context-only/unclear",
+    "reject obvious same-label duplicates with IoU >= 0.45"
+  ],
+  "uses_reference_boxes_for_inference": false
+}

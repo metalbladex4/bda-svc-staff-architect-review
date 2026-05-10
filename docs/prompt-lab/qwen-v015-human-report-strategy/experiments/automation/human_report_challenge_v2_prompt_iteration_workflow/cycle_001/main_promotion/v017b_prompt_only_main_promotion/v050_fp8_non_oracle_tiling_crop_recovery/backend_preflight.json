@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-10T01:33:24Z",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "backend_available": true,
+  "model_available": true,
+  "details": {
+    "status_code": 200,
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "object": "model",
+          "created": 1778376804,
+          "owned_by": "vllm",
+          "root": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "parent": null,
+          "max_model_len": 4096,
+          "permission": [
+            {
+              "id": "modelperm-817e855af81fda60",
+              "object": "model_permission",
+              "created": 1778376804,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "model_ids": [
+      "Qwen/Qwen3-VL-8B-Instruct-FP8"
+    ]
+  },
+  "timeout_policy_seconds": 180
+}
