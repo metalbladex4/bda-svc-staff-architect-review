@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "baseline": {
+    "id": "fp8_composite_pp045c_baseline",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 11,
+    "image_count": 117,
+    "combined_errors": 49
+  },
+  "diagnostic_pp046a_not_locked": {
+    "id": "pp046a",
+    "matches": 181,
+    "false_negatives": 38,
+    "false_positives": 0,
+    "image_count": 117,
+    "combined_errors": 38,
+    "reason": "visual review failed/mixed in v047"
+  },
+  "fn_count": 38,
+  "dominant_classes": {
+    "building_or_structure_piece": 20,
+    "adjacent_target_confusion": 6,
+    "dense_valid_target_missed": 6,
+    "smoke_or_debris_obscured": 4,
+    "edge_or_boundary_target": 1,
+    "small_valid_target_missed": 1
+  },
+  "recommendation": "Build an experiment-only crop/tiling verifier tranche before any prompt candidate.",
+  "prompt_candidate_authorized": false,
+  "why_no_prompt_candidate": "No low-risk prompt-addressable cluster was identified; dominant classes require local resolution or visual verification, and broad recall cues previously harmed dense cases."
+}

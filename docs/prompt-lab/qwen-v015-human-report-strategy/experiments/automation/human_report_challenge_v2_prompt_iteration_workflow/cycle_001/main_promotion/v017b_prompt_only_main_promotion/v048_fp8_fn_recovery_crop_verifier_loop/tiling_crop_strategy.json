@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "recommended": true,
+  "why": "The residual FNs are largely small, dense, obscured, or structure-piece targets where local resolution and crop adjudication are safer than broad prompt recall.",
+  "tile_policy": {
+    "experiment_only_start": "2x2 overlapping tiles plus center crop",
+    "overlap": 0.2,
+    "crop_padding": "include enough context to distinguish separate targets from fragments",
+    "merge": "map crop boxes back to image coordinates and pass through existing pp045c-safe postprocessing plus verifier gates"
+  },
+  "class_targets": {
+    "dense_valid_target_missed": "tiling plus same-type verifier",
+    "small_valid_target_missed": "tiling/crop pass",
+    "smoke_or_debris_obscured": "crop verifier only, with conservative reject rules",
+    "building_or_structure_piece": "manual visual review and verifier design, not automatic add",
+    "unknown": "FiftyOne or contact-sheet review before live model work"
+  }
+}

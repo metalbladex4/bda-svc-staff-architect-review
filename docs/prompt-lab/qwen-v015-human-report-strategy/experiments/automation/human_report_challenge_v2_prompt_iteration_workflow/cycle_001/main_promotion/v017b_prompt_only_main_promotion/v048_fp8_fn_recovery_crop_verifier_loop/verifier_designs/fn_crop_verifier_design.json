@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "objective": "Recover FNs without reintroducing FPs by using local crop evidence and strict merge gates.",
+  "inference_inputs_allowed": [
+    "full-image predictions",
+    "image tiles or reference-free proposed crop windows",
+    "crop-level VLM/detector outputs",
+    "prediction geometry",
+    "target_type labels"
+  ],
+  "inference_inputs_forbidden": [
+    "reference boxes",
+    "eval matched/unmatched state",
+    "case ID special casing",
+    "ground truth IoU"
+  ],
+  "verifier_json_schema": {
+    "object_found": "boolean",
+    "target_type": "buildings|military_equipment",
+    "bbox_in_crop": "[x1,y1,x2,y2]",
+    "confidence_rationale": "short string",
+    "reject_reason": "short string or empty",
+    "merge_candidate": "boolean"
+  },
+  "merge_gates": [
+    "candidate must be generated from a fixed tile/crop policy, not reference-centered inference in deployment",
+    "candidate target_type must be supported by visible damage/equipment evidence in crop",
+    "candidate must not be mostly contained by an existing accepted prediction unless verifier says separate target",
+    "candidate should be rejected if it is only smoke, road, intact structure, shadow, debris, or context",
+    "full all-current scoring must show no FP increase and no dense/control regression"
+  ],
+  "micro_pack": [
+    12,
+    14,
+    16,
+    42,
+    66,
+    67,
+    77,
+    84,
+    88,
+    90,
+    97,
+    100,
+    103,
+    110,
+    155,
+    166,
+    172
+  ],
+  "stop_modes": [
+    "any verifier-added FP on dense/control cases",
+    "case 66/67/84/110 degradation",
+    "office-negative false positive",
+    "JSON instability",
+    "verifier requires reference boxes at inference time"
+  ]
+}

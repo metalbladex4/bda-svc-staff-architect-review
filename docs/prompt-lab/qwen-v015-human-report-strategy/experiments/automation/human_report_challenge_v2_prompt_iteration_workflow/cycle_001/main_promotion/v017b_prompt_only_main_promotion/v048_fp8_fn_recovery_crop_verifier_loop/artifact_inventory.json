@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "case_101_excluded": true,
+  "image_count_preserved": 117,
+  "source_image_root": "/home/williambenitez1/Capstone/z_reference_docs/Data_set_Storage/human_reports/images_with_reports",
+  "source_images_found_for_fns": 37,
+  "fn_count": 38,
+  "artifacts": [
+    {
+      "kind": "pp045c_locked_outputs",
+      "path": "reconstructed from v034a+p1753+pp0157+pp044a+pp045b+pp045c helpers",
+      "exists": true,
+      "count": 117
+    },
+    {
+      "kind": "v034a_raw_predictions",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v034_fp8_vllm_precision_recovery_autonomous/runs/v034a_fp8_broad_context_scene_box_guard/full_all_current/human_report_challenge_v2_all_current_117_no101_2026-05-09_023225Z/predicted",
+      "exists": true
+    },
+    {
+      "kind": "eval_summaries",
+      "path": "in-memory bda_eval emulation via v042.evaluate_reports",
+      "exists": true
+    },
+    {
+      "kind": "reference_annotations",
+      "path": "loaded through v044.load_state()",
+      "exists": true,
+      "count": 117
+    },
+    {
+      "kind": "fn_local_only_crops",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_crops",
+      "exists": true,
+      "count": 37
+    },
+    {
+      "kind": "fn_local_only_contact_sheets",
+      "path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images",
+      "exists": true,
+      "count": 6
+    }
+  ],
+  "missing_artifacts": [
+    "some source images missing for FN crop generation"
+  ],
+  "review_repo_publish_note": "Do not push raw images or local-only crop/contact-sheet JPG files."
+}

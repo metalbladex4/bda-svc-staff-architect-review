@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "interventions": [
+    {
+      "intervention_id": "fn001_pp045c_residual_fn_inventory",
+      "type": "fn_inventory",
+      "stage": "offline_only",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "fn_count": 38,
+      "status": "inventory_complete",
+      "class_counts": {
+        "building_or_structure_piece": 20,
+        "adjacent_target_confusion": 6,
+        "dense_valid_target_missed": 6,
+        "smoke_or_debris_obscured": 4,
+        "edge_or_boundary_target": 1,
+        "small_valid_target_missed": 1
+      }
+    },
+    {
+      "intervention_id": "crop001_reference_centered_local_only_aids",
+      "type": "crop_review",
+      "stage": "offline_only",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "fn_count": 38,
+      "status": "crop_review_complete",
+      "generated_crops": 37,
+      "contact_sheets": {
+        "adjacent_target_confusion": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_adjacent_target_confusion.jpg",
+        "building_or_structure_piece": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_building_or_structure_piece.jpg",
+        "dense_valid_target_missed": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_dense_valid_target_missed.jpg",
+        "edge_or_boundary_target": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_edge_or_boundary_target.jpg",
+        "small_valid_target_missed": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_small_valid_target_missed.jpg",
+        "smoke_or_debris_obscured": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop/review_images/local_only_fn_class_smoke_or_debris_obscured.jpg"
+      },
+      "review_counts": {
+        "building/structure ambiguity": 20,
+        "dense-row valid target": 6,
+        "possible target but ambiguous": 6,
+        "smoke/debris-obscured target": 4,
+        "tiny but real target": 1,
+        "verifier_needed": 1
+      }
+    },
+    {
+      "intervention_id": "ver001_crop_verifier_tiling_plan",
+      "type": "verifier_design",
+      "stage": "offline_only",
+      "baseline": "pp045c_49",
+      "metrics": {
+        "matches": 181,
+        "false_negatives": 38,
+        "false_positives": 11,
+        "image_count": 117,
+        "combined_errors": 49
+      },
+      "status": "verifier_plan_complete",
+      "prompt_candidate_authored": false
+    }
+  ]
+}

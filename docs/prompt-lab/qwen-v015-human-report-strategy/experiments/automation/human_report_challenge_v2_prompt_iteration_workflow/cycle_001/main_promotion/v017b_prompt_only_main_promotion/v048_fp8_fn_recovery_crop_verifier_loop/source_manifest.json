@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-05-10T00:14:31Z",
+  "package": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v048_fp8_fn_recovery_crop_verifier_loop",
+  "source_artifacts_read": [
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v047_fp8_pp046a_visual_verification_and_fn_recovery/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v047_fp8_pp046a_visual_verification_and_fn_recovery/intervention_matrix.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v046_fp8_pp045_visual_verification_and_continuation/final_recommendation.md",
+    "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v045_fp8_pp044a_cross_label_visual_review/final_recommendation.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/GPT-Pro_collab/bda_svc_qwen_prompt_engineering_deep_research_bundle.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/GPT-Pro_collab/CODEX_QWEN_PROMPT_ENGINEERING_DIRECTION_2026-05-06.md",
+    "/home/williambenitez1/Capstone/z_reference_docs/Prompting"
+  ],
+  "metrics_confirmed": {
+    "old_v020c": {
+      "matches": 186,
+      "false_negatives": 33,
+      "false_positives": 25,
+      "combined_errors": 58
+    },
+    "locked_pp045c": {
+      "matches": 181,
+      "false_negatives": 38,
+      "false_positives": 11,
+      "image_count": 117,
+      "combined_errors": 49
+    },
+    "diagnostic_pp046a": {
+      "matches": 181,
+      "false_negatives": 38,
+      "false_positives": 0,
+      "image_count": 117,
+      "combined_errors": 38
+    },
+    "v024o": "partial_unscored_forbidden"
+  },
+  "hard_boundaries": [
+    "experiment-only",
+    "no promotion",
+    "no product runtime mutation",
+    "no source-truth mutation",
+    "no eval-ground-truth mutation",
+    "no live VLM calls",
+    "local-only crop/contact-sheet images"
+  ]
+}
