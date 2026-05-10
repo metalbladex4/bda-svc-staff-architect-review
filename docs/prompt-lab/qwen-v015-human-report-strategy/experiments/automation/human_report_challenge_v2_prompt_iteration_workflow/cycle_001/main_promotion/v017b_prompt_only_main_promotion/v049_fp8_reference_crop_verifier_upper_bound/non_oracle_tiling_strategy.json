@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-05-10T00:31:59Z",
+  "reference_centered_results_are_not_deployable": true,
+  "decision": "A",
+  "options": [
+    {
+      "option": "fixed_tile_grid",
+      "crop_generation_without_ground_truth": "2x2 or 3x3 overlapping grid over full image; no reference boxes.",
+      "expected_fn_classes_recovered": [
+        "dense_valid_target_missed",
+        "small_valid_target_missed",
+        "smoke_or_debris_obscured"
+      ],
+      "fp_risk": "medium",
+      "merge_strategy": "map crop detections to image coordinates, require verifier BDA relevance, then run existing FP postprocessors.",
+      "scoring_strategy": "full all-current/no101 raw plus postprocessed scoring; reference boxes used only after inference for eval.",
+      "micro_pack_gate": [
+        12,
+        14,
+        16,
+        42,
+        66,
+        67,
+        77,
+        84,
+        88,
+        90,
+        97,
+        100,
+        103,
+        110,
+        155,
+        166,
+        172
+      ],
+      "stop_criteria": "any FP increase on dense/control/office-negative or JSON instability."
+    },
+    {
+      "option": "existing_detection_anchor_crops",
+      "crop_generation_without_ground_truth": "crop around existing detections plus surrounding context to find nearby missed targets.",
+      "expected_fn_classes_recovered": [
+        "adjacent_target_confusion",
+        "dense_valid_target_missed"
+      ],
+      "fp_risk": "medium_high",
+      "merge_strategy": "only add candidates not contained by anchors and not duplicate-like; require high verifier confidence.",
+      "scoring_strategy": "compare candidate additions against pp045c baseline, with pp046a unsafe cases monitored.",
+      "micro_pack_gate": [
+        66,
+        67,
+        84,
+        100,
+        110,
+        155,
+        166
+      ],
+      "stop_criteria": "reintroduces pp046a unsafe removals or adds local artifacts."
+    },
+    {
+      "option": "high_uncertainty_zone_crops",
+      "crop_generation_without_ground_truth": "crop low-confidence/edge/dense regions from prediction geometry and image tiling heuristics.",
+      "expected_fn_classes_recovered": [
+        "edge_or_boundary_target",
+        "small_valid_target_missed"
+      ],
+      "fp_risk": "high_without_verifier",
+      "merge_strategy": "candidate must pass crop verifier and not overlap intact context.",
+      "scoring_strategy": "offline experiment only; no product runtime mutation.",
+      "micro_pack_gate": [
+        14,
+        42,
+        67,
+        84,
+        110,
+        141,
+        146
+      ],
+      "stop_criteria": "candidate generation depends on reference boxes or adds context FPs."
+    }
+  ],
+  "recommended_v050": "Implement fixed non-oracle tiling/crop pass first if recoverability is broad; otherwise specialize by the strongest recoverable class.",
+  "recoverability_inputs": [
+    {
+      "fn_class": "adjacent_target_confusion",
+      "total_fns": 6,
+      "crops_available": 6,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 6,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    },
+    {
+      "fn_class": "building_or_structure_piece",
+      "total_fns": 20,
+      "crops_available": 19,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 18,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 1,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "B",
+      "recommended_next_lever_note": "building-specific crop verifier/design"
+    },
+    {
+      "fn_class": "dense_valid_target_missed",
+      "total_fns": 6,
+      "crops_available": 6,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 6,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "C",
+      "recommended_next_lever_note": "dense/small non-oracle tiling strategy"
+    },
+    {
+      "fn_class": "edge_or_boundary_target",
+      "total_fns": 1,
+      "crops_available": 1,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 1,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    },
+    {
+      "fn_class": "small_valid_target_missed",
+      "total_fns": 1,
+      "crops_available": 1,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 0,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "D",
+      "recommended_next_lever_note": "visual review/FiftyOne or no action"
+    },
+    {
+      "fn_class": "smoke_or_debris_obscured",
+      "total_fns": 4,
+      "crops_available": 4,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 3,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    }
+  ]
+}

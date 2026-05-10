@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-05-10T00:30:04Z",
+  "prompt_template": "You are checking a focused crop from a battle-damage assessment image.\nExpected target type: {target_type}\n\nDecide whether the crop visibly contains the expected target type. Do not draw boxes.\nReturn JSON only with exactly these keys:\ncontains_target, target_type, visibility, damage_or_relevance, confidence, reason.\n\nUse target_type \"unknown\" if unsure. Keep reason short.",
+  "schema": {
+    "contains_target": "boolean",
+    "target_type": "military_equipment|buildings|unknown",
+    "visibility": "clear|partial|smoke_obscured|low_contrast|ambiguous|not_visible",
+    "damage_or_relevance": "damaged_or_bda_relevant|intact_context|unclear",
+    "confidence": "number from 0.0 to 1.0",
+    "reason": "short text"
+  },
+  "runtime_case_ids_in_prompt": false,
+  "reference_labels_in_prompt": false,
+  "expected_target_type_in_prompt": true,
+  "asks_for_boxes": false
+}

@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-05-10T00:30:04Z",
+  "totals": {
+    "high_conf_recoverable": 0,
+    "low_conf_recoverable": 34,
+    "ambiguous": 0,
+    "not_recoverable": 3,
+    "missing": 1,
+    "runtime_invalid": 0
+  },
+  "rows": [
+    {
+      "fn_class": "adjacent_target_confusion",
+      "total_fns": 6,
+      "crops_available": 6,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 6,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    },
+    {
+      "fn_class": "building_or_structure_piece",
+      "total_fns": 20,
+      "crops_available": 19,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 18,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 1,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "B",
+      "recommended_next_lever_note": "building-specific crop verifier/design"
+    },
+    {
+      "fn_class": "dense_valid_target_missed",
+      "total_fns": 6,
+      "crops_available": 6,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 6,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "C",
+      "recommended_next_lever_note": "dense/small non-oracle tiling strategy"
+    },
+    {
+      "fn_class": "edge_or_boundary_target",
+      "total_fns": 1,
+      "crops_available": 1,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 1,
+      "ambiguous": 0,
+      "not_recoverable": 0,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    },
+    {
+      "fn_class": "small_valid_target_missed",
+      "total_fns": 1,
+      "crops_available": 1,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 0,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "D",
+      "recommended_next_lever_note": "visual review/FiftyOne or no action"
+    },
+    {
+      "fn_class": "smoke_or_debris_obscured",
+      "total_fns": 4,
+      "crops_available": 4,
+      "high_confidence_recoverable": 0,
+      "low_confidence_recoverable": 3,
+      "ambiguous": 0,
+      "not_recoverable": 1,
+      "missing": 0,
+      "runtime_invalid": 0,
+      "recommended_next_lever": "A",
+      "recommended_next_lever_note": "non-oracle tiling/crop pass"
+    }
+  ],
+  "decision": "A"
+}

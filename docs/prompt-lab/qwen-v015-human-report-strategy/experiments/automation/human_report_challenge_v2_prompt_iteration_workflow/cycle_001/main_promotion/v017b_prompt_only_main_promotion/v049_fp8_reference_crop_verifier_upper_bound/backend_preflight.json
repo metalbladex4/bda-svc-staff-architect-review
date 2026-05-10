@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-10T00:30:04Z",
+  "backend_available": true,
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "model": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+  "models_response": {
+    "status_code": 200,
+    "payload": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "object": "model",
+          "created": 1778373004,
+          "owned_by": "vllm",
+          "root": "Qwen/Qwen3-VL-8B-Instruct-FP8",
+          "parent": null,
+          "max_model_len": 4096,
+          "permission": [
+            {
+              "id": "modelperm-944dbb16d0575162",
+              "object": "model_permission",
+              "created": 1778373004,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "model_ids": [
+      "Qwen/Qwen3-VL-8B-Instruct-FP8"
+    ]
+  },
+  "launch_command": "uvx --from vllm python -m vllm.entrypoints.openai.api_server --host 127.0.0.1 --port 8000 --model Qwen/Qwen3-VL-8B-Instruct-FP8 --served-model-name Qwen/Qwen3-VL-8B-Instruct-FP8 --trust-remote-code --dtype bfloat16 --max-model-len 4096 --limit-mm-per-prompt '{\"image\":2}' --gpu-memory-utilization 0.90 --enforce-eager --seed 42 --generation-config vllm --mm-processor-kwargs '{\"min_pixels\":784,\"max_pixels\":1003520}'",
+  "log_path": "/home/williambenitez1/Capstone_worktrees/1.2_feat__qwen3-vl-8b-instruct__two-pass-refinement/docs/prompt-lab/qwen-v015-human-report-strategy/experiments/automation/human_report_challenge_v2_prompt_iteration_workflow/cycle_001/main_promotion/v017b_prompt_only_main_promotion/v049_fp8_reference_crop_verifier_upper_bound/runs/backend_logs/vllm_fp8_foreground_20260510T002600Z.log"
+}
